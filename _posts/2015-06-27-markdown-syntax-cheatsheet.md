@@ -1,11 +1,10 @@
 ---
 layout: post
 title: "Markdown Syntax (Cheatsheet)"
-date: 2015-06-27
+date: 2015-06-27 12:00:00 +0530
 description: how to use markdown syntax with example codes
-output: html_document
 tags: [learn, markdown, cheatsheet]
-category: [tips & tricks, programming]
+categories: [tips & tricks, programming]
 ---
 
 ## Emphasis

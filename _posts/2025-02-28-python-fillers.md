@@ -1,9 +1,9 @@
 ---
-date: 2025-02-28
+date: 2025-02-28 12:00:00 +0530
 layout: post
 title: "Python fillers (draft)"
 description: "imp code snippets used during fast programming"
-category: [python]
+categories: [python]
 tags: [logging, snippet]
 ---
 

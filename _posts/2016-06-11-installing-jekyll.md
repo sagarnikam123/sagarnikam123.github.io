@@ -1,9 +1,9 @@
 ---
-date: 2016-06-11
+date: 2016-06-11 12:00:00 +0530
 layout: post
 title: "Installing Jekyll"
 description: "jekyll-a blogging software"
-category: [blog]
+categories: [blog]
 tags: [jekyll,install]
 ---
 

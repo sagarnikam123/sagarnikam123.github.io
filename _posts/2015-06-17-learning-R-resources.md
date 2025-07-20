@@ -1,9 +1,9 @@
 ---
-date: 2015-06-17
+date: 2015-06-17 12:00:00 +0530
 layout: post
 title: "Learning R (resources)"
 description: "how to learn R, online, offline, books, videos & others"
-category: [learning,programming]
+categories: [learning,programming]
 tags: [resources,data science,learn,R,analytics]
 ---
 

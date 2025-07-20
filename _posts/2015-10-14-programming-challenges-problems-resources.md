@@ -1,9 +1,9 @@
 ---
-date: 2015-10-14
+date: 2015-10-14 12:00:00 +0530
 layout: post
 title: "Programming challenges & problems"
 description: "online competitions, coding problems"
-category: [programming]
+categories: [programming]
 tags: [resources,problems,challenges]
 ---
 

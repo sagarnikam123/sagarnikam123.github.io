@@ -1,9 +1,9 @@
 ---
-date: 2017-07-31
+date: 2017-07-31 12:00:00 +0530
 layout: post
 title: "Apache Kafka - getting started"
 description: "a distributed streaming platform"
-category: [apache]
+categories: [apache]
 tags: [kafka, messaging]
 ---
 

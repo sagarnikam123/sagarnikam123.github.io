@@ -1,9 +1,9 @@
 ---
-date: 2021-08-20
+date: 2021-08-20 12:00:00 +0530
 layout: post
 title: "Things to do after fresh Ubuntu installation"
 description: "installing min. required softwares"
-category: [ubuntu, installation]
+categories: [ubuntu, installation]
 tags: [ubuntu, installation, softwares, guide]
 ---
 

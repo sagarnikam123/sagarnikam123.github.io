@@ -1,9 +1,9 @@
 ---
-date: 2022-03-23
+date: 2022-03-23 12:00:00 +0530
 layout: post
 title: "Things to do after fresh MacOS installation"
 description: "installing min. required softwares"
-category: [mac, macos, installation]
+categories: [mac, macos, installation]
 tags: [mac, installation, softwares, guide]
 ---
 

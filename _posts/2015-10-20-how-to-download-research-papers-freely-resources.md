@@ -1,9 +1,9 @@
 ---
-date: 2015-10-20
+date: 2015-10-20 12:00:00 +0530
 layout: post
 title: "How to download research papers freely ?"
 description: "downloading paid research papers freely"
-category: [research]
+categories: [research]
 tags: [resources,papers]
 ---
 

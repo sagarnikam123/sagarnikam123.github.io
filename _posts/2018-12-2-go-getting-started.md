@@ -1,9 +1,9 @@
 ---
-date: 2018-12-2
+date: 2018-12-2 12:00:00 +0530
 layout: post
 title: "Go getting started (draft)"
 description: "From Golang installtion, code, tools, etc"
-category: [learning,programming, go]
+categories: [learning,programming, go]
 tags: [golang, gotools, gpextension,]
 ---
 

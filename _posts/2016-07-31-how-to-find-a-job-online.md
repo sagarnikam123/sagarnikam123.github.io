@@ -1,9 +1,9 @@
 ---
-date: 2016-07-31
+date: 2016-07-31 12:00:00 +0530
 layout: post
 title: "How to find a job online ? (draft)"
 description: "attracting right people toward ur resume"
-category: [job]
+categories: [job]
 tags: [resume, company, cv, social media]
 ---
 

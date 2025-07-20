@@ -1,9 +1,9 @@
 ---
-date: 2023-01-31
+date: 2023-01-31 12:00:00 +0530
 layout: post
 title: "Git - simple workflows"
 description: "example code for daily activity"
-category: [git]
+categories: [git]
 tags: [git, guide]
 ---
 
