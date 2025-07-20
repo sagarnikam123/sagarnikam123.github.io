@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Markdown Syntax (Cheatsheet)"
+date: 2015-06-27
 description: how to use markdown syntax with example codes
 output: html_document
 tags: [learn, markdown, cheatsheet]

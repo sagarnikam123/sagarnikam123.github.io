@@ -1,4 +1,5 @@
 ---
+date: 2019-01-15
 layout: post
 title: "Resources for Automation & Testing"
 description: "URL, tools, tricks for automation & testing"

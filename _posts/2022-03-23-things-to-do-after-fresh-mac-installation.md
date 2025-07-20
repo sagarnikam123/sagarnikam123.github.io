@@ -1,4 +1,5 @@
 ---
+date: 2022-03-23
 layout: post
 title: "Things to do after fresh MacOS installation"
 description: "installing min. required softwares"

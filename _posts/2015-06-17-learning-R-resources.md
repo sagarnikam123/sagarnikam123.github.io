@@ -1,4 +1,5 @@
 ---
+date: 2015-06-17
 layout: post
 title: "Learning R (resources)"
 description: "how to learn R, online, offline, books, videos & others"

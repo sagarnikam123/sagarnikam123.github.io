@@ -1,4 +1,5 @@
 ---
+date: 2025-02-28
 layout: post
 title: "Python fillers (draft)"
 description: "imp code snippets used during fast programming"

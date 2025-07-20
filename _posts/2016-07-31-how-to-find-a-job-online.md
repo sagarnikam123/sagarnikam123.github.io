@@ -1,4 +1,5 @@
 ---
+date: 2016-07-31
 layout: post
 title: "How to find a job online ? (draft)"
 description: "attracting right people toward ur resume"

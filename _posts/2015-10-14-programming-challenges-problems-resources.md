@@ -1,4 +1,5 @@
 ---
+date: 2015-10-14
 layout: post
 title: "Programming challenges & problems"
 description: "online competitions, coding problems"

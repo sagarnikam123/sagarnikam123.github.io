@@ -1,4 +1,5 @@
 ---
+date: 2016-06-11
 layout: post
 title: "Installing Jekyll"
 description: "jekyll-a blogging software"

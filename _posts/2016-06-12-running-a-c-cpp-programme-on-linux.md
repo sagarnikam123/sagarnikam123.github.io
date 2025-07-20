@@ -1,4 +1,5 @@
 ---
+date: 2016-06-12
 layout: post
 title: "Running a C/C++ programme on Linux"
 description: "compiling & running c/cpp programmes"

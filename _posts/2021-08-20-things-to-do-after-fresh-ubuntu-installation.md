@@ -1,4 +1,5 @@
 ---
+date: 2021-08-20
 layout: post
 title: "Things to do after fresh Ubuntu installation"
 description: "installing min. required softwares"

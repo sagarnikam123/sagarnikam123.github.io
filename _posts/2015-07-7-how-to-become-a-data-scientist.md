@@ -1,4 +1,5 @@
 ---
+date: 2015-07-7
 layout: post
 title : How to become a Data Scientist ?
 description : Courses & tools to become a data scientist.

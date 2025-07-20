@@ -1,4 +1,5 @@
 ---
+date: 2023-01-31
 layout: post
 title: "Git - simple workflows"
 description: "example code for daily activity"

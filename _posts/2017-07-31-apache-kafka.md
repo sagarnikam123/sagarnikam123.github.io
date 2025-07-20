@@ -1,4 +1,5 @@
 ---
+date: 2017-07-31
 layout: post
 title: "Apache Kafka - getting started"
 description: "a distributed streaming platform"

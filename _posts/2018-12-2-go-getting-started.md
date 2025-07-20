@@ -1,4 +1,5 @@
 ---
+date: 2018-12-2
 layout: post
 title: "Go getting started (draft)"
 description: "From Golang installtion, code, tools, etc"
