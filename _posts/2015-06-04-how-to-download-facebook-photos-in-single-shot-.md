@@ -1,6 +1,5 @@
 ---
 date: 2015-06-04 12:00:00 +0530
-layout: post
 title: "How to download facebook photos in single shot ?"
 description: "download all photos of a fan page using python script"
 categories: [BigData,tips & tricks,Photography]
