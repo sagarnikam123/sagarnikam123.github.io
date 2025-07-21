@@ -35,7 +35,7 @@ sudo pip install facebook-sdk
 ```
 
 --------------------
-If you unable to install facebook-python-sdk go to [installation page](http://facebook-sdk.readthedocs.org/en/latest/install.html)
+If you unable to install facebook-python-sdk go to [installation page](https://facebook-sdk.readthedocs.io/en/latest/install.html)
 
 ---------------------
 
