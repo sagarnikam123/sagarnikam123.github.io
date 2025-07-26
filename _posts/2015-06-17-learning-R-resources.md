@@ -3,7 +3,7 @@ title: "Learning R (resources)"
 description: "how to learn R, online, offline, books, videos & others"
 date: 2015-06-17 12:01:00 +0530
 categories: [big data, programming]
-tags: [resource, data science, learn, R, analytics]
+tags: [resources, data science, learn, R, analytics]
 ---
 
 #### R
