@@ -1,9 +1,9 @@
 ---
-date: 2015-06-04 12:00:00 +0530
 title: "How to download facebook photos in single shot ?"
 description: "download all photos of a fan page using python script"
-categories: [BigData,tips & tricks,Photography]
-tags: [data,facebook,photos,download]
+date: 2015-06-04 12:00:00 +0530
+categories: [big data, social media, photography]
+tags: [facebook, photo, download]
 ---
 
 This article shows how to download all photos of a fan page using python script.
@@ -18,11 +18,13 @@ Script will download photos into folder named by fan page id.
 * Facebook-python-sdk
 
 ### Installing Python pip
+
 ```shell
 sudo apt-get install python-pip
 ```
 
 ### Installing facebook-sdk
+
 ```shell
 sudo pip install facebook-sdk
 ```
