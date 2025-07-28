@@ -38,11 +38,38 @@ social:
   email: sagarnikam123@gmail.com # change to your email address
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/sagarnikam123 # change to your Twitter homepage
-    - https://github.com/sagarnikam123 # change to your GitHub homepage
-    # Uncomment below to add more social links
-    - https://www.facebook.com/sagarnikam123
+    - https://www.youtube.com/sagarnikam123
     - https://www.linkedin.com/in/sagarnikam123
+    - https://github.com/sagarnikam123 # change to your GitHub homepage
+    - https://stackoverflow.com/users/826046/sagar-nikam
+    - https://flickr.com/people/sagarnikam123/
+    - https://soundcloud.com/sagarnikam123
+    - https://www.facebook.com/sagarnikam123
+    - https://twitter.com/sagarnikam123 # change to your Twitter homepage
+    - https://www.instagram.com/sagarnikam123
+    - https://www.pinterest.com/sagarnikam123
+    - https://www.reddit.com/user/sagarnikam123
+    - https://www.quora.com/profile/Sagar-Nikam
+    - https://medium.com/@sagarnikam123
+    - https://www.dev.to/sagarnikam123
+    - https://500px.com/p/sagarnikam123
+    - https://www.slideshare.net/sagarnikam123
+    - https://www.hashnode.com/@sagarnikam123
+    - https://www.behance.net/sagarnikam123
+    - https://www.dribbble.com/sagarnikam123
+    - https://vimeo.com/sagarnikam123
+    - https://www.tumblr.com/sagarnikam123
+    - https://www.gitlab.com/sagarnikam123
+    - https://codepen.io/sagarnikam123
+    - https://www.goodreads.com/user/show/24575543-sagar-nikam
+    - https://open.spotify.com/user/31cwbzgsaqysfta2x6hh46j36gna
+    - https://www.mixcloud.com/sagarnikam123
+    - https://www.paypal.me/sagarnikam123 # change to your PayPal
+    - https://substack.com/sagarnikam123 # change to your Substack page
+    - https://mastodon.social/@sagarnikam123 # change to your Mastodon profile
+    - https://www.threads.net/sagarnikam123 # change to your Threads profile
+    - https://www.t.me/sagarnikam123 # change to your Telegram channel
+
 
 # Site Verification Settings
 webmaster_verifications:
@@ -61,7 +88,7 @@ analytics:
   google:
     id: G-BQJDZPDSGJ  # fill in your Google Analytics ID
   goatcounter:
-    id: # fill in your GoatCounter ID
+    id: sagarnikam123 # fill in your GoatCounter ID
   umami:
     id: # fill in your Umami ID
     domain: # fill in your Umami domain
@@ -75,7 +102,7 @@ analytics:
 
 # Page views settings
 pageviews:
-  provider: # now only supports 'goatcounter'
+  provider: goatcounter # now only supports 'goatcounter'
 
 # Prefer color scheme setting.
 #
