@@ -2,6 +2,7 @@
 layout: post
 title: "commands for linux troubleshooting (draft)"
 description: "imp commands used during troubleshooting"
+date: 2016-16-14 12.00.00 +0530
 categories: [linux]
 tags: [troubleshooting, commands]
 ---
