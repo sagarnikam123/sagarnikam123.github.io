@@ -2,7 +2,7 @@
 layout: post
 title: "Running a C/C++ programme on Linux"
 description: "compiling & running c/cpp programmes"
-category: [c,cpp]
+categories: [c,cpp]
 tags: [compile,run]
 ---
 
