@@ -1,7 +1,7 @@
 ---
 title: "Programming challenges & problems"
 description: "online competitions, coding problems"
-date: 2015-10-14 12.00.00 +0530
+date: 2015-10-14 12:00:00 +0530
 categories: [programming]
 tags: [resources, problems, challenges]
 ---
