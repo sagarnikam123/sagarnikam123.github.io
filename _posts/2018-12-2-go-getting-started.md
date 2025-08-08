@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Go getting started (draft)"
+title: "Go getting started"
 description: "From Golang installtion, code, tools, etc"
 date: 2018-12-02 12:00:00 +0530
 categories: [learning, programming, go]
