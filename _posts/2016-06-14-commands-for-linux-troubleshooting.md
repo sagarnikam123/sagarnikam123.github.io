@@ -7,6 +7,18 @@ categories: [linux]
 tags: [troubleshooting, commands]
 ---
 
+### system information
+```bash
+cat /etc/os-release # OS version and distribution info
+cat /etc/centos-release # OS specific
+nproc # No of processing units available (typically logical cores including hyperthreading)
+lscpu # Detailed CPU architecture info (number of physical cores, threads, and sockets)
+lcpu | grep "^CPU\(s\):" | awk '{print $2}'
+uname -m  # prints architecture
+arch  # architecture
+cat /proc/cpuinfo | grep "processor" | wc -l  # Lists each CPU core
+```
+
 ### port
 
 ##### List open ports
@@ -104,50 +116,69 @@ sudo chown -R snikam:snikam ./Prod/
 ```
 ---
 
-### process
+### resource utilization
 
-* process id of running program
-
+- Top 10 CPU/memory users (sorted by %CPU/%MEM descending)
 ```bash
-ps aux | grep java
+ps aux --sort -%cpu | head -10  # cpu
+top -o %CPU | head -n 16  # cpu
+
+ps aux --sort -%mem | head -10  # memory
+top -o %MEM | head -n 16  # memory
 ```
 
-* kill prcess with given id
+- Interactive real-time process viewer
+```bash
+htop  # colored, sortable
+top -i  # hide idle processes
+```
 
+### process
+
+- find specific process by name (shows PID, CPU%, MEM%)
+```bash
+ps aux | grep <automationName>
+ps aux | grep java
+```
+- Force kill process (SIGKILL - cannot be ignored)
+```bash
+kill -9 <pid>
+```
+
+- force kill process with process name (with pid)
 ```bash
 ps aux | grep -i firefox | awk {'print $2'} | xargs kill -9
 ```
 
----
+### memory
+```bash
+free -g # Memory usage in GB (total, used, free, available)
+vmstat  # Virtual memory statistics (swap, I/O, CPU)
+cat /proc/meminfo # Detailed memory info from kernel
+```
 
 ### Shutdown/Restart
 
-* Restart now
+- Restart now
+  ```bash
+  sudo shutdown -r now
+  ```
 
-```bash
-sudo shutdown -r now
-```
-
-* shutdown now (immediately)
-
-```bash
-sudo ?
-```
-
----
+- shutdown now (immediately)
+  ```bash
+  sudo ?
+  ```
 
 ### networking
 
 ##### Assign static ip
 
-* Check if it is configured
-
+- Check if it is configured
 ```bash
 sudo ifdown eth0
 ```
 
-* Edit like this (just the important lines):
-
+- Edit like this (just the important lines):
 ```bash
 sudo gedit /etc/network/interfaces
 
@@ -159,38 +190,32 @@ auto eth0
   pre-up sleep 2
 ```
 
-* Activate the new IP
-
+- Activate the new IP
 ```bash
 sudo ifup eth0
 ```
----
 
 #### Python
 
-* `ModuleNotFoundError: no module named <X> Error`
+- `ModuleNotFoundError: no module named <X> Error`
+  ```python
+  import sys
+  import os
 
-```python
-import sys
-import os
+  # add dir to PYTHONPATH
+  sys.path.append(os.getcwd())
+  ```
 
-# add dir to PYTHONPATH
-sys.path.append(os.getcwd())
-```
-
-```python
-export PYTHONPATH=${PYTHONPATH}:${HOME}/abcPythonModule 
-```
----
+  ```python
+  export PYTHONPATH=${PYTHONPATH}:${HOME}/abcPythonModule
+  ```
 
 ### other
 
 #### vs code - column selction on Mac
-
-```bash
-Shift + option + Command + Right/Left
-```
----
+  ```bash
+  Shift + option + Command + Right/Left
+  ```
 
 ### Minikube
 
@@ -236,4 +261,13 @@ kubectl describe node
 minikube start --cpus=4 --nodes=2 --memory=8192 --disk-size=32g
 minikube start --kubernetes-version=v1.32.0 --cpus=4 --memory=8192 --disk-size=30g --vm-driver=hyperkit
 ```
----
+
+
+### AWS
+
+- Cloudwatch - Metrics - CPU Utilization
+```shell
+aws cloudwatch get-metric-statistics --namespace AWS/EC2 --metric-name CPUUtilization  \
+--period 3600 --statistics Maximum --dimensions Name=InstanceId,Value=i-0b100699f2321e6U1 \
+--region us-west-1 --profile 583168538690_AWS_Readonly --color on --start-time 2024-08-24T1:39:06 --end-time 2024-08-24T10:39:06
+```
