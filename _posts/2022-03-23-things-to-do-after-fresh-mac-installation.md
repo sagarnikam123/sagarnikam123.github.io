@@ -221,6 +221,7 @@ After installing a fresh version of MacOS, you need to do a minimum installation
   brew install openssh
   brew install db-browser-for-sqlite
   brew install --cask dbeaver-community
+  brew install minikube hyperkit
 
   # lists apps installed by brew
   brew list
