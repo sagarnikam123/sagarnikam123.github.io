@@ -127,6 +127,7 @@ After installing a fresh version of MacOS, you need to do a minimum installation
   - [Lens for Mac](https://k8slens.dev/download) - IDE for Kubernetes
   - [Microsoft Teams](https://www.microsoft.com/en-in/microsoft-teams/download-app)
   - [Node.js LTS](https://nodejs.org/en/download)
+  - [Postman](https://www.postman.com/downloads/)
 
 - **install & configure (export path variables to .zshrc/.bashrc)**
 
