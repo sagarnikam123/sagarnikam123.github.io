@@ -90,6 +90,9 @@
   {% include_cached favicons.html %}
 
   <!-- Resource Hints -->
+  <link rel="preload" href="{{ '/assets/css/:THEME.css' | replace: ':THEME', site.theme | relative_url }}" as="style">
+  <link rel="preload" href="{{ site.data.origin[type].fontawesome.css | relative_url }}" as="style">
+
   {% unless site.assets.self_host.enabled %}
   {% for hint in site.data.origin.cors.resource_hints %}
   {% for link in hint.links %}
@@ -119,7 +122,8 @@
   {% endif %}
 
   {% if page.layout == 'post' or page.layout == 'page' or page.layout == 'home' %}
-  <link rel="stylesheet" href="{{ site.data.origin[type]['lazy-polyfill'].css | relative_url }}">
+  <link rel="stylesheet" href="{{ site.data.origin[type]['lazy-polyfill'].css | relative_url }}" media="print"
+    onload="this.media='all'">
   {% endif %}
 
   {% if page.layout == 'page' or page.layout == 'post' %}
@@ -129,7 +133,7 @@
 
   <!-- Scripts -->
 
-  <script src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
+  <script defer src="{{ '/assets/js/dist/theme.min.js' | relative_url }}"></script>
 
   {% include js-selector.html lang=lang %}
 
