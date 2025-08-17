@@ -9,12 +9,12 @@ tags: [logs, random, fake]
 ## Use Cases
 
 ### Testing Log Aggregation Systems
-- **Log Storage Platforms**: Grafana Loki, Elastic Stack (ELK), Graylog, Splunk, Datadog, Last9, New Relic
+- **Log Storage Platforms**: [Grafana Loki](https://grafana.com/oss/loki/), [Elastic Stack (ELK)](https://www.elastic.co/elastic-stack), [Graylog](https://www.graylog.org/), [Splunk](https://www.splunk.com/), [Datadog](https://www.datadoghq.com/), [Last9](https://last9.io/), [New Relic](https://newrelic.com/), [Site24x7](https://www.site24x7.com/), [Dynatrace](https://www.dynatrace.com/), [SigNoz](https://signoz.io/), [Sumo Logic](https://www.sumologic.com/), [LogDNA-IBM](https://www.ibm.com/case-studies/logdna-cloud), [VictoriaLogs-VictoriaMetrics](https://victoriametrics.com/products/victorialogs/)
 - **Performance Testing**: Verify ingestion rates, query performance, and storage efficiency
 - **Scalability Testing**: Test system behavior under high log volumes
 
 ### Validating Log Shipping Agents
-- **Log Collectors**: Fluent-bit, Grafana Alloy, Vector.dev, Promtail, Fluentd, Filebeat
+- **Log Collectors**: [Fluent-bit](https://fluentbit.io/), [Grafana Alloy](https://grafana.com/oss/alloy/), [Vector.dev](https://vector.dev/), [Promtail](https://grafana.com/docs/loki/latest/clients/promtail/), [Fluentd](https://www.fluentd.org/), [Filebeat](https://www.elastic.co/beats/filebeat)
 - **Configuration Testing**: Verify parsing rules, filtering, and routing logic
 - **Reliability Testing**: Test agent behavior during network failures or high load
 
@@ -119,7 +119,18 @@ brew tap mingrammer/flog
 brew install flog
 
 # Using pre-built binary
-curl -O -L "https://github.com/mingrammer/flog/releases/latest"
+# macOS
+curl -O -L "https://github.com/mingrammer/flog/releases/download/v0.4.4/flog_0.4.4_darwin_amd64.tar.gz"
+tar -xvzf flog_0.4.4_darwin_amd64.tar.gz
+cd flog_0.4.4_darwin_amd64
+
+# Linux
+curl -O -L "https://github.com/mingrammer/flog/releases/download/v0.4.4/flog_0.4.4_linux_amd64.tar.gz"
+tar -xvzf flog_0.4.4_linux_amd64.tar.gz
+cd  flog_0.4.4_linux_amd64
+
+chmod +x ./flog
+sudo mv ./flog /usr/local/bin/
 ```
 
 **Command Line Usage:**
