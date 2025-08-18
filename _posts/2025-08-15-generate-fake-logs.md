@@ -667,28 +667,81 @@ wait
 ## Cleanup
 
 ```bash
-# Stop fuzzy-train Docker containers
-docker stop fuzzy-train-generator apache-log-generator flog-generator
-docker stop high-volume-generator normal-ops
-docker rm fuzzy-train-generator apache-log-generator flog-generator
-docker rm high-volume-generator normal-ops
+# Stop all fuzzy-train Docker containers
+docker stop fuzzy-train-generator apache-log-generator fuzzy-train-log-generator
+docker stop high-volume-generator normal-ops auth-logs payment-logs user-logs notification-logs
+docker rm fuzzy-train-generator apache-log-generator fuzzy-train-log-generator
+docker rm high-volume-generator normal-ops auth-logs payment-logs user-logs notification-logs
 
-# Stop multi-service containers
+# Stop flog containers
+docker stop flog-generator
+docker rm flog-generator
+
+# Stop volume generation containers
+for i in {1..5}; do
+  docker stop volume-gen-$i 2>/dev/null && docker rm volume-gen-$i 2>/dev/null
+done
+
+# Stop multi-service Docker Compose setup
 docker-compose down
-for i in {1..5}; do docker stop volume-gen-$i && docker rm volume-gen-$i; done
 
 # Stop Python script processes
 pkill -f "fuzzy-train.py"
 pkill -f "flog"
+pkill -f "simulate_error_patterns"
+pkill -f "multi-service-logs.sh"
 
-# Clean up log files
-rm -f /tmp/logs/app.log /tmp/logs/apache.log
-rm -f /var/log/app.log
+# Stop log shipping agents
+pkill -f "fluent-bit"
+pkill -f "vector"
+pkill -f "alloy"
+
+# Clean up log files and directories
+rm -rf /tmp/logs/
+rm -rf $HOME/data/log/logger/
+rm -f /var/log/massive-load.log
+rm -f /var/log/parallel-*.log
+rm -f /var/log/*-service.log
+rm -f /var/log/pattern-*.log
+rm -rf logs/  # Docker Compose logs directory
+
+# Clean up fuzzy-train repository
 rm -rf fuzzy-train/
 
+# Clean up configuration files
+rm -f fluent-bit-local-fs-json-loki.yaml
+rm -f vector-local-fs-json-loki.yaml
+rm -f alloy-local-fs-json-loki.alloy
+rm -f docker-compose.yml
+rm -f multi-service-logs.sh
+rm -f simulate_error_patterns.py
+
 # Clean up Kubernetes deployments
-kubectl delete -f fuzzy-train-file.yaml
-kubectl delete -f fuzzy-train-stdout.yaml
+kubectl delete -f fuzzy-train-file.yaml 2>/dev/null
+kubectl delete -f fuzzy-train-stdout.yaml 2>/dev/null
+kubectl delete daemonset fuzzy-train-volume 2>/dev/null
+kubectl delete deployment microservices-logs 2>/dev/null
+
+# Clean up downloaded YAML files
+rm -f fuzzy-train-file.yaml fuzzy-train-stdout.yaml
+
+# Clean up flog binary (if installed locally)
+rm -f /usr/local/bin/flog
+rm -rf flog_*
+
+# Verify cleanup
+echo "Cleanup completed. Checking for remaining processes..."
+ps aux | grep -E "(fuzzy-train|flog|fluent-bit|vector|alloy)" | grep -v grep || echo "No remaining processes found."
 ```
 
-Generating fake logs is essential for testing log aggregation systems. Start with simple tools like flog, then move to custom scripts for specific testing scenarios. Always monitor system resources and clean up after testing.
+## Summary
+
+Generating fake logs is essential for testing log aggregation systems. This guide covered:
+
+- **Tools**: fuzzy-train and flog for different use cases
+- **Deployment**: Docker, Kubernetes, and Python script options
+- **Log Shipping**: Fluent-bit, Vector.dev, and Grafana Alloy configurations
+- **Advanced Scenarios**: High-volume generation, error simulation, and multi-service setups
+- **Best Practices**: Resource monitoring, cleanup, and realistic testing
+
+Start with simple tools like fuzzy-train for basic testing, then move to advanced scenarios for comprehensive log aggregation system validation. Always monitor system resources and clean up after testing to maintain a healthy development environment.
