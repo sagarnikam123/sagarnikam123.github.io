@@ -244,7 +244,7 @@ python3 fuzzy-train.py \
 
 #### [Fluent-bit](https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/yaml) Configuration
 ```shell
-fluent-bit --config=fluent-bit-local-fs-json-loki.yaml
+fluent-bit --config=fluent-bit-local-fs-json-loki.yaml    # run Fluent-bit
 ```
 
 ```yaml
@@ -281,13 +281,22 @@ pipeline:
 ```
 
 #### Vector.dev Configuration
+```shell
+vector validate config/vector-local-fs-json-loki.yaml    # validate the configuration
+vector --config=config/vector-local-fs-json-loki.yaml    # run the vector
+```
+
 ```yaml
+data_dir: $HOME/data/vector # set if no global data_dir set
+
 sources:
   fuzzy_logs:
     type: file
     include:
-      - /tmp/logs/app.log
+      - $HOME/data/log/logger/*.log # change according to your file path
     read_from: beginning
+    encoding:
+      charset: utf-8
 
 transforms:
   parse_logs:
@@ -295,16 +304,27 @@ transforms:
     inputs:
       - fuzzy_logs
     source: |
-      . = parse_json!(.message)
+      . = parse_json!(.message) # make sure your log line has "message" keyword
 
 sinks:
   loki_sink:
     type: loki
     inputs:
       - parse_logs
-    endpoint: http://loki-server:3100
+    endpoint: http://127.0.0.1:3100 # change as per your Loki endpoint
+    encoding:
+      codec: json
+    healthcheck:
+      enabled: true
     labels:
-      job: "fuzzy-train"
+      service_name: fuzzy-train
+      source: fuzzy-train-log
+
+api:  # optional
+  enabled: true
+  address: 127.0.0.1:8686 # visit - http://127.0.0.1:8686/playground
+  playground: true
+
 ```
 
 #### Grafana Alloy Configuration
