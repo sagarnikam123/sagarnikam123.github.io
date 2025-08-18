@@ -11,7 +11,6 @@ tags: [logs, random, fake]
 ### Testing Log Aggregation Systems
 - **Cloud-Native Platforms**: <a href="https://grafana.com/oss/loki/" target="_blank">Grafana Loki</a>, <a href="https://www.elastic.co/elastic-stack" target="_blank">Elastic Stack (ELK)</a>, <a href="https://signoz.io/" target="_blank">SigNoz</a>, <a href="https://opensearch.org/" target="_blank">OpenSearch</a>, <a href="https://quickwit.io/" target="_blank">Quickwit</a>
 - **Enterprise Solutions**: <a href="https://www.splunk.com/" target="_blank">Splunk</a>, <a href="https://www.datadoghq.com/" target="_blank">Datadog</a>, <a href="https://newrelic.com/" target="_blank">New Relic</a>, <a href="https://www.sumologic.com/" target="_blank">Sumo Logic</a>, <a href="https://logz.io/" target="_blank">Logz.io</a>, <a href="https://www.honeycomb.io/" target="_blank">Honeycomb</a>
-
 - **Cloud Services**: <a href="https://aws.amazon.com/cloudwatch/" target="_blank">AWS CloudWatch</a>, <a href="https://azure.microsoft.com/en-us/products/monitor" target="_blank">Azure Monitor</a>, <a href="https://cloud.google.com/logging" target="_blank">Google Cloud Logging</a>, <a href="https://www.papertrail.com/" target="_blank">Papertrail</a>
 - **Open Source**: <a href="https://www.rsyslog.com/" target="_blank">Rsyslog</a>, <a href="https://www.syslog-ng.com/" target="_blank">Syslog-ng</a>, <a href="https://flume.apache.org/" target="_blank">Apache Flume</a>, <a href="https://victoriametrics.com/products/victorialogs/" target="_blank">VictoriaLogs</a>
 - **Performance Testing**: Verify ingestion rates, query performance, and storage efficiency
@@ -214,7 +213,7 @@ docker run -d --name fuzzy-train-generator \
   --log-format JSON \
   --lines-per-second 5 \
   --output file \
-  --file /logs/app.log
+  --file /logs/fuzzy-train.log
 
 # Generate Apache combined logs
 docker run -d --name apache-log-generator \
@@ -265,7 +264,7 @@ parsers:
 pipeline:
   inputs:
     - name: tail
-      path: /Users/snikam/data/log/logger/*.log # change path according to where you .log file present
+      path: /Users/snikam/data/log/logger/*.log # change according to where your .log file present
       read_from_head: false
       refresh_interval: 10
       ignore_older: 1h
@@ -328,17 +327,31 @@ api:  # optional
 ```
 
 #### Grafana Alloy Configuration
+```bash
+alloy-darwin-amd64 run config/alloy-local-fs-json-loki.alloy    # run alloy
+alloy-1.10.1 run config/alloy-local-fs-json-loki.alloy    # run alloy
+# visit UI - http://127.0.0.1:12345/
+```
+
 ```hcl
-loki.source.file "fuzzy_logs" {
-  targets = [
-    {__path__ = "/tmp/logs/app.log"},
-  ]
-  forward_to = [loki.write.default.receiver]
+livedebugging {
+  enabled = true
 }
 
-loki.write "default" {
+local.file_match "local_files" {
+    path_targets = [{"__path__" = "/Users/snikam/data/log/logger/*.log", "job" = "alloy", "hostname" = constants.hostname}]
+    sync_period  = "5s"
+}
+
+loki.source.file "log_scrape" {
+    targets    = local.file_match.local_files.targets
+    forward_to = [loki.write.local_loki.receiver]
+    tail_from_end = true
+}
+
+loki.write "local_loki" {
   endpoint {
-    url = "http://loki-server:3100/loki/api/v1/push"
+    url = "http://127.0.0.1:3100/loki/api/v1/push"
   }
 }
 ```
