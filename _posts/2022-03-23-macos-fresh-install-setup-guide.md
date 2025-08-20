@@ -185,6 +185,9 @@ brew install --cask docker lens postman
 
 # Utilities
 brew install wget node
+
+# Media Players
+brew install --cask vlc
 ```
 
 ### Manual Downloads (If Homebrew Not Available)
