@@ -38,22 +38,22 @@ Markdown is the most popular lightweight markup language used by developers, wri
 ### Emphasis
 
 **Bold text**
-```
+```markdown
 **Bold text** or __Bold text__
 ```
 
 *Italic text*
-```
+```markdown
 *Italic text* or _Italic text_
 ```
 
 ***Bold and italic***
-```
+```markdown
 ***Bold and italic*** or **_Bold and italic_**
 ```
 
 ~~Strikethrough~~
-```
+```markdown
 ~~Strikethrough~~
 ```
 
@@ -72,7 +72,7 @@ H<sub>2</sub>O
 ### Escape Characters
 
 Use backslash to escape special characters: \*literal asterisks\*
-```
+```markdown
 \*literal asterisks\*
 ```
 
@@ -89,7 +89,7 @@ Use backslash to escape special characters: \*literal asterisks\*
 ##### H5 Header
 ###### H6 Header
 
-```
+```markdown
 # H1 Header
 ## H2 Header
 ### H3 Header
@@ -106,7 +106,7 @@ Header 1
 Header 2
 --------
 
-```
+```markdown
 Header 1
 ========
 
@@ -128,7 +128,7 @@ Header 2
   * Another nested item
 * Item 3
 
-```
+```markdown
 * Item 1
 * Item 2
   * Nested item
@@ -144,7 +144,7 @@ Header 2
    2. Another nested item
 3. Third item
 
-```
+```markdown
 1. First item
 2. Second item
    1. Nested item
@@ -158,7 +158,7 @@ Header 2
 - [ ] Incomplete task
 - [x] Another completed task
 
-```
+```markdown
 - [x] Completed task
 - [ ] Incomplete task
 - [x] Another completed task
@@ -171,7 +171,7 @@ Header 2
 ### Inline Links
 
 This is a [Google](https://www.google.com "Google Homepage") link.
-```
+```markdown
 [Google](https://www.google.com "Google Homepage")
 ```
 
@@ -182,7 +182,7 @@ This is a [reference link][1] and another [reference link][google].
 [1]: https://www.google.com "Google"
 [google]: https://www.google.com
 
-```
+```markdown
 [reference link][1]
 [reference link][google]
 
@@ -193,7 +193,7 @@ This is a [reference link][1] and another [reference link][google].
 ### Automatic Links
 
 https://www.google.com
-```
+```markdown
 https://www.google.com
 ```
 
@@ -204,7 +204,7 @@ https://www.google.com
 ### Inline Images
 
 ![Markdown Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/150px-Markdown-mark.svg.png "Markdown Logo")
-```
+```markdown
 ![Markdown Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Markdown-mark.svg/150px-Markdown-mark.svg.png "Markdown Logo")
 ```
 
@@ -214,7 +214,7 @@ https://www.google.com
 
 [html5-logo]: https://www.w3.org/html/logo/badge/html5-badge-h-solo.png "HTML5 Logo"
 
-```
+```markdown
 ![HTML5 Logo][html5-logo]
 
 [html5-logo]: https://www.w3.org/html/logo/badge/html5-badge-h-solo.png "HTML5 Logo"
@@ -227,7 +227,7 @@ https://www.google.com
 ### Inline Code
 
 Use `backticks` for inline code.
-```
+```markdown
 Use `backticks` for inline code.
 ```
 
@@ -237,7 +237,7 @@ Use `backticks` for inline code.
 Plain code block
 ```
 
-````
+````markdown
 ```
 Plain code block
 ```
@@ -251,7 +251,7 @@ function hello() {
 }
 ```
 
-````
+````markdown
 ```javascript
 function hello() {
     console.log("Hello World!");
@@ -264,7 +264,7 @@ function hello() {
     This is an indented code block
     using 4 spaces or 1 tab
 
-```
+```markdown
     This is an indented code block
     using 4 spaces or 1 tab
 ```
@@ -280,7 +280,7 @@ function hello() {
 }
 ```
 
-````
+````markdown
 ```javascript {.line-numbers}
 function hello() {
     console.log("Hello World!");
@@ -298,7 +298,7 @@ function hello() {
 | Left         | Center         | Right         |
 | Text         | Text           | Text          |
 
-```
+```markdown
 | Left Aligned | Center Aligned | Right Aligned |
 |:-------------|:--------------:|--------------:|
 | Left         | Center         | Right         |
@@ -312,7 +312,7 @@ Column 1 | Column 2 | Column 3
 Data 1   | Data 2   | Data 3
 Data 4   | Data 5   | Data 6
 
-```
+```markdown
 Column 1 | Column 2 | Column 3
 ---------|----------|----------
 Data 1   | Data 2   | Data 3
@@ -329,7 +329,7 @@ Data 4   | Data 5   | Data 6
 > 
 > > Nested blockquotes are also possible.
 
-```
+```markdown
 > This is a blockquote.
 > 
 > It can span multiple lines.
@@ -349,7 +349,7 @@ Three or more dashes, asterisks, or underscores:
 
 ___
 
-```
+```markdown
 ---
 ***
 ___
@@ -364,7 +364,7 @@ End a line with two or more spaces for a line break.
 First line  
 Second line
 
-```
+```markdown
 First line  
 Second line
 ```
@@ -427,7 +427,7 @@ and line breaks
 
 [![Video Thumbnail](https://img.youtube.com/vi/BZhWUE1A198/0.jpg)](https://www.youtube.com/watch?v=BZhWUE1A198)
 
-```
+```markdown
 [![Video Thumbnail](https://img.youtube.com/vi/BZhWUE1A198/0.jpg)](https://www.youtube.com/watch?v=BZhWUE1A198)
 ```
 
@@ -439,7 +439,7 @@ and line breaks
 
 😄 ❤️ 👍 🐙 (Unicode) or :smile: :heart: :thumbsup: :octocat: (shortcodes)
 
-```
+```markdown
 😄 ❤️ 👍 🐙 (Unicode)
 :smile: :heart: :thumbsup: :octocat: (shortcodes - requires jemoji plugin)
 ```
@@ -470,7 +470,7 @@ Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy.
 
 This is inline math: $E = mc^2$
 
-```
+```markdown
 $E = mc^2$
 ```
 
@@ -480,7 +480,7 @@ $$
 \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
 $$
 
-```
+```markdown
 $$
 \int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}
 $$
@@ -496,7 +496,7 @@ This text has a footnote[^1].
 
 [^1]: This is the footnote content.
 
-```
+```markdown
 This text has a footnote[^1].
 
 [^1]: This is the footnote content.
@@ -558,7 +558,7 @@ Code example:
 
 [Link to custom header](#custom-header)
 
-```
+```markdown
 ### Custom ID Headers {#custom-header}
 [Link to custom header](#custom-header)
 ```
