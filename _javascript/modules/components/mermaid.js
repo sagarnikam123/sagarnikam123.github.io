@@ -2,6 +2,8 @@
  * Mermaid-js loader
  */
 
+import Theme from '../../theme.js';
+
 const MERMAID = 'mermaid';
 const themeMapper = Theme.getThemeMapper('default', 'dark');
 
