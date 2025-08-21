@@ -464,14 +464,26 @@ Thumbs.db
 [Pre-commit](https://pre-commit.com/){:target="_blank"} is a framework for managing multi-language pre-commit hooks that automatically formats code, checks syntax, and runs tests before commits.
 
 ```shell
-# install pre-commit
+# install pre-commit (if not already present)
 pip install pre-commit
 
 # or via homebrew
 brew install pre-commit
 
-# install hooks in repository
+# add .pre-commit-config.yaml into your root of Git repository
+cd <your_repo>
+touch .pre-commit-config.yaml    # add content from below section
+
+# install hooks in repository (note <your_repo>/.pre-commit-config.yaml be present)
+cd <your_repo>
 pre-commit install
+
+# if you get below error on above command, then unset hooksPath
+# [ERROR] Cowardly refusing to install hooks with `core.hooksPath` set.
+git config --unset-all core.hooksPath
+
+# Optionally, check all files now by running
+pre-commit run --all-files
 ```
 
 #### Pre-commit Configuration
@@ -484,10 +496,16 @@ repos:
     hooks:
       - id: trailing-whitespace        # removes trailing whitespace
       - id: end-of-file-fixer          # ensures files end with newline
+      - id: fix-byte-order-marker      # fixes byte order marker
+      - id: mixed-line-ending          # ensures consistent line endings
       - id: check-yaml                 # validates YAML syntax
       - id: check-json                 # validates JSON syntax
+      - id: check-xml                  # validates XML syntax
+      - id: pretty-format-json         # formats JSON files
       - id: check-merge-conflict       # prevents merge conflict markers
-      - id: mixed-line-ending          # ensures consistent line endings
+      - id: detect-aws-credentials     # detects AWS credentials
+      - id: detect-private-key         # detects private keys
+      - id: check-added-large-files    # prevents large files from being added
 ```
 
 Explore more pre-built hooks at [pre-commit-hooks repository](https://github.com/pre-commit/pre-commit-hooks){:target="_blank"}.
