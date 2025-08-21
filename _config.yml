@@ -102,7 +102,7 @@ analytics:
 
 # Page views settings
 pageviews:
-  provider: goatcounter # now only supports 'goatcounter'
+  # provider: goatcounter # now only supports 'goatcounter' - disabled to prevent CORS errors
 
 # Prefer color scheme setting.
 #
