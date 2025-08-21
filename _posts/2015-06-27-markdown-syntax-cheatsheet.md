@@ -413,22 +413,22 @@ and line breaks
 
 ### YouTube Videos (HTML)
 
-<a href="https://www.youtube.com/watch?v=BZhWUE1A198" target="_blank">
-  <img src="https://img.youtube.com/vi/BZhWUE1A198/0.jpg" alt="Video Thumbnail" width="240" height="180">
+<a href="https://www.youtube.com/watch?v=mCG1tvUuCTo" target="_blank">
+  <img src="https://img.youtube.com/vi/mCG1tvUuCTo/0.jpg" alt="Video Thumbnail" width="240" height="180">
 </a>
 
 ```html
-<a href="https://www.youtube.com/watch?v=BZhWUE1A198" target="_blank">
-  <img src="https://img.youtube.com/vi/BZhWUE1A198/0.jpg" alt="Video Thumbnail" width="240" height="180">
+<a href="https://www.youtube.com/watch?v=mCG1tvUuCTo" target="_blank">
+  <img src="https://img.youtube.com/vi/mCG1tvUuCTo/0.jpg" alt="Video Thumbnail" width="240" height="180">
 </a>
 ```
 
 ### YouTube Videos (Markdown)
 
-[![Video Thumbnail](https://img.youtube.com/vi/BZhWUE1A198/0.jpg)](https://www.youtube.com/watch?v=BZhWUE1A198)
+[![Video Thumbnail](https://img.youtube.com/vi/mCG1tvUuCTo/0.jpg)](https://www.youtube.com/watch?v=BZhWUE1A198)
 
 ```markdown
-[![Video Thumbnail](https://img.youtube.com/vi/BZhWUE1A198/0.jpg)](https://www.youtube.com/watch?v=BZhWUE1A198)
+[![Video Thumbnail](https://img.youtube.com/vi/mCG1tvUuCTo/0.jpg)](https://www.youtube.com/watch?v=mCG1tvUuCTo)
 ```
 
 ---
