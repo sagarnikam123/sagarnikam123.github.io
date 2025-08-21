@@ -606,7 +606,7 @@ echo "Setup complete! Please restart your terminal."
   ```bash
   # Use sudo for system-level installations
   sudo command_name
-  
+
   # Fix Homebrew permissions
   sudo chown -R $(whoami) /usr/local/share/zsh
   ```
