@@ -324,16 +324,16 @@ Data 4   | Data 5   | Data 6
 ## Blockquotes
 
 > This is a blockquote.
-> 
+>
 > It can span multiple lines.
-> 
+>
 > > Nested blockquotes are also possible.
 
 ```markdown
 > This is a blockquote.
-> 
+>
 > It can span multiple lines.
-> 
+>
 > > Nested blockquotes are also possible.
 ```
 
@@ -361,11 +361,11 @@ ___
 
 End a line with two or more spaces for a line break.
 
-First line  
+First line
 Second line
 
 ```markdown
-First line  
+First line
 Second line
 ```
 
