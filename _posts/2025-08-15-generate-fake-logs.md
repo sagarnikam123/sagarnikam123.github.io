@@ -161,7 +161,7 @@ kubectl get pods -l app=fuzzy-train
 
 **flog** is a high-performance **fake log generator** optimized for common log formats including Apache, syslog, and JSON. This **Go-based log generation tool** is ideal for testing log streams and data pipelines with minimal resource overhead.
 
-**Supported Formats:** `apache_common` (default), `apache_combined`, `apache_error`, `rfc3164` (syslog), `rfc5424` (syslog), `json`  
+**Supported Formats:** `apache_common` (default), `apache_combined`, `apache_error`, `rfc3164` (syslog), `rfc5424` (syslog), `json`
 **Output Types:** `stdout` (default), `log` (file), `gz` (gzip compressed)
 
 **Installation Options:**
