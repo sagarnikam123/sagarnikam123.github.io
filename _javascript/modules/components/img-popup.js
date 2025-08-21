@@ -4,6 +4,8 @@
  * Dependencies: https://github.com/biati-digital/glightbox
  */
 
+import Theme from '../../theme.js';
+
 const lightImages = '.popup:not(.dark)';
 const darkImages = '.popup:not(.light)';
 let selector = lightImages;
