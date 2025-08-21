@@ -71,4 +71,3 @@ Some will upload their codes, images or related data/reference files to below re
 * [How to read an academic article](https://organizationsandmarkets.com/2010/08/31/how-to-read-an-academic-article/)
 * [Advice on reading academic papers](https://www4.ncsu.edu/~akmassey/posts/2012-02-15-advice-on-reading-academic-papers.html)
 * [How to read and understand a scientific paper](https://violentmetaphors.com/2013/08/25/how-to-read-and-understand-a-scientific-paper-2/)
-
