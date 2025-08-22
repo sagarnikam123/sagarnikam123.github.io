@@ -682,6 +682,103 @@ git gui                 # commit tool
 
 ## Frequently Asked Questions
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the difference between Git and GitHub?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Git is the version control system that tracks changes in your code locally. GitHub is a cloud-based hosting service for Git repositories that adds collaboration features like pull requests, issues, and project management tools."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I undo the last commit in Git?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use 'git reset --soft HEAD~1' to undo the last commit while keeping your changes staged, or 'git reset --hard HEAD~1' to completely remove the commit and all changes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between git pull and git fetch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "git fetch downloads changes from remote repository but doesn't merge them into your current branch. git pull downloads changes and automatically merges them into your current branch (git pull = git fetch + git merge)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I resolve merge conflicts in Git?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Git will mark conflicted files with conflict markers. Edit the files to resolve conflicts manually, remove conflict markers, run 'git add <resolved-files>', then complete the merge with 'git commit'."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use merge or rebase for integrating changes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use merge for public branches and when you want to preserve commit history. Use rebase for private feature branches to create a cleaner, linear history. Never rebase commits that have been pushed to shared repositories."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I delete a Git branch locally and remotely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Delete local branch with 'git branch -d branch-name' and delete remote branch with 'git push origin --delete branch-name'."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a detached HEAD state and how do I fix it?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Detached HEAD occurs when you checkout a specific commit instead of a branch. Create a new branch from current position with 'git checkout -b new-branch-name' or return to main branch with 'git checkout main'."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the best Git workflow for teams?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "GitHub Flow for simple, continuous deployment (feature branches → main). Git Flow for structured releases with develop/main branches. GitLab Flow for environment-based branching. Choose based on team size, release frequency, and deployment strategy."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I configure Git for the first time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Set your identity with 'git config --global user.name Your Name' and 'git config --global user.email your.email@example.com'. Set default branch with 'git config --global init.defaultBranch main'."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I recover deleted commits in Git?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, use 'git reflog' to find the commit hash, then 'git checkout <commit-hash>' to go to that commit and 'git checkout -b recovery-branch' to create a branch to save it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I ignore files that are already tracked?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Add file to .gitignore first, then remove from tracking with 'git rm --cached filename.txt' and commit the change with 'git commit -m Stop tracking filename.txt'."
+      }
+    }
+  ]
+}
+</script>
+
 ### What is the difference between Git and GitHub?
 **Git** is the version control system that tracks changes in your code locally. **GitHub** is a cloud-based hosting service for Git repositories that adds collaboration features like pull requests, issues, and project management tools.
 
