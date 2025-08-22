@@ -4,6 +4,7 @@ description: "Master Markdown syntax with this comprehensive cheatsheet. Include
 date: 2015-06-27 12:00:00 +0530
 categories: [programming, documentation]
 tags: [markdown, cheatsheet, syntax, guide, reference]
+math: true
 ---
 
 Markdown is the most popular lightweight markup language used by developers, writers, and content creators worldwide. Created by <a href="https://daringfireball.net/projects/markdown/" target="_blank">John Gruber</a>, this **ultimate markdown cheatsheet** provides complete syntax examples for text formatting, code blocks, tables, links, images, and advanced features. Whether you're writing documentation, README files, or blog posts, this comprehensive guide covers everything you need to master markdown syntax.
@@ -468,10 +469,10 @@ Press <kbd>Ctrl</kbd> + <kbd>C</kbd> to copy.
 
 ### Inline Math
 
-This is inline math: $E = mc^2$
+This is inline math: $$ E = mc^2 $$ and here's another example with the quadratic formula $$ x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$.
 
 ```markdown
-$E = mc^2$
+$$ E = mc^2 $$
 ```
 
 ### Block Math
@@ -486,7 +487,39 @@ $$
 $$
 ```
 
-*Note: Requires MathJax or KaTeX support. GitHub now supports <a href="https://github.blog/news-insights/product-news/math-support-in-markdown/" target="_blank">math expressions in Markdown</a> natively. See <a href="https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/writing-mathematical-expressions" target="_blank">GitHub's documentation</a> for details.*
+### Equation Numbering
+
+$$
+\begin{equation}
+E = mc^2 \label{eq:einstein}
+\end{equation}
+$$
+
+You can reference the equation above using \eqref{eq:einstein}.
+
+```markdown
+$$
+\begin{equation}
+E = mc^2 \label{eq:einstein}
+\end{equation}
+$$
+
+Reference with \eqref{eq:einstein}
+```
+
+### Math in Lists
+
+1. First equation: \$$ a^2 + b^2 = c^2 $$
+2. Second equation: \$$ \sum_{i=1}^{n} i = \frac{n(n+1)}{2} $$
+3. Third equation: \$$ \lim_{x \to \infty} \frac{1}{x} = 0 $$
+
+```markdown
+1. \$$ a^2 + b^2 = c^2 $$
+2. \$$ \sum_{i=1}^{n} i = \frac{n(n+1)}{2} $$
+3. \$$ \lim_{x \to \infty} \frac{1}{x} = 0 $$
+```
+
+*Note: This site uses MathJax for rendering mathematical expressions. The Chirpy theme requires `math: true` in the front matter and specific syntax rules: use `$$ math $$` for inline math (no blank lines), `$$ math $$` with blank lines for block math, and escape the first `$` in lists with `\$$`.*
 
 ---
 
