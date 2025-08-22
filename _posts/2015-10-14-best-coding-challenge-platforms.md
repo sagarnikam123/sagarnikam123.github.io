@@ -23,10 +23,10 @@ From **LeetCode** and **HackerRank** for interview preparation to **Codeforces**
 - [Specialized Domains](#specialized-domains)
 - [Learning Resources & Communities](#learning-resources--communities)
 - [Getting Started Guide](#getting-started-guide)
+- [Conclusion](#conclusion)
+- [Frequently Asked Questions](#frequently-asked-questions)
 - [Gamified Learning Platforms](#gamified-learning-platforms)
 - [Additional Learning Resources](#additional-learning-resources)
-- [Frequently Asked Questions](#frequently-asked-questions)
-- [Conclusion](#conclusion)
 
 ## Top Platforms for Beginners
 
@@ -239,6 +239,55 @@ Start with beginner-friendly platforms like LeetCode and HackerRank, then gradua
 Happy coding! 🚀
 
 ## Frequently Asked Questions
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are the best coding challenge platforms for beginners?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For beginners, start with LeetCode (Easy problems), HackerRank (skill tracks), Codewars (gamified learning), and Exercism (mentored practice). These platforms offer structured learning paths and supportive communities."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which platform is best for coding interview preparation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "LeetCode is the gold standard for interview prep with 2000+ problems and company-specific questions. Supplement with InterviewBit for system design and Pramp for mock interviews."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between competitive programming and coding interviews?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Competitive programming focuses on algorithmic problem-solving under time pressure (Codeforces, AtCoder), while coding interviews test practical programming skills and system design (LeetCode, HackerRank)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are coding challenge platforms free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most platforms offer free tiers with basic features. LeetCode, HackerRank, Codeforces, and AtCoder have substantial free content. Premium features typically cost $10-35/month."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How much time should I spend on coding challenges daily?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Consistency matters more than duration. Start with 30 minutes daily, focusing on understanding solutions rather than just solving problems. Gradually increase as you build momentum."
+      }
+    }
+  ]
+}
+</script>
 
 ### What are the best coding challenge platforms for beginners?
 For beginners, start with **LeetCode** (Easy problems), **HackerRank** (skill tracks), **Codewars** (gamified learning), and **Exercism** (mentored practice). These platforms offer structured learning paths and supportive communities.
