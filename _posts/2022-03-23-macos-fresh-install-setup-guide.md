@@ -653,6 +653,79 @@ uv python install 3.12  # Install latest versions
 
 ## Frequently Asked Questions
 
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What should I install first on a new Mac?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with Xcode Command Line Tools and Homebrew package manager. These are foundational tools that most other software depends on. Run 'git --version' to trigger Xcode tools installation, then install Homebrew using the official script."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a complete macOS setup take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A complete developer setup typically takes 2-3 hours, depending on your internet speed and the number of applications you install. The basic setup (Homebrew, Git, Python, Node.js) can be completed in 30-45 minutes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I use Homebrew or download apps manually?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Homebrew is recommended for most installations as it handles dependencies automatically, keeps software updated, and allows easy uninstallation. Use manual downloads only for apps not available via Homebrew or when you need specific versions."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which Python installation method is best?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For beginners, use the official Python installer from python.org. For advanced users managing multiple projects, pyenv or UV provide better version management. Homebrew Python is good for general development work."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I keep my development environment updated?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Run 'brew update && brew upgrade' monthly to update Homebrew packages. Use 'softwareupdate -l' for macOS updates. For Python packages, use 'pip3 list --outdated' to check for updates. Set up a monthly maintenance routine."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I encounter permission errors during installation?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use 'sudo' for system-level installations, but avoid using 'sudo' with Homebrew. If you get Homebrew permission errors, run 'sudo chown -R $(whoami) /usr/local/share/zsh' to fix ownership issues."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use this guide for Apple Silicon (M1/M2) Macs?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, this guide works for both Intel and Apple Silicon Macs. Homebrew automatically detects your architecture and installs the appropriate versions. Some older software may require Rosetta 2 for compatibility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I backup my development environment?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use 'brew bundle dump' to create a Brewfile listing all installed packages. Export your shell configuration files (.zshrc, .bashrc). Consider using dotfiles repositories on GitHub to version control your configuration."
+      }
+    }
+  ]
+}
+</script>
+
 ### What should I install first on a new Mac?
 Start with **Xcode Command Line Tools** and **Homebrew package manager**. These are foundational tools that most other software depends on. Run `git --version` to trigger Xcode tools installation, then install Homebrew using the official script.
 
