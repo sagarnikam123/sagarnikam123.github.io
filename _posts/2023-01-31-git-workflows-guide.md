@@ -6,6 +6,10 @@ date: 2023-01-31 12:02:00 +0530
 categories: [Development, Version Control, Git]
 tags: [git, workflow, visual-guide, git-commands, developer-tools]
 mermaid: true
+image:
+  path: /assets/img/posts/20230131/git-workflows-guide.webp
+  lqip: data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASogACAAPy2EuFOuqSWisAwB0CWJY2iTAHB5aROwjuJkG4AA/vDmb/UxjB9HgOcYYMQUfEq506PFw/ATtpahN+jgwNRg0ibB+9EtguHEHqmP038sWuDgAA==
+  alt: Complete Git workflows and commands visualization guide
 ---
 
 Master **Git workflows** from basic commands to advanced techniques. This comprehensive **Git guide** covers everything developers need for efficient **version control** and team collaboration.
