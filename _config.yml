@@ -14,12 +14,12 @@ timezone: Asia/Calcutta
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Sagar Nikam Notes # the main title
+title: Sagar Nikam Blog # the main title
 
-tagline: technology awareness initiative # it will display as the subtitle
+tagline: "Engineering Insights: Cloud, DevOps, and Modern Software Development" # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  A minimal, responsive and feature-rich blog for technical writing.
+  Explore cloud computing, DevOps practices, and software engineering insights. Technical tutorials, best practices, and real-world solutions for modern development challenges.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -69,7 +69,6 @@ social:
     - https://mastodon.social/@sagarnikam123 # change to your Mastodon profile
     - https://www.threads.net/sagarnikam123 # change to your Threads profile
     - https://www.t.me/sagarnikam123 # change to your Telegram channel
-
 
 # Site Verification Settings
 webmaster_verifications:
