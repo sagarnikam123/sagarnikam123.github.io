@@ -12,7 +12,7 @@ Script will download photos into folder named by fan page id.
 ### Prerequisite
 
 * Facebook Fanpage id
-* Facebook access token ([Graph Explorer](https://developers.facebook.com/tools/explorer/ "Get access token from Facebook Graph explorer"))
+* Facebook access token ([Graph Explorer](https://developers.facebook.com/tools/explorer/){:target="_blank" rel="noopener"} "Get access token from Facebook Graph explorer")
 * Python 2.7
 * Python pip
 * Facebook-python-sdk
@@ -29,7 +29,7 @@ sudo apt-get install python-pip
 sudo pip install facebook-sdk
 ```
 
-If you unable to install facebook-python-sdk go to [installation page](https://facebook-sdk.readthedocs.io/en/latest/install.html)
+If you unable to install facebook-python-sdk go to [installation page](https://facebook-sdk.readthedocs.io/en/latest/install.html){:target="_blank" rel="noopener"}
 
 Change ``` ID ```  in script to your fan page.
 
