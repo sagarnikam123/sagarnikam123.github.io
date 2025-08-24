@@ -1,6 +1,7 @@
 ---
 title: "macOS Fresh Install Setup: Complete Developer Tools & Apps Guide"
 description: "Comprehensive guide for setting up macOS after fresh installation. Install essential developer tools, configure Homebrew, Git, Python, Java, and must-have apps."
+author: sagarnikam123
 date: 2022-03-23 12:00:00 +0530
 categories: [macos, developer-tools, setup-guide]
 tags: [macos-setup, homebrew, developer-environment, fresh-install, productivity-tools]

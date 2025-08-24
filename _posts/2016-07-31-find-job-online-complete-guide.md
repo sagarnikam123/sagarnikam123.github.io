@@ -2,6 +2,7 @@
 layout: post
 title: "How to Find Jobs Online: Build Your Digital Presence & Get Hired"
 description: "Master online job hunting with LinkedIn optimization, GitHub projects, resume tips & digital presence strategies. Complete guide for job seekers."
+author: sagarnikam123
 date: 2016-07-31 12:00:00 +0530
 categories: [career-advice]
 tags: [online-job-search, linkedin-optimization, resume-tips, github-portfolio, digital-presence]

@@ -1,6 +1,7 @@
 ---
 title: "Ultimate Markdown Cheatsheet: Complete Syntax Guide with Examples"
 description: "Master Markdown syntax with this comprehensive cheatsheet. Includes text formatting, code blocks, tables, links, images, and advanced features."
+author: sagarnikam123
 date: 2015-06-27 12:00:00 +0530
 categories: [programming, documentation]
 tags: [markdown, cheatsheet, syntax, guide, reference]

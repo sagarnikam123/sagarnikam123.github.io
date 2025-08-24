@@ -1,6 +1,7 @@
 ---
 title: "Ubuntu Fresh Install Setup: Essential Developer Environment Guide"
 description: "Complete Ubuntu fresh install setup guide covering Java, Node.js, Docker installation, security configuration, and development environment optimization for developers and programmers."
+author: sagarnikam123
 date: 2021-08-20 12:00:00 +0530
 categories: [ubuntu, linux, setup]
 tags: [installation, development, configuration, guide, post-install]
