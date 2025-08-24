@@ -2,6 +2,7 @@
 layout: post
 title: "Go getting started"
 description: "From Golang installtion, code, tools, etc"
+author: sagarnikam123
 date: 2018-12-02 12:00:00 +0530
 categories: [learning, programming, go]
 tags: [golang, gotools, gpextension]
@@ -9,7 +10,7 @@ tags: [golang, gotools, gpextension]
 
 - #### install & configure
 
-  - [go download](https://golang.org/dl/)
+  - [go download](https://golang.org/dl/){:target="_blank" rel="noopener"}
 
       - ```bash
         # extract
@@ -27,13 +28,13 @@ tags: [golang, gotools, gpextension]
 
   - **For Text editors**
 
-    - [gocode](https://godoc.org/golang.org/x/tools/cmd/guru) - autocompletion for Go in text editors
+    - [gocode](https://godoc.org/golang.org/x/tools/cmd/guru){:target="_blank" rel="noopener"} - autocompletion for Go in text editors
 
       - ```
         go get -u github.com/nsf/gocode
         ```
 
-    - [guru](https://godoc.org/golang.org/x/tools/cmd/guru) - a tool for answering questions about Go source code (for goclipse/Eclipse)
+    - [guru](https://godoc.org/golang.org/x/tools/cmd/guru){:target="_blank" rel="noopener"} - a tool for answering questions about Go source code (for goclipse/Eclipse)
 
       - ```
         go get -u golang.org/x/tools/cmd/guru
@@ -64,7 +65,7 @@ tags: [golang, gotools, gpextension]
 
   - **For Learning go**
 
-    - [tour](https://go.dev/tour/welcome/3) - A Tour of Go (introduction to the Go programming language, offline)
+    - [tour](https://go.dev/tour/welcome/3){:target="_blank" rel="noopener"} - A Tour of Go (introduction to the Go programming language, offline)
       - This will place a tour binary in your GOPATH's bin directory
       - ```
         go install golang.org/x/website/tour@latest
