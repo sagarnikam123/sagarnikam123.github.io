@@ -7,7 +7,7 @@ tags: [markdown, cheatsheet, syntax, guide, reference]
 math: true
 ---
 
-Markdown is the most popular lightweight markup language used by developers, writers, and content creators worldwide. Created by <a href="https://daringfireball.net/projects/markdown/" target="_blank">John Gruber</a>, this **ultimate markdown cheatsheet** provides complete syntax examples for text formatting, code blocks, tables, links, images, and advanced features. Whether you're writing documentation, README files, or blog posts, this comprehensive guide covers everything you need to master markdown syntax.
+Markdown is the most popular lightweight markup language used by developers, writers, and content creators worldwide. Created by <a href="https://daringfireball.net/projects/markdown/" target="_blank" rel="noopener">John Gruber</a>, this **ultimate markdown cheatsheet** provides complete syntax examples for text formatting, code blocks, tables, links, images, and advanced features. Whether you're writing documentation, README files, or blog posts, this comprehensive guide covers everything you need to master markdown syntax.
 
 ## Table of Contents
 
@@ -445,7 +445,7 @@ and line breaks
 :smile: :heart: :thumbsup: :octocat: (shortcodes - requires jemoji plugin)
 ```
 
-<a href="https://www.emoji-cheat-sheet.com/" target="_blank">Emoji Cheatsheet</a>
+<a href="https://www.emoji-cheat-sheet.com/" target="_blank" rel="noopener">Emoji Cheatsheet</a>
 
 ### Highlighting
 
@@ -603,16 +603,16 @@ Code example:
 Choose the right Markdown editor for your workflow:
 
 ### Online Editors
-- **<a href="https://stackedit.io/" target="_blank">StackEdit</a>** - Full-featured online editor with live preview, export to HTML/PDF, and cloud sync
-- **<a href="https://dillinger.io/" target="_blank">Dillinger</a>** - Clean web-based editor with export to HTML, styled HTML, PDF, and Markdown
-- **<a href="https://hackmd.io/" target="_blank">HackMD</a>** - Collaborative editor with real-time sync, presentation mode, and team features
+- **<a href="https://stackedit.io/" target="_blank" rel="noopener">StackEdit</a>** - Full-featured online editor with live preview, export to HTML/PDF, and cloud sync
+- **<a href="https://dillinger.io/" target="_blank" rel="noopener">Dillinger</a>** - Clean web-based editor with export to HTML, styled HTML, PDF, and Markdown
+- **<a href="https://hackmd.io/" target="_blank" rel="noopener">HackMD</a>** - Collaborative editor with real-time sync, presentation mode, and team features
 
 ### Desktop Applications
-- **<a href="https://typora.io/" target="_blank">Typora</a>** - WYSIWYG editor with seamless live preview and export capabilities
-- **<a href="https://obsidian.md/" target="_blank">Obsidian</a>** - Knowledge management with Markdown support and graph visualization
+- **<a href="https://typora.io/" target="_blank" rel="noopener">Typora</a>** - WYSIWYG editor with seamless live preview and export capabilities
+- **<a href="https://obsidian.md/" target="_blank" rel="noopener">Obsidian</a>** - Knowledge management with Markdown support and graph visualization
 
 ### IDE Extensions
-- **<a href="https://github.com/preservim/vim-markdown" target="_blank">Vim Markdown</a>** - Vim plugin for Markdown syntax highlighting and folding
+- **<a href="https://github.com/preservim/vim-markdown" target="_blank" rel="noopener">Vim Markdown</a>** - Vim plugin for Markdown syntax highlighting and folding
 
 ---
 
@@ -620,10 +620,10 @@ Choose the right Markdown editor for your workflow:
 
 Different platforms use variations of Markdown with additional features:
 
-### <a href="https://commonmark.org/" target="_blank">CommonMark</a>
-Standardized specification for consistent Markdown parsing across platforms. Visit the <a href="https://spec.commonmark.org/" target="_blank">CommonMark spec</a> for complete documentation.
+### <a href="https://commonmark.org/" target="_blank" rel="noopener">CommonMark</a>
+Standardized specification for consistent Markdown parsing across platforms. Visit the <a href="https://spec.commonmark.org/" target="_blank" rel="noopener">CommonMark spec</a> for complete documentation.
 
-### <a href="https://github.github.com/gfm/" target="_blank">GitHub Flavored Markdown (GFM)</a>
+### <a href="https://github.github.com/gfm/" target="_blank" rel="noopener">GitHub Flavored Markdown (GFM)</a>
 Extends CommonMark with:
 - Tables
 - Task lists
@@ -658,4 +658,4 @@ Many processors support additional features:
 
 This comprehensive markdown cheatsheet covers all essential syntax from basic text formatting to advanced features like math expressions and collapsible sections. Bookmark this reference for quick lookup while writing documentation, README files, or blog posts. Remember to test your markdown in your target environment since different renderers may have slight variations in support.
 
-For more comprehensive guides and tutorials, visit <a href="https://www.markdownguide.org/" target="_blank">The Markdown Guide</a> - the definitive resource for learning Markdown.
+For more comprehensive guides and tutorials, visit <a href="https://www.markdownguide.org/" target="_blank" rel="noopener">The Markdown Guide</a> - the definitive resource for learning Markdown.
