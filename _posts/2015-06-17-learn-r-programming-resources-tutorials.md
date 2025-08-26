@@ -457,27 +457,13 @@ A: R is the programming language, RStudio is the IDE (editor) that makes R easie
 **Q: Is R free?**
 A: Yes! R, RStudio, and most learning resources are completely free.
 
-## 🔗 Related R Programming Guides
+## 🔗 Related Topics
 
-### **Getting Started Series:**
-- [R vs Python: Complete Comparison for Data Science 2024](/posts/r-vs-python-data-science-comparison/)
-- [RStudio Setup Guide: Complete Installation & Configuration](/posts/rstudio-setup-installation-guide/)
-- [Your First R Project: Step-by-Step Tutorial](/posts/first-r-project-tutorial/)
-
-### **Data Analysis & Visualization:**
-- [ggplot2 Mastery: Complete Data Visualization Guide](/posts/ggplot2-data-visualization-guide/)
-- [dplyr Tutorial: Data Manipulation Made Easy](/posts/dplyr-data-manipulation-tutorial/)
-- [R Markdown Guide: Reports, Presentations & Dashboards](/posts/r-markdown-complete-guide/)
-
-### **Advanced R Programming:**
-- [Shiny Apps Development: Interactive Web Applications](/posts/shiny-apps-development-guide/)
-- [R Package Development: Build Your Own R Package](/posts/r-package-development-tutorial/)
-- [Machine Learning in R: Complete Beginner's Guide](/posts/machine-learning-r-tutorial/)
-
-### **Industry Applications:**
-- [R for Finance: Quantitative Analysis & Trading](/posts/r-finance-quantitative-analysis/)
-- [Bioinformatics with R: Genomics Data Analysis](/posts/r-bioinformatics-genomics-tutorial/)
-- [R for Marketing Analytics: Customer Segmentation](/posts/r-marketing-analytics-guide/)
+### **Explore More:**
+- [Data Science Resources](/categories/data-science/)
+- [Programming Tutorials](/categories/programming/)
+- [Statistical Analysis Guides](/tags/statistics/)
+- [Machine Learning Resources](/tags/machine-learning/)
 
 ---
 
