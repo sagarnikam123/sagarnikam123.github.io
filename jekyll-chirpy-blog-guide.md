@@ -21,6 +21,8 @@ JEKYLL_ENV=production bundle exec jekyll build
 
 ### Development Workflow
 - **Drafts:** Store in `_drafts/` folder (no date needed)
+- **Draft Creation:** `touch _drafts/my-new-post.md`
+- **Draft to Post:** `mv _drafts/my-new-post.md _posts/$(date +%Y-%m-%d)-my-new-post.md`
 - **Future Posts:** Set future date in front matter
 - **Live Reload:** Auto-refresh browser on file changes
 - **Local URL:** `http://localhost:4000`
