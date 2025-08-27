@@ -183,8 +183,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const links = document.querySelectorAll('a[href^="https://"], a[href^="http://"]');
     links.forEach(link => {
         if (!link.hostname.includes(window.location.hostname)) {
-            link.setAttribute('target', '_blank');
-            link.setAttribute('rel', 'noopener');
+            if (!link.getAttribute('target')) {
+                link.setAttribute('target', '_blank');
+            }
+            if (!link.getAttribute('rel')) {
+                link.setAttribute('rel', 'noopener');
+            }
         }
     });
 });
