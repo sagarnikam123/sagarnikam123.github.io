@@ -177,3 +177,15 @@ script_includes:
   </div>
   <!-- div.post-tail-wrapper -->
 </article>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a[href^="https://"], a[href^="http://"]');
+    links.forEach(link => {
+        if (!link.hostname.includes(window.location.hostname)) {
+            link.setAttribute('target', '_blank');
+            link.setAttribute('rel', 'noopener');
+        }
+    });
+});
+</script>
