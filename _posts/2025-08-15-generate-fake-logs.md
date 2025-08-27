@@ -171,17 +171,17 @@ flowchart TD
 ### Testing Log Aggregation Systems
 
 **Log aggregation testing** is crucial for validating your observability stack:
-- **Cloud-Native Platforms**: <a href="https://grafana.com/oss/loki/" target="_blank">Grafana Loki</a>, <a href="https://www.elastic.co/elastic-stack" target="_blank">Elastic Stack (ELK)</a>, <a href="https://signoz.io/" target="_blank">SigNoz</a>, <a href="https://opensearch.org/" target="_blank">OpenSearch</a>, <a href="https://quickwit.io/" target="_blank">Quickwit</a>
-- **Enterprise Solutions**: <a href="https://www.splunk.com/" target="_blank">Splunk</a>, <a href="https://www.datadoghq.com/" target="_blank">Datadog</a>, <a href="https://newrelic.com/" target="_blank">New Relic</a>, <a href="https://www.sumologic.com/" target="_blank">Sumo Logic</a>, <a href="https://logz.io/" target="_blank">Logz.io</a>, <a href="https://www.honeycomb.io/" target="_blank">Honeycomb</a>
-- **Cloud Services**: <a href="https://aws.amazon.com/cloudwatch/" target="_blank">AWS CloudWatch</a>, <a href="https://azure.microsoft.com/en-us/products/monitor" target="_blank">Azure Monitor</a>, <a href="https://cloud.google.com/logging" target="_blank">Google Cloud Logging</a>, <a href="https://www.papertrail.com/" target="_blank">Papertrail</a>
-- **Open Source**: <a href="https://www.rsyslog.com/" target="_blank">Rsyslog</a>, <a href="https://www.syslog-ng.com/" target="_blank">Syslog-ng</a>, <a href="https://flume.apache.org/" target="_blank">Apache Flume</a>, <a href="https://victoriametrics.com/products/victorialogs/" target="_blank">VictoriaLogs</a>
+- **Cloud-Native Platforms**: [Grafana Loki](https://grafana.com/oss/loki/), [Elastic Stack (ELK)](https://www.elastic.co/elastic-stack), [SigNoz](https://signoz.io/), [OpenSearch](https://opensearch.org/), [Quickwit](https://quickwit.io/)
+- **Enterprise Solutions**: [Splunk](https://www.splunk.com/), [Datadog](https://www.datadoghq.com/), [New Relic](https://newrelic.com/), [Sumo Logic](https://www.sumologic.com/), [Logz.io](https://logz.io/), [Honeycomb](https://www.honeycomb.io/)
+- **Cloud Services**: [AWS CloudWatch](https://aws.amazon.com/cloudwatch/), [Azure Monitor](https://azure.microsoft.com/en-us/products/monitor), [Google Cloud Logging](https://cloud.google.com/logging), [Papertrail](https://www.papertrail.com/)
+- **Open Source**: [Rsyslog](https://www.rsyslog.com/), [Syslog-ng](https://www.syslog-ng.com/), [Apache Flume](https://flume.apache.org/), [VictoriaLogs](https://victoriametrics.com/products/victorialogs/)
 - **Performance Testing**: Verify ingestion rates, query performance, and storage efficiency
 - **Scalability Testing**: Test system behavior under high log volumes
 
 ### Validating Log Shipping Agents
 
 **Log shipping validation** ensures your data pipeline works correctly:
-- **Log Collectors**: <a href="https://fluentbit.io/" target="_blank">Fluent-bit</a>, <a href="https://grafana.com/oss/alloy/" target="_blank">Grafana Alloy</a>, <a href="https://vector.dev/" target="_blank">Vector.dev</a>, <a href="https://grafana.com/docs/loki/latest/clients/promtail/" target="_blank">Promtail</a>, <a href="https://www.fluentd.org/" target="_blank">Fluentd</a>, <a href="https://www.elastic.co/beats/filebeat" target="_blank">Filebeat</a>, <a href="https://www.elastic.co/logstash" target="_blank">Logstash</a>, <a href="https://opentelemetry.io/docs/collector/" target="_blank">OpenTelemetry Collector</a>, <a href="https://www.influxdata.com/time-series-platform/telegraf/" target="_blank">Telegraf</a>
+- **Log Collectors**: [Fluent-bit](https://fluentbit.io/), [Grafana Alloy](https://grafana.com/oss/alloy/), [Vector.dev](https://vector.dev/), [Promtail](https://grafana.com/docs/loki/latest/clients/promtail/), [Fluentd](https://www.fluentd.org/), [Filebeat](https://www.elastic.co/beats/filebeat), [Logstash](https://www.elastic.co/logstash), [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/), [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/)
 - **Configuration Testing**: Verify parsing rules, filtering, and routing logic
 - **Reliability Testing**: Test agent behavior during network failures or high load
 

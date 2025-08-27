@@ -1097,16 +1097,16 @@ systemctl --failed                     # Failed services
 These Linux troubleshooting commands are essential for managing development servers, CI/CD pipelines, and production environments. Master both system setup and troubleshooting for complete Linux administration expertise.
 
 ## Additional Learning Resources
-- <a href="https://www.redhat.com/sysadmin/" target="_blank">Linux System Administration Best Practices</a>
-- <a href="https://www.freedesktop.org/software/systemd/man/systemd.service.html" target="_blank">Advanced SystemD Service Management</a>
-- <a href="https://netfilter.org/documentation/HOWTO/packet-filtering-HOWTO.html" target="_blank">Network Security with iptables</a>
-- <a href="https://www.brendangregg.com/linuxperf.html" target="_blank">Performance Monitoring Tools Guide</a>
-- <a href="https://www.cisecurity.org/controls/" target="_blank">Linux Security Hardening Guide</a>
-- <a href="https://docs.docker.com/engine/logging/" target="_blank">Container Troubleshooting with Docker</a>
-- <a href="https://kubernetes.io/docs/tasks/debug/debug-application/" target="_blank">Kubernetes Debugging Commands</a>
-- <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/" target="_blank">Red Hat System Administration Guide</a>
-- <a href="https://ubuntu.com/server/docs" target="_blank">Ubuntu Server Documentation</a>
-- <a href="https://wiki.archlinux.org/" target="_blank">Arch Linux Wiki</a>
+- [Linux System Administration Best Practices](https://www.redhat.com/sysadmin/)
+- [Advanced SystemD Service Management](https://www.freedesktop.org/software/systemd/man/systemd.service.html)
+- [Network Security with iptables](https://netfilter.org/documentation/HOWTO/packet-filtering-HOWTO.html)
+- [Performance Monitoring Tools Guide](https://www.brendangregg.com/linuxperf.html)
+- [Linux Security Hardening Guide](https://www.cisecurity.org/controls/)
+- [Container Troubleshooting with Docker](https://docs.docker.com/engine/logging/)
+- [Kubernetes Debugging Commands](https://kubernetes.io/docs/tasks/debug/debug-application/)
+- [Red Hat System Administration Guide](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/)
+- [Ubuntu Server Documentation](https://ubuntu.com/server/docs)
+- [Arch Linux Wiki](https://wiki.archlinux.org/)
 
 ---
 
