@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Complete Guide to Compile and Run C/C++ Programs on Linux"
 description: "Learn how to install GCC compiler, compile C/C++ programs on Linux with debugging, optimization flags. Complete tutorial with examples and commands."
 author: sagarnikam123

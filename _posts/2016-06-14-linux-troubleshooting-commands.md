@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Essential Linux Commands for System Troubleshooting & Monitoring"
 description: "Master essential Linux troubleshooting commands for system administrators. Complete guide covering process management, service control, and network diagnostics."
 author: sagarnikam123
