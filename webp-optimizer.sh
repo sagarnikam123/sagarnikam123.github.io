@@ -194,8 +194,8 @@ process_image() {
             ;;
     esac
 
-    # Generate LQIP Base64 for header images
-    if [ "$image_type" = "header" ]; then
+    # Generate LQIP Base64 for all images except LQIP type
+    if [ "$image_type" != "lqip" ]; then
         echo -e "${BLUE}Generating LQIP Base64...${NC}"
         local lqip_data=$(generate_lqip_base64 "$output_file")
         local lqip_length=${#lqip_data}
