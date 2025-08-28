@@ -67,7 +67,7 @@ flowchart LR
 - [ ] Complete LinkedIn profile (summary, experience, skills, recommendations)
 - [ ] Upload 3-5 quality projects to GitHub with detailed README files
 - [ ] Create personal website/portfolio
-  - [ ] Create personal website/portfolio (see guide: [Install Jekyll locally]({% link _posts/2016-06-11-installing-jekyll.md %}))
+  - [ ] Create personal website/portfolio (see guide: [Install Jekyll locally]({% link _posts/2016-06-11-jekyll-github-pages-complete-installation-guide.md %}))
 - [ ] Join relevant professional communities and groups
 - [ ] Start following target companies and industry leaders
 
