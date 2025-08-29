@@ -2,7 +2,7 @@
 title: "Complete Jekyll Guide: From Installation to GitHub Pages Blogging"
 description: "Step-by-step Jekyll tutorial for beginners. Learn Jekyll installation, GitHub Pages setup, blog creation, themes, and deployment. Complete guide with examples."
 author: sagarnikam123
-date: 2016-06-11 12:00:00 +0530
+date: 2024-12-19 12:00:00 +0530
 categories: [blog, web-development, tutorial]
 tags: [jekyll, github-pages, blogging, static-sites, guide]
 mermaid: true
@@ -73,7 +73,7 @@ flowchart TD
 
 ### Option 1: GitHub Pages (No Local Install) ⏱️ 5 mins | 🟢 Beginner
 
-**Prerequisites:** GitHub account, [basic Git knowledge](/blog/git-github-essentials/)
+**Prerequisites:** GitHub account, [basic Git knowledge](https://docs.github.com/en/get-started)
 
 **For Personal Site:**
 ```bash
@@ -199,7 +199,7 @@ graph TD
     A --> G["📄 about.md<br/>Static pages"]
     A --> H["🏡 index.html<br/>Homepage"]
     
-    C --> C1["2024-01-01-my-first-post.md"]
+    C --> C1["YYYY-MM-DD-my-first-post.md"]
     D --> D1["default.html"]
     D --> D2["post.html"]
     E --> E1["header.html"]
@@ -221,7 +221,7 @@ graph TD
 <username>.github.io/
 ├── _config.yml          # Site configuration
 ├── _posts/              # Blog posts go here
-│   └── 2024-01-01-my-first-post.md
+│   └── YYYY-MM-DD-my-first-post.md
 ├── _layouts/            # HTML templates
 │   ├── default.html
 │   └── post.html
@@ -312,18 +312,6 @@ paginate_path: "/page:num/"
 collections:
   projects:
     output: true
-    permalink: /:collection/:name/ front matter
-  - jekyll-readme-index # uses README.md as index page
-  - jekyll-titles-from-headings # generates page titles from first heading
-
-# Pagination
-paginate: 5
-paginate_path: "/page:num/"
-
-# Collections
-collections:
-  projects:
-    output: true
     permalink: /:collection/:name/
 ```
 
@@ -342,7 +330,7 @@ destination: docs/_site
 
 ---
 
-## 📝 Creating Blog Posts 🟢 Beginner
+## 📝 Creating Blog Posts
 
 > 💡 **Post Basics:** Jekyll posts are Markdown files with special naming: `YYYY-MM-DD-title.md` in the `_posts` folder.
 
@@ -361,14 +349,14 @@ flowchart LR
 **Step 1: Create the file**
 ```bash
 # Create your first post
-touch _posts/2024-01-01-my-first-post.md
+touch _posts/$(date +%Y-%m-%d)-my-first-post.md
 ```
 
 **Step 2: Add content**
 ```markdown
 ---
 title: "My First Blog Post"
-date: 2024-01-01 12:00:00 +0000
+date: $(date +%Y-%m-%d) 12:00:00 +0000
 categories: [web-development, tutorial]
 tags: [jekyll, github-pages]
 author: Your Name
@@ -428,14 +416,14 @@ echo "---\ntitle: Draft Post\n---\nContent" > _drafts/draft-post.md
 jekyll serve --drafts
 
 # Publish draft
-mv _drafts/draft-post.md _posts/2024-01-01-draft-post.md
+mv _drafts/draft-post.md _posts/$(date +%Y-%m-%d)-draft-post.md
 ```
 
 > ⚠️ **Draft Tip:** Drafts don't need dates in filenames. Add the date when you publish.
 
 ---
 
-## 🎨 Themes and Customization 🟡 Intermediate
+## 🎨 Themes and Customization
 
 > 💡 **Theme Basics:** Themes control your site's appearance. Start with simple changes, then move to custom themes.
 
@@ -468,176 +456,7 @@ gem "minima", "~> 2.5"
 gem "jekyll-theme-cayman"
 ```
 
-> 💡 **Why Gem Themes?** Easy to update, maintain, and switch between themes without losing content. Learn advanced customization in our [Jekyll Customization Techniques](/blog/advanced-jekyll-customization/) guide.
-
-### Fork-based Themes ⏱️ 20 mins | 🟡 Intermediate
-
-```bash
-# Example: Fork Beautiful Jekyll theme
-git clone https://github.com/daattali/beautiful-jekyll.git
-cd beautiful-jekyll
-
-# Customize and deploy
-git remote set-url origin https://github.com/<username>/<username>.github.io.git
-git push origin main
-```
-
-> ⚠️ **Fork Warning:** Harder to update but gives you complete control over the theme code.
-
-### 🎨 Popular Jekyll Themes ⏱️ 5 mins | 🟢 Beginner
-
-**Top 10 Recommended Themes:**
-
-1. **[Minima](https://github.com/jekyll/minima)** - Default Jekyll theme, clean and simple
-2. **[Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy)** - Feature-rich blog theme with dark mode
-3. **[Beautiful Jekyll](https://github.com/daattali/beautiful-jekyll)** - Ready-to-use template for GitHub Pages
-4. **[Minimal Mistakes](https://github.com/mmistakes/minimal-mistakes)** - Flexible two-column theme
-5. **[Academic Pages](https://github.com/academicpages/academicpages.github.io)** - Perfect for academic portfolios
-6. **[Hyde](https://github.com/poole/hyde)** - Brazen two-column theme
-7. **[Lanyon](https://github.com/poole/lanyon)** - Content-first sliding sidebar theme
-8. **[So Simple](https://github.com/mmistakes/so-simple-theme)** - Simple, clean, and responsive
-9. **[Cayman](https://github.com/pages-themes/cayman)** - Clean GitHub Pages theme
-10. **[Architect](https://github.com/pages-themes/architect)** - GitHub Pages theme with header banner
-
-### Project Site Configuration ⏱️ 5 mins | 🟡 Intermediate
-
-```yaml
-# For project sites (docs folder)
-title: Project Documentation
-baseurl: "/project-name"
-url: "https://<username>.github.io"
-source: docs
-destination: docs/_site
-```
-
----
-
-## 📝 Creating Blog Posts 🟢 Beginner
-
-> 💡 **Post Basics:** Jekyll posts are Markdown files with special naming: `YYYY-MM-DD-title.md` in the `_posts` folder.
-
-### Your First Post ⏱️ 10 mins | 🟢 Beginner
-
-```mermaid
-flowchart LR
-    A[Create File] --> B[Add Front Matter]
-    B --> C[Write Content]
-    C --> D[Save & Preview]
-    
-    style A fill:#ffebee
-    style D fill:#e8f5e8
-```
-
-**Step 1: Create the file**
-```bash
-# Create your first post
-touch _posts/2024-01-01-my-first-post.md
-```
-
-**Step 2: Add content**
-```markdown
----
-title: "My First Blog Post"
-date: 2024-01-01 12:00:00 +0000
-categories: [web-development, tutorial]
-tags: [jekyll, github-pages]
-author: Your Name
-layout: post
----
-
-## Introduction
-
-Welcome to my blog! This is my first post using Jekyll.
-
-### What I Learned Today
-
-- How to create a Jekyll post
-- The importance of front matter
-- Basic Markdown syntax
-
-### Code Examples
-
-```bash
-jekyll serve --drafts
-```
-
-### Links
-
-[Jekyll Documentation](https://jekyllrb.com/docs/)
-
-> ⚠️ **Naming Convention:** File must be named `YYYY-MM-DD-title.md` or it won't be recognized as a post.
-
-### 🏃♂️ Try It Now - First Post Exercise
-1. Create a new post file with today's date
-2. Add the front matter and some content
-3. View your post at `http://localhost:4000`
-4. Edit the content and refresh to see changes
-
-### Draft Management ⏱️ 5 mins | 🟡 Intermediate
-
-> 💡 **Why Drafts?** Work on posts without publishing them. Perfect for longer articles or collaborative writing.
-
-<div class="mermaid">
-flowchart LR
-    A[Create Draft] --> B[Preview with --drafts]
-    B --> C[Edit & Refine]
-    C --> D[Move to _posts/]
-    D --> E[Published!]
-    
-    style A fill:#fff3e0
-    style E fill:#c8e6c9
-</div>
-
-```bash
-# Create draft
-mkdir _drafts
-echo "---\ntitle: Draft Post\n---\nContent" > _drafts/draft-post.md
-
-# Preview drafts
-jekyll serve --drafts
-
-# Publish draft
-mv _drafts/draft-post.md _posts/2024-01-01-draft-post.md
-```
-
-> ⚠️ **Draft Tip:** Drafts don't need dates in filenames. Add the date when you publish.
-
----
-
-## 🎨 Themes and Customization 🟡 Intermediate
-
-> 💡 **Theme Basics:** Themes control your site's appearance. Start with simple changes, then move to custom themes.
-
-### Simple Customizations ⏱️ 5 mins | 🟢 Beginner
-
-**Change Colors (Minima theme):**
-```scss
-# Create assets/css/style.scss
----
----
-@import "minima";
-
-.site-header {
-  background-color: #2a7ae4;
-}
-```
-
-### 🏃♂️ Try It Now - Styling Exercise
-1. Create the CSS file above
-2. Change the header color
-3. Refresh your site to see the blue header
-
-### Using Gem-based Themes ⏱️ 10 mins | 🟡 Intermediate
-
-**Prerequisites:** Understanding of Gemfiles
-
-```ruby
-# Gemfile
-gem "minima", "~> 2.5"
-gem "jekyll-theme-cayman"
-```
-
-> 💡 **Why Gem Themes?** Easy to update, maintain, and switch between themes without losing content. Learn advanced customization in our [Jekyll Customization Techniques](/blog/advanced-jekyll-customization/) guide.
+> 💡 **Why Gem Themes?** Easy to update, maintain, and switch between themes without losing content.
 
 ### Fork-based Themes ⏱️ 20 mins | 🟡 Intermediate
 
@@ -776,7 +595,7 @@ var disqus_config = function () {
 
 ### SEO Optimization ⏱️ 10 mins | 🟡 Intermediate
 
-> 💡 **Why SEO?** Help search engines understand and rank your content better. For comprehensive SEO strategies, check out our [Jekyll SEO Best Practices guide](/blog/jekyll-seo-best-practices/).
+> 💡 **Why SEO?** Help search engines understand and rank your content better. For comprehensive SEO strategies, check out the [Jekyll SEO Tag documentation](https://github.com/jekyll/jekyll-seo-tag).
 
 ```yaml
 # _config.yml
@@ -907,20 +726,20 @@ Jekyll has excellent GitHub Pages integration, a large community, extensive them
 ## 📖 Related Posts
 
 **Continue Your Jekyll Journey:**
-- [Advanced Jekyll Customization Techniques](/blog/advanced-jekyll-customization/)
-- [Jekyll Performance Optimization Guide](/blog/jekyll-performance-optimization/)
-- [Building Custom Jekyll Plugins](/blog/custom-jekyll-plugins/)
-- [Jekyll vs Hugo: Static Site Generator Comparison](/blog/jekyll-vs-hugo-comparison/)
-- [Migrating from WordPress to Jekyll](/blog/wordpress-to-jekyll-migration/)
-- [Jekyll SEO Best Practices](/blog/jekyll-seo-best-practices/)
-- [Creating Dynamic Content with Jekyll Collections](/blog/jekyll-collections-guide/)
-- [Jekyll Liquid Template Mastery](/blog/jekyll-liquid-templates/)
+- [Jekyll Documentation](https://jekyllrb.com/docs/) - Official Jekyll documentation
+- [Jekyll Themes](https://jekyllthemes.io/) - Browse and download Jekyll themes
+- [Jekyll Plugins](https://jekyllrb.com/docs/plugins/) - Extend Jekyll functionality
+- [Jekyll vs Other Static Site Generators](https://www.staticgen.com/) - Compare static site generators
+- [Jekyll Community Forum](https://talk.jekyllrb.com/) - Get help from the community
+- [Jekyll SEO Tag Plugin](https://github.com/jekyll/jekyll-seo-tag) - SEO optimization for Jekyll
+- [Jekyll Collections Guide](https://jekyllrb.com/docs/collections/) - Organize content with collections
+- [Liquid Template Language](https://shopify.github.io/liquid/) - Master Jekyll's templating
 
 **Web Development Fundamentals:**
-- [Git and GitHub Essentials for Developers](/blog/git-github-essentials/)
-- [Markdown Complete Guide](/blog/markdown-complete-guide/)
-- [CSS Grid and Flexbox for Modern Layouts](/blog/css-grid-flexbox-guide/)
-- [JavaScript ES6+ Features Every Developer Should Know](/blog/javascript-es6-features/)
+- [Git and GitHub Essentials](https://docs.github.com/en/get-started) - Version control basics
+- [Markdown Guide](https://www.markdownguide.org/) - Complete Markdown reference
+- [CSS Grid and Flexbox](https://css-tricks.com/snippets/css/complete-guide-grid/) - Modern CSS layouts
+- [JavaScript ES6+ Features](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Modern JavaScript
 
 ---
 
@@ -961,7 +780,7 @@ flowchart LR
 ### 🟢 If You're a Beginner
 1. **Complete the Quick Start** - Get your site live first
 2. **Write 3-5 posts** - Focus on content over customization
-3. **Learn basic Markdown** - [Essential syntax guide](/blog/markdown-complete-guide/) for writing posts
+3. **Learn basic Markdown** - [Essential syntax guide](https://www.markdownguide.org/) for writing posts
 4. **Customize your About page** - Make it personal
 
 ### 🟡 If You're Intermediate
@@ -973,7 +792,7 @@ flowchart LR
 ### 🔴 If You're Advanced
 1. **Create custom layouts** - Unique design elements
 2. **Build custom plugins** - Extend Jekyll's functionality
-3. **Optimize performance** - [Fast loading techniques](/blog/jekyll-performance-optimization/) and best practices
+3. **Optimize performance** - [Fast loading techniques](https://jekyllrb.com/docs/performance/) and best practices
 4. **Set up CI/CD** - Automated testing and deployment
 
 ---
