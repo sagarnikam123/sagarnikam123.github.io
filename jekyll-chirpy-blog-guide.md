@@ -6,7 +6,7 @@ Complete documentation for Jekyll blog development using the Chirpy theme, inclu
 
 ### Jekyll Commands
 ```bash
-# Install dependencies
+# Install Ruby dependencies
 bundle install
 
 # Serve locally with live reload
@@ -35,6 +35,24 @@ JEKYLL_ENV=development
 # Production (enables analytics, PWA)
 JEKYLL_ENV=production
 ```
+
+### Self-Hosted Assets
+Self-hosted assets means CSS/JS files are served from your site instead of external CDNs.
+
+When `assets.self_host.enabled: true` in `_config.yml`:
+
+```bash
+# Required: Install Node.js dependencies
+npm install
+
+# Required: Build CSS/JS assets before Jekyll build
+npm run build
+
+# Then build Jekyll
+bundle exec jekyll build
+```
+
+**Note:** Self-hosted assets require Node.js and npm. For GitHub Pages without custom build process, set `assets.self_host.enabled: false` to use CDN assets.
 
 ## 📝 Content Creation
 
