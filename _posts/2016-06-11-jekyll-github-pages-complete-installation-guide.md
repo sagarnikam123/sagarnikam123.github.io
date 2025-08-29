@@ -54,7 +54,7 @@ flowchart TD
 1. [🚀 Quick Start Options](#-quick-start-options) 🟢
 2. [🛠️ Installation Methods](#️-installation-methods) 🟡
 3. [🏗️ Site Structure Setup](#️-site-structure-setup) 🟡
-4. [⚙️ Configuration](#-configuration) 🟢
+4. [⚙️ Configuration](#️-configuration) 🟢
 5. [📝 Creating Blog Posts](#-creating-blog-posts) 🟢
 6. [🎨 Themes and Customization](#-themes-and-customization) 🟡
 7. [🚀 Deployment Workflows](#-deployment-workflows) 🔴
