@@ -2,7 +2,7 @@
 title: "Complete Jekyll Guide: From Installation to GitHub Pages Blogging"
 description: "Step-by-step Jekyll tutorial for beginners. Learn Jekyll installation, GitHub Pages setup, blog creation, themes, and deployment. Complete guide with examples."
 author: sagarnikam123
-date: 2024-12-19 12:00:00 +0530
+date: 2016-06-11 12:00:00 +0530
 categories: [blog, web-development, tutorial]
 tags: [jekyll, github-pages, blogging, static-sites, guide]
 mermaid: true
