@@ -18,8 +18,13 @@ NC='\033[0m' # No Color
 # Default settings
 DEFAULT_QUALITY=85
 DEFAULT_LQIP_QUALITY=20
-DEFAULT_LQIP_SIZE="32x32"
 DEFAULT_SHARPNESS=2
+
+# Image dimensions
+HEADER_WIDTH=1120
+HEADER_HEIGHT=600
+LQIP_WIDTH=32
+LQIP_HEIGHT=32
 
 # WebP Quality Settings: 0-100 (0=smallest/worst, 100=largest/best) | Recommended: 75-85 for photos, 85-95 for graphics
 # Sharpness Settings: 0-7 (0=off, 1-2=photos, 3-4=graphics/text, 5-7=screenshots) | Recommended: 0 for photos, 2 for blog images, 3+ for text/diagrams
@@ -36,8 +41,12 @@ check_dependencies() {
         missing_deps+=("base64")
     fi
 
-    if ! command -v convert &> /dev/null; then
-        missing_deps+=("convert (ImageMagick)")
+    if ! command -v identify &> /dev/null; then
+        missing_deps+=("identify (ImageMagick)")
+    fi
+
+    if ! command -v mktemp &> /dev/null; then
+        missing_deps+=("mktemp")
     fi
 
     if [ ${#missing_deps[@]} -ne 0 ]; then
@@ -60,8 +69,8 @@ usage() {
     echo "  type        - Image type: header|lqip|auto (optional, defaults to auto)"
     echo ""
     echo "Image Types:"
-    echo "  header - Blog header image (1200x630px, quality 85, sharpness 2)"
-    echo "  lqip   - Low Quality Image Placeholder (32x32px, quality 20)"
+    echo "  header - Blog header image (${HEADER_WIDTH}x${HEADER_HEIGHT}px, quality 85, sharpness 2)-previously-1200x630px"
+    echo "  lqip   - Low Quality Image Placeholder (${LQIP_WIDTH}x${LQIP_HEIGHT}px, quality ${DEFAULT_LQIP_QUALITY})"
     echo "  auto   - Auto-detect based on image dimensions"
     echo ""
     echo "Quality: 0-100 (75-85 photos, 85-95 graphics) | Sharpness: 0-7 (0 photos, 2 blog, 3+ text)"
@@ -105,42 +114,95 @@ convert_to_webp() {
     local width="$5"
     local height="$6"
 
-    local cmd="cwebp"
+    # Validate input parameters
+    if [ ! -f "$input_file" ]; then
+        echo -e "${RED}Error: Input file does not exist: $input_file${NC}" >&2
+        return 1
+    fi
 
-    # Add quality
-    cmd="$cmd -q $quality"
+    if [ -z "$quality" ] || [ "$quality" -lt 0 ] || [ "$quality" -gt 100 ]; then
+        echo -e "${RED}Error: Invalid quality value: $quality (must be 0-100)${NC}" >&2
+        return 1
+    fi
+
+    # Build command arguments array
+    local args=("-q" "$quality")
 
     # Add sharpness if specified
-    if [ -n "$sharpness" ]; then
-        cmd="$cmd -sharpness $sharpness"
+    if [ -n "$sharpness" ] && [ "$sharpness" -ge 0 ] && [ "$sharpness" -le 7 ]; then
+        args+=("-sharpness" "$sharpness")
     fi
 
     # Add resize if specified
     if [ -n "$width" ] && [ -n "$height" ]; then
-        cmd="$cmd -resize $width $height"
+        args+=("-resize" "$width" "$height")
     fi
 
     # Add input and output
-    cmd="$cmd \"$input_file\" -o \"$output_file\""
+    args+=("$input_file" "-o" "$output_file")
 
-    echo -e "${BLUE}Converting:${NC} $cmd"
-    eval "$cmd"
+    echo -e "${BLUE}Converting:${NC} cwebp ${args[*]}"
+
+    # Execute command directly (safer than eval)
+    if ! cwebp "${args[@]}"; then
+        echo -e "${RED}Error: WebP conversion failed for $input_file${NC}" >&2
+        return 1
+    fi
+
+    # Verify output file was created
+    if [ ! -f "$output_file" ]; then
+        echo -e "${RED}Error: Output file was not created: $output_file${NC}" >&2
+        return 1
+    fi
 }
 
 # Generate LQIP Base64
 generate_lqip_base64() {
     local webp_file="$1"
-    local temp_lqip="/tmp/lqip_temp.webp"
 
-    # Create LQIP version
-    cwebp -q "$DEFAULT_LQIP_QUALITY" -resize 32 32 "$webp_file" -o "$temp_lqip" 2>/dev/null
+    # Validate input
+    if [ ! -f "$webp_file" ]; then
+        echo -e "${RED}Error: WebP file does not exist: $webp_file${NC}" >&2
+        return 1
+    fi
+
+    # Create unique temporary file
+    local temp_lqip
+    if ! temp_lqip=$(mktemp --suffix=.webp); then
+        echo -e "${RED}Error: Failed to create temporary file${NC}" >&2
+        return 1
+    fi
+
+    # Ensure cleanup on exit
+    trap "rm -f '$temp_lqip'" EXIT
+
+    # Create LQIP version with error handling
+    if ! cwebp -q "$DEFAULT_LQIP_QUALITY" -resize "$LQIP_WIDTH" "$LQIP_HEIGHT" "$webp_file" -o "$temp_lqip" 2>/dev/null; then
+        echo -e "${RED}Error: Failed to create LQIP version${NC}" >&2
+        rm -f "$temp_lqip"
+        return 1
+    fi
+
+    # Verify LQIP file was created
+    if [ ! -f "$temp_lqip" ] || [ ! -s "$temp_lqip" ]; then
+        echo -e "${RED}Error: LQIP file was not created or is empty${NC}" >&2
+        rm -f "$temp_lqip"
+        return 1
+    fi
 
     # Generate Base64
-    local base64_data=$(base64 -i "$temp_lqip" | tr -d '\n')
+    local base64_data
+    if ! base64_data=$(base64 -i "$temp_lqip" | tr -d '\n'); then
+        echo -e "${RED}Error: Failed to generate Base64 data${NC}" >&2
+        rm -f "$temp_lqip"
+        return 1
+    fi
+
     local data_uri="data:image/webp;base64,$base64_data"
 
     # Cleanup
     rm -f "$temp_lqip"
+    trap - EXIT
 
     echo "$data_uri"
 }
@@ -180,10 +242,10 @@ process_image() {
     # Process based on type
     case "$image_type" in
         "header")
-            convert_to_webp "$input_file" "$output_file" "$DEFAULT_QUALITY" "$DEFAULT_SHARPNESS" "1200" "630"
+            convert_to_webp "$input_file" "$output_file" "$DEFAULT_QUALITY" "$DEFAULT_SHARPNESS" "$HEADER_WIDTH" "$HEADER_HEIGHT"
             ;;
         "lqip")
-            convert_to_webp "$input_file" "$output_file" "$DEFAULT_LQIP_QUALITY" "" "32" "32"
+            convert_to_webp "$input_file" "$output_file" "$DEFAULT_LQIP_QUALITY" "" "$LQIP_WIDTH" "$LQIP_HEIGHT"
             ;;
         "standard")
             convert_to_webp "$input_file" "$output_file" "$DEFAULT_QUALITY" "$DEFAULT_SHARPNESS" "" ""
@@ -197,18 +259,25 @@ process_image() {
     # Generate LQIP Base64 for all images except LQIP type
     if [ "$image_type" != "lqip" ]; then
         echo -e "${BLUE}Generating LQIP Base64...${NC}"
-        local lqip_data=$(generate_lqip_base64 "$output_file")
-        local lqip_length=${#lqip_data}
+        local lqip_data
+        if lqip_data=$(generate_lqip_base64 "$output_file"); then
+            local lqip_length=${#lqip_data}
 
-        echo -e "${GREEN}LQIP Generated:${NC} $lqip_length characters"
-        echo -e "${YELLOW}LQIP Data:${NC}"
-        echo "$lqip_data"
-        echo ""
+            echo -e "${GREEN}LQIP Generated:${NC} $lqip_length characters"
+            echo -e "${YELLOW}LQIP Data:${NC}"
+            echo "$lqip_data"
+            echo ""
 
-        # Save LQIP to file
-        local lqip_file="$output_dir/${name}_lqip.txt"
-        echo "$lqip_data" > "$lqip_file"
-        echo -e "${GREEN}LQIP saved to:${NC} $lqip_file"
+            # Save LQIP to file
+            local lqip_file="$output_dir/${name}_lqip.txt"
+            if echo "$lqip_data" > "$lqip_file"; then
+                echo -e "${GREEN}LQIP saved to:${NC} $lqip_file"
+            else
+                echo -e "${YELLOW}Warning: Failed to save LQIP to file${NC}" >&2
+            fi
+        else
+            echo -e "${YELLOW}Warning: Failed to generate LQIP Base64${NC}" >&2
+        fi
     fi
 
     # Show file sizes
@@ -230,6 +299,16 @@ main() {
     local input_file="$1"
     local output_dir="$2"
     local image_type="${3:-auto}"
+
+    # Validate image type
+    case "$image_type" in
+        "header"|"lqip"|"standard"|"auto")
+            ;; # Valid types
+        *)
+            echo -e "${RED}Error: Invalid image type '$image_type'. Valid types: header, lqip, standard, auto${NC}" >&2
+            exit 1
+            ;;
+    esac
 
     # Show usage if no arguments
     if [ -z "$input_file" ]; then
