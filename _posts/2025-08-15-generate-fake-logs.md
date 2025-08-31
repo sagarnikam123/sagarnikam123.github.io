@@ -6,6 +6,10 @@ date: 2025-08-15 12:02:00 +0530
 categories: [logging, devops]
 tags: [log-generation, fake-logs, fuzzy-train, docker, kubernetes, testing, observability]
 mermaid: true
+image:
+  path: assets/img/posts/20250815/generate-fake-logs.webp
+  lqip: data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAABwBACdASogACAAPzmUwVmvKicjqAgB4CcJQAAdnMj2VGPMJlvq/COzzpDJgAD+9gDpFAXpu8iWloW65EiGgMQnVnETSnkyC5lR6guf4EBTWVpS/BW8qn5VIj8x2+DkjKlgQCsLy3RUc/4t4bIZtX5PNh3QC98Q/MMfT/u4eu3spF9TXf9UzsvTwpE98vofdhaeYjuMFHdi1G93qRpbPD7gAAA=
+  alt: Generate Fake Logs for Testing Log Aggregation Platform
 ---
 
 Testing **log aggregation platforms** like Loki, Elastic Stack, and Splunk requires realistic **fake log data** that mimics production environments. This comprehensive **log generation guide** covers the best tools and techniques for **generating fake logs**, complete with Docker and Kubernetes deployment examples.
