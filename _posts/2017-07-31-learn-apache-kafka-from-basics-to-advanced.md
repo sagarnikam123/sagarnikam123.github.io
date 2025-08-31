@@ -8,7 +8,7 @@ tags: [kafka, streaming, messaging, event-driven, microservices]
 mermaid: true
 image:
   path: assets/img/posts/20170731/apache-kafka-guide.webp
-  lqip: data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAACwBQCdASogACAAPzmMwVavKSejqAqp4CcJYgDLaYxas28Jb7Aj1DsUNpArOkHeEwXLSJzO7QAA/viwTl7F4Yjf/puBCXYDWk9Rp3oPEvju/5UjEmy7lhPh9b9FncvCitI2+SwVc8XcoS+/UDOAsCBGUx5E0PfpMLVncGoam+yU3O4Hd6EFSQYdSL/CfrUyd8MVanuAhxA7dCZA5q5CN5oAZCUkr8DATam9rcW+jUYLkFbUwJEAAA==
+  lqip: data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAAAwBQCdASogACAAPzmWwlovKqckKAgB4CcJYwBTABOW0KY0G2lxfX2Dxti2dIsktiMyAAD+9gUKS0T6wpa3KrE1PKjkWMqScMkS76ZppodhoKftnylw4NV4r6F1ZM7VqTS6U3mKta2XI5X0eYmSDAn40lZgOYUK3SLSsS5g3MEwsaQfKBVXcWgAAAA=
   alt: "Apache Kafka Tutorial - Complete Guide from Beginner to Expert"
 ---
 
