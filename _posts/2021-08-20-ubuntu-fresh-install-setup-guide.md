@@ -5,6 +5,10 @@ author: sagarnikam123
 date: 2021-08-20 12:00:00 +0530
 categories: [ubuntu, linux, setup]
 tags: [installation, development, configuration, guide, post-install]
+image:
+  path: assets/img/posts/20210820/ubuntu-fresh-install-setup-guide.webp
+  lqip: data:image/webp;base64,UklGRgIBAABXRUJQVlA4IPYAAACQBgCdASogACAAPzGCslOuqKSisAwB0CYJbAC/WSG6gmlVGghAESDGUYjc2lf
+  alt: Ubuntu Fresh Install Setup Guide - Essential Developer Environment Configuration
 ---
 
 Setting up Ubuntu after a fresh installation requires installing essential development software and configuring your programming environment. This comprehensive Ubuntu setup guide covers everything from system cleanup and security configuration to Java, Node.js, Docker installation, helping you create a productive Ubuntu development workstation optimized for modern software development.
