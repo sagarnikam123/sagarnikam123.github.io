@@ -168,7 +168,7 @@ generate_lqip_base64() {
 
     # Create unique temporary file
     local temp_lqip
-    if ! temp_lqip=$(mktemp --suffix=.webp); then
+    if ! temp_lqip=$(mktemp -t lqip.XXXXXX.webp); then
         echo -e "${RED}Error: Failed to create temporary file${NC}" >&2
         return 1
     fi
