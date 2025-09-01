@@ -5,6 +5,10 @@ author: sagarnikam123
 date: 2022-03-23 12:00:00 +0530
 categories: [macos, developer-tools, setup-guide]
 tags: [macos-setup, homebrew, developer-environment, fresh-install, productivity-tools]
+image:
+  path: assets/img/posts/20220323/macos-fresh-install-setup-guide.webp
+  lqip: data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADQBACdASogACAAPzmQvFYvKiYjsBgIAeAnCUAZdI0r+A2MVfYra1wninYMm2JYAAD++Kyorzv53bndByrFHH+EFfjPModAVwjFXHD0ln1IksSbKwcUS2J4LT+p0fAA
+  alt: Complete macOS Fresh Install Setup Guide for Developers - Essential Tools and Applications
 ---
 
 Setting up a **fresh macOS installation** can be overwhelming for developers and power users. This **complete macOS setup guide** covers essential **developer tools**, **Homebrew installation**, and **productivity apps** to get your Mac development-ready quickly.
