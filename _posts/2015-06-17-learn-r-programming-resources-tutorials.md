@@ -6,26 +6,40 @@ date: 2015-06-17 12:01:00 +0530
 categories: [data science, programming]
 tags: [r programming, data science, statistics, tutorial, machine learning]
 mermaid: true
+image:
+  path: assets/img/posts/20150617/r-programming-resource-guide.webp
+  lqip: data:image/webp;base64,UklGRoQAAABXRUJQVlA4IHgAAAAwBQCdASogACAAPzmSvVgvKiYjqAqp4CcJZACxH0xKRAEmIngb8KkmENEXDvQyNfoAAAD+832cz7yU0puRrhJ5Y/Hvn4yVTDqwLUNBWvN8ACLgu4wx/e3TkeSvm3K4mO6fL9twOSGLsuEGOfNvncQ3NYbu0CgAAAA=
+  alt: R Programming Resource Guide - Learn R for Data Science and Statistics
 ---
 
 **R programming** is one of the most powerful languages for **data science**, **statistics**, and **machine learning**. Whether you're a complete beginner or looking to advance your R skills, this comprehensive guide covers everything you need to master **R programming** in 2024.
 
 ## Table of Contents
+
+### 🟢 **BEGINNER (0-3 months)**
 - [🚀 Quick Start Guide](#quick-start)
 - [⚙️ Setup & Installation](#setup)
-- [🌱 Best Resources for Beginners](#beginner)
-- [🎓 Top Online Learning Platforms](#online-learning)
-- [🎥 Best Video Tutorials and YouTube Channels](#video-tutorials)
-- [📚 Free Books and Learning Guides](#free-guides)
-- [🛠️ Practice Projects and Datasets](#practice)
-- [🎮 Coding Challenges and Gamified Learning](#gamified-learning)
-- [📱 Mobile & Interactive Learning](#mobile-learning)
-- [📦 Essential R Packages for Different Industries and Domains](#domain-packages)
-- [📝 R Markdown for Publishing](#publishing)
-- [🏆 Certifications and Professional Credentials](#certifications)
-- [🔬 Advanced Resources and Documentation](#advanced)
-- [👥 Communities, Forums, and Blogs](#communities)
-- [❓ FAQ: Common Questions and Answers](#faq)
+- [🌱 Interactive Learning](#beginner)
+- [📖 Core Concepts](#core-concepts)
+- [🛠️ First Projects](#first-projects)
+
+### 🟡 **INTERMEDIATE (3-12 months)**
+- [🎓 Advanced Learning Platforms](#online-learning)
+- [📊 Portfolio Building](#portfolio-building)
+- [📦 Specialized Packages by Domain](#domain-packages)
+
+### 🔴 **ADVANCED (12+ months)**
+- [🤖 Machine Learning & AI](#machine-learning)
+- [⚡ High Performance Computing](#high-performance)
+- [🔬 Specialized Analytics](#specialized-analytics)
+- [📝 R Markdown & Publishing](#publishing)
+- [🏆 Professional Development](#professional-development)
+
+### 📚 **RESOURCES & COMMUNITY**
+- [📖 Books & Documentation](#books-docs)
+- [🎥 Video Tutorials](#video-tutorials)
+- [👥 Community & Support](#communities)
+- [❓ FAQ](#faq)
 
 ---
 
@@ -36,31 +50,57 @@ mermaid: true
 ```mermaid
 flowchart TD
     A["🚀 Start Here"] --> B["📥 Install R + RStudio"]
-    B --> C["📖 Read R for Data Science"]
-    C --> D["🎮 Try Swirl Interactive"]
-    D --> E["📊 Practice Tidy Tuesday"]
-    E --> F["🎯 Build Projects"]
+    B --> C["🟢 BEGINNER (0-3mo)"]
+    C --> C1["📖 R for Data Science"]
+    C --> C2["🎮 Swirl Interactive"]
+    C --> C3["📊 Basic ggplot2"]
 
-    G["🐍 From Python/SQL?"] --> H["📚 Advanced Resources"]
+    C1 --> D["🟡 INTERMEDIATE (3-12mo)"]
+    C2 --> D
+    C3 --> D
 
-    click B "#setup" "Go to Setup Guide"
-    click C "https://r4ds.hadley.nz/" "Read R for Data Science"
-    click D "https://swirlstats.com/" "Try Swirl Interactive"
-    click E "https://github.com/rfordatascience/tidytuesday" "Practice Tidy Tuesday"
-    click H "#advanced" "Jump to Advanced Resources"
+    D --> D1["📝 R Markdown"]
+    D --> D2["📊 Interactive Viz"]
+    D --> D3["💾 Data Import/Export"]
+
+    D1 --> E["🔴 ADVANCED (12mo+)"]
+    D2 --> E
+    D3 --> E
+
+    E --> E1["🤖 Machine Learning"]
+    E --> E2["⚡ High Performance"]
+    E --> E3["🔬 Specialized Domains"]
+
+    F["🐍 From Python/SQL?"] --> D
+
+    click B "#setup" "Setup Guide"
+    click C1 "https://r4ds.hadley.nz/" "R for Data Science"
+    click C2 "https://swirlstats.com/" "Swirl Interactive"
+    click E1 "#machine-learning" "ML Section"
+    click E2 "#high-performance" "HPC Section"
 
     style A fill:#e1f5fe
-    style F fill:#c8e6c9
-    style G fill:#fff3e0
-    style H fill:#f3e5f5
+    style C fill:#c8e6c9
+    style D fill:#fff3e0
+    style E fill:#ffcdd2
+    style F fill:#f3e5f5
 ```
 
-1. Install R + RStudio (see [Setup Guide](#setup))
-2. Read [R for Data Science](https://r4ds.hadley.nz/){:target="_blank" rel="noopener"} (free online book)
-3. Try [Swirl](https://swirlstats.com/){:target="_blank" rel="noopener"} for interactive learning
-4. Practice with [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday){:target="_blank" rel="noopener"} projects
+### 🟢 **Beginner Path (0-3 months)**
+1. Install R + RStudio → Complete [Swirl](https://swirlstats.com/){:target="_blank" rel="noopener"} lessons
+2. Read [R for Data Science](https://r4ds.hadley.nz/){:target="_blank" rel="noopener"} chapters 1-8
+3. Master: `dplyr`, `ggplot2`, basic data types
 
-**Coming from Python/SQL?** Jump to [Advanced Resources](#advanced)
+### 🟡 **Intermediate Path (3-12 months)**
+4. Learn R Markdown → Create reproducible reports
+5. Explore interactive viz → [plotly](https://plotly.com/r/){:target="_blank" rel="noopener"}, [DT](https://rstudio.github.io/DT/){:target="_blank" rel="noopener"}
+6. Practice [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday){:target="_blank" rel="noopener"} → Build portfolio
+
+### 🔴 **Advanced Path (12+ months)**
+7. Choose specialization → ML, HPC, or domain-specific
+8. Contribute to open source → Build expertise
+
+**Coming from Python/SQL?** Start at [Intermediate Level](#online-learning)
 
 ---
 
@@ -72,6 +112,12 @@ flowchart TD
 * [Posit Cloud](https://posit.cloud/){:target="_blank" rel="noopener"} - No installation needed, run R in browser
 * [CRAN Packages](https://cran.r-project.org/web/packages/){:target="_blank" rel="noopener"} - 19,000+ R packages
 * [RStudio Documentation](https://docs.posit.co/){:target="_blank" rel="noopener"} - Official help guides
+
+### Alternative IDEs & Editors
+* [VSCode](https://code.visualstudio.com/){:target="_blank" rel="noopener"} - With [R extension](https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r){:target="_blank" rel="noopener"} and [R LSP](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r-lsp){:target="_blank" rel="noopener"}
+* [Jupyter Notebook](https://jupyter.org/){:target="_blank" rel="noopener"} - With [IRkernel](https://github.com/IRkernel/IRkernel){:target="_blank" rel="noopener"} for R
+* [Vim/Neovim](https://neovim.io/){:target="_blank" rel="noopener"} - With [Nvim-R plugin](https://github.com/jalvesaq/Nvim-R){:target="_blank" rel="noopener"}
+* [Emacs + ESS](http://ess.r-project.org/){:target="_blank" rel="noopener"} - Emacs Speaks Statistics
 
 ### Installation Steps
 
@@ -101,12 +147,40 @@ flowchart LR
 
 ---
 
-## 🌱 Best Resources for Beginners {#beginner}
+# 🟢 BEGINNER (0-3 months)
 
-### 🆓 Free Interactive Learning
+## 🌱 Interactive Learning {#beginner}
+
+### 🆓 Start Here (Week 1-2)
+* [Swirl](https://swirlstats.com/){:target="_blank" rel="noopener"} - Interactive R lessons in your console ⭐ **Best first step**
 * [freeCodeCamp R Course](https://www.freecodecamp.org/news/r-programming-course/){:target="_blank" rel="noopener"} - Complete beginner course (⏱️ 4 hours)
+* [Posit Cloud](https://posit.cloud/){:target="_blank" rel="noopener"} - Run R in browser, no installation needed
+
+## 📖 Core Concepts {#core-concepts}
+
+### Essential Reading (Week 3-4)
+* [R for Data Science](https://r4ds.hadley.nz/){:target="_blank" rel="noopener"} - Chapters 1-8 (basics + data import)
+* [Hands-On Programming with R](https://rstudio-education.github.io/hopr/){:target="_blank" rel="noopener"} - Programming fundamentals
+* [ModernDive](https://moderndive.com/){:target="_blank" rel="noopener"} - Statistical inference (⭐ Beginner-friendly)
+
+### Master These Packages
+* `dplyr` - Data manipulation
+* `ggplot2` - Data visualization
+* `readr` - Data import
+
+## 🛠️ First Projects {#first-projects}
+
+### Practice Datasets (Week 5-8)
+* Built-in datasets: `mtcars`, `iris`, `diamonds`
+* [Kaggle Learn Datasets](https://www.kaggle.com/learn){:target="_blank" rel="noopener"} - Beginner-friendly
+
+### Weekly Challenges (Week 9-12)
+* [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday){:target="_blank" rel="noopener"} - Weekly R data projects
+* [Exercism R Track](https://exercism.org/tracks/r){:target="_blank" rel="noopener"} - Coding exercises with mentorship
 
 ---
+
+# 🟡 INTERMEDIATE (3-12 months)
 
 ## 🎓 Top Online Learning Platforms {#online-learning}
 ### 💰 Premium Platforms
@@ -123,60 +197,17 @@ flowchart LR
 
 
 
-## 🎥 Best Video Tutorials and YouTube Channels {#video-tutorials}
-### YouTube Channels
-* [StatQuest with Josh Starmer](https://www.youtube.com/c/joshstarmer){:target="_blank" rel="noopener"} - Statistics explained simply (⭐ Highly recommended)
-* [R Programming 101](https://www.youtube.com/c/RProgramming101){:target="_blank" rel="noopener"} - Comprehensive R tutorials
-* [Edureka R Tutorial](https://www.youtube.com/watch?v=fDRa82lxzaU){:target="_blank" rel="noopener"} - Complete R tutorial (⏱️ 6 hours)
-* [MarinStatsLectures](https://www.youtube.com/c/marinstatlectures){:target="_blank" rel="noopener"} - Statistics with R
+## 📊 Portfolio Building {#portfolio-building}
 
-### Modern R Creators
-* [Andrew Couch](https://www.youtube.com/c/AndrewCouch){:target="_blank" rel="noopener"} - Modern R tutorials and tips
-* [David Robinson](https://www.youtube.com/user/safe4democracy){:target="_blank" rel="noopener"} - Tidy Tuesday screencasts (⭐ Live coding)
-* [Julia Silge](https://www.youtube.com/c/JuliaSilge){:target="_blank" rel="noopener"} - Text mining and ML in R
-* [Riffomonas Project](https://www.youtube.com/c/RiffomonasProject){:target="_blank" rel="noopener"} - Reproducible research workflows
+### Build Your Portfolio
+* [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday){:target="_blank" rel="noopener"} - Weekly data projects ⭐ **Essential**
+* [GitHub Pages](https://pages.github.com/){:target="_blank" rel="noopener"} - Host your R projects
+* [Kaggle Competitions](https://www.kaggle.com/competitions){:target="_blank" rel="noopener"} - Real-world challenges
 
-### Data Science Inspiration
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/r2C8IMHEIJ8" title="Top 10 movies on Data Science & Machine Learning (2018)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-*Top 10 movies on Data Science & Machine Learning (2018) - Movies to inspire your data science journey*
-
----
-
-## 📚 Free Books and Learning Guides {#free-guides}
-### Essential Books (Free Online)
-* [Hands-On Programming with R](https://rstudio-education.github.io/hopr/){:target="_blank" rel="noopener"} - Programming fundamentals
-* [R Graphics Cookbook](https://r-graphics.org/){:target="_blank" rel="noopener"} - Data visualization recipes
-* [ModernDive](https://moderndive.com/){:target="_blank" rel="noopener"} - Statistical inference (⭐ Beginner-friendly)
-
-### Modern Specialized Books
-* [Big Book of R](https://www.bigbookofr.com/){:target="_blank" rel="noopener"} - Comprehensive resource collection (⭐ 200+ books)
-* [Geocomputation with R](https://geocompr.robinlovelace.net/){:target="_blank" rel="noopener"} - Spatial data analysis
-* [Text Mining with R](https://www.tidytextmining.com/){:target="_blank" rel="noopener"} - Natural language processing
-
-### Official Documentation
-* [An Introduction to R](https://cran.r-project.org/doc/manuals/R-intro.pdf){:target="_blank" rel="noopener"} - Official R manual (PDF)
-* [R Cheatsheets](https://posit.co/resources/cheatsheets/){:target="_blank" rel="noopener"} - Quick reference cards
-* [Posit Recipes](https://posit.cloud/learn/recipes){:target="_blank" rel="noopener"} - R code snippets collection
-* [Posit Education](https://education.rstudio.com/){:target="_blank" rel="noopener"} - Learning resources and materials
-
-
-
----
-
-## 🎮 Coding Challenges and Gamified Learning {#gamified-learning}
-
-### Coding Challenges
-* [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday){:target="_blank" rel="noopener"} - Weekly R data projects
-* [Exercism R Track](https://exercism.org/tracks/r){:target="_blank" rel="noopener"} - R coding exercises with mentorship
-
----
-
-## 📱 Mobile & Interactive Learning {#mobile-learning}
-
-### Mobile Apps
-* [Posit Cloud](https://posit.cloud/){:target="_blank" rel="noopener"} - Run R in browser, no installation needed
+### Showcase Your Work
+* Create R Markdown reports
+* Build Shiny web applications
+* Contribute to open source R packages
 
 ---
 
@@ -211,111 +242,127 @@ flowchart LR
 * [tidytext](https://www.tidytextmining.com/){:target="_blank" rel="noopener"} - Tidy text analysis
 * [quanteda](https://quanteda.io/){:target="_blank" rel="noopener"} - Quantitative text analysis
 
+> **Advanced packages** for ML, interactive viz, HPC, and specialized domains are covered in their dedicated sections below.
+
 ---
 
-## 🛠️ Practice Projects and Datasets {#practice}
+# 🔴 ADVANCED (12+ months)
 
-### Hands-On Practice
-* [Swirl](https://swirlstats.com/){:target="_blank" rel="noopener"} - Interactive R lessons in your console
+## 🤖 Machine Learning & AI {#machine-learning}
 
-### Free Datasets for Analysis
-* [Kaggle Datasets](https://www.kaggle.com/datasets){:target="_blank" rel="noopener"} - Thousands of real-world datasets
-* [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php){:target="_blank" rel="noopener"} - Classic ML datasets
-* [World Bank Open Data](https://data.worldbank.org/){:target="_blank" rel="noopener"} - Global development data
-* [Our World in Data](https://ourworldindata.org/){:target="_blank" rel="noopener"} - Research and data on global issues
-* [Google Dataset Search](https://datasetsearch.research.google.com/){:target="_blank" rel="noopener"} - Search engine for datasets
-* [FiveThirtyEight Data](https://github.com/fivethirtyeight/data){:target="_blank" rel="noopener"} - Data behind news stories
-* [Data.gov](https://www.data.gov/){:target="_blank" rel="noopener"} - US government open data
-* [European Data Portal](https://data.europa.eu/en){:target="_blank" rel="noopener"} - EU open data
+### Modern ML Frameworks
+* [tidymodels](https://www.tidymodels.org/){:target="_blank" rel="noopener"} - Modern ML framework with tidy principles
+* [caret](https://topepo.github.io/caret/){:target="_blank" rel="noopener"} - Classification and regression training (⭐ Most popular)
+* [mlr3](https://mlr3.mlr-org.com/){:target="_blank" rel="noopener"} - Next-generation extensible ML framework
+* [h2o](https://docs.h2o.ai/h2o/latest-stable/h2o-r/docs/index.html){:target="_blank" rel="noopener"} - Scalable ML platform with AutoML
 
-```mermaid
-flowchart LR
-    subgraph LEFT [" "]
-        direction TB
-        subgraph DS ["📊 Data Sources & Datasets"]
-        DS1["🏆 Kaggle Datasets<br/>Real-world competitions"]
-        DS2["🎓 UCI ML Repository<br/>Classic ML datasets"]
-        DS3["🌍 World Bank Open Data<br/>Global development"]
-        DS4["📰 FiveThirtyEight Data<br/>News & politics"]
-        DS5["🔍 Google Dataset Search<br/>Search engine"]
-        DS6["🏛️ Data.gov<br/>US government data"]
-        DS7["🇪🇺 European Data Portal<br/>EU open data"]
-        DS8["📈 Our World in Data<br/>Global research"]
-    end
+### Gradient Boosting & Tree Methods
+* [xgboost](https://xgboost.readthedocs.io/en/stable/R-package/){:target="_blank" rel="noopener"} - Extreme gradient boosting (⭐ Competition winner)
+* [lightgbm](https://lightgbm.readthedocs.io/en/latest/R/index.html){:target="_blank" rel="noopener"} - Light gradient boosting machine
+* [randomForest](https://cran.r-project.org/package=randomForest){:target="_blank" rel="noopener"} - Breiman's random forests
+* [ranger](https://github.com/imbs-hl/ranger){:target="_blank" rel="noopener"} - Fast implementation of random forests
 
-        subgraph LP ["📚 Learning Resources"]
-        LP1["💻 DataCamp<br/>Interactive courses"]
-        LP2["🎓 Coursera<br/>University courses"]
-        LP3["📺 YouTube Channels<br/>StatQuest, R Programming"]
-        LP4["📖 Free Online Books<br/>R4DS, ModernDive"]
-        LP5["🎮 Swirl<br/>Interactive R lessons"]
-        LP6["📝 Tidy Tuesday<br/>Weekly data projects"]
-        LP7["💡 Exercism<br/>Coding exercises"]
-        LP8["☁️ Posit Cloud<br/>Browser-based R"]
-        LP9["📊 R Weekly<br/>Weekly R news"]
-        LP10["📕 R Journal<br/>Academic articles"]
-    end
+### Deep Learning & Neural Networks
+* [torch](https://torch.mlverse.org/){:target="_blank" rel="noopener"} - Deep learning with GPU acceleration
+* [tensorflow](https://tensorflow.rstudio.com/){:target="_blank" rel="noopener"} - TensorFlow for R
+* [keras](https://keras.rstudio.com/){:target="_blank" rel="noopener"} - High-level neural networks API
+* [nnet](https://cran.r-project.org/package=nnet){:target="_blank" rel="noopener"} - Feed-forward neural networks
 
-    end
+### Specialized ML Algorithms
+* [e1071](https://cran.r-project.org/package=e1071){:target="_blank" rel="noopener"} - SVM, naive Bayes, clustering
+* [glmnet](https://glmnet.stanford.edu/){:target="_blank" rel="noopener"} - Lasso and elastic-net regularization
+* [kernlab](https://cran.r-project.org/package=kernlab){:target="_blank" rel="noopener"} - Kernel-based machine learning
+* [cluster](https://cran.r-project.org/package=cluster){:target="_blank" rel="noopener"} - Cluster analysis
 
-    subgraph RIGHT [" "]
-        direction TB
-        subgraph PK ["📦 Essential R Packages"]
-        PK1["🧹 tidyverse<br/>Data manipulation"]
-        PK2["📊 ggplot2<br/>Data visualization"]
-        PK3["✨ shiny<br/>Interactive web apps"]
-        PK4["📄 rmarkdown<br/>Reports & documents"]
-        PK5["🧬 Bioconductor<br/>Bioinformatics"]
-        PK6["💰 quantmod<br/>Financial analysis"]
-        PK7["🗺️ sf & leaflet<br/>Geospatial analysis"]
-        PK8["📝 tidytext<br/>Text mining"]
-    end
+### Model Evaluation & Validation
+* [yardstick](https://yardstick.tidymodels.org/){:target="_blank" rel="noopener"} - Tidy model evaluation metrics
+* [ROCR](https://cran.r-project.org/package=ROCR){:target="_blank" rel="noopener"} - ROC curve visualization
+* [pROC](https://cran.r-project.org/package=pROC){:target="_blank" rel="noopener"} - ROC curve analysis
 
-        subgraph CM ["👥 Community & Support"]
-        CM1["👩‍💻 R-Ladies Global<br/>Gender diversity"]
-        CM2["❓ Stack Overflow<br/>Programming help"]
-        CM3["📰 R-bloggers<br/>Community blogs"]
-        CM4["💬 Posit Community<br/>Official forum"]
-        CM5["🤝 R User Groups<br/>Local meetups"]
-        CM6["📊 Simply Statistics<br/>Data science insights"]
-    end
+---
 
-    click DS1 "https://www.kaggle.com/datasets" "Kaggle Datasets"
-    click DS2 "https://archive.ics.uci.edu/ml/index.php" "UCI ML Repository"
-    click DS3 "https://data.worldbank.org/" "World Bank Data"
-    click DS4 "https://github.com/fivethirtyeight/data" "FiveThirtyEight Data"
-    click DS5 "https://datasetsearch.research.google.com/" "Google Dataset Search"
-    click DS6 "https://www.data.gov/" "Data.gov"
-    click DS7 "https://data.europa.eu/en" "European Data Portal"
-    click DS8 "https://ourworldindata.org/" "Our World in Data"
+## 📊 Interactive Visualizations & HTML Widgets {#interactive-viz}
 
-    click LP1 "https://app.datacamp.com/learn/courses?technologies=1" "DataCamp R Courses"
-    click LP2 "https://www.coursera.org/" "Coursera"
-    click LP3 "#video-tutorials" "YouTube Channels Section"
-    click LP4 "#free-guides" "Free Books Section"
-    click LP5 "https://swirlstats.com/" "Swirl Interactive"
-    click LP6 "https://github.com/rfordatascience/tidytuesday" "Tidy Tuesday"
-    click LP7 "https://exercism.org/tracks/r" "Exercism R Track"
-    click LP8 "https://posit.cloud/" "Posit Cloud"
-    click LP9 "https://rweekly.org/" "R Weekly"
-    click LP10 "https://journal.r-project.org/" "R Journal"
+### Interactive Plotting
+* [plotly](https://plotly.com/r/){:target="_blank" rel="noopener"} - Interactive plots from ggplot2 (⭐ Most popular)
+* [highcharter](https://jkunst.com/highcharter/){:target="_blank" rel="noopener"} - Highcharts wrapper for R
+* [echarts4r](https://echarts4r.john-coene.com/){:target="_blank" rel="noopener"} - Apache ECharts wrapper
+* [rbokeh](https://hafen.github.io/rbokeh/){:target="_blank" rel="noopener"} - R interface to Bokeh
 
-    click CM1 "https://rladies.org/" "R-Ladies Global"
-    click CM2 "https://stackoverflow.com/questions/tagged/r" "R Questions on Stack Overflow"
-    click CM3 "https://www.r-bloggers.com/" "R-bloggers"
-    click CM4 "https://forum.posit.co/" "Posit Community Forum"
-    click CM5 "https://www.meetup.com/pro/r-user-groups/" "R User Groups"
-    click CM6 "https://simplystatistics.org/" "Simply Statistics"
+### Data Tables & Dashboards
+* [DT](https://rstudio.github.io/DT/){:target="_blank" rel="noopener"} - Interactive data tables (⭐ Essential)
+* [reactable](https://glin.github.io/reactable/){:target="_blank" rel="noopener"} - Modern interactive tables
+* [gt](https://gt.rstudio.com/){:target="_blank" rel="noopener"} - Grammar of tables
+* [formattable](https://renkun-ken.github.io/formattable/){:target="_blank" rel="noopener"} - Formattable data structures
 
-    end
+### Network & Graph Visualization
+* [networkD3](https://christophergandrud.github.io/networkD3/){:target="_blank" rel="noopener"} - D3 network graphs
+* [visNetwork](https://datastorm-open.github.io/visNetwork/){:target="_blank" rel="noopener"} - Network visualization with vis.js
+* [DiagrammeR](https://rich-iannone.github.io/DiagrammeR/){:target="_blank" rel="noopener"} - Graph diagrams and flowcharts
 
-    style DS fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style LP fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-    style PK fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
-    style CM fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    style LEFT fill:none,stroke:none
-    style RIGHT fill:none,stroke:none
-```
+### Time Series & Financial Charts
+* [dygraphs](https://rstudio.github.io/dygraphs/){:target="_blank" rel="noopener"} - Time series charting
+* [quantmod](http://www.quantmod.com/){:target="_blank" rel="noopener"} - Financial charting
+* [timevis](https://github.com/daattali/timevis){:target="_blank" rel="noopener"} - Timeline visualizations
+
+### 3D & Specialized Visualizations
+* [threejs](https://github.com/bwlewis/rthreejs){:target="_blank" rel="noopener"} - 3D scatter plots and globes
+* [rayshader](https://www.rayshader.com/){:target="_blank" rel="noopener"} - 2D and 3D data visualizations
+* [wordcloud2](https://github.com/Lchiffon/wordcloud2){:target="_blank" rel="noopener"} - Interactive word clouds
+
+---
+
+## ⚡ High Performance Computing {#high-performance}
+
+### Parallel Computing
+* [future](https://future.futureverse.org/){:target="_blank" rel="noopener"} - Unified parallel computing framework (⭐ Modern approach)
+* [foreach](https://cran.r-project.org/package=foreach){:target="_blank" rel="noopener"} - Parallel loops
+* [parallel](https://stat.ethz.ch/R-manual/R-devel/library/parallel/html/00Index.html){:target="_blank" rel="noopener"} - Built-in parallel computing
+* [doParallel](https://cran.r-project.org/package=doParallel){:target="_blank" rel="noopener"} - Parallel backend for foreach
+
+### Fast Data Manipulation
+* [data.table](https://rdatatable.gitlab.io/data.table/){:target="_blank" rel="noopener"} - Fast data manipulation (⭐ Fastest for large data)
+* [dtplyr](https://dtplyr.tidyverse.org/){:target="_blank" rel="noopener"} - dplyr backend for data.table
+* [collapse](https://sebkrantz.github.io/collapse/){:target="_blank" rel="noopener"} - Advanced data transformation
+
+### C++ Integration
+* [Rcpp](https://www.rcpp.org/){:target="_blank" rel="noopener"} - Seamless R and C++ integration (⭐ Essential for speed)
+* [cpp11](https://cpp11.r-lib.org/){:target="_blank" rel="noopener"} - Modern C++ interface for R
+* [RcppArmadillo](https://cran.r-project.org/package=RcppArmadillo){:target="_blank" rel="noopener"} - Linear algebra with Armadillo
+
+### Big Data & Distributed Computing
+* [sparklyr](https://spark.rstudio.com/){:target="_blank" rel="noopener"} - R interface to Apache Spark
+* [arrow](https://arrow.apache.org/docs/r/){:target="_blank" rel="noopener"} - Apache Arrow for columnar data
+* [disk.frame](https://diskframe.com/){:target="_blank" rel="noopener"} - Larger-than-RAM data manipulation
+
+### Memory Management
+* [bigmemory](https://cran.r-project.org/package=bigmemory){:target="_blank" rel="noopener"} - Shared memory matrices
+* [ff](https://cran.r-project.org/package=ff){:target="_blank" rel="noopener"} - Memory-efficient data structures
+* [fst](https://www.fstpackage.org/){:target="_blank" rel="noopener"} - Lightning fast serialization
+
+---
+
+## 🔬 Specialized Analytics {#specialized-analytics}
+
+### Time Series & Forecasting
+* [fable](https://fable.tidyverts.org/){:target="_blank" rel="noopener"} - Tidy time series forecasting (⭐ Modern approach)
+* [prophet](https://facebook.github.io/prophet/docs/quick_start.html#r-api){:target="_blank" rel="noopener"} - Facebook's forecasting tool
+* [forecast](https://pkg.robjhyndman.com/forecast/){:target="_blank" rel="noopener"} - Classical forecasting methods
+
+### Network Analysis
+* [igraph](https://igraph.org/r/){:target="_blank" rel="noopener"} - Comprehensive network analysis (⭐ Most popular)
+* [tidygraph](https://tidygraph.data-imaginist.com/){:target="_blank" rel="noopener"} - Tidy API for graph manipulation
+* [ggraph](https://ggraph.data-imaginist.com/){:target="_blank" rel="noopener"} - Grammar of graphics for networks
+
+### Bayesian Statistics
+* [brms](https://paul-buerkner.github.io/brms/){:target="_blank" rel="noopener"} - Bayesian regression models using Stan (⭐ User-friendly)
+* [rstan](https://mc-stan.org/rstan/){:target="_blank" rel="noopener"} - R interface to Stan MCMC
+* [bayesplot](https://mc-stan.org/bayesplot/){:target="_blank" rel="noopener"} - Plotting for Bayesian models
+
+### Big Data & Performance
+* [arrow](https://arrow.apache.org/docs/r/){:target="_blank" rel="noopener"} - Apache Arrow columnar format (⭐ Fastest)
+* [sparklyr](https://spark.rstudio.com/){:target="_blank" rel="noopener"} - R interface to Apache Spark
+* [data.table](https://rdatatable.gitlab.io/data.table/){:target="_blank" rel="noopener"} - Fast data manipulation
 
 ---
 
@@ -330,64 +377,85 @@ flowchart LR
 
 ---
 
-## 🏆 Certifications and Professional Credentials {#certifications}
+## 🏆 Professional Development {#professional-development}
 
-### Professional Certifications
+### Certifications
 * [RStudio Certified Trainer Program](https://education.rstudio.com/trainers/){:target="_blank" rel="noopener"} - Official RStudio certification
 * [Google Data Analytics Certificate](https://www.coursera.org/professional-certificates/google-data-analytics){:target="_blank" rel="noopener"} - Includes R (💳 Paid)
 * [IBM Data Science Certificate](https://www.coursera.org/professional-certificates/ibm-data-science){:target="_blank" rel="noopener"} - R track available (💳 Paid)
-* [Microsoft Certified: Azure Data Scientist](https://docs.microsoft.com/en-us/learn/certifications/azure-data-scientist/){:target="_blank" rel="noopener"} - R integration
-
----
-
-## 🔬 Advanced Resources and Documentation {#advanced}
 
 ### Advanced Learning
 * [Advanced R](https://adv-r.hadley.nz/){:target="_blank" rel="noopener"} - Deep dive into R programming
 * [R Packages](https://r-pkgs.org/){:target="_blank" rel="noopener"} - Learn to build R packages
 * [Mastering Shiny](https://mastering-shiny.org/){:target="_blank" rel="noopener"} - Interactive web apps
-* [Efficient R Programming](https://csgillespie.github.io/efficientR/){:target="_blank" rel="noopener"} - Performance optimization
-* [R Internals](https://cran.r-project.org/doc/manuals/r-release/R-ints.html){:target="_blank" rel="noopener"} - Under the hood of R
 
-### Getting Help
-* [StackOverflow](https://stackoverflow.com/questions/tagged/r){:target="_blank" rel="noopener"} - Programming questions
-* [Cross Validated](https://stats.stackexchange.com/){:target="_blank" rel="noopener"} - Statistics questions
-* [R Documentation](https://www.rdocumentation.org/){:target="_blank" rel="noopener"} - Package documentation
-
-### Stay Updated
-* [R Weekly](https://rweekly.org/){:target="_blank" rel="noopener"} - Weekly R news
-* [R Journal](https://journal.r-project.org/){:target="_blank" rel="noopener"} - Academic R articles
+### Career Growth
+* Contribute to open source R packages
+* Speak at R conferences and meetups
+* Build a strong GitHub portfolio
+* Network with R community leaders
 
 ---
 
-## 👥 Communities, Forums, and Blogs {#communities}
+# 📚 RESOURCES & COMMUNITY
 
-### Forums & Communities
+## 📖 Books & Documentation {#books-docs}
+
+### Essential Books (Free Online)
+* [R for Data Science](https://r4ds.hadley.nz/){:target="_blank" rel="noopener"} - The definitive guide ⭐
+* [R Graphics Cookbook](https://r-graphics.org/){:target="_blank" rel="noopener"} - Data visualization recipes
+* [Big Book of R](https://www.bigbookofr.com/){:target="_blank" rel="noopener"} - 200+ R books collection
+* [Text Mining with R](https://www.tidytextmining.com/){:target="_blank" rel="noopener"} - Natural language processing
+
+### Official Documentation
+* [R Cheatsheets](https://posit.co/resources/cheatsheets/){:target="_blank" rel="noopener"} - Quick reference cards
+* [CRAN Task Views](https://cran.r-project.org/web/views/){:target="_blank" rel="noopener"} - Packages by topic
+* [R Documentation](https://www.rdocumentation.org/){:target="_blank" rel="noopener"} - Package documentation
+
+## 🎥 Video Tutorials {#video-tutorials}
+
+### YouTube Channels
+* [StatQuest with Josh Starmer](https://www.youtube.com/c/joshstarmer){:target="_blank" rel="noopener"} - Statistics explained simply ⭐
+* [David Robinson](https://www.youtube.com/user/safe4democracy){:target="_blank" rel="noopener"} - Tidy Tuesday screencasts
+* [Julia Silge](https://www.youtube.com/c/JuliaSilge){:target="_blank" rel="noopener"} - Text mining and ML in R
+* [Andrew Couch](https://www.youtube.com/c/AndrewCouch){:target="_blank" rel="noopener"} - Modern R tutorials
+
+### Complete Courses
+* [freeCodeCamp R Course](https://www.freecodecamp.org/news/r-programming-course/){:target="_blank" rel="noopener"} - 4-hour complete course
+* [Edureka R Tutorial](https://www.youtube.com/watch?v=fDRa82lxzaU){:target="_blank" rel="noopener"} - 6-hour comprehensive tutorial
+
+### Data Science Inspiration
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/r2C8IMHEIJ8" title="Top 10 movies on Data Science & Machine Learning (2018)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+*Top 10 movies on Data Science & Machine Learning (2018) - Movies to inspire your data science journey*
+
+## 👥 Community & Support {#communities}
+
+### Forums & Help
 * [Posit Community](https://forum.posit.co/){:target="_blank" rel="noopener"} - Official support forum
+* [Stack Overflow](https://stackoverflow.com/questions/tagged/r){:target="_blank" rel="noopener"} - Programming questions
+* [Cross Validated](https://stats.stackexchange.com/){:target="_blank" rel="noopener"} - Statistics questions
+
+### Communities
 * [R-Ladies Global](https://rladies.org/){:target="_blank" rel="noopener"} - Promoting gender diversity in R
 * [R User Groups](https://www.meetup.com/pro/r-user-groups/){:target="_blank" rel="noopener"} - Local meetups worldwide
+* [R4DS Online Learning Community](https://www.rfordatasci.com/){:target="_blank" rel="noopener"} - Study groups
 
-### Blogs & News
+### News & Blogs
+* [R Weekly](https://rweekly.org/){:target="_blank" rel="noopener"} - Weekly R news
 * [R-bloggers](https://www.r-bloggers.com/){:target="_blank" rel="noopener"} - Aggregated R blogs
 * [Simply Statistics](https://simplystatistics.org/){:target="_blank" rel="noopener"} - Data science insights
-* [RStudio Blog](https://blog.rstudio.com/){:target="_blank" rel="noopener"} - Official RStudio updates
+
+### Practice Datasets
+* [Kaggle Datasets](https://www.kaggle.com/datasets){:target="_blank" rel="noopener"} - Real-world datasets
+* [UCI ML Repository](https://archive.ics.uci.edu/ml/index.php){:target="_blank" rel="noopener"} - Classic ML datasets
+* [FiveThirtyEight Data](https://github.com/fivethirtyeight/data){:target="_blank" rel="noopener"} - News story data
+* [World Bank Open Data](https://data.worldbank.org/){:target="_blank" rel="noopener"} - Global development data
 
 ---
 
 ## ❓ FAQ: Common Questions and Answers {#faq}
-
-### Coding Challenges
-* [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday){:target="_blank" rel="noopener"} - Weekly R data projects
-* [Exercism R Track](https://exercism.org/tracks/r){:target="_blank" rel="noopener"} - R coding exercises with mentorship
-
----
-
-## 📱 Mobile & Interactive Learning {#mobile-learning}
-
-### Mobile Apps
-* [Posit Cloud](https://posit.cloud/){:target="_blank" rel="noopener"} - Run R in browser, no installation needed
-
----
 
 
 
@@ -457,6 +525,18 @@ A: R is the programming language, RStudio is the IDE (editor) that makes R easie
 **Q: Is R free?**
 A: Yes! R, RStudio, and most learning resources are completely free.
 
+**Q: Which machine learning package should I start with?**
+A: **Intermediate**: Start with [tidymodels](https://www.tidymodels.org/){:target="_blank" rel="noopener"} (modern, tidy). **Advanced**: [caret](https://topepo.github.io/caret/){:target="_blank" rel="noopener"} for comprehensive features.
+
+**Q: How do I make my R code faster?**
+A: **Intermediate**: Use [data.table](https://rdatatable.gitlab.io/data.table/){:target="_blank" rel="noopener"} for large data. **Advanced**: [Rcpp](https://www.rcpp.org/){:target="_blank" rel="noopener"} for intensive tasks, [future](https://future.futureverse.org/){:target="_blank" rel="noopener"} for parallel processing.
+
+**Q: What's the best way to create interactive visualizations?**
+A: **Intermediate**: [plotly](https://plotly.com/r/){:target="_blank" rel="noopener"} for ggplot2 conversion. **Advanced**: [DT](https://rstudio.github.io/DT/){:target="_blank" rel="noopener"} for tables, [shiny](https://shiny.rstudio.com/){:target="_blank" rel="noopener"} for full applications.
+
+**Q: What's the learning path from beginner to expert?**
+A: **Beginner (0-3mo)**: R basics + ggplot2 + dplyr → **Intermediate (3-12mo)**: R Markdown + specialized packages → **Advanced (12mo+)**: ML + HPC + domain expertise.
+
 ## 🔗 Related Topics
 
 ### **Explore More:**
@@ -464,6 +544,12 @@ A: Yes! R, RStudio, and most learning resources are completely free.
 - [Programming Tutorials](/categories/programming/)
 - [Statistical Analysis Guides](/tags/statistics/)
 - [Machine Learning Resources](/tags/machine-learning/)
+
+### **Quick Reference Cards:**
+- [RStudio Cheat Sheets](https://posit.co/resources/cheatsheets/){:target="_blank" rel="noopener"} - Official reference cards
+- [R Reference Card](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf){:target="_blank" rel="noopener"} - Comprehensive R reference
+- [Data Wrangling Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf){:target="_blank" rel="noopener"} - dplyr and tidyr
+- [ggplot2 Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf){:target="_blank" rel="noopener"} - Data visualization
 
 ---
 
