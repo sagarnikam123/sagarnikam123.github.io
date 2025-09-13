@@ -6,6 +6,10 @@ date: 2015-06-27 12:00:00 +0530
 categories: [programming, documentation]
 tags: [markdown, cheatsheet, syntax, guide, reference]
 math: true
+image:
+  path: assets/img/posts/20150627/markdown-syntax-cheatsheet-guide.webp
+  lqip: data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAABQBACdASogACAAPzmUv1ovKiYkKAgB4CcJbACsAExE5RgB9/2JSZQVeNQAAKt5MeZuWq73fcE/eWF9pFhzr34/tJ3xHeP6u+x/7lKGnV+zJJnlMRybg4hZKnV4TMcaPI28P5O7PPPPf/sQX1shoQuzSvAzG6u9BLyf5Ch7hIv04qhXHv0qnC/IDqwaVg+LuH+EjKDjiNvnB1c01rre5/FI0ttrRvIwAAA=
+  alt: Ultimate Markdown Cheatsheet - Complete Syntax Guide with Examples
 ---
 
 Markdown is the most popular lightweight markup language used by developers, writers, and content creators worldwide. Created by [John Gruber](https://daringfireball.net/projects/markdown/), this **ultimate markdown cheatsheet** provides complete syntax examples for text formatting, code blocks, tables, links, images, and advanced features. Whether you're writing documentation, README files, or blog posts, this comprehensive guide covers everything you need to master markdown syntax.
