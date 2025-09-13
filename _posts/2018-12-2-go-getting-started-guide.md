@@ -6,6 +6,10 @@ date: 2018-12-02 12:00:00 +0530
 categories: [go-programming, software-development, tutorials]
 tags: [golang, go-programming, go-tutorial, golang-guide, go-installation, go-frameworks, go-concurrency, programming-tutorial, go-web-development, go-microservices, go-cloud-native, go-beginners]
 mermaid: true
+image:
+  path: assets/img/posts/20181202/go-programming-tutorial-guide.webp
+  lqip: data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAABwBQCdASogACAAPzmKu1UvKSYjKA1R4CcJagCzgYyXLCoeRY9kggUSiUbBhFaY1YVbEW8wAP743+sEhWmjH3GqEW+cfqvtKfUSzsJRcQffaBOXQGlHEkdhzBhakJ28QJAnO4V8QwZ00L2aEMft6y9qngjYjBXlCyRfBbu2wRL99y3a5XEfNrctgvhHAG/0FPurQf4MOcLwjCFXXWmhK1I0cEgVJ93r8Dems9kuCyspgk2C+U+UkodbVO4sLdn/Ly4P/wagiAAAAA==
+  alt: Go Programming Tutorial - Complete Beginner to Expert Guide with Golang
 ---
 
 **Go programming** (also known as **Golang**) is Google's modern programming language designed for building scalable, cloud-native applications. This comprehensive **Go tutorial** covers everything from **Go installation** and **Go basics** to advanced **production patterns**, including modern features like enhanced **Go generics**, improved performance, and **cloud-native development** practices.
