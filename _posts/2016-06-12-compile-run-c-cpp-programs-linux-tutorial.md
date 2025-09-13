@@ -6,6 +6,10 @@ date: 2016-06-12 12:00:00 +0530
 categories: [programming, linux]
 tags: [gcc, compiler, makefile, debugging, optimization]
 mermaid: true
+image:
+  path: assets/img/posts/20160612/compile-run-c-c++.webp
+  lqip: data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAADQBQCdASogACAAPzmQvVgvKaYjqAqp4CcJagDOWBggu0n6zoq5pOzXlrKJv2FLh4n/sJI2IHAAAP73AZ51Sevd+jjwhbDi50P5HbjU0HBFd6NKQM1j3SLVq0sJ+x9x6h/dQWcO0YtPc/D2BA49+HDgKSlU6nHUM5+f0FqIRrJbs7DPooeGynnrnHagt5DhwqZyEB5ex/g6agzypI1JRYe2PBxteUqr2QIbvQUQdDjsfzyfg+hgf2AA
+  alt: Complete Guide to Compile and Run C/C++ Programs on Linux with GCC
 ---
 
 <script type="application/ld+json">
