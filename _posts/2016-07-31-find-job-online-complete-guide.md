@@ -6,6 +6,10 @@ date: 2016-07-31 12:00:00 +0530
 categories: [career-advice]
 tags: [online-job-search, linkedin-optimization, resume-tips, github-portfolio, digital-presence]
 mermaid: true
+image:
+  path: assets/img/posts/20160731/find-job-online-complete-guide.webp
+  lqip: data:image/webp;base64,UklGRq4AAABXRUJQVlA4IKIAAACwBQCdASogACAAPy2Es1OuqSSit/VYAdAliWMAw+h7XMpoG7fYjW48Lh1SAEh0BYe0aoqn5AAA/vqk7LgKXb6Z+xRB4wV5dRfQg/mdGL5nsjE3kwATqqoewesvHCLbtLxBWFBWmAufPvJK7G1B3ypVdOZDiqGI69bCxK3JCUjKCNDpqZmL4IJpLmvCQeSICzGhMk1qM56vfp/jpAgKi4gAAAA=
+  alt: How to Find Jobs Online - Build Your Digital Presence & Get Hired Guide
 ---
 
 **Finding jobs online** requires more than just uploading your resume to job boards. This comprehensive guide reveals proven strategies used by successful job seekers to land their dream roles through digital channels.
