@@ -117,7 +117,7 @@ flowchart TD
 * [VSCode](https://code.visualstudio.com/){:target="_blank" rel="noopener"} - With [R extension](https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r){:target="_blank" rel="noopener"} and [R LSP](https://marketplace.visualstudio.com/items?itemName=REditorSupport.r-lsp){:target="_blank" rel="noopener"}
 * [Jupyter Notebook](https://jupyter.org/){:target="_blank" rel="noopener"} - With [IRkernel](https://github.com/IRkernel/IRkernel){:target="_blank" rel="noopener"} for R
 * [Vim/Neovim](https://neovim.io/){:target="_blank" rel="noopener"} - With [Nvim-R plugin](https://github.com/jalvesaq/Nvim-R){:target="_blank" rel="noopener"}
-* [Emacs + ESS](http://ess.r-project.org/){:target="_blank" rel="noopener"} - Emacs Speaks Statistics
+* [Emacs + ESS](https://ess.r-project.org/){:target="_blank" rel="noopener"} - Emacs Speaks Statistics
 
 ### Installation Steps
 
@@ -302,7 +302,6 @@ flowchart LR
 
 ### Time Series & Financial Charts
 * [dygraphs](https://rstudio.github.io/dygraphs/){:target="_blank" rel="noopener"} - Time series charting
-* [quantmod](http://www.quantmod.com/){:target="_blank" rel="noopener"} - Financial charting
 * [timevis](https://github.com/daattali/timevis){:target="_blank" rel="noopener"} - Timeline visualizations
 
 ### 3D & Specialized Visualizations
@@ -547,7 +546,7 @@ A: **Beginner (0-3mo)**: R basics + ggplot2 + dplyr → **Intermediate (3-12mo)*
 
 ### **Quick Reference Cards:**
 - [RStudio Cheat Sheets](https://posit.co/resources/cheatsheets/){:target="_blank" rel="noopener"} - Official reference cards
-- [R Reference Card](http://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf){:target="_blank" rel="noopener"} - Comprehensive R reference
+- [R Reference Card](https://cran.r-project.org/doc/contrib/Baggott-refcard-v2.pdf){:target="_blank" rel="noopener"} - Comprehensive R reference
 - [Data Wrangling Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/main/data-transformation.pdf){:target="_blank" rel="noopener"} - dplyr and tidyr
 - [ggplot2 Cheat Sheet](https://github.com/rstudio/cheatsheets/blob/main/data-visualization-2.1.pdf){:target="_blank" rel="noopener"} - Data visualization
 
