@@ -8,7 +8,7 @@ tags: [jekyll, github-pages, blogging, static-sites, guide]
 mermaid: true
 image:
   path: assets/img/posts/20160611/jekyll-github-pages-complete-guide.webp
-  lqip: data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQBACdASogACAAPzmMulWvKSWjKA1R4CcJZAAD4/d+/gQrT7rqVL29/3t60DzOXAD++WiWE8zFANgZiPF8y62q67hfb9yfVM+7AwUkPoo1iAGb4ck4oqd0eC6nB0Tz7jZG/2YeoavypiKJILjRXI4S5bFoRkHQpcFuv0V2Eo5PyrDlAAiIAA==
+  lqip: data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAACQBACdASogACAAPzmMwFcvKScjqAqp4CcJYgABHuswP9m5B7DFI+1oSF4ihAAA/vfiq5ZFkr6o9E/Bi+cJyoSje4YftzK8zutcqqJTCu6O41DJnik7/wr3mH/FmOzOEqQyH7Pz/DvD40rRfqonhnbrgfnKLrhhIySNKtJqO+hiaK+AAAA=
   alt: Complete Jekyll Guide - From Installation to GitHub Pages Blogging
 ---
 
