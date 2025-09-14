@@ -6,6 +6,10 @@ date: 2019-01-15 10:00:00 +0530
 categories: [testing, automation]
 tags: [automation-testing, playwright, cypress, selenium, api-testing]
 mermaid: true
+image:
+  path: assets/img/posts/20190115/automation-testing-tools-resources-guide.webp
+  lqip: data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAABQBgCdASogACAAPzmMu1YvKSYjsBgIAeAnCWgAxzd4EiB2ArkZatrXeOiDZQBja5eQRoiI7Jj3UG2UAAD++LLMOi+XyYGpzzS8eqLtGU7vWpfq42jvB1SDF8G/hbu4XRsHlPpIh2iIIsKeYn9PthT0qyVDZ5MM03F2rdgTeKKtIU9ubVp9QBATkS1DXwDewytaZ3UEsr6qxYWn+ONxMAf2i/o2A20m0Joxn5pQiwLOgn+63m7X1XUNS4fCkUWYmAA/DAAA
+  alt: Complete Automation Testing Guide - Tools, Resources & Best Practices
 ---
 
 ## 🎯 Understanding Automation Testing
