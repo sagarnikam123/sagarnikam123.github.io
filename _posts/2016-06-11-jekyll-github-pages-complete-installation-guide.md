@@ -6,6 +6,10 @@ date: 2016-06-11 12:00:00 +0530
 categories: [blog, web-development, tutorial]
 tags: [jekyll, github-pages, blogging, static-sites, guide]
 mermaid: true
+image:
+  path: assets/img/posts/20160611/jekyll-github-pages-complete-guide.webp
+  lqip: data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAADQBACdASogACAAPzmMulWvKSWjKA1R4CcJZAAD4/d+/gQrT7rqVL29/3t60DzOXAD++WiWE8zFANgZiPF8y62q67hfb9yfVM+7AwUkPoo1iAGb4ck4oqd0eC6nB0Tz7jZG/2YeoavypiKJILjRXI4S5bFoRkHQpcFuv0V2Eo5PyrDlAAiIAA==
+  alt: Complete Jekyll Guide - From Installation to GitHub Pages Blogging
 ---
 
 ## 🎯 What You'll Learn
