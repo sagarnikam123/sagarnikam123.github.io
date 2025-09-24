@@ -42,58 +42,58 @@ Git is a distributed version control system that tracks changes in files and coo
 
 ### 📝 Complete Git Commands Quick Reference (48 Commands)
 
-| Command | Description | Usage |
-|---------|-------------|-------|
-| **Setup & Configuration (4)** | | |
-| ⚙️ `git config --global` | Configure Git globally | Set user name, email, and preferences |
-| 🔧 `git --version` | Check Git version | Verify Git installation |
-| 📋 `git config --list` | View configuration | See all current Git settings |
-| 🌿 `git config init.defaultBranch` | Set default branch | Configure main vs master |
-| **Basic Operations (7)** | | |
-| 🆕 `git init` | Initialize repository | Create new Git repository |
-| 🌍 `git clone` | Clone repository | Copy remote repository locally |
-| 📁 `git status` | Check file states | See what's staged, modified, or untracked |
-| ➕ `git add` | Stage changes | Prepare files for commit |
-| 💾 `git commit` | Save changes | Create snapshot with message |
-| 📜 `git log` | View history | Browse commit history and messages |
-| 🔍 `git diff` | See changes | Compare working directory with staging |
-| **Branch Management (6)** | | |
-| 🌿 `git branch` | List/create branches | Manage branch operations |
-| 🔄 `git checkout` | Switch branches | Change active branch |
-| ✨ `git checkout -b` | Create & switch | New branch in one command |
-| 🔀 `git merge` | Merge branches | Combine branch changes |
-| 🗑️ `git branch -d` | Delete branch | Remove local branch |
-| 📝 `git branch -m` | Rename branch | Change branch name |
-| **Remote Operations (6)** | | |
-| 🔗 `git remote add` | Add remote | Connect to remote repository |
-| 🔍 `git remote -v` | View remotes | List configured remotes |
-| 🚀 `git push` | Upload changes | Send commits to remote |
-| 🚀 `git push -u` | Push with upstream | Set tracking and push to remote |
-| 📥 `git pull` | Download updates | Fetch and merge changes |
-| 📦 `git fetch` | Fetch only | Download without merging |
-| **File & Change Management (8)** | | |
-| 📦 `git stash` | Save work temporarily | Store uncommitted changes |
-| 🔍 `git show` | Display commit details | View specific commit changes |
-| 📝 `git mv` | Move/rename files | Git-aware file operations |
-| 🗑️ `git rm` | Remove files | Delete files from Git tracking |
-| 🔄 `git restore` | Restore files | Modern way to discard changes |
-| 🧹 `git clean` | Remove untracked files | Clean working directory |
-| 📋 `git ls-files` | List tracked files | Show files under version control |
-| 🔍 `git blame` | Show file annotations | See who changed each line |
-| **History & Search (6)** | | |
-| 🔍 `git reflog` | View all changes | See complete history log |
-| 🔍 `git grep` | Search in repository | Find text across all files |
-| 🔍 `git log --grep` | Search commit messages | Find commits by message |
-| 🔍 `git log --author` | Filter by author | Find commits by specific author |
-| 🔍 `git log --since` | Filter by date | Find commits in date range |
-| 🔍 `git bisect` | Find bug introduction | Binary search for problematic commit |
-| **Advanced Techniques (6)** | | |
-| 🔄 `git rebase` | Rewrite history | Create linear commit history |
-| 🍒 `git cherry-pick` | Apply specific commit | Copy commit to current branch |
-| ⏪ `git reset` | Undo commits | Move HEAD to previous state |
-| 🏷️ `git tag` | Mark versions | Create release markers |
-| 🔄 `git revert` | Safe undo | Create new commit that undoes changes |
-| 🔄 `git rebase -i` | Interactive rebase | Edit commit history interactively |
+| Command                           | Description            | Usage                                     |
+| --------------------------------- | ---------------------- | ----------------------------------------- |
+| **Setup & Configuration (4)**     |                        |                                           |
+| ⚙️ `git config --global`           | Configure Git globally | Set user name, email, and preferences     |
+| 🔧 `git --version`                 | Check Git version      | Verify Git installation                   |
+| 📋 `git config --list`             | View configuration     | See all current Git settings              |
+| 🌿 `git config init.defaultBranch` | Set default branch     | Configure main vs master                  |
+| **Basic Operations (7)**          |                        |                                           |
+| 🆕 `git init`                      | Initialize repository  | Create new Git repository                 |
+| 🌍 `git clone`                     | Clone repository       | Copy remote repository locally            |
+| 📁 `git status`                    | Check file states      | See what's staged, modified, or untracked |
+| ➕ `git add`                       | Stage changes          | Prepare files for commit                  |
+| 💾 `git commit`                    | Save changes           | Create snapshot with message              |
+| 📜 `git log`                       | View history           | Browse commit history and messages        |
+| 🔍 `git diff`                      | See changes            | Compare working directory with staging    |
+| **Branch Management (6)**         |                        |                                           |
+| 🌿 `git branch`                    | List/create branches   | Manage branch operations                  |
+| 🔄 `git checkout`                  | Switch branches        | Change active branch                      |
+| ✨ `git checkout -b`               | Create & switch        | New branch in one command                 |
+| 🔀 `git merge`                     | Merge branches         | Combine branch changes                    |
+| 🗑️ `git branch -d`                 | Delete branch          | Remove local branch                       |
+| 📝 `git branch -m`                 | Rename branch          | Change branch name                        |
+| **Remote Operations (6)**         |                        |                                           |
+| 🔗 `git remote add`                | Add remote             | Connect to remote repository              |
+| 🔍 `git remote -v`                 | View remotes           | List configured remotes                   |
+| 🚀 `git push`                      | Upload changes         | Send commits to remote                    |
+| 🚀 `git push -u`                   | Push with upstream     | Set tracking and push to remote           |
+| 📥 `git pull`                      | Download updates       | Fetch and merge changes                   |
+| 📦 `git fetch`                     | Fetch only             | Download without merging                  |
+| **File & Change Management (8)**  |                        |                                           |
+| 📦 `git stash`                     | Save work temporarily  | Store uncommitted changes                 |
+| 🔍 `git show`                      | Display commit details | View specific commit changes              |
+| 📝 `git mv`                        | Move/rename files      | Git-aware file operations                 |
+| 🗑️ `git rm`                        | Remove files           | Delete files from Git tracking            |
+| 🔄 `git restore`                   | Restore files          | Modern way to discard changes             |
+| 🧹 `git clean`                     | Remove untracked files | Clean working directory                   |
+| 📋 `git ls-files`                  | List tracked files     | Show files under version control          |
+| 🔍 `git blame`                     | Show file annotations  | See who changed each line                 |
+| **History & Search (6)**          |                        |                                           |
+| 🔍 `git reflog`                    | View all changes       | See complete history log                  |
+| 🔍 `git grep`                      | Search in repository   | Find text across all files                |
+| 🔍 `git log --grep`                | Search commit messages | Find commits by message                   |
+| 🔍 `git log --author`              | Filter by author       | Find commits by specific author           |
+| 🔍 `git log --since`               | Filter by date         | Find commits in date range                |
+| 🔍 `git bisect`                    | Find bug introduction  | Binary search for problematic commit      |
+| **Advanced Techniques (6)**       |                        |                                           |
+| 🔄 `git rebase`                    | Rewrite history        | Create linear commit history              |
+| 🍒 `git cherry-pick`               | Apply specific commit  | Copy commit to current branch             |
+| ⏪ `git reset`                     | Undo commits           | Move HEAD to previous state               |
+| 🏷️ `git tag`                       | Mark versions          | Create release markers                    |
+| 🔄 `git revert`                    | Safe undo              | Create new commit that undoes changes     |
+| 🔄 `git rebase -i`                 | Interactive rebase     | Edit commit history interactively         |
 
 ### Initial Git Setup
 ```shell
@@ -581,34 +581,34 @@ flowchart LR
 
 #### 📏 History & Structure
 
-| Aspect | 🔀 **Merge** | 📏 **Rebase** |
-|--------|------------|-------------|
-| **History Preservation** | ✓ Preserves original commit history | ✗ Rewrites commit history |
-| **Commit Structure** | ✗ Creates merge commits | ✓ No additional commits |
-| **Timeline Accuracy** | ✓ Shows true development timeline | ✗ Creates artificial linear timeline |
-| **Commit Hashes** | ✓ Original hashes preserved | ✗ New hashes generated |
-| **Graph Complexity** | ✗ Complex branching graph | ✓ Simple linear graph |
+| Aspect                   | 🔀 **Merge**                         | 📏 **Rebase**                         |
+| ------------------------ | ----------------------------------- | ------------------------------------ |
+| **History Preservation** | ✓ Preserves original commit history | ✗ Rewrites commit history            |
+| **Commit Structure**     | ✗ Creates merge commits             | ✓ No additional commits              |
+| **Timeline Accuracy**    | ✓ Shows true development timeline   | ✗ Creates artificial linear timeline |
+| **Commit Hashes**        | ✓ Original hashes preserved         | ✗ New hashes generated               |
+| **Graph Complexity**     | ✗ Complex branching graph           | ✓ Simple linear graph                |
 
 #### 🚀 Team Collaboration
 
-| Aspect | 🔀 **Merge** | 📏 **Rebase** |
-|--------|------------|-------------|
-| **Shared Branches** | ✓ Safe for public branches | ✗ Dangerous on shared branches |
-| **Team Collaboration** | ✓ Multiple contributors friendly | ✗ Best for single contributor |
-| **Code Review** | ✓ Easy to see feature as unit | ✓ Clean commits for review |
-| **Rollback Safety** | ✓ Easy to revert merge | ✗ Complex to undo rebase |
-| **Conflict Resolution** | ✓ One-time conflict resolution | ✗ May need multiple conflict fixes |
+| Aspect                  | 🔀 **Merge**                      | 📏 **Rebase**                       |
+| ----------------------- | -------------------------------- | ---------------------------------- |
+| **Shared Branches**     | ✓ Safe for public branches       | ✗ Dangerous on shared branches     |
+| **Team Collaboration**  | ✓ Multiple contributors friendly | ✗ Best for single contributor      |
+| **Code Review**         | ✓ Easy to see feature as unit    | ✓ Clean commits for review         |
+| **Rollback Safety**     | ✓ Easy to revert merge           | ✗ Complex to undo rebase           |
+| **Conflict Resolution** | ✓ One-time conflict resolution   | ✗ May need multiple conflict fixes |
 
 #### 🎯 When to Use Each Approach
 
-| Scenario | 🔀 **Use Merge** | 📏 **Use Rebase** |
-|----------|-------------|---------------|
-| **Branch Type** | Public/shared branches | Private feature branches |
-| **Team Size** | Multiple contributors | Single developer |
+| Scenario               | 🔀 **Use Merge**                | 📏 **Use Rebase**          |
+| ---------------------- | ------------------------------ | ------------------------- |
+| **Branch Type**        | Public/shared branches         | Private feature branches  |
+| **Team Size**          | Multiple contributors          | Single developer          |
 | **History Preference** | Want to preserve exact history | Want clean linear history |
-| **Project Phase** | Production releases | Development cleanup |
-| **Collaboration** | Team feature development | Personal feature work |
-| **Code Review** | Feature-based reviews | Commit-based reviews |
+| **Project Phase**      | Production releases            | Development cleanup       |
+| **Collaboration**      | Team feature development       | Personal feature work     |
+| **Code Review**        | Feature-based reviews          | Commit-based reviews      |
 
 ### Commands Summary
 
@@ -712,34 +712,34 @@ flowchart LR
 
 #### 🎯 Purpose & Functionality
 
-| Aspect | 🍒 **Cherry-Pick** | ⏪ **Reset** |
-|--------|------------------|-------------|
-| **Primary Purpose** | Copy specific commits | Undo commits/move HEAD |
-| **Direction** | Forward (adds commits) | Backward (removes commits) |
-| **Commit Creation** | ✓ Creates new commit | ✗ No new commits |
-| **Original Commits** | ✓ Preserves originals | ✗ May discard commits |
+| Aspect                  | 🍒 **Cherry-Pick**         | ⏪ **Reset**                  |
+| ----------------------- | ------------------------- | ---------------------------- |
+| **Primary Purpose**     | Copy specific commits     | Undo commits/move HEAD       |
+| **Direction**           | Forward (adds commits)    | Backward (removes commits)   |
+| **Commit Creation**     | ✓ Creates new commit      | ✗ No new commits             |
+| **Original Commits**    | ✓ Preserves originals     | ✗ May discard commits        |
 | **Selective Operation** | ✓ Choose specific commits | ✗ Affects all recent commits |
 
 #### 🛠️ Safety & Impact
 
-| Aspect | 🍒 **Cherry-Pick** | ⏪ **Reset** |
-|--------|------------------|-------------|
-| **Data Safety** | ✓ Non-destructive | ✗ Can be destructive |
-| **Reversibility** | ✓ Easy to undo | ✗ Hard to recover (--hard) |
-| **Working Directory** | ✓ Preserves changes | ✗ May discard changes |
-| **Staging Area** | ✓ Preserves staged files | ✗ May clear staging |
-| **Risk Level** | ✓ Low risk | ✗ High risk (--hard) |
+| Aspect                | 🍒 **Cherry-Pick**        | ⏪ **Reset**                |
+| --------------------- | ------------------------ | -------------------------- |
+| **Data Safety**       | ✓ Non-destructive        | ✗ Can be destructive       |
+| **Reversibility**     | ✓ Easy to undo           | ✗ Hard to recover (--hard) |
+| **Working Directory** | ✓ Preserves changes      | ✗ May discard changes      |
+| **Staging Area**      | ✓ Preserves staged files | ✗ May clear staging        |
+| **Risk Level**        | ✓ Low risk               | ✗ High risk (--hard)       |
 
 #### 🎯 When to Use Each Approach
 
-| Scenario | 🍒 **Use Cherry-Pick** | ⏪ **Use Reset** |
-|----------|----------------------|----------------|
-| **Hotfix Application** | Apply urgent fix to multiple branches | Undo recent commits |
-| **Feature Extraction** | Extract specific features | Remove unwanted commits |
-| **Bug Fix Propagation** | Copy bug fixes across branches | Clean up commit history |
-| **Selective Integration** | Pick useful commits from experiments | Reset to stable state |
-| **Cross-Branch Work** | Share commits between branches | Local development cleanup |
-| **Production Fixes** | Apply tested fixes | Never use on shared branches |
+| Scenario                  | 🍒 **Use Cherry-Pick**                 | ⏪ **Use Reset**              |
+| ------------------------- | ------------------------------------- | ---------------------------- |
+| **Hotfix Application**    | Apply urgent fix to multiple branches | Undo recent commits          |
+| **Feature Extraction**    | Extract specific features             | Remove unwanted commits      |
+| **Bug Fix Propagation**   | Copy bug fixes across branches        | Clean up commit history      |
+| **Selective Integration** | Pick useful commits from experiments  | Reset to stable state        |
+| **Cross-Branch Work**     | Share commits between branches        | Local development cleanup    |
+| **Production Fixes**      | Apply tested fixes                    | Never use on shared branches |
 
 ### Commands Summary
 
