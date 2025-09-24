@@ -67,6 +67,14 @@ sudo scutil --set LocalHostName "your-new-local-hostname"
 sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 ```
 
+### Configure Trackpad Settings
+Enable right-click functionality on trackpad:
+
+1. Open **System Settings** (or System Preferences on older macOS)
+2. Click **Trackpad** in the sidebar
+3. In "Point & Click" section, find **Secondary click**
+4. Select **"Click or Tap with Two Fingers"**
+
 ## Package Managers
 
 ### Install Homebrew (Recommended)
@@ -77,6 +85,8 @@ sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 ```
 
 **Why Homebrew?** Simplifies software installation, handles dependencies automatically, and keeps packages updated.
+
+**Visual Interface:** [Coldbrew](https://coldbrew.lil.run/) - A visual interface to quickly install your favorite macOS apps from Homebrew Cask.
 
 ### Install MacPorts (Alternative)
 [MacPorts](https://www.macports.org/install.php) is an alternative package manager (optional if you're using Homebrew):
@@ -138,10 +148,12 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 ## Development Tools
 
 ### Install Xcode Command Line Tools
-Essential for development and Git:
+Essential for development and Git (install this BEFORE Homebrew):
 
 ```bash
-git --version  # This will prompt to install if not present
+xcode-select --install
+# Or trigger installation with:
+git --version
 ```
 
 ### Install UV (Python Package Manager)
@@ -192,7 +204,7 @@ brew install --cask docker lens postman
 brew install wget node
 
 # Media Players & Video Tools
-brew install --cask vlc
+brew install --cask vlc handbrake obs
 brew install ffmpeg
 ```
 
@@ -243,16 +255,26 @@ brew install ffmpeg
 #### Productivity Tools
 - [Alfred](https://www.alfredapp.com/) (Spotlight replacement with workflows)
 - [Rectangle](https://rectangleapp.com/) (Window management)
+- [Maccy](https://maccy.app/) (Lightweight clipboard manager)
+- [NearDrop](https://github.com/grishka/NearDrop) (Nearby Share for macOS)
+- [AppCleaner](https://freemacsoft.net/appcleaner/) (Complete app uninstaller)
+- [The Unarchiver](https://theunarchiver.com/) (Archive extraction tool)
+- [TRex](https://trex.ameba.co/) (OCR text extraction from images/videos)
+- [Apparency](https://apparency.macupdate.com/) (App security analysis tool)
 
 #### DevOps & API Tools
 - [Docker](https://www.docker.com/products/docker-desktop/)
 - [Lens](https://k8slens.dev/)
 - [Postman](https://www.postman.com/downloads/)
+- [UTM](https://mac.getutm.app/) (Virtualization for Windows/Linux on Mac)
 
 #### Development & Productivity
 - [Node.js LTS](https://nodejs.org/en/download)
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - [Zettlr](https://www.zettlr.com/) (Markdown editor)
+
+#### Media & Content Creation
+- [OBS Studio](https://obsproject.com/) (Video recording and live streaming)
 
 #### Data Science & Analytics
 - [R](https://cran.r-project.org/bin/macosx/)
@@ -265,14 +287,14 @@ Choose from multiple OpenJDK distributions:
 
 #### OpenJDK Options (LTS Recommended)
 
-| Distribution | Provider |
-|--------------|----------|
-| [Eclipse Adoptium](https://adoptium.net/) | Eclipse Foundation |
-| [Amazon Corretto](https://aws.amazon.com/corretto/) | Amazon Web Services |
-| [Azul Zulu](https://www.azul.com/downloads/?package=jdk#zulu) | Azul Systems |
-| [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk) | Microsoft |
-| [Red Hat OpenJDK](https://developers.redhat.com/products/openjdk/download) | Red Hat |
-| [Oracle Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html) | Oracle Corporation |
+| Distribution                                                                      | Provider            |
+| --------------------------------------------------------------------------------- | ------------------- |
+| [Eclipse Adoptium](https://adoptium.net/)                                         | Eclipse Foundation  |
+| [Amazon Corretto](https://aws.amazon.com/corretto/)                               | Amazon Web Services |
+| [Azul Zulu](https://www.azul.com/downloads/?package=jdk#zulu)                     | Azul Systems        |
+| [Microsoft Build of OpenJDK](https://www.microsoft.com/openjdk)                   | Microsoft           |
+| [Red Hat OpenJDK](https://developers.redhat.com/products/openjdk/download)        | Red Hat             |
+| [Oracle Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html) | Oracle Corporation  |
 
 #### Configure Java Environment
 ```bash
@@ -470,12 +492,14 @@ bundle exec jekyll serve
 ## Git Configuration
 
 ### Basic Git Setup
-[Create a Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) first.
+Configure Git with your identity:
 
 ```bash
 git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
+
+**Note:** You'll need a [Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) for HTTPS authentication or set up SSH keys (recommended below).
 
 ### SSH Key Setup (Recommended)
 Set up SSH keys for secure, password-free Git operations:
