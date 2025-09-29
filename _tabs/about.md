@@ -62,7 +62,7 @@ M.Sc Bioinformatics project demonstrating:
 ## Technical Content & Tutorials
 
 - **DevOps tutorials** and cloud infrastructure guides
-- **Kubernetes setup guides** and troubleshooting tips  
+- **Kubernetes setup guides** and troubleshooting tips
 - **Observability best practices** and open source tool insights
 - **Python automation scripts** and monitoring solutions
 
