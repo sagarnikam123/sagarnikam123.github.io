@@ -32,22 +32,22 @@ image:
 ```mermaid
 flowchart TD
     A[🟢 Beginner] --> B[🟡 Intermediate] --> C[🔴 Advanced/Expert]
-    
+
     A --> A1[Quick Start with GitHub Pages]
     A --> A2[Basic Configuration]
     A --> A3[Writing Your First Post]
     A --> A4[Simple Theme Changes]
-    
+
     B --> B1[Local Development Setup]
     B --> B2[Custom Themes]
     B --> B3[Advanced Configuration]
     B --> B4[Draft Management]
-    
+
     C --> C1[Custom Layouts & Includes]
     C --> C2[GitHub Actions CI/CD]
     C --> C3[Performance Optimization]
     C --> C4[Advanced Troubleshooting]
-    
+
     style A fill:#c8e6c9
     style B fill:#fff3e0
     style C fill:#ffcdd2
@@ -123,7 +123,7 @@ flowchart LR
     B --> C[Create New Site]
     C --> D[Install Dependencies]
     D --> E[Serve Locally]
-    
+
     style A fill:#e3f2fd
     style E fill:#c8e6c9
 ```
@@ -202,7 +202,7 @@ graph TD
     A --> F["📁 assets/<br/>CSS, images, JS files"]
     A --> G["📄 about.md<br/>Static pages"]
     A --> H["🏡 index.html<br/>Homepage"]
-    
+
     C --> C1["YYYY-MM-DD-my-first-post.md"]
     D --> D1["default.html"]
     D --> D2["post.html"]
@@ -210,7 +210,7 @@ graph TD
     E --> E2["footer.html"]
     F --> F1["css/"]
     F --> F2["images/"]
-    
+
     style A fill:#e1f5fe
     style B fill:#fff3e0
     style C fill:#e8f5e8
@@ -345,7 +345,7 @@ flowchart LR
     A[Create File] --> B[Add Front Matter]
     B --> C[Write Content]
     C --> D[Save & Preview]
-    
+
     style A fill:#ffebee
     style D fill:#e8f5e8
 ```
@@ -406,7 +406,7 @@ flowchart LR
     B --> C[Edit & Refine]
     C --> D[Move to _posts/]
     D --> E[Published!]
-    
+
     style A fill:#fff3e0
     style E fill:#c8e6c9
 </div>
@@ -520,7 +520,7 @@ flowchart TD
     D --> E[Build Jekyll Site]
     E --> F[Deploy to gh-pages]
     F --> G[Site Live!]
-    
+
     style A fill:#e3f2fd
     style G fill:#c8e6c9
 ```
@@ -696,7 +696,7 @@ flowchart LR
     C --> D[Read error message]
     D --> E[Fix the error]
     E --> F[Rebuild successfully]
-    
+
     style A fill:#e3f2fd
     style F fill:#c8e6c9
 ```
@@ -774,7 +774,7 @@ flowchart LR
     A["🎯 CHOOSE YOUR LEVEL"] --> B["🟢 BEGINNER"]
     A --> C["🟡 INTERMEDIATE"]
     A --> D["🔴 ADVANCED"]
-    
+
     style A fill:#e3f2fd,stroke:#1976d2,stroke-width:4px,font-size:18px
     style B fill:#c8e6c9,stroke:#388e3c,stroke-width:3px,font-size:16px
     style C fill:#fff3e0,stroke:#f57c00,stroke-width:3px,font-size:16px
