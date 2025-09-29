@@ -299,6 +299,9 @@ jobs:
 ```
 
 ### [Grafanactl](https://github.com/grafana/grafanactl) - CLI Tool
+(also called [Grafana CLI](https://grafana.github.io/grafanactl/))
+
+> As of date thw project is "public preview" and still under active development.
 
 #### Installation
 ```bash
@@ -310,22 +313,68 @@ wget https://github.com/grafana/grafanactl/releases/latest/download/grafanactl-l
 chmod +x grafanactl-linux-amd64
 sudo mv grafanactl-linux-amd64 /usr/local/bin/grafanactl
 
-# Go install
+# Go install (go >= v1.24 installed)
 go install github.com/grafana/grafanactl@latest
 
 # Docker
 docker run --rm grafana/grafanactl:latest --help
 ```
 
-#### Configuration
+##### check installation & help
+```shell
+# help page
+grafanactl  # get available commands to run
+grafanactl --help
 
-**Method 1: Environment Variables**
-```bash
-export GRAFANA_URL="http://localhost:3000"
-export GRAFANA_TOKEN="xxxxxxxxxxxxxxxxxxxxxxxxx"
+# version
+grafanactl --version
+
+# location where installation is
+which grafanactl
 ```
 
-**Method 2: Configuration File**
+#### Configuration
+- two ways: using environment variables or through a configuration file
+- By default, Grafana CLI uses the default context.
+- default config (on Mac) - `"/Users/<user>/Library/Application Support/grafanactl/config.yaml"`
+
+```shell
+# view entire configuration
+grafanactl config view
+
+# get the existing contexts
+grafanactl config list-contexts
+
+# check the configuration for any issue
+# display current context and the current configuration file used with location.
+grafanactl config check
+# if no env_feature variables set or no file provided, it takes default context from default config file
+# Note: this command will gives you following error
+# "✘ Configuration: Invalid configuration: server is required"
+#   solution - set GRAFANA_SERVER
+# "✘ Configuration: Invalid configuration: missing contexts.default.org-id or contexts.default.stack-id
+#   solution - set GRAFANA_ORG_ID
+```
+**Method 1: [Environment Variables](https://grafana.github.io/grafanactl/reference/environment-variables/)**
+- deals only with a single context, and good for starting with Local instance or to work on CI environments.
+```bash
+# required to interact with Grafana instance - checks Configuration validity, Connectivity & Grafana version
+export GRAFANA_SERVER='http://localhost:3000'
+export GRAFANA_ORG_ID='1'
+export GRAFANA_STACK_ID='<stack-id>' # when using Grafana Cloud
+
+# for executing operations
+# if using a Grafana service account (recommended)
+export GRAFANA_TOKEN='<grafana-token>' # replace with actual token
+
+# if using basic authentication
+export GRAFANA_USER='<grafana-user>'
+export GRAFANA_PASSWORD='<grafana-password>'
+```
+
+**Method 2: [Configuration File](https://grafana.github.io/grafanactl/reference/configuration/)**
+- store multiple contexts, providing a convenient way to switch between Grafana instances.
+
 ```bash
 # Create config directory
 mkdir -p ~/.config/grafanactl
@@ -334,19 +383,36 @@ mkdir -p ~/.config/grafanactl
 cat > ~/.config/grafanactl/config.yaml << EOF
 contexts:
   local:
-    url: http://localhost:3000
-    token: xxxxxxxxxxxxxxxxxxxxxxxxx
+    grafana:
+      server: http://localhost:3000
+      token: <grafana-service-account-token>
   production:
-    url: https://grafana.company.com
-    token: glsa_prod_token_here
+    grafana:
+      url: https://production.grafana.example
+      token: <glsa_prod_token_here>
 current-context: local
 EOF
 ```
 
 **Method 3: Command Line Flags**
-```bash
-# Use flags with each command
-grafanactl get dashboards --server http://localhost:3000 --token xxxxxxxxxxxxxxxxxxxxxxxxx
+
+#### Configure the default context
+```shell
+grafanactl config set contexts.default.grafana.server http://localhost:3000
+grafanactl config set contexts.default.grafana.org-id 1
+
+# Authenticate with a service account token
+grafanactl config set contexts.default.grafana.token <grafana-service-account-token>
+
+# Or alternatively, use basic authentication
+grafanactl config set contexts.default.grafana.user <grafana-user>
+grafanactl config set contexts.default.grafana.password <grafana-password>
+```
+
+#### Configure the new context
+```shell
+grafanactl config set contexts.production.grafana.server https://production.grafana.example
+grafanactl config set contexts.production.grafana.org-id 1
 ```
 
 **Switch Contexts**
@@ -936,7 +1002,7 @@ ansible-galaxy collection install grafana.grafana
           tags: ["application", "custom"]
           templating:
             list:
-              - name: "environment"
+              - name: "env_feature"
                 type: "custom"
                 options:
                   - { text: "Production", value: "prod" }
@@ -1739,10 +1805,10 @@ jobs:
           chmod +x grr-linux-amd64
           sudo mv grr-linux-amd64 /usr/local/bin/grr
 
-      - name: Deploy to ${{ matrix.environment }}
+      - name: Deploy to ${{ matrix.env_feature }}
         env:
-          GRAFANA_URL: ${{ secrets[format('GRAFANA_URL_{0}', matrix.environment)] }}
-          GRAFANA_TOKEN: ${{ secrets[format('GRAFANA_TOKEN_{0}', matrix.environment)] }}
+          GRAFANA_URL: ${{ secrets[format('GRAFANA_URL_{0}', matrix.env_feature)] }}
+          GRAFANA_TOKEN: ${{ secrets[format('GRAFANA_TOKEN_{0}', matrix.env_feature)] }}
         run: |
           # Apply datasources first
           grr apply datasources/
@@ -1949,6 +2015,7 @@ curl -X GET "$GRAFANA_URL/api/dashboards/uid/dashboard-uid" \
 - [Grafana HTTP API Documentation](https://grafana.com/docs/grafana/latest/developers/http_api/dashboard/)
 - [Terraform Grafana Provider](https://registry.terraform.io/providers/grafana/grafana/latest/docs)
 - [GitHub Actions Dashboard Automation](https://grafana.com/docs/grafana/latest/observability-as-code/foundation-sdk/dashboard-automation/)
+- [Dashboard-as--Code-Workshop](https://github.com/grafana/dashboards-as-code-workshop/tree/main)
 
 ## Conclusion
 
