@@ -1254,6 +1254,9 @@ git config --unset-all core.hooksPath
 
 # Optionally, check all files now by running
 pre-commit run --all-files
+
+# if you want to skip pre-commit hooks for a commit
+git commit --no-verify -m "your commit message" <file-name>
 ```
 
 #### Pre-commit Configuration
