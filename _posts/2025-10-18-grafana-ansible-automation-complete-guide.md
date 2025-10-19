@@ -207,7 +207,7 @@ grafana_local
 - All API calls are made from your local machine to Grafana URLs
 - Variables like `grafana_url` and `grafana_api_key` are stored in `host_vars/` or `group_vars/` files
 
-**Execution**: See [Common Execution Options](#common-execution-options-for-both-method-2-method-3) below for detailed examples.
+**Execution**: See [Common Execution Options](#common-execution-options-for-both-method-2--method-3) below for detailed examples.
 
 > **💡 Tip**: If you completed the [Quick Start](#quick-start-5-minutes), you're already using Method 2. The examples below show additional configuration options and multi-environment setups.
 
@@ -234,7 +234,7 @@ grafana_api_key: "<your-prod-2-api-token>"
 
 **Note**: `grafana_admin_name` and `grafana_admin_password` are only required for user management operations. Most automation (datasources, dashboards, folders) uses API keys only.
 
-**Execution**: See [Common Execution Options](#common-execution-options-for-both-method-2-method-3) below for detailed examples.
+**Execution**: See [Common Execution Options](#common-execution-options-for-both-method-2--method-3) below for detailed examples.
 
 > **🔒 Security**: This method encrypts sensitive data using `ansible-vault`. For development/testing, you can use [Method 2](#method-2-development-setup-recommended) without encryption.
 
