@@ -12,11 +12,9 @@ image:
   alt: Complete Grafana Automation with Ansible CRUD Operations Guide
 ---
 
-Automate **Grafana management** with comprehensive **Ansible playbooks** for datasources, dashboards, users, and alerts. This complete **Grafana automation guide** covers CRUD operations, multi-environment deployments, and production-ready Infrastructure as Code practices.
+Stop clicking through Grafana's UI for repetitive configuration tasks. This comprehensive guide shows you how to **version-control your entire monitoring stack**, ensure **consistent deployments** across dev/staging/production, and **eliminate configuration drift** using proven automation patterns. Whether you're managing a single Grafana instance or orchestrating dozens across cloud and on-premises environments, you'll master the tools and techniques that DevOps teams rely on for **scalable monitoring operations**.
 
 > **Quick Start**: Jump to [ready-to-use examples](#ready-to-use-examples) for immediate automation or explore our [GitHub repository](https://github.com/sagarnikam123/sagarnikam123-blog-youtube-code-samples/tree/main/grafana-automation) for complete automation suite including Ansible, guides, and documentation.
-
-Complete guide for managing Grafana resources using Ansible.
 
 ## Table of Contents
 
@@ -24,8 +22,8 @@ Complete guide for managing Grafana resources using Ansible.
 - [When to Use Ansible for Grafana](#when-to-use-ansible-for-grafana)
 - [Prerequisites](#prerequisites)
 - [Quick Start (5 Minutes)](#quick-start-5-minutes)
-- [Collection Information](#collection-information)
-- [Compatibility](#compatibility)
+- [Ansible Collection Information](#ansible-collection-information)
+- [Platform Compatibility](#platform-compatibility)
 - [Configuration & Execution](#configuration--execution)
 - [Module Compatibility & Status](#module-compatibility--status)
 - [Ready-to-Use Examples](#ready-to-use-examples)
@@ -140,24 +138,25 @@ ansible-playbook -i inventory.ini operations/folder/folder_create.yml --limit gr
 
 ✅ **Success!** Continue to [Configuration & Execution](#configuration--execution) for production setups and advanced examples.
 
-## Collection Information
+## Ansible Collection Information
 
-**Collection**: `grafana.grafana` v6.0.4+
-**Supported ansible-core**: 2.12.0 or newer (< 3.0.0)
-**Authors**: Grafana Labs, Ishan Jain, Gerard van Engelen
-**Documentation**: https://docs.ansible.com/ansible/latest/collections/grafana/grafana/
-**Tested With**: Ansible 2.17.13, Python 3.13.5, grafana.grafana 6.0.5
+- **Collection**: [`grafana.grafana`](https://galaxy.ansible.com/grafana/grafana) v6.0.4+
+- **Supported ansible-core**: 2.12.0 or newer (< 3.0.0)
+- **Authors**: [Grafana Labs](https://grafana.com/), Ishan Jain, Gerard van Engelen
+- **Documentation**: [Official Ansible Collection Docs](https://docs.ansible.com/ansible/latest/collections/grafana/grafana/)
+- **Source Code**: [GitHub Repository](https://github.com/grafana/grafana-ansible-collection)
+- **Tested With**: [Ansible](https://www.ansible.com/) 2.17.13, [Python](https://www.python.org/) 3.13.5, grafana.grafana 6.0.5
 
-## Compatibility
+## Platform Compatibility
 
-This guide's examples work with:
+| Platform                   | Type        | Description                                                                           |
+| -------------------------- | ----------- | ------------------------------------------------------------------------------------- |
+| **Self-hosted Grafana**    | On-premises | VM installations, Docker, Kubernetes deployments                                      |
+| **Grafana Cloud**          | SaaS        | [Grafana Labs managed service](https://grafana.com/products/cloud/)                   |
+| **Azure Managed Grafana**  | Cloud       | [Azure's managed service](https://azure.microsoft.com/en-us/products/managed-grafana) |
+| **Amazon Managed Grafana** | Cloud       | [AWS's managed service](https://aws.amazon.com/grafana/)                              |
 
-- **Self-hosted Grafana** - On-premises or VM installations
-- **Grafana Cloud** - SaaS offering by Grafana Labs
-- **Azure Managed Grafana** - [Azure's managed service](https://azure.microsoft.com/en-us/products/managed-grafana)
-- **Amazon Managed Grafana** - [AWS's managed service](https://aws.amazon.com/grafana/)
-
-For managed services, simply update the `grafana_url` to point to your managed instance endpoint and use the appropriate API keys.
+**Setup**: For managed services, update `grafana_url` to your instance endpoint and use appropriate API keys.
 
 ## Configuration & Execution
 
@@ -301,7 +300,7 @@ The [`grafana-automation/ansible/`](https://github.com/sagarnikam123/sagarnikam1
 
 ```
 grafana-automation/ansible/
-├── inventory.ini               # Inventory for all environments
+├── inventory.ini              # Inventory for all environments
 ├── grafana_info.yml           # Get comprehensive Grafana info
 ├── README.md                  # Setup and usage documentation
 ├── host_vars/                 # Host-specific variables
