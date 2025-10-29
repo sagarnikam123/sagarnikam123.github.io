@@ -56,12 +56,13 @@ Land your dream job with platforms specifically designed for technical interview
 ### Technical Interview Prep
 * **[InterviewBit](https://www.interviewbit.com/)** - Structured interview preparation with company-specific tracks
 * **[AlgoExpert](https://www.algoexpert.io/)** - Curated coding interview questions with video explanations
+* **[NeetCode](https://neetcode.io/)** - LeetCode problem patterns with video explanations and roadmaps
+* **[Hello Interview](https://www.hellointerview.com/)** - Modern interview preparation platform with interactive coding challenges
 * **[Pramp](https://www.pramp.com/)** - Practice mock interviews with peers
 * **[Coderbyte](https://coderbyte.com/)** - Interview prep focused on coding bootcamp graduates
 
 ### Assessment Platforms
 * **[Codility](https://www.codility.com/)** - Technical recruitment platform used by top companies
-* **[CodinGame](https://www.codingame.com/)** - Gamified coding challenges that companies use for hiring
 
 ## Competitive Programming
 
@@ -87,6 +88,7 @@ Challenge yourself with algorithmic competitions and join the global competitive
 * **[ICPC](https://icpc.global/)** - International Collegiate Programming Contest
 * **[IOI](https://ioinformatics.org/)** - International Olympiad in Informatics
 * **[USACO](https://usaco.org/)** - USA Computing Olympiad with training materials
+* **[USACO Guide](https://usaco.guide/)** - Comprehensive competitive programming curriculum and USACO preparation
 
 ### Specialized Contests
 * **[Advent of Code](https://adventofcode.com/)** - December programming puzzles
