@@ -284,12 +284,16 @@ docker rm $(docker ps -aq --filter ancestor=sagarnikam123/fuzzy-train:latest)
 **Kubernetes Deployment:**
 ```bash
 # Download YAML files
-wget https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/fuzzy-train-file.yaml
-wget https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/fuzzy-train-stdout.yaml
+wget https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/k8s/deployment-file.yaml
+wget https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/k8s/deployment-stdout.yaml
+wget https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/k8s/daemonset-stdout.yaml
 
 # Deploy to Kubernetes cluster
-kubectl apply -f fuzzy-train-file.yaml
-kubectl apply -f fuzzy-train-stdout.yaml
+kubectl apply -f deployment-file.yaml
+kubectl apply -f deployment-stdout.yaml
+
+# Optional: Deploy as DaemonSet for cluster-wide generation
+kubectl apply -f daemonset-stdout.yaml
 
 # Check running pods
 kubectl get pods -l app=fuzzy-train
@@ -777,18 +781,22 @@ Create **multi-service log generation** scenarios using **Docker Compose** for m
 **Docker Compose Multi-Service Setup:**
 ```yaml
 # docker-compose.yml
-# 🎯 MULTI-SERVICE TOTAL VOLUME: 918 KB/sec (0.92 MB/sec)
+# Docker Compose - File Output (Default)
+# Generates logs to files in ./logs/ directory for testing log file scrapers
+# Usage: docker-compose up
+# View logs: tail -f logs/[service-name].log
+# For stdout output, use: docker-compose -f docker-compose-stdout.yml up
 
 services:
   auth-service:
-    # 🔐 AUTH SERVICE VOLUME
-    # Lines: 2,000/sec | Size: ~200 bytes | Volume: 381 KB/sec (0.38 MB/sec)
+    # Volume generated: 2,000 lines/sec × ~200 bytes (150 chars + JSON overhead) = ~381 KB/sec (0.38 MB/sec)
     image: sagarnikam123/fuzzy-train:latest
     command: >
       --lines-per-second 2000
       --min-log-length 120
       --max-log-length 180
       --log-format JSON
+      --time-zone UTC
       --output file
       --file /logs/auth-service.log
       --trace-id-type integer
@@ -797,14 +805,14 @@ services:
     container_name: auth-logs
 
   payment-service:
-    # 💳 PAYMENT SERVICE VOLUME
-    # Lines: 1,500/sec | Size: ~175 bytes | Volume: 251 KB/sec (0.25 MB/sec)
+    # Volume generated: 1,500 lines/sec × ~175 bytes (125 chars + logfmt overhead) = ~251 KB/sec (0.25 MB/sec)
     image: sagarnikam123/fuzzy-train:latest
     command: >
       --lines-per-second 1500
       --min-log-length 100
       --max-log-length 150
       --log-format logfmt
+      --time-zone UTC
       --output file
       --file /logs/payment-service.log
       --trace-id-type integer
@@ -813,16 +821,17 @@ services:
     container_name: payment-logs
 
   user-service:
-    # 👤 USER SERVICE VOLUME
-    # Lines: 1,000/sec | Size: ~300 bytes | Volume: 286 KB/sec (0.29 MB/sec)
+    # Volume generated: 1,000 lines/sec × ~300 bytes (250 chars + Apache overhead) = ~286 KB/sec (0.29 MB/sec)
     image: sagarnikam123/fuzzy-train:latest
     command: >
       --lines-per-second 1000
       --min-log-length 200
       --max-log-length 300
       --log-format "apache combined"
+      --time-zone UTC
       --output file
       --file /logs/user-service.log
+      --trace-id-type integer
     volumes:
       - ./logs:/logs
     container_name: user-logs
@@ -952,24 +961,22 @@ graph TB
 Deploy **cluster-wide log generation** using **Kubernetes DaemonSet** for distributed testing:
 
 ```yaml
-# fuzzy-train-stdout-daemonset.yaml
-# 🌐 KUBERNETES CLUSTER VOLUME CALCULATION
-# Per Node: 10 lines/sec × ~170 bytes = 1.6 KB/sec
-# Total Cluster: 1.6 KB/sec × (Number of nodes)
-# Example 4-node cluster: 4 × 1.6 KB/sec = 6.4 KB/sec
+# daemonset-stdout.yaml
+# Volume generated per node: 10 lines/sec × ~170 bytes (120 chars + JSON overhead) = ~1.6 KB/sec
+# Total cluster volume = 1.6 KB/sec × (Number of nodes)
 
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: fuzzy-train-stdout
+  name: fuzzy-train-daemonset
 spec:
   selector:
     matchLabels:
-      app: fuzzy-train-stdout
+      app: fuzzy-train-daemonset
   template:
     metadata:
       labels:
-        app: fuzzy-train-stdout
+        app: fuzzy-train-daemonset
     spec:
       containers:
       - name: fuzzy-train
@@ -992,22 +999,22 @@ spec:
 **Deploy and manage DaemonSet:**
 ```bash
 # Deploy DaemonSet
-kubectl apply -f fuzzy-train-stdout-daemonset.yaml
+kubectl apply -f daemonset-stdout.yaml
 
 # Check DaemonSet status
-kubectl get daemonset fuzzy-train-stdout
+kubectl get daemonset fuzzy-train-daemonset
 
 # View pods on all nodes
-kubectl get pods -l app=fuzzy-train-stdout -o wide
+kubectl get pods -l app=fuzzy-train-daemonset -o wide
 
 # View logs from all pods
-kubectl logs -l app=fuzzy-train-stdout --tail=50
+kubectl logs -l app=fuzzy-train-daemonset --tail=50
 
 # View logs from specific pod
-kubectl logs $(kubectl get pods -l app=fuzzy-train-stdout -o jsonpath='{.items[0].metadata.name}') -f
+kubectl logs $(kubectl get pods -l app=fuzzy-train-daemonset -o jsonpath='{.items[0].metadata.name}') -f
 
 # Cleanup DaemonSet
-kubectl delete -f fuzzy-train-stdout-daemonset.yaml
+kubectl delete -f daemonset-stdout.yaml
 ```
 
 ## Kubernetes Cluster-Wide Log Generation
@@ -1082,20 +1089,20 @@ graph TB
 ```bash
 # For high-volume testing - increase rate and log size
 # Volume generated per node: 50 lines/sec × ~350 bytes (350 chars + overhead) = ~16.8 KB/sec
-# Edit fuzzy-train-stdout-daemonset.yaml:
+# Edit daemonset-stdout.yaml:
 # --lines-per-second: "50"     # 50 logs/sec per node
 # --min-log-length: "200"      # Larger logs
 # --max-log-length: "500"      # Up to 500 chars
 
 # For low-volume testing - decrease rate and log size
 # Volume generated per node: 1 line/sec × ~125 bytes (75 chars + overhead) = ~0.12 KB/sec
-# Edit fuzzy-train-stdout-daemonset.yaml:
+# Edit daemonset-stdout.yaml:
 # --lines-per-second: "1"       # 1 log/sec per node
 # --min-log-length: "50"       # Smaller logs
 # --max-log-length: "100"      # Up to 100 chars
 
 # Apply changes
-kubectl apply -f fuzzy-train-stdout-daemonset.yaml
+kubectl apply -f daemonset-stdout.yaml
 ```
 
 ## Troubleshooting Log Generation
