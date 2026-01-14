@@ -349,6 +349,23 @@ journalctl -b           # current boot logs
 journalctl --disk-usage # journal disk usage
 ```
 
+#### Journal Log Cleanup
+```bash
+# Delete logs older than specified time (system-wide)
+journalctl --vacuum-time=3d   # delete logs older than 3 days
+journalctl --vacuum-time=1d   # delete logs older than 1 day
+journalctl --vacuum-time=1s   # remove all journal entries
+
+# Retain only specified size of logs (system-wide)
+journalctl --vacuum-size=500M # retain only past 500 MB logs
+journalctl --vacuum-size=100M # retain only past 100 MB logs
+
+# Cleanup for specific service
+journalctl --vacuum-time=3d -u <service-name>  # delete logs older than 3 days for service
+journalctl --vacuum-time=1d -u loki.service    # delete logs older than 1 day for loki
+journalctl --vacuum-time=1s -u loki.service    # remove all entries for loki service
+```
+
 ## Memory Analysis
 
 ### Memory Usage Overview
