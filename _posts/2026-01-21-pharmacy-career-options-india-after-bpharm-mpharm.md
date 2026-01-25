@@ -135,7 +135,17 @@ The [Department of Pharmaceuticals](https://pharmaceuticals.gov.in), Government 
 | [BCPL](https://www.bengalchemicals.co.in)                                  | Bengal Chemicals & Pharmaceuticals Limited      | Kolkata, Mumbai, Kanpur       | Industrial chemicals, Drugs, Cosmetics           |
 | [IDPL](https://idplindia.in/)                                              | Indian Drugs & Pharmaceuticals Limited          | Rishikesh, Hyderabad, Gurgaon | Generic drugs, ORS, Anti-malarials               |
 
-[HLL Lifecare Limited](https://www.lifecarehll.com) (Mini Ratna Category-I under Ministry of Health & Family Welfare) also recruits pharmacists for AMRIT Pharmacy outlets and Janasanjeevini Drug Stores at government hospitals. Eligibility: D.Pharm/B.Pharm + State Pharmacy Council Registration. Products: Contraceptives, surgical sutures, blood bags, medical devices, vaccines.
+> **Note:** KAPL is a Joint Sector Company (Govt. of India + Govt. of Karnataka) and has been profit-making for 13+ consecutive years. IDPL played a crucial role during the Plague outbreak (1994) and Malaria epidemics by supplying essential medicines.
+{: .prompt-info }
+
+#### 6. Mini Ratna Companies Recruiting Pharmacists
+
+| Company                                             | Category      | Ministry                | Location                   | Products                                                                | Eligibility                    |
+| --------------------------------------------------- | ------------- | ----------------------- | -------------------------- | ----------------------------------------------------------------------- | ------------------------------ |
+| [HLL Lifecare Limited](https://www.lifecarehll.com) | Mini Ratna I  | Health & Family Welfare | Thiruvananthapuram, Kerala | Contraceptives, surgical sutures, blood bags, medical devices, vaccines | D.Pharm/B.Pharm + Registration |
+| [IMPCL](https://impclmohan.nic.in)                  | Mini Ratna II | AYUSH                   | Mohan, Uttarakhand         | Ayurvedic & Unani medicines (656 Ayurvedic, 332 Unani formulations)     | M.Pharm for managerial roles   |
+
+**HLL Lifecare** recruits pharmacists for [AMRIT Pharmacy outlets](https://www.lifecarehll.com/page/render/reference/Amrit_Pharmacies) and Janasanjeevini Drug Stores at government hospitals across India.
 
 **PSU Pharmacist Roles:**
 - Production and manufacturing of pharmaceutical formulations
@@ -145,10 +155,7 @@ The [Department of Pharmaceuticals](https://pharmaceuticals.gov.in), Government 
 
 **Salary Range:** ₹35,000 – ₹1,10,000 per month (based on grade and experience)
 
-> **Note:** KAPL is a Mini Ratna PSU and has been profit-making for 13+ consecutive years. IDPL played a crucial role during the Plague outbreak (1994) and Malaria epidemics by supplying essential medicines.
-{: .prompt-info }
-
-#### 6. Non-Pharma Government Jobs for B.Pharm Graduates
+#### 7. Non-Pharma Government Jobs for B.Pharm Graduates
 
 B.Pharm graduates can also apply for non-pharmaceutical government jobs, leveraging their knowledge of health sciences, biochemistry, and regulatory frameworks:
 
