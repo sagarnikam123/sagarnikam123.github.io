@@ -219,29 +219,13 @@ This is a prestigious regulatory role within the [Food and Drug Administration (
 
 #### 2. Zilla Parishad (ZP) Pharmacist
 
-Zilla Parishads conduct recruitment for pharmacists to work in rural health centers and district hospitals.
-
-**Eligibility:**
-- **Degree/Diploma:** D.Pharm or B.Pharm from a recognized institute
-- **Registration:** Must be a Registered Pharmacist with the [Maharashtra State Pharmacy Council (MSPC)](https://www.mspcindia.org)
-
-**Exam Pattern:**
-- Marathi & English (15 questions each): Grammar and vocabulary
-- General Knowledge & Aptitude (15 questions each): Current affairs and basic math
-- Technical/Pharma (40 questions): Core pharmacy subjects (conducted in English)
+Zilla Parishads conduct recruitment for pharmacists to work in rural health centers and district hospitals. D.Pharm or B.Pharm + [MSPC](https://www.mspcindia.org) registration required.
 
 **Salary:** Pay Level S-10 (₹29,200 – ₹92,300)
 
 #### 3. DMER Pharmacist (Medical Education & Research)
 
-These roles are in government medical colleges and attached hospitals across Maharashtra.
-
-**Eligibility:** 10+2 (Science) + D.Pharm or B.Pharm. Valid MSPC registration is compulsory.
-
-**Exam Pattern (CBT):**
-- The exam is a Computer Based Test of 100 questions (200 marks)
-- **Technical Domain:** 40 questions (80 marks) focused on Pharmacology, Hospital Pharmacy, and Drug Store Management
-- **Non-Technical:** 60 questions covering Marathi, English, GK, and Logical Ability
+These roles are in government medical colleges and attached hospitals across Maharashtra. 10+2 (Science) + D.Pharm or B.Pharm with valid MSPC registration.
 
 #### 4. Other Key State Roles
 
