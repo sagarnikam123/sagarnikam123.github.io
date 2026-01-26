@@ -157,19 +157,17 @@ The [Department of Pharmaceuticals](https://pharmaceuticals.gov.in), Government 
 
 #### 7. Non-Pharma Government Jobs for B.Pharm Graduates
 
-B.Pharm graduates can also apply for non-pharmaceutical government jobs, leveraging their knowledge of health sciences, biochemistry, and regulatory frameworks:
-
-| Job Role                           | 2025 Salary (₹/month) | 2030 Projection (₹/month) | 2035 Projection (₹/month) | Recruitment                                                             |
-| ---------------------------------- | --------------------- | ------------------------- | ------------------------- | ----------------------------------------------------------------------- |
-| Food Safety Officer (FSO)          | ₹45,000 – ₹70,000     | ₹65,000 – ₹1,00,000       | ₹90,000 – ₹1,35,000       | [FSSAI](https://www.fssai.gov.in) / State PSC                           |
-| Tax/Excise/Customs Inspector       | ₹45,000 – ₹75,000     | ₹65,000 – ₹1,05,000       | ₹90,000 – ₹1,35,000       | [SSC CGL](https://ssc.gov.in/)                                          |
-| Scientific Analyst / Lab Assistant | ₹35,000 – ₹65,000     | ₹50,000 – ₹90,000         | ₹70,000 – ₹1,20,000       | Govt. Labs                                                              |
-| Health/Sanitary Inspector          | ₹30,000 – ₹60,000     | ₹45,000 – ₹80,000         | ₹60,000 – ₹1,00,000       | Municipal Corps                                                         |
-| Bank PO/Clerk                      | ₹30,000 – ₹60,000     | ₹45,000 – ₹85,000         | ₹65,000 – ₹1,10,000       | [IBPS](https://www.ibps.in)/[SBI](https://sbi.co.in/web/careers)        |
-| Insurance Officer (AAO/ADO)        | ₹35,000 – ₹70,000     | ₹50,000 – ₹1,00,000       | ₹70,000 – ₹1,30,000       | [LIC](https://licindia.in/careers), [NIACL](https://www.newindia.co.in) |
-| Teaching (Govt. Polytechnic)       | ₹30,000 – ₹60,000     | ₹45,000 – ₹90,000         | ₹65,000 – ₹1,25,000       | State PSC                                                               |
-| State Civil Services               | ₹40,000 – ₹1,00,000   | ₹60,000 – ₹1,40,000       | ₹90,000 – ₹2,00,000       | State PSC                                                               |
-| UPSC Civil Services (IAS, IPS)     | ₹56,100 – ₹2,50,000   | ₹80,000 – ₹3,00,000+      | ₹1,00,000 – ₹3,50,000+    | [UPSC](https://www.upsc.gov.in)                                         |
+| Job Role                                                         | 2025 Salary (₹/month) | 2030 Projection (₹/month) | 2035 Projection (₹/month) | Recruitment                                                             |
+| ---------------------------------------------------------------- | --------------------- | ------------------------- | ------------------------- | ----------------------------------------------------------------------- |
+| [Food Safety Officer (FSO)](https://fssai.gov.in/jobs@fssai.php) | ₹45,000 – ₹70,000     | ₹65,000 – ₹1,00,000       | ₹90,000 – ₹1,35,000       | [FSSAI](https://www.fssai.gov.in) / State PSC                           |
+| Tax/Excise/Customs Inspector                                     | ₹45,000 – ₹75,000     | ₹65,000 – ₹1,05,000       | ₹90,000 – ₹1,35,000       | [SSC CGL](https://ssc.gov.in/)                                          |
+| Scientific Analyst / Lab Assistant                               | ₹35,000 – ₹65,000     | ₹50,000 – ₹90,000         | ₹70,000 – ₹1,20,000       | Govt. Labs                                                              |
+| Health/Sanitary Inspector                                        | ₹30,000 – ₹60,000     | ₹45,000 – ₹80,000         | ₹60,000 – ₹1,00,000       | Municipal Corps                                                         |
+| Bank PO/Clerk                                                    | ₹30,000 – ₹60,000     | ₹45,000 – ₹85,000         | ₹65,000 – ₹1,10,000       | [IBPS](https://www.ibps.in)/[SBI](https://sbi.co.in/web/careers)        |
+| Insurance Officer (AAO/ADO)                                      | ₹35,000 – ₹70,000     | ₹50,000 – ₹1,00,000       | ₹70,000 – ₹1,30,000       | [LIC](https://licindia.in/careers), [NIACL](https://www.newindia.co.in) |
+| Teaching (Govt. Polytechnic)                                     | ₹30,000 – ₹60,000     | ₹45,000 – ₹90,000         | ₹65,000 – ₹1,25,000       | State PSC                                                               |
+| State Civil Services                                             | ₹40,000 – ₹1,00,000   | ₹60,000 – ₹1,40,000       | ₹90,000 – ₹2,00,000       | State PSC                                                               |
+| UPSC Civil Services (IAS, IPS)                                   | ₹56,100 – ₹2,50,000   | ₹80,000 – ₹3,00,000+      | ₹1,00,000 – ₹3,50,000+    | [UPSC](https://www.upsc.gov.in)                                         |
 
 > **Did you know?** B.Pharm graduates are eligible for [SSC CGL (Staff Selection Commission Combined Graduate Level)](https://ssc.gov.in/) exam, which opens doors to Tax Inspector, Excise Inspector, and various Central Government positions!
 {: .prompt-tip }
@@ -200,22 +198,11 @@ B.Pharm graduates can also apply for non-pharmaceutical government jobs, leverag
 
 ### Maharashtra State Government Jobs
 
-In Maharashtra, government jobs for Pharmacy graduates and diploma holders are primarily offered through the [Maharashtra Public Service Commission (MPSC)](https://mpsc.gov.in/home), Zilla Parishad (ZP), and the Directorate of Medical Education and Research (DMER).
+In Maharashtra, government jobs for Pharmacy graduates and diploma holders are primarily offered through the [Maharashtra Public Service Commission (MPSC)](https://mpsc.gov.in/home), Zilla Parishad (ZP), and the Directorate of Medical Education and Research [(DMER)](https://dmer.maharashtra.gov.in/english/).
 
 #### 1. MPSC Drug Inspector (Group B)
 
-This is a prestigious regulatory role within the [Food and Drug Administration (FDA) Maharashtra](https://fdamfg.maharashtra.gov.in).
-
-**Eligibility:**
-- **Degree:** B.Pharm, Pharmaceutical Science, or Medicine (specialization in Clinical Pharmacology or Microbiology)
-- **Language:** Proficiency in Marathi is mandatory
-- **Experience:** Generally requires 18 months of experience in the manufacture or testing of drugs (as per the Drugs and Cosmetics Act)
-
-**Exam Pattern:**
-- **Written Exam:** Objective MCQs covering Pharmaceutical Chemistry, Pharmacology, Pharmaceutics, and Drug Laws (Jurisprudence)
-- **Interview:** Candidates qualifying the written test are called for a personal interview
-
-**Age Limit:** 18–38 years (up to 43 years for reserved categories)
+This is a prestigious regulatory role within the [Food and Drug Administration (FDA) Maharashtra](https://fdamfg.maharashtra.gov.in). B.Pharm/Pharmaceutical Science + Marathi proficiency + 18 months experience in drug manufacture/testing required.
 
 #### 2. Zilla Parishad (ZP) Pharmacist
 
@@ -231,6 +218,7 @@ These roles are in government medical colleges and attached hospitals across Mah
 
 - **Arogya Vibhag (Public Health Dept):** Recruits "Oshadh Nirman Adhikari" (Pharmaceutical Officers) for state hospitals. Eligibility is D.Pharm/B.Pharm
 - **Municipal Corporations (BMC, PMC, NMMC, etc.):** Large cities like Mumbai and Pune conduct their own recruitment exams. They often require 2 years of work experience in addition to a degree/diploma
+- **[Haffkine Institute](https://www.haffkineinstitute.org), Parel, Mumbai:** One of India's oldest biomedical research institutes (est. 1899). Offers research positions in vaccine development, drug resistance studies. M.Pharm (Pharmacology) graduates can apply for Project Assistant/Research Associate roles. [Haffkine Bio-Pharmaceutical Corporation](https://www.vaccinehaffkine.com) on the same campus manufactures vaccines
 
 #### Summary of Common Requirements (Maharashtra)
 
@@ -300,13 +288,13 @@ flowchart TD
     O --> Q[Clinical Research]
 ```
 
-| Your Interest             | Recommended Path            | Key Exam              | Top Institutes              |
-| ------------------------- | --------------------------- | --------------------- | --------------------------- |
-| Research & Drug Discovery | M.Pharm / M.S. (Pharm.)     | GPAT / NIPER JEE      | NIPER, IIT BHU, CSIR Labs   |
-| Business & Corporate      | MBA (Pharma)                | CAT / CMAT / NMAT     | NMIMS, Jamia Hamdard, NIPER |
-| Teaching & Academia       | M.Pharm + Ph.D.             | GPAT + NET            | Central Universities, NITs  |
-| Clinical Practice         | Pharm.D / Clinical Pharmacy | GPAT                  | NIPER, Hospital Training    |
-| Government Jobs           | B.Pharm sufficient          | RRB / SSC / State PSC | Direct recruitment          |
+| Your Interest             | Recommended Path            | Key Exam              | Top Institutes                                        |
+| ------------------------- | --------------------------- | --------------------- | ----------------------------------------------------- |
+| Research & Drug Discovery | M.Pharm / M.S. (Pharm.)     | GPAT / NIPER JEE      | NIPER, IIT BHU, CSIR Labs                             |
+| Business & Corporate      | MBA (Pharma)                | CAT / CMAT / NMAT     | [NMIMS](https://www.nmims.edu/), Jamia Hamdard, NIPER |
+| Teaching & Academia       | M.Pharm + Ph.D.             | GPAT + NET            | Central Universities, NITs                            |
+| Clinical Practice         | Pharm.D / Clinical Pharmacy | GPAT                  | NIPER, Hospital Training                              |
+| Government Jobs           | B.Pharm sufficient          | RRB / SSC / State PSC | Direct recruitment                                    |
 
 ### M.Pharm Specializations
 
@@ -325,9 +313,7 @@ After completing a B.Pharm, pursuing an MBA in Pharmaceutical Management or Biot
 
 IIMs do not offer a dedicated "MBA in Pharmaceutical Management" program. However, B.Pharm graduates can pursue their flagship MBA (PGP) program and specialize in healthcare/pharma through electives.
 
-**Complete List of IIMs in India**
-
-There are 21 IIMs across India. The 6 IIMs with strong Healthcare/Pharma focus are listed first.
+**Complete List of IIMs (21) in India**
 
 **IIMs with Strong Healthcare/Pharma Focus (6)**
 
@@ -350,9 +336,9 @@ There are 21 IIMs across India. The 6 IIMs with strong Healthcare/Pharma focus a
 | [IIM Sambalpur](https://www.iimsambalpur.ac.in), Odisha | [IIM Sirmaur](https://www.iimsirmaur.ac.in), HP          | [IIM Mumbai](https://www.iimmumbai.ac.in), Maharashtra     |                                                       |
 
 **Admission Requirements:**
-- **Entrance Exam:** [CAT](https://iimcat.ac.in) (99+ percentile for top IIMs like ABC)
+- **Entrance Exam:** [CAT](https://iimcat.ac.in) (99+ percentile for top IIMs)
 - **Eligibility:** Any Bachelor's degree (B.Pharm eligible) with 50% marks
-- **Selection:** CAT Score + WAT/GD + Personal Interview
+- **Selection:** CAT Score + WAT (Written Ability Test)/GD + Personal Interview
 
 **Career Paths after IIM:**
 - Pharma Strategy Consulting (McKinsey, BCG, Bain)
@@ -360,32 +346,32 @@ There are 21 IIMs across India. The 6 IIMs with strong Healthcare/Pharma focus a
 - Product Management in Pharma MNCs
 - Hospital Administration & Healthcare Management
 
-> **IIM vs Dedicated Pharma MBA:** IIMs offer broader management exposure with healthcare as elective. For focused pharma careers, NIPER, NMIMS, or IIHMR may be better. IIMs are ideal for consulting and leadership roles in pharma strategy.
+> **IIM vs Dedicated Pharma MBA:** IIMs offer broader management exposure with healthcare as elective. For focused pharma careers, NIPER, [NMIMS](https://glcconlinemba.in/), or [IIHMR](https://iihmr.edu.in/) may be better. IIMs are ideal for consulting and leadership roles in pharma strategy.
 {: .prompt-info }
 
 #### 2. Top Institutes for MBA in Pharma/Biotech
 
 **Government & Semi-Government Institutes**
 
-| Institute                                                  | Course                | Entrance Exam                                                                                                                                                                                   | Eligibility                                             |
-| ---------------------------------------------------------- | --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
-| [NIPER (7 centers)](https://www.niper.gov.in)              | MBA (Pharm.)          | [GPAT](https://gpat.nta.nic.in) + [NIPER JEE](https://www.niper.gov.in)                                                                                                                         | B.Pharm with 60% marks                                  |
-| [Jamia Hamdard](https://www.jamiahamdard.ac.in), New Delhi | MBA Pharma            | [CAT](https://iimcat.ac.in)/[CMAT](https://cmat.nta.nic.in)/[MAT](https://mat.aima.in)/[XAT](https://xatonline.in)                                                                              | Graduation with 55%                                     |
-| [DPSRU](https://dpsru.edu.in), Delhi                       | MBA Pharma Management | [GPAT](https://gpat.nta.nic.in)                                                                                                                                                                 | B.Pharm with 55%                                        |
-| [IIHMR University](https://www.iihmr.edu.in), Jaipur       | MBA Pharma Management | [CAT](https://iimcat.ac.in)/[MAT](https://mat.aima.in)/[CMAT](https://cmat.nta.nic.in)/[ATMA](https://www.atmaaims.com)/[XAT](https://xatonline.in)/[GPAT](https://gpat.nta.nic.in)/IIHMR-U MAT | Graduation with 50% (Pharmacy/Science/Biotech/Medicine) |
-| [PUMBA](https://www.pumba.in), Pune                        | MBA Pharma-Biotech    | [ATMA](https://www.atmaaims.com) only                                                                                                                                                           | B.Pharm with 50% (45% for reserved from Maharashtra)    |
-| [JMI (Jamia Millia Islamia)](https://www.jmi.ac.in), Delhi | MBA                   | [CAT](https://iimcat.ac.in)/[CMAT](https://cmat.nta.nic.in)                                                                                                                                     | Graduation with 50%                                     |
+| Institute                                                  | Course                | Entrance Exam                                                                                                                                                                                                         | Eligibility                                             |
+| ---------------------------------------------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
+| [NIPER (7 centers)](https://www.niper.gov.in)              | MBA (Pharm.)          | [GPAT](https://natboard.edu.in/viewnbeexam?exam=gpat) + [NIPER JEE](https://www.niper.gov.in)                                                                                                                         | B.Pharm with 60% marks                                  |
+| [Jamia Hamdard](https://www.jamiahamdard.ac.in), New Delhi | MBA Pharma            | [CAT](https://iimcat.ac.in)/[CMAT](https://cmat.nta.nic.in)/[MAT](https://mat.aima.in)/[XAT](https://xatonline.in)                                                                                                    | Graduation with 55%                                     |
+| [DPSRU](https://dpsru.edu.in), Delhi                       | MBA Pharma Management | [GPAT](https://gpat.nta.nic.in)                                                                                                                                                                                       | B.Pharm with 55%                                        |
+| [IIHMR University](https://www.iihmr.edu.in), Jaipur       | MBA Pharma Management | [CAT](https://iimcat.ac.in)/[MAT](https://mat.aima.in)/[CMAT](https://cmat.nta.nic.in)/[ATMA](https://www.atmaaims.com)/[XAT](https://xatonline.in)/[GPAT](https://natboard.edu.in/viewnbeexam?exam=gpat)/IIHMR-U MAT | Graduation with 50% (Pharmacy/Science/Biotech/Medicine) |
+| [PUMBA](https://www.pumba.in), Pune                        | MBA Pharma-Biotech    | [ATMA](https://www.atmaaims.com) only                                                                                                                                                                                 | B.Pharm with 50% (45% for reserved from Maharashtra)    |
+| [JMI (Jamia Millia Islamia)](https://www.jmi.ac.in), Delhi | MBA                   | [CAT](https://iimcat.ac.in)/[CMAT](https://cmat.nta.nic.in)                                                                                                                                                           | Graduation with 50%                                     |
 
 **Private Institutes**
 
-| Institute                                                           | Course                    | Entrance Exam                                                                                                      | Eligibility         |
-| ------------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------- |
-| [NMIMS](https://www.nmims.edu), Mumbai                              | MBA Pharma Management     | [NMAT](https://www.nmat.org)                                                                                       | Graduation with 50% |
-| [SIES College](https://www.siescoms.edu), Navi Mumbai               | PGDM Pharma/Biotech       | [CAT](https://iimcat.ac.in)/[CMAT](https://cmat.nta.nic.in)/[MAT](https://mat.aima.in)/[XAT](https://xatonline.in) | Graduation with 50% |
-| [Shoolini University](https://www.shooliniuniversity.com), Himachal | MBA Pharma                | [MAT](https://mat.aima.in)/[CAT](https://iimcat.ac.in)/HPCET                                                       | Graduation with 50% |
-| [Chitkara University](https://www.chitkara.edu.in), Punjab          | MBA Pharma Management     | [CAT](https://iimcat.ac.in)/[MAT](https://mat.aima.in)                                                             | Graduation with 50% |
-| [SIHS (Symbiosis)](https://www.sihspune.org), Pune                  | MBA Hospital & Healthcare | [SNAP](https://www.snaptest.org)                                                                                   | Graduation with 50% |
-| [Amity University](https://www.amity.edu), Noida                    | MBA Biotechnology         | [CAT](https://iimcat.ac.in)/[MAT](https://mat.aima.in)                                                             | Graduation with 50% |
+| Institute                                                             | Course                    | Entrance Exam                                                                                                      | Eligibility         |
+| --------------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------ | ------------------- |
+| [NMIMS](https://www.nmims.edu/), Mumbai                               | MBA Pharma Management     | [NMAT](https://www.nmat.org)                                                                                       | Graduation with 50% |
+| [SIES College](https://www.siescoms.edu), Navi Mumbai                 | PGDM Pharma/Biotech       | [CAT](https://iimcat.ac.in)/[CMAT](https://cmat.nta.nic.in)/[MAT](https://mat.aima.in)/[XAT](https://xatonline.in) | Graduation with 50% |
+| [Shoolini University](https://www.shooliniuniversity.com), Himachal   | MBA Pharma                | [MAT](https://mat.aima.in)/[CAT](https://iimcat.ac.in)/HPCET                                                       | Graduation with 50% |
+| [Chitkara University](https://www.chitkarauniversity.edu.in/), Punjab | MBA Pharma Management     | [CAT](https://iimcat.ac.in)/[MAT](https://mat.aima.in)                                                             | Graduation with 50% |
+| [SIHS (Symbiosis)](https://www.sihspune.org), Pune                    | MBA Hospital & Healthcare | [SNAP](https://www.snaptest.org)                                                                                   | Graduation with 50% |
+| [Amity University](https://www.amity.edu), Noida                      | MBA Biotechnology         | [CAT](https://iimcat.ac.in)/[MAT](https://mat.aima.in)                                                             | Graduation with 50% |
 
 > **Top Recruiters for MBA Pharma:** [Abbott](https://www.abbott.co.in), [Cipla](https://www.cipla.com), [Sun Pharma](https://www.sunpharma.com), [Dr. Reddy's](https://www.drreddys.com), [Glenmark](https://www.glenmarkpharma.com), Accenture, Deloitte, PwC, ZS Associates, Fortis
 {: .prompt-info }
@@ -463,25 +449,26 @@ For working professionals or those who cannot pursue full-time education, severa
 
 #### Top Government/Open Universities
 
-| University                                                                        | Location  | Courses for B.Pharm Graduates                               |
-| --------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------- |
-| [IGNOU (Indira Gandhi National Open University)](https://www.ignou.ac.in)         | New Delhi | MBA, PG Diploma in Clinical Research, PG Diploma in IPR, MA |
-| [YCMOU (Yashwantrao Chavan Maharashtra Open University)](https://www.ycmou.ac.in) | Nashik    | MBA, MCA, MA, B.Ed                                          |
-| [Dr. B.R. Ambedkar Open University](https://www.braou.ac.in)                      | Hyderabad | MBA, MCA, MA                                                |
-| [Karnataka State Open University (KSOU)](https://ksoumysuru.ac.in)                | Mysore    | MBA, MA, M.Com                                              |
-| [Tamil Nadu Open University (TNOU)](https://www.tnou.ac.in)                       | Chennai   | MBA, MCA, MA                                                |
+| University                                                                              | Location  | Courses for B.Pharm Graduates                               |
+| --------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------- |
+| [IGNOU (Indira Gandhi National Open University)](https://ignouadmission.samarth.edu.in) | New Delhi | MBA, PG Diploma in Clinical Research, PG Diploma in IPR, MA |
+| [YCMOU (Yashwantrao Chavan Maharashtra Open University)](https://www.ycmou.ac.in)       | Nashik    | MBA, MCA, MA, B.Ed                                          |
+| [Dr. B.R. Ambedkar Open University](https://www.braouonline.in)                         | Hyderabad | MBA, MCA, MA                                                |
+| [Karnataka State Open University (KSOU)](https://ksoumysuru.ac.in)                      | Mysore    | MBA, MA, M.Com                                              |
+| [University of Mysore Online](https://online.mysore.university)                         | Mysore    | MBA, BBA, M.Com                                             |
+| [Tamil Nadu Open University (TNOU)](https://www.tnou.ac.in)                             | Chennai   | MBA, MCA, MA                                                |
 
 #### Top Private Universities (UGC-DEB Approved Online)
 
 | University                                                                       | Location   | Courses for B.Pharm Graduates    |
 | -------------------------------------------------------------------------------- | ---------- | -------------------------------- |
 | [SCDL (Symbiosis Centre for Distance Learning)](https://onlineprograms.scdl.net) | Pune       | PGDBA, PG Diploma in IPR, PGDHRM |
-| [NMIMS Global Access (NGA-SCE)](https://www.ngasce.com)                          | Mumbai     | MBA, BBA, B.Com                  |
+| [NMIMS Global Access (NGA-SCE)](https://admissions.igniteonline.in)              | Mumbai     | MBA, BBA, B.Com                  |
 | [Jamia Hamdard Online](https://jamiahamdardonline.in/)                           | New Delhi  | MBA, BBA, B.Com                  |
 | [Amity University Online](https://www.amityonline.com)                           | Noida      | MBA, MCA, BBA                    |
 | [Manipal University Online](https://www.onlinemanipal.com)                       | Jaipur     | MBA, MCA, M.Com                  |
-| [LPU Online](https://online.lpu.in)                                              | Punjab     | MBA, MCA, MA                     |
-| [Chandigarh University Online](https://www.cuonline.ac.in)                       | Chandigarh | MBA, MCA, BBA                    |
+| [LPU Online](https://www.lpuonline.com)                                          | Punjab     | MBA, MCA, MA                     |
+| [Chandigarh University Online](https://www.onlinecu.in)                          | Chandigarh | MBA, MCA, BBA                    |
 | [Sikkim Manipal University (SMU-DE)](https://www.smude.edu.in)                   | Sikkim     | MBA, MCA, BBA                    |
 | [Jain University Online](https://www.onlinejain.com)                             | Bangalore  | MBA, MCA, M.Com                  |
 
@@ -529,7 +516,7 @@ B.Pharm graduates can pursue a 3-year LLB from any recognized law college.
 **Entrance Exams:**
 - [CLAT (Common Law Admission Test)](https://consortiumofnlus.ac.in) — For 25 National Law Universities
 - [AILET](https://nludelhi.ac.in) — For NLU Delhi
-- [LSAT India](https://www.lsatindia.in) — For private law schools
+- [LSAT India](https://www.lsac.org/lsat) — For private law schools
 - State-level Law CETs
 
 **Career Options after B.Pharm + LLB:**
@@ -587,12 +574,12 @@ B.Pharm graduates are directly eligible to become Patent Agents without needing 
 
 **Distance/Online IPR Courses**
 
-| Institute                                    | Course                         | Duration   |
-| -------------------------------------------- | ------------------------------ | ---------- |
-| [WIPO Academy](https://www.wipo.int/academy) | DL courses in IP (Free)        | 2-10 weeks |
-| [NLSIU PACE](https://pace.nls.ac.in)         | PG Diploma in IPR Law (Online) | 1 year     |
-| [SCDL Pune](https://onlineprograms.scdl.net) | Certificate in IPR             | 6 months   |
-| [IGNOU](https://www.ignou.ac.in)             | PG Diploma in IPR              | 1 year     |
+| Institute                                      | Course                         | Duration   |
+| ---------------------------------------------- | ------------------------------ | ---------- |
+| [WIPO Academy](https://www.wipo.int/academy)   | DL courses in IP (Free)        | 2-10 weeks |
+| [NLSIU PACE](https://pace.nls.ac.in)           | PG Diploma in IPR Law (Online) | 1 year     |
+| [SCDL Pune](https://onlineprograms.scdl.net)   | Certificate in IPR             | 6 months   |
+| [IGNOU](https://ignouadmission.samarth.edu.in) | PG Diploma in IPR              | 1 year     |
 
 **Patent Agent Exam Preparation Institutes**
 
