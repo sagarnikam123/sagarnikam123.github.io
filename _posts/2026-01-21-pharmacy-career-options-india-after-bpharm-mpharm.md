@@ -38,8 +38,10 @@ Pharmacy is one of the most versatile healthcare professions in India, offering 
   - [AIIMS (23) & INI-CET (4) Institutes](#aiims-23--ini-cet-4-institutes)
   - [GAT-B (Central Universities)](#gat-b-central-universities)
   - [CSIR Labs (37 Institutes)](#csir-labs-37-institutes)
+  - [IISc Bangalore](#iisc-bangalore-indian-institute-of-science)
   - [IISERs (7 Institutes)](#iisers-7-institutes)
   - [BARC & DAE (TIFR, BRIT, TMC)](#barc--dae-tifr-brit-tmc)
+  - [Other Research Opportunities](#other-research-opportunities)
 - [Frequently Asked Questions (FAQ)](#-frequently-asked-questions-faq)
 - [Next Steps: Your Action Plan](#-next-steps-your-action-plan)
 - [Useful Resources & Links](#-useful-resources--links)
@@ -565,21 +567,21 @@ B.Pharm graduates are directly eligible to become Patent Agents without needing 
 
 **Specialized IPR Institutes**
 
-| Institute                                                                            | Location      | Course                               |
-| ------------------------------------------------------------------------------------ | ------------- | ------------------------------------ |
-| [RGNIIPM (Rajiv Gandhi National Institute of IP Management)](https://rgniipm.gov.in) | Nagpur        | PG Diploma in IPR, Training programs |
-| [IGMPI (Indo-German Training Centre)](https://www.igmpi.ac.in)                       | Greater Noida | PG Diploma in IPR (PGDIPR)           |
-| [TIFAC](https://www.tifac.org.in)                                                    | Delhi         | IPR Training, Patent Search          |
-| [IPAI (Institute of Patent Attorneys India)](https://www.ipaindia.co.in)             | Delhi         | Patent Agent Exam Preparation        |
+| Institute                                                                                        | Location      | Course                               |
+| ------------------------------------------------------------------------------------------------ | ------------- | ------------------------------------ |
+| [RGNIIPM (Rajiv Gandhi National Institute of IP Management)](https://ipindia.gov.in/rgniipm.htm) | Nagpur        | PG Diploma in IPR, Training programs |
+| [IGMPI (Indo-German Training Centre)](https://www.igmpi.ac.in)                                   | Greater Noida | PG Diploma in IPR (PGDIPR)           |
+| [TIFAC](https://www.tifac.org.in)                                                                | Delhi         | IPR Training, Patent Search          |
+| [IPAI (Institute of Patent Attorneys India)](https://www.ipaindia.co.in)                         | Delhi         | Patent Agent Exam Preparation        |
 
 **Distance/Online IPR Courses**
 
-| Institute                                      | Course                         | Duration   |
-| ---------------------------------------------- | ------------------------------ | ---------- |
-| [WIPO Academy](https://www.wipo.int/academy)   | DL courses in IP (Free)        | 2-10 weeks |
-| [NLSIU PACE](https://pace.nls.ac.in)           | PG Diploma in IPR Law (Online) | 1 year     |
-| [SCDL Pune](https://onlineprograms.scdl.net)   | Certificate in IPR             | 6 months   |
-| [IGNOU](https://ignouadmission.samarth.edu.in) | PG Diploma in IPR              | 1 year     |
+| Institute                                                 | Course                         | Duration   |
+| --------------------------------------------------------- | ------------------------------ | ---------- |
+| [WIPO Academy](https://www.wipo.int/portal/en/index.html) | DL courses in IP (Free)        | 2-10 weeks |
+| [NLSIU PACE](https://pace.nls.ac.in)                      | PG Diploma in IPR Law (Online) | 1 year     |
+| [SCDL Pune](https://symbiosisonlinemba.ssodl.edu.in/)     | Certificate in IPR             | 6 months   |
+| [IGNOU](https://ignouadmission.samarth.edu.in)            | PG Diploma in IPR              | 1 year     |
 
 **Patent Agent Exam Preparation Institutes**
 
@@ -637,14 +639,14 @@ B.Pharm graduates are directly eligible to become Patent Agents without needing 
 > - **[GATE (BT/XL)](https://gate.iitk.ac.in)** — Required for IITs, NITs, IISERs, BARC OCES, and provides better stipend options
 > - **[GAT-B](https://rcb.res.in/DBTPG/)** — For Central Universities offering M.Sc. Biotechnology
 > - **[INI-CET](https://aiimsexams.ac.in)** — For AIIMS and other medical institutes
-> - **[JAM-BT](https://jam.iitd.ac.in)** — For IISERs Integrated PhD programs
+> - **[JAM-BT](https://jam.iitd.ac.in)** — For IISc, IISERs Integrated PhD programs
 > - **[JGEEBILS](https://jgeebils.ncbs.res.in)** — For NCBS, InStem, TIFR (Biology)
 > - **[BARC OCES](https://barcocesexam.in)** — For DAE Scientific Officer (requires M.Sc. after B.Pharm)
 {: .prompt-tip }
 
 ### NIPER (7 Centers)
 
-NIPER JEE (Joint Entrance Examination) is a national-level entrance exam conducted by the National Institutes of Pharmaceutical Education and Research (NIPERs). These are "Institutes of National Importance" under the Ministry of Chemicals and Fertilizers, specifically designed to provide high-level education and research in pharmaceutical sciences.
+[NIPER JEE](https://www.niper.gov.in/niperjee2025/) (Joint Entrance Examination) is a national-level entrance exam conducted by the National Institutes of Pharmaceutical Education and Research (NIPERs). These are "Institutes of National Importance" under the Ministry of Chemicals and Fertilizers, specifically designed to provide high-level education and research in pharmaceutical sciences.
 
 #### NIPER Centers in India
 
@@ -703,16 +705,15 @@ As a Pharmacy student (B.Pharm or M.Pharm), you have several specialized pathway
 
 #### Complete List of IITs in India
 
-There are 23 IITs across India:
+There are 23 IITs across India. The 6 IITs offering B.Pharm-relevant courses are listed separately below. Here are the remaining 17 IITs:
 
-| IIT                                       | IIT                                     | IIT                                           | IIT                                          |
-| ----------------------------------------- | --------------------------------------- | --------------------------------------------- | -------------------------------------------- |
-| [IIT Kharagpur](https://www.iitkgp.ac.in) | [IIT Bombay](https://www.iitb.ac.in)    | [IIT Madras](https://www.iitm.ac.in)          | [IIT Kanpur](https://www.iitk.ac.in)         |
-| [IIT Delhi](https://www.iitd.ac.in)       | [IIT Guwahati](https://www.iitg.ac.in)  | [IIT Roorkee](https://www.iitr.ac.in)         | [IIT BHU Varanasi](https://www.iitbhu.ac.in) |
-| [IIT Hyderabad](https://www.iith.ac.in)   | [IIT Jodhpur](https://www.iitj.ac.in)   | [IIT Patna](https://www.iitp.ac.in)           | [IIT Bhubaneswar](https://www.iitbbs.ac.in)  |
-| [IIT Ropar](https://www.iitrpr.ac.in)     | [IIT Indore](https://www.iiti.ac.in)    | [IIT Mandi](https://www.iitmandi.ac.in)       | [IIT Gandhinagar](https://www.iitgn.ac.in)   |
-| [IIT Palakkad](https://www.iitpkd.ac.in)  | [IIT Tirupati](https://www.iittp.ac.in) | [IIT Dhanbad (ISM)](https://www.iitism.ac.in) | [IIT Bhilai](https://www.iitbhilai.ac.in)    |
-| [IIT Goa](https://www.iitgoa.ac.in)       | [IIT Jammu](https://www.iitjammu.ac.in) | [IIT Dharwad](https://www.iitdh.ac.in)        |                                              |
+| IIT                                       | IIT                                           | IIT                                         | IIT                                      |
+| ----------------------------------------- | --------------------------------------------- | ------------------------------------------- | ---------------------------------------- |
+| [IIT Kharagpur](https://www.iitkgp.ac.in) | [IIT Kanpur](https://www.iitk.ac.in)          | [IIT Guwahati](https://www.iitg.ac.in)      | [IIT Roorkee](https://www.iitr.ac.in)    |
+| [IIT Jodhpur](https://www.iitj.ac.in)     | [IIT Patna](https://www.iitp.ac.in)           | [IIT Bhubaneswar](https://www.iitbbs.ac.in) | [IIT Ropar](https://www.iitrpr.ac.in)    |
+| [IIT Indore](https://www.iiti.ac.in)      | [IIT Mandi](https://www.iitmandi.ac.in)       | [IIT Gandhinagar](https://www.iitgn.ac.in)  | [IIT Palakkad](https://www.iitpkd.ac.in) |
+| [IIT Tirupati](https://www.iittp.ac.in)   | [IIT Dhanbad (ISM)](https://www.iitism.ac.in) | [IIT Goa](https://www.iitgoa.ac.in)         | [IIT Jammu](https://www.iitjammu.ac.in)  |
+| [IIT Dharwad](https://www.iitdh.ac.in)    |                                               |                                             |                                          |
 
 Source: [IIT Council](https://iitsystem.ac.in/)
 
@@ -755,18 +756,17 @@ While National Institutes of Technology (NITs) are primarily technical and engin
 
 #### Complete List of NITs in India
 
-There are 31 NITs across India (plus IIEST Shibpur under NIT Council):
+There are 31 NITs across India (plus IIEST Shibpur under NIT Council). The 5 NITs offering B.Pharm-relevant courses are listed separately below. Here are the remaining 27 NITs:
 
-| NIT                                                           | NIT                                                            | NIT                                                             | NIT                                                            |
-| ------------------------------------------------------------- | -------------------------------------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------- |
-| [NIT Karnataka (NITK)](https://www.nitk.ac.in), Surathkal     | [NIT Warangal (NITW)](https://www.nitw.ac.in), Telangana       | [NIT Bhopal (MANIT)](https://www.manit.ac.in), MP               | [IIEST Shibpur](https://www.iiests.ac.in), West Bengal         |
-| [NIT Nagpur (VNIT)](https://www.vnit.ac.in), Maharashtra      | [NIT Durgapur (NITDGP)](https://www.nitdgp.ac.in), West Bengal | [NIT Jamshedpur (NITJSR)](https://www.nitjsr.ac.in), Jharkhand  | [NIT Srinagar (NITSRI)](https://www.nitsri.ac.in), J&K         |
-| [NIT Allahabad (MNNIT)](https://www.mnnit.ac.in), UP          | [NIT Surat (SVNIT)](https://www.svnit.ac.in), Gujarat          | [NIT Calicut (NITC)](https://www.nitc.ac.in), Kerala            | [NIT Rourkela (NITR)](https://www.nitrkl.ac.in), Odisha        |
-| [NIT Jaipur (MNIT)](https://www.mnit.ac.in), Rajasthan        | [NIT Kurukshetra (NITKKR)](https://www.nitkkr.ac.in), Haryana  | [NIT Trichy (NITT)](https://www.nitt.edu), Tamil Nadu           | [NIT Silchar (NITS)](https://www.nits.ac.in), Assam            |
-| [NIT Hamirpur (NITH)](https://www.nith.ac.in), HP             | [NIT Jalandhar (NITJ)](https://www.nitj.ac.in), Punjab         | [NIT Patna (NITP)](https://www.nitp.ac.in), Bihar               | [NIT Raipur (NITRR)](https://www.nitrr.ac.in), Chhattisgarh    |
-| [NIT Agartala (NITA)](https://www.nita.ac.in), Tripura        | [NIT Arunachal (NITAP)](https://www.nitap.ac.in), Arunachal    | [NIT Delhi (NITD)](https://www.nitdelhi.ac.in), Delhi           | [NIT Goa (NITG)](https://www.nitgoa.ac.in), Goa                |
-| [NIT Manipur (NITMN)](https://www.nitmanipur.ac.in), Manipur  | [NIT Meghalaya (NITM)](https://www.nitm.ac.in), Meghalaya      | [NIT Mizoram (NITMZ)](https://www.nitmz.ac.in), Mizoram         | [NIT Nagaland (NITN)](https://www.nitnagaland.ac.in), Nagaland |
-| [NIT Puducherry (NITPY)](https://www.nitpy.ac.in), Puducherry | [NIT Sikkim (NITSKM)](https://www.nitsikkim.ac.in), Sikkim     | [NIT Uttarakhand (NITUK)](https://www.nituk.ac.in), Uttarakhand | [NIT Andhra (NITANP)](https://www.nitandhra.ac.in), AP         |
+| NIT                                                            | NIT                                                             | NIT                                                            | NIT                                                           |
+| -------------------------------------------------------------- | --------------------------------------------------------------- | -------------------------------------------------------------- | ------------------------------------------------------------- |
+| [NIT Karnataka (NITK)](https://www.nitk.ac.in), Surathkal      | [NIT Bhopal (MANIT)](https://www.manit.ac.in), MP               | [IIEST Shibpur](https://www.iiests.ac.in), West Bengal         | [NIT Nagpur (VNIT)](https://www.vnit.ac.in), Maharashtra      |
+| [NIT Jamshedpur (NITJSR)](https://www.nitjsr.ac.in), Jharkhand | [NIT Srinagar (NITSRI)](https://www.nitsri.ac.in), J&K          | [NIT Surat (SVNIT)](https://www.svnit.ac.in), Gujarat          | [NIT Jaipur (MNIT)](https://www.mnit.ac.in), Rajasthan        |
+| [NIT Kurukshetra (NITKKR)](https://www.nitkkr.ac.in), Haryana  | [NIT Trichy (NITT)](https://www.nitt.edu), Tamil Nadu           | [NIT Silchar (NITS)](https://www.nits.ac.in), Assam            | [NIT Hamirpur (NITH)](https://www.nith.ac.in), HP             |
+| [NIT Jalandhar (NITJ)](https://www.nitj.ac.in), Punjab         | [NIT Patna (NITP)](https://www.nitp.ac.in), Bihar               | [NIT Raipur (NITRR)](https://www.nitrr.ac.in), Chhattisgarh    | [NIT Agartala (NITA)](https://www.nita.ac.in), Tripura        |
+| [NIT Arunachal (NITAP)](https://www.nitap.ac.in), Arunachal    | [NIT Delhi (NITD)](https://www.nitdelhi.ac.in), Delhi           | [NIT Goa (NITG)](https://www.nitgoa.ac.in), Goa                | [NIT Manipur (NITMN)](https://www.nitmanipur.ac.in), Manipur  |
+| [NIT Meghalaya (NITM)](https://www.nitm.ac.in), Meghalaya      | [NIT Mizoram (NITMZ)](https://www.nitmz.ac.in), Mizoram         | [NIT Nagaland (NITN)](https://www.nitnagaland.ac.in), Nagaland | [NIT Puducherry (NITPY)](https://www.nitpy.ac.in), Puducherry |
+| [NIT Sikkim (NITSKM)](https://www.nitsikkim.ac.in), Sikkim     | [NIT Uttarakhand (NITUK)](https://www.nituk.ac.in), Uttarakhand | [NIT Andhra (NITANP)](https://www.nitandhra.ac.in), AP         |                                                               |
 
 Source: [NIT Council](https://nitcouncil.org.in/)
 
@@ -780,7 +780,7 @@ B.Pharm graduates can transition into engineering and technology roles through M
 | [NIT Warangal](https://www.nitw.ac.in)           | M.Tech Biotechnology | Admits B.Pharm graduates with a valid GATE score. Focuses on Bioprocess Engineering                 |
 | [NIT Calicut](https://www.nitc.ac.in)            | M.Tech Biotechnology | Eligible for students with B.Pharm/Bio-sciences background. Focuses on medical practice innovations |
 | [NIT Allahabad (MNNIT)](https://www.mnnit.ac.in) | M.Tech Biotechnology | Accepts Pharmacy graduates into their interdisciplinary biotech program                             |
-| [NIT Durgapur](https://www.nitdgp.ac.in)         | M.Tech Biotechnology | Offers specializations in Environmental and Industrial Biotech relevant to Pharma                   |
+| [NIT Durgapur](https://nitdgp.ac.in/)            | M.Tech Biotechnology | Offers specializations in Environmental and Industrial Biotech relevant to Pharma                   |
 
 > **Note:** D.Pharm graduates are generally not eligible for NIT programs directly as these institutes offer degree-level and postgraduate-level courses only. D.Pharm holders usually need to complete a B.Pharm first (often via lateral entry).
 {: .prompt-warning }
@@ -816,14 +816,14 @@ After completing B.Pharm, you are eligible for several postgraduate courses at A
 
 There are 23 AIIMS across India:
 
-| AIIMS                                                           | AIIMS                                                         | AIIMS                                                            | AIIMS                                                             |
-| --------------------------------------------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------- |
-| [AIIMS New Delhi](https://www.aiims.edu), Delhi                 | [AIIMS Bhopal](https://www.aiimsbhopal.edu.in), MP            | [AIIMS Bhubaneswar](https://www.aiimsbhubaneswar.edu.in), Odisha | [AIIMS Jodhpur](https://www.aiimsjodhpur.edu.in), Rajasthan       |
-| [AIIMS Nagpur](https://www.aiimsnagpur.edu.in), Maharashtra     | [AIIMS Patna](https://www.aiimspatna.edu.in), Bihar           | [AIIMS Raipur](https://www.aiimsraipur.edu.in), Chhattisgarh     | [AIIMS Rishikesh](https://www.aiimsrishikesh.edu.in), Uttarakhand |
-| [AIIMS Bibinagar](https://www.aiimsbibinagar.edu.in), Telangana | [AIIMS Bathinda](https://www.aiimsbathinda.edu.in), Punjab    | [AIIMS Deoghar](https://www.aiimsdeoghar.edu.in), Jharkhand      | [AIIMS Mangalagiri](https://www.aiimsmangalagiri.edu.in), AP      |
-| [AIIMS Raebareli](https://www.aiimsrbl.edu.in), UP              | [AIIMS Kalyani](https://www.aiimskalyani.edu.in), West Bengal | [AIIMS Bilaspur](https://www.aiimsbilaspur.edu.in), HP           | [AIIMS Gorakhpur](https://www.aiimsgorakhpur.edu.in), UP          |
-| [AIIMS Guwahati](https://www.aiimsguwahati.ac.in), Assam        | [AIIMS Rajkot](https://www.aiimsrajkot.edu.in), Gujarat       | [AIIMS Jammu](https://www.aiimsjammu.edu.in), J&K                | [AIIMS Madurai](https://www.aiimsmadurai.edu.in), Tamil Nadu      |
-| [AIIMS Darbhanga](https://www.aiimsdarbhanga.edu.in), Bihar     | [AIIMS Vijaypur](https://www.aiimsvijaypur.edu.in), J&K       | [AIIMS Awantipora](https://www.aiimsawantipora.edu.in), J&K      |                                                                   |
+| AIIMS                                                       | AIIMS                                                         | AIIMS                                                            | AIIMS                                                             |
+| ----------------------------------------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------- |
+| [AIIMS New Delhi](https://www.aiims.edu), Delhi             | [AIIMS Bhopal](https://www.aiimsbhopal.edu.in), MP            | [AIIMS Bhubaneswar](https://www.aiimsbhubaneswar.edu.in), Odisha | [AIIMS Jodhpur](https://www.aiimsjodhpur.edu.in), Rajasthan       |
+| [AIIMS Nagpur](https://aiimsnagpur.edu.in), Maharashtra     | [AIIMS Patna](https://www.aiimspatna.edu.in), Bihar           | [AIIMS Raipur](https://www.aiimsraipur.edu.in), Chhattisgarh     | [AIIMS Rishikesh](https://www.aiimsrishikesh.edu.in), Uttarakhand |
+| [AIIMS Bibinagar](https://aiimsbibinagar.edu.in), Telangana | [AIIMS Bathinda](https://www.aiimsbathinda.edu.in), Punjab    | [AIIMS Deoghar](https://www.aiimsdeoghar.edu.in), Jharkhand      | [AIIMS Mangalagiri](https://www.aiimsmangalagiri.edu.in), AP      |
+| [AIIMS Raebareli](https://www.aiimsrbl.edu.in), UP          | [AIIMS Kalyani](https://www.aiimskalyani.edu.in), West Bengal | [AIIMS Bilaspur](https://www.aiimsbilaspur.edu.in), HP           | [AIIMS Gorakhpur](https://www.aiimsgorakhpur.edu.in), UP          |
+| [AIIMS Guwahati](https://www.aiimsguwahati.ac.in), Assam    | [AIIMS Rajkot](https://www.aiimsrajkot.edu.in), Gujarat       | [AIIMS Jammu](https://www.aiimsjammu.edu.in), J&K                | [AIIMS Madurai](https://www.aiimsmadurai.edu.in), Tamil Nadu      |
+| [AIIMS Darbhanga](https://www.aiimsdarbhanga.edu.in), Bihar | [AIIMS Vijaypur](https://www.aiimsvijaypur.edu.in), J&K       | [AIIMS Awantipora](https://www.aiimsawantipora.edu.in), J&K      |                                                                   |
 
 #### Other INI-CET Participating Institutes
 
@@ -967,6 +967,56 @@ Pharmacy students can join CSIR labs in various research capacities.
 - **Check Individual Lab Websites:** Visit the "Career" or "Recruitment" section of labs like CDRI, IIIM, or IICT. They frequently post walk-in interview notices for Project Associates
 - **CSIR-HRDG:** Monitor the [CSIR Human Resource Development Group](https://csirhrdg.res.in/) for national-level fellowship notifications (NET, RA-ships)
 - **AcSIR:** If you want to pursue a Ph.D., apply through the [AcSIR website](https://acsir.res.in/) during their August or January intake cycles
+
+### IISc Bangalore (Indian Institute of Science)
+
+[IISc Bangalore](https://www.iisc.ac.in) is India's premier research institute, established in 1909. Ranked #1 in India for research, it offers excellent opportunities for B.Pharm graduates in Biological and Chemical Sciences.
+
+#### Courses for B.Pharm Graduates
+
+**1. M.Sc. Life Sciences (2 years)**
+
+| Aspect         | Details                                                                                                   |
+| -------------- | --------------------------------------------------------------------------------------------------------- |
+| Eligibility    | First class in B.Pharm or equivalent degree in Biological/Pharmaceutical/Veterinary/Agricultural Sciences |
+| Entrance Exam  | JAM (BT/CY/MA/PH) or GATE (BT/BM/EC/EY/MA/PH/XL)                                                          |
+| Selection      | Shortlisting based on JAM/GATE score + Interview                                                          |
+| Research Areas | Biochemistry, Cell Biology, Neuroscience, Genetics, Microbiology, Ecology                                 |
+| Intake         | 40 seats                                                                                                  |
+
+**2. Integrated Ph.D. in Biological Sciences (5-6 years)**
+
+| Aspect         | Details                                                                                             |
+| -------------- | --------------------------------------------------------------------------------------------------- |
+| Eligibility    | First class in B.Pharm or equivalent degree in Physical/Chemical/Biological/Pharmaceutical Sciences |
+| Entrance Exam  | JAM in Biotechnology (BT), Chemistry (CY), Mathematics (MA), or Physics (PH)                        |
+| Selection      | JAM rank-based shortlisting + Interview                                                             |
+| Research Areas | Molecular Biology, Structural Biology, Immunology, Neuroscience, Genetics, Protein Chemistry        |
+| Intake         | 15-23 seats per year                                                                                |
+
+#### Courses for M.Pharm / Pharm.D Graduates
+
+**Direct Ph.D. (4-5 years)**
+
+| Aspect        | Details                                                        |
+| ------------- | -------------------------------------------------------------- |
+| Eligibility   | M.Pharm/M.Sc. with first class; Pharm.D candidates eligible    |
+| Entrance Exam | GATE/CSIR-NET/JAM score + Interview                            |
+| Departments   | Biochemistry, Molecular Biophysics, Microbiology, Cell Biology |
+| Note          | CFTI graduates with CGPA ≥8.0 can apply without GATE           |
+
+#### Stipend & Benefits
+
+| Stage                     | Amount (₹/month) |
+| ------------------------- | ---------------- |
+| M.Sc. Students            | No stipend       |
+| Ph.D. JRF                 | ₹37,000 + HRA    |
+| Ph.D. SRF (after 2 years) | ₹42,000 + HRA    |
+
+> **Why IISc for Pharmacy Graduates?** IISc is India's top-ranked research institute with world-class facilities. B.Pharm graduates interested in cutting-edge research in drug discovery, molecular biology, or neuroscience can pursue M.Sc. or Integrated Ph.D. programs here.
+{: .prompt-tip }
+
+Source: [IISc Admissions Portal](https://admissions.iisc.ac.in/)
 
 ### IISERs (7 Institutes)
 
@@ -1137,6 +1187,117 @@ Source: [TIFR](https://www.tifr.res.in)
 
 > **Why TIFR/DAE for Pharmacy Graduates?** NCBS and InStem are among India's best institutes for biological research. B.Pharm graduates interested in neuroscience, cell biology, stem cell research, or radiopharmacy can pursue world-class research with excellent funding and international exposure. For nuclear/radiation careers, consider M.Sc. after B.Pharm to become eligible for BARC OCES.
 {: .prompt-tip }
+
+### Other Research Opportunities
+
+#### BioCyTiH (BITS Pilani Technology Innovation Hub)
+
+[BioCyTiH](https://biocytih.co.in) is a Technology Innovation Hub at BITS Pilani, funded by DST under the National Mission on Interdisciplinary Cyber-Physical Systems (NM-ICPS). It offers research positions (not formal courses) for pharmacy graduates.
+
+| Position                      | Eligibility                             | Stipend              |
+| ----------------------------- | --------------------------------------- | -------------------- |
+| Junior Research Fellow (JRF)  | M.Tech/M.Pharm/M.Sc. in relevant fields | ₹31,000-37,000/month |
+| Project Associate             | B.Tech/B.Pharm/M.Sc.                    | ₹20,000-25,000/month |
+| Research Associate (Post-doc) | Ph.D. in relevant fields                | ₹47,000-54,000/month |
+
+**Research Areas:** Biological Cyber-Physical Systems, Bio-Engineering, Biomedical Devices, Sensors, Computational Biology
+
+**How to Apply:** Check [BioCyTiH website](https://biocytih.co.in) or [BITS Pilani Careers](https://www.bits-pilani.ac.in/careers/) for project-based openings.
+
+#### ICMR (Indian Council of Medical Research)
+
+[ICMR](https://www.icmr.gov.in) is India's apex body for biomedical research under the Ministry of Health & Family Welfare. It operates 27+ research institutes across India and offers excellent opportunities for pharmacy graduates.
+
+**Scientist Positions (Permanent)**
+
+| Position      | Pay Level                   | Eligibility             | Experience |
+| ------------- | --------------------------- | ----------------------- | ---------- |
+| Scientist-B   | Level 10 (₹56,100-1,77,500) | M.Pharm/M.Sc.           | Freshers   |
+| Scientist-C   | Level 11 (₹67,700-2,08,700) | M.Pharm/M.Sc./Ph.D.     | 4 years    |
+| Scientist-D   | Level 12 (₹78,800-2,09,200) | M.Pharm/Ph.D.           | 8 years    |
+| Scientist-E/F | Level 13/13A                | Ph.D. with publications | 10+ years  |
+
+**Project Positions (Temporary)**
+
+| Position                     | Eligibility                | Stipend                  |
+| ---------------------------- | -------------------------- | ------------------------ |
+| Junior Research Fellow (JRF) | M.Pharm/M.Sc. + NET/GATE   | ₹31,000-37,000/month     |
+| Project Associate            | B.Pharm/M.Pharm            | ₹25,000-35,000/month     |
+| Young Professional           | M.Pharm/M.Sc. + 1 year exp | ₹40,000-50,000/month     |
+| Consultant (Non-Medical)     | M.Pharm + 10 years exp     | ₹1,00,000-1,50,000/month |
+
+**Key ICMR Institutes for Pharmacy Graduates**
+
+| Institute                        | Location  | Research Focus                        |
+| -------------------------------- | --------- | ------------------------------------- |
+| [NIRRH](https://nirrh.res.in)    | Mumbai    | Reproductive Health, Drug Development |
+| [NARI](https://nari.icmr.org.in) | Pune      | HIV/AIDS Research, Vaccines           |
+| [NIV](https://www.niv.co.in)     | Pune      | Virology, Vaccine Development         |
+| [NIMR](https://nimr.icmr.org.in) | Delhi     | Malaria Research, Drug Resistance     |
+| [NCDIR](https://ncdirindia.org)  | Bengaluru | Cancer Registry, Disease Informatics  |
+| [NIRT](https://nirt.res.in)      | Chennai   | Tuberculosis Research                 |
+
+**Related ICMR Portals**
+
+| Portal                                                               | Purpose                                                                     |
+| -------------------------------------------------------------------- | --------------------------------------------------------------------------- |
+| [CTRI](https://ctri.nic.in)                                          | Clinical Trials Registry India - mandatory registration for clinical trials |
+| [IAMRSN](https://iamrsn.icmr.org.in)                                 | Antimicrobial Resistance Surveillance Network                               |
+| [ICMR Recruitment](https://www.icmr.gov.in/employment-opportunities) | Job notifications and applications                                          |
+
+**How to Apply:** Monitor [ICMR Employment Portal](https://www.icmr.gov.in/employment-opportunities) and individual institute websites for vacancies. Project positions are often filled through walk-in interviews.
+
+#### DBT (Department of Biotechnology) Institutes
+
+[DBT](https://dbtindia.gov.in) under the Ministry of Science & Technology funds several autonomous institutes offering research opportunities for pharmacy graduates.
+
+**Key DBT Institutes for Pharmacy Graduates**
+
+| Institute                                                                           | Location    | Research Focus                                                | B.Pharm/M.Pharm Eligibility            |
+| ----------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------- | -------------------------------------- |
+| [RCB (Regional Centre for Biotechnology)](https://www.rcb.res.in)                   | Faridabad   | Structural Biology, Infectious Diseases, Agricultural Biotech | M.Pharm eligible for Ph.D.             |
+| [NIBMG (National Institute of Biomedical Genomics)](https://www.nibmg.ac.in)        | Kalyani, WB | Genomics, Cancer Research, Bioinformatics                     | M.Sc./M.Pharm + NET/GATE for JRF       |
+| [InStem (Institute for Stem Cell Science)](https://www.instem.res.in)               | Bangalore   | Stem Cell Biology, Regenerative Medicine                      | M.Pharm eligible for Project positions |
+| [NIAB (National Institute of Animal Biotechnology)](https://www.niab.res.in)        | Hyderabad   | Vaccine Development, Animal Health                            | B.Pharm/M.Pharm eligible               |
+| [THSTI (Translational Health Science & Technology Institute)](https://thsti.res.in) | Faridabad   | Translational Research, Vaccines, Diagnostics                 | M.Pharm eligible                       |
+
+**Courses & Positions at DBT Institutes**
+
+| Program                   | Eligibility                          | Stipend/Salary       |
+| ------------------------- | ------------------------------------ | -------------------- |
+| Ph.D. (RCB, NIBMG, THSTI) | M.Pharm/M.Sc. + 60% + GAT-B/GATE/NET | ₹37,000/month (JRF)  |
+| Project Associate         | M.Pharm/M.Sc. + NET/GATE             | ₹31,000-35,000/month |
+| Research Scientist        | M.Pharm + 5 years exp                | ₹50,000-80,000/month |
+| Technical Assistant       | B.Pharm + 3 years exp                | ₹25,000-35,000/month |
+
+#### DST (Department of Science & Technology) Institutes
+
+[DST](https://dst.gov.in) funds several research institutes relevant for pharmacy graduates.
+
+**Key DST Institutes**
+
+| Institute                                                | Location   | Research Focus                          | Pharmacy Eligibility                                            |
+| -------------------------------------------------------- | ---------- | --------------------------------------- | --------------------------------------------------------------- |
+| [JNCASR](https://www.jncasr.ac.in)                       | Bangalore  | Chemistry, Biology, Materials Science   | B.Pharm for Integrated Ph.D., M.Pharm for Ph.D. (GPAT accepted) |
+| [ARI (Agharkar Research Institute)](https://aripune.org) | Pune       | Biodiversity, Genetics, Nanobioscience  | M.Pharm + NET/GATE for JRF                                      |
+| [SCTIMST](https://www.sctimst.ac.in)                     | Trivandrum | Biomedical Engineering, Medical Devices | B.E./B.Tech for M.Tech; Ph.D. for M.Pharm                       |
+
+**JNCASR (Jawaharlal Nehru Centre for Advanced Scientific Research)**
+
+JNCASR is a premier research institute (ranked #7 globally by Nature) that accepts GPAT for Ph.D. admission.
+
+| Program                      | Eligibility      | Entrance                    |
+| ---------------------------- | ---------------- | --------------------------- |
+| Integrated Ph.D. (5-6 years) | B.Pharm with 55% | JAM/JNCASR Test + Interview |
+| Ph.D. (4-5 years)            | M.Pharm with 55% | GPAT/GATE/NET + Interview   |
+| MS by Research               | M.Pharm with 55% | GPAT/GATE/NET + Interview   |
+
+**Research Areas:** Drug Discovery, Chemical Biology, Molecular Medicine, Neuroscience, Materials for Healthcare
+
+> **Key Advantage:** JNCASR is one of the few premier institutes that explicitly accepts GPAT for Ph.D. admission, making it highly accessible for pharmacy graduates.
+{: .prompt-tip }
+
+**How to Apply:** Check individual institute websites for Ph.D. admissions (usually twice a year) and project positions (advertised throughout the year).
 
 ---
 
