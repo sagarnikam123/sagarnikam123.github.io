@@ -43,6 +43,10 @@ Pharmacy is one of the most versatile healthcare professions in India, offering 
   - [BARC & DAE (TIFR, BRIT, TMC)](#barc--dae-tifr-brit-tmc)
   - [Other Institutes of National Importance](#other-institutes-of-national-importance)
   - [Other Research Opportunities](#other-research-opportunities)
+    - [ICMR (27+ Institutes)](#icmr-indian-council-of-medical-research)
+    - [DBT-BRIC (14 Institutes)](#dbt-department-of-biotechnology-institutes)
+    - [DST (20+ Institutes)](#dst-department-of-science--technology-institutes)
+    - [DRDO (52 Labs)](#drdo-defence-research--development-organisation)
 - [Frequently Asked Questions (FAQ)](#-frequently-asked-questions-faq)
 - [Next Steps: Your Action Plan](#-next-steps-your-action-plan)
 - [Useful Resources & Links](#-useful-resources--links)
@@ -98,12 +102,12 @@ Central and Indian Government jobs for Pharmacy graduates are highly respected a
 
 #### 3. Research & Technical Roles (Mainly for M.Pharm)
 
-| Job Title                       | Description                                                        | Eligibility                                         | Entry Exam / Recruiter                                                                                                                        |
-| ------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| Scientist / Research Officer    | High-level research in public health, vaccines, and drug discovery | M.Pharm or Ph.D. with a valid GPAT/GATE score       | [ICMR](https://www.icmr.gov.in), [CSIR](https://www.csir.res.in/en) labs, [DRDO](https://www.drdo.gov.in), or [BARC](https://www.barc.gov.in) |
-| Pharmacovigilance Officer       | Monitoring adverse drug reactions in CDSCO centers                 | B.Pharm/M.Pharm. Strong documentation skills needed | [CDSCO](https://cdsco.gov.in) / [IPC (Indian Pharmacopoeia Commission)](https://ipc.gov.in)                                                   |
-| Asst. Professor (Govt. College) | Teaching in Government Pharmacy colleges                           | M.Pharm + GPAT/NET or Ph.D.                         | [UPSC](https://www.upsc.gov.in) or State PSC (e.g., UPPSC, [MPSC](https://mpsc.gov.in/home))                                                  |
-| Research Scientist (Govt. Labs) | Drug development, formulation research in ICMR, CSIR, NIPER        | M.Pharm / Ph.D.                                     | [ICMR](https://www.icmr.gov.in), [CSIR](https://www.csir.res.in/en), [NIPER](https://www.niper.gov.in/)                                       |
+| Job Title                       | Description                                                        | Eligibility                                                        | Entry Exam / Recruiter                                                                                                                        |
+| ------------------------------- | ------------------------------------------------------------------ | ------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| Scientist / Research Officer    | High-level research in public health, vaccines, and drug discovery | M.Pharm or Ph.D. with a valid GPAT/GATE score                      | [ICMR](https://www.icmr.gov.in), [CSIR](https://www.csir.res.in/en) labs, [DRDO](https://www.drdo.gov.in), or [BARC](https://www.barc.gov.in) |
+| Pharmacovigilance Officer       | Monitoring adverse drug reactions in CDSCO centers                 | B.Pharm/M.Pharm. Strong documentation skills needed                | [CDSCO](https://cdsco.gov.in) / [IPC (Indian Pharmacopoeia Commission)](https://ipc.gov.in)                                                   |
+| Asst. Professor (Govt. College) | Teaching in Government Pharmacy colleges                           | M.Pharm + GPAT/[CSIR-UGC NET](https://csirnet.nta.nic.in) or Ph.D. | [UPSC](https://www.upsc.gov.in) or State PSC (e.g., UPPSC, [MPSC](https://mpsc.gov.in/home))                                                  |
+| Research Scientist (Govt. Labs) | Drug development, formulation research in ICMR, CSIR, NIPER        | M.Pharm / Ph.D.                                                    | [ICMR](https://www.icmr.gov.in), [CSIR](https://www.csir.res.in/en), [NIPER](https://www.niper.gov.in/)                                       |
 
 #### 4. Central Drugs Testing Laboratories (CDTLs)
 
@@ -334,6 +338,8 @@ These roles are in government medical colleges and attached hospitals across Mah
 
 ### Which Path is Right for You?
 
+#### Traditional Career Paths
+
 ```mermaid
 flowchart TD
     A[What's your interest?] --> B{Research & Lab Work?}
@@ -349,7 +355,7 @@ flowchart TD
     I --> J[NIPER MBA / NMIMS]
     I --> K[Jamia Hamdard / PUMBA]
 
-    D -->|Yes| L[M.Pharm + NET/GPAT]
+    D -->|Yes| L[M.Pharm + CSIR-UGC NET/GPAT]
     L --> M[Asst. Professor]
     L --> N[Ph.D. for Senior Roles]
 
@@ -358,13 +364,42 @@ flowchart TD
     O --> Q[Clinical Research]
 ```
 
-| Your Interest             | Recommended Path            | Key Exam              | Top Institutes                                        |
-| ------------------------- | --------------------------- | --------------------- | ----------------------------------------------------- |
-| Research & Drug Discovery | M.Pharm / M.S. (Pharm.)     | GPAT / NIPER JEE      | NIPER, IIT BHU, CSIR Labs                             |
-| Business & Corporate      | MBA (Pharma)                | CAT / CMAT / NMAT     | [NMIMS](https://www.nmims.edu/), Jamia Hamdard, NIPER |
-| Teaching & Academia       | M.Pharm + Ph.D.             | GPAT + NET            | Central Universities, NITs                            |
-| Clinical Practice         | Pharm.D / Clinical Pharmacy | GPAT                  | NIPER, Hospital Training                              |
-| Government Jobs           | B.Pharm sufficient          | RRB / SSC / State PSC | Direct recruitment                                    |
+#### Government & Specialized Career Paths
+
+```mermaid
+flowchart TD
+    A[What's your interest?] --> B{Government & Defense?}
+    A --> C{Forensic Science?}
+    A --> D{Food & Nutraceuticals?}
+    A --> E{Ayurveda & Herbal?}
+
+    B -->|Yes| F[D.Pharm / B.Pharm]
+    F --> G[Armed Forces / ISRO]
+    F --> H[PSUs / Railways / ESIC]
+
+    C -->|Yes| I[M.Pharm / M.Sc. Forensic]
+    I --> J[NFSU Gandhinagar]
+    I --> K[State FSLs / Crime Labs]
+
+    D -->|Yes| L[M.Tech Food Technology]
+    L --> M[NIFTEM / CFTRI]
+    L --> N[Food Industry / QC]
+
+    E -->|Yes| O[B.Pharm Ayurveda / Ph.D.]
+    O --> P[ITRA Jamnagar]
+    O --> Q[AYUSH Industry]
+```
+
+| Your Interest             | Recommended Path            | Key Exam                                          | Top Institutes                                        |
+| ------------------------- | --------------------------- | ------------------------------------------------- | ----------------------------------------------------- |
+| Research & Drug Discovery | M.Pharm / M.S. (Pharm.)     | GPAT / NIPER JEE                                  | NIPER, IIT BHU, CSIR Labs                             |
+| Business & Corporate      | MBA (Pharma)                | CAT / CMAT / NMAT                                 | [NMIMS](https://www.nmims.edu/), Jamia Hamdard, NIPER |
+| Teaching & Academia       | M.Pharm + Ph.D.             | GPAT + [CSIR-UGC NET](https://csirnet.nta.nic.in) | Central Universities, NITs                            |
+| Clinical Practice         | Pharm.D / Clinical Pharmacy | GPAT                                              | NIPER, Hospital Training                              |
+| Government & Defense      | D.Pharm / B.Pharm           | RRB / SSC / CEE                                   | Armed Forces, ISRO, Railways, PSUs                    |
+| Forensic Science          | M.Pharm / M.Sc. Forensic    | NFAT / GPAT                                       | [NFSU](https://www.nfsu.ac.in), State FSLs            |
+| Food & Nutraceuticals     | M.Tech Food Technology      | GATE                                              | [NIFTEM](https://www.niftem.ac.in), CFTRI             |
+| Ayurveda & Herbal         | B.Pharm / Ph.D. Ayurveda    | NEET / ITRA Entrance                              | [ITRA](https://itra.ac.in), AYUSH Institutes          |
 
 ### M.Pharm Specializations
 
@@ -691,16 +726,15 @@ B.Pharm graduates are directly eligible to become Patent Agents without needing 
 
 ### Quick Comparison: Which Institute is Right for You?
 
-| Factor                | NIPER                          | IITs                        | NITs                           | AIIMS                             | Central Universities (GAT-B)  | CSIR Labs                    | IISERs                         | DAE (BARC/TIFR)               |
-| --------------------- | ------------------------------ | --------------------------- | ------------------------------ | --------------------------------- | ----------------------------- | ---------------------------- | ------------------------------ | ----------------------------- |
-| **Focus**             | Pure Pharmacy                  | Engineering + Pharma        | Biotechnology                  | Medical Sciences                  | Biotechnology / Life Sciences | Drug Discovery, Toxicology   | Basic Sciences Research        | Nuclear Science, Biology      |
-| **Best For**          | Drug Research, Pharma Industry | Biomedical Engineering, R&D | Bioprocess, Industrial Biotech | Clinical Research, Medical Pharma | Research, Academia            | Pharma R&D, Drug Development | Fundamental Research, Academia | Radiopharmacy, Neuroscience   |
-| **Entrance Exam**     | GPAT + NIPER JEE               | GATE (BT/XL)                | GATE (BT/XL)                   | INI-CET / AIIMS Exam              | GAT-B                         | CSIR-NET / GATE              | JAM/GATE/IISER Test            | OCES/TIFR-GS/JGEEBILS         |
-| **B.Pharm Eligible?** | Yes                            | Yes (some programs)         | Yes (some programs)            | Yes                               | Yes                           | Yes (JRF/Project)            | Yes                            | Limited (TIFR: Yes, BARC: No) |
-| **Stipend**           | ₹12,400/month                  | ₹12,400/month               | ₹12,400/month                  | ₹31,000/month (JRF)               | Varies                        | ₹37,000/month (JRF)          | ₹37,000/month (JRF)            | ₹37,000-74,000/month          |
-| **Fees (approx.)**    | ₹30,000-50,000/year            | ₹20,000-50,000/year         | ₹20,000-40,000/year            | Minimal                           | ₹10,000-30,000/year           | Minimal                      | Minimal                        | Minimal/Free                  |
-| **Placement**         | 85-95%                         | 90%+                        | 80-90%                         | Hospital/Research                 | Academia/Research             | Research/Academia            | Academia/Research              | Govt. Scientific Officer      |
-| **No. of Institutes** | 7                              | 23 (6 relevant)             | 31 (5 relevant)                | 23                                | 15+                           | 37 (7 pharma-relevant)       | 7                              | 6 DAE + 8 TIFR centers        |
+| Factor                | NIPER                          | IITs                        | NITs                           | AIIMS                             | Central Universities (GAT-B)  | CSIR Labs                                         | IISc Bangalore                 | IISERs                         | DAE (BARC/TIFR)               | NFSU Gandhinagar            | NIFTEM                        | ITRA Jamnagar              |
+| --------------------- | ------------------------------ | --------------------------- | ------------------------------ | --------------------------------- | ----------------------------- | ------------------------------------------------- | ------------------------------ | ------------------------------ | ----------------------------- | --------------------------- | ----------------------------- | -------------------------- |
+| **Focus**             | Pure Pharmacy                  | Engineering + Pharma        | Biotechnology                  | Medical Sciences                  | Biotechnology / Life Sciences | Drug Discovery, Toxicology                        | Life Sciences, Chemistry       | Basic Sciences Research        | Nuclear Science, Biology      | Forensic Sciences           | Food Technology               | Ayurveda & Herbal Medicine |
+| **Best For**          | Drug Research, Pharma Industry | Biomedical Engineering, R&D | Bioprocess, Industrial Biotech | Clinical Research, Medical Pharma | Research, Academia            | Pharma R&D, Drug Development                      | Fundamental Research, Academia | Fundamental Research, Academia | Radiopharmacy, Neuroscience   | Forensic Pharmacy, FSL Jobs | Food Industry, Nutraceuticals | AYUSH Industry, Herbal R&D |
+| **Entrance Exam**     | GPAT + NIPER JEE               | GATE (BT/XL)                | GATE (BT/XL)                   | INI-CET / AIIMS Exam              | GAT-B                         | [CSIR-UGC NET](https://csirnet.nta.nic.in) / GATE | JAM / GATE                     | JAM/GATE/IISER Test            | OCES/TIFR-GS/JGEEBILS         | Merit / CUET-PG             | GATE + CCMT / CAT             | ITRA Entrance              |
+| **B.Pharm Eligible?** | Yes                            | Yes (some programs)         | Yes (some programs)            | Yes                               | Yes                           | Yes (JRF/Project)                                 | Yes                            | Yes                            | Limited (TIFR: Yes, BARC: No) | Yes                         | Yes (M.Tech needs GATE)       | Yes (for Ph.D.)            |
+| **Stipend**           | ₹12,400/month                  | ₹12,400/month               | ₹12,400/month                  | ₹31,000/month (JRF)               | Varies                        | ₹37,000/month (JRF)                               | ₹37,000/month (Ph.D. only)     | ₹37,000/month (JRF)            | ₹37,000-74,000/month          | Varies                      | ₹12,400/month (M.Tech)        | Varies                     |
+| **Placement**         | 85-95%                         | 90%+                        | 80-90%                         | Hospital/Research                 | Academia/Research             | Research/Academia                                 | Academia/Research              | Academia/Research              | Govt. Scientific Officer      | FSL, Crime Labs, Govt.      | Food Industry, QC             | AYUSH Companies, Govt.     |
+| **No. of Institutes** | 7                              | 23 (6 relevant)             | 31 (5 relevant)                | 23                                | 15+                           | 37 (7 pharma-relevant)                            | 1                              | 7                              | 6 DAE + 8 TIFR centers        | 1 (+ campuses)              | 2 (Kundli, Thanjavur)         | 1                          |
 
 > **Which exam should you prioritize?**
 > - **[GPAT](https://gpat.nta.nic.in)** — Required for NIPER, some IITs, and many private colleges
@@ -708,7 +742,7 @@ B.Pharm graduates are directly eligible to become Patent Agents without needing 
 > - **[GAT-B](https://rcb.res.in/DBTPG/)** — For Central Universities offering M.Sc. Biotechnology
 > - **[INI-CET](https://aiimsexams.ac.in)** — For AIIMS and other medical institutes
 > - **[JAM-BT](https://jam.iitd.ac.in)** — For IISc, IISERs Integrated PhD programs
-> - **[JGEEBILS](https://jgeebils.ncbs.res.in)** — For NCBS, InStem, TIFR (Biology)
+> - **[JGEEBILS (Joint Graduate Entrance Examination for Biology & Interdisciplinary Life Sciences)](https://www.ncbs.res.in/academic/admissions-JGEEBILS)** — For NCBS, InStem, TIFR (Biology)
 > - **[BARC OCES](https://barcocesexam.in)** — For DAE Scientific Officer (requires M.Sc. after B.Pharm)
 {: .prompt-tip }
 
@@ -752,7 +786,7 @@ If you already hold a Master's degree (M.S. Pharm, M.Pharm, or M.Tech Pharm), yo
 #### Eligibility & Admission Procedure
 
 - **Qualification:** For Masters, you need a B.Pharm with at least 60% marks (55% for SC/ST)
-- **Mandatory Exam:** A valid GPAT/GATE/NET score is required for most programs (except for MBBS/B.V.Sc. candidates applying for specific M.S. branches)
+- **Mandatory Exam:** A valid GPAT/GATE/[CSIR-UGC NET](https://csirnet.nta.nic.in) score is required for most programs (except for MBBS/B.V.Sc. candidates applying for specific M.S. branches)
 
 **NIPER JEE Exam Pattern:**
 
@@ -976,36 +1010,70 @@ These courses are highly relevant for Pharmacy students interested in industrial
 
 ### CSIR Labs (37 Institutes)
 
-The [Council of Scientific & Industrial Research (CSIR)](https://www.csir.res.in/en) is India's premier R&D organization, operating total of ** 37 national laboratories **. For Pharmacy students (B.Pharm and M.Pharm), CSIR labs are major hubs for drug discovery, toxicology, and pharmaceutical technology.
+The [Council of Scientific & Industrial Research (CSIR)](https://www.csir.res.in/en) is India's premier R&D organization, operating a total of **37 national laboratories**. For Pharmacy students (B.Pharm and M.Pharm), CSIR labs are major hubs for drug discovery, toxicology, and pharmaceutical technology.
 
-#### 1. Key CSIR Labs for Pharmacy & Biotech (7 Labs)
+#### 1. Centres of Excellence for Drug & Pharmaceutical Research
 
-Several labs focus specifically on "Biological Sciences" and "Chemical Sciences," which are highly relevant to Pharma:
+Several CSIR labs are recognized as **Centres of Excellence** for drug discovery, pharmaceutical research, and allied sciences. These institutes are listed on the [India Science & Technology Portal](https://www.indiascienceandtechnology.gov.in/organisations/centres-excellence) and offer world-class research opportunities for pharmacy graduates.
 
-| CSIR Lab                                 | Full Name                                | Location   | Focus Area                             |
-| ---------------------------------------- | ---------------------------------------- | ---------- | -------------------------------------- |
-| [CSIR-CDRI](https://www.cdri.res.in)     | Central Drug Research Institute          | Lucknow    | Drug Discovery & Development           |
-| [CSIR-IIIM](https://www.iiim.res.in)     | Indian Institute of Integrative Medicine | Jammu      | Natural Products, Medicinal Plants     |
-| [CSIR-IICT](https://www.iict.res.in)     | Indian Institute of Chemical Technology  | Hyderabad  | Medicinal Chemistry, Organic Synthesis |
-| [CSIR-IITR](https://iitr.res.in)         | Indian Institute of Toxicology Research  | Lucknow    | Toxicology, Drug Safety                |
-| [CSIR-CCMB](https://www.ccmb.res.in)     | Centre for Cellular & Molecular Biology  | Hyderabad  | Biotechnology, Genomics                |
-| [CSIR-IMTECH](https://www.imtech.res.in) | Institute of Microbial Technology        | Chandigarh | Microbial Biotechnology                |
-| [CSIR-NCL](https://www.ncl-india.org)    | National Chemical Laboratory             | Pune       | Chemical Engineering, Polymers         |
+**Core Drug Research Labs (4 Labs)**
 
-**Other CSIR Labs (30 Labs)**
+| CSIR Lab                             | Full Name                                | Location  | Focus Area                                                              |
+| ------------------------------------ | ---------------------------------------- | --------- | ----------------------------------------------------------------------- |
+| [CSIR-CDRI](https://www.cdri.res.in) | Central Drug Research Institute          | Lucknow   | Drug Discovery, Medicinal Chemistry, Pharmacology, Clinical Development |
+| [CSIR-IIIM](https://www.iiim.res.in) | Indian Institute of Integrative Medicine | Jammu     | Natural Products Drug Discovery, Medicinal Plants, Phytochemistry       |
+| [CSIR-IICT](https://www.iict.res.in) | Indian Institute of Chemical Technology  | Hyderabad | Pharmaceutical Chemistry, Organic Synthesis, Process Development        |
+| [CSIR-IITR](https://iitr.res.in)     | Indian Institute of Toxicology Research  | Lucknow   | Toxicology, Drug Safety, Environmental Health, Regulatory Toxicology    |
 
-| CSIR Lab                                            | CSIR Lab                                         | CSIR Lab                                           | CSIR Lab                                          |
-| --------------------------------------------------- | ------------------------------------------------ | -------------------------------------------------- | ------------------------------------------------- |
-| [CSIR-4PI](https://www.csir4pi.in), Bangalore       | [CSIR-AMPRI](https://www.ampri.res.in), Bhopal   | [CSIR-CBRI](https://www.cbri.res.in), Roorkee      | [CSIR-CECRI](https://www.cecri.res.in), Karaikudi |
-| [CSIR-CEERI](https://www.ceeri.res.in), Pilani      | [CSIR-CFTRI](https://www.cftri.res.in), Mysore   | [CSIR-CGCRI](https://www.cgcri.res.in), Kolkata    | [CSIR-CIMAP](https://www.cimap.res.in), Lucknow   |
-| [CSIR-CLRI](https://www.clri.org), Chennai          | [CSIR-CMERI](https://www.cmeri.res.in), Durgapur | [CSIR-CRRI](https://www.crridom.gov.in), Delhi     | [CSIR-CSIO](https://www.csio.res.in), Chandigarh  |
-| [CSIR-CSMCRI](https://www.csmcri.res.in), Bhavnagar | [CSIR-HRDC](https://www.hrdccsir.in), Ghaziabad  | [CSIR-IGIB](https://www.igib.res.in), Delhi        | [CSIR-IHBT](https://www.ihbt.res.in), Palampur    |
-| [CSIR-IIP](https://www.iip.res.in), Dehradun        | [CSIR-NAL](https://www.nal.res.in), Bangalore    | [CSIR-NBRI](https://www.nbri.res.in), Lucknow      | [CSIR-NEERI](https://www.neeri.res.in), Nagpur    |
-| [CSIR-NEIST](https://www.neist.res.in), Jorhat      | [CSIR-NGRI](https://www.ngri.res.in), Hyderabad  | [CSIR-NIIST](https://www.niist.res.in), Trivandrum | [CSIR-NIO](https://www.nio.res.in), Goa           |
-| [CSIR-NISCPR](https://www.niscpr.res.in), Delhi     | [CSIR-NML](https://www.nmlindia.org), Jamshedpur | [CSIR-NPL](https://www.nplindia.org), Delhi        | [CSIR-SERC](https://www.serc.res.in), Chennai     |
-| [CSIR-UGC](https://www.csirhrdg.res.in), Delhi      | [CSIR-URSC](https://www.urdip.res.in), Pune      |                                                    |                                                   |
+**Medicinal Plants & Phytochemistry Labs (3 Labs)**
+
+| CSIR Lab                               | Full Name                                        | Location | Focus Area                                                                   |
+| -------------------------------------- | ------------------------------------------------ | -------- | ---------------------------------------------------------------------------- |
+| [CSIR-CIMAP](https://www.cimap.res.in) | Central Institute of Medicinal & Aromatic Plants | Lucknow  | Medicinal Plants, Phytochemistry, Herbal Formulations, Essential Oils        |
+| [CSIR-NBRI](https://www.nbri.res.in)   | National Botanical Research Institute            | Lucknow  | Pharmacognosy, Medicinal Plant Taxonomy, Raw Drug Repository, Phytochemistry |
+| [CSIR-IHBT](https://www.ihbt.res.in)   | Institute of Himalayan Bioresource Technology    | Palampur | Himalayan Medicinal Plants, Natural Products, Bioprospecting                 |
+
+**Biotechnology & Allied Sciences Labs (4 Labs)**
+
+| CSIR Lab                                 | Full Name                                   | Location   | Focus Area                                                     |
+| ---------------------------------------- | ------------------------------------------- | ---------- | -------------------------------------------------------------- |
+| [CSIR-CCMB](https://www.ccmb.res.in)     | Centre for Cellular & Molecular Biology     | Hyderabad  | Biotechnology, Genomics, Cell Biology, Molecular Medicine      |
+| [CSIR-IMTECH](https://www.imtech.res.in) | Institute of Microbial Technology           | Chandigarh | Microbial Biotechnology, Enzyme Technology, Biopharmaceuticals |
+| [CSIR-IGIB](https://www.igib.res.in)     | Institute of Genomics & Integrative Biology | Delhi      | Genomics, Respiratory Diseases, Personalized Medicine          |
+| [CSIR-NCL](https://www.ncl-india.org)    | National Chemical Laboratory                | Pune       | Chemical Engineering, Polymers, Drug Delivery Systems          |
+
+**Food & Nutraceuticals Lab**
+
+| CSIR Lab                               | Full Name                                     | Location | Focus Area                                                     |
+| -------------------------------------- | --------------------------------------------- | -------- | -------------------------------------------------------------- |
+| [CSIR-CFTRI](https://www.cftri.res.in) | Central Food Technological Research Institute | Mysore   | Food Technology, Nutraceuticals, Functional Foods, Food Safety |
+
+> **Why These Labs Matter:** CSIR-CDRI is India's premier drug research institute with end-to-end drug development capabilities. CSIR-CIMAP and CSIR-NBRI are ideal for M.Pharm (Pharmacognosy/Phytochemistry) graduates interested in herbal drug research. CSIR-CFTRI offers M.Sc. (Food Technology) and is excellent for nutraceutical research. All labs offer Ph.D. through [AcSIR](https://acsir.res.in).
+{: .prompt-tip }
+
+**Other CSIR Labs (26 Labs)**
+
+| CSIR Lab                                         | CSIR Lab                                           | CSIR Lab                                            | CSIR Lab                                          |
+| ------------------------------------------------ | -------------------------------------------------- | --------------------------------------------------- | ------------------------------------------------- |
+| [CSIR-4PI](https://www.csir4pi.in), Bangalore    | [CSIR-AMPRI](https://www.ampri.res.in), Bhopal     | [CSIR-CBRI](https://www.cbri.res.in), Roorkee       | [CSIR-CECRI](https://www.cecri.res.in), Karaikudi |
+| [CSIR-CEERI](https://www.ceeri.res.in), Pilani   | [CSIR-CGCRI](https://www.cgcri.res.in), Kolkata    | [CSIR-CLRI](https://www.clri.org), Chennai          | [CSIR-CMERI](https://www.cmeri.res.in), Durgapur  |
+| [CSIR-CRRI](https://www.crridom.gov.in), Delhi   | [CSIR-CSIO](https://www.csio.res.in), Chandigarh   | [CSIR-CSMCRI](https://www.csmcri.res.in), Bhavnagar | [CSIR-HRDC](https://www.hrdccsir.in), Ghaziabad   |
+| [CSIR-IIP](https://www.iip.res.in), Dehradun     | [CSIR-NAL](https://www.nal.res.in), Bangalore      | [CSIR-NEERI](https://www.neeri.res.in), Nagpur      | [CSIR-NEIST](https://www.neist.res.in), Jorhat    |
+| [CSIR-NGRI](https://www.ngri.res.in), Hyderabad  | [CSIR-NIIST](https://www.niist.res.in), Trivandrum | [CSIR-NIO](https://www.nio.res.in), Goa             | [CSIR-NISCPR](https://www.niscpr.res.in), Delhi   |
+| [CSIR-NML](https://www.nmlindia.org), Jamshedpur | [CSIR-NPL](https://www.nplindia.org), Delhi        | [CSIR-SERC](https://www.serc.res.in), Chennai       | [CSIR-URSC](https://www.urdip.res.in), Pune       |
 
 Source: [CSIR](https://www.csir.res.in)
+
+**Detailed Research Focus of Key Centres of Excellence**
+
+| Institute                              | M.Pharm Specialization Fit                            | Key Research Divisions                                                                                  |
+| -------------------------------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| [CSIR-CDRI](https://www.cdri.res.in)   | Pharmacology, Pharmaceutics, Pharm. Chemistry         | Medicinal Chemistry, Pharmacology, Pharmaceutics, Molecular & Structural Biology, Clinical Development  |
+| [CSIR-IIIM](https://www.iiim.res.in)   | Pharmacognosy, Phytochemistry, Natural Products       | Natural Products Chemistry, Fermentation Technology, Pharmacology, Quality Control, Cancer Pharmacology |
+| [CSIR-CIMAP](https://www.cimap.res.in) | Pharmacognosy, Phytochemistry, Herbal Drug Technology | Phytochemistry, Biotechnology, Genetics & Plant Breeding, Bioprospecting & Product Development          |
+| [CSIR-NBRI](https://www.nbri.res.in)   | Pharmacognosy, Phytochemistry                         | Pharmacognosy, Phytochemistry, Plant Systematics, Molecular Biology, Raw Drug Repository                |
+| [CSIR-IITR](https://iitr.res.in)       | Pharmacology, Toxicology                              | Food Drug & Chemical Toxicology, Regulatory Toxicology, Systems Toxicology, Nanomaterial Toxicology     |
+| [CSIR-CFTRI](https://www.cftri.res.in) | Pharmaceutics (Nutraceuticals), Food Technology       | Food Safety, Nutraceuticals, Functional Foods, Protein Chemistry, Lipid Science, Food Biotechnology     |
 
 #### 2. Courses & Training for B.Pharm/M.Pharm
 
@@ -1021,7 +1089,7 @@ Pharmacy students can join CSIR labs in various research capacities.
 
 **Junior Research Fellow (JRF)**
 
-- **Entry via CSIR-UGC NET:** B.Pharm and M.Pharm students can appear for the CSIR-NET in Life Sciences or Chemical Sciences. If you qualify with a JRF rank, you receive a stipend (approx. ₹37,000 + HRA) to pursue research
+- **Entry via [CSIR-UGC NET](https://csirnet.nta.nic.in):** B.Pharm and M.Pharm students can appear for the CSIR-UGC NET in Life Sciences or Chemical Sciences. If you qualify with a JRF rank, you receive a stipend (approx. ₹37,000 + HRA) to pursue research
 - **Entry via JRF-GATE/GPAT:** CSIR has a special scheme where GPAT-qualified B.Pharm students can be appointed as JRFs in CSIR labs for a Ph.D. program
 - **Project JRF/Fellow:** Many labs advertise "Project Assistant" or "Project Associate" positions for specific sponsored projects. These often accept B.Pharm/M.Pharm candidates via walk-in interviews
 
@@ -1038,7 +1106,7 @@ Pharmacy students can join CSIR labs in various research capacities.
 #### How to Apply?
 
 - **Check Individual Lab Websites:** Visit the "Career" or "Recruitment" section of labs like CDRI, IIIM, or IICT. They frequently post walk-in interview notices for Project Associates
-- **CSIR-HRDG:** Monitor the [CSIR Human Resource Development Group](https://csirhrdg.res.in/) for national-level fellowship notifications (NET, RA-ships)
+- **CSIR-HRDG:** Monitor the [CSIR Human Resource Development Group](https://csirhrdg.res.in/) for national-level fellowship notifications ([CSIR-UGC NET](https://csirnet.nta.nic.in), RA-ships)
 - **AcSIR:** If you want to pursue a Ph.D., apply through the [AcSIR website](https://acsir.res.in/) during their August or January intake cycles
 
 ### IISc Bangalore (Indian Institute of Science)
@@ -1071,12 +1139,12 @@ Pharmacy students can join CSIR labs in various research capacities.
 
 **Direct Ph.D. (4-5 years)**
 
-| Aspect        | Details                                                        |
-| ------------- | -------------------------------------------------------------- |
-| Eligibility   | M.Pharm/M.Sc. with first class; Pharm.D candidates eligible    |
-| Entrance Exam | GATE/CSIR-NET/JAM score + Interview                            |
-| Departments   | Biochemistry, Molecular Biophysics, Microbiology, Cell Biology |
-| Note          | CFTI graduates with CGPA ≥8.0 can apply without GATE           |
+| Aspect        | Details                                                               |
+| ------------- | --------------------------------------------------------------------- |
+| Eligibility   | M.Pharm/M.Sc. with first class; Pharm.D candidates eligible           |
+| Entrance Exam | GATE/[CSIR-UGC NET](https://csirnet.nta.nic.in)/JAM score + Interview |
+| Departments   | Biochemistry, Molecular Biophysics, Microbiology, Cell Biology        |
+| Note          | CFTI graduates with CGPA ≥8.0 can apply without GATE                  |
 
 #### Stipend & Benefits
 
@@ -1126,7 +1194,7 @@ For M.Pharm/M.Sc. graduates:
 
 **Eligibility:**
 - M.Pharm/M.Sc./M.Tech with 60% marks or CGPA 7.0/10
-- Valid CSIR-NET/GATE/GPAT qualification required
+- Valid [CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE/GPAT qualification required
 
 #### Stipend & Benefits
 
@@ -1151,6 +1219,20 @@ DAE comprises 6 research centers across India:
 | [BARC (Bhabha Atomic Research Centre)](https://www.barc.gov.in), Mumbai     | [IGCAR (Indira Gandhi Centre for Atomic Research)](https://www.igcar.gov.in), Kalpakkam, TN       | [RRCAT (Raja Ramanna Centre for Advanced Technology)](https://www.rrcat.gov.in), Indore, MP   |
 | [VECC (Variable Energy Cyclotron Centre)](https://www.vecc.gov.in), Kolkata | [AMD (Atomic Minerals Directorate for Exploration & Research)](https://www.amd.gov.in), Hyderabad | [GCNEP (Global Centre for Nuclear Energy Partnership)](https://www.gcnep.gov.in), Bahadurgarh |
 
+#### DAE-Aided Institutes (Relevant for Pharmacy/Life Sciences)
+
+| Institute                                                                             | Location    | Research Focus                                     | Pharmacy Eligibility                                                            |
+| ------------------------------------------------------------------------------------- | ----------- | -------------------------------------------------- | ------------------------------------------------------------------------------- |
+| [TIFR (Tata Institute of Fundamental Research)](https://www.tifr.res.in)              | Mumbai      | Physics, Chemistry, Biology, Mathematics           | B.Pharm for Integrated Ph.D., M.Pharm for Ph.D.                                 |
+| [NCBS (National Centre for Biological Sciences)](https://www.ncbs.res.in)             | Bangalore   | Neuroscience, Cell Biology, Genetics, Ecology      | B.Pharm for Integrated Ph.D. via JGEEBILS                                       |
+| [TMC (Tata Memorial Centre)](https://tmc.gov.in)                                      | Mumbai      | Cancer Research, Oncology, Clinical Pharmacy       | D.Pharm/B.Pharm for Pharmacist, M.Pharm for Research                            |
+| [SINP (Saha Institute of Nuclear Physics)](https://www.saha.ac.in)                    | Kolkata     | Biophysics, Structural Genomics, Molecular Biology | M.Sc./M.Pharm for Ph.D. via JGEEBILS/[CSIR-UGC NET](https://csirnet.nta.nic.in) |
+| [IOP (Institute of Physics)](https://www.iopb.res.in)                                 | Bhubaneswar | Condensed Matter, Biological Physics, Nanoscience  | M.Sc. for Ph.D. (limited pharmacy relevance)                                    |
+| [NISER (National Institute of Science Education & Research)](https://www.niser.ac.in) | Bhubaneswar | Biology, Chemistry, Physics, Mathematics           | M.Pharm for Ph.D. in Biological Sciences                                        |
+| [CEBS (Centre for Excellence in Basic Sciences)](https://www.cbs.ac.in)               | Mumbai      | Life Sciences, Chemistry, Physics                  | 10+2 for Integrated M.Sc. via NEST                                              |
+| [HRI (Harish-Chandra Research Institute)](https://www.hri.res.in)                     | Prayagraj   | Mathematics, Physics                               | Limited pharmacy relevance                                                      |
+| [IMSc (Institute of Mathematical Sciences)](https://www.imsc.res.in)                  | Chennai     | Mathematics, Physics, Computational Biology        | Limited pharmacy relevance                                                      |
+
 #### Other DAE Units Relevant to Pharmacy
 
 | Unit                                                                          | Location    | Relevance to Pharmacy                                            |
@@ -1159,6 +1241,21 @@ DAE comprises 6 research centers across India:
 | [TMC (Tata Memorial Centre)](https://tmc.gov.in)                              | Mumbai      | Cancer hospital, clinical pharmacy, oncology research            |
 | [BARC Hospital](https://www.barc.gov.in)                                      | Mumbai      | Hospital pharmacy services for DAE employees                     |
 | [AERB (Atomic Energy Regulatory Board)](https://www.aerb.gov.in)              | Mumbai      | Regulatory compliance for radiation safety                       |
+| [HBNI (Homi Bhabha National Institute)](https://www.hbni.ac.in)               | Mumbai      | Deemed University for DAE institutes, awards degrees             |
+
+#### HBNI (Homi Bhabha National Institute)
+
+[HBNI](https://www.hbni.ac.in) is a deemed university under DAE that awards degrees for research conducted at DAE institutes. It offers M.Sc. and Ph.D. programs in Life Sciences, Chemical Sciences, and Medical Sciences.
+
+| Program                                      | Eligibility                                      | Entrance                                                             |
+| -------------------------------------------- | ------------------------------------------------ | -------------------------------------------------------------------- |
+| M.Sc. (Life Sciences)                        | B.Sc. with 60% in relevant subjects              | JAM/NEST/Institute-specific exam                                     |
+| M.Sc. (Nuclear Medicine & Molecular Imaging) | B.Sc. (Physics/Chemistry/Life Sciences) with 60% | HBNI Entrance                                                        |
+| Ph.D. (Life Sciences)                        | M.Sc./M.Pharm with 55%                           | JGEEBILS/[CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE + Interview |
+| Ph.D. (Chemical Sciences)                    | M.Sc./M.Pharm with 55%                           | TIFR-GS/[CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE + Interview  |
+
+> **Note:** HBNI is the degree-awarding body for all DAE institutes including BARC, TIFR, NCBS, SINP, IOP, and NISER. Students admitted to these institutes receive HBNI degrees.
+{: .prompt-info }
 
 #### Opportunities for B.Pharm Graduates
 
@@ -1194,6 +1291,27 @@ The OCES (Orientation Course for Engineering Graduates and Science Postgraduates
 | BRIT Radiopharmacy       | Apply for positions at BRIT for radiopharmaceutical production and quality control      |
 | Tata Memorial Centre     | Apply for clinical pharmacist/research positions at TMC (cancer hospital under DAE)     |
 | BARC Hospital (Contract) | Apply for locum pharmacist positions when advertised                                    |
+
+#### Tata Memorial Centre (TMC) - Pharmacist Positions
+
+[TMC](https://tmc.gov.in) is India's premier cancer hospital under DAE, offering excellent opportunities for pharmacy graduates in oncology pharmacy.
+
+| Position               | Eligibility                                                  | Pay Level                   |
+| ---------------------- | ------------------------------------------------------------ | --------------------------- |
+| Pharmacist Grade-I     | D.Pharm/B.Pharm + 3 years hospital experience + Registration | Level 5 (₹29,200-92,300)    |
+| Pharmacist Grade-II    | D.Pharm/B.Pharm + 1 year hospital experience + Registration  | Level 4 (₹25,500-81,100)    |
+| Scientific Officer (C) | M.Pharm (Pharmacology/Pharmaceutics) + 3 years exp           | Level 10 (₹56,100-1,77,500) |
+| Research Associate     | M.Pharm/Ph.D. in relevant field                              | ₹47,000-54,000/month        |
+
+**TMC Hospitals:**
+- [Tata Memorial Hospital](https://tmc.gov.in), Mumbai (Main Campus)
+- [ACTREC (Advanced Centre for Treatment, Research & Education in Cancer)](https://actrec.gov.in), Navi Mumbai
+- [Homi Bhabha Cancer Hospital](https://hbchvaranasi.in), Varanasi
+- Homi Bhabha Cancer Hospital, Sangrur, Punjab
+- Homi Bhabha Cancer Hospital, Muzaffarpur, Bihar
+- Mahamana Pandit Madan Mohan Malviya Cancer Centre, Varanasi
+
+**How to Apply:** Monitor [TMC Recruitment Portal](https://tmc.gov.in/index.php/en/recruitment) for vacancies. Walk-in interviews are frequently conducted for pharmacist positions.
 
 #### OCES/DGFS Selection Process
 
@@ -1246,36 +1364,64 @@ Source: [TIFR](https://www.tifr.res.in)
 
 **Entrance Exams**
 
-| Exam     | Full Form                                                                  | For Admission To                       | Website                                              |
-| -------- | -------------------------------------------------------------------------- | -------------------------------------- | ---------------------------------------------------- |
-| TIFR-GS  | TIFR Graduate School Exam                                                  | TIFR Mumbai, TIFR Hyderabad, ICTS, CAM | [univ.tifr.res.in](https://univ.tifr.res.in)         |
-| JGEEBILS | Joint Graduate Entrance Exam for Biology & Interdisciplinary Life Sciences | NCBS, InStem, TIFR Mumbai (Biology)    | [jgeebils.ncbs.res.in](https://jgeebils.ncbs.res.in) |
+| Exam     | Full Form                                                                  | For Admission To                       | Website                                                                                              |
+| -------- | -------------------------------------------------------------------------- | -------------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| TIFR-GS  | TIFR Graduate School Exam                                                  | TIFR Mumbai, TIFR Hyderabad, ICTS, CAM | [univ.tifr.res.in](https://univ.tifr.res.in)                                                         |
+| JGEEBILS | Joint Graduate Entrance Exam for Biology & Interdisciplinary Life Sciences | NCBS, InStem, TIFR Mumbai (Biology)    | [www.ncbs.res.in/academic/admissions-JGEEBILS](https://www.ncbs.res.in/academic/admissions-JGEEBILS) |
 
 **Eligibility:**
 - **Integrated PhD:** B.Pharm/B.Sc. with 55-60% marks
 - **Direct PhD:** M.Pharm/M.Sc. with 55-60% marks
-- Valid GATE/CSIR-NET/JAM score may exempt written test at some centers
+- Valid GATE/[CSIR-UGC NET](https://csirnet.nta.nic.in)/JAM score may exempt written test at some centers
 
 **Stipend:** ₹37,000/month (JRF) + HRA, ₹42,000/month (SRF) + HRA
 
-> **Why TIFR/DAE for Pharmacy Graduates?** NCBS and InStem are among India's best institutes for biological research. B.Pharm graduates interested in neuroscience, cell biology, stem cell research, or radiopharmacy can pursue world-class research with excellent funding and international exposure. For nuclear/radiation careers, consider M.Sc. after B.Pharm to become eligible for BARC OCES.
+#### SINP Kolkata (Saha Institute of Nuclear Physics)
+
+[SINP](https://www.saha.ac.in) is a DAE-aided institute offering Ph.D. programs in Biophysical Sciences relevant for pharmacy graduates.
+
+| Program                      | Eligibility                                                                      | Entrance                                                             |
+| ---------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| Ph.D. (Biophysical Sciences) | M.Sc./M.Pharm in Life Sciences, Pharmacy, Biotechnology, Bioinformatics with 55% | JGEEBILS/[CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE + Interview |
+
+**Research Areas:** Structural Genomics, Molecular Biology, Biophysics, Crystallography, Cell Biology
+
+#### NISER Bhubaneswar (National Institute of Science Education & Research)
+
+[NISER](https://www.niser.ac.in) is a DAE-aided institute offering Ph.D. programs in Biological Sciences.
+
+| Program                     | Eligibility                                                                                      | Entrance                                                                     |
+| --------------------------- | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------- |
+| Ph.D. (Biological Sciences) | M.Sc./M.Tech/M.Pharm in Biology, Life Sciences, Pharmacy, Biotechnology, Bioinformatics with 55% | JGEEBILS/[CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE/DBT-JRF + Interview |
+
+**Research Areas:** Molecular Biology, Genetics, Biochemistry, Structural Biology, Computational Biology
+
+> **Why TIFR/DAE for Pharmacy Graduates?** NCBS and InStem are among India's best institutes for biological research. B.Pharm graduates interested in neuroscience, cell biology, stem cell research, or radiopharmacy can pursue world-class research with excellent funding and international exposure. For nuclear/radiation careers, consider M.Sc. after B.Pharm to become eligible for BARC OCES. SINP and NISER also accept M.Pharm for Ph.D. in Biophysical/Biological Sciences.
 {: .prompt-tip }
 
 ### Other Institutes of National Importance
 
 #### NFSU (National Forensic Sciences University), Gandhinagar
 
-[NFSU](https://www.nfsu.ac.in) is India's first and only university dedicated to forensic sciences, recognized as an Institution of National Importance under the Ministry of Home Affairs. It offers unique programs for pharmacy graduates interested in forensic pharmacy and toxicology.
+[NFSU](https://www.nfsu.ac.in) is India's first and only university dedicated to forensic sciences, recognized as an Institution of National Importance under the Ministry of Home Affairs. It offers unique programs for pharmacy graduates interested in forensic pharmacy, toxicology, and allied fields.
 
-**Courses for B.Pharm Graduates**
+**Courses for B.Pharm Graduates (2 Years Duration)**
 
-| Course                               | Duration  | Eligibility                          | Entrance Exam |
-| ------------------------------------ | --------- | ------------------------------------ | ------------- |
-| M.Pharm (Forensic Pharmacy)          | 2 years   | B.Pharm with 55% (50% for SC/ST/PwD) | NFAT / GPAT   |
-| M.Sc. Forensic Science (Toxicology)  | 2 years   | B.Pharm/B.Sc. with 55%               | NFAT          |
-| Ph.D. (Forensic Pharmacy/Toxicology) | 3-5 years | M.Pharm/M.Sc. with 55%               | NFSU Entrance |
+| School               | Programme                                 | Eligibility                                        | Admission Criteria |
+| -------------------- | ----------------------------------------- | -------------------------------------------------- | ------------------ |
+| Pharmacy             | M.Pharm. Forensic Pharmacy                | B.Pharm from recognized university (Min 55%)       | Merit-Based        |
+| Pharmacy             | M.Pharm. Pharmaceutical Quality Assurance | B.Pharm from recognized university (Min 55%)       | Merit-Based        |
+| Pharmacy             | M.Sc. Pharmaceutical Chemistry            | B.Pharm/B.Sc./MBBS/B.E. (Min 55%)                  | Merit-Based        |
+| Forensic Science     | M.Sc. Forensic Science                    | B.Pharm/B.Sc./MBBS/B.E. (Min 55%)                  | CUET-PG            |
+| Forensic Science     | M.Sc. Forensic Biotechnology              | B.Pharm/B.Sc. Biology/Biotechnology/MBBS (Min 55%) | CUET-PG            |
+| Medico-Legal Studies | M.Sc. Toxicology                          | B.Pharm/B.Sc. Biology/MBBS/BAMS/BHMS (Min 55%)     | CUET-PG            |
+| Engineering & Tech   | M.Sc. Nanotechnology (Forensic Nanotech)  | B.Pharm/B.Sc./MBBS/B.E. (Min 55%)                  | CUET-PG            |
+| Police Science       | M.Sc. Homeland Security                   | B.Pharm/B.Sc./MBBS/B.E. (Min 55%)                  | CUET-PG            |
 
-**Career Opportunities:** Forensic Toxicologist, Drug Analyst (FSL), Poison Detection Expert, Forensic Pharmacist, Crime Lab Scientist
+> **Key Requirements:** Minimum 55% for General/OBC/EWS, 50% for SC/ST/PwD. M.Pharm courses are Merit-Based on qualifying exam marks, while M.Sc. courses require valid CUET-PG score. Check [nfsu.ac.in/admission](https://nfsu.ac.in/admission) for latest updates.
+{: .prompt-info }
+
+**Career Opportunities:** Forensic Toxicologist, Drug Analyst (FSL), Poison Detection Expert, Forensic Pharmacist, Crime Lab Scientist, Quality Assurance Officer, Homeland Security Analyst
 
 #### NIFTEM (National Institute of Food Technology, Entrepreneurship & Management)
 
@@ -1329,7 +1475,19 @@ Source: [TIFR](https://www.tifr.res.in)
 
 #### ICMR (Indian Council of Medical Research)
 
-[ICMR](https://www.icmr.gov.in) is India's apex body for biomedical research under the Ministry of Health & Family Welfare. It operates 27+ research institutes across India and offers excellent opportunities for pharmacy graduates.
+[ICMR](https://www.icmr.gov.in) is India's apex body for biomedical research under the [Department of Health Research (DHR)](https://dhr.gov.in), Ministry of Health & Family Welfare. Established in 1911, it operates 27+ research institutes across India and offers excellent opportunities for pharmacy graduates in drug development, vaccine research, toxicology, and clinical trials.
+
+**ICMR-JRF (Junior Research Fellowship) Exam**
+
+ICMR conducts a national-level [DHR-BRET (Biomedical Research Eligibility Test)](https://www.icmr.gov.in/junior-research-fellowships-jrf.html) for JRF selection:
+
+| Aspect       | Details                                                                                                                         |
+| ------------ | ------------------------------------------------------------------------------------------------------------------------------- |
+| Eligibility  | M.Sc./M.A./M.Pharm with 55% (50% for SC/ST/OBC/PwBD)                                                                            |
+| Age Limit    | 28 years (relaxation for reserved categories)                                                                                   |
+| Exam Pattern | Paper 1: General Aptitude (50 MCQs) + Paper 2: Life Sciences OR Social Sciences (75 out of 100 MCQs)                            |
+| Exam Centers | 12 cities: Bengaluru, Bhopal, Bhubaneswar, Chandigarh, Chennai, Delhi, Guwahati, Hyderabad, Kolkata, Mumbai, Srinagar, Varanasi |
+| Stipend      | ₹31,000/month + HRA + ₹20,000/year contingency                                                                                  |
 
 **Scientist Positions (Permanent)**
 
@@ -1342,87 +1500,203 @@ Source: [TIFR](https://www.tifr.res.in)
 
 **Project Positions (Temporary)**
 
-| Position                     | Eligibility                | Stipend                  |
-| ---------------------------- | -------------------------- | ------------------------ |
-| Junior Research Fellow (JRF) | M.Pharm/M.Sc. + NET/GATE   | ₹31,000-37,000/month     |
-| Project Associate            | B.Pharm/M.Pharm            | ₹25,000-35,000/month     |
-| Young Professional           | M.Pharm/M.Sc. + 1 year exp | ₹40,000-50,000/month     |
-| Consultant (Non-Medical)     | M.Pharm + 10 years exp     | ₹1,00,000-1,50,000/month |
+| Position                     | Eligibility                                                              | Stipend                  |
+| ---------------------------- | ------------------------------------------------------------------------ | ------------------------ |
+| Junior Research Fellow (JRF) | M.Pharm/M.Sc. + [CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE/ICMR-JRF | ₹31,000-37,000/month     |
+| Project Associate            | B.Pharm/M.Pharm                                                          | ₹25,000-35,000/month     |
+| Young Professional           | M.Pharm/M.Sc. + 1 year exp                                               | ₹40,000-50,000/month     |
+| Consultant (Non-Medical)     | M.Pharm + 10 years exp                                                   | ₹1,00,000-1,50,000/month |
 
 **Key ICMR Institutes for Pharmacy Graduates**
 
-| Institute                        | Location  | Research Focus                        |
-| -------------------------------- | --------- | ------------------------------------- |
-| [NIRRH](https://nirrh.res.in)    | Mumbai    | Reproductive Health, Drug Development |
-| [NARI](https://nari.icmr.org.in) | Pune      | HIV/AIDS Research, Vaccines           |
-| [NIV](https://www.niv.co.in)     | Pune      | Virology, Vaccine Development         |
-| [NIMR](https://nimr.icmr.org.in) | Delhi     | Malaria Research, Drug Resistance     |
-| [NCDIR](https://ncdirindia.org)  | Bengaluru | Cancer Registry, Disease Informatics  |
-| [NIRT](https://nirt.res.in)      | Chennai   | Tuberculosis Research                 |
+| Institute                                                                                                  | Location  | Research Focus                                        |
+| ---------------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------- |
+| [ICMR-NIRRCH (National Institute for Research in Reproductive & Child Health)](https://nirrch.res.in)      | Mumbai    | Reproductive Health, Drug Development, Contraceptives |
+| [ICMR-NIV (National Institute of Virology)](https://niv.icmr.org.in)                                       | Pune      | Virology, Vaccine Development, Outbreak Investigation |
+| [ICMR-NITVAR (National Institute of Translational Virology & AIDS Research)](https://www.nari-icmr.res.in) | Pune      | HIV/AIDS Research, Drug Resistance, Vaccines          |
+| [ICMR-NIMR (National Institute of Malaria Research)](https://nimr.icmr.org.in)                             | Delhi     | Malaria, Dengue, Chikungunya, Drug Resistance         |
+| [ICMR-NIRT (National Institute for Research in Tuberculosis)](https://nirt.res.in)                         | Chennai   | Tuberculosis, HIV-TB, Drug Development                |
+| [ICMR-NIN (National Institute of Nutrition)](https://www.nin.res.in)                                       | Hyderabad | Nutrition, Food & Drug Toxicology, Nutraceuticals     |
+| [ICMR-NITM (National Institute of Traditional Medicine)](https://icmrnitm.res.in)                          | Belagavi  | Traditional Medicine, Herbal Drugs, Phytochemistry    |
+| [ICMR-NICPR (National Institute of Cancer Prevention & Research)](https://nicpr.org)                       | Noida     | Cancer Research, Early Detection, Prevention          |
+| [ICMR-NIIH (National Institute of Immunohaematology)](https://niih.icmr.org.in)                            | Mumbai    | Immunology, Haematology, Genetics                     |
+| [ICMR-NCDIR (National Centre for Disease Informatics & Research)](https://ncdirindia.org)                  | Bengaluru | Cancer Registry, Disease Informatics, Epidemiology    |
+
+**Other ICMR Institutes (Pharmacy-Relevant)**
+
+| Institute                                                                                                         | Location   | Research Focus                                    |
+| ----------------------------------------------------------------------------------------------------------------- | ---------- | ------------------------------------------------- |
+| [ICMR-NJILOMD (National JALMA Institute for Leprosy & Other Mycobacterial Diseases)](https://njilomd.icmr.org.in) | Agra       | Leprosy, Tuberculosis, Mycobacterial Diseases     |
+| [ICMR-NIOH (National Institute of Occupational Health)](https://nioh.icmr.org.in)                                 | Ahmedabad  | Occupational Health, Environmental Toxicology     |
+| [ICMR-NIREH (National Institute for Research in Environmental Health)](https://nireh.icmr.org.in)                 | Bhopal     | Environmental Health, Toxicology                  |
+| [ICMR-VCRC (Vector Control Research Centre)](https://vcrc.icmr.org.in)                                            | Puducherry | Vector-Borne Diseases, Filariasis                 |
+| [ICMR-RMRIMS (Rajendra Memorial Research Institute of Medical Sciences)](https://rmrims.icmr.org.in)              | Patna      | Kala-azar, HIV/AIDS, Tropical Diseases            |
+| [ICMR-NIRBI (National Institute for Research in Bacterial Infections)](https://nirbi.icmr.org.in)                 | Kolkata    | Cholera, Diarrheal Diseases, Typhoid, Hepatitis   |
+| [ICMR-NIRTH (National Institute for Research in Tribal Health)](https://nirth.icmr.org.in)                        | Jabalpur   | Tribal Health, Nutritional Disorders              |
+| [ICMR-NIIRNCD (National Institute for Implementation Research on NCDs)](https://niirncd.icmr.org.in)              | Jodhpur    | Non-Communicable Diseases, Lifestyle Disorders    |
+| [ICMR-NARFBR (National Animal Resource Facility for Biomedical Research)](https://narfbr.icmr.org.in)             | Hyderabad  | Pre-clinical Research, Animal Studies, Toxicology |
+| [ICMR-BMHRC (Bhopal Memorial Hospital & Research Centre)](https://bmhrc.icmr.org.in)                              | Bhopal     | Clinical Research, Epidemiology                   |
+
+> **Key Advantage for Pharmacy Graduates:** ICMR-NITM Belagavi is the only ICMR institute dedicated to traditional medicine research, making it ideal for M.Pharm (Pharmacognosy/Phytochemistry) graduates. ICMR-NIN Hyderabad has a Food & Drug Toxicology Research Centre relevant for pharmaceutical toxicology research.
+{: .prompt-tip }
 
 **Related ICMR Portals**
 
-| Portal                                                               | Purpose                                                                     |
-| -------------------------------------------------------------------- | --------------------------------------------------------------------------- |
-| [CTRI](https://ctri.nic.in)                                          | Clinical Trials Registry India - mandatory registration for clinical trials |
-| [IAMRSN](https://iamrsn.icmr.org.in)                                 | Antimicrobial Resistance Surveillance Network                               |
-| [ICMR Recruitment](https://www.icmr.gov.in/employment-opportunities) | Job notifications and applications                                          |
+| Portal                                                                   | Purpose                                                                     |
+| ------------------------------------------------------------------------ | --------------------------------------------------------------------------- |
+| [CTRI](https://ctri.nic.in)                                              | Clinical Trials Registry India - mandatory registration for clinical trials |
+| [IAMRSN](https://iamrsn.icmr.org.in)                                     | Antimicrobial Resistance Surveillance Network                               |
+| [ICMR Recruitment](https://www.icmr.gov.in/employment-opportunities)     | Job notifications and applications                                          |
+| [DHR-BRET](https://www.icmr.gov.in/junior-research-fellowships-jrf.html) | ICMR-JRF Exam notifications                                                 |
 
-**How to Apply:** Monitor [ICMR Employment Portal](https://www.icmr.gov.in/employment-opportunities) and individual institute websites for vacancies. Project positions are often filled through walk-in interviews.
+**How to Apply:**
+- **ICMR-JRF:** Apply through [ICMR JRF portal](https://www.icmr.gov.in/junior-research-fellowships-jrf.html) when notifications are released (usually once a year)
+- **Scientist positions:** Monitor [ICMR Employment Portal](https://www.icmr.gov.in/employment-opportunities) for permanent vacancies
+- **Project positions:** Check individual institute websites for walk-in interview notifications
 
 #### DBT (Department of Biotechnology) Institutes
 
-[DBT](https://dbtindia.gov.in) under the Ministry of Science & Technology funds several autonomous institutes offering research opportunities for pharmacy graduates.
+[DBT](https://dbtindia.gov.in) under the Ministry of Science & Technology funds 14 autonomous institutes under [BRIC (Biotechnology Research and Innovation Council)](https://www.bric.nic.in), offering research opportunities for pharmacy graduates.
 
-**Key DBT Institutes for Pharmacy Graduates**
+**Key DBT-BRIC Institutes for Pharmacy Graduates**
 
-| Institute                                                                           | Location    | Research Focus                                                | B.Pharm/M.Pharm Eligibility            |
-| ----------------------------------------------------------------------------------- | ----------- | ------------------------------------------------------------- | -------------------------------------- |
-| [RCB (Regional Centre for Biotechnology)](https://www.rcb.res.in)                   | Faridabad   | Structural Biology, Infectious Diseases, Agricultural Biotech | M.Pharm eligible for Ph.D.             |
-| [NIBMG (National Institute of Biomedical Genomics)](https://www.nibmg.ac.in)        | Kalyani, WB | Genomics, Cancer Research, Bioinformatics                     | M.Sc./M.Pharm + NET/GATE for JRF       |
-| [InStem (Institute for Stem Cell Science)](https://www.instem.res.in)               | Bangalore   | Stem Cell Biology, Regenerative Medicine                      | M.Pharm eligible for Project positions |
-| [NIAB (National Institute of Animal Biotechnology)](https://www.niab.res.in)        | Hyderabad   | Vaccine Development, Animal Health                            | B.Pharm/M.Pharm eligible               |
-| [THSTI (Translational Health Science & Technology Institute)](https://thsti.res.in) | Faridabad   | Translational Research, Vaccines, Diagnostics                 | M.Pharm eligible                       |
+| Institute                                                                           | Location           | Research Focus                                                | B.Pharm/M.Pharm Eligibility                                               |
+| ----------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| [RCB (Regional Centre for Biotechnology)](https://www.rcb.res.in)                   | Faridabad          | Structural Biology, Infectious Diseases, Agricultural Biotech | M.Pharm eligible for Ph.D.                                                |
+| [THSTI (Translational Health Science & Technology Institute)](https://thsti.res.in) | Faridabad          | Translational Research, Vaccines, Diagnostics                 | M.Pharm eligible for Ph.D.                                                |
+| [NIBMG (National Institute of Biomedical Genomics)](https://www.nibmg.ac.in)        | Kalyani, WB        | Genomics, Cancer Research, Bioinformatics                     | M.Sc./M.Pharm + [CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE for JRF   |
+| [InStem (Institute for Stem Cell Science)](https://www.instem.res.in)               | Bangalore          | Stem Cell Biology, Regenerative Medicine                      | M.Pharm eligible for Ph.D./Project                                        |
+| [NIAB (National Institute of Animal Biotechnology)](https://www.niab.res.in)        | Hyderabad          | Vaccine Development, Animal Health                            | B.Pharm/M.Pharm eligible                                                  |
+| [RGCB (Rajiv Gandhi Centre for Biotechnology)](https://www.rgcb.res.in)             | Thiruvananthapuram | Cancer Biology, Infectious Diseases, Neurobiology             | M.Pharm (Pharmaceutical Sciences) for Ph.D.                               |
+| [NCCS (National Centre for Cell Science)](https://www.nccs.res.in)                  | Pune               | Cell Biology, Immunology, Infectious Diseases                 | M.Sc./M.Pharm + JRF for Ph.D.                                             |
+| [ILS (Institute of Life Sciences)](https://www.ils.res.in)                          | Bhubaneswar        | Cancer Biology, Infectious Diseases, Plant Biotech            | M.Sc./M.Pharm + [CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE for Ph.D. |
+| [CDFD (Centre for DNA Fingerprinting & Diagnostics)](https://www.cdfd.org.in)       | Hyderabad          | Genomics, Diagnostics, Molecular Biology                      | M.Sc./M.Pharm + [CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE for Ph.D. |
+| [NABI (National Agri-Food Biotechnology Institute)](https://www.nabi.res.in)        | Mohali             | Food & Nutrition, Nutraceuticals, Agri-Biotech                | M.Pharm eligible for Project positions                                    |
 
-**Courses & Positions at DBT Institutes**
+**Other DBT-BRIC Institutes (Limited Pharmacy Relevance)**
 
-| Program                   | Eligibility                          | Stipend/Salary       |
-| ------------------------- | ------------------------------------ | -------------------- |
-| Ph.D. (RCB, NIBMG, THSTI) | M.Pharm/M.Sc. + 60% + GAT-B/GATE/NET | ₹37,000/month (JRF)  |
-| Project Associate         | M.Pharm/M.Sc. + NET/GATE             | ₹31,000-35,000/month |
-| Research Scientist        | M.Pharm + 5 years exp                | ₹50,000-80,000/month |
-| Technical Assistant       | B.Pharm + 3 years exp                | ₹25,000-35,000/month |
+| Institute                                                                      | Location | Research Focus                    |
+| ------------------------------------------------------------------------------ | -------- | --------------------------------- |
+| [NII (National Institute of Immunology)](https://www.nii.res.in)               | Delhi    | Immunology, Infectious Diseases   |
+| [NBRC (National Brain Research Centre)](https://www.nbrc.ac.in)                | Manesar  | Neuroscience, Brain Disorders     |
+| [NIPGR (National Institute of Plant Genome Research)](https://www.nipgr.ac.in) | Delhi    | Plant Genomics, Crop Improvement  |
+| [CIAB (Center of Innovative & Applied Bioprocessing)](https://www.ciab.res.in) | Mohali   | Bioprocessing, Industrial Biotech |
+
+**Courses & Positions at DBT-BRIC Institutes**
+
+| Program                   | Eligibility                                                                 | Stipend/Salary       |
+| ------------------------- | --------------------------------------------------------------------------- | -------------------- |
+| Ph.D. (RCB, NIBMG, THSTI) | M.Pharm/M.Sc. + 60% + GAT-B/GATE/[CSIR-UGC NET](https://csirnet.nta.nic.in) | ₹37,000/month (JRF)  |
+| Project Associate         | M.Pharm/M.Sc. + [CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE             | ₹31,000-35,000/month |
+| Research Scientist        | M.Pharm + 5 years exp                                                       | ₹50,000-80,000/month |
+| Technical Assistant       | B.Pharm + 3 years exp                                                       | ₹25,000-35,000/month |
+
+> **Note:** Most DBT-BRIC institutes require M.Sc./M.Pharm with valid JRF (CSIR/UGC/DBT/ICMR/DST-INSPIRE) for Ph.D. admission. B.Pharm graduates can apply for Project Associate/Technical Assistant positions. Check individual institute websites for current openings.
+{: .prompt-info }
 
 #### DST (Department of Science & Technology) Institutes
 
-[DST](https://dst.gov.in) funds several research institutes relevant for pharmacy graduates.
+[DST](https://dst.gov.in) funds over 20 autonomous research institutes across India. Several of these offer opportunities for pharmacy graduates in nanotechnology, life sciences, and biomedical research.
 
-**Key DST Institutes**
+**Key DST Institutes for Pharmacy Graduates**
 
-| Institute                                                | Location   | Research Focus                          | Pharmacy Eligibility                                            |
-| -------------------------------------------------------- | ---------- | --------------------------------------- | --------------------------------------------------------------- |
-| [JNCASR](https://www.jncasr.ac.in)                       | Bangalore  | Chemistry, Biology, Materials Science   | B.Pharm for Integrated Ph.D., M.Pharm for Ph.D. (GPAT accepted) |
-| [ARI (Agharkar Research Institute)](https://aripune.org) | Pune       | Biodiversity, Genetics, Nanobioscience  | M.Pharm + NET/GATE for JRF                                      |
-| [SCTIMST](https://www.sctimst.ac.in)                     | Trivandrum | Biomedical Engineering, Medical Devices | B.E./B.Tech for M.Tech; Ph.D. for M.Pharm                       |
+| Institute                                                                           | Location   | Research Focus                                  | Pharmacy Eligibility                                                      |
+| ----------------------------------------------------------------------------------- | ---------- | ----------------------------------------------- | ------------------------------------------------------------------------- |
+| [JNCASR](https://www.jncasr.ac.in)                                                  | Bangalore  | Chemistry, Biology, Materials Science           | B.Pharm for Integrated Ph.D., M.Pharm for Ph.D. (GPAT accepted)           |
+| [INST (Institute of Nano Science & Technology)](https://www.inst.ac.in)             | Mohali     | Nanomedicine, Drug Delivery, Nanobiotechnology  | M.Pharm eligible for Ph.D.                                                |
+| [IASST (Institute of Advanced Study in Science & Technology)](https://iasst.gov.in) | Guwahati   | Natural Products, Life Sciences, Bioinformatics | M.Pharm eligible for JRF/Ph.D.                                            |
+| [CeNS (Centre for Nano & Soft Matter Sciences)](https://www.cens.res.in)            | Bangalore  | Nanomaterials, Soft Matter, Drug Delivery       | M.Sc./M.Pharm + [CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE for Ph.D. |
+| [ARI (Agharkar Research Institute)](https://aripune.org)                            | Pune       | Biodiversity, Genetics, Nanobioscience          | M.Pharm + [CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE for JRF         |
+| [SCTIMST](https://www.sctimst.ac.in)                                                | Trivandrum | Biomedical Engineering, Medical Devices         | B.E./B.Tech for M.Tech; Ph.D. for M.Pharm                                 |
+| [Bose Institute](https://www.jcbose.ac.in)                                          | Kolkata    | Biophysics, Molecular Biology, Immunology       | M.Sc./M.Pharm + [CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE for Ph.D. |
+| [IACS (Indian Association for Cultivation of Science)](https://iacs.res.in)         | Kolkata    | Chemical Sciences, Biological Chemistry         | M.Sc./M.Pharm + [CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE for Ph.D. |
+
+**Other DST Institutes (Limited Pharmacy Relevance)**
+
+| Institute                                                                                  | Location  | Research Focus                       |
+| ------------------------------------------------------------------------------------------ | --------- | ------------------------------------ |
+| [IIA (Indian Institute of Astrophysics)](https://www.iiap.res.in)                          | Bangalore | Astrophysics, Astronomy              |
+| [RRI (Raman Research Institute)](https://www.rri.res.in)                                   | Bangalore | Physics, Astronomy                   |
+| [WIHG (Wadia Institute of Himalayan Geology)](https://www.wihg.res.in)                     | Dehradun  | Geology, Earth Sciences              |
+| [ARCI (International Advanced Research Centre for Powder Metallurgy)](https://arci.res.in) | Hyderabad | Materials Science, Powder Metallurgy |
+| [S.N. Bose National Centre for Basic Sciences](https://www.bose.res.in)                    | Kolkata   | Physics, Materials Science           |
 
 **JNCASR (Jawaharlal Nehru Centre for Advanced Scientific Research)**
 
 JNCASR is a premier research institute (ranked #7 globally by Nature) that accepts GPAT for Ph.D. admission.
 
-| Program                      | Eligibility      | Entrance                    |
-| ---------------------------- | ---------------- | --------------------------- |
-| Integrated Ph.D. (5-6 years) | B.Pharm with 55% | JAM/JNCASR Test + Interview |
-| Ph.D. (4-5 years)            | M.Pharm with 55% | GPAT/GATE/NET + Interview   |
-| MS by Research               | M.Pharm with 55% | GPAT/GATE/NET + Interview   |
+| Program                      | Eligibility      | Entrance                                                         |
+| ---------------------------- | ---------------- | ---------------------------------------------------------------- |
+| Integrated Ph.D. (5-6 years) | B.Pharm with 55% | JAM/JNCASR Test + Interview                                      |
+| Ph.D. (4-5 years)            | M.Pharm with 55% | GPAT/GATE/[CSIR-UGC NET](https://csirnet.nta.nic.in) + Interview |
+| MS by Research               | M.Pharm with 55% | GPAT/GATE/[CSIR-UGC NET](https://csirnet.nta.nic.in) + Interview |
 
 **Research Areas:** Drug Discovery, Chemical Biology, Molecular Medicine, Neuroscience, Materials for Healthcare
 
 > **Key Advantage:** JNCASR is one of the few premier institutes that explicitly accepts GPAT for Ph.D. admission, making it highly accessible for pharmacy graduates.
 {: .prompt-tip }
 
+**INST Mohali (Institute of Nano Science & Technology)**
+
+INST is a DST autonomous institute focused on nanoscience research with strong relevance to pharmaceutical applications.
+
+| Program | Eligibility                                       | Entrance                                                    |
+| ------- | ------------------------------------------------- | ----------------------------------------------------------- |
+| Ph.D.   | M.Sc./M.Pharm/M.Tech in Basic or Applied Sciences | [CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE + Interview |
+| JRF     | M.Sc./M.Pharm with 55%                            | Walk-in Interview                                           |
+
+**Research Areas:** Nanomedicine, Drug Delivery Systems, Nanobiotechnology, Biosensors, Cancer Nanotechnology
+
+**IASST Guwahati (Institute of Advanced Study in Science & Technology)**
+
+IASST offers JRF and Ph.D. programs in life sciences and natural products research.
+
+| Program | Eligibility                   | Entrance                                                    |
+| ------- | ----------------------------- | ----------------------------------------------------------- |
+| Ph.D.   | M.Sc./M.Pharm/M.Tech with 55% | [CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE + Interview |
+| JRF     | M.Sc./M.Pharm with 55%        | IASST Entrance + Interview                                  |
+
+**Research Areas:** Natural Products Chemistry, Medicinal Plants, Life Sciences, Bioinformatics
+
+{: .prompt-tip }
+
 **How to Apply:** Check individual institute websites for Ph.D. admissions (usually twice a year) and project positions (advertised throughout the year).
 
+#### DRDO (Defence Research & Development Organisation)
+
+[DRDO](https://www.drdo.gov.in) is the R&D wing of the Ministry of Defence with 52 laboratories across India. The Life Sciences Directorate has several labs relevant for pharmacy graduates interested in defence-related biomedical research.
+
+**DRDO Life Sciences Labs for Pharmacy Graduates**
+
+| Lab                                                                                                                | Location | Research Focus                                     | Pharmacy Eligibility                        |
+| ------------------------------------------------------------------------------------------------------------------ | -------- | -------------------------------------------------- | ------------------------------------------- |
+| [DRDE (Defence Research & Development Establishment)](https://www.drdo.gov.in/labs-and-establishments/drde)        | Gwalior  | Chemical & Biological Defence, Toxicology          | M.Sc./M.Pharm (Pharmacology/Toxicology)     |
+| [DIPAS (Defence Institute of Physiology & Allied Sciences)](https://www.drdo.gov.in/labs-and-establishments/dipas) | Delhi    | Physiology, Biomedical Research, Extreme Medicine  | M.Sc./M.Pharm (Physiology/Pharmacology)     |
+| [INMAS (Institute of Nuclear Medicine & Allied Sciences)](https://www.drdo.gov.in/labs-and-establishments/inmas)   | Delhi    | Nuclear Medicine, Radiopharmacy, Radiation Biology | M.Pharm (Radiopharmacy/Pharmacology)        |
+| [DFRL (Defence Food Research Laboratory)](https://www.drdo.gov.in/labs-and-establishments/dfrl)                    | Mysore   | Food Technology, Nutraceuticals, Preservation      | M.Sc./M.Pharm (Food Tech/Pharmaceutics)     |
+| [DRL (Defence Research Laboratory)](https://www.drdo.gov.in/labs-and-establishments/drl)                           | Tezpur   | Biotechnology, Microbiology, Bioremediation        | M.Sc./M.Pharm (Biotech/Microbiology)        |
+| [DIBER (Defence Institute of Bio-Energy Research)](https://www.drdo.gov.in/labs-and-establishments/diber)          | Haldwani | Bioenergy, Plant Sciences, High Altitude Biology   | M.Sc./M.Pharm (Pharmacognosy/Plant Science) |
+
+**Positions for Pharmacy Graduates**
+
+| Position                     | Eligibility                                                                                             | Stipend/Salary              |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------- | --------------------------- |
+| Junior Research Fellow (JRF) | M.Sc./M.Pharm (Pharmacology/Toxicology/Life Sciences) + [CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE | ₹37,000/month + HRA         |
+| Senior Research Fellow (SRF) | JRF + 2 years experience                                                                                | ₹42,000/month + HRA         |
+| Research Associate (RA)      | Ph.D. in relevant field                                                                                 | ₹67,000/month + HRA         |
+| Project Associate            | M.Sc./M.Pharm                                                                                           | ₹25,000-35,000/month        |
+| Scientist B (RAC)            | M.Sc. (Life Sciences) + GATE                                                                            | Level 10 (₹56,100-1,77,500) |
+
+> **Note:** DRDO Scientist B recruitment through [RAC (Recruitment & Assessment Centre)](https://rac.gov.in) requires M.Sc. in Life Sciences with valid GATE score. B.Pharm/M.Pharm graduates can apply for JRF/Project positions at individual labs through walk-in interviews. Check [drdo.gov.in](https://www.drdo.gov.in) for current openings.
+{: .prompt-info }
+
+**How to Apply:**
+- **Scientist B:** Apply through [RAC](https://rac.gov.in) when notifications are released (GATE score required)
+- **JRF/Project positions:** Check individual lab websites for walk-in interview notifications
+- **Internships:** Contact labs directly with NOC from your institution
+
 ---
+
 
 ## ❓ Frequently Asked Questions (FAQ)
 
@@ -1492,7 +1766,7 @@ Based on your current status, here's what you should do:
 
 1. **Research:** Identify Ph.D. opportunities at CSIR labs, IITs
 2. **Publish:** Work on research papers for better Ph.D. applications
-3. **NET:** Appear for CSIR-NET for JRF and lectureship eligibility
+3. **NET:** Appear for [CSIR-UGC NET](https://csirnet.nta.nic.in) for JRF and lectureship eligibility
 4. **Industry:** Explore R&D roles in pharma companies
 
 ### If you're a D.Pharm Holder
@@ -1505,13 +1779,19 @@ Based on your current status, here's what you should do:
 
 ## 🔗 Useful Resources & Links
 
-| Category                  | Organization / Portal                                                                                                                                                                                                                                                                                          |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Exam Portals**          | [GPAT](https://gpat.nta.nic.in), [GATE](https://gate.iitk.ac.in), [NIPER JEE](https://www.niper.gov.in), [INI-CET](https://aiimsexams.ac.in), [GAT-B](https://rcb.res.in), [CSIR-NET](https://csirnet.nta.nic.in), [CAT](https://iimcat.ac.in), [CMAT](https://cmat.nta.nic.in), [JAM](https://jam.iitd.ac.in) |
-| **Government Jobs**       | [RRB](https://rrbcdg.gov.in), [SSC](https://ssc.gov.in/), [UPSC](https://upsc.gov.in), [MPSC](https://mpsc.gov.in/home), [ESIC](https://esic.gov.in/), [FSSAI](https://www.fssai.gov.in)                                                                                                                       |
-| **Research & Fellowship** | [CSIR-HRDG](https://csirhrdg.res.in), [AcSIR](https://acsir.res.in), [DBT](https://dbtindia.gov.in), [ICMR](https://icmr.gov.in), [DRDO](https://www.drdo.gov.in), [BARC](https://www.barc.gov.in), [DAE](https://dae.gov.in), [BRIT](https://www.britatom.gov.in), [TMC](https://tmc.gov.in)                  |
-| **Regulatory Bodies**     | [CDSCO](https://cdsco.gov.in), [IPC](https://ipc.gov.in), [PCI](https://www.pci.nic.in), [Dept. of Pharmaceuticals](https://pharmaceuticals.gov.in)                                                                                                                                                            |
-| **Counselling Portals**   | [CCMT](https://ccmt.admissions.nic.in), [NTA](https://www.nta.ac.in)                                                                                                                                                                                                                                           |
+| Category                        | Organization / Portal                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Exam Portals**                | [GPAT](https://gpat.nta.nic.in), [GATE](https://gate.iitk.ac.in), [NIPER JEE](https://www.niper.gov.in), [INI-CET](https://aiimsexams.ac.in), [GAT-B](https://rcb.res.in), [CSIR-UGC NET](https://csirnet.nta.nic.in), [CAT](https://iimcat.ac.in), [CMAT](https://cmat.nta.nic.in), [JAM](https://jam.iitd.ac.in), [CUET-PG](https://cuet.nta.nic.in), [JGEEBILS](https://www.ncbs.res.in/academic/admissions-JGEEBILS), [TIFR-GS](https://univ.tifr.res.in), [DHR-BRET](https://www.icmr.gov.in/junior-research-fellowships-jrf.html) |
+| **Government Jobs**             | [RRB](https://rrbcdg.gov.in), [SSC](https://ssc.gov.in/), [UPSC](https://upsc.gov.in), [MPSC](https://mpsc.gov.in/home), [ESIC](https://esic.gov.in/), [FSSAI](https://www.fssai.gov.in), [ISRO](https://www.isro.gov.in), [RAC-DRDO](https://rac.gov.in)                                                                                                                                                                                                                                                                               |
+| **Research Organizations**      | [CSIR](https://www.csir.res.in), [ICMR](https://icmr.gov.in), [DBT-BRIC](https://www.bric.nic.in), [DST](https://dst.gov.in), [DRDO](https://www.drdo.gov.in), [DAE](https://dae.gov.in), [BARC](https://www.barc.gov.in)                                                                                                                                                                                                                                                                                                               |
+| **Fellowship & Ph.D. Portals**  | [CSIR-HRDG](https://csirhrdg.res.in), [AcSIR](https://acsir.res.in), [HBNI](https://www.hbni.ac.in), [DBT-JRF](https://dbtindia.gov.in), [DST-INSPIRE](https://online-inspire.gov.in)                                                                                                                                                                                                                                                                                                                                                   |
+| **Premier Research Institutes** | [IISc](https://www.iisc.ac.in), [TIFR](https://www.tifr.res.in), [NCBS](https://www.ncbs.res.in), [JNCASR](https://www.jncasr.ac.in), [InStem](https://www.instem.res.in), [THSTI](https://thsti.res.in), [RCB](https://www.rcb.res.in), [NII](https://www.nii.res.in), [INST](https://www.inst.ac.in), [IASST](https://iasst.gov.in)                                                                                                                                                                                                   |
+| **CSIR Centres of Excellence**  | [CSIR-CDRI](https://www.cdri.res.in), [CSIR-IIIM](https://www.iiim.res.in), [CSIR-CIMAP](https://www.cimap.res.in), [CSIR-NBRI](https://www.nbri.res.in), [CSIR-IITR](https://iitr.res.in), [CSIR-IICT](https://www.iict.res.in), [CSIR-CFTRI](https://www.cftri.res.in), [CSIR-CCMB](https://www.ccmb.res.in)                                                                                                                                                                                                                          |
+| **Specialized Institutes**      | [NFSU](https://www.nfsu.ac.in), [NIFTEM](https://www.niftem.ac.in), [ITRA](https://itra.ac.in), [TMC](https://tmc.gov.in), [BRIT](https://www.britatom.gov.in)                                                                                                                                                                                                                                                                                                                                                                          |
+| **IISERs**                      | [IISER Pune](https://www.iiserpune.ac.in), [IISER Kolkata](https://www.iiserkol.ac.in), [IISER Mohali](https://www.iisermohali.ac.in), [IISER Bhopal](https://www.iiserb.ac.in), [IISER TVM](https://www.iisertvm.ac.in), [IISER Tirupati](https://www.iisertirupati.ac.in), [IISER Berhampur](https://www.iiserbpr.ac.in)                                                                                                                                                                                                              |
+| **Regulatory Bodies**           | [CDSCO](https://cdsco.gov.in), [IPC](https://ipc.gov.in), [PCI](https://www.pci.nic.in), [Dept. of Pharmaceuticals](https://pharmaceuticals.gov.in), [DHR](https://dhr.gov.in), [CTRI](https://ctri.nic.in)                                                                                                                                                                                                                                                                                                                             |
+| **Counselling & Admission**     | [CCMT](https://ccmt.admissions.nic.in), [NTA](https://www.nta.ac.in), [IISc Admissions](https://admissions.iisc.ac.in)                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| **India Science Portal**        | [India Science & Technology](https://www.indiascienceandtechnology.gov.in)                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 ---
 
