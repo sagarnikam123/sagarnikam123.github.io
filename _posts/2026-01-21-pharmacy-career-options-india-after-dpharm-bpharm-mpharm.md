@@ -1,20 +1,20 @@
 ---
-title: "Pharmacy Career Options in India: Jobs, Higher Education & Salary After B.Pharm, M.Pharm"
-description: "Complete guide to pharmacy careers in India after B.Pharm & M.Pharm. Explore government jobs, NIPER, IITs, MBA options, salary trends for GPAT, GATE, NIPER JEE, etc"
+title: "Pharmacy Career Options in India: Jobs, Higher Education & Salary After D.Pharm, B.Pharm, M.Pharm"
+description: "Complete guide to pharmacy careers in India after D.Pharm, B.Pharm & M.Pharm. Explore government jobs, NIPER, IITs, MBA options, salary trends for GPAT, GATE, NIPER JEE, etc"
 author: sagarnikam123
 date: 2026-01-21 12:00:00 +0530
 categories: [medicine, pharmacy, career]
-tags: [pharmacy careers, bpharm, mpharm, gpat, government pharmacy jobs]
+tags: [pharmacy careers, dpharm, bpharm, mpharm, gpat]
 mermaid: true
 image:
   path: assets/img/posts/20260121/pharmacy-career-options-india.webp
   lqip: data:image/webp;base64,UklGRsQAAABXRUJQVlA4ILgAAADQBQCdASogACAAPzGEt1OuqSWisAwB0CYJYwDOHIjgslb9aA+drCTsSmkZgjHl0uJMzGXLw/4AAP76pOzNm39M4t6y9V1/UVtOsyyALZLHUVVcp0gcqxNjRDLsISd6rezaYpdzgwpms3uz9VcZ4A7sJaD1/98AIlbweP4RwbI/E9ML8Ng6ixTk6OtAR40K60sOhwyc4uHUIDgyEcdWjudluL4xA79GZf93who6eL5O+GyVEGejgAAA
-  alt: "Pharmacy career options in India after B.Pharm and M.Pharm - government jobs, NIPER, IITs, MBA, salary trends"
+  alt: "Pharmacy career options in India after D.Pharm, B.Pharm and M.Pharm - government jobs, NIPER, IITs, MBA, salary trends"
 ---
 
 ## 🎯 Introduction
 
-Looking for **pharmacy career options in India after B.Pharm or M.Pharm**? You're in the right place. This comprehensive guide covers everything from **government jobs for pharmacists** (Drug Inspector, Railway Pharmacist, ESIC) to **higher education pathways** (NIPER, IITs, NITs, AIIMS, IISERs, CSIR Labs, MBA) with **salary trends** and preparation tips for **GPAT, GATE, and NIPER JEE**.
+Looking for **pharmacy career options in India after D.Pharm, B.Pharm or M.Pharm**? You're in the right place. This comprehensive guide covers everything from **government jobs for pharmacists** (Drug Inspector, Railway Pharmacist, ESIC) to **higher education pathways** (NIPER, IITs, NITs, AIIMS, IISERs, CSIR Labs, MBA) with **salary trends** and preparation tips for **GPAT, GATE, and NIPER JEE**.
 
 Pharmacy is one of the most versatile healthcare professions in India, offering diverse career paths across government, private sector, research, and academia. Whether you've completed D.Pharm, B.Pharm, M.Pharm, or Pharm.D, this guide will help you navigate your career options.
 
