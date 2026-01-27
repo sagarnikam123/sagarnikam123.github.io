@@ -41,6 +41,7 @@ Pharmacy is one of the most versatile healthcare professions in India, offering 
   - [IISc Bangalore](#iisc-bangalore-indian-institute-of-science)
   - [IISERs (7 Institutes)](#iisers-7-institutes)
   - [BARC & DAE (TIFR, BRIT, TMC)](#barc--dae-tifr-brit-tmc)
+  - [Other Institutes of National Importance](#other-institutes-of-national-importance)
   - [Other Research Opportunities](#other-research-opportunities)
 - [Frequently Asked Questions (FAQ)](#-frequently-asked-questions-faq)
 - [Next Steps: Your Action Plan](#-next-steps-your-action-plan)
@@ -157,7 +158,74 @@ The [Department of Pharmaceuticals](https://pharmaceuticals.gov.in), Government 
 
 **Salary Range:** ₹35,000 – ₹1,10,000 per month (based on grade and experience)
 
-#### 7. Non-Pharma Government Jobs for B.Pharm Graduates
+#### 7. ISRO Pharmacist (Space Centers)
+
+[ISRO (Indian Space Research Organisation)](https://www.isro.gov.in) recruits pharmacists for dispensaries and health centers at its space centers. This is a prestigious opportunity to work in India's premier space agency.
+
+| Aspect      | Details                                      |
+| ----------- | -------------------------------------------- |
+| Post        | Pharmacist-A                                 |
+| Eligibility | D.Pharm (First Class) OR B.Pharm             |
+| Pay Level   | Level 5 (₹29,200 – ₹92,300)                  |
+| Age Limit   | 18-35 years (relaxation for SC/ST/OBC)       |
+| Selection   | Written Test (80 MCQs, 90 mins) + Skill Test |
+
+**Recruiting Centers:**
+- [VSSC (Vikram Sarabhai Space Centre)](https://www.vssc.gov.in), Thiruvananthapuram
+- [SAC (Space Applications Centre)](https://www.sac.gov.in), Ahmedabad
+- Other ISRO centers as per vacancy
+
+**Work Profile:** Healthcare services, dispensing medicines, inventory management for ISRO employees at space centers.
+
+> **Note:** ISRO Pharmacist is a support staff position (not Scientist/Engineer). Vacancies are limited (1-2 posts per cycle), but it offers job security and prestige of working in India's space program. Monitor [ISRO Opportunities](https://www.isro.gov.in/ViewAllOpportunities.html) for notifications.
+{: .prompt-info }
+
+#### 8. Indian Armed Forces (Army, Navy, Air Force)
+
+Pharmacists can serve in the Indian Armed Forces through various entry routes. The Army and Air Force recruit pharmacists as uniformed personnel, while the Navy recruits them as civilian employees.
+
+**1. Indian Army - Sepoy Pharma (Army Medical Corps)**
+
+| Aspect             | Details                                                                                       |
+| ------------------ | --------------------------------------------------------------------------------------------- |
+| Post               | Sepoy Pharma (AMC)                                                                            |
+| Eligibility        | D.Pharm (55% marks) OR B.Pharm (50% marks) + State Pharmacy Council Registration              |
+| Age Limit          | 17.5 - 23 years                                                                               |
+| Physical Standards | Height: 157 cm, Chest: 77 cm (min), Weight: proportionate                                     |
+| Selection          | Physical Fitness Test → Physical Measurement Test → Medical Test → Common Entrance Exam (CEE) |
+| Salary             | Level 3 (₹21,700 – ₹69,100) + allowances                                                      |
+| Recruitment        | [joinindianarmy.nic.in](https://joinindianarmy.nic.in)                                        |
+
+**2. Indian Navy - Pharmacist (Civilian)**
+
+| Aspect      | Details                                                                   |
+| ----------- | ------------------------------------------------------------------------- |
+| Post        | Pharmacist (Group C, Civilian)                                            |
+| Eligibility | 12th (Science) + D.Pharm + 2 years experience + Pharmacy Act Registration |
+| Desirable   | B.Pharm, Computer proficiency                                             |
+| Age Limit   | 18-27 years                                                               |
+| Pay Level   | Level 5 (₹29,200 – ₹92,300)                                               |
+| Selection   | CBT (100 MCQs, 90 mins) → Document Verification → Medical Exam            |
+| Locations   | Western Naval Command, Southern Naval Command, A&N Command                |
+| Recruitment | [joinindiannavy.gov.in](https://www.joinindiannavy.gov.in)                |
+
+**3. Indian Air Force - Airmen Group Y (Medical Assistant)**
+
+| Aspect          | Details                                                                             |
+| --------------- | ----------------------------------------------------------------------------------- |
+| Post            | Airmen Group Y - Medical Assistant (Pharmacist)                                     |
+| Eligibility     | 10+2 (PCB, 50%) + D.Pharm/B.Sc Pharmacy (50%) + State Pharmacy Council Registration |
+| Age Limit       | Up to 24 years (for Diploma/B.Sc Pharmacy holders)                                  |
+| Gender          | Male only (unmarried)                                                               |
+| Selection       | Online STAR Exam → Physical Fitness Test → Adaptability Test → Medical Exam         |
+| Training Period | 20 years initial tenure (extendable to 57 years)                                    |
+| Salary          | ₹26,900/month (after training) + DA, HRA, allowances                                |
+| Recruitment     | [airmenselection.cdac.in](https://airmenselection.cdac.in)                          |
+
+> **Key Points:** Army & Air Force recruit pharmacists as uniformed personnel (soldiers/airmen) with physical fitness requirements. Navy recruits as civilian employees. M.Pharm is NOT required — D.Pharm/B.Pharm is sufficient. State Pharmacy Council registration is mandatory for all.
+{: .prompt-tip }
+
+#### 9. Non-Pharma Government Jobs for B.Pharm Graduates
 
 | Job Role                                                         | 2025 Salary (₹/month) | 2030 Projection (₹/month) | 2035 Projection (₹/month) | Recruitment                                                             |
 | ---------------------------------------------------------------- | --------------------- | ------------------------- | ------------------------- | ----------------------------------------------------------------------- |
@@ -816,14 +884,14 @@ After completing B.Pharm, you are eligible for several postgraduate courses at A
 
 There are 23 AIIMS across India:
 
-| AIIMS                                                       | AIIMS                                                         | AIIMS                                                            | AIIMS                                                             |
-| ----------------------------------------------------------- | ------------------------------------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------------------- |
-| [AIIMS New Delhi](https://www.aiims.edu), Delhi             | [AIIMS Bhopal](https://www.aiimsbhopal.edu.in), MP            | [AIIMS Bhubaneswar](https://www.aiimsbhubaneswar.edu.in), Odisha | [AIIMS Jodhpur](https://www.aiimsjodhpur.edu.in), Rajasthan       |
-| [AIIMS Nagpur](https://aiimsnagpur.edu.in), Maharashtra     | [AIIMS Patna](https://www.aiimspatna.edu.in), Bihar           | [AIIMS Raipur](https://www.aiimsraipur.edu.in), Chhattisgarh     | [AIIMS Rishikesh](https://www.aiimsrishikesh.edu.in), Uttarakhand |
-| [AIIMS Bibinagar](https://aiimsbibinagar.edu.in), Telangana | [AIIMS Bathinda](https://www.aiimsbathinda.edu.in), Punjab    | [AIIMS Deoghar](https://www.aiimsdeoghar.edu.in), Jharkhand      | [AIIMS Mangalagiri](https://www.aiimsmangalagiri.edu.in), AP      |
-| [AIIMS Raebareli](https://www.aiimsrbl.edu.in), UP          | [AIIMS Kalyani](https://www.aiimskalyani.edu.in), West Bengal | [AIIMS Bilaspur](https://www.aiimsbilaspur.edu.in), HP           | [AIIMS Gorakhpur](https://www.aiimsgorakhpur.edu.in), UP          |
-| [AIIMS Guwahati](https://www.aiimsguwahati.ac.in), Assam    | [AIIMS Rajkot](https://www.aiimsrajkot.edu.in), Gujarat       | [AIIMS Jammu](https://www.aiimsjammu.edu.in), J&K                | [AIIMS Madurai](https://www.aiimsmadurai.edu.in), Tamil Nadu      |
-| [AIIMS Darbhanga](https://www.aiimsdarbhanga.edu.in), Bihar | [AIIMS Vijaypur](https://www.aiimsvijaypur.edu.in), J&K       | [AIIMS Awantipora](https://www.aiimsawantipora.edu.in), J&K      |                                                                   |
+| AIIMS                                                       | AIIMS                                                         | AIIMS                                                                         | AIIMS                                                             |
+| ----------------------------------------------------------- | ------------------------------------------------------------- | ----------------------------------------------------------------------------- | ----------------------------------------------------------------- |
+| [AIIMS New Delhi](https://www.aiims.edu), Delhi             | [AIIMS Bhopal](https://www.aiimsbhopal.edu.in), MP            | [AIIMS Bhubaneswar](https://aiimsbhubaneswar.nic.in), Odisha                  | [AIIMS Jodhpur](https://www.aiimsjodhpur.edu.in), Rajasthan       |
+| [AIIMS Nagpur](https://aiimsnagpur.edu.in), Maharashtra     | [AIIMS Patna](https://www.aiimspatna.edu.in), Bihar           | [AIIMS Raipur](https://www.aiimsraipur.edu.in), Chhattisgarh                  | [AIIMS Rishikesh](https://www.aiimsrishikesh.edu.in), Uttarakhand |
+| [AIIMS Bibinagar](https://aiimsbibinagar.edu.in), Telangana | [AIIMS Bathinda](https://www.aiimsbathinda.edu.in), Punjab    | [AIIMS Deoghar](https://www.aiimsdeoghar.edu.in), Jharkhand                   | [AIIMS Mangalagiri](https://www.aiimsmangalagiri.edu.in), AP      |
+| [AIIMS Raebareli](https://www.aiimsrbl.edu.in), UP          | [AIIMS Kalyani](https://www.aiimskalyani.edu.in), West Bengal | [AIIMS Bilaspur](https://www.aiimsbilaspur.edu.in), HP                        | [AIIMS Gorakhpur](https://aiimsgorakhpur.edu.in), UP              |
+| [AIIMS Guwahati](https://www.aiimsguwahati.ac.in), Assam    | [AIIMS Rajkot](https://www.aiimsrajkot.edu.in), Gujarat       | [AIIMS Jammu](https://www.aiimsjammu.edu.in), J&K                             | [AIIMS Madurai](https://www.aiimsmadurai.edu.in), Tamil Nadu      |
+| [AIIMS Darbhanga](https://www.aiimsdarbhanga.edu.in), Bihar | [AIIMS Vijaypur](https://www.aiimsvijaypur.edu.in), J&K       | [AIIMS Awantipora](https://www.aiimsawantipora.edu.in), Kashmir (no site yet) |                                                                   |
 
 #### Other INI-CET Participating Institutes
 
@@ -872,13 +940,13 @@ Source: [RCB DBT PG Admission](https://rcb.res.in/DBTPG/)
 
 B.Pharm graduates are eligible for several M.Sc. programs across India. Notable institutes include:
 
-- **[Jawaharlal Nehru University (JNU)](https://www.jnu.ac.in/sbt), New Delhi:** M.Sc. Biotechnology
+- **[Jawaharlal Nehru University (JNU)](https://www.jnu.ac.in/sbt), New Delhi**:[M.Sc. Biotechnology](https://www.jnu.ac.in/sbt_MScprog)
 - **[Banaras Hindu University (BHU)](https://www.bhu.ac.in), Uttar Pradesh:** M.Sc. Biotechnology
-- **[Savitribai Phule Pune University](https://www.unipune.ac.in), Maharashtra:** M.Sc. Bioinformatics
-- **[University of Hyderabad](https://www.uohyd.ac.in), Telangana:** M.Sc. Biotechnology
-- **[Pondicherry University](https://www.pondiuni.edu.in), Puducherry:** M.Sc. Biotechnology
-- **[Madurai Kamaraj University](https://www.mkuniversity.ac.in), Tamil Nadu:** M.Sc. Biotechnology
-- **[Jamia Millia Islamia](https://www.jmi.ac.in), New Delhi:** M.Sc. Biotechnology
+- **[Savitribai Phule Pune University](https://www.unipune.ac.in), Maharashtra:** [M.Sc. Bioinformatics](https://bioinfo.net.in/)
+- **[University of Hyderabad](https://www.uohyd.ac.in), Telangana:** [M.Sc. Biotechnology-Bioinformatics](https://sls.uohyd.ac.in/biotechnology-bioinformatics/)
+- **[Pondicherry University](https://www.pondiuni.edu.in), Puducherry:** [M.Sc. Biotechnology](https://www.pondiuni.edu.in/programs/m-sc-biotechnology)
+- **[Madurai Kamaraj University](https://mkuniversity.ac.in/new), Tamil Nadu:** [M.Sc. Biotechnology](https://mkuniversity.ac.in/new/school/sbt/index)
+- **[Jamia Millia Islamia](https://www.jmi.ac.in), New Delhi:** [M.Sc. Biotechnology](https://jmi.ac.in/ACADEMICS/Departments/Department-Of-Biotechnology/Programmes/Courses/177/5871/Admission)
 - **Other Central Universities:** [Central University of Jammu](https://www.cujammu.ac.in), [Central University of Rajasthan](https://www.curaj.ac.in), and [Central University of South Bihar (Gaya)](https://www.cusb.ac.in) all include Pharmacy in their eligibility for M.Sc. Biotechnology
 
 #### 2. M.Tech. Programs (Advanced Technology)
@@ -890,14 +958,14 @@ These courses are highly relevant for Pharmacy students interested in industrial
   - M.Tech. Pharmaceutical Biotechnology: Specifically notes that 50% of seats are reserved for candidates with a Pharmaceutical Sciences background (B.Pharm)
   - M.Tech. Food Biotechnology
 - **[Indraprastha Institute of Information Technology Delhi (IIIT-D)](https://www.iiitd.ac.in):** M.Tech. Computational Biology
-- **[Guru Gobind Singh Indraprastha University (GGSIPU)](https://www.ipu.ac.in), New Delhi:** M.Tech. in Industrial Biotechnology
+- **[Guru Gobind Singh Indraprastha University (GGSIPU)](https://ipu.ac.in), New Delhi:** M.Tech. in Industrial Biotechnology
 - **[Maulana Abul Kalam Azad University of Technology (MAKAUT)](https://www.makautwb.ac.in), West Bengal:** M.Tech. Biotechnology
 - **[Pondicherry University](https://www.pondiuni.edu.in):** M.Tech. Computational Biology
 
 #### 3. Specialized Medical & Research Courses
 
 - **[Postgraduate Institute of Medical Education and Research (PGIMER)](https://www.pgimer.edu.in), Chandigarh:** M.Sc. Medical Biotechnology
-- **[Savitribai Phule Pune University](https://www.unipune.ac.in):** M.Sc. Bioinformatics (Eligibility includes B.Pharm with minimum 60% for UR/OBC)
+- **[Savitribai Phule Pune University](https://www.unipune.ac.in):** [M.Sc. Bioinformatics](https://bioinfo.net.in/) (Eligibility includes B.Pharm with minimum 60% for UR/OBC)
 - **[Osmania University](https://www.osmania.ac.in), Telangana:** M.Sc. Molecular & Human Genetics
 
 #### Important Eligibility Notes for Pharmacy Students
@@ -908,18 +976,23 @@ These courses are highly relevant for Pharmacy students interested in industrial
 
 ### CSIR Labs (37 Institutes)
 
-The Council of Scientific & Industrial Research (CSIR) is India's premier R&D organization, operating 37 national laboratories. For Pharmacy students (B.Pharm and M.Pharm), CSIR labs are major hubs for drug discovery, toxicology, and pharmaceutical technology.
+The [Council of Scientific & Industrial Research (CSIR)](https://www.csir.res.in/en) is India's premier R&D organization, operating total of ** 37 national laboratories **. For Pharmacy students (B.Pharm and M.Pharm), CSIR labs are major hubs for drug discovery, toxicology, and pharmaceutical technology.
 
-#### 1. Key CSIR Labs for Pharmacy & Biotech
+#### 1. Key CSIR Labs for Pharmacy & Biotech (7 Labs)
 
 Several labs focus specifically on "Biological Sciences" and "Chemical Sciences," which are highly relevant to Pharma:
 
-| CSIR Lab                                                      | CSIR Lab                                                              | CSIR Lab                                                              | CSIR Lab                                                   |
-| ------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [CSIR-CDRI](https://www.cdri.res.in), Lucknow (Drug Research) | [CSIR-IIIM](https://www.iiim.res.in), Jammu (Natural Products)        | [CSIR-IICT](https://www.iict.res.in), Hyderabad (Medicinal Chemistry) | [CSIR-IITR](https://www.iitr.res.in), Lucknow (Toxicology) |
-| [CSIR-CCMB](https://www.ccmb.res.in), Hyderabad (Biotech)     | [CSIR-IMTECH](https://www.imtech.res.in), Chandigarh (Microbial Tech) | [CSIR-NCL](https://www.ncl-india.org), Pune (Chemical Engineering)    |                                                            |
+| CSIR Lab                                 | Full Name                                | Location   | Focus Area                             |
+| ---------------------------------------- | ---------------------------------------- | ---------- | -------------------------------------- |
+| [CSIR-CDRI](https://www.cdri.res.in)     | Central Drug Research Institute          | Lucknow    | Drug Discovery & Development           |
+| [CSIR-IIIM](https://www.iiim.res.in)     | Indian Institute of Integrative Medicine | Jammu      | Natural Products, Medicinal Plants     |
+| [CSIR-IICT](https://www.iict.res.in)     | Indian Institute of Chemical Technology  | Hyderabad  | Medicinal Chemistry, Organic Synthesis |
+| [CSIR-IITR](https://iitr.res.in)         | Indian Institute of Toxicology Research  | Lucknow    | Toxicology, Drug Safety                |
+| [CSIR-CCMB](https://www.ccmb.res.in)     | Centre for Cellular & Molecular Biology  | Hyderabad  | Biotechnology, Genomics                |
+| [CSIR-IMTECH](https://www.imtech.res.in) | Institute of Microbial Technology        | Chandigarh | Microbial Biotechnology                |
+| [CSIR-NCL](https://www.ncl-india.org)    | National Chemical Laboratory             | Pune       | Chemical Engineering, Polymers         |
 
-**Other CSIR Labs (37 Total)**
+**Other CSIR Labs (30 Labs)**
 
 | CSIR Lab                                            | CSIR Lab                                         | CSIR Lab                                           | CSIR Lab                                          |
 | --------------------------------------------------- | ------------------------------------------------ | -------------------------------------------------- | ------------------------------------------------- |
@@ -1186,6 +1259,56 @@ Source: [TIFR](https://www.tifr.res.in)
 **Stipend:** ₹37,000/month (JRF) + HRA, ₹42,000/month (SRF) + HRA
 
 > **Why TIFR/DAE for Pharmacy Graduates?** NCBS and InStem are among India's best institutes for biological research. B.Pharm graduates interested in neuroscience, cell biology, stem cell research, or radiopharmacy can pursue world-class research with excellent funding and international exposure. For nuclear/radiation careers, consider M.Sc. after B.Pharm to become eligible for BARC OCES.
+{: .prompt-tip }
+
+### Other Institutes of National Importance
+
+#### NFSU (National Forensic Sciences University), Gandhinagar
+
+[NFSU](https://www.nfsu.ac.in) is India's first and only university dedicated to forensic sciences, recognized as an Institution of National Importance under the Ministry of Home Affairs. It offers unique programs for pharmacy graduates interested in forensic pharmacy and toxicology.
+
+**Courses for B.Pharm Graduates**
+
+| Course                               | Duration  | Eligibility                          | Entrance Exam |
+| ------------------------------------ | --------- | ------------------------------------ | ------------- |
+| M.Pharm (Forensic Pharmacy)          | 2 years   | B.Pharm with 55% (50% for SC/ST/PwD) | NFAT / GPAT   |
+| M.Sc. Forensic Science (Toxicology)  | 2 years   | B.Pharm/B.Sc. with 55%               | NFAT          |
+| Ph.D. (Forensic Pharmacy/Toxicology) | 3-5 years | M.Pharm/M.Sc. with 55%               | NFSU Entrance |
+
+**Career Opportunities:** Forensic Toxicologist, Drug Analyst (FSL), Poison Detection Expert, Forensic Pharmacist, Crime Lab Scientist
+
+#### NIFTEM (National Institute of Food Technology, Entrepreneurship & Management)
+
+[NIFTEM](https://www.niftem.ac.in) is an Institute of National Importance under the Ministry of Food Processing Industries, with campuses at Kundli (Haryana) and Thanjavur (Tamil Nadu). It offers programs at the intersection of food science and pharmaceutical technology.
+
+**Courses for B.Pharm Graduates**
+
+| Course                   | Duration  | Eligibility                                   | Entrance Exam   |
+| ------------------------ | --------- | --------------------------------------------- | --------------- |
+| M.Tech (Food Technology) | 2 years   | B.Tech/B.Pharm/B.Sc. in relevant field + GATE | GATE + CCMT     |
+| MBA (Food Business)      | 2 years   | Graduation with 50%                           | CAT/MAT/CMAT    |
+| Ph.D. (Food Science)     | 3-5 years | M.Tech/M.Pharm/M.Sc. in relevant field        | NIFTEM Entrance |
+
+**Career Opportunities:** Food Safety Officer, Quality Control Manager (Food Industry), Nutraceutical Product Developer, Food Regulatory Affairs
+
+> **Note:** B.Pharm graduates may need to complete deficiency courses in food technology subjects as per NIFTEM curriculum.
+{: .prompt-info }
+
+#### ITRA (Institute of Teaching and Research in Ayurveda), Jamnagar
+
+[ITRA](https://itra.ac.in) is an Institute of National Importance under the Ministry of Ayush, dedicated to Ayurvedic education and research. It offers specialized programs in Ayurvedic pharmacy.
+
+**Courses for Pharmacy Graduates**
+
+| Course                    | Duration  | Eligibility                               | Entrance Exam |
+| ------------------------- | --------- | ----------------------------------------- | ------------- |
+| B.Pharm (Ayurveda)        | 4 years   | 10+2 (PCB) with 50%                       | NEET UG       |
+| Ph.D. (Ayurveda Pharmacy) | 3-5 years | M.Pharm (Ayurveda)/PG in Medicinal Plants | ITRA Entrance |
+| Ph.D. (Medicinal Plants)  | 3-5 years | M.Pharm/M.Sc. in relevant field           | ITRA Entrance |
+
+**Career Opportunities:** Ayurvedic Drug Formulation, Herbal Product Development, Quality Control (Ayush Industry), Regulatory Affairs (AYUSH)
+
+> **Niche Opportunity:** ITRA is ideal for pharmacy graduates interested in traditional medicine, herbal drug research, and the growing AYUSH industry in India.
 {: .prompt-tip }
 
 ### Other Research Opportunities
