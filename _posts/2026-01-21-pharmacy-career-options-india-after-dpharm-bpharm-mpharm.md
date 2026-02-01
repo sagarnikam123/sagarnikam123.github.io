@@ -1197,6 +1197,77 @@ For B.Pharm graduates, M.Sc. Medical Pharmacology is the most relevant course at
 
 Check the official [AIIMS Exams portal](https://aiimsexams.ac.in/) for the latest Prospectus, as seat counts and specific participating institutes can vary each academic year.
 
+#### Career Opportunities for Pharm.D Graduates at AIIMS & Government Hospitals
+
+Pharm.D (Doctor of Pharmacy) graduates have excellent career opportunities in government hospitals, particularly in clinical pharmacy roles. Here's a comprehensive overview:
+
+**1. Clinical Pharmacist at AIIMS & INI Hospitals**
+
+| Aspect      | Details                                                                   |
+| ----------- | ------------------------------------------------------------------------- |
+| Post        | Clinical Pharmacist / Senior Clinical Pharmacist                          |
+| Eligibility | Pharm.D (6 years) or Pharm.D (Post Baccalaureate - 3 years after B.Pharm) |
+| Pay Level   | Level 7-10 (₹44,900 – ₹1,42,400) depending on experience                  |
+| Recruitment | Direct recruitment / Walk-in interviews / AIIMS CRE                       |
+| Locations   | AIIMS (23), JIPMER, PGIMER, NIMHANS, SCTIMST                              |
+
+**Key Responsibilities:**
+- Medication therapy management and patient counseling
+- Ward rounds with physicians and therapeutic recommendations
+- Adverse Drug Reaction (ADR) monitoring and reporting
+- Anticoagulation clinic management
+- Drug information services
+- Clinical trial support
+
+**2. Government Jobs for Pharm.D Graduates**
+
+| Job Role                              | Eligibility                      | Pay Level                     | Recruiting Body                                                  |
+| ------------------------------------- | -------------------------------- | ----------------------------- | ---------------------------------------------------------------- |
+| Clinical Pharmacist (Govt. Hospitals) | Pharm.D                          | Level 7-10 (₹44,900-1,42,400) | AIIMS, JIPMER, PGIMER, State Hospitals                           |
+| Drug Inspector (Central)              | Pharm.D / B.Pharm + experience   | Level 7 (₹44,900-1,42,400)    | [UPSC](https://www.upsc.gov.in)                                  |
+| Drug Inspector (State)                | Pharm.D / B.Pharm                | Level 6-7                     | State PSC (MPSC, UPPSC, etc.)                                    |
+| Pharmacovigilance Officer             | Pharm.D / M.Pharm                | Level 7-10                    | [CDSCO](https://cdsco.gov.in), [IPC](https://ipc.gov.in)         |
+| Research Officer (ICMR/CSIR)          | Pharm.D with research experience | Level 10-11                   | [ICMR](https://www.icmr.gov.in), [CSIR](https://www.csir.res.in) |
+| Lecturer/Asst. Professor              | Pharm.D + Ph.D. (preferred)      | Level 10-12                   | State PSC, University recruitment                                |
+| Hospital Pharmacist (Senior)          | Pharm.D                          | Level 6-7 (₹35,400-1,12,400)  | ESIC, Railways, State Hospitals                                  |
+
+**3. Pharm.D Advantage Over B.Pharm/M.Pharm**
+
+| Aspect                       | B.Pharm         | M.Pharm          | Pharm.D                             |
+| ---------------------------- | --------------- | ---------------- | ----------------------------------- |
+| Clinical Training            | Minimal         | Limited          | Extensive (1-year internship)       |
+| Patient Interaction          | Dispensing only | Research-focused | Direct patient care                 |
+| Ward Rounds                  | Not eligible    | Limited          | Eligible with physicians            |
+| Drug Inspector               | Eligible        | Eligible         | Eligible (preferred in some states) |
+| Clinical Pharmacist          | Not eligible    | Limited roles    | Primary qualification               |
+| Hospital Pharmacy Management | Junior roles    | Senior roles     | Leadership roles                    |
+
+**4. Where to Find Pharm.D Jobs**
+
+| Portal                                                                          | Type of Jobs                                 |
+| ------------------------------------------------------------------------------- | -------------------------------------------- |
+| [AIIMS Exams](https://aiimsexams.ac.in)                                         | Clinical Pharmacist, Pharmacist at all AIIMS |
+| [JIPMER Recruitment](https://jipmer.edu.in/careers)                             | Clinical Pharmacist, Research positions      |
+| [PGIMER Recruitment](https://pgimer.edu.in/PGIMER_PORTAL/PGIMERPORTAL/home.jsp) | Pharmacist, Clinical Pharmacist              |
+| [ESIC Recruitment](https://esic.gov.in/recruitment)                             | Pharmacist Grade I/II                        |
+| [SSC](https://ssc.gov.in)                                                       | Pharmacist (Central Govt.)                   |
+| State PSC Portals                                                               | Drug Inspector, Hospital Pharmacist          |
+
+> **Career Tip for Pharm.D:** Clinical Pharmacist is a growing field in India with increasing recognition. AIIMS, JIPMER, and PGIMER regularly recruit Pharm.D graduates for clinical roles. The 1-year internship during Pharm.D gives you hands-on clinical experience that B.Pharm/M.Pharm graduates lack.
+{: .prompt-tip }
+
+**5. Salary Comparison: Pharm.D in Government Sector**
+
+| Position                    | Fresher (₹/month) | 3-5 Years (₹/month) | 5+ Years (₹/month) |
+| --------------------------- | ----------------- | ------------------- | ------------------ |
+| Clinical Pharmacist (AIIMS) | ₹45,000-55,000    | ₹60,000-80,000      | ₹80,000-1,20,000   |
+| Drug Inspector              | ₹45,000-55,000    | ₹60,000-75,000      | ₹75,000-1,00,000   |
+| Hospital Pharmacist (Govt.) | ₹35,000-45,000    | ₹50,000-65,000      | ₹65,000-85,000     |
+| Research Officer (ICMR)     | ₹56,000-70,000    | ₹70,000-90,000      | ₹90,000-1,30,000   |
+
+> **Note:** Pharm.D is increasingly preferred for Drug Inspector posts in several states. UPSC also lists Pharm.D as an eligible qualification for Drug Inspector (Medical Devices) recruitment.
+{: .prompt-info }
+
 ### GAT-B (Central Universities)
 
 Based on the DBT-supported programs for the 2025-2027 academic session, many courses explicitly list Bachelor of Pharmacy (B.Pharm) as a qualifying degree. Below are the courses you can pursue through GAT-B 2025 after completing a degree in Pharmacy.
