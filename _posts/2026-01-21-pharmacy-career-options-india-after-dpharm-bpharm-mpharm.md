@@ -847,7 +847,7 @@ Detailed preparation strategies for GATE and NIPER JEE are covered in their resp
 > - **[INI-CET](https://aiimsexams.ac.in)** — For AIIMS and other medical institutes
 > - **[JAM-BT](https://jam.iitd.ac.in)** — For IISc, IISERs Integrated PhD programs
 > - **[JGEEBILS (Joint Graduate Entrance Examination for Biology & Interdisciplinary Life Sciences)](https://www.ncbs.res.in/academic/admissions-JGEEBILS)** — For NCBS, InStem, TIFR (Biology)
-> - **[BARC OCES](https://barcocesexam.in)** — For DAE Scientific Officer (requires M.Sc. after B.Pharm)
+> - **[BARC OCES](https://www.barc.gov.in/careers/officers.html)** — For DAE Scientific Officer (requires M.Sc. after B.Pharm)
 {: .prompt-tip }
 
 ### NIPER (7 Centers)
@@ -1576,9 +1576,9 @@ BARC Hospital in Mumbai periodically recruits pharmacists on locum basis:
 | Nature      | Locum/Contract basis (not permanent)                     |
 | Work        | Hospital pharmacy, dispensing, inventory management      |
 
-**2. OCES/DGFS Programs (Limited Eligibility)**
+**2. [OCES/DGFS Programs](https://www.barc.gov.in/careers/officers.html) (Limited Eligibility)**
 
-The OCES (Orientation Course for Engineering Graduates and Science Postgraduates) and DGFS (DAE Graduate Fellowship Scheme) are the main recruitment pathways for Scientific Officers at BARC.
+The [OCES (Orientation Course for Engineering Graduates and Science Postgraduates)](https://www.barc.gov.in/careers/officers.html) and DGFS (DAE Graduate Fellowship Scheme) are the main recruitment pathways for Scientific Officers at BARC.
 
 | Program | Full Form                                                  | Eligibility                                                          |
 | ------- | ---------------------------------------------------------- | -------------------------------------------------------------------- |
@@ -1613,21 +1613,28 @@ The OCES (Orientation Course for Engineering Graduates and Science Postgraduates
 - [Tata Memorial Hospital](https://tmc.gov.in), Mumbai (Main Campus)
 - [ACTREC (Advanced Centre for Treatment, Research & Education in Cancer)](https://actrec.gov.in), Navi Mumbai
 - [Homi Bhabha Cancer Hospital](https://hbchvaranasi.in), Varanasi
-- Homi Bhabha Cancer Hospital, Sangrur, Punjab
-- Homi Bhabha Cancer Hospital, Muzaffarpur, Bihar
-- Mahamana Pandit Madan Mohan Malviya Cancer Centre, Varanasi
+- [Homi Bhabha Cancer Hospital, Sangrur](https://hbchs.tmc.gov.in), Punjab
+- [Homi Bhabha Cancer Hospital, Muzaffarpur](https://hbchrcmzp.tmc.gov.in), Bihar
+- [Mahamana Pandit Madan Mohan Malviya Cancer Centre](https://mpmmcc.tmc.gov.in), Varanasi
 
-**How to Apply:** Monitor [TMC Recruitment Portal](https://tmc.gov.in/index.php/en/recruitment) for vacancies. Walk-in interviews are frequently conducted for pharmacist positions.
+**How to Apply:** Monitor [TMC Recruitment Portal](https://tmc.gov.in/postmaster/Careers) for vacancies. Walk-in interviews are frequently conducted for pharmacist positions.
 
 #### OCES/DGFS Selection Process
 
-| Stage       | Details                                                            |
-| ----------- | ------------------------------------------------------------------ |
-| Application | Online at [barcocesexam.in](https://barcocesexam.in)               |
-| Screening   | BARC Online Exam OR Valid GATE Score (2024/2025/2026)              |
-| Interview   | Technical interview at BARC Mumbai                                 |
-| Training    | 1-year training at BARC Training School                            |
-| Posting     | Scientific Officer at BARC, IGCAR, RRCAT, VECC, or other DAE units |
+| Stage       | Details                                                                     |
+| ----------- | --------------------------------------------------------------------------- |
+| Application | Online at [BARC OCES Exam Portal](https://barcocesexam.in)                  |
+| Screening   | BARC Online Exam OR Valid GATE Score (2024/2025/2026)                       |
+| Interview   | Technical interview at BARC Mumbai                                          |
+| Training    | 1-year training at BARC Training School (Mumbai, IGCAR, RRCAT, NFC, or AMD) |
+| Posting     | Scientific Officer 'C' at BARC, IGCAR, RRCAT, VECC, NFC, AMD, or AERB       |
+
+**BARC Training School Locations:**
+- BARC Training School, Mumbai — Nuclear Reactors, Basic & Engineering Sciences
+- BARC Training School at IGCAR, Kalpakkam — Fast Breeder Reactors
+- BARC Training School at RRCAT, Indore — Lasers, Accelerators, Plasma Physics
+- BARC Training School at NFC, Hyderabad — Nuclear Fuel Facilities
+- AMD, Hyderabad — Uranium & Atomic Minerals Exploration
 
 #### Stipend & Salary
 
