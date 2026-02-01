@@ -722,6 +722,108 @@ B.Pharm graduates are directly eligible to become Patent Agents without needing 
 {: .prompt-info }
 
 
+## 📚 GPAT Preparation Guide
+
+GPAT (Graduate Pharmacy Aptitude Test) is the gateway to M.Pharm admissions in government colleges and NIPER eligibility. Here's how to crack it:
+
+### Exam Pattern
+
+| Aspect                | Details                                                                               |
+| --------------------- | ------------------------------------------------------------------------------------- |
+| Conducting Body       | [NBEMS (National Board of Examinations in Medical Sciences)](https://natboard.edu.in) |
+| Mode                  | Computer Based Test (CBT)                                                             |
+| Duration              | 3 Hours                                                                               |
+| Questions             | 125 MCQs                                                                              |
+| Marking               | +4 for correct, -1 for wrong                                                          |
+| Maximum Marks         | 500                                                                                   |
+| Qualifying Percentile | 25th percentile (varies by category)                                                  |
+
+### Preparation Strategy (6-Month Plan)
+
+**Month 1-2: Foundation Building**
+- Complete Pharmaceutics (Physical Pharmacy, Biopharmaceutics, Dosage Forms)
+- Focus on numerical problems — they're scoring
+- Make formula sheets for quick revision
+
+**Month 3-4: Core Subjects**
+- Pharmacology — focus on drug classifications, mechanisms, side effects
+- Pharmaceutical Chemistry — SAR, drug synthesis, named reactions
+- Pharmacognosy — biological sources, chemical constituents, uses
+
+**Month 5: Analysis & Revision**
+- Pharmaceutical Analysis — instrumental techniques (HPLC, UV, IR, NMR)
+- Revise weak areas using short notes
+- Start solving previous year papers (2018-2025)
+
+**Month 6: Mock Tests & Fine-tuning**
+- Attempt 2-3 full-length mock tests weekly
+- Analyze mistakes and revise those topics
+- Focus on high-weightage chapters
+
+### High-Yield Topics for GPAT
+
+| Subject          | Must-Cover Topics                                                                                  |
+| ---------------- | -------------------------------------------------------------------------------------------------- |
+| Pharmaceutics    | Biopharmaceutics (BCS, bioavailability), Novel Drug Delivery, Tablet/Capsule formulation, Kinetics |
+| Pharmacology     | ANS, CVS drugs, CNS drugs, Chemotherapy, Pharmacokinetics                                          |
+| Pharm. Chemistry | Heterocyclic chemistry, SAR of major drug classes, Stereochemistry                                 |
+| Pharmacognosy    | Alkaloids, Glycosides, Tannins, Volatile oils, Biological sources                                  |
+| Analysis         | Spectroscopy (UV, IR, NMR, Mass), Chromatography (HPLC, GC, TLC)                                   |
+
+> **Pro Tip:** GPAT repeats concepts from previous years. Solving 7-8 years of previous papers can help you score 60-70% directly!
+{: .prompt-tip }
+
+### Recommended Books for GPAT
+
+| Subject          | Book                                           | Author                   |
+| ---------------- | ---------------------------------------------- | ------------------------ |
+| Pharmaceutics    | Theory and Practice of Industrial Pharmacy     | Lachman                  |
+| Pharmaceutics    | Physical Pharmacy                              | Martin                   |
+| Pharmacology     | Essentials of Medical Pharmacology             | KD Tripathi              |
+| Pharm. Chemistry | Wilson & Gisvold's Organic Medicinal Chemistry | Beale & Block            |
+| Pharmacognosy    | Pharmacognosy                                  | Kokate, Purohit, Gokhale |
+| Analysis         | Pharmaceutical Analysis                        | Beckett & Stenlake       |
+
+---
+
+## 📋 Entrance Exams Overview
+
+Before diving into specific institutes, here's a quick comparison of major entrance exams for pharmacy graduates:
+
+| Factor              | GPAT                            | GATE (BT/XL)                  | NIPER JEE          |
+| ------------------- | ------------------------------- | ----------------------------- | ------------------ |
+| **Primary Purpose** | M.Pharm eligibility             | IIT/NIT/PSU admission         | NIPER admission    |
+| **Prerequisite**    | None                            | None                          | GPAT qualified     |
+| **Difficulty**      | Moderate                        | High                          | High               |
+| **Stipend**         | ₹12,400/month (select colleges) | ₹12,400/month (all IITs/NITs) | ₹12,400/month      |
+| **PSU Jobs**        | Not accepted                    | Accepted (ONGC, IOCL, etc.)   | Not accepted       |
+| **Validity**        | 3 years                         | 3 years                       | 1 year             |
+| **Best For**        | M.Pharm in govt. colleges       | Research, IITs, PSUs          | NIPER specifically |
+
+### Which Exam Should You Choose?
+
+```mermaid
+flowchart TD
+    A[B.Pharm Final Year] --> B{Career Goal?}
+    B -->|M.Pharm in Govt. College| C[Focus on GPAT]
+    B -->|NIPER| D[GPAT + NIPER JEE]
+    B -->|IIT/NIT/Research| E[Focus on GATE]
+    B -->|PSU Jobs| F[Focus on GATE]
+    B -->|Multiple Options| G[GPAT + GATE Both]
+    C --> H[Apply to State Colleges]
+    D --> I[Prepare NIPER JEE after GPAT]
+    E --> J[Choose BT or XL paper]
+    F --> K[Apply to ONGC, IOCL, GAIL]
+    G --> L[Maximum Opportunities]
+```
+
+> **Best Strategy:** If you're unsure about your career path, appear for both GPAT and GATE. GPAT is easier and ensures M.Pharm eligibility, while GATE opens doors to IITs, NITs, and PSU jobs. The syllabi overlap significantly, so preparing for both is manageable.
+{: .prompt-tip }
+
+Detailed preparation strategies for GATE and NIPER JEE are covered in their respective institute sections below.
+
+---
+
 ## 🏛️ Courses at Premier Institutes
 
 ### Quick Comparison: Which Institute is Right for You?
