@@ -31,11 +31,13 @@ Pharmacy is one of the most versatile healthcare professions in India, offering 
   - [MUHS Nashik (Public Health)](#muhs-nashik-public-health--healthcare)
   - [Distance & Online Learning](#distance--online-learning)
   - [Law & IPR After B.Pharm](#law--ipr-after-bpharm)
+- [GPAT Preparation Guide](#-gpat-preparation-guide)
+- [Entrance Exams Overview](#-entrance-exams-overview)
 - [Courses at Premier Institutes](#️-courses-at-premier-institutes)
-  - [NIPER (7 Centers)](#niper-7-centers)
-  - [IITs (23 Institutes)](#iits-23-institutes)
+  - [NIPER (7 Centers)](#niper-7-centers) — includes NIPER JEE preparation
+  - [IITs (23 Institutes)](#iits-23-institutes) — includes GATE preparation
   - [NITs (31 Institutes)](#nits-31-institutes)
-  - [AIIMS (23) & INI-CET (4) Institutes](#aiims-23--ini-cet-4-institutes)
+  - [AIIMS (23) & INI-CET (4) Institutes](#aiims-23--ini-cet-4-institutes) — includes Pharm.D career opportunities
   - [GAT-B (Central Universities)](#gat-b-central-universities)
   - [CSIR Labs (37 Institutes)](#csir-labs-37-institutes)
   - [IISc Bangalore](#iisc-bangalore-indian-institute-of-science)
@@ -462,7 +464,7 @@ IIMs do not offer a dedicated "MBA in Pharmaceutical Management" program. Howeve
 | ---------------------------------------------------------- | --------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------- |
 | [NIPER (7 centers)](https://www.niper.gov.in)              | MBA (Pharm.)          | [GPAT](https://natboard.edu.in/viewnbeexam?exam=gpat) + [NIPER JEE](https://www.niper.gov.in)                                                                                                                         | B.Pharm with 60% marks                                  |
 | [Jamia Hamdard](https://www.jamiahamdard.ac.in), New Delhi | MBA Pharma            | [CAT](https://iimcat.ac.in)/[CMAT](https://cmat.nta.nic.in)/[MAT](https://mat.aima.in)/[XAT](https://xatonline.in)                                                                                                    | Graduation with 55%                                     |
-| [DPSRU](https://dpsru.edu.in), Delhi                       | MBA Pharma Management | [GPAT](https://gpat.nta.nic.in)                                                                                                                                                                                       | B.Pharm with 55%                                        |
+| [DPSRU](https://dpsru.edu.in), Delhi                       | MBA Pharma Management | [GPAT](https://natboard.edu.in)                                                                                                                                                                                       | B.Pharm with 55%                                        |
 | [IIHMR University](https://www.iihmr.edu.in), Jaipur       | MBA Pharma Management | [CAT](https://iimcat.ac.in)/[MAT](https://mat.aima.in)/[CMAT](https://cmat.nta.nic.in)/[ATMA](https://www.atmaaims.com)/[XAT](https://xatonline.in)/[GPAT](https://natboard.edu.in/viewnbeexam?exam=gpat)/IIHMR-U MAT | Graduation with 50% (Pharmacy/Science/Biotech/Medicine) |
 | [PUMBA](https://www.pumba.in), Pune                        | MBA Pharma-Biotech    | [ATMA](https://www.atmaaims.com) only                                                                                                                                                                                 | B.Pharm with 50% (45% for reserved from Maharashtra)    |
 | [JMI (Jamia Millia Islamia)](https://www.jmi.ac.in), Delhi | MBA                   | [CAT](https://iimcat.ac.in)/[CMAT](https://cmat.nta.nic.in)                                                                                                                                                           | Graduation with 50%                                     |
@@ -487,7 +489,7 @@ The admission process generally involves three stages: **Entrance Exam → Group
 
 **Specialized Pharma Entrance Exams**
 
-- **[NIPER JEE](https://www.niper.gov.in):** Required for all NIPER institutes. You must qualify [GPAT](https://gpat.nta.nic.in) first to be eligible
+- **[NIPER JEE](https://www.niper.gov.in):** Required for all NIPER institutes. You must qualify [GPAT](https://natboard.edu.in) first to be eligible
 - **[NMAT](https://www.nmat.org):** Required specifically for NMIMS (Mumbai/Hyderabad)
 - **[IIHMR-U MAT](https://www.iihmr.edu.in):** Institute-specific test for candidates without other scores
 
@@ -501,7 +503,7 @@ The admission process generally involves three stages: **Entrance Exam → Group
 | [XAT](https://xatonline.in)                | Xavier Aptitude Test                 | Jamia Hamdard, IIHMR, SIES                      |
 | [ATMA](https://www.atmaaims.com)           | AIMS Test for Management Admissions  | PUMBA (mandatory), IIHMR                        |
 | [MAH MBA CET](https://cetcell.mahacet.org) | Maharashtra MBA Common Entrance Test | SIES, Maharashtra institutes                    |
-| [GPAT](https://gpat.nta.nic.in)            | Graduate Pharmacy Aptitude Test      | NIPER (mandatory), DPSRU, IIHMR                 |
+| [GPAT](https://natboard.edu.in)            | Graduate Pharmacy Aptitude Test      | NIPER (mandatory), DPSRU, IIHMR                 |
 
 #### 4. Eligibility Criteria
 
@@ -839,7 +841,7 @@ Detailed preparation strategies for GATE and NIPER JEE are covered in their resp
 | **No. of Institutes** | 7                              | 23 (6 relevant)             | 31 (5 relevant)                | 23                                | 15+                           | 37 (7 pharma-relevant)                            | 1                              | 7                              | 6 DAE + 8 TIFR centers        | 1 (+ campuses)              | 2 (Kundli, Thanjavur)         | 1                          |
 
 > **Which exam should you prioritize?**
-> - **[GPAT](https://gpat.nta.nic.in)** — Required for NIPER, some IITs, and many private colleges
+> - **[GPAT](https://natboard.edu.in)** — Required for NIPER, some IITs, and many private colleges
 > - **[GATE (BT/XL)](https://gate.iitk.ac.in)** — Required for IITs, NITs, IISERs, BARC OCES, and provides better stipend options
 > - **[GAT-B](https://rcb.res.in/DBTPG/)** — For Central Universities offering M.Sc. Biotechnology
 > - **[INI-CET](https://aiimsexams.ac.in)** — For AIIMS and other medical institutes
@@ -850,7 +852,7 @@ Detailed preparation strategies for GATE and NIPER JEE are covered in their resp
 
 ### NIPER (7 Centers)
 
-[NIPER JEE](https://www.niper.gov.in/niperjee2025/) (Joint Entrance Examination) is a national-level entrance exam conducted by the National Institutes of Pharmaceutical Education and Research (NIPERs). These are "Institutes of National Importance" under the Ministry of Chemicals and Fertilizers, specifically designed to provide high-level education and research in pharmaceutical sciences.
+[NIPER JEE](https://www.niper.gov.in/niperjee2025/) (Joint Entrance Examination) is a national-level entrance exam conducted by the National Institutes of Pharmaceutical Education and Research (NIPERs). These are "[Institutes of National Importance](https://www.education.gov.in/en/institutions-national-importance)" under the Ministry of Chemicals and Fertilizers, specifically designed to provide high-level education and research in pharmaceutical sciences.
 
 #### NIPER Centers in India
 
@@ -1145,7 +1147,7 @@ Pharmacy students in NITs usually specialize in the following high-growth areas:
 
 ### AIIMS (23) & INI-CET (4) Institutes
 
-After completing B.Pharm, you are eligible for several postgraduate courses at AIIMS and other Institutes of National Importance (INIs). Admissions are conducted through INI-CET (Institute of National Importance Combined Entrance Test) organized by AIIMS New Delhi.
+After completing B.Pharm, you are eligible for several postgraduate courses at AIIMS and other [Institutes of National Importance (INIs)](https://www.education.gov.in/en/institutions-national-importance). Admissions are conducted through INI-CET (Institute of National Importance Combined Entrance Test) organized by AIIMS New Delhi.
 
 #### Complete List of AIIMS in India
 
@@ -1703,7 +1705,7 @@ Source: [TIFR](https://www.tifr.res.in)
 > **Why TIFR/DAE for Pharmacy Graduates?** NCBS and InStem are among India's best institutes for biological research. B.Pharm graduates interested in neuroscience, cell biology, stem cell research, or radiopharmacy can pursue world-class research with excellent funding and international exposure. For nuclear/radiation careers, consider M.Sc. after B.Pharm to become eligible for BARC OCES. SINP and NISER also accept M.Pharm for Ph.D. in Biophysical/Biological Sciences.
 {: .prompt-tip }
 
-### Other Institutes of National Importance
+### Other [Institutes of National Importance](https://www.education.gov.in/en/institutions-national-importance)
 
 #### NFSU (National Forensic Sciences University), Gandhinagar
 
@@ -2043,7 +2045,7 @@ GATE score is valid for 3 years and opens doors to IITs, NITs, and PSU jobs.
 | Aspect       | GPAT                    | NIPER JEE            |
 | ------------ | ----------------------- | -------------------- |
 | Purpose      | Eligibility for M.Pharm | Admission to NIPER   |
-| Conducted By | NTA                     | NIPER Mohali         |
+| Conducted By | NBEMS                   | NIPER Mohali         |
 | Validity     | 3 years                 | 1 year               |
 | Required For | Most M.Pharm programs   | Only NIPER admission |
 
@@ -2063,7 +2065,7 @@ Based on your current status, here's what you should do:
 
 1. **Immediately:** Start GPAT preparation (6-8 months before exam)
 2. **Decide:** Research vs Industry vs Government — choose your path
-3. **Register:** Create accounts on NTA, GATE GOAPS portals
+3. **Register:** Create accounts on NBEMS, GATE GOAPS portals
 4. **Apply:** Government jobs (RRB, SSC) alongside exam prep
 
 ### If you're an M.Pharm Student
@@ -2083,19 +2085,19 @@ Based on your current status, here's what you should do:
 
 ## 🔗 Useful Resources & Links
 
-| Category                        | Organization / Portal                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
-| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Exam Portals**                | [GPAT](https://gpat.nta.nic.in), [GATE](https://gate.iitk.ac.in), [NIPER JEE](https://www.niper.gov.in), [INI-CET](https://aiimsexams.ac.in), [GAT-B](https://rcb.res.in), [CSIR-UGC NET](https://csirnet.nta.nic.in), [CAT](https://iimcat.ac.in), [CMAT](https://cmat.nta.nic.in), [JAM](https://jam.iitd.ac.in), [CUET-PG](https://cuet.nta.nic.in), [JGEEBILS](https://www.ncbs.res.in/academic/admissions-JGEEBILS), [TIFR-GS](https://univ.tifr.res.in), [DHR-BRET](https://www.icmr.gov.in/junior-research-fellowships-jrf.html) |
-| **Government Jobs**             | [RRB](https://rrbcdg.gov.in), [SSC](https://ssc.gov.in/), [UPSC](https://upsc.gov.in), [MPSC](https://mpsc.gov.in/home), [ESIC](https://esic.gov.in/), [FSSAI](https://www.fssai.gov.in), [ISRO](https://www.isro.gov.in), [RAC-DRDO](https://rac.gov.in)                                                                                                                                                                                                                                                                               |
-| **Research Organizations**      | [CSIR](https://www.csir.res.in), [ICMR](https://icmr.gov.in), [DBT-BRIC](https://www.bric.nic.in), [DST](https://dst.gov.in), [DRDO](https://www.drdo.gov.in), [DAE](https://dae.gov.in), [BARC](https://www.barc.gov.in)                                                                                                                                                                                                                                                                                                               |
-| **Fellowship & Ph.D. Portals**  | [CSIR-HRDG](https://csirhrdg.res.in), [AcSIR](https://acsir.res.in), [HBNI](https://www.hbni.ac.in), [DBT-JRF](https://dbtindia.gov.in), [DST-INSPIRE](https://online-inspire.gov.in)                                                                                                                                                                                                                                                                                                                                                   |
-| **Premier Research Institutes** | [IISc](https://www.iisc.ac.in), [TIFR](https://www.tifr.res.in), [NCBS](https://www.ncbs.res.in), [JNCASR](https://www.jncasr.ac.in), [InStem](https://www.instem.res.in), [THSTI](https://thsti.res.in), [RCB](https://www.rcb.res.in), [NII](https://www.nii.res.in), [INST](https://www.inst.ac.in), [IASST](https://iasst.gov.in)                                                                                                                                                                                                   |
-| **CSIR Centres of Excellence**  | [CSIR-CDRI](https://www.cdri.res.in), [CSIR-IIIM](https://www.iiim.res.in), [CSIR-CIMAP](https://www.cimap.res.in), [CSIR-NBRI](https://www.nbri.res.in), [CSIR-IITR](https://iitr.res.in), [CSIR-IICT](https://www.iict.res.in), [CSIR-CFTRI](https://www.cftri.res.in), [CSIR-CCMB](https://www.ccmb.res.in)                                                                                                                                                                                                                          |
-| **Specialized Institutes**      | [NFSU](https://www.nfsu.ac.in), [NIFTEM](https://www.niftem.ac.in), [ITRA](https://itra.ac.in), [TMC](https://tmc.gov.in), [BRIT](https://www.britatom.gov.in)                                                                                                                                                                                                                                                                                                                                                                          |
-| **IISERs**                      | [IISER Pune](https://www.iiserpune.ac.in), [IISER Kolkata](https://www.iiserkol.ac.in), [IISER Mohali](https://www.iisermohali.ac.in), [IISER Bhopal](https://www.iiserb.ac.in), [IISER TVM](https://www.iisertvm.ac.in), [IISER Tirupati](https://www.iisertirupati.ac.in), [IISER Berhampur](https://www.iiserbpr.ac.in)                                                                                                                                                                                                              |
-| **Regulatory Bodies**           | [CDSCO](https://cdsco.gov.in), [IPC](https://ipc.gov.in), [PCI](https://www.pci.nic.in), [Dept. of Pharmaceuticals](https://pharmaceuticals.gov.in), [DHR](https://dhr.gov.in), [CTRI](https://ctri.nic.in)                                                                                                                                                                                                                                                                                                                             |
-| **Counselling & Admission**     | [CCMT](https://ccmt.admissions.nic.in), [NTA](https://www.nta.ac.in), [IISc Admissions](https://admissions.iisc.ac.in)                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| **India Science Portal**        | [India Science & Technology](https://www.indiascienceandtechnology.gov.in)                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| Category                        | Organization / Portal                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Exam Portals**                | [GPAT](https://natboard.edu.in), [GATE](https://gate.iitk.ac.in), [NIPER JEE](https://www.niper.gov.in), [INI-CET](https://aiimsexams.ac.in), [GAT-B](https://www.rcb.res.in), [CSIR-UGC NET](https://csirnet.nta.nic.in), [CAT](https://iimcat.ac.in), [CMAT](https://cmat.nta.nic.in), [JAM](https://jam.iitd.ac.in), [CUET-PG](https://cuet.nta.nic.in), [JGEEBILS](https://www.ncbs.res.in/academic/admissions-JGEEBILS), [TIFR-GS](https://univ.tifr.res.in), [DHR-BRET](https://www.icmr.gov.in/junior-research-fellowships-jrf.html) |
+| **Government Jobs**             | [RRB](https://www.rrbcdg.gov.in), [SSC](https://ssc.gov.in), [UPSC](https://www.upsc.gov.in), [MPSC](https://mpsc.gov.in/home), [ESIC](https://esic.gov.in), [FSSAI](https://www.fssai.gov.in), [ISRO](https://www.isro.gov.in), [RAC-DRDO](https://rac.gov.in)                                                                                                                                                                                                                                                                             |
+| **Research Organizations**      | [CSIR](https://www.csir.res.in/en), [ICMR](https://www.icmr.gov.in), [DBT](https://dbtindia.gov.in), [DST](https://dst.gov.in), [DRDO](https://www.drdo.gov.in), [DAE](https://dae.gov.in), [BARC](https://www.barc.gov.in)                                                                                                                                                                                                                                                                                                                 |
+| **Fellowship & Ph.D. Portals**  | [CSIR-HRDG](https://csirhrdg.res.in), [AcSIR](https://acsir.res.in), [HBNI](https://www.hbni.ac.in), [DBT-JRF](https://dbtindia.gov.in), [DST-INSPIRE](https://online-inspire.gov.in)                                                                                                                                                                                                                                                                                                                                                       |
+| **Premier Research Institutes** | [IISc](https://www.iisc.ac.in), [TIFR](https://www.tifr.res.in), [NCBS](https://www.ncbs.res.in), [JNCASR](https://www.jncasr.ac.in), [InStem](https://www.instem.res.in), [THSTI](https://thsti.res.in), [RCB](https://www.rcb.res.in), [NII](https://www.nii.res.in), [INST](https://www.inst.ac.in), [IASST](https://iasst.gov.in)                                                                                                                                                                                                       |
+| **CSIR Labs (Pharma-relevant)** | [CSIR-CDRI](https://www.cdri.res.in), [CSIR-IIIM](https://www.iiim.res.in), [CSIR-CIMAP](https://www.cimap.res.in), [CSIR-NBRI](https://www.nbri.res.in), [CSIR-IITR](https://iitr.res.in), [CSIR-IICT](https://www.iict.res.in), [CSIR-CFTRI](https://www.cftri.res.in), [CSIR-CCMB](https://www.ccmb.res.in)                                                                                                                                                                                                                              |
+| **Specialized Institutes**      | [NFSU](https://www.nfsu.ac.in), [NIFTEM](https://www.niftem.ac.in), [ITRA](https://itra.ac.in), [TMC](https://tmc.gov.in), [BRIT](https://www.britatom.gov.in)                                                                                                                                                                                                                                                                                                                                                                              |
+| **IISERs**                      | [IISER Pune](https://www.iiserpune.ac.in), [IISER Kolkata](https://www.iiserkol.ac.in), [IISER Mohali](https://www.iisermohali.ac.in), [IISER Bhopal](https://www.iiserb.ac.in), [IISER TVM](https://www.iisertvm.ac.in), [IISER Tirupati](https://www.iisertirupati.ac.in), [IISER Berhampur](https://www.iiserbpr.ac.in)                                                                                                                                                                                                                  |
+| **Regulatory Bodies**           | [CDSCO](https://cdsco.gov.in), [IPC](https://ipc.gov.in), [PCI](https://www.pci.nic.in), [Dept. of Pharmaceuticals](https://pharmaceuticals.gov.in), [DHR](https://dhr.gov.in), [CTRI](https://ctri.nic.in)                                                                                                                                                                                                                                                                                                                                 |
+| **Counselling & Admission**     | [CCMT](https://ccmt.admissions.nic.in), [NTA](https://www.nta.ac.in), [IISc Admissions](https://admissions.iisc.ac.in)                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| **India Science Portal**        | [India Science & Technology](https://www.indiascienceandtechnology.gov.in)                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 
 ---
 
