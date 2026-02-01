@@ -903,6 +903,68 @@ If you already hold a Master's degree (M.S. Pharm, M.Pharm, or M.Tech Pharm), yo
 
 NIPER institutes are known for their high placement standards (averaging 85–95%) and stipends. Most Master's students receive a stipend of ₹12,400 per month, while Ph.D. scholars receive significantly higher research fellowships.
 
+#### How to Prepare for NIPER JEE
+
+NIPER JEE is conducted after GPAT qualification. It's more competitive than GPAT with a different exam pattern.
+
+**Exam Pattern:**
+
+| Aspect          | Details                                  |
+| --------------- | ---------------------------------------- |
+| Conducting Body | [NIPER Mohali](https://www.niper.gov.in) |
+| Prerequisite    | Valid GPAT score                         |
+| Mode            | Computer Based Test (CBT)                |
+| Duration        | 2 Hours                                  |
+| Questions       | 200 MCQs                                 |
+| Marking         | +1 for correct, No negative marking      |
+| Maximum Marks   | 200                                      |
+
+**Key Differences: GPAT vs NIPER JEE**
+
+| Aspect            | GPAT       | NIPER JEE         |
+| ----------------- | ---------- | ----------------- |
+| Negative Marking  | Yes (-1)   | No                |
+| Questions         | 125        | 200               |
+| Duration          | 3 hours    | 2 hours           |
+| Time per Question | 1.44 min   | 0.6 min (36 sec)  |
+| Difficulty        | Moderate   | Higher            |
+| Focus             | Conceptual | Application-based |
+
+**8-Week Preparation Strategy (After GPAT)**
+
+**Week 1-2: Analyze & Plan**
+- Check your GPAT weak areas
+- NIPER JEE is faster-paced — practice speed
+- Focus on application-based questions
+
+**Week 3-4: Deep Dive**
+- Pharmaceutics: Novel drug delivery, Nanotechnology, Targeted delivery
+- Pharmacology: Molecular pharmacology, Signal transduction, Drug receptors
+- Pharm. Chemistry: Advanced SAR, Drug design, Computational chemistry
+
+**Week 5-6: General Aptitude & Mock Tests**
+- English: Reading comprehension, Grammar, Vocabulary
+- Reasoning: Logical reasoning, Data interpretation
+- Current Affairs: Pharma industry news, Drug approvals, Nobel Prizes
+
+**Week 7-8: Full-Length Tests**
+- Attempt 4-5 full mock tests
+- Practice completing 200 questions in 2 hours
+- Review mistakes and revise
+
+**High-Yield Topics for NIPER JEE:**
+
+| Subject          | Advanced Topics to Focus                                                     |
+| ---------------- | ---------------------------------------------------------------------------- |
+| Pharmaceutics    | Nanoparticles, Liposomes, Microspheres, Transdermal systems, Taste masking   |
+| Pharmacology     | GPCR signaling, Ion channels, Enzyme inhibitors, Pharmacogenomics            |
+| Pharm. Chemistry | QSAR, Molecular docking, Prodrug design, Bioisosterism                       |
+| Pharmacognosy    | Marker compounds, Standardization, WHO guidelines for herbal drugs           |
+| Analysis         | Method validation (ICH guidelines), Bioanalytical methods, Stability testing |
+
+> **Speed Tip:** In NIPER JEE, you have only 36 seconds per question. Don't get stuck — mark for review and move on. Attempt all questions since there's no negative marking!
+{: .prompt-tip }
+
 ### IITs (23 Institutes)
 
 As a Pharmacy student (B.Pharm or M.Pharm), you have several specialized pathways within the Indian Institutes of Technology (IITs). While IITs are primarily engineering-focused, they have evolved into multidisciplinary hubs for Biomedical Engineering, Biotechnology, and Pharmaceutical Technology.
