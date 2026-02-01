@@ -1630,11 +1630,11 @@ The [OCES (Orientation Course for Engineering Graduates and Science Postgraduate
 | Posting     | Scientific Officer 'C' at BARC, IGCAR, RRCAT, VECC, NFC, AMD, or AERB       |
 
 **BARC Training School Locations:**
-- BARC Training School, Mumbai — Nuclear Reactors, Basic & Engineering Sciences
-- BARC Training School at IGCAR, Kalpakkam — Fast Breeder Reactors
-- BARC Training School at RRCAT, Indore — Lasers, Accelerators, Plasma Physics
-- BARC Training School at NFC, Hyderabad — Nuclear Fuel Facilities
-- AMD, Hyderabad — Uranium & Atomic Minerals Exploration
+- [BARC Training School, Mumbai](https://www.barc.gov.in/careers/training.html) — Nuclear Reactors, Basic & Engineering Sciences
+- [BARC Training School at IGCAR, Kalpakkam](https://www.igcar.gov.in/ocests.html) — Fast Breeder Reactors
+- [BARC Training School at RRCAT, Indore](https://www.rrcat.gov.in/hrd/ts/index.html) — Lasers, Accelerators, Plasma Physics
+- [BARC Training School at NFC, Hyderabad](https://www.nfc.gov.in/training-school.html) — Nuclear Fuel Facilities
+- [AMD, Hyderabad](https://amd.gov.in) — Uranium & Atomic Minerals Exploration
 
 #### Stipend & Salary
 
