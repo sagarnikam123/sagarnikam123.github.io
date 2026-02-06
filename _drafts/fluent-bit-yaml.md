@@ -1,6 +1,6 @@
 ---
 title: "Fluent Bit YAML Configuration Guide"
-description: "Complete guide to configuring Fluent Bit using YAML format. Learn about inputs, outputs, filters, parsers, and plugin properties for log processing."
+description: "Complete guide to configuring Fluent Bit using YAML format. Learn about inputs, outputs, filters, parsers, and plugin properties for log processing"
 author: sagarnikam123
 date: 2025-11-17 12:00:00 +0530
 categories: [devops, logging, observability]
