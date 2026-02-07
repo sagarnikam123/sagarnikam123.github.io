@@ -275,7 +275,7 @@ In Maharashtra, government jobs for Pharmacy graduates and diploma holders are p
 
 #### 1. MPSC Drug Inspector (Group B)
 
-This is a prestigious regulatory role within the [Food and Drug Administration (FDA) Maharashtra](https://fdamfg.maharashtra.gov.in). B.Pharm/Pharmaceutical Science + Marathi proficiency + 18 months experience in drug manufacture/testing required.
+This is a prestigious regulatory role within the [Food and Drug Administration (FDA) Maharashtra](https://fdamfg.maharashtra.gov.in). a Degree in Pharmacy or Pharmaceutical Science, or Medicine with specialization in Clinical Pharmacology or Microbiology + Marathi proficiency + (experience in drug manufacture/testing preferred, not mandatory).
 
 #### 2. Zilla Parishad (ZP) Pharmacist
 
