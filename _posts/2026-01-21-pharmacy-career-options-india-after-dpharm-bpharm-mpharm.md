@@ -83,6 +83,69 @@ flowchart TD
 
 ---
 
+## 🎓 Getting Into Pharmacy: B.Pharm Admission
+
+For students seeking admission to B.Pharm programs after 10+2 (with Physics, Chemistry, Biology/Mathematics), here are the key entrance exams at state and university levels.
+
+### State Level B.Pharm Entrance Exams
+
+| Exam       | Full Form                                              | Conducting Authority                                                            |
+| ---------- | ------------------------------------------------------ | ------------------------------------------------------------------------------- |
+| MHT CET    | Maharashtra Common Entrance Test                       | [State CET Cell, Maharashtra](https://cetcell.mahacet.org)                      |
+| AP EAMCET  | Andhra Pradesh Engineering, Agriculture & Medical CET  | [JNTU Kakinada](https://cets.apsche.ap.gov.in)                                  |
+| TS EAMCET  | Telangana State Engineering, Agriculture & Medical CET | [JNTU Hyderabad](https://eapcet.tgche.ac.in)                                    |
+| KCET       | Karnataka Common Entrance Test                         | [Karnataka Examinations Authority](https://cetonline.karnataka.gov.in/kea)      |
+| WBJEE      | West Bengal Joint Entrance Examination                 | [WB Joint Entrance Examinations Board](https://wbjeeb.nic.in)                   |
+| GUJCET     | Gujarat Common Entrance Test                           | [Gujarat Secondary & Higher Secondary Education Board](https://gujcet.gseb.org) |
+| OJEE       | Odisha Joint Entrance Examination                      | [Odisha State Government](https://ojee.nic.in)                                  |
+| RUHS-P     | Rajasthan University of Health Sciences - Pharmacy     | [RUHS Jaipur](https://www.ruhsraj.org)                                          |
+| UPSEE/AKTU | Uttar Pradesh State Entrance Examination               | [Dr. APJ Abdul Kalam Technical University](https://aktu.ac.in)                  |
+| Goa CET    | Goa Common Entrance Test                               | [Directorate of Technical Education, Goa](https://dte.goa.gov.in)               |
+| CG PPHT    | Chhattisgarh Pre-Pharmacy Test                         | [CG Vyapam](https://vyapam.cgstate.gov.in)                                      |
+| HP PAT     | Himachal Pradesh Pharmacy Admission Test               | [HP Technical University](https://himtu.ac.in)                                  |
+| BCECE      | Bihar Combined Entrance Competitive Examination        | [BCECE Board](https://bceceboard.bihar.gov.in)                                  |
+| JCECE      | Jharkhand Combined Entrance Competitive Examination    | [JCECEB](https://jceceb.jharkhand.gov.in)                                       |
+
+### University Level B.Pharm Entrance Exams
+
+| Exam          | Full Form                                                | University/Institute                                       | Eligibility             |
+| ------------- | -------------------------------------------------------- | ---------------------------------------------------------- | ----------------------- |
+| BITSAT        | Birla Institute of Technology and Science Admission Test | [BITS Pilani](https://www.bitsadmission.com)               | 10+2 (PCB/PCM) with 75% |
+| MET           | Manipal Entrance Test                                    | [Manipal Academy of Higher Education](https://manipal.edu) | 10+2 (PCB) with 50%     |
+| SRMJEEE       | SRM Joint Engineering Entrance Examination               | [SRM University](https://www.srmist.edu.in)                | 10+2 (PCB/PCM)          |
+| AEEE          | Amrita Engineering Entrance Examination                  | [Amrita Vishwa Vidyapeetham](https://www.amrita.edu)       | 10+2 (PCB) with 60%     |
+| VITEEE        | VIT Engineering Entrance Examination                     | [VIT University](https://vit.ac.in)                        | 10+2 (PCB) with 60%     |
+| CUET-UG       | Common University Entrance Test - Undergraduate          | [Central Universities](https://cuet.nta.nic.in)            | 10+2 (PCB)              |
+| PU CET        | Panjab University Common Entrance Test                   | [Panjab University](https://puchd.ac.in)                   | 10+2 (PCB) with 50%     |
+| KAHER AIET    | KLE Academy of Higher Education All India Entrance Test  | [KAHER](https://www.kaher.edu.in)                          | 10+2 (PCB) with 50%     |
+| NMIMS NPAT    | NMIMS Programs After Twelfth                             | [NMIMS](https://www.nmims.edu)                             | 10+2 (PCB) with 50%     |
+| Jamia Hamdard | Jamia Hamdard University Entrance Test                   | [Jamia Hamdard](https://www.jamiahamdard.ac.in)            | 10+2 (PCB) with 50%     |
+
+> **Admission Tip:** Most state-level exams (MHT CET, KCET, WBJEE) are conducted in April-May for July session. Apply early and check state domicile requirements. For private universities, BITSAT and MET are highly competitive with good placement records.
+{: .prompt-tip }
+
+### D.Pharm to B.Pharm: Lateral Entry (Direct 2nd Year)
+
+If you've completed D.Pharm (Diploma in Pharmacy), you can get **direct admission to the 2nd year of B.Pharm** through lateral entry. This saves one year and allows D.Pharm holders to upgrade to a degree.
+
+| Aspect      | Details                                                                                             |
+| ----------- | --------------------------------------------------------------------------------------------------- |
+| Eligibility | D.Pharm from PCI-approved institution with minimum 50% marks (45% for reserved categories)          |
+| Duration    | 3 years (join 2nd year directly, complete 2nd, 3rd, 4th year)                                       |
+| Seats       | Usually 10-20% of sanctioned B.Pharm intake                                                         |
+| Admission   | Through state counselling (same exams: MHT CET, KCET, etc.) or direct admission in private colleges |
+
+**Key Points:**
+- Lateral entry is governed by [AICTE](https://www.aicte-india.org) and [PCI (Pharmacy Council of India)](https://www.pci.nic.in) norms
+- Some states conduct separate lateral entry counselling
+- Private colleges may have management quota seats for lateral entry
+- After completing B.Pharm via lateral entry, you're eligible for all M.Pharm/GPAT/NIPER opportunities
+
+> **D.Pharm Holders:** Lateral entry to B.Pharm is highly recommended if you want to pursue higher education (M.Pharm, MBA) or apply for positions that require a degree (Drug Inspector, Research roles). Most government pharmacist jobs accept D.Pharm, but career growth is limited without a degree.
+{: .prompt-tip }
+
+---
+
 ## 💼 Career Options After B.Pharm
 
 ### Government Jobs After B.Pharm
@@ -102,6 +165,7 @@ Central and Indian Government jobs for Pharmacy graduates are highly respected a
 | ------------------------------ | ------------------------------------------------------------------------------ | -------------------------------------------------------- | ----------------------------------------------------------------------- |
 | Railway Pharmacist             | Working in Indian Railway Hospitals. High perks and travel benefits            | B.Pharm or D.Pharm + State Pharmacy Council Registration | [RRB](https://www.rrbcdg.gov.in) Pharmacist Exam (Computer Based Test)  |
 | ESIC/CGHS Pharmacist           | Serving employees in ESI hospitals or Central Govt. Health Scheme dispensaries | B.Pharm or D.Pharm + Registration                        | [ESIC](https://esic.gov.in/) or [SSC](https://ssc.gov.in/)              |
+| DSSSB Pharmacist               | Pharmacist in Delhi Government hospitals and dispensaries                      | D.Pharm or B.Pharm + Registration (Age: 18-27 years)     | [DSSSB](https://dsssb.delhi.gov.in) Pharmacist Exam (CBT)               |
 | Pharmacist (Defense)           | Serving in Army, BSF, ITBP, or Navy hospitals                                  | B.Pharm/D.Pharm. May require physical fitness tests      | [SSC](https://ssc.gov.in/) or direct recruitment by Paramilitary forces |
 | AIIMS Pharmacist               | Working in premier medical institutes like AIIMS Delhi/Jodhpur                 | B.Pharm + 1-2 years experience is often required         | [AIIMS exams](https://www.aiimsexams.ac.in) Internal Recruitment (CBT)  |
 | Government Clinical Pharmacist | Patient counseling, medication review, ADR monitoring in govt. hospitals       | Pharm.D / M.Pharm                                        | State PSC / Direct recruitment                                          |
@@ -2091,16 +2155,19 @@ Based on your current status, here's what you should do:
 
 | Category                        | Organization / Portal                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Exam Portals**                | [GPAT](https://natboard.edu.in), [GATE](https://gate.iitk.ac.in), [NIPER JEE](https://www.niper.gov.in), [INI-CET](https://aiimsexams.ac.in), [GAT-B](https://www.rcb.res.in), [CSIR-UGC NET](https://csirnet.nta.nic.in), [CAT](https://iimcat.ac.in), [CMAT](https://cmat.nta.nic.in), [JAM](https://jam.iitd.ac.in), [CUET-PG](https://cuet.nta.nic.in), [JGEEBILS](https://www.ncbs.res.in/academic/admissions-JGEEBILS), [TIFR-GS](https://univ.tifr.res.in), [DHR-BRET](https://aiimsexams.ac.in) |
-| **Government Jobs**             | [RRB](https://www.rrbcdg.gov.in), [SSC](https://ssc.gov.in), [UPSC](https://www.upsc.gov.in), [MPSC](https://mpsc.gov.in/home), [ESIC](https://esic.gov.in), [FSSAI](https://www.fssai.gov.in), [ISRO](https://www.isro.gov.in), [RAC-DRDO](https://rac.gov.in)                                                                                                                                                                                                                                         |
+| **National Entrance Exams**     | [GPAT](https://natboard.edu.in), [GATE](https://gate.iitk.ac.in), [NIPER JEE](https://www.niper.gov.in), [INI-CET](https://aiimsexams.ac.in), [GAT-B](https://www.rcb.res.in), [CSIR-UGC NET](https://csirnet.nta.nic.in), [CAT](https://iimcat.ac.in), [CMAT](https://cmat.nta.nic.in), [JAM](https://jam.iitd.ac.in), [CUET-PG](https://cuet.nta.nic.in), [JGEEBILS](https://www.ncbs.res.in/academic/admissions-JGEEBILS), [TIFR-GS](https://univ.tifr.res.in), [DHR-BRET](https://aiimsexams.ac.in) |
+| **State Level Exams**           | [MHT CET](https://cetcell.mahacet.org), [AP EAMCET](https://cets.apsche.ap.gov.in), [TS EAMCET](https://eamcet.tsche.ac.in), [KCET](https://kea.kar.nic.in), [WBJEE](https://wbjeeb.nic.in), [GUJCET](https://gseb.org), [OJEE](https://ojee.nic.in), [RUHS](https://www.ruhsraj.org), [HP PAT](https://himtu.ac.in)                                                                                                                                                                                    |
+| **University Entrance Exams**   | [BITSAT](https://www.bitsadmission.com), [MET Manipal](https://manipal.edu), [SRMJEEE](https://www.srmist.edu.in), [KAHER AIET](https://www.kaher.edu.in), [Jamia Hamdard](https://www.jamiahamdard.ac.in), [NMIMS NPAT](https://www.nmims.edu), [PU CET](https://puchd.ac.in)                                                                                                                                                                                                                          |
+| **Government Recruitment**      | [RRB](https://www.rrbcdg.gov.in), [SSC](https://ssc.gov.in), [UPSC](https://www.upsc.gov.in), [MPSC](https://mpsc.gov.in/home), [ESIC](https://esic.gov.in), [DSSSB](https://dsssb.delhi.gov.in), [FSSAI](https://www.fssai.gov.in), [ISRO](https://www.isro.gov.in), [RAC-DRDO](https://rac.gov.in), [AIIMS Recruitment](https://aiimsexams.ac.in)                                                                                                                                                     |
 | **Research Organizations**      | [CSIR](https://www.csir.res.in/en), [ICMR](https://www.icmr.gov.in), [DBT](https://dbtindia.gov.in), [DST](https://dst.gov.in), [DRDO](https://www.drdo.gov.in), [DAE](https://dae.gov.in), [BARC](https://www.barc.gov.in)                                                                                                                                                                                                                                                                             |
-| **Fellowship & Ph.D. Portals**  | [CSIR-HRDG](https://csirhrdg.res.in), [AcSIR](https://acsir.res.in), [HBNI](https://www.hbni.ac.in), [DBT-JRF](https://dbtindia.gov.in), [DST-INSPIRE](https://online-inspire.gov.in)                                                                                                                                                                                                                                                                                                                   |
+| **Fellowship & Ph.D. Portals**  | [CSIR-HRDG](https://csirhrdg.res.in), [AcSIR](https://acsir.res.in), [HBNI](https://www.hbni.ac.in), [DBT-JRF](https://dbtindia.gov.in), [DST-INSPIRE](https://online-inspire.gov.in), [ICMR-JRF](https://www.icmr.gov.in/junior-research-fellowships-jrf.html)                                                                                                                                                                                                                                         |
 | **Premier Research Institutes** | [IISc](https://www.iisc.ac.in), [TIFR](https://www.tifr.res.in), [NCBS](https://www.ncbs.res.in), [JNCASR](https://www.jncasr.ac.in), [InStem](https://www.instem.res.in), [THSTI](https://thsti.res.in), [RCB](https://www.rcb.res.in), [NII](https://www.nii.res.in), [INST](https://www.inst.ac.in), [IASST](https://iasst.gov.in)                                                                                                                                                                   |
 | **CSIR Labs (Pharma-relevant)** | [CSIR-CDRI](https://www.cdri.res.in), [CSIR-IIIM](https://www.iiim.res.in), [CSIR-CIMAP](https://www.cimap.res.in), [CSIR-NBRI](https://www.nbri.res.in), [CSIR-IITR](https://iitr.res.in), [CSIR-IICT](https://www.iict.res.in), [CSIR-CFTRI](https://www.cftri.res.in), [CSIR-CCMB](https://www.ccmb.res.in)                                                                                                                                                                                          |
 | **Specialized Institutes**      | [NFSU](https://www.nfsu.ac.in), [NIFTEM](https://www.niftem.ac.in), [ITRA](https://itra.ac.in), [TMC](https://tmc.gov.in), [BRIT](https://www.britatom.gov.in)                                                                                                                                                                                                                                                                                                                                          |
 | **IISERs**                      | [IISER Pune](https://www.iiserpune.ac.in), [IISER Kolkata](https://www.iiserkol.ac.in), [IISER Mohali](https://www.iisermohali.ac.in), [IISER Bhopal](https://www.iiserb.ac.in), [IISER TVM](https://www.iisertvm.ac.in), [IISER Tirupati](https://www.iisertirupati.ac.in), [IISER Berhampur](https://www.iiserbpr.ac.in)                                                                                                                                                                              |
 | **Regulatory Bodies**           | [CDSCO](https://cdsco.gov.in), [IPC](https://ipc.gov.in), [PCI](https://www.pci.nic.in), [Dept. of Pharmaceuticals](https://pharmaceuticals.gov.in), [DHR](https://dhr.gov.in), [CTRI](https://ctri.nic.in)                                                                                                                                                                                                                                                                                             |
 | **Counselling & Admission**     | [CCMT](https://ccmt.admissions.nic.in), [NTA](https://www.nta.ac.in), [IISc Admissions](https://admissions.iisc.ac.in)                                                                                                                                                                                                                                                                                                                                                                                  |
+| **MBA Entrance Exams**          | [CAT](https://iimcat.ac.in), [CMAT](https://cmat.nta.nic.in), [MAT](https://mat.aima.in), [XAT](https://xatonline.in), [NMAT](https://www.nmat.org), [ATMA](https://www.atmaaims.com), [SNAP](https://www.snaptest.org)                                                                                                                                                                                                                                                                                 |
 | **India Science Portal**        | [India Science & Technology](https://www.indiascienceandtechnology.gov.in)                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
 ---
