@@ -37,8 +37,7 @@ Pharmacy is one of the most versatile healthcare professions in India, offering 
   - [Law & IPR After B.Pharm](#law--ipr-after-bpharm)
 - [GPAT Preparation Guide](#-gpat-preparation-guide)
 - [Entrance Exams Overview](#-entrance-exams-overview)
-  - [B.Pharm Admission: State & University Entrance Exams](#bpharm-admission-state--university-entrance-exams)
-- [Courses at Premier Institutes](#️-courses-at-premier-institutes)
+- [Courses at Premier Institutes](#-courses-at-premier-institutes)
   - [NIPER (7 Centers)](#niper-7-centers) — includes NIPER JEE preparation
   - [IITs (23 Institutes)](#iits-23-institutes) — includes GATE preparation
   - [NITs (31 Institutes)](#nits-31-institutes)
