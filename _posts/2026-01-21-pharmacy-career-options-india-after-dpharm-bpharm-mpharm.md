@@ -266,13 +266,6 @@ Pharmacists can serve in the Indian Armed Forces through various entry routes. T
 | AIIMS Pharmacist | 90 mins  | 80 marks       | 20 marks         | Yes              |
 | RRB Pharmacist   | 90 mins  | 100 MCQs       | Included         | Yes (1/3rd)      |
 
-**Government Job Benefits:**
-- Job security and pension
-- House Rent Allowance (HRA) and Dearness Allowance (DA)
-- Medical benefits for self and family
-- Leave Travel Concession (LTC)
-- Structured promotions and pay revisions
-
 > **Pro-Tip:** If you are a B.Pharm student, qualifying for GPAT is highly recommended even for government jobs, as it provides an edge in interviews and is mandatory for research-based roles in labs like CSIR or ICMR.
 {: .prompt-tip }
 
