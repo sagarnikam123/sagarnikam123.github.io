@@ -61,24 +61,94 @@ When oil heats beyond its smoke point, it doesn't just smell bad - it becomes to
 
 ## The Complete Comparison: 10 Popular Cooking Oils
 
-| Oil Type             | Smoke Point                | MUFA (g/100g) | PUFA (g/100g) | Saturated Fat (g/100g) | Vitamin E (mg/100g) | Omega-6 (g/100g) | Price (₹/L)                 | Best For                 | Diabetes ★ | Heart Health ★ |
-| -------------------- | -------------------------- | ------------- | ------------- | ---------------------- | ------------------- | ---------------- | --------------------------- | ------------------------ | ---------- | -------------- |
-| **Groundnut Oil**    | CP: 230°C<br>R: 232°C      | 46.2          | 32.0          | 16.9                   | 15.7                | 32.0             | CP: ₹350-500<br>R: ₹140-180 | Deep frying, all-purpose | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐⭐          |
-| **Mustard Oil**      | CP: 250°C<br>R: 254°C      | 59.2          | 21.2          | 11.6                   | —                   | 15.3             | CP: ₹300-450<br>R: ₹150-180 | North Indian, pickles    | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐⭐          |
-| **Sesame Oil**       | CP: 177°C<br>R: 210°C      | 39.7          | 41.7          | 14.2                   | 1.4                 | 41.3             | CP: ₹450-600<br>R: ₹200-280 | Tempering, diabetes      | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐           |
-| **Coconut Oil**      | CP: 177°C<br>R: 204°C      | 6.3           | 1.8           | 82.5                   | 0.1                 | 1.7              | CP: ₹280-450<br>R: ₹150-220 | South Indian (moderate)  | ⭐⭐⭐        | ⭐⭐             |
-| **Rice Bran Oil**    | R: 232°C                   | 39.3          | 35.0          | 19.7                   | 32.3                | 33.4             | R: ₹115-160                 | Light frying             | ⭐⭐⭐⭐       | ⭐⭐⭐⭐           |
-| **Sunflower Oil**    | CP: 227°C<br>R: 232°C      | 19.5          | 65.7          | 10.3                   | 41.1                | 65.7             | R: ₹110-165                 | Use sparingly            | ⭐⭐         | ⭐⭐             |
-| **Olive Oil (EVOO)** | CP: 160°C<br>R: 199°C      | 55-85         | 10.5          | 13.8                   | 14.4                | Low              | EVOO: ₹800-1200             | Salads only              | ⭐⭐⭐⭐       | ⭐⭐⭐⭐⭐          |
-| **Safflower Oil**    | CP: 225°C<br>R: 266°C (HO) | 14.4 (HO: 75) | 75.2 (HO: 13) | 7.5                    | 34.1                | High             | R: ₹180-250                 | Deep frying (high-oleic) | ⭐⭐⭐⭐       | ⭐⭐⭐⭐           |
-| **Soybean Oil**      | R: 234°C                   | 23.3          | 57.7          | 15.6                   | 8.2                 | High             | R: ₹120-155                 | Not recommended          | ⭐⭐         | ⭐⭐             |
-| **Ghee**             | 250°C                      | 28            | 3.7           | 62                     | 2.7                 | —                | ₹400-700                    | Flavoring only           | ⭐⭐         | ⭐⭐             |
+### Understanding the Table Columns
+
+Before diving into the comparison, here's what each column means:
+
+- **CP (Cold Pressed)**: Oil extracted by mechanical crushing at low temperatures without chemicals, retaining 90-100% of nutrients
+- **R (Refined)**: Oil processed using heat and chemical solvents, losing 80-90% of vitamins but with neutral flavor
+- **EVOO (Extra Virgin Olive Oil)**: The highest quality olive oil, cold pressed from the first pressing of olives, with superior flavor and maximum antioxidants
+- **HO (High-Oleic)**: A variety bred to have higher monounsaturated fat content, making it more stable for cooking
+- **MUFA (Monounsaturated Fatty Acids)**: Heart-healthy fats that lower bad cholesterol while maintaining good cholesterol
+- **PUFA (Polyunsaturated Fatty Acids)**: Essential fats including omega-3 and omega-6; balance is crucial for health
+
+| Oil Type                   | Smoke Point                | MUFA (g/100g) | PUFA (g/100g) | Saturated Fat (g/100g) | Vitamin E (mg/100g) | Omega-6 (g/100g) | Price (₹/L)                 | Best For                 | Diabetes ★ | Heart Health ★ |
+| -------------------------- | -------------------------- | ------------- | ------------- | ---------------------- | ------------------- | ---------------- | --------------------------- | ------------------------ | ---------- | -------------- |
+| **Groundnut Oil**          | CP: 230°C<br>R: 232°C      | 46.2          | 32.0          | 16.9                   | 15.7                | 32.0             | CP: ₹350-500<br>R: ₹140-180 | Deep frying, all-purpose | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐⭐          |
+| **Mustard Oil**            | CP: 250°C<br>R: 254°C      | 59.2          | 21.2          | 11.6                   | —                   | 15.3             | CP: ₹300-450<br>R: ₹150-180 | North Indian, pickles    | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐⭐          |
+| **Sesame Oil**             | CP: 177°C<br>R: 210°C      | 39.7          | 41.7          | 14.2                   | 1.4                 | 41.3             | CP: ₹450-600<br>R: ₹200-280 | Tempering, diabetes      | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐           |
+| **Coconut Oil**            | CP: 177°C<br>R: 204°C      | 6.3           | 1.8           | 82.5                   | 0.1                 | 1.7              | CP: ₹280-450<br>R: ₹150-220 | South Indian (moderate)  | ⭐⭐⭐        | ⭐⭐             |
+| **Rice Bran Oil**          | R: 232°C                   | 39.3          | 35.0          | 19.7                   | 32.3                | 33.4             | R: ₹115-160                 | Light frying             | ⭐⭐⭐⭐       | ⭐⭐⭐⭐           |
+| **Sunflower Oil**          | CP: 227°C<br>R: 232°C      | 19.5          | 65.7          | 10.3                   | 41.1                | 65.7             | R: ₹110-165                 | Use sparingly            | ⭐⭐         | ⭐⭐             |
+| **Olive Oil (EVOO)**       | CP: 160°C<br>R: 199°C      | 55-85         | 10.5          | 13.8                   | 14.4                | Low              | EVOO: ₹800-1200             | Salads only              | ⭐⭐⭐⭐       | ⭐⭐⭐⭐⭐          |
+| **Safflower Oil (Kardai)** | CP: 225°C<br>R: 266°C (HO) | 14.4 (HO: 75) | 75.2 (HO: 13) | 7.5                    | 34.1                | High             | R: ₹180-250                 | Deep frying (high-oleic) | ⭐⭐⭐⭐       | ⭐⭐⭐⭐           |
+| **Soybean Oil**            | R: 234°C                   | 23.3          | 57.7          | 15.6                   | 8.2                 | High             | R: ₹120-155                 | Not recommended          | ⭐⭐         | ⭐⭐             |
+| **Ghee**                   | 250°C                      | 28            | 3.7           | 62                     | 2.7                 | —                | ₹400-700                    | Flavoring only           | ⭐⭐         | ⭐⭐             |
 
 *CP = Cold Pressed, R = Refined, HO = High-Oleic | Data: USDA FoodData Central, ICMR-NIN*
 
 **Cold Pressed (CP):** Oil extracted by mechanical crushing at low temperatures without chemicals, retaining 90-100% of nutrients, antioxidants, and natural flavor.
 
 **Refined (R):** Oil processed using heat and chemical solvents (hexane), then bleached and deodorized, resulting in neutral flavor but losing 80-90% of vitamins and antioxidants.
+
+---
+
+## Cold Pressed vs Refined: Worth the Extra Cost?
+
+| Factor                 | Cold Pressed                                                                       | Refined                                                                                         |
+| ---------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| **Extraction**         | Mechanical crushing, no heat/chemicals                                             | [Hexane solvent, bleaching, deodorizing](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6600360/) |
+| **Vitamin E Retained** | [90-100%](https://www.sciencedirect.com/science/article/abs/pii/S0308814615013053) | [10-20%](https://www.sciencedirect.com/science/article/abs/pii/S0308814615013053)               |
+| **Antioxidants**       | [Fully preserved](https://pubmed.ncbi.nlm.nih.gov/23638933/)                       | [Almost entirely destroyed](https://pubmed.ncbi.nlm.nih.gov/23638933/)                          |
+| **Color**              | Natural golden/amber                                                               | Pale, transparent                                                                               |
+| **Aroma**              | Rich, natural seed aroma                                                           | Odorless                                                                                        |
+| **Price (per liter)**  | ₹300-600                                                                           | ₹110-180                                                                                        |
+| **Best For**           | Home cooking, health-conscious                                                     | Commercial kitchens, budget cooking                                                             |
+
+**Bottom Line:** For home cooking (1-2 liters/month), cold pressed oils are worth it. The price difference is ₹5-10 per meal, but you [retain 90% of vitamins and antioxidants](https://www.sciencedirect.com/science/article/abs/pii/S0308814615013053).
+
+**Exception:** Cold pressed groundnut oil (230°C) and mustard oil (250°C) have [smoke points high enough for all Indian cooking](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6600360/), including deep frying.
+
+---
+
+## Critical Scientific Findings You Need to Know
+
+### 🔬 Toxic Aldehyde Formation
+
+**Shocking Discovery:** [Research published in *Scientific Reports* (2019)](https://pmc.ncbi.nlm.nih.gov/articles/PMC6412032/) found:
+
+- Heating PUFA-rich oils (sunflower, soybean) beyond smoke point generates extremely high concentrations of toxic aldehydes (up to 0.05 mol/kg)
+- These include [carcinogenic compounds](https://pmc.ncbi.nlm.nih.gov/articles/PMC9166761/) like 4-hydroxynonenal (HNE), trans-2-alkenals, and trans,trans-alka-2,4-dienals
+- Fast food restaurant potato chips contain **10-25 ppm** of these toxic aldehydes
+- MUFA-rich oils (groundnut, mustard, olive) produce **85-90% fewer toxic compounds** when heated
+
+### ⚠️ Health Impact
+
+**Equivalent to Smoking:** [Consuming 4 servings of fried food per week](https://pmc.ncbi.nlm.nih.gov/articles/PMC6412032/) (fried in PUFA-rich oils) provides aldehyde intake equivalent to smoking 25 cigarettes daily.
+
+**What These Aldehydes Do:**
+- Absorbed from gut into bloodstream ([study on aldehyde absorption](https://pmc.ncbi.nlm.nih.gov/articles/PMC6412032/))
+- Cause [DNA damage and mutations](https://pubmed.ncbi.nlm.nih.gov/12730415/)
+- Promote [cardiovascular disease](https://www.ahajournals.org/doi/full/10.1161/01.cir.100.11.1253)
+- Increase cancer risk
+- Cause neurotoxicity
+- Trigger chronic inflammation
+
+**WHO Guidelines Exceeded:** [Australian Government specifies acceptable daily intake of acrolein](https://pmc.ncbi.nlm.nih.gov/articles/PMC6412032/) (simplest toxic aldehyde) at only 35 μg for 70kg person. A single serving of fast-food fries contains **68x this amount**.
+
+### 🔄 Oil Reuse Dangers
+
+**Critical Finding:** [Repeated oil reuse dramatically increases toxic compound formation](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5855206/).
+
+- After 3-4 frying cycles with sunflower oil, potato chips contain toxicologically-significant aldehyde levels
+- [Lipid hydroperoxides (aldehyde precursors) increase with each reuse cycle](https://pubmed.ncbi.nlm.nih.gov/28229455/)
+- [Trans fat formation increases with repeated heating](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4424767/)
+- Oil darkening and off-smell indicate dangerous degradation
+
+**Recommendation:**
+- Use fresh oil for each frying session
+- Maximum 2 reuses for PUFA-rich oils
+- [Never reuse oil that has darkened or smells off](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5855206/)
 
 ---
 
@@ -209,53 +279,72 @@ Rice bran oil is extracted from the outer layer of rice grains and offers a well
 
 ---
 
-### 6. Olive Oil (Extra Virgin)
+### 6. Olive Oil (Extra Virgin) ⭐⭐⭐⭐⭐
 
 **The Salad Oil, Not Frying Oil:**
 
 Despite its health benefits, EVOO has a smoke point of only **160°C** - well below Indian frying temperatures (180-220°C).
 
-**Best Uses:**
-- Salads and dressings
-- Bread dipping
-- Low-heat sautéing
-- Raw applications
-
-**Don't Use For:** Indian deep frying, high-heat cooking
+**Nutritional Highlights:**
+- Extremely high MUFA content (55-85g/100g) - highest among all oils
+- Rich in [polyphenols and antioxidants](https://www.mdpi.com/2072-6643/15/20/4314)
+- Contains tyrosol ([improves insulin resistance](https://www.nirvahealth.com/blog/top-cooking-oils-for-diabetes-management))
+- Vitamin E (14.4mg/100g)
+- Very low omega-6 content
 
 **Health Benefits:**
 - Excellent for heart health (when used raw)
-- Rich in [polyphenols and antioxidants](https://www.mdpi.com/2072-6643/15/20/4314)
-- Contains tyrosol ([improves insulin resistance](https://www.nirvahealth.com/blog/top-cooking-oils-for-diabetes-management))
-- Mediterranean diet staple
+- Mediterranean diet staple with proven longevity benefits
+- [Reduces inflammation and oxidative stress](https://www.mdpi.com/2072-6643/15/20/4314)
+- Supports brain health and cognitive function
+- May reduce risk of chronic diseases
+
+**Best Uses:**
+- Salads and dressings
+- Bread dipping
+- Low-heat sautéing (below 160°C)
+- Raw applications
+- Finishing oil for cooked dishes
+
+**Don't Use For:** Indian deep frying, high-heat cooking, tempering
 
 **Price:** EVOO ₹800-1200/L, Refined ₹400-600/L
 
 ---
 
-### 6. Sunflower Oil ⚠️
+### 7. Sunflower Oil ⚠️⚠️⚠️
 
-**The Hidden Danger:**
+**The Hidden Danger - Avoid for Daily Cooking:**
 
 Sunflower oil contains **65.7g omega-6 per 100g** - dangerously high levels that promote chronic inflammation when consumed daily.
 
 **Why It's Problematic:**
 - Excessive omega-6 without omega-3 balance ([study on omega-6/omega-3 ratio](https://www.healthline.com/nutrition/optimize-omega-6-omega-3-ratio))
-- Generates [highest aldehyde emissions when heated](https://www.researchgate.net/publication/309343752_Effects_of_cooking_method_cooking_oil_and_food_type_on_aldehyde_emissions_in_cooking_oil_fumes)
-- Promotes inflammation
+- Generates [highest aldehyde emissions when heated](https://www.researchgate.net/publication/309343752_Effects_of_cooking_method_cooking_oil_and_food_type_on_aldehyde_emissions_in_cooking_oil_fumes) - more toxic than any other cooking oil
+- Promotes chronic inflammation linked to heart disease, diabetes, and cancer
 - Not recommended for diabetic or heart patients
+- Creates toxic compounds even at moderate temperatures
 
-**If You Must Use:** Rotate with other oils, use sparingly, never reuse
+**Health Risks:**
+- [Chronic inflammation from omega-6 overload](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4808858/)
+- [Highest production of carcinogenic aldehydes when heated](https://pmc.ncbi.nlm.nih.gov/articles/PMC6412032/)
+- Increases risk of cardiovascular disease
+- May worsen insulin resistance
+- Accelerates cellular aging through oxidative stress
+
+**If You Must Use:** Rotate with other oils, use sparingly for low-heat cooking only, never reuse, never use for deep frying
+
+**Better Alternatives:** Groundnut oil, mustard oil, or rice bran oil for the same price range
 
 **Price:** Refined ₹110-165/L
 
 ---
 
-### 7. Safflower Oil ⭐⭐⭐⭐
+### 8. Safflower Oil (Kardai) ⭐⭐⭐⭐
 
 **Two Types - Choose Wisely:**
 
-Safflower oil comes in two distinct varieties with very different properties:
+Safflower oil, known as **Kardai** in Hindi/Marathi, comes in two distinct varieties with very different properties:
 
 **High-Oleic Safflower Oil (Recommended):**
 - 75% monounsaturated fat (similar to olive oil)
@@ -297,17 +386,20 @@ A [landmark 2011 clinical trial published in *Clinical Nutrition*](https://pmc.n
 
 ---
 
-### 8. Soybean Oil ⚠️
+### 9. Soybean Oil ⚠️⚠️
 
 **Not Recommended for Daily Use:**
 
 Soybean oil is heavily processed and has similar issues to sunflower oil with high omega-6 content.
 
 **Why to Avoid:**
-- High omega-6 content (57.7g/100g)
-- Heavily refined and processed
+- High omega-6 content (57.7g/100g) - promotes inflammation
+- Heavily refined and processed with chemical solvents
 - Promotes inflammation when used regularly
 - Often partially hydrogenated (contains trans fats)
+- [Linked to increased obesity and metabolic syndrome in studies](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4424767/)
+
+**Better Alternatives:** Groundnut oil, rice bran oil, or mustard oil
 
 **Price:** Refined ₹120-155/L
 
@@ -338,6 +430,7 @@ Soybean oil is heavily processed and has similar issues to sunflower oil with hi
    - [Clinical trial showed 6.3% reduction in trunk fat](https://pmc.ncbi.nlm.nih.gov/articles/PMC3115398/)
    - May specifically target visceral (belly) fat
    - High smoke point for versatile cooking
+   - Known as Kardai in Maharashtra
 
 **Key Strategies for Weight Management:**
 - [Monitor total oil consumption (2-3 tablespoons/day maximum)](https://www.who.int/news-room/fact-sheets/detail/healthy-diet)
@@ -368,6 +461,7 @@ Soybean oil is heavily processed and has similar issues to sunflower oil with hi
    - Clinical trial showed 0.64% reduction in HbA1c
    - Improved insulin sensitivity significantly
    - Reduced trunk fat by 6.3%
+   - Known as Kardai in Maharashtra
 
 3. **Mustard Oil** ⭐⭐⭐⭐⭐
    - Reduces inflammation
@@ -451,9 +545,9 @@ Soybean oil is heavily processed and has similar issues to sunflower oil with hi
 ---
 
 ### West India (Maharashtra, Gujarat)
-**Traditional Oils:** Groundnut (primary), Safflower (kardi)
+**Traditional Oils:** Groundnut (primary), Safflower/Kardai
 
-**Why:** Gujarat is India's largest groundnut producer; safflower traditional to Maharashtra
+**Why:** Gujarat is India's largest groundnut producer; safflower (locally called kardai) is traditional to Maharashtra, especially in rural areas
 
 ---
 
@@ -461,65 +555,6 @@ Soybean oil is heavily processed and has similar issues to sunflower oil with hi
 **Traditional Oils:** Mustard (dominant)
 
 **Why:** Deeply embedded in Bengali and Odia cuisine (fish fry, shorshe ilish)
-
----
-
-## Cold Pressed vs Refined: Worth the Extra Cost?
-
-| Factor                 | Cold Pressed                                                                       | Refined                                                                                         |
-| ---------------------- | ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| **Extraction**         | Mechanical crushing, no heat/chemicals                                             | [Hexane solvent, bleaching, deodorizing](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6600360/) |
-| **Vitamin E Retained** | [90-100%](https://www.sciencedirect.com/science/article/abs/pii/S0308814615013053) | [10-20%](https://www.sciencedirect.com/science/article/abs/pii/S0308814615013053)               |
-| **Antioxidants**       | [Fully preserved](https://pubmed.ncbi.nlm.nih.gov/23638933/)                       | [Almost entirely destroyed](https://pubmed.ncbi.nlm.nih.gov/23638933/)                          |
-| **Color**              | Natural golden/amber                                                               | Pale, transparent                                                                               |
-| **Aroma**              | Rich, natural seed aroma                                                           | Odorless                                                                                        |
-| **Price (per liter)**  | ₹300-600                                                                           | ₹110-180                                                                                        |
-| **Best For**           | Home cooking, health-conscious                                                     | Commercial kitchens, budget cooking                                                             |
-
-**Bottom Line:** For home cooking (1-2 liters/month), cold pressed oils are worth it. The price difference is ₹5-10 per meal, but you [retain 90% of vitamins and antioxidants](https://www.sciencedirect.com/science/article/abs/pii/S0308814615013053).
-
-**Exception:** Cold pressed groundnut oil (230°C) and mustard oil (250°C) have [smoke points high enough for all Indian cooking](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6600360/), including deep frying.
-
----
-
-## Critical Scientific Findings You Need to Know
-
-### 🔬 Toxic Aldehyde Formation
-
-**Shocking Discovery:** [Research published in *Scientific Reports* (2019)](https://pmc.ncbi.nlm.nih.gov/articles/PMC6412032/) found:
-
-- Heating PUFA-rich oils (sunflower, soybean) beyond smoke point generates extremely high concentrations of toxic aldehydes (up to 0.05 mol/kg)
-- These include [carcinogenic compounds](https://pmc.ncbi.nlm.nih.gov/articles/PMC9166761/) like 4-hydroxynonenal (HNE), trans-2-alkenals, and trans,trans-alka-2,4-dienals
-- Fast food restaurant potato chips contain **10-25 ppm** of these toxic aldehydes
-- MUFA-rich oils (groundnut, mustard, olive) produce **85-90% fewer toxic compounds** when heated
-
-### ⚠️ Health Impact
-
-**Equivalent to Smoking:** [Consuming 4 servings of fried food per week](https://pmc.ncbi.nlm.nih.gov/articles/PMC6412032/) (fried in PUFA-rich oils) provides aldehyde intake equivalent to smoking 25 cigarettes daily.
-
-**What These Aldehydes Do:**
-- Absorbed from gut into bloodstream ([study on aldehyde absorption](https://pmc.ncbi.nlm.nih.gov/articles/PMC6412032/))
-- Cause [DNA damage and mutations](https://pubmed.ncbi.nlm.nih.gov/12730415/)
-- Promote [cardiovascular disease](https://www.ahajournals.org/doi/full/10.1161/01.cir.100.11.1253)
-- Increase cancer risk
-- Cause neurotoxicity
-- Trigger chronic inflammation
-
-**WHO Guidelines Exceeded:** [Australian Government specifies acceptable daily intake of acrolein](https://pmc.ncbi.nlm.nih.gov/articles/PMC6412032/) (simplest toxic aldehyde) at only 35 μg for 70kg person. A single serving of fast-food fries contains **68x this amount**.
-
-### 🔄 Oil Reuse Dangers
-
-**Critical Finding:** [Repeated oil reuse dramatically increases toxic compound formation](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5855206/).
-
-- After 3-4 frying cycles with sunflower oil, potato chips contain toxicologically-significant aldehyde levels
-- [Lipid hydroperoxides (aldehyde precursors) increase with each reuse cycle](https://pubmed.ncbi.nlm.nih.gov/28229455/)
-- [Trans fat formation increases with repeated heating](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4424767/)
-- Oil darkening and off-smell indicate dangerous degradation
-
-**Recommendation:**
-- Use fresh oil for each frying session
-- Maximum 2 reuses for PUFA-rich oils
-- [Never reuse oil that has darkened or smells off](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5855206/)
 
 ---
 
@@ -540,6 +575,10 @@ Ask yourself:
 3. **Mustard oil** (500ml) - For North Indian dishes
 4. **Extra virgin olive oil** (500ml) - For salads and raw use
 
+**Optional but Beneficial:**
+5. **Rice bran oil** (500ml) - For light frying and neutral flavor
+6. **Safflower oil (high-oleic)** (500ml) - For diabetes management
+
 ### Step 3: Follow the Rotation Strategy
 
 Don't rely on a single oil. Rotate between:
@@ -556,8 +595,20 @@ This ensures diverse fatty acid profiles and nutrients.
 2. ✅ Don't reuse oil more than once
 3. ✅ Strain food particles before storage
 4. ✅ Discard oil that has darkened or smells off
-5. ✅ Store oils in cool, dark places
-6. ✅ Avoid PUFA-rich oils for high-heat cooking
+5. ✅ Store oils in cool, dark places (away from stove)
+6. ✅ Avoid PUFA-rich oils (sunflower, soybean) for high-heat cooking
+7. ✅ Buy smaller quantities (1L) to ensure freshness
+8. ✅ Check expiry dates and use within 3-6 months of opening
+
+### Step 5: Shopping List Template
+
+**For a Family of 4 (Monthly):**
+- Cold pressed groundnut oil: 1-2L (₹350-1000)
+- Sesame oil: 500ml (₹225-300)
+- Mustard oil: 500ml (₹150-225)
+- Extra virgin olive oil: 500ml (₹400-600)
+
+**Total Monthly Investment:** ₹1,125-2,125 (₹9-18 per meal)
 
 ---
 
