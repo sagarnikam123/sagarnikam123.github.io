@@ -61,20 +61,24 @@ When oil heats beyond its smoke point, it doesn't just smell bad - it becomes to
 
 ## The Complete Comparison: 10 Popular Cooking Oils
 
-| Oil Type             | Smoke Point (Cold Pressed) | Smoke Point (Refined) | MUFA (g/100g) | PUFA (g/100g) | Saturated Fat (g/100g) | Price (₹/L)                 | Best For                 | Diabetes ★ | Heart Health ★ |
-| -------------------- | -------------------------- | --------------------- | ------------- | ------------- | ---------------------- | --------------------------- | ------------------------ | ---------- | -------------- |
-| **Groundnut Oil**    | 230°C                      | 232°C                 | 46.2          | 32.0          | 16.9                   | CP: ₹350-500<br>R: ₹140-180 | Deep frying, all-purpose | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐⭐          |
-| **Mustard Oil**      | 250°C                      | 254°C                 | 59.2          | 21.2          | 11.6                   | CP: ₹300-450<br>R: ₹150-180 | North Indian, pickles    | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐⭐          |
-| **Sesame Oil**       | 177°C                      | 210°C                 | 39.7          | 41.7          | 14.2                   | CP: ₹450-600<br>R: ₹200-280 | Tempering, diabetes      | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐           |
-| **Coconut Oil**      | 177°C                      | 204°C                 | 6.3           | 1.8           | 82.5                   | CP: ₹280-450<br>R: ₹150-220 | South Indian (moderate)  | ⭐⭐⭐        | ⭐⭐             |
-| **Rice Bran Oil**    | —                          | 232°C                 | —             | —             | —                      | R: ₹115-160                 | Light frying             | ⭐⭐⭐⭐       | ⭐⭐⭐⭐           |
-| **Sunflower Oil**    | 227°C                      | 232°C                 | 19.5          | 65.7          | 10.3                   | R: ₹110-165                 | Use sparingly            | ⭐⭐         | ⭐⭐             |
-| **Olive Oil (EVOO)** | 160°C                      | 199°C                 | 55-85         | —             | —                      | EVOO: ₹800-1200             | Salads only              | ⭐⭐⭐⭐       | ⭐⭐⭐⭐⭐          |
-| **Safflower Oil**    | 225°C                      | 266°C (high-oleic)    | 14.4 (HO: 75) | 75.2 (HO: 13) | 7.5                    | R: ₹180-250                 | Deep frying (high-oleic) | ⭐⭐⭐⭐       | ⭐⭐⭐⭐           |
-| **Soybean Oil**      | —                          | 234°C                 | —             | —             | —                      | R: ₹120-155                 | Not recommended          | ⭐⭐         | ⭐⭐             |
-| **Ghee**             | 250°C                      | —                     | 28            | —             | 62                     | ₹400-700                    | Flavoring only           | ⭐⭐         | ⭐⭐             |
+| Oil Type             | Smoke Point                | MUFA (g/100g) | PUFA (g/100g) | Saturated Fat (g/100g) | Vitamin E (mg/100g) | Omega-6 (g/100g) | Price (₹/L)                 | Best For                 | Diabetes ★ | Heart Health ★ |
+| -------------------- | -------------------------- | ------------- | ------------- | ---------------------- | ------------------- | ---------------- | --------------------------- | ------------------------ | ---------- | -------------- |
+| **Groundnut Oil**    | CP: 230°C<br>R: 232°C      | 46.2          | 32.0          | 16.9                   | 15.7                | 32.0             | CP: ₹350-500<br>R: ₹140-180 | Deep frying, all-purpose | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐⭐          |
+| **Mustard Oil**      | CP: 250°C<br>R: 254°C      | 59.2          | 21.2          | 11.6                   | —                   | 15.3             | CP: ₹300-450<br>R: ₹150-180 | North Indian, pickles    | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐⭐          |
+| **Sesame Oil**       | CP: 177°C<br>R: 210°C      | 39.7          | 41.7          | 14.2                   | 1.4                 | 41.3             | CP: ₹450-600<br>R: ₹200-280 | Tempering, diabetes      | ⭐⭐⭐⭐⭐      | ⭐⭐⭐⭐           |
+| **Coconut Oil**      | CP: 177°C<br>R: 204°C      | 6.3           | 1.8           | 82.5                   | 0.1                 | 1.7              | CP: ₹280-450<br>R: ₹150-220 | South Indian (moderate)  | ⭐⭐⭐        | ⭐⭐             |
+| **Rice Bran Oil**    | R: 232°C                   | 39.3          | 35.0          | 19.7                   | 32.3                | 33.4             | R: ₹115-160                 | Light frying             | ⭐⭐⭐⭐       | ⭐⭐⭐⭐           |
+| **Sunflower Oil**    | CP: 227°C<br>R: 232°C      | 19.5          | 65.7          | 10.3                   | 41.1                | 65.7             | R: ₹110-165                 | Use sparingly            | ⭐⭐         | ⭐⭐             |
+| **Olive Oil (EVOO)** | CP: 160°C<br>R: 199°C      | 55-85         | 10.5          | 13.8                   | 14.4                | Low              | EVOO: ₹800-1200             | Salads only              | ⭐⭐⭐⭐       | ⭐⭐⭐⭐⭐          |
+| **Safflower Oil**    | CP: 225°C<br>R: 266°C (HO) | 14.4 (HO: 75) | 75.2 (HO: 13) | 7.5                    | 34.1                | High             | R: ₹180-250                 | Deep frying (high-oleic) | ⭐⭐⭐⭐       | ⭐⭐⭐⭐           |
+| **Soybean Oil**      | R: 234°C                   | 23.3          | 57.7          | 15.6                   | 8.2                 | High             | R: ₹120-155                 | Not recommended          | ⭐⭐         | ⭐⭐             |
+| **Ghee**             | 250°C                      | 28            | 3.7           | 62                     | 2.7                 | —                | ₹400-700                    | Flavoring only           | ⭐⭐         | ⭐⭐             |
 
-*CP = Cold Pressed, R = Refined | Data: USDA FoodData Central, ICMR-NIN*
+*CP = Cold Pressed, R = Refined, HO = High-Oleic | Data: USDA FoodData Central, ICMR-NIN*
+
+**Cold Pressed (CP):** Oil extracted by mechanical crushing at low temperatures without chemicals, retaining 90-100% of nutrients, antioxidants, and natural flavor.
+
+**Refined (R):** Oil processed using heat and chemical solvents (hexane), then bleached and deodorized, resulting in neutral flavor but losing 80-90% of vitamins and antioxidants.
 
 ---
 
@@ -175,7 +179,37 @@ While popular in South India, coconut oil is **82.5% saturated fat** - [the high
 
 ---
 
-### 5. Olive Oil (Extra Virgin)
+### 5. Rice Bran Oil ⭐⭐⭐⭐
+
+**The Balanced Choice:**
+
+Rice bran oil is extracted from the outer layer of rice grains and offers a well-balanced fatty acid profile with unique health benefits.
+
+**Nutritional Highlights:**
+- Balanced MUFA (39.3g) and PUFA (35.0g) content
+- High Vitamin E (32.3mg/100g) - excellent antioxidant
+- Contains [oryzanol (gamma-oryzanol) - unique antioxidant compound](https://pubmed.ncbi.nlm.nih.gov/24915331/)
+- High smoke point (232°C) suitable for Indian cooking
+- Neutral flavor
+
+**Health Benefits:**
+- [Lowers total and LDL cholesterol levels](https://pubmed.ncbi.nlm.nih.gov/24915331/)
+- [Oryzanol reduces cholesterol absorption in intestines](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4131525/)
+- Supports heart health
+- [Antioxidant properties protect against oxidative stress](https://pubmed.ncbi.nlm.nih.gov/24915331/)
+- Suitable for diabetes management
+
+**Best Uses:**
+- Light frying and sautéing
+- All-purpose cooking
+- Those seeking neutral-flavored oil
+- Commercial food preparation
+
+**Price:** Refined ₹115-160/L
+
+---
+
+### 6. Olive Oil (Extra Virgin)
 
 **The Salad Oil, Not Frying Oil:**
 
@@ -265,7 +299,61 @@ A [landmark 2011 clinical trial published in *Clinical Nutrition*](https://pmc.n
 
 ### 8. Soybean Oil ⚠️
 
+**Not Recommended for Daily Use:**
+
+Soybean oil is heavily processed and has similar issues to sunflower oil with high omega-6 content.
+
+**Why to Avoid:**
+- High omega-6 content (57.7g/100g)
+- Heavily refined and processed
+- Promotes inflammation when used regularly
+- Often partially hydrogenated (contains trans fats)
+
+**Price:** Refined ₹120-155/L
+
+---
+
 ## Best Oils for Specific Health Conditions
+
+### For Weight Management & Obesity 🏃
+
+**Top Recommendations:**
+
+1. **Groundnut Oil** ⭐⭐⭐⭐⭐
+   - Balanced fatty acid profile
+   - High satiety factor
+   - Neutral flavor for versatile cooking
+
+2. **Olive Oil** ⭐⭐⭐⭐⭐
+   - High MUFA content supports healthy weight
+   - [Studies show MUFA-rich diets aid weight management](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4424767/)
+   - Use for salads and low-heat cooking
+
+3. **Mustard Oil** ⭐⭐⭐⭐
+   - [Boosts metabolism](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4441156/)
+   - High smoke point for all cooking methods
+   - Traditional and flavorful
+
+4. **Safflower Oil (High-Oleic)** ⭐⭐⭐⭐
+   - [Clinical trial showed 6.3% reduction in trunk fat](https://pmc.ncbi.nlm.nih.gov/articles/PMC3115398/)
+   - May specifically target visceral (belly) fat
+   - High smoke point for versatile cooking
+
+**Key Strategies for Weight Management:**
+- [Monitor total oil consumption (2-3 tablespoons/day maximum)](https://www.who.int/news-room/fact-sheets/detail/healthy-diet)
+- Use high smoke point oils to avoid toxic compound formation
+- Prefer cold pressed oils for better nutrient retention
+- Never reuse cooking oil (increases calorie density and toxins)
+- [Choose MUFA-rich oils over high omega-6 oils](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4424767/)
+- Measure oil portions rather than pouring freely
+
+**Oils to Avoid for Weight Management:**
+- Sunflower oil (promotes inflammation)
+- Soybean oil (heavily processed)
+- Coconut oil (very high in saturated fat)
+- Ghee (high calorie density, saturated fat)
+
+---
 
 ### For Diabetes Patients 🩺
 
