@@ -172,8 +172,8 @@ uv python install 3.10 3.11 3.12 3.13
 # Browsers
 brew install --cask google-chrome firefox
 
-# Development Tools
-brew install --cask visual-studio-code cursor
+# Code Editors & IDEs
+brew install --cask visual-studio-code kiro cursor
 brew install --cask jetbrains-toolbox eclipse-ide android-studio
 
 # Terminal Tools
@@ -194,18 +194,28 @@ brew install --cask alfred rectangle
 # Design Tools
 brew install --cask figma
 
-# Databases
-brew install --cask dbeaver-community mysql-workbench tableplus
+# Database Tools
+brew install --cask dbeaver-community mysqlworkbench tableplus
 
-# DevOps
+# Programming Languages & Runtimes
+brew install openjdk@21 openjdk@25
+brew install python@3.12
+brew install node
+
+# DevOps & API Tools
 brew install --cask docker lens postman
+brew install fluent-bit awscli minikube
 
-# Utilities
-brew install wget node
-
-# Media Players & Video Tools
+# Media & Video Tools
 brew install --cask vlc handbrake obs
 brew install ffmpeg
+
+# VPN & Networking
+brew install --cask tunnelblick openvpn-connect
+brew install openssh
+
+# Utilities
+brew install wget
 ```
 
 ### Manual Downloads (If Homebrew Not Available)
