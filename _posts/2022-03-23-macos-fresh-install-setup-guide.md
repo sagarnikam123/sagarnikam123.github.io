@@ -177,7 +177,7 @@ brew install --cask visual-studio-code kiro cursor
 brew install --cask jetbrains-toolbox eclipse-ide android-studio
 
 # Terminal Tools
-brew install --cask iterm2
+brew install --cask iterm2 termius
 brew install tmux
 
 # Git GUI Clients
