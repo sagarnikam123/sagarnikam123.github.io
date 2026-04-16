@@ -509,17 +509,17 @@ git config --global user.email "you@example.com"
 git config --global user.name "Your Name"
 ```
 
-**Note:** You'll need a [Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token) for HTTPS authentication or set up SSH keys (recommended below).
+After setting up your identity, choose one of the authentication methods below. GitHub no longer supports password authentication — you must use either SSH keys or a Personal Access Token.
 
-### SSH Key Setup (Recommended)
-Set up SSH keys for secure, password-free Git operations:
+### Authentication Methods
 
+#### Option 1: SSH Keys (Recommended)
+SSH keys provide secure, password-free Git operations. This is the preferred method for daily development.
+
+**Generate and configure SSH key:**
 ```bash
-# Generate SSH key (replace email with your GitHub email)
+# Generate SSH key (replace with your GitHub email)
 ssh-keygen -t ed25519 -C "your.email@example.com"
-
-# When prompted, press Enter to accept default file location
-# Enter a secure passphrase when prompted
 
 # Start SSH agent
 eval "$(ssh-agent -s)"
@@ -537,11 +537,6 @@ pbcopy < ~/.ssh/id_ed25519.pub
 3. Paste the copied key and give it a title
 4. Click "Add SSH key"
 
-**Test SSH connection:**
-```bash
-ssh -T git@github.com
-```
-
 **Configure SSH for automatic keychain use:**
 ```bash
 # Create/edit SSH config
@@ -554,19 +549,49 @@ Host github.com
   IdentityFile ~/.ssh/id_ed25519
 ```
 
-### Configure Git Credential Manager (Alternative)
-Set up secure credential storage for HTTPS:
-
+**Test SSH connection:**
 ```bash
-# Use macOS Keychain for credential storage
-git config --global credential.helper osxkeychain
-
-# When you first push/pull, enter your Personal Access Token instead of password
-# It will be automatically cached in the keychain
-git clone https://github.com/username/repo.git
+ssh -T git@github.com
 ```
 
+**Clone repos using SSH:**
+```bash
+git clone git@github.com:username/repo.git
+```
+
+#### Option 2: HTTPS with Personal Access Token
+If you prefer HTTPS, use a [Personal Access Token (PAT)](https://github.com/settings/personal-access-tokens) instead of a password.
+
+**Set up credential caching:**
+```bash
+# Use macOS Keychain to store credentials
+git config --global credential.helper osxkeychain
+```
+
+**Clone or push — enter your PAT when prompted for password:**
+```bash
+git clone https://github.com/username/repo.git
+# Username: your-github-username
+# Password: <paste your Personal Access Token>
+```
+
+The token will be cached in the Keychain automatically for future operations.
+
 [Generate Personal Access Token here](https://github.com/settings/personal-access-tokens)
+
+### Switch Existing Repo from HTTPS to SSH
+If you cloned a repository using HTTPS and want to switch to SSH (avoids token prompts):
+
+```bash
+# Check current remote URL
+git remote -v
+
+# Switch from HTTPS to SSH
+git remote set-url origin git@github.com:username/repo.git
+
+# Verify the change
+git remote -v
+```
 
 ## DevOps Tools
 
