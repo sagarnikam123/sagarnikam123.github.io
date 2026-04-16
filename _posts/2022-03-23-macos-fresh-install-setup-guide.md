@@ -86,6 +86,13 @@ Enable right-click functionality on trackpad:
 
 **Why Homebrew?** Simplifies software installation, handles dependencies automatically, and keeps packages updated.
 
+> **Tip — Upgrade Bash:** macOS ships with Bash 3.2 (2007) due to licensing. Many modern scripts require Bash 4+. Install the latest version via Homebrew:
+> ```bash
+> brew install bash
+> ```
+> Then add Homebrew's `bin` to your PATH (see [Terminal Configuration](#terminal-configuration)) so `bash` resolves to the new version.
+{: .prompt-tip }
+
 **Visual Interface:** [Coldbrew](https://coldbrew.lil.run/) - A visual interface to quickly install your favorite macOS apps from Homebrew Cask.
 
 ### Install MacPorts (Alternative)
@@ -129,6 +136,25 @@ chsh -s /bin/bash
 chsh -s /bin/zsh
 ```
 
+### Prioritise Homebrew Bash in PATH
+macOS's built-in `/bin/bash` is version 3.2. After `brew install bash`, ensure the Homebrew version is found first:
+
+```bash
+# Add to ~/.zshrc (or ~/.bash_profile if Bash is your login shell)
+export PATH="/opt/homebrew/bin:$PATH"   # Apple Silicon
+# export PATH="/usr/local/bin:$PATH"    # Intel Macs
+```
+
+Reload and verify:
+```bash
+source ~/.zshrc
+bash --version   # Should show 5.x
+which bash        # Should show /opt/homebrew/bin/bash
+```
+
+> **Tip — Portable shebangs:** Use `#!/usr/bin/env bash` instead of `#!/bin/bash` in your shell scripts. `env` looks up `bash` in PATH, so the same script works on macOS (Homebrew bash) and Linux (`/usr/bin/bash`) without changes.
+{: .prompt-tip }
+
 ### Install Oh My Zsh (Recommended)
 Enhance your Zsh experience with themes and plugins:
 
@@ -170,49 +196,68 @@ uv python install 3.10 3.11 3.12 3.13
 ### Install via Homebrew (Recommended)
 ```bash
 # Browsers
-brew install --cask google-chrome firefox
+brew install --cask google-chrome firefox brave-browser microsoft-edge
 
 # Code Editors & IDEs
-brew install --cask visual-studio-code kiro cursor
+brew install --cask visual-studio-code kiro cursor antigravity
 brew install --cask jetbrains-toolbox eclipse-ide android-studio
 
 # Terminal Tools
 brew install --cask iterm2 termius
 brew install tmux
 
-# Git GUI Clients
-brew install --cask github-desktop
+# Git Tools
+brew install --cask github-desktop sourcetree git-credential-manager
 
 # Communication
 brew install --cask slack zoom microsoft-teams
-brew install --cask discord whatsapp telegram
+brew install --cask discord whatsapp telegram signal
 
 # Productivity
 brew install --cask dropbox notion
 brew install --cask alfred rectangle
 
 # Design Tools
-brew install --cask figma
+brew install --cask figma gimp inkscape
 
 # Database Tools
-brew install --cask dbeaver-community mysqlworkbench tableplus
+brew install --cask dbeaver-community mysqlworkbench tableplus db-browser-for-sqlite
+brew install sqlite
 
 # Programming Languages & Runtimes
 brew install openjdk@21 openjdk@25
 brew install python@3.12
 brew install node
+brew install go
+brew install r
+brew install rustup
+brew install --cask dotnet-sdk
+brew install --cask android-commandlinetools
 
 # DevOps & API Tools
-brew install --cask docker lens postman
-brew install fluent-bit awscli minikube
+brew install --cask docker lens postman rancher podman-desktop orbstack
+brew install fluent-bit awscli minikube ngrok
+brew install --cask insomnia
+
+# Cloud CLI Tools
+brew install --cask google-cloud-sdk
+
+# Virtualization
+brew install --cask virtualbox
 
 # Media & Video Tools
-brew install --cask vlc handbrake obs
+brew install --cask vlc handbrake obs audacity spotify
 brew install ffmpeg
+
+# Data Science & 3D Tools
+brew install --cask rstudio blender
 
 # VPN & Networking
 brew install --cask tunnelblick openvpn-connect
-brew install openssh
+brew install openssh wireshark
+
+# Document & Download Tools
+brew install --cask mactex folx
 
 # Utilities
 brew install wget
@@ -625,7 +670,7 @@ brew install --cask lens  # Kubernetes IDE
 For experienced users, here's a comprehensive setup script:
 
 ```bash
-#!/bin/bash
+#!/usr/bin/env bash
 # macOS Fresh Install Quick Setup
 
 # Install Homebrew
