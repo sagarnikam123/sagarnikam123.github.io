@@ -196,7 +196,7 @@ uv python install 3.10 3.11 3.12 3.13
 ### Install via Homebrew (Recommended)
 ```bash
 # Browsers
-brew install --cask google-chrome firefox brave-browser microsoft-edge
+brew install --cask google-chrome firefox brave-browser microsoft-edge opera
 
 # Code Editors & IDEs
 brew install --cask visual-studio-code kiro cursor antigravity
