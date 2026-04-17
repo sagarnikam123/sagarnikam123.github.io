@@ -195,19 +195,51 @@ uv python install 3.10 3.11 3.12 3.13
 
 ### Install via Homebrew (Recommended)
 ```bash
-# Browsers
-brew install --cask google-chrome firefox brave-browser microsoft-edge opera
-
-# Code Editors & IDEs
-brew install --cask visual-studio-code kiro cursor antigravity
-brew install --cask jetbrains-toolbox eclipse-ide android-studio
+# Utilities (Foundational)
+brew install wget
 
 # Terminal Tools
 brew install --cask iterm2 termius
 brew install tmux
 
+# Code Editors & IDEs
+brew install --cask visual-studio-code kiro cursor antigravity
+brew install --cask jetbrains-toolbox eclipse-ide android-studio
+
+# Browsers
+brew install --cask google-chrome firefox brave-browser microsoft-edge opera
+
 # Git Tools
 brew install --cask github-desktop sourcetree git-credential-manager
+
+# Programming Languages & Runtimes
+brew install openjdk@21 openjdk@25
+brew install python@3.12
+brew install node
+brew install go
+brew install r
+brew install rustup
+brew install --cask dotnet-sdk
+brew install --cask android-commandlinetools
+
+# Database Tools
+brew install --cask dbeaver-community mysqlworkbench tableplus db-browser-for-sqlite
+brew install sqlite
+
+# DevOps & API Tools
+brew install --cask docker lens postman rancher podman-desktop orbstack
+brew install fluent-bit awscli minikube ngrok
+brew install --cask insomnia
+brew install helm
+
+# Cloud CLI Tools
+brew install --cask google-cloud-sdk
+
+# Virtualization
+brew install --cask virtualbox
+
+# Data Science & 3D Tools
+brew install --cask rstudio blender
 
 # Communication
 brew install --cask slack zoom microsoft-teams
@@ -220,37 +252,9 @@ brew install --cask alfred rectangle
 # Design Tools
 brew install --cask figma gimp inkscape
 
-# Database Tools
-brew install --cask dbeaver-community mysqlworkbench tableplus db-browser-for-sqlite
-brew install sqlite
-
-# Programming Languages & Runtimes
-brew install openjdk@21 openjdk@25
-brew install python@3.12
-brew install node
-brew install go
-brew install r
-brew install rustup
-brew install --cask dotnet-sdk
-brew install --cask android-commandlinetools
-
-# DevOps & API Tools
-brew install --cask docker lens postman rancher podman-desktop orbstack
-brew install fluent-bit awscli minikube ngrok
-brew install --cask insomnia
-
-# Cloud CLI Tools
-brew install --cask google-cloud-sdk
-
-# Virtualization
-brew install --cask virtualbox
-
 # Media & Video Tools
 brew install --cask vlc handbrake obs audacity spotify
 brew install ffmpeg
-
-# Data Science & 3D Tools
-brew install --cask rstudio blender
 
 # VPN & Networking
 brew install --cask tunnelblick openvpn-connect
@@ -258,9 +262,6 @@ brew install openssh wireshark
 
 # Document & Download Tools
 brew install --cask mactex folx
-
-# Utilities
-brew install wget
 ```
 
 ### Manual Downloads (If Homebrew Not Available)
