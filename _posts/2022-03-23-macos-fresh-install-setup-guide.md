@@ -195,72 +195,65 @@ uv python install 3.10 3.11 3.12 3.13
 
 ### Install via Homebrew (Recommended)
 ```bash
-# Utilities (Foundational)
-brew install wget
+# Foundations
+brew install wget tmux openssh ffmpeg
 
-# Terminal Tools
+# Terminal
 brew install --cask iterm2 termius
-brew install tmux
+
+# Browsers
+brew install --cask google-chrome firefox brave-browser microsoft-edge opera
 
 # Code Editors & IDEs
 brew install --cask visual-studio-code kiro cursor antigravity
 brew install --cask jetbrains-toolbox eclipse-ide android-studio
-
-# Browsers
-brew install --cask google-chrome firefox brave-browser microsoft-edge opera
 
 # Git Tools
 brew install --cask github-desktop sourcetree git-credential-manager
 
 # Programming Languages & Runtimes
 brew install openjdk@21 openjdk@25
-brew install python@3.12
-brew install node
-brew install go
-brew install r
-brew install rustup
-brew install --cask dotnet-sdk
-brew install --cask android-commandlinetools
+brew install python@3.12 python@3.14
+brew install node go r rustup
+brew install --cask dotnet-sdk android-commandlinetools
 
-# Database Tools
-brew install --cask dbeaver-community mysqlworkbench tableplus db-browser-for-sqlite
+# Databases
 brew install sqlite
+brew install --cask dbeaver-community mysqlworkbench tableplus db-browser-for-sqlite
 
-# DevOps & API Tools
-brew install --cask docker lens postman rancher podman-desktop orbstack
-brew install fluent-bit awscli minikube ngrok
-brew install --cask insomnia
-brew install helm
+# DevOps & Containers
+brew install awscli helm gradle minikube ngrok fluent-bit
+brew install --cask docker orbstack rancher podman-desktop lens
 
-# Cloud CLI Tools
+# API Clients
+brew install --cask postman insomnia
+
+# Cloud CLIs
 brew install --cask google-cloud-sdk
 
 # Virtualization
 brew install --cask virtualbox
 
-# Data Science & 3D Tools
-brew install --cask rstudio blender
-
-# Communication
-brew install --cask slack zoom microsoft-teams
-brew install --cask discord whatsapp telegram signal
-
-# Productivity
-brew install --cask dropbox notion
-brew install --cask alfred rectangle
-
-# Design Tools
-brew install --cask figma gimp inkscape
-
-# Media & Video Tools
-brew install --cask vlc handbrake obs audacity spotify
-brew install ffmpeg
-
 # VPN & Networking
 brew install --cask tunnelblick openvpn-connect
-brew install openssh wireshark
+brew install wireshark
 
-# Document & Download Tools
+# Data Science & 3D
+brew install --cask rstudio blender
+
+# Design
+brew install --cask figma gimp inkscape
+
+# Media
+brew install --cask vlc handbrake obs audacity spotify
+
+# Productivity
+brew install --cask alfred rectangle dropbox notion
+
+# Communication
+brew install --cask slack zoom microsoft-teams discord whatsapp telegram signal
+
+# Documents & Downloads
 brew install --cask mactex folx
 ```
 
@@ -352,56 +345,55 @@ Choose from multiple OpenJDK distributions:
 | [Red Hat OpenJDK](https://developers.redhat.com/products/openjdk/download)        | Red Hat             |
 | [Oracle Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html) | Oracle Corporation  |
 
-#### Configure Java Environment
+#### Install Multiple Java Versions via Homebrew
 ```bash
-# Set JAVA_HOME (automatic detection)
-export JAVA_HOME=$(/usr/libexec/java_home)
-export PATH=$PATH:$JAVA_HOME/bin
+# Install Java 21 (LTS) and Java 25
+brew install openjdk@21 openjdk@25
 
-# Add to ~/.zshrc
-echo 'export JAVA_HOME=$(/usr/libexec/java_home)' >> ~/.zshrc
-echo 'export PATH=$PATH:$JAVA_HOME/bin' >> ~/.zshrc
+# Verify installed JDKs
+/usr/libexec/java_home -V
 ```
+
+#### Configure Java Version Switching in ~/.zshrc
+Add the following to your `~/.zshrc`:
+
+```bash
+# Java version paths
+export JAVA_21_HOME=/opt/homebrew/Cellar/openjdk@21/21.0.10/libexec/openjdk.jdk/Contents/Home
+export JAVA_25_HOME=/opt/homebrew/Cellar/openjdk/25.0.2/libexec/openjdk.jdk/Contents/Home
+
+# Default to Java 21 (LTS)
+export JAVA_HOME=$JAVA_21_HOME
+export PATH=$JAVA_HOME/bin:$PATH
+
+# Switch functions — run in terminal to switch Java version
+# To switch to Java 21: java21
+# To switch to Java 25: java25
+java21() { export JAVA_HOME=$JAVA_21_HOME && export PATH=$JAVA_HOME/bin:$PATH && java -version; }
+java25() { export JAVA_HOME=$JAVA_25_HOME && export PATH=$JAVA_HOME/bin:$PATH && java -version; }
+```
+
+Apply changes:
+```bash
+source ~/.zshrc
+```
+
+#### Switching Java Versions
+```bash
+java21   # switch to Java 21 (LTS) — default
+java25   # switch to Java 25
+
+java -version   # confirm active version
+```
+
+> **Note:** The path versions (e.g. `21.0.10`, `25.0.2`) may differ based on what Homebrew installs.
+> Run `/usr/libexec/java_home -V` to get the exact paths on your machine.
 
 ### Python Development
 Choose from multiple Python installation methods:
 
-#### Option 1: Official Python Installer (Recommended)
-[Download Python](https://www.python.org/downloads/macos/) from the official website:
-
-1. Visit [python.org/downloads](https://www.python.org/downloads/)
-2. Download the latest stable version (3.11+ recommended)
-3. Run the installer and follow the setup wizard
-4. Configure PATH:
-
-```bash
-# Python path configuration (adjust version as needed)
-export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.11/bin
-
-# Add to ~/.zshrc
-echo 'export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.11/bin' >> ~/.zshrc
-source ~/.zshrc
-
-# Verify installation
-python3 --version
-pip3 --version
-```
-
-#### Option 2: Homebrew Installation
-```bash
-# Install Python via Homebrew
-brew install python
-
-# Verify installation
-python3 --version
-pip3 --version
-
-# Update pip
-pip3 install --upgrade pip
-```
-
-#### Option 3: UV Package Manager (Modern Approach)
-[UV](https://docs.astral.sh/uv/) is a fast Python package and project manager:
+#### Option 1: UV Package Manager (Recommended for Developers)
+[UV](https://docs.astral.sh/uv/) is a fast, modern Python package and project manager — handles multiple Python versions, virtual environments, and package installs in one tool:
 
 ```bash
 # Install UV
@@ -419,7 +411,7 @@ uv venv --python 3.11
 source .venv/bin/activate
 ```
 
-#### Option 4: Pyenv (Version Management)
+#### Option 2: Pyenv (Version Management)
 [Pyenv](https://github.com/pyenv/pyenv) allows you to easily switch between Python versions:
 
 ```bash
@@ -441,6 +433,56 @@ pyenv global 3.11.7
 
 # Verify installation
 python --version
+```
+
+#### Option 3: Homebrew Installation
+```bash
+# Install specific Python versions via Homebrew
+brew install python@3.12 python@3.14
+
+# Verify installation
+python3 --version
+pip3 --version
+
+# Update pip
+pip3 install --upgrade pip
+```
+
+#### Option 4: Official Python Installer (Simplest)
+[Download Python](https://www.python.org/downloads/macos/) from the official website:
+
+1. Visit [python.org/downloads](https://www.python.org/downloads/)
+2. Download the latest stable version (3.12+ recommended)
+3. Run the installer and follow the setup wizard
+4. Configure PATH:
+
+```bash
+# Python path configuration (adjust version as needed)
+export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.12/bin
+
+# Add to ~/.zshrc
+echo 'export PATH=$PATH:/Library/Frameworks/Python.framework/Versions/3.12/bin' >> ~/.zshrc
+source ~/.zshrc
+
+# Verify installation
+python3 --version
+pip3 --version
+```
+
+#### pipx (Global Tool Installation / pip3 Fallback)
+[pipx](https://pipx.pypa.io/) installs Python tools in isolated environments — useful when `pip3` fails due to system restrictions or conflicts:
+
+```bash
+# Install pipx
+brew install pipx
+pipx ensurepath
+source ~/.zshrc
+
+# Use pipx instead of pip3 for global tools
+pipx install package_name
+
+# List installed tools
+pipx list
 ```
 
 #### Essential Python Packages
