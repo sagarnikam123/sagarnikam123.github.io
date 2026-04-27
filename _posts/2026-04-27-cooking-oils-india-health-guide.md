@@ -29,7 +29,7 @@ This comprehensive guide cuts through the confusion with research-backed data fr
 **⚠️ Oils to Avoid for High-Heat Cooking:**
 - Sunflower oil (excessive omega-6 causes inflammation)
 - Extra virgin olive oil (smoke point too low for Indian cooking)
-- Coconut oil (82.5% saturated fat)
+- Coconut oil (82.5% saturated fat, low smoke point)
 
 ---
 
@@ -58,7 +58,7 @@ When oil heats beyond its smoke point, it doesn't just smell bad - it becomes to
 
 ---
 
-## The Complete Comparison: 10 Popular Cooking Oils
+## The Complete Comparison: 9 Popular Cooking Oils + Ghee
 
 ### Understanding the Table Columns
 
@@ -79,16 +79,12 @@ Before diving into the comparison, here's what each column means:
 | **Coconut Oil**            | CP: 177°C<br>R: 204°C      | 6.3           | 1.8           | 82.5                   | 0.1                 | 1.7              | CP: ₹280-450<br>R: ₹150-220 | South Indian (moderate)  | ⭐⭐⭐        | ⭐⭐             |
 | **Rice Bran Oil**          | R: 232°C                   | 39.3          | 35.0          | 19.7                   | 32.3                | 33.4             | R: ₹115-160                 | Light frying             | ⭐⭐⭐⭐       | ⭐⭐⭐⭐           |
 | **Sunflower Oil**          | CP: 227°C<br>R: 232°C      | 19.5          | 65.7          | 10.3                   | 41.1                | 65.7             | R: ₹110-165                 | Use sparingly            | ⭐⭐         | ⭐⭐             |
-| **Olive Oil (EVOO)**       | CP: 160°C<br>R: 199°C      | 55-85         | 10.5          | 13.8                   | 14.4                | Low              | EVOO: ₹800-1200             | Salads only              | ⭐⭐⭐⭐       | ⭐⭐⭐⭐⭐          |
+| **Olive Oil (EVOO)**       | CP: 160°C<br>R: 199°C      | 73.0          | 10.5          | 13.8                   | 14.4                | Low              | EVOO: ₹800-1200             | Salads only              | ⭐⭐⭐⭐       | ⭐⭐⭐⭐⭐          |
 | **Safflower Oil (Kardai)** | CP: 225°C<br>R: 266°C (HO) | 14.4 (HO: 75) | 75.2 (HO: 13) | 7.5                    | 34.1                | High             | R: ₹180-250                 | Deep frying (high-oleic) | ⭐⭐⭐⭐       | ⭐⭐⭐⭐           |
-| **Soybean Oil**            | R: 234°C                   | 23.3          | 57.7          | 15.6                   | 8.2                 | High             | R: ₹120-155                 | Not recommended          | ⭐⭐         | ⭐⭐             |
-| **Ghee**                   | 250°C                      | 28            | 3.7           | 62                     | 2.7                 | —                | ₹400-700                    | Flavoring only           | ⭐⭐         | ⭐⭐             |
+| **Soybean Oil**            | R: 234°C                   | 22.8          | 57.7          | 15.6                   | 8.2                 | High             | R: ₹120-155                 | Not recommended          | ⭐⭐         | ⭐⭐             |
+| **Ghee**                   | 250°C                      | 28.7          | 3.7           | 62                     | 6.3                 | —                | ₹400-700                    | Flavoring only           | ⭐⭐         | ⭐⭐             |
 
 *CP = Cold Pressed, R = Refined, HO = High-Oleic | Data: USDA FoodData Central, ICMR-NIN*
-
-**Cold Pressed (CP):** Oil extracted by mechanical crushing at low temperatures without chemicals, retaining 90-100% of nutrients, antioxidants, and natural flavor.
-
-**Refined (R):** Oil processed using heat and chemical solvents (hexane), then bleached and deodorized, resulting in neutral flavor but losing 80-90% of vitamins and antioxidants.
 
 ---
 
@@ -227,11 +223,11 @@ A [landmark study on edible oils in Type 2 diabetes](https://www.researchgate.ne
 
 **Use With Caution:**
 
-While popular in South India, coconut oil is **82.5% saturated fat** - [the highest among all cooking oils](https://fdc.nal.usda.gov/fdc-app.html#/food-details/171412/nutrients).
+While popular in South India, coconut oil is **82.5% saturated fat** - [the highest among all cooking oils](https://fdc.nal.usda.gov/food-details/171412/nutrients).
 
 **Nutritional Highlights:**
 - Contains medium-chain triglycerides (MCTs) - [easier to metabolize than long-chain fats](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5044790/)
-- Lauric acid (47% of fat content) - [antimicrobial properties](https://pubmed.ncbi.nlm.nih.gov/21495900/)
+- Lauric acid (~42% of total fat) - [antimicrobial properties](https://pubmed.ncbi.nlm.nih.gov/21495900/)
 - However, [high saturated fat intake raises LDL cholesterol](https://www.ahajournals.org/doi/10.1161/CIR.0000000000000510)
 
 **When to Use:**
@@ -285,7 +281,7 @@ Rice bran oil is extracted from the outer layer of rice grains and offers a well
 Despite its health benefits, EVOO has a smoke point of only **160°C** - well below Indian frying temperatures (180-220°C).
 
 **Nutritional Highlights:**
-- Extremely high MUFA content (55-85g/100g) - highest among all oils
+- Extremely high MUFA content (~73g/100g per USDA) - highest among all oils
 - Rich in [polyphenols and antioxidants](https://www.mdpi.com/2072-6643/15/20/4314)
 - Contains tyrosol ([improves insulin resistance](https://www.nirvahealth.com/blog/top-cooking-oils-for-diabetes-management))
 - Vitamin E (14.4mg/100g)
@@ -343,7 +339,7 @@ Sunflower oil contains **65.7g omega-6 per 100g** - dangerously high levels that
 
 **Two Types - Choose Wisely:**
 
-Safflower oil, known as **Kardai** in Hindi/Marathi, comes in two distinct varieties with very different properties:
+Safflower oil, known as **Kardai** in Marathi, comes in two distinct varieties with very different properties:
 
 **High-Oleic Safflower Oil (Recommended):**
 - 75% monounsaturated fat (similar to olive oil)
@@ -370,10 +366,10 @@ A [landmark 2011 clinical trial published in *Clinical Nutrition*](https://pmc.n
 - [Trunk fat mass decreased by 6.3%](https://pmc.ncbi.nlm.nih.gov/articles/PMC3115398/)
 
 **Why It Works:**
-- [Rich in linoleic acid which improves insulin sensitivity](https://pmc.ncbi.nlm.nih.gov/articles/PMC3115398/)
+- The clinical trial used the high-linoleic variant; [its linoleic acid improves insulin sensitivity](https://pmc.ncbi.nlm.nih.gov/articles/PMC3115398/)
 - [Contains vitamin E and tocopherols (antioxidants)](https://www.news-medical.net/health/Safflower-Oil-Benefits-Heart-Blood-Sugar-and-Skin-Health-Explained.aspx)
 - [May reduce visceral (belly) fat specifically](https://pmc.ncbi.nlm.nih.gov/articles/PMC3115398/)
-- High-oleic version provides MUFA benefits similar to olive oil
+- For cooking, the high-oleic version is preferred due to heat stability and MUFA benefits similar to olive oil
 
 **Best Uses:**
 - High-oleic: Deep frying, high-heat cooking, all-purpose
@@ -401,6 +397,35 @@ Soybean oil is heavily processed and has similar issues to sunflower oil with hi
 **Better Alternatives:** Groundnut oil, rice bran oil, or mustard oil
 
 **Price:** Refined ₹120-155/L
+
+---
+
+### 10. Ghee ⚠️
+
+**Use as Flavoring, Not Primary Cooking Fat:**
+
+Ghee holds deep cultural and Ayurvedic significance in India, but its nutritional profile demands moderation — it contains **62g saturated fat per 100g** and **33mg cholesterol per tablespoon**.
+
+**Nutritional Highlights:**
+- High smoke point (~250°C) - handles all Indian cooking methods
+- Contains [butyrate (beneficial for gut health and immunity)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4027827/)
+- [Rich in fat-soluble vitamins A, D, E (6.3mg/100g), K](https://pmc.ncbi.nlm.nih.gov/articles/PMC10789628/)
+- [Contains conjugated linoleic acid (CLA) with anti-inflammatory properties](https://pmc.ncbi.nlm.nih.gov/articles/PMC10789628/)
+- [Ayurveda's most referenced therapeutic ingredient (774 mentions)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10789628/) for cognitive health, gut health, and immunity
+
+**Health Concerns:**
+- [Very high saturated fat (62g/100g) and contains cholesterol](https://fdc.nal.usda.gov/food-details/173410/nutrients)
+- [2022 clinical trial showed ghee increased LDL and non-HDL cholesterol more than olive oil](https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/effects-of-diets-rich-in-ghee-or-olive-oil-on-cardiometabolic-risk-factors-in-healthy-adults-a-twoperiod-crossover-randomised-trial/ED6B4C8EB745840BEDB44D8EA8F0F0D7)
+- [Historically linked to increased coronary artery disease risk in Asian Indians](https://pmc.ncbi.nlm.nih.gov/articles/PMC3215354/)
+
+**Best Uses:**
+- Flavoring (1 teaspoon on dal or rice)
+- Occasional tadka/tempering
+- [Ayurvedic carrier for medicinal herbs](https://pmc.ncbi.nlm.nih.gov/articles/PMC10789628/)
+
+**Don't Use As:** Primary daily cooking fat, especially for heart patients or those with high cholesterol
+
+**Price:** ₹400-700/L
 
 ---
 
@@ -483,7 +508,6 @@ Soybean oil is heavily processed and has similar issues to sunflower oil with hi
 **Oils to Avoid:**
 - Sunflower oil (excessive omega-6)
 - Soybean oil (high omega-6)
-- Palm oil (high saturated fat)
 - Coconut oil (use minimally)
 
 ---
@@ -506,7 +530,6 @@ Soybean oil is heavily processed and has similar issues to sunflower oil with hi
 **Oils to Limit:**
 - Ghee (62g saturated fat/100g, contains cholesterol)
 - Coconut oil (82.5g saturated fat/100g)
-- Palm oil (49g saturated fat/100g)
 
 **Research Evidence:**
 [Oils rich in monounsaturated and polyunsaturated fats help improve cholesterol levels](https://www.ahajournals.org/doi/full/10.1161/01.cir.100.11.1253) by increasing HDL (good cholesterol) and reducing LDL (bad cholesterol), thereby reducing cardiovascular disease risk. [Clinical trials show MUFA-rich diets reduce cardiovascular events by 15-30%](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4424767/).
@@ -518,7 +541,7 @@ Soybean oil is heavily processed and has similar issues to sunflower oil with hi
 | Cooking Method                        | Temperature | Best Oil             | Why                                      |
 | ------------------------------------- | ----------- | -------------------- | ---------------------------------------- |
 | **Deep Frying** (poori, vada, pakora) | 180-220°C   | Groundnut, Mustard   | High smoke point, stable, neutral flavor |
-| **Tadka/Tempering**                   | 180-200°C   | Groundnut, Sesame    | Handles high heat, adds aroma            |
+| **Tadka/Tempering**                   | 180-200°C   | Groundnut, Sesame (refined) | Handles high heat, adds aroma            |
 | **Stir Fry/Sabzi**                    | 160-180°C   | Groundnut, Rice bran | All-purpose, mild flavor                 |
 | **South Indian Curry**                | 140-170°C   | Coconut, Groundnut   | Traditional flavor, medium-heat safe     |
 | **North Indian Curry**                | 160-200°C   | Mustard, Groundnut   | Pungent flavor, highest smoke point      |
@@ -607,7 +630,7 @@ This ensures diverse fatty acid profiles and nutrients.
 - Mustard oil: 500ml (₹150-225)
 - Extra virgin olive oil: 500ml (₹400-600)
 
-**Total Monthly Investment:** ₹1,125-2,125 (₹9-18 per meal)
+**Total Monthly Investment:** ₹1,125-2,125 (₹12-24 per meal)
 
 ---
 
@@ -626,13 +649,13 @@ This ensures diverse fatty acid profiles and nutrients.
 - [May enhance bioavailability of herbs and nutrients](https://pmc.ncbi.nlm.nih.gov/articles/PMC10789628/)
 
 **Ghee's Concerns:**
-- [Very high in saturated fat (62g/100g) and contains cholesterol (33mg/tablespoon)](https://fdc.nal.usda.gov/fdc-app.html#/food-details/173410/nutrients)
+- [Very high in saturated fat (62g/100g) and contains cholesterol (33mg/tablespoon)](https://fdc.nal.usda.gov/food-details/173410/nutrients)
 - [Recent 2022 clinical trial showed ghee increased LDL and non-HDL cholesterol more than olive oil](https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/effects-of-diets-rich-in-ghee-or-olive-oil-on-cardiometabolic-risk-factors-in-healthy-adults-a-twoperiod-crossover-randomised-trial/ED6B4C8EB745840BEDB44D8EA8F0F0D7)
 - [Historically implicated in increased coronary artery disease risk in Asian Indians](https://pmc.ncbi.nlm.nih.gov/articles/PMC3215354/)
 - Effects vary by quantity - [moderate consumption (2.5-10% of energy) shows mixed results](https://pmc.ncbi.nlm.nih.gov/articles/PMC10789628/)
 
 **The Verdict:**
-Cold pressed groundnut oil has far more MUFA (46.2g vs 28g), zero cholesterol, and is significantly cheaper. For daily cooking, cold pressed oil is the healthier choice for heart health.
+Cold pressed groundnut oil has far more MUFA (46.2g vs 28.7g), zero cholesterol, and is significantly cheaper. For daily cooking, cold pressed oil is the healthier choice for heart health.
 
 **Best Use of Ghee:** Use as a flavoring (1 teaspoon on dal or rice) rather than as your primary cooking fat. [Ayurvedic texts recommend it for cognitive health, gut immunity, and as a carrier for medicinal herbs](https://pmc.ncbi.nlm.nih.gov/articles/PMC10789628/), but modern research suggests moderation is key for cardiovascular health.
 
@@ -684,7 +707,7 @@ Choosing the right cooking oil is one of the simplest yet most impactful health 
 - Relying on a single oil type
 - Ignoring smoke points
 
-**The Investment:** Switching from refined sunflower oil (₹120/L) to cold pressed groundnut oil (₹400/L) costs about ₹8-10 extra per meal for a family of four. That's less than the cost of a cup of chai - for significantly better health outcomes.
+**The Investment:** Switching from refined sunflower oil (₹120/L) to cold pressed groundnut oil (₹400/L) costs about ₹4-5 extra per meal for a family of four. That's less than the cost of a cup of chai - for significantly better health outcomes.
 
 Your heart, your pancreas, and your family will thank you.
 
@@ -816,5 +839,3 @@ Your heart, your pancreas, and your family will thank you.
 ---
 
 **About the Author:** This research-based guide synthesizes data from USDA, ICMR-NIN, and peer-reviewed scientific studies to provide evidence-based recommendations for Indian cooking practices.
-
-**Last Updated:** March 29, 2026
