@@ -16,10 +16,10 @@ timezone: Asia/Calcutta
 
 title: Sagar Nikam Blog # the main title
 
-tagline: "Engineering Insights: Cloud, DevOps, and Modern Software Development" # it will display as the subtitle
+tagline: "Tech, Code & Life: DevOps, Programming, Career Guides & Beyond" # it will display as the subtitle
 
 description: >- # used by seo meta and the atom feed
-  Explore cloud computing, DevOps practices, and software engineering insights. Technical tutorials, best practices, and real-world solutions for modern development challenges.
+  Technical tutorials on DevOps, programming, cloud computing, and system setup. Plus career guides and research-backed health insights. Real-world solutions from a software engineer's perspective.
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
