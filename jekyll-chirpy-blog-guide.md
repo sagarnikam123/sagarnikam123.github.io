@@ -9,6 +9,9 @@ Complete documentation for Jekyll blog development using the Chirpy theme, inclu
 # Install Ruby dependencies
 bundle install
 
+# Initialize theme static assets (fontawesome, glightbox, etc.)
+git submodule update --init --recursive
+
 # Serve locally with live reload
 bundle exec jekyll serve --livereload
 
