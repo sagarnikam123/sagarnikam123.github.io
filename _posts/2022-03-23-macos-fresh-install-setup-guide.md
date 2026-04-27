@@ -208,6 +208,13 @@ brew install --cask google-chrome firefox brave-browser microsoft-edge opera
 brew install --cask visual-studio-code kiro cursor antigravity
 brew install --cask jetbrains-toolbox eclipse-ide android-studio
 
+# AI Coding & Local LLMs
+brew install --cask claude-code codex-app openclaw
+brew install anomalyco/tap/opencode
+brew install ollama
+brew install --cask gpt4all lm-studio
+curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+
 # Git Tools
 brew install --cask github-desktop sourcetree git-credential-manager
 
