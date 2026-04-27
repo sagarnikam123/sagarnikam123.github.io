@@ -194,73 +194,112 @@ uv python install 3.10 3.11 3.12 3.13
 ## Essential Applications
 
 ### Install via Homebrew (Recommended)
+
+#### CLI Tools & Utilities
 ```bash
-# Foundations
-brew install wget tmux openssh ffmpeg
+brew install wget tmux openssh ffmpeg webp imagemagick
+```
 
-# Terminal
+#### Terminal Emulators
+```bash
 brew install --cask iterm2 termius
+```
 
-# Browsers
+#### Browsers
+```bash
 brew install --cask google-chrome firefox brave-browser microsoft-edge opera
+```
 
-# Code Editors & IDEs
+#### Code Editors & IDEs
+```bash
 brew install --cask visual-studio-code kiro cursor antigravity
 brew install --cask jetbrains-toolbox eclipse-ide android-studio
+```
 
-# AI Coding & Local LLMs
+#### AI Coding & Local LLMs
+```bash
 brew install --cask claude-code codex-app openclaw
 brew install anomalyco/tap/opencode
 brew install ollama
 brew install --cask gpt4all lm-studio
 curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
+```
 
-# Git Tools
+#### Git Tools
+```bash
 brew install --cask github-desktop sourcetree git-credential-manager
+```
 
-# Programming Languages & Runtimes
+#### Programming Languages & Runtimes
+```bash
 brew install openjdk@21 openjdk@25
 brew install python@3.12 python@3.14
 brew install node go r rustup
 brew install --cask dotnet-sdk android-commandlinetools
+```
 
-# Databases
+#### Databases
+```bash
 brew install sqlite
 brew install --cask dbeaver-community mysqlworkbench tableplus db-browser-for-sqlite
+```
 
-# DevOps & Containers
+#### DevOps & Containers
+```bash
 brew install awscli helm gradle minikube ngrok fluent-bit
+brew tap hashicorp/tap
+brew install hashicorp/tap/terraform tfenv
 brew install --cask docker orbstack rancher podman-desktop lens
+```
 
-# API Clients
+#### API Clients
+```bash
 brew install --cask postman insomnia
+```
 
-# Cloud CLIs
+#### Cloud CLIs
+```bash
 brew install --cask google-cloud-sdk
+```
 
-# Virtualization
+#### Virtualization
+```bash
 brew install --cask virtualbox
+```
 
-# VPN & Networking
-brew install --cask tunnelblick openvpn-connect
+#### VPN & Networking
+```bash
 brew install wireshark
+brew install --cask tunnelblick openvpn-connect
+```
 
-# Data Science & 3D
+#### Data Science & 3D
+```bash
 brew install --cask rstudio blender
+```
 
-# Design
+#### Design
+```bash
 brew install --cask figma gimp inkscape
+```
 
-# Media
+#### Media
+```bash
 brew install --cask vlc handbrake obs audacity spotify
+```
 
-# Productivity
+#### Productivity
+```bash
 brew install --cask alfred rectangle dropbox notion
+```
 
-# Communication
+#### Communication
+```bash
 brew install --cask slack zoom microsoft-teams discord whatsapp telegram signal
+```
 
-# Documents & Downloads
+#### Documents & Downloads
+```bash
 brew install --cask mactex folx
 ```
 
