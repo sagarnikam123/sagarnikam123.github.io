@@ -248,7 +248,7 @@ brew install --cask dbeaver-community mysqlworkbench tableplus db-browser-for-sq
 ```bash
 brew install awscli helm gradle minikube ngrok fluent-bit
 brew tap hashicorp/tap
-brew install hashicorp/tap/terraform tfenv
+brew install hashicorp/tap/terraform tfenv terragrunt
 brew install --cask docker orbstack rancher podman-desktop lens
 ```
 
