@@ -246,10 +246,16 @@ brew install --cask dbeaver-community mysqlworkbench tableplus db-browser-for-sq
 
 #### DevOps & Containers
 ```bash
-brew install awscli helm gradle minikube ngrok fluent-bit
+brew install --cask docker orbstack rancher podman-desktop
+brew install crane skopeo
+brew install minikube helm
+brew install --cask lens
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform tfenv terragrunt
-brew install --cask docker orbstack rancher podman-desktop lens
+brew install awscli
+brew install gradle
+brew install fluent-bit
+brew install ngrok
 ```
 
 #### API Clients
