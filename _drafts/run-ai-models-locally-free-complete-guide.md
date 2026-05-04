@@ -29,12 +29,14 @@ This guide covers everything: how to pick the right model for your hardware, how
   - [24 GB RAM — Power User Territory](#24-gb-ram--power-user-territory)
   - [32 GB RAM — Maximum Local AI](#32-gb-ram--maximum-local-ai-experience)
 - [Setup Guide: Ollama](#setup-guide-ollama-text-code-vision-models)
+- [Beyond Ollama: Other Free Tools](#beyond-ollama-other-free-tools-to-run-local-ai)
 - [Setup Guide: Whisper.cpp (Audio)](#setup-guide-whispercpp-audio-transcription)
 - [Setup Guide: Piper (Text-to-Speech)](#setup-guide-piper-text-to-speech)
 - [Setup Guide: Image Generation](#setup-guide-image-generation-stable-diffusion)
 - [What About Video Generation?](#what-about-video-generation)
 - [Customizing Models with Modelfile](#customizing-models-with-modelfile)
 - [Integrate with VS Code](#integrate-with-vs-code-coding-assistant-setup)
+- [Ollama Integrations](#ollama-integrations-where-you-can-use-local-models)
 - [Speed Benchmarks: What to Expect](#speed-benchmarks-what-to-expect-on-apple-silicon)
 - [Local vs Cloud: Honest Comparison](#local-vs-cloud-honest-comparison)
 - [How to Evaluate a Model Yourself](#how-to-evaluate-a-model-yourself)
@@ -78,6 +80,8 @@ When you run a model locally:
 
 ### Key Concept: Quantization
 
+Quantization is compressing a model's weights from high-precision numbers (16-bit floats) to lower-precision ones (4-bit integers). Think of it like reducing image quality from PNG to JPEG — the file gets much smaller, you lose some detail, but it's usually good enough. Without quantization, a 14B model would be ~28 GB (won't fit on most laptops). Quantized to Q4, it's ~9 GB — fits comfortably on 16 GB RAM.
+
 Models come in different **quantization levels** that trade quality for size:
 
 | Quantization | Quality | Size Reduction | When to Use |
@@ -107,6 +111,8 @@ Not all your RAM is available for AI models. Here's the realistic breakdown:
 | **32 GB** | ~8 GB | ~24 GB | Up to 22B-30B parameter models |
 
 > **Rule of thumb**: The model file size (shown by `ollama list`) should be **at most 80%** of your available RAM. Going beyond that causes memory swapping, which makes inference painfully slow.
+
+> **Got 36 GB or more?** MacBook Pros with M4 Pro/Max chips come in 36, 48, 64, and 128 GB configurations. If that's you, follow the 32 GB recommendations — you can run the same models with more headroom, larger context windows, or multiple models loaded simultaneously. At 64 GB+, you can run 70B parameter models like Llama 3.1 70B or Qwen3 32B at full quality.
 
 ---
 
@@ -359,7 +365,7 @@ ollama pull qwen2.5-coder:7b
 # Keep ~9 GB free for OS + apps
 ```
 
-> **32 GB verdict**: You get a genuinely powerful local AI setup. The Qwen3 30B MoE model is the standout for general use — it has 30B parameters of knowledge but only activates 3B per token, so it runs fast while being remarkably capable. For dedicated coding, Qwen3-Coder 30B is the new king.
+> **32 GB verdict**: You get a genuinely powerful local AI setup. Qwen3 30B-A3B (MoE) is the standout for general use — fast and remarkably capable. For dedicated coding, Qwen3-Coder 30B is the new king.
 
 
 ---
@@ -370,23 +376,15 @@ ollama pull qwen2.5-coder:7b
 
 ### Step 1: Install Ollama
 
-**macOS:**
+| Platform | Install Command / Method | Requirements |
+|----------|------------------------|--------------|
+| **macOS** | Download from [ollama.com/download/mac](https://ollama.com/download/mac) or `brew install ollama` | macOS Sonoma 14+, Apple M-series or Intel |
+| **Linux** | `curl -fsSL https://ollama.com/install.sh \| sh` | Any modern distro. [GPU setup](https://docs.ollama.com/linux) optional |
+| **Windows** | Download from [ollama.com/download/windows](https://ollama.com/download/windows) | Windows 10 22H2+. No admin needed |
 
-```bash
-# Download from https://ollama.com/download
-# Or via Homebrew:
-brew install ollama
-```
+After install, verify with `ollama --version`. The API runs at `http://localhost:11434`.
 
-**Linux:**
-
-```bash
-curl -fsSL https://ollama.com/install.sh | sh
-```
-
-**Windows:**
-
-Download the installer from [ollama.com/download](https://ollama.com/download).
+> **Storage**: Models live in `~/.ollama/models/` (macOS/Linux) or `%HOMEPATH%\.ollama\models` (Windows). Budget 20-50 GB free disk space. On Windows, set the `OLLAMA_MODELS` env var to move models to another drive. See platform-specific docs for [macOS](https://docs.ollama.com/macos), [Linux](https://docs.ollama.com/linux), [Windows](https://docs.ollama.com/windows).
 
 ### Step 2: Pull a Model
 
@@ -440,6 +438,48 @@ ollama show <model>      # Show model details (size, quantization, context, lice
 ollama cp <src> <dest>   # Copy a model (useful for custom Modelfile configs)
 ollama pull <model>      # Download or update a model
 ```
+
+> **Prefer a visual API explorer?** The [Ollama REST API Postman Collection](https://www.postman.com/postman-student-programs/ollama-api/documentation/suc47x8/ollama-rest-api) has pre-built requests for generate, chat, structured output, JSON mode, and model management — great for testing before writing code. For programmatic use, see the official [Python](https://github.com/ollama/ollama-python) and [JavaScript](https://github.com/ollama/ollama-js) client libraries.
+
+---
+
+## Beyond Ollama: Other Free Tools to Run Local AI
+
+Ollama is the easiest starting point, but it's not the only option. Here's a quick look at the broader ecosystem, categorized by use case.
+
+### CLI & Developer Tools
+
+| Tool | What It Is | Best For | Open Source |
+|------|-----------|----------|-------------|
+| [**llama.cpp**](https://github.com/ggml-org/llama.cpp) | The C/C++ inference engine Ollama is built on | Maximum control over quantization, context, and parameters | ✅ Yes |
+| [**MLX / mlx-lm**](https://github.com/ml-explore/mlx) | Apple's native framework for Apple Silicon | Fastest inference on Macs — up to 4x faster than llama.cpp for some models | ✅ Yes |
+| [**LocalAI**](https://localai.io) | OpenAI-compatible API server with multimodal support | Text, images, audio, embeddings — all through one API. Supports GGUF, GPTQ, AWQ, Safetensors | ✅ Yes |
+
+### Desktop Apps (GUI)
+
+| Tool | What It Is | Best For | Open Source |
+|------|-----------|----------|-------------|
+| [**LM Studio**](https://lmstudio.ai) | Polished desktop app with model browser, chat UI, and local API server | Beginners, model comparison, "Chat with Documents" RAG. Supports GGUF + MLX formats | ❌ Free, not OSS |
+| [**Jan**](https://jan.ai) | Offline ChatGPT alternative with desktop app and CLI | Privacy-first users who want a clean chat interface with zero cloud dependency | ✅ Yes |
+| [**GPT4All**](https://gpt4all.io) | One-click desktop app by Nomic AI | Non-technical users who want local chat + document Q&A with minimal setup | ✅ Yes |
+
+### Production & High-Throughput Serving
+
+| Tool | What It Is | Best For | Open Source |
+|------|-----------|----------|-------------|
+| [**vLLM**](https://github.com/vllm-project/vllm) | Production inference server with continuous batching and PagedAttention | Multi-user serving, high concurrency. V1 engine supports text, audio, embeddings, multimodal | ✅ Yes |
+| [**SGLang**](https://github.com/sgl-project/sglang) | High-throughput serving framework from UC Berkeley | Structured output, constrained decoding, production API serving | ✅ Yes |
+| [**TGI**](https://github.com/huggingface/text-generation-inference) | Hugging Face's inference server with built-in observability | Teams already in the HF ecosystem, metrics-heavy deployments | ✅ Yes |
+
+### Platform-Specific & Niche
+
+| Tool | What It Is | Best For | Open Source |
+|------|-----------|----------|-------------|
+| [**Docker Model Runner**](https://docs.docker.com) | Run GGUF models directly from Docker Desktop | Teams already in container workflows — pull models like Docker images | Partial |
+| [**Lemonade**](https://github.com/amd/lemonade) | AMD's tool for Ryzen AI NPU hardware | AMD laptop users with dedicated NPUs — includes MCP tool calling | ✅ Yes |
+| [**Msty**](https://msty.app) | Multi-model manager with desktop UI | Power users juggling multiple models and backends | ❌ Free, not OSS |
+
+> **Which should you pick?** For most readers of this guide: start with **Ollama** (simplest CLI + API), try **LM Studio** if you prefer a GUI, and look at **MLX** if you're on Apple Silicon and want maximum speed. Everything else is for specialized needs.
 
 ---
 
@@ -729,6 +769,55 @@ Open `http://localhost:3000` — it auto-detects all your Ollama models. Great f
 
 ---
 
+## Ollama Integrations: Where You Can Use Local Models
+
+Ollama connects to a growing ecosystem of tools. Most support one-command setup via `ollama launch <tool>`. Full details at [docs.ollama.com/integrations](https://docs.ollama.com/integrations).
+
+### Coding Agents (Terminal)
+
+| Tool | What It Does | Start |
+|------|-------------|-------|
+| [**Claude Code**](https://docs.ollama.com/integrations/claude-code) | Anthropic's agent — edits code, runs commands, web search, `/loop` scheduling | `ollama launch claude` |
+| [**Codex**](https://docs.ollama.com/integrations/codex) | OpenAI's CLI agent with `--oss` flag for local models | `ollama launch codex` |
+| [**Copilot CLI**](https://docs.ollama.com/integrations/copilot-cli) | GitHub's terminal agent — codebase-aware edits, headless CI/CD mode | `ollama launch copilot` |
+| [**OpenCode**](https://docs.ollama.com/integrations/opencode) | Open-source, lightweight terminal coding assistant | `ollama launch opencode` |
+| [**Droid**](https://docs.ollama.com/integrations/droid) | Factory AI's agent — needs 64K+ context | `ollama launch droid` |
+| [**Pi**](https://docs.ollama.com/integrations/pi) | Minimal agent with plugin system and autoresearch mode | `ollama launch pi` |
+| [**Pool**](https://docs.ollama.com/integrations/pool) | Poolside's enterprise terminal agent | `ollama launch pool` |
+| [**Goose**](https://docs.ollama.com/integrations/goose) | Block's agent — desktop app + CLI | `ollama launch goose` |
+
+### AI Assistants
+
+| Tool | What It Does | Start |
+|------|-------------|-------|
+| [**OpenClaw**](https://docs.ollama.com/integrations/openclaw) | Chat with local models via WhatsApp, Telegram, Slack, Discord, iMessage | `ollama launch openclaw` |
+| [**Hermes Agent**](https://docs.ollama.com/integrations/hermes) | 70+ skills, cross-session memory, messaging integration (Telegram, Discord, Signal, Email) | `ollama launch hermes` |
+| [**NemoClaw**](https://docs.ollama.com/integrations/nemoclaw) | NVIDIA's sandboxed OpenClaw — kernel-level security + audit trails | See [docs](https://docs.ollama.com/integrations/nemoclaw) |
+| [**Claude Desktop**](https://docs.ollama.com/integrations/claude-desktop) | Use Ollama Cloud models in Claude Desktop (Cowork + Code) | `ollama launch claude-desktop` |
+
+### IDEs & Editors
+
+| Tool | What It Does | Setup |
+|------|-------------|-------|
+| [**VS Code**](https://docs.ollama.com/integrations/vscode) | Models in Copilot Chat picker (VS Code 1.113+) | `ollama launch vscode` |
+| [**Cline**](https://docs.ollama.com/integrations/cline) | VS Code extension — set provider to Ollama, 32K+ context | Marketplace → configure |
+| [**Roo Code**](https://docs.ollama.com/integrations/roo-code) | Cline fork with same Ollama setup | Marketplace → configure |
+| [**JetBrains**](https://docs.ollama.com/integrations/jetbrains) | IntelliJ, PyCharm, WebStorm — needs JetBrains AI subscription | Settings → AI → Ollama |
+| [**Xcode**](https://docs.ollama.com/integrations/xcode) | Xcode 26+ with Apple Intelligence | Settings → Locally Hosted |
+| [**Zed**](https://docs.ollama.com/integrations/zed) | Native Ollama provider | Configure → Ollama |
+
+### Chat, RAG & Automation
+
+| Tool | What It Does | Setup |
+|------|-------------|-------|
+| [**Onyx**](https://docs.ollama.com/integrations/onyx) | Self-hosted chat with RAG, web search, agents, connectors (Drive, Slack, Email) | Docker → Ollama provider |
+| [**n8n**](https://docs.ollama.com/integrations/n8n) | Visual workflow automation with Ollama nodes | Credential → Ollama |
+| [**marimo**](https://docs.ollama.com/integrations/marimo) | Python notebook with AI chat + code completion | Settings → AI → Ollama |
+
+> **Tip**: Ollama exposes an OpenAI-compatible API at `http://localhost:11434/v1`. Any tool that supports a "custom OpenAI endpoint" can connect to Ollama — even if it's not listed here.
+
+---
+
 ## Speed Benchmarks: What to Expect on Apple Silicon
 
 Speed is measured in **tokens per second (tok/s)**. For reference, comfortable reading speed is about 4-5 tok/s, and fast typing speed is about 2 tok/s. Anything above 10 tok/s feels instant.
@@ -751,7 +840,7 @@ Speed is measured in **tokens per second (tok/s)**. For reference, comfortable r
 
 ### Intel/AMD Comparison
 
-On Intel/AMD laptops without a dedicated GPU, expect roughly **3-5x slower** speeds than Apple Silicon with the same RAM. This is because Apple's unified memory architecture lets the GPU access all RAM directly, while Intel/AMD systems run inference on CPU only (unless you have an NVIDIA GPU).
+On Intel/AMD laptops without a dedicated GPU, expect roughly **3-5x slower** speeds than Apple Silicon with the same RAM. An NVIDIA GPU closes this gap significantly.
 
 ---
 
@@ -771,11 +860,9 @@ On Intel/AMD laptops without a dedicated GPU, expect roughly **3-5x slower** spe
 | **Tool use / agents** | Basic (improving rapidly) | Advanced |
 | **Setup effort** | 10-30 minutes | Sign up and go |
 
-**When to use local**: Routine coding tasks, code completions, quick Q&A, document summarization, privacy-sensitive work, offline scenarios, avoiding subscription costs.
+**When to use local**: Routine coding tasks, code completions, quick Q&A, document summarization, privacy-sensitive work, offline scenarios.
 
-**When to use cloud**: Complex multi-step reasoning, large codebase refactoring, cutting-edge capabilities, when you need the absolute best quality, agent workflows with many tools.
-
-**Best approach**: Use both. Local for the 80% of routine tasks, cloud for the 20% that needs maximum capability.
+**When to use cloud**: Complex multi-step reasoning, large codebase refactoring, cutting-edge capabilities, agent workflows with many tools.
 
 ---
 
@@ -908,13 +995,12 @@ Open Draw Things (macOS) or ComfyUI → type a prompt → get an image for your 
 1. **Close unnecessary apps** before running models — browsers with many tabs are RAM-hungry
 2. **Use one model at a time** on 8-16 GB RAM — Ollama keeps models loaded in memory
 3. **Set `OLLAMA_MAX_LOADED_MODELS=1`** if you're tight on RAM — forces unloading before loading a new model
-4. **Override the default context window** — Ollama defaults to 2048 tokens, which is too small for most coding tasks. Use `--num-ctx 16384` or higher
-5. **Apple Silicon users**: your GPU shares RAM — this is actually an advantage since Ollama uses the GPU automatically
+4. **Override the default context window** — Ollama defaults to 2048 tokens. Use `--num-ctx 16384` or higher for coding tasks
+5. **Apple Silicon users**: Ollama uses the GPU automatically via unified memory
 6. **Check model size before pulling**: `ollama show <model>` shows the actual size, quantization, and license
 7. **SSD matters**: models load from disk on first use — an SSD makes this near-instant vs. minutes on HDD
 8. **Create custom Modelfiles** for your common tasks — a coding assistant with the right system prompt and temperature is noticeably better than the default
-9. **Use Open WebUI for document analysis** — upload PDFs, Word docs, or text files and chat about them
-10. **Keep Ollama updated** — new versions regularly add performance improvements and new model support (`brew upgrade ollama`)
+9. **Keep Ollama updated** — new versions regularly add performance improvements and new model support (`brew upgrade ollama`)
 
 ---
 
@@ -922,19 +1008,19 @@ Open Draw Things (macOS) or ComfyUI → type a prompt → get an image for your 
 
 ### Can local models replace ChatGPT/Claude?
 
-For simple tasks (code completions, explanations, summaries, quick questions) — yes, absolutely. For complex multi-step reasoning, large codebase analysis, or cutting-edge capabilities — cloud models still have a significant edge. The best approach is using local models for routine work and cloud models for complex tasks.
+For simple tasks (code completions, explanations, summaries, quick questions) — yes. For complex multi-step reasoning or large codebase analysis — cloud models still have a significant edge. Best approach: local for routine work, cloud for complex tasks.
 
 ### Is Apple Silicon better than Intel/AMD for local AI?
 
-Yes, significantly. Apple Silicon's unified memory architecture means the GPU can access all your RAM directly, without the bottleneck of copying data between CPU and GPU memory. An M1 with 16 GB outperforms most Intel laptops with 32 GB for AI inference. [Research from Apple](https://arxiv.org/html/2601.19139v1) demonstrates throughput of up to 525 tokens per second on M4 Max with optimized frameworks.
+Yes, significantly. Apple Silicon's unified memory lets the GPU access all RAM directly. An M1 with 16 GB outperforms most Intel laptops with 32 GB for AI inference. On Intel/AMD without a dedicated GPU, expect 3-5x slower speeds. [Research from Apple](https://arxiv.org/html/2601.19139v1) shows up to 525 tok/s on M4 Max with optimized frameworks.
 
 ### How much disk space do I need?
 
-Budget about 5-30 GB per model. A typical setup with 2-3 models needs 20-50 GB of free disk space. Models are stored in `~/.ollama/models/`.
+Budget 5-30 GB per model. A typical setup with 2-3 models needs 20-50 GB free. Models are stored in `~/.ollama/models/`.
 
 ### How fast are local models?
 
-On Apple Silicon, expect 15-50 tokens per second for most models — fast enough for interactive use. MoE models (like Qwen3 30B-A3B) are particularly fast because they only activate a fraction of their parameters per token. On Intel/AMD without a GPU, expect 3-10 tok/s, which is usable but noticeably slower. See the [speed benchmarks section](#speed-benchmarks-what-to-expect-on-apple-silicon) for detailed numbers.
+On Apple Silicon, expect 15-50 tok/s for most models — fast enough for interactive use. MoE models (like Qwen3 30B-A3B) are particularly fast because they only activate a fraction of their parameters per token. See the [speed benchmarks section](#speed-benchmarks-what-to-expect-on-apple-silicon) for detailed numbers.
 
 ### Can I use these models commercially?
 
@@ -955,11 +1041,11 @@ No. All models listed here run on CPU. However, Apple Silicon Macs and NVIDIA GP
 
 ### Can I run multiple models at the same time?
 
-Yes, Ollama can keep multiple models loaded. But each model consumes RAM while loaded. On 32 GB, you can comfortably run a chat model + an autocomplete model. On 16 GB or less, stick to one model at a time. Use `ollama ps` to see what's loaded and `OLLAMA_MAX_LOADED_MODELS=1` to limit it.
+Yes, but each model consumes RAM while loaded. On 32 GB, you can run a chat model + an autocomplete model. On 16 GB or less, stick to one model at a time. Set `OLLAMA_MAX_LOADED_MODELS=1` to force unloading before loading a new model.
 
 ### How do I use local AI for PDF/document analysis?
 
-The easiest way is [Open WebUI](https://github.com/open-webui/open-webui). Run it with Docker, connect it to your Ollama instance, and you can upload PDFs, Word documents, and text files directly in the chat interface. The tool extracts text from documents and feeds it to your local model for summarization, Q&A, and analysis.
+Use [Open WebUI](https://github.com/open-webui/open-webui) — run it with Docker (see [VS Code section above](#integrate-with-vs-code-coding-assistant-setup)), upload documents in the chat, and ask questions. Also works with [Onyx](https://onyx.app) for team setups.
 
 ---
 
@@ -976,5 +1062,14 @@ The easiest way is [Open WebUI](https://github.com/open-webui/open-webui). Run i
 - [Draw Things](https://drawthings.ai) — macOS native image generation
 - [Open WebUI](https://github.com/open-webui/open-webui) — Self-hosted ChatGPT-like interface with document upload
 - [Hugging Face Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard) — Model benchmarks and comparisons
+- [llama.cpp](https://github.com/ggml-org/llama.cpp) — The C/C++ inference engine behind Ollama
+- [MLX](https://github.com/ml-explore/mlx) — Apple's native array framework for Apple Silicon
+- [LM Studio](https://lmstudio.ai) — Desktop app for local model management and chat
+- [Jan](https://jan.ai) — Open-source offline ChatGPT alternative
+- [GPT4All](https://gpt4all.io) — One-click local AI by Nomic AI
+- [LocalAI](https://localai.io) — OpenAI-compatible multimodal local API server
+- [vLLM](https://github.com/vllm-project/vllm) — Production-grade inference serving
+- [SGLang](https://github.com/sgl-project/sglang) — High-throughput LLM serving framework
+- [Ollama Integrations](https://docs.ollama.com/integrations) — Full list of official Ollama integrations
 - [tps.sh](https://tps.sh) — Community tokens-per-second benchmarks
 - [Apple Silicon LLM Inference Research](https://arxiv.org/html/2601.19139v1) — Native inference performance on Apple Silicon
