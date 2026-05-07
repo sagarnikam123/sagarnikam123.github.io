@@ -131,8 +131,8 @@ The **context window** is how much text a model can "see" at once — your promp
 **Important**: [Ollama defaults to 2048 tokens](https://docs.ollama.com/context-length) regardless of what the model supports. You need to explicitly set a larger context:
 
 ```bash
-# Set context window when running
-ollama run qwen3:30b-a3b --num-ctx 32768
+# To set context window, use the API or a Modelfile
+# Or interactively in the prompt type: /set parameter num_ctx 32768
 
 # Or in API calls
 curl http://localhost:11434/api/generate -d '{
@@ -194,6 +194,7 @@ With 8 GB, you can run one small model at a time. Close unnecessary apps (especi
 | Tool | Size | Command | Strengths |
 |------|------|---------|-----------|
 | **Whisper.cpp (small)** | ~0.5 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Fast transcription, decent accuracy |
+| **Whisper.cpp (large-v3-turbo q5)** | ~0.57 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Near-large quality, fast — best value |
 | **Whisper.cpp (base)** | ~0.15 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Ultra-light, basic accuracy |
 
 #### Text-to-Speech
@@ -240,6 +241,7 @@ This is where local AI becomes genuinely useful. You can run 7B-14B models comfo
 
 | Tool | Size | Command | Strengths |
 |------|------|---------|-----------|
+| **Whisper.cpp (large-v3-turbo q5)** | ~0.57 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Best speed/quality ratio — recommended |
 | **Whisper.cpp (medium)** | ~1.5 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Good accuracy, handles accents well |
 | **Whisper.cpp (small)** | ~0.5 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Faster, slightly less accurate |
 
@@ -285,6 +287,7 @@ You can run larger models and even keep two smaller models loaded simultaneously
 
 | Tool | Size | Command | Strengths |
 |------|------|---------|-----------|
+| **Whisper.cpp (large-v3-turbo q5)** | ~0.57 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Best speed/quality — recommended |
 | **Whisper.cpp (large-v3)** | ~3 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Best transcription quality |
 | **Whisper.cpp (medium)** | ~1.5 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Good balance of speed and accuracy |
 
@@ -345,6 +348,7 @@ This is the best consumer-level experience. You can run the largest open models 
 
 | Tool | Size | Command | Strengths |
 |------|------|---------|-----------|
+| **Whisper.cpp (large-v3-turbo q5)** | ~0.57 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Best speed/quality — recommended for most |
 | **Whisper.cpp (large-v3)** | ~3 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Best local transcription quality |
 
 #### Text-to-Speech
@@ -408,8 +412,8 @@ ollama run gemma4
 # Ask a coding question
 ollama run qwen2.5-coder:7b "Write a Python function to merge two sorted lists"
 
-# Run with larger context window
-ollama run qwen3:30b-a3b --num-ctx 32768
+# To run with larger context window, create a Modelfile with PARAMETER num_ctx 32768
+# Or use the interactive prompt: /set parameter num_ctx 32768
 ```
 
 ### Step 4: Verify the API
@@ -487,33 +491,69 @@ Ollama is the easiest starting point, but it's not the only option. Here's a qui
 
 [Whisper.cpp](https://github.com/ggerganov/whisper.cpp) runs OpenAI's Whisper speech-to-text model locally using optimized C++ code. It's fast on Apple Silicon and modern CPUs.
 
-### Install and Run
+### Step 1: Install via Homebrew
 
 ```bash
-# Install via Homebrew (macOS)
+# Install whisper-cpp (macOS)
 brew install whisper-cpp
 
-# Download a model (choose by your RAM)
-# Base (~0.15 GB) — fastest, basic accuracy, for 8 GB RAM
-whisper-cpp-download-ggml-model base
+# Verify — the CLI binary is called whisper-cli
+whisper-cli --help
+```
 
-# Small (~0.5 GB) — fast, good for 8-16 GB RAM
-whisper-cpp-download-ggml-model small
+> **Note**: The Homebrew package installs the binary as `whisper-cli`, not `whisper-cpp`. It does **not** include a model download script — you need to download GGML model files manually.
 
-# Medium (~1.5 GB) — balanced, good for 16-24 GB RAM
-whisper-cpp-download-ggml-model medium
+### Step 2: Download a Model
 
-# Large-v3 (~3 GB) — best quality, for 24-32 GB RAM
-whisper-cpp-download-ggml-model large-v3
+Models are hosted at [huggingface.co/ggerganov/whisper.cpp](https://huggingface.co/ggerganov/whisper.cpp/tree/main). Download the `.bin` file that matches your RAM budget:
 
-# Transcribe an audio file
-whisper-cpp -m ~/.local/share/whisper-cpp/ggml-medium.bin -f recording.wav
+```bash
+# Create a directory for models
+mkdir -p ~/.local/share/whisper-cpp
 
-# Transcribe with SRT subtitles
-whisper-cpp -m ~/.local/share/whisper-cpp/ggml-medium.bin -f meeting.wav --output-srt
+# Recommended: large-v3-turbo quantized (574 MB) — best speed/quality ratio
+curl -L -o ~/.local/share/whisper-cpp/ggml-large-v3-turbo-q5_0.bin \
+  https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-large-v3-turbo-q5_0.bin
+```
 
-# Transcribe with timestamps (plain text)
-whisper-cpp -m ~/.local/share/whisper-cpp/ggml-medium.bin -f meeting.wav --output-txt
+#### Which Model to Choose?
+
+| Model File | Size | Speed | Accuracy | Best For |
+|-----------|------|-------|----------|----------|
+| `ggml-tiny.bin` | 78 MB | Fastest | Basic | Quick tests |
+| `ggml-base.bin` | 148 MB | Very fast | Decent | Clear speech, low RAM |
+| `ggml-small.bin` | 488 MB | Fast | Good | Meetings, podcasts |
+| `ggml-medium.bin` | 1.53 GB | Moderate | Very good | Accented speech, noisy audio |
+| `ggml-large-v3-turbo-q5_0.bin` | 574 MB | Fast | Excellent | **Best pick — large quality at medium speed** |
+| `ggml-large-v3.bin` | 3.1 GB | Slow | Best | Professional transcription |
+
+> **Pro tip**: The `large-v3-turbo` model is a distilled version of large-v3 — nearly the same accuracy but ~4x faster. The `q5_0` quantized variant (574 MB) is the sweet spot for most users.
+
+**Multilingual vs English-only**: Files with `.en` in the name (e.g., `ggml-medium.en.bin`) are English-only and slightly more accurate for English. Files without `.en` support all languages. The `large-v3-turbo` is multilingual only.
+
+To download a different model, swap the filename in the URL:
+
+```bash
+# Example: download small model (488 MB)
+curl -L -o ~/.local/share/whisper-cpp/ggml-small.bin \
+  https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-small.bin
+
+# Example: download medium English-only (1.53 GB)
+curl -L -o ~/.local/share/whisper-cpp/ggml-medium.en.bin \
+  https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-medium.en.bin
+```
+
+### Step 3: Transcribe
+
+```bash
+# Basic transcription
+whisper-cli -m ~/.local/share/whisper-cpp/ggml-large-v3-turbo-q5_0.bin -f recording.wav
+
+# Output as SRT subtitles
+whisper-cli -m ~/.local/share/whisper-cpp/ggml-large-v3-turbo-q5_0.bin -f meeting.wav --output-srt
+
+# Output with timestamps (plain text)
+whisper-cli -m ~/.local/share/whisper-cpp/ggml-large-v3-turbo-q5_0.bin -f meeting.wav --output-txt
 ```
 
 ### Supported Audio Formats
@@ -528,15 +568,6 @@ ffmpeg -i input.mp3 -ar 16000 -ac 1 -c:a pcm_s16le output.wav
 ffmpeg -i voice-memo.m4a -ar 16000 -ac 1 -c:a pcm_s16le output.wav
 ```
 
-### Whisper Model Comparison
-
-| Model | Size | Speed (1 min audio) | Accuracy | Best For |
-|-------|------|-------------------|----------|----------|
-| **base** | 150 MB | ~3 sec | Basic | Quick notes, clear speech |
-| **small** | 500 MB | ~8 sec | Good | Meetings, podcasts |
-| **medium** | 1.5 GB | ~15 sec | Very good | Accented speech, noisy audio |
-| **large-v3** | 3 GB | ~30 sec | Excellent | Professional transcription |
-
 *Speed estimates on Apple M2, will vary by hardware.*
 
 ---
@@ -545,28 +576,47 @@ ffmpeg -i voice-memo.m4a -ar 16000 -ac 1 -c:a pcm_s16le output.wav
 
 [Piper](https://github.com/OHF-Voice/piper1-gpl) is a fast, local neural text-to-speech engine. It runs entirely on CPU, needs minimal RAM (~60-100 MB per voice), and supports 30+ languages.
 
-### Install and Run
+### Install
 
 ```bash
 # Install via pip
 pip install piper-tts
+```
 
-# List available voices
-piper --list-voices
+### Download a Voice Model
 
-# Generate speech (downloads voice model automatically on first use)
+Piper requires a model file (`.onnx`) and its config (`.onnx.json`). Browse available voices at [huggingface.co/rhasspy/piper-voices](https://huggingface.co/rhasspy/piper-voices/tree/main).
+
+```bash
+# Create a directory for voice models
+mkdir -p ~/.local/share/piper-voices
+
+# Download a US English voice (medium quality, ~60 MB)
+curl -L -o ~/.local/share/piper-voices/en_US-lessac-medium.onnx \
+  https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/medium/en_US-lessac-medium.onnx
+
+curl -L -o ~/.local/share/piper-voices/en_US-lessac-medium.onnx.json \
+  https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/medium/en_US-lessac-medium.onnx.json
+```
+
+### Generate Speech
+
+```bash
+# Generate speech to a WAV file
 echo "Hello, this is a test of local text to speech." | \
-  piper --model en_US-lessac-medium --output_file output.wav
+  piper -m ~/.local/share/piper-voices/en_US-lessac-medium.onnx -f output.wav
 
 # Play directly (macOS)
 echo "The build failed with 3 errors." | \
-  piper --model en_US-lessac-medium --output_raw | \
+  piper -m ~/.local/share/piper-voices/en_US-lessac-medium.onnx --output-raw | \
   afplay -f wav -
 
-# Use a high-quality voice
-echo "Your deployment is complete." | \
-  piper --model en_US-lessac-high --output_file output.wav
+# Pipe from a file
+cat notes.txt | \
+  piper -m ~/.local/share/piper-voices/en_US-lessac-medium.onnx -f notes-audio.wav
 ```
+
+> **Note**: Piper does not have a `--list-voices` flag. You choose a voice by downloading its `.onnx` + `.onnx.json` files and passing the path via `-m`. Browse voices with audio samples at [rhasspy.github.io/piper-samples](https://rhasspy.github.io/piper-samples/).
 
 ### Use Cases for Local TTS
 
@@ -771,29 +821,23 @@ Open `http://localhost:3000` — it auto-detects all your Ollama models. Great f
 
 ## Ollama Integrations: Where You Can Use Local Models
 
-Ollama connects to a growing ecosystem of tools. Most support one-command setup via `ollama launch <tool>`. Full details at [docs.ollama.com/integrations](https://docs.ollama.com/integrations).
+Ollama acts as a background API server at `http://localhost:11434`. You can connect a massive ecosystem of external tools to it by simply pointing their API endpoint settings to your local machine.
 
 ### Coding Agents (Terminal)
 
-| Tool | What It Does | Start |
+| Tool | What It Does | Setup |
 |------|-------------|-------|
-| [**Claude Code**](https://docs.ollama.com/integrations/claude-code) | Anthropic's agent — edits code, runs commands, web search, `/loop` scheduling | `ollama launch claude` |
-| [**Codex**](https://docs.ollama.com/integrations/codex) | OpenAI's CLI agent with `--oss` flag for local models | `ollama launch codex` |
-| [**Copilot CLI**](https://docs.ollama.com/integrations/copilot-cli) | GitHub's terminal agent — codebase-aware edits, headless CI/CD mode | `ollama launch copilot` |
-| [**OpenCode**](https://docs.ollama.com/integrations/opencode) | Open-source, lightweight terminal coding assistant | `ollama launch opencode` |
-| [**Droid**](https://docs.ollama.com/integrations/droid) | Factory AI's agent — needs 64K+ context | `ollama launch droid` |
-| [**Pi**](https://docs.ollama.com/integrations/pi) | Minimal agent with plugin system and autoresearch mode | `ollama launch pi` |
-| [**Pool**](https://docs.ollama.com/integrations/pool) | Poolside's enterprise terminal agent | `ollama launch pool` |
-| [**Goose**](https://docs.ollama.com/integrations/goose) | Block's agent — desktop app + CLI | `ollama launch goose` |
+| [**Aider**](https://aider.chat/) | AI pair programming in your terminal | Run with `aider --model ollama/qwen2.5-coder:7b` |
+| [**Goose**](https://block.github.io/goose/) | Block's agent — desktop app + CLI | Select "Ollama" in provider settings |
+| [**Claude Code**](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) | Anthropic's terminal agent | Configure custom API endpoint to localhost:11434 |
 
 ### AI Assistants
 
-| Tool | What It Does | Start |
+| Tool | What It Does | Setup |
 |------|-------------|-------|
-| [**OpenClaw**](https://docs.ollama.com/integrations/openclaw) | Chat with local models via WhatsApp, Telegram, Slack, Discord, iMessage | `ollama launch openclaw` |
-| [**Hermes Agent**](https://docs.ollama.com/integrations/hermes) | 70+ skills, cross-session memory, messaging integration (Telegram, Discord, Signal, Email) | `ollama launch hermes` |
-| [**NemoClaw**](https://docs.ollama.com/integrations/nemoclaw) | NVIDIA's sandboxed OpenClaw — kernel-level security + audit trails | See [docs](https://docs.ollama.com/integrations/nemoclaw) |
-| [**Claude Desktop**](https://docs.ollama.com/integrations/claude-desktop) | Use Ollama Cloud models in Claude Desktop (Cowork + Code) | `ollama launch claude-desktop` |
+| [**AnythingLLM**](https://anythingllm.com/) | Desktop app with built-in RAG and document chat | Select Ollama as LLM provider |
+| [**Msty**](https://msty.app/) | Clean multi-model chat interface | Auto-detects local Ollama instance |
+| [**Chatbox**](https://chatboxai.app/) | Cross-platform desktop client for multiple AI APIs | Set provider to Ollama |
 
 ### IDEs & Editors
 
@@ -963,7 +1007,7 @@ Open [Open WebUI](http://localhost:3000), upload a PDF specification document, a
 ffmpeg -i meeting.m4a -ar 16000 -ac 1 -c:a pcm_s16le meeting.wav
 
 # Transcribe with timestamps
-whisper-cpp -m ~/.local/share/whisper-cpp/ggml-medium.bin \
+whisper-cli -m ~/.local/share/whisper-cpp/ggml-large-v3-turbo-q5_0.bin \
   -f meeting.wav --output-srt
 ```
 
@@ -981,7 +1025,7 @@ Open Draw Things (macOS) or ComfyUI → type a prompt → get an image for your 
 | **Coding (chat)** | Qwen2.5-Coder 3B | Qwen2.5-Coder 7B | Codestral 22B | Qwen3-Coder 30B |
 | **Tab autocomplete** | DeepSeek-Coder 1.3B | Qwen2.5-Coder 7B | Qwen2.5-Coder 7B | Qwen2.5-Coder 7B |
 | **Image understanding** | MiniCPM-V 3B | Gemma 4 E4B | Gemma 4 26B | Gemma 4 31B |
-| **Audio transcription** | Whisper small | Whisper medium | Whisper large-v3 | Whisper large-v3 |
+| **Audio transcription** | Whisper small | Whisper large-v3-turbo q5 | Whisper large-v3-turbo q5 | Whisper large-v3 |
 | **Text-to-speech** | Piper medium | Piper medium | Piper high | Piper high |
 | **Image generation** | SD 1.5 | SDXL | SDXL + refiner | FLUX.1-dev |
 | **Summarization** | Phi-4 Mini | Mistral 7B | Mistral Small 24B | Qwen3 30B-A3B |
@@ -993,9 +1037,9 @@ Open Draw Things (macOS) or ComfyUI → type a prompt → get an image for your 
 ## Tips for the Best Experience
 
 1. **Close unnecessary apps** before running models — browsers with many tabs are RAM-hungry
-2. **Use one model at a time** on 8-16 GB RAM — Ollama keeps models loaded in memory
-3. **Set `OLLAMA_MAX_LOADED_MODELS=1`** if you're tight on RAM — forces unloading before loading a new model
-4. **Override the default context window** — Ollama defaults to 2048 tokens. Use `--num-ctx 16384` or higher for coding tasks
+2. **Use one model at a time** on 8-16 GB RAM — Ollama keeps models loaded in memory.
+3. **Unload models to free RAM** — Use `ollama stop <model>` to forcefully clear a model from memory, or start Ollama with `OLLAMA_KEEP_ALIVE=0` so models unload immediately after a request finishes.
+4. **Override the default context window** — Ollama defaults to 2048 tokens. Set `PARAMETER num_ctx 16384` in a Modelfile for coding tasks.
 5. **Apple Silicon users**: Ollama uses the GPU automatically via unified memory
 6. **Check model size before pulling**: `ollama show <model>` shows the actual size, quantization, and license
 7. **SSD matters**: models load from disk on first use — an SSD makes this near-instant vs. minutes on HDD
@@ -1041,7 +1085,7 @@ No. All models listed here run on CPU. However, Apple Silicon Macs and NVIDIA GP
 
 ### Can I run multiple models at the same time?
 
-Yes, but each model consumes RAM while loaded. On 32 GB, you can run a chat model + an autocomplete model. On 16 GB or less, stick to one model at a time. Set `OLLAMA_MAX_LOADED_MODELS=1` to force unloading before loading a new model.
+Yes, but each model consumes RAM while loaded. On 32 GB, you can run a chat model + an autocomplete model. On 16 GB or less, stick to one model at a time. You can use the command `ollama stop <model>` to forcefully unload a model and free up RAM before loading a new one.
 
 ### How do I use local AI for PDF/document analysis?
 
