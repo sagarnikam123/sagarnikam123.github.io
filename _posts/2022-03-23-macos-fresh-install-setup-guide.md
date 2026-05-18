@@ -220,7 +220,7 @@ brew install --cask jetbrains-toolbox eclipse-ide android-studio
 ```bash
 brew install --cask claude-code codex-app openclaw
 brew install anomalyco/tap/opencode
-brew install ollama
+brew install --cask ollama-app
 brew install --cask gpt4all lm-studio
 curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh | bash
 ```
