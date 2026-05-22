@@ -35,7 +35,7 @@ This guide covers everything: how to pick the right model for your hardware, how
 - [Setup Guide: Image Generation](#setup-guide-image-generation-stable-diffusion)
 - [What About Video Generation?](#what-about-video-generation)
 - [Customizing Models with Modelfile](#customizing-models-with-modelfile)
-- [Integrate with VS Code](#integrate-with-vs-code-coding-assistant-setup)
+- [Integrate with Your Editor & Workflow](#integrate-with-your-editor--workflow)
 - [Ollama Integrations](#ollama-integrations-where-you-can-use-local-models)
 - [Speed Benchmarks: What to Expect](#speed-benchmarks-what-to-expect-on-apple-silicon)
 - [Local vs Cloud: Honest Comparison](#local-vs-cloud-honest-comparison)
@@ -96,6 +96,8 @@ Models come in different **quantization levels** that trade quality for size:
 Most models on Ollama default to **Q4_K_M** — a good balance. You don't need to worry about this unless you're optimizing for a specific RAM budget.
 
 > **Pro tip**: A bigger model at lower quantization (e.g., 14B at Q3) often outperforms a smaller model at higher quantization (e.g., 7B at Q8). When a model barely fits your RAM, try the next smaller quantization rather than dropping to a smaller model.
+
+> **Look for "Unsloth Dynamic" GGUFs**: When downloading models from Hugging Face, you'll often see versions uploaded by [Unsloth](https://unsloth.ai). Their "Dynamic 2.0" quantization intelligently varies precision per layer — giving important layers higher precision and less critical ones lower. The result: better quality at the same file size (benchmarks show +1% accuracy while being 2 GB smaller than standard quants). If you see both a regular GGUF and an Unsloth GGUF for the same model, prefer the Unsloth version.
 
 ---
 
@@ -170,7 +172,7 @@ With 8 GB, you can run one small model at a time. Close unnecessary apps (especi
 
 | Model | Size | Command | Context | Strengths |
 |-------|------|---------|---------|-----------|
-| **Gemma 4 E2B** | ~7.2 GB | `ollama pull gemma4:e2b` | 128K | Google's latest, vision built-in, tight fit on 8 GB |
+| **Gemma 4 E2B** | ~7.2 GB | `ollama pull gemma4:e2b` | 128K | Google's latest, vision built-in. ⚠️ Tight fit — requires closing all apps, will use swap on 8 GB |
 | **Gemma 3 4B** | ~3.3 GB | `ollama pull gemma3:4b` | 128K | Efficient small model, good general knowledge |
 | **Phi-4 Mini 3.8B** | ~2.5 GB | `ollama pull phi4-mini` | 16K | Microsoft's small model, strong reasoning for its size |
 | **Llama 3.2 3B** | ~2 GB | `ollama pull llama3.2:3b` | 128K | Meta's compact model, fast and capable |
@@ -457,12 +459,15 @@ Ollama is the easiest starting point, but it's not the only option. Here's a qui
 |------|-----------|----------|-------------|
 | [**llama.cpp**](https://github.com/ggml-org/llama.cpp) | The C/C++ inference engine Ollama is built on | Maximum control over quantization, context, and parameters | ✅ Yes |
 | [**MLX / mlx-lm**](https://github.com/ml-explore/mlx) | Apple's native framework for Apple Silicon | Fastest inference on Macs — up to 4x faster than llama.cpp for some models | ✅ Yes |
+| [**oMLX**](https://omlx.ai) | macOS-native MLX server with SSD KV caching. Drops TTFT from 90s to <5s for coding agents. Continuous batching, OpenAI + Anthropic API compatible | Apple Silicon users running coding agents (Claude Code, Cursor, OpenClaw). 14.8k+ stars | ✅ Yes (Apache 2.0) |
 | [**LocalAI**](https://localai.io) | OpenAI-compatible API server with multimodal support | Text, images, audio, embeddings — all through one API. Supports GGUF, GPTQ, AWQ, Safetensors | ✅ Yes |
 
 ### Desktop Apps (GUI)
 
 | Tool | What It Is | Best For | Open Source |
 |------|-----------|----------|-------------|
+| [**Unsloth Studio**](https://unsloth.ai/docs/new/studio) | Web UI for running GGUF/safetensor models + no-code fine-tuning, model arena, data recipes | Run and train models locally with observability. Compare models side-by-side. Mac/Windows/Linux | ✅ Yes (AGPL-3.0) |
+| [**Pinokio**](https://pinokio.co) | One-click app store for local AI tools. Browse, install, and run ComfyUI, Whisper, TTS, LLMs, and 160+ AI apps with zero setup | Non-technical users who want to try many local AI tools without terminal commands | ✅ Yes |
 | [**LM Studio**](https://lmstudio.ai) | Polished desktop app with model browser, chat UI, and local API server | Beginners, model comparison, "Chat with Documents" RAG. Supports GGUF + MLX formats | ❌ Free, not OSS |
 | [**Jan**](https://jan.ai) | Offline ChatGPT alternative with desktop app and CLI | Privacy-first users who want a clean chat interface with zero cloud dependency | ✅ Yes |
 | [**GPT4All**](https://gpt4all.io) | One-click desktop app by Nomic AI | Non-technical users who want local chat + document Q&A with minimal setup | ✅ Yes |
@@ -481,9 +486,8 @@ Ollama is the easiest starting point, but it's not the only option. Here's a qui
 |------|-----------|----------|-------------|
 | [**Docker Model Runner**](https://docs.docker.com) | Run GGUF models directly from Docker Desktop | Teams already in container workflows — pull models like Docker images | Partial |
 | [**Lemonade**](https://github.com/amd/lemonade) | AMD's tool for Ryzen AI NPU hardware | AMD laptop users with dedicated NPUs — includes MCP tool calling | ✅ Yes |
-| [**Msty**](https://msty.app) | Multi-model manager with desktop UI | Power users juggling multiple models and backends | ❌ Free, not OSS |
 
-> **Which should you pick?** For most readers of this guide: start with **Ollama** (simplest CLI + API), try **LM Studio** if you prefer a GUI, and look at **MLX** if you're on Apple Silicon and want maximum speed. Everything else is for specialized needs.
+> **Which should you pick?** For most readers of this guide: start with **Ollama** (simplest CLI + API), try **LM Studio** or **Unsloth Studio** if you prefer a GUI (Unsloth is open-source and adds fine-tuning + model arena), use **Pinokio** if you want one-click installs for image/audio/video AI tools, use **oMLX** if you're on Apple Silicon and want the fastest inference for coding agents, use **Goose** or **OpenClaw** if you want an agentic workflow with local models. Everything else is for specialized needs.
 
 ---
 
@@ -654,6 +658,13 @@ python main.py
 # Open http://localhost:8188 in your browser
 ```
 
+### Easiest Install: Stability Matrix or Pinokio
+
+If you don't want to deal with Python environments and git clones:
+
+- [**Stability Matrix (Lykos AI)**](https://lykos.ai) — Multi-platform package manager for Stable Diffusion. One-click install of ComfyUI, A1111, Forge. Manages Python environments, models, and extensions automatically. Open-source.
+- [**Pinokio**](https://pinokio.co) — App store-like launcher for 160+ local AI tools including ComfyUI, Whisper, TTS, and more. Browse, click install, run. No terminal needed.
+
 ### Image Model Recommendations by RAM
 
 | RAM | Model | Size | Quality | Generation Time |
@@ -743,13 +754,13 @@ the tone and style the user is going for."""
 
 ---
 
-## Integrate with VS Code: Coding Assistant Setup
+## Integrate with Your Editor & Workflow
 
 The real power of local AI comes when it's integrated into your editor. Here's how to set up a full coding assistant experience in VS Code.
 
 ### Option 1: Continue (Recommended)
 
-[Continue](https://continue.dev) is the most popular open-source AI coding extension. It supports Ollama natively.
+[Continue](https://github.com/continuedev/continue) is the most popular open-source AI coding extension. It supports Ollama natively.
 
 **Install:**
 
@@ -788,14 +799,14 @@ tabAutocompleteModel:
 - **Context awareness** — reference files with `@file`, codebase with `@codebase`
 - **Document analysis** — drag PDFs or docs into the chat for summarization and Q&A
 
-### Option 2: Cody (Sourcegraph)
+### Option 2: Cline (Agentic Coding)
 
-[Cody](https://sourcegraph.com/cody) also supports Ollama as a backend:
+[Cline](https://github.com/cline/cline) is an open-source VS Code extension that acts as an autonomous coding agent — it can create files, run terminal commands, and iterate on code with your approval:
 
-1. Install the Cody extension in VS Code
-2. In VS Code settings, search for "Cody Ollama"
-3. Set the Ollama endpoint: `http://localhost:11434`
-4. Select your model
+1. Install the Cline extension from VS Code Marketplace
+2. In settings, set provider to "Ollama"
+3. Set the endpoint to `http://localhost:11434`
+4. Select your model (recommend 32K+ context for best results)
 
 ### Option 3: Open WebUI (Browser-Based Chat)
 
@@ -823,27 +834,38 @@ Open `http://localhost:3000` — it auto-detects all your Ollama models. Great f
 
 Ollama acts as a background API server at `http://localhost:11434`. You can connect a massive ecosystem of external tools to it by simply pointing their API endpoint settings to your local machine.
 
-### Coding Agents (Terminal)
+### Coding Agents (Terminal & Desktop)
 
 | Tool | What It Does | Setup |
 |------|-------------|-------|
+| [**OpenCode**](https://opencode.ai) | Open-source (MIT) AI coding agent — terminal, VS Code, desktop. 75+ providers including Ollama. 153k+ GitHub stars | Install binary, set provider to Ollama. `curl -fsSL https://opencode.ai/install.sh \| bash` |
+| [**Goose**](https://goose-docs.ai) | Open-source AI agent (Apache 2.0) — desktop app, CLI, and API. 70+ MCP extensions, subagents, recipes. Now under the Agentic AI Foundation (Linux Foundation) | Select "Ollama" in provider settings. Install via `curl -fsSL https://github.com/aaif-goose/goose/releases/download/stable/download_cli.sh \| bash` |
+| [**OpenHands**](https://www.all-hands.dev) | Autonomous coding agent — sandboxed execution, reads repos, edits files, runs tests, iterates. 72k+ stars. Has its own OpenHands-LM 32B model | `pip install openhands` or Docker. Set LLM provider to Ollama |
+| [**Pi**](https://pi.dev) | Minimal open-source terminal coding agent. Extensible via TypeScript skills, prompt templates, themes. Supports Ollama/oMLX | `npm install -g @anthropic-ai/pi` → configure local model provider |
 | [**Aider**](https://aider.chat/) | AI pair programming in your terminal | Run with `aider --model ollama/qwen2.5-coder:7b` |
-| [**Goose**](https://block.github.io/goose/) | Block's agent — desktop app + CLI | Select "Ollama" in provider settings |
-| [**Claude Code**](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) | Anthropic's terminal agent | Configure custom API endpoint to localhost:11434 |
+| [**Fabric**](https://github.com/danielmiessler/fabric) | CLI framework with 100+ crowdsourced AI prompt "patterns" (summarize, extract wisdom, write essays). Pipe any text through it | `go install github.com/danielmiessler/fabric@latest` then `fabric --setup` → select Ollama |
+| [**Claude Code**](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) | Anthropic's terminal agent | Requires Anthropic API key or OpenAI-compatible proxy to use with local models |
 
 ### AI Assistants
 
 | Tool | What It Does | Setup |
 |------|-------------|-------|
+| [**Hermes Agent**](https://github.com/NousResearch/hermes-agent) | Self-improving AI agent by Nous Research (MIT, 163k+ stars). Built-in learning loop — creates skills from experience, persistent memory, cron scheduling, subagent delegation. Works with any model including Ollama. Talks via Telegram, Discord, Slack, WhatsApp, Signal, or CLI | `curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh \| bash` then `hermes model` → select Ollama |
+| [**OpenClaw**](https://openclaw.ai) | Open-source personal AI assistant. Persistent memory, browser control, file access, self-extending skills. Talk to it via WhatsApp, Telegram, Discord, or iMessage. Note: primarily uses cloud APIs (Claude/GPT); local model support is limited and community-reported as less reliable | `curl -fsSL https://openclaw.ai/install.sh \| bash` → connect chat app |
+| [**Khoj**](https://khoj.dev) | Self-hosted "AI second brain" — chat with docs, web search, custom agents, scheduled automations. Obsidian & Emacs plugins | `pip install khoj` or Docker. Set LLM to Ollama in admin settings |
 | [**AnythingLLM**](https://anythingllm.com/) | Desktop app with built-in RAG and document chat | Select Ollama as LLM provider |
 | [**Msty**](https://msty.app/) | Clean multi-model chat interface | Auto-detects local Ollama instance |
 | [**Chatbox**](https://chatboxai.app/) | Cross-platform desktop client for multiple AI APIs | Set provider to Ollama |
+| [**Enchanted**](https://github.com/gluonfield/enchanted) | Native iOS/macOS app for chatting with Ollama models. Free on App Store | Install from App Store → set Ollama server endpoint in settings |
+
+> **Hermes Agent vs OpenClaw**: Hermes is the spiritual successor to OpenClaw (has built-in `hermes claw migrate`). Hermes is the better fit for this guide: first-class Ollama support, self-improving skills, MIT license, 163k stars, and runs on any server — not tied to your laptop. OpenClaw works but is more tightly coupled to cloud APIs for reliable tool-calling.
 
 ### IDEs & Editors
 
 | Tool | What It Does | Setup |
 |------|-------------|-------|
 | [**VS Code**](https://docs.ollama.com/integrations/vscode) | Models in Copilot Chat picker (VS Code 1.113+) | `ollama launch vscode` |
+| [**Continue**](https://github.com/continuedev/continue) | Open-source AI code assistant — chat, autocomplete, inline edit. Works with Ollama, LM Studio, any local model | Marketplace → configure Ollama endpoint |
 | [**Cline**](https://docs.ollama.com/integrations/cline) | VS Code extension — set provider to Ollama, 32K+ context | Marketplace → configure |
 | [**Roo Code**](https://docs.ollama.com/integrations/roo-code) | Cline fork with same Ollama setup | Marketplace → configure |
 | [**JetBrains**](https://docs.ollama.com/integrations/jetbrains) | IntelliJ, PyCharm, WebStorm — needs JetBrains AI subscription | Settings → AI → Ollama |
@@ -855,6 +877,8 @@ Ollama acts as a background API server at `http://localhost:11434`. You can conn
 | Tool | What It Does | Setup |
 |------|-------------|-------|
 | [**Onyx**](https://docs.ollama.com/integrations/onyx) | Self-hosted chat with RAG, web search, agents, connectors (Drive, Slack, Email) | Docker → Ollama provider |
+| [**Kotaemon**](https://github.com/Cinnamon/kotaemon) | Open-source RAG tool for chatting with documents — clean UI, citation support, multi-model | `pip install kotaemon` or Docker → set Ollama endpoint |
+| [**PrivateGPT**](https://github.com/zylon-ai/private-gpt) | Ingest entire document collections into vector space, query via API. 100% local RAG pipeline | Docker or pip install → configure Ollama as LLM provider |
 | [**n8n**](https://docs.ollama.com/integrations/n8n) | Visual workflow automation with Ollama nodes | Credential → Ollama |
 | [**marimo**](https://docs.ollama.com/integrations/marimo) | Python notebook with AI chat + code completion | Settings → AI → Ollama |
 
@@ -886,6 +910,15 @@ Speed is measured in **tokens per second (tok/s)**. For reference, comfortable r
 
 On Intel/AMD laptops without a dedicated GPU, expect roughly **3-5x slower** speeds than Apple Silicon with the same RAM. An NVIDIA GPU closes this gap significantly.
 
+### NVIDIA GPU Users (Linux/Windows)
+
+If you have a dedicated NVIDIA GPU (RTX 3060–4090), local AI performance is excellent:
+
+- **VRAM is king**: Models loaded into GPU VRAM run 3-10x faster than CPU-only. A 12 GB VRAM GPU can run 7B models at 60-100+ tok/s.
+- **VRAM + system RAM**: Ollama automatically splits models between GPU and CPU when the model exceeds VRAM. A 24 GB model on a 12 GB GPU will partially offload to CPU — slower than full GPU but still faster than CPU-only.
+- **Practical guidance**: RTX 3060 (12 GB) → comfortable with 7B models. RTX 4070 Ti (12 GB) → same capacity, faster. RTX 4090 (24 GB) → runs 14B-22B models entirely in VRAM.
+- **Setup**: Ollama auto-detects NVIDIA GPUs on Linux/Windows. No extra config needed — just install the [NVIDIA drivers](https://docs.ollama.com/gpu) and Ollama handles the rest.
+
 ---
 
 ## Local vs Cloud: Honest Comparison
@@ -901,7 +934,7 @@ On Intel/AMD laptops without a dedicated GPU, expect roughly **3-5x slower** spe
 | **Offline** | Yes | No |
 | **Rate limits** | None | Yes (varies by plan) |
 | **Multi-modal** | Text, images, audio | Text, images, audio, video, web |
-| **Tool use / agents** | Basic (improving rapidly) | Advanced |
+| **Tool use / agents** | Good — Hermes, OpenCode, Goose work with local models | Advanced |
 | **Setup effort** | 10-30 minutes | Sign up and go |
 
 **When to use local**: Routine coding tasks, code completions, quick Q&A, document summarization, privacy-sensitive work, offline scenarios.
@@ -1089,7 +1122,7 @@ Yes, but each model consumes RAM while loaded. On 32 GB, you can run a chat mode
 
 ### How do I use local AI for PDF/document analysis?
 
-Use [Open WebUI](https://github.com/open-webui/open-webui) — run it with Docker (see [VS Code section above](#integrate-with-vs-code-coding-assistant-setup)), upload documents in the chat, and ask questions. Also works with [Onyx](https://onyx.app) for team setups.
+Use [Open WebUI](https://github.com/open-webui/open-webui) (simplest — run with Docker, upload files in chat), [Kotaemon](https://github.com/Cinnamon/kotaemon) or [PrivateGPT](https://github.com/zylon-ai/private-gpt) (for large document collections with RAG), [Khoj](https://khoj.dev) (for ongoing knowledge management with automations), or [AnythingLLM](https://anythingllm.com) (desktop app with built-in RAG). All connect to Ollama for local inference.
 
 ---
 
@@ -1099,7 +1132,22 @@ Use [Open WebUI](https://github.com/open-webui/open-webui) — run it with Docke
 - [Ollama Model Library](https://ollama.com/library) — Browse all available models with sizes and context windows
 - [Ollama Context Length Documentation](https://docs.ollama.com/context-length) — How to configure context windows
 - [Ollama Modelfile Documentation](https://github.com/ollama/ollama/blob/main/docs/modelfile.md) — Custom model configuration
-- [Continue.dev](https://continue.dev) — Open-source AI coding extension for VS Code
+- [Goose (Agentic AI Foundation)](https://goose-docs.ai) — Open-source AI agent with desktop app, CLI, and 70+ MCP extensions
+- [Unsloth Studio](https://unsloth.ai/docs/new/studio) — Open-source web UI for running and training models locally
+- [OpenCode](https://opencode.ai) — Open-source AI coding agent for terminal, VS Code, and desktop
+- [OpenHands](https://www.all-hands.dev) — Open-source autonomous coding agent with sandboxed execution
+- [Fabric](https://github.com/danielmiessler/fabric) — Open-source CLI framework with 100+ crowdsourced AI prompt patterns
+- [Khoj](https://khoj.dev) — Self-hosted AI second brain with document chat and automations
+- [Kotaemon](https://github.com/Cinnamon/kotaemon) — Open-source RAG tool for document Q&A
+- [PrivateGPT](https://github.com/zylon-ai/private-gpt) — Private document chat with local RAG pipeline
+- [Enchanted](https://github.com/gluonfield/enchanted) — Native iOS/macOS client for Ollama
+- [OpenClaw](https://openclaw.ai) — Open-source personal AI assistant with persistent memory and chat app integration
+- [Hermes Agent](https://github.com/NousResearch/hermes-agent) — Self-improving AI agent by Nous Research (MIT, 163k+ stars)
+- [oMLX](https://omlx.ai) — macOS-native MLX inference server with SSD KV caching for coding agents
+- [Pinokio](https://pinokio.co) — One-click app store for local AI tools (image gen, TTS, LLMs, and more)
+- [Stability Matrix (Lykos AI)](https://lykos.ai) — Multi-platform package manager for Stable Diffusion
+- [Pi](https://pi.dev) — Minimal open-source terminal coding agent
+- [Continue](https://github.com/continuedev/continue) — Open-source AI coding extension for VS Code
 - [Whisper.cpp](https://github.com/ggerganov/whisper.cpp) — Local speech-to-text
 - [Piper TTS](https://github.com/OHF-Voice/piper1-gpl) — Local neural text-to-speech
 - [ComfyUI](https://github.com/comfyanonymous/ComfyUI) — Local image generation
