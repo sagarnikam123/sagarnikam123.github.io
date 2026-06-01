@@ -467,6 +467,7 @@ Ollama is the easiest starting point, but it's not the only option. Here's a qui
 | Tool | What It Is | Best For | Open Source |
 |------|-----------|----------|-------------|
 | [**Unsloth Studio**](https://unsloth.ai/docs/new/studio) | Web UI for running GGUF/safetensor models + no-code fine-tuning, model arena, data recipes | Run and train models locally with observability. Compare models side-by-side. Mac/Windows/Linux | ✅ Yes (AGPL-3.0) |
+| [**Joanium**](https://www.joanium.com) | Local-first AI desktop app — reads project files, runs scheduled automations, background agents, connects to GitHub/Gmail/Google Drive/Calendar | Developers who want AI beyond chat: file-aware automations, scheduling, and multi-provider support (10+ providers including local models). Free forever, no account required | ✅ Yes ([GitHub](https://github.com/Joanium/Joanium)) |
 | [**Pinokio**](https://pinokio.co) | One-click app store for local AI tools. Browse, install, and run ComfyUI, Whisper, TTS, LLMs, and 160+ AI apps with zero setup | Non-technical users who want to try many local AI tools without terminal commands | ✅ Yes |
 | [**LM Studio**](https://lmstudio.ai) | Polished desktop app with model browser, chat UI, and local API server | Beginners, model comparison, "Chat with Documents" RAG. Supports GGUF + MLX formats | ❌ Free, not OSS |
 | [**Jan**](https://jan.ai) | Offline ChatGPT alternative with desktop app and CLI | Privacy-first users who want a clean chat interface with zero cloud dependency | ✅ Yes |
@@ -487,7 +488,7 @@ Ollama is the easiest starting point, but it's not the only option. Here's a qui
 | [**Docker Model Runner**](https://docs.docker.com) | Run GGUF models directly from Docker Desktop | Teams already in container workflows — pull models like Docker images | Partial |
 | [**Lemonade**](https://github.com/amd/lemonade) | AMD's tool for Ryzen AI NPU hardware | AMD laptop users with dedicated NPUs — includes MCP tool calling | ✅ Yes |
 
-> **Which should you pick?** For most readers of this guide: start with **Ollama** (simplest CLI + API), try **LM Studio** or **Unsloth Studio** if you prefer a GUI (Unsloth is open-source and adds fine-tuning + model arena), use **Pinokio** if you want one-click installs for image/audio/video AI tools, use **oMLX** if you're on Apple Silicon and want the fastest inference for coding agents, use **Goose** or **OpenClaw** if you want an agentic workflow with local models. Everything else is for specialized needs.
+> **Which should you pick?** For most readers of this guide: start with **Ollama** (simplest CLI + API), try **LM Studio** or **Unsloth Studio** if you prefer a GUI (Unsloth is open-source and adds fine-tuning + model arena), use **Joanium** if you want file-aware automations and scheduling beyond chat, use **Pinokio** if you want one-click installs for image/audio/video AI tools, use **oMLX** if you're on Apple Silicon and want the fastest inference for coding agents, use **Goose** or **OpenHuman** if you want an agentic workflow with local models and persistent memory. Everything else is for specialized needs.
 
 ---
 
@@ -853,6 +854,7 @@ Ollama acts as a background API server at `http://localhost:11434`. You can conn
 | [**Hermes Agent**](https://github.com/NousResearch/hermes-agent) | Self-improving AI agent by Nous Research (MIT, 163k+ stars). Built-in learning loop — creates skills from experience, persistent memory, cron scheduling, subagent delegation. Works with any model including Ollama. Talks via Telegram, Discord, Slack, WhatsApp, Signal, or CLI | `curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh \| bash` then `hermes model` → select Ollama |
 | [**OpenClaw**](https://openclaw.ai) | Open-source personal AI assistant. Persistent memory, browser control, file access, self-extending skills. Talk to it via WhatsApp, Telegram, Discord, or iMessage. Note: primarily uses cloud APIs (Claude/GPT); local model support is limited and community-reported as less reliable | `curl -fsSL https://openclaw.ai/install.sh \| bash` → connect chat app |
 | [**Khoj**](https://khoj.dev) | Self-hosted "AI second brain" — chat with docs, web search, custom agents, scheduled automations. Obsidian & Emacs plugins | `pip install khoj` or Docker. Set LLM to Ollama in admin settings |
+| [**OpenHuman**](https://www.openhuman.dev) | Open-source (GPL-3.0) desktop AI agent by TinyHumans — personal memory, app integrations (Gmail, Slack, Telegram, Notion, GitHub), voice, local knowledge base. Built in Rust, 17k+ stars | Install desktop app → connects to Ollama or LM Studio for local inference. Two-minute setup, no config files |
 | [**AnythingLLM**](https://anythingllm.com/) | Desktop app with built-in RAG and document chat | Select Ollama as LLM provider |
 | [**Msty**](https://msty.app/) | Clean multi-model chat interface | Auto-detects local Ollama instance |
 | [**Chatbox**](https://chatboxai.app/) | Cross-platform desktop client for multiple AI APIs | Set provider to Ollama |
@@ -1146,6 +1148,8 @@ Use [Open WebUI](https://github.com/open-webui/open-webui) (simplest — run wit
 - [oMLX](https://omlx.ai) — macOS-native MLX inference server with SSD KV caching for coding agents
 - [Pinokio](https://pinokio.co) — One-click app store for local AI tools (image gen, TTS, LLMs, and more)
 - [Stability Matrix (Lykos AI)](https://lykos.ai) — Multi-platform package manager for Stable Diffusion
+- [OpenHuman](https://www.openhuman.dev) — Open-source desktop AI agent with personal memory and app integrations (GPL-3.0)
+- [Joanium](https://www.joanium.com) — Local-first AI desktop app with file-aware automations and scheduling
 - [Pi](https://pi.dev) — Minimal open-source terminal coding agent
 - [Continue](https://github.com/continuedev/continue) — Open-source AI coding extension for VS Code
 - [Whisper.cpp](https://github.com/ggerganov/whisper.cpp) — Local speech-to-text
