@@ -22,6 +22,7 @@ This guide covers everything: how to pick the right model for your hardware, how
 - [Why Run AI Locally?](#why-run-ai-locally)
 - [How Local AI Models Work](#how-local-ai-models-work-quick-primer)
 - [The RAM Budget Rule](#the-ram-budget-rule)
+- [Got a GPU? How It Changes Everything](#got-a-gpu-how-it-changes-everything)
 - [Context Window: Why It Matters](#context-window-why-it-matters)
 - [Model Recommendations by RAM and Use Case](#model-recommendations-by-ram-and-use-case)
   - [8 GB RAM — The Essentials](#8-gb-ram--the-essentials)
@@ -118,6 +119,186 @@ Not all your RAM is available for AI models. Here's the realistic breakdown:
 
 ---
 
+## Got a GPU? How It Changes Everything
+
+The rest of this guide is organized by RAM because that's the universal constraint — everyone has RAM, not everyone has a dedicated GPU. But if you **do** have a GPU, it fundamentally changes what you can run and how fast.
+
+### Why GPU Matters for AI
+
+GPUs have hundreds of parallel cores optimized for the matrix math that drives AI inference. A model loaded into GPU memory (VRAM) runs **3-10x faster** than the same model on CPU. The key constraint shifts from total RAM to **VRAM** — your GPU's dedicated memory.
+
+> **What is VRAM?** VRAM (Video RAM) is memory physically built into your graphics card — separate from your system RAM. It's ultra-fast memory that only the GPU can access directly. When people say "my RTX 4070 has 12 GB," they mean 12 GB of VRAM. Your system RAM (16/32 GB) and VRAM (8/12/24 GB) are independent pools — a model loaded into VRAM runs dramatically faster because the GPU doesn't need to fetch data over the slower system bus.
+
+```mermaid
+graph TD
+    A[Model File on Disk] --> B{Fits in VRAM?}
+    B -->|Yes - Full GPU| C["3-10x faster<br/>60-150 tok/s"]
+    B -->|Partially| D["Split GPU+CPU<br/>20-50 tok/s"]
+    B -->|No| E["CPU only<br/>5-20 tok/s"]
+```
+
+### Step 1: Identify Your GPU
+
+#### macOS (Apple Silicon)
+
+Apple Silicon (M1/M2/M3/M4) uses **unified memory** — the GPU and CPU share the same RAM pool. There's no separate VRAM. This is actually an advantage: your entire RAM is available to the GPU.
+
+```bash
+# Check your chip and memory
+system_profiler SPHardwareDataType | grep -E "Chip|Memory"
+
+# Example output:
+# Chip: Apple M2 Pro
+# Memory: 16 GB
+```
+
+Your "GPU memory" = your total RAM. Ollama and llama.cpp automatically use the Metal GPU on Apple Silicon — no setup needed.
+
+> **What is Metal?** Metal is Apple's GPU programming framework — the equivalent of NVIDIA's CUDA. It lets software (like Ollama, llama.cpp, Whisper.cpp) run AI computations directly on Apple Silicon's built-in GPU cores. You don't install it separately — it's part of macOS. When you see "Metal acceleration," it simply means the tool is using your Mac's GPU instead of just the CPU, which makes inference 2-4x faster.
+
+#### Linux (NVIDIA)
+
+```bash
+# Check if NVIDIA GPU is detected
+nvidia-smi
+
+# Example output shows:
+# GPU Name: NVIDIA GeForce RTX 4070 Ti
+# Memory: 12288 MiB (12 GB VRAM)
+# Driver Version: 560.35.03
+# CUDA Version: 12.6
+```
+
+If `nvidia-smi` is not found, you need to install NVIDIA drivers:
+
+```bash
+# Ubuntu/Debian
+sudo apt install nvidia-driver-560
+
+# Or use the NVIDIA CUDA toolkit
+# See: https://docs.ollama.com/gpu
+```
+
+#### Linux (AMD)
+
+```bash
+# Check for AMD GPU
+rocminfo | grep -E "Name|Marketing"
+
+# Or simpler
+lspci | grep -i "vga\|3d"
+
+# Check VRAM
+rocm-smi --showmeminfo vram
+```
+
+AMD GPU support requires ROCm. Supported cards: RX 6000/7000 series, Radeon PRO, Instinct. See [Ollama AMD docs](https://docs.ollama.com/gpu).
+
+#### Windows (NVIDIA/AMD/Intel)
+
+```powershell
+# PowerShell — check GPU name and VRAM
+Get-CimInstance Win32_VideoController | Select-Object Name, AdapterRAM
+
+# Or open Task Manager → Performance → GPU
+# Shows GPU name, dedicated memory (VRAM), and utilization
+```
+
+For NVIDIA specifically:
+```powershell
+nvidia-smi
+```
+
+### Step 2: Understand VRAM vs RAM
+
+| Scenario | What Determines Model Size | Speed |
+|----------|---------------------------|-------|
+| **Apple Silicon** (M1-M4) | Total unified RAM (shared between CPU & GPU) | Fast — GPU uses all available memory |
+| **Dedicated NVIDIA GPU** | VRAM is primary; system RAM is backup for overflow | Fastest when model fits fully in VRAM |
+| **AMD GPU (ROCm)** | VRAM (same as NVIDIA, but Linux-only) | Fast when supported |
+| **Intel Arc GPU** | VRAM (limited Ollama support) | Moderate |
+| **No dedicated GPU** | System RAM only, CPU inference | Slowest |
+
+> **Key insight**: On a system with 32 GB RAM + 12 GB VRAM (e.g., RTX 4070 Ti), the VRAM is what matters most for speed. A 7B model fits entirely in 12 GB VRAM and runs at 60-100+ tok/s. The 32 GB RAM becomes relevant only for models that exceed your VRAM.
+
+### Step 3: Model Selection by VRAM
+
+If you have a dedicated NVIDIA/AMD GPU, choose models based on **VRAM**, not system RAM:
+
+| VRAM | Best Model Size | Examples | Expected Speed |
+|------|----------------|---------|----------------|
+| **6 GB** | 3B-7B (Q4) | Qwen2.5-Coder 3B, Gemma 3 4B, Llama 3.2 3B | 40-80 tok/s |
+| **8 GB** | 7B (Q4) | Llama 3.1 8B, Mistral 7B, Qwen2.5-Coder 7B | 50-100 tok/s |
+| **12 GB** | 7B (Q8) or 14B (Q4) | Qwen2.5-Coder 14B, Phi-4 14B, Gemma 4 E4B | 30-70 tok/s |
+| **16 GB** | 14B (Q6) or 22B (Q4) | Codestral 22B, Mistral Small 24B | 25-50 tok/s |
+| **24 GB** | 22B (Q6) or 30B (Q4) | Qwen3 30B-A3B, Gemma 4 26B, Qwen3-Coder 30B | 20-45 tok/s |
+| **48 GB** | 70B (Q4) | Llama 3.1 70B, Qwen3 32B (full precision) | 15-30 tok/s |
+
+*Speeds approximate for NVIDIA RTX 4000-series. Older cards (RTX 3000) are ~20-30% slower.*
+
+> **Compared to CPU-only**: A 7B model on CPU might give you 10-20 tok/s. The same model fully loaded in 8 GB VRAM gives 60-100 tok/s. That's the difference between "usable" and "feels instant."
+
+### Step 4: How GPU Offloading Works
+
+Ollama (and llama.cpp) automatically handles GPU offloading:
+
+- **Full offload**: Model fits entirely in VRAM → maximum speed
+- **Partial offload**: Model is split — some layers on GPU, rest on CPU → faster than CPU-only, slower than full GPU
+- **No offload**: No compatible GPU or VRAM too small → CPU-only
+
+You can control this with environment variables:
+
+```bash
+# Force specific number of GPU layers (advanced)
+OLLAMA_NUM_GPU_LAYERS=35 ollama run qwen2.5-coder:14b
+
+# Disable GPU entirely (useful for testing)
+OLLAMA_NO_GPU=1 ollama run llama3.1
+```
+
+To check what Ollama is actually using:
+
+```bash
+# See GPU utilization while a model is running
+ollama ps
+
+# NVIDIA: watch GPU memory and utilization in real-time
+watch -n 1 nvidia-smi
+
+# macOS: check GPU usage in Activity Monitor → GPU History
+```
+
+### Practical Decision Tree
+
+```mermaid
+graph TD
+    A["What hardware do you have?"] --> B{Apple Silicon?}
+    B -->|Yes| C["Use RAM tables in this guide<br/>GPU is automatic via Metal"]
+    B -->|No| D{Dedicated NVIDIA/AMD GPU?}
+    D -->|Yes| E["Check VRAM with nvidia-smi<br/>Size models to VRAM"]
+    D -->|No| F["Use RAM tables in this guide<br/>Expect 3-5x slower than Apple Silicon"]
+    E --> G{"Model fits in VRAM?"}
+    G -->|Fully| H["Best case: 60-150 tok/s<br/>Run the largest model that fits"]
+    G -->|Partially| I["Good: 20-50 tok/s<br/>Split between GPU and CPU"]
+    G -->|Not at all| J["Falls back to CPU<br/>Consider a smaller model"]
+```
+
+### Summary: How GPU Changes the Rules
+
+| Without GPU (CPU-only) | With GPU |
+|----------------------|----------|
+| Model size limited by RAM | Model size limited by VRAM (for full speed) |
+| 5-25 tok/s typical | 30-150 tok/s typical |
+| All RAM recommendations in this guide apply directly | Use VRAM table above for model sizing |
+| Larger context windows eat into available RAM | Context window uses VRAM too — budget accordingly |
+| One model at a time on ≤16 GB | Can keep model in VRAM + run apps normally (system RAM stays free) |
+
+> **Apple Silicon users**: You already have the GPU advantage built-in — Metal acceleration is automatic. The RAM-based tables in this guide already account for GPU usage via unified memory. No extra setup needed.
+
+> **No GPU? No problem.** Every model in this guide runs on CPU. A GPU makes things faster, but it's not required. If you're on an Intel/AMD laptop without a discrete GPU, follow the RAM-based recommendations and expect slower speeds.
+
+---
+
 ## Context Window: Why It Matters
 
 The **context window** is how much text a model can "see" at once — your prompt, the conversation history, and the response all share this window. For coding, this is critical:
@@ -130,7 +311,7 @@ The **context window** is how much text a model can "see" at once — your promp
 | **128K tokens** | ~96,000 words | Entire codebase context, long documents |
 | **256K tokens** | ~192,000 words | Very large documents, extensive code analysis |
 
-**Important**: [Ollama defaults to 2048 tokens](https://docs.ollama.com/context-length) regardless of what the model supports. You need to explicitly set a larger context:
+**Important**: [Ollama often defaults to a conservative 2048 tokens](https://docs.ollama.com/context-length) (or the model's minimum) to save RAM. You usually need to explicitly set a larger context:
 
 ```bash
 # To set context window, use the API or a Modelfile
@@ -613,8 +794,7 @@ echo "Hello, this is a test of local text to speech." | \
 
 # Play directly (macOS)
 echo "The build failed with 3 errors." | \
-  piper -m ~/.local/share/piper-voices/en_US-lessac-medium.onnx --output-raw | \
-  afplay -f wav -
+  piper -m ~/.local/share/piper-voices/en_US-lessac-medium.onnx -f temp.wav && afplay temp.wav && rm temp.wav
 
 # Pipe from a file
 cat notes.txt | \
@@ -1074,7 +1254,7 @@ Open Draw Things (macOS) or ComfyUI → type a prompt → get an image for your 
 1. **Close unnecessary apps** before running models — browsers with many tabs are RAM-hungry
 2. **Use one model at a time** on 8-16 GB RAM — Ollama keeps models loaded in memory.
 3. **Unload models to free RAM** — Use `ollama stop <model>` to forcefully clear a model from memory, or start Ollama with `OLLAMA_KEEP_ALIVE=0` so models unload immediately after a request finishes.
-4. **Override the default context window** — Ollama defaults to 2048 tokens. Set `PARAMETER num_ctx 16384` in a Modelfile for coding tasks.
+4. **Override the default context window** — Ollama often defaults to a conservative 2048 tokens to save RAM. Set `PARAMETER num_ctx 16384` in a Modelfile for coding tasks to utilize the full context.
 5. **Apple Silicon users**: Ollama uses the GPU automatically via unified memory
 6. **Check model size before pulling**: `ollama show <model>` shows the actual size, quantization, and license
 7. **SSD matters**: models load from disk on first use — an SSD makes this near-instant vs. minutes on HDD
