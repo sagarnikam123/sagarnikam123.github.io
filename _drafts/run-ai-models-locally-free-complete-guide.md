@@ -1,10 +1,10 @@
 ---
 title: "Run AI Models Locally for Free: Complete Guide by RAM Size (8 GB to 32 GB)"
-description: "A practical guide to running open-source AI models locally on your machine for coding, text generation, image creation, audio transcription, and more. Includes model recommendations by RAM size, setup instructions for Ollama, and integration with VS Code."
+description: "A practical guide to running open-source AI models locally on your machine for coding, text generation, image creation, audio transcription, and more. Includes model recommendations by RAM size, setup instructions for Ollama, and integration with VS Code, terminal tools (Aider, Fabric, ShellGPT, Mods), and 30+ other apps."
 author: sagarnikam123
 date: 2026-05-03 12:00:00 +0530
 categories: [ai, open-source]
-tags: [ai, ollama, local-ai, open-source-models, coding-assistant, llm, stable-diffusion, whisper, machine-learning]
+tags: [ai, ollama, local-ai, open-source-models, coding-assistant, llm, stable-diffusion, whisper, machine-learning, aider, fabric, shell-gpt, mods, terminal-tools]
 mermaid: true
 image:
   path: assets/img/posts/20260503/run-ai-models-locally-free-complete-guide.webp
@@ -37,6 +37,16 @@ This guide covers everything: how to pick the right model for your hardware, how
 - [What About Video Generation?](#what-about-video-generation)
 - [Customizing Models with Modelfile](#customizing-models-with-modelfile)
 - [Integrate with Your Editor & Workflow](#integrate-with-your-editor--workflow)
+  - [Option 1: Continue (Recommended)](#option-1-continue-recommended)
+  - [Option 2: Cline (Agentic Coding)](#option-2-cline-agentic-coding)
+  - [Option 3: Open WebUI (Browser-Based Chat)](#option-3-open-webui-browser-based-chat)
+  - [Option 4: Aider (AI Pair Programming in Terminal)](#option-4-aider-ai-pair-programming-in-terminal)
+  - [Option 5: Fabric (AI Prompt Patterns)](#option-5-fabric-ai-prompt-patterns-from-terminal)
+  - [Option 6: ShellGPT (sgpt)](#option-6-shellgpt-sgpt)
+  - [Option 7: Mods (by Charmbracelet)](#option-7-mods-by-charmbracelet)
+  - [Option 8: Chatblade](#option-8-chatblade)
+  - [Connecting Any CLI Tool to Local Models](#connecting-any-cli-tool-to-local-models)
+  - [Upgrade & Uninstall Terminal AI Tools](#upgrade--uninstall-terminal-ai-tools)
 - [Ollama Integrations](#ollama-integrations-where-you-can-use-local-models)
 - [Speed Benchmarks: What to Expect](#speed-benchmarks-what-to-expect-on-apple-silicon)
 - [Local vs Cloud: Honest Comparison](#local-vs-cloud-honest-comparison)
@@ -1009,9 +1019,251 @@ Open `http://localhost:3000` — it auto-detects all your Ollama models. Great f
 - Sharing with team members on your local network
 - Comparing responses from different models side-by-side
 
+### Option 4: Aider (AI Pair Programming in Terminal)
+
+[Aider](https://aider.chat/) is an open-source terminal-based AI pair programming tool (44k+ GitHub stars, 6.8M+ installs). It edits files directly in your codebase, auto-commits changes with sensible messages, and works with local Ollama models — completely free, completely private.
+
+**Why Aider stands out for local AI:**
+- Works directly on your existing codebase (not a sandbox)
+- Auto-commits changes with git — easy to diff, undo, or review
+- Maps your entire repo for context-aware edits
+- Supports 100+ programming languages
+- Voice-to-code, linting, testing integration
+
+**Install Aider:**
+
+```bash
+# One-liner (installs aider + python 3.12 if needed)
+curl -LsSf https://aider.chat/install.sh | sh
+
+# Or via pipx
+pipx install aider-chat
+
+# Or via uv
+uv tool install --force --python python3.12 aider-chat@latest
+```
+
+**Connect Aider to Ollama:**
+
+```bash
+# Set the Ollama endpoint (default, usually already correct)
+export OLLAMA_API_BASE=http://127.0.0.1:11434
+
+# Pull a good coding model
+ollama pull qwen2.5-coder:14b
+
+# Start aider with your local model
+cd /path/to/your/project
+aider --model ollama_chat/qwen2.5-coder:14b
+```
+
+> Use `ollama_chat/` prefix (not `ollama/`) for chat-optimized interactions.
+
+**Recommended local models for Aider:**
+
+| RAM | Model | Command |
+|-----|-------|---------|
+| 8 GB | Qwen2.5 Coder 7B | `aider --model ollama_chat/qwen2.5-coder:7b` |
+| 16 GB | Qwen2.5 Coder 14B | `aider --model ollama_chat/qwen2.5-coder:14b` |
+| 24 GB+ | Codestral 22B | `aider --model ollama_chat/codestral:22b` |
+| 32 GB+ | Qwen2.5 Coder 32B | `aider --model ollama_chat/qwen2.5-coder:32b` |
+
+**Context window note:** Ollama defaults to a 2K context window, which is too small for real coding. Aider auto-adjusts this for each request, but you can also fix it with a `.aider.model.settings.yml` file in your project:
+
+```yaml
+- name: ollama_chat/qwen2.5-coder:14b
+  extra_params:
+    num_ctx: 32768
+```
+
+**Example session:**
+
+```bash
+$ cd ~/projects/my-app
+$ aider --model ollama_chat/qwen2.5-coder:14b
+
+Aider v0.82.0
+Model: ollama_chat/qwen2.5-coder:14b
+
+> Add pagination to the /users API endpoint
+
+# Aider edits your files, shows the diff, and auto-commits with:
+# "feat: add pagination to /users endpoint with limit/offset params"
+```
+
+**Aider also works with cloud models** (DeepSeek, Claude, GPT-4o) if you want to mix local and cloud:
+
+```bash
+aider --model deepseek --api-key deepseek=<key>
+aider --model sonnet --api-key anthropic=<key>
+```
+
+### Option 5: Fabric (AI Prompt Patterns from Terminal)
+
+[Fabric](https://github.com/danielmiessler/fabric) is a CLI framework with 100+ crowdsourced AI prompt "patterns" — highly optimized prompts for tasks like summarizing articles, extracting wisdom from videos, writing essays, or analyzing security reports. You pipe any text through it.
+
+**Install:**
+
+```bash
+go install github.com/danielmiessler/fabric@latest
+fabric --setup   # select Ollama as your provider
+```
+
+> Requires Go — install with `brew install go` if you don't have it.
+
+**Usage with local models:**
+
+```bash
+# Summarize an article
+cat article.txt | fabric --pattern summarize --model llama3
+
+# Extract key insights from a YouTube transcript
+yt --transcript "https://youtube.com/watch?v=..." | fabric --pattern extract_wisdom --model qwen2.5
+
+# Write a blog post from notes
+cat notes.md | fabric --pattern write_essay --model llama3
+```
+
+### Option 6: ShellGPT (sgpt)
+
+[ShellGPT](https://github.com/TheR1D/shell_gpt) is a command-line productivity tool for generating shell commands, code snippets, and general text. Forget a complex `ffmpeg` or `tar` command? Just ask.
+
+**Install:**
+
+```bash
+pip install shell-gpt
+```
+
+**Connect to local models** — edit `~/.config/shell_gpt/.sgptrc`:
+
+```
+OPENAI_API_HOST=http://localhost:11434/v1
+OPENAI_API_KEY=not-needed
+DEFAULT_MODEL=qwen2.5-coder:14b
+```
+
+**Usage:**
+
+```bash
+# Generate a shell command
+sgpt --shell "find all markdown files modified in the last 2 days"
+
+# Generate code
+sgpt --code "python function to merge two sorted lists"
+
+# General questions
+sgpt "explain the difference between TCP and UDP"
+```
+
+### Option 7: Mods (by Charmbracelet)
+
+[Mods](https://github.com/charmbracelet/mods) is built for piping — take stdin, process it with an LLM, get beautifully formatted Markdown output.
+
+**Install:**
+
+```bash
+brew install charmbracelet/tap/mods
+```
+
+**Connect to local models** — edit `~/.config/mods/mods.yml`:
+
+```yaml
+apis:
+  ollama:
+    base-url: http://localhost:11434/v1
+    models:
+      llama3:
+        max-input-chars: 32000
+```
+
+**Usage:**
+
+```bash
+# Summarize git commits into release notes
+git log --oneline -20 | mods "Summarize these into release notes"
+
+# Explain error output
+npm test 2>&1 | mods "What went wrong and how to fix it?"
+
+# Review a diff
+git diff | mods "Review this code change for bugs"
+```
+
+### Option 8: Chatblade
+
+[Chatblade](https://github.com/npiv/chatblade) is a versatile CLI for LLM interactions — pipe output, format as JSON, and create complex prompt chains in bash.
+
+**Install:**
+
+```bash
+pip install chatblade
+```
+
+**Connect to local models:**
+
+```bash
+export OPENAI_API_BASE=http://localhost:11434/v1
+export OPENAI_API_KEY=not-needed
+```
+
+**Usage:**
+
+```bash
+# Pipe and process
+cat error.log | chatblade "What's the root cause?"
+
+# JSON output for scripting
+chatblade -e "list 5 python testing libraries" | jq .
+```
+
+### Connecting Any CLI Tool to Local Models
+
+Most terminal AI tools were built for OpenAI's API. Since Ollama provides an OpenAI-compatible API at `http://localhost:11434/v1`, you can connect almost any tool by overriding two environment variables:
+
+```bash
+# Add to ~/.zshrc — works with sgpt, chatblade, and many other tools
+export OPENAI_API_BASE=http://localhost:11434/v1
+export OPENAI_API_KEY=not-needed   # any string works, Ollama doesn't check it
+```
+
+This trick works with any tool that accepts `OPENAI_API_BASE` or `OPENAI_BASE_URL` configuration — LM Studio uses port 1234 instead (`http://localhost:1234/v1`).
+
+### Upgrade & Uninstall Terminal AI Tools
+
+Keep your tools current or remove them cleanly:
+
+| Tool | Upgrade | Uninstall |
+|------|---------|-----------|
+| **Ollama** | `brew upgrade ollama` | `brew uninstall ollama && rm -rf ~/.ollama` |
+| **Aider** | `aider --upgrade` or `pipx upgrade aider-chat` | `pipx uninstall aider-chat` |
+| **Fabric** | `go install github.com/danielmiessler/fabric@latest` | `rm $(which fabric)` |
+| **ShellGPT** | `pip install --upgrade shell-gpt` | `pip uninstall shell-gpt` |
+| **Mods** | `brew upgrade charmbracelet/tap/mods` | `brew uninstall mods` |
+| **Chatblade** | `pip install --upgrade chatblade` | `pip uninstall chatblade` |
+| **Continue (VS Code)** | Auto-updates via VS Code Marketplace | Uninstall from Extensions panel |
+| **Cline (VS Code)** | Auto-updates via VS Code Marketplace | Uninstall from Extensions panel |
+| **Open WebUI** | `docker pull ghcr.io/open-webui/open-webui:main && docker restart open-webui` | `docker rm -f open-webui && docker volume rm open-webui` |
+
+**Removing downloaded models** (frees disk space):
+
+```bash
+# List all downloaded models
+ollama list
+
+# Remove a specific model
+ollama rm qwen2.5-coder:14b
+
+# Remove all models (nuclear option)
+rm -rf ~/.ollama/models
+```
+
+> **Tip:** Models are the biggest disk consumers. A 14B model uses ~8 GB, a 32B model ~20 GB. Run `ollama list` periodically and remove models you're not using.
+
 ---
 
 ## Ollama Integrations: Where You Can Use Local Models
+
+> **Note:** For detailed setup guides on Aider, Fabric, ShellGPT, Mods, and Chatblade, see the [Integrate with Your Editor & Workflow](#integrate-with-your-editor--workflow) section above. The table below is a quick-reference overview of the broader ecosystem.
 
 Ollama acts as a background API server at `http://localhost:11434`. You can connect a massive ecosystem of external tools to it by simply pointing their API endpoint settings to your local machine.
 
@@ -1074,6 +1326,8 @@ Speed is measured in **tokens per second (tok/s)**. For reference, comfortable r
 
 ### Approximate Generation Speed (tok/s)
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Model | M1 (8 GB) | M1 Pro (16 GB) | M2 Pro (16 GB) | M3 Pro (18 GB) | M4 Pro (24 GB) | M4 Max (32+ GB) |
 |-------|-----------|----------------|----------------|----------------|----------------|-----------------|
 | **Gemma 3 4B** | ~25 | ~35 | ~40 | ~45 | ~55 | ~70 |
@@ -1083,6 +1337,8 @@ Speed is measured in **tokens per second (tok/s)**. For reference, comfortable r
 | **Codestral 22B** | — | — | — | ~8 | ~15 | ~22 |
 | **Qwen3 30B-A3B (MoE)** | — | — | — | — | ~18 | ~30 |
 | **Gemma 4 26B (MoE)** | — | — | — | — | ~15 | ~25 |
+
+</div>
 
 *"—" means the model doesn't fit comfortably in that RAM tier. Values are approximate and vary by prompt length, context size, and quantization. Based on community benchmarks from [tps.sh](https://tps.sh) and various Apple Silicon LLM benchmark reports.*
 
@@ -1234,6 +1490,8 @@ Open Draw Things (macOS) or ComfyUI → type a prompt → get an image for your 
 
 ## Quick Reference: Best Model for Each Task
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Task | 8 GB | 16 GB | 24 GB | 32 GB |
 |------|------|-------|-------|-------|
 | **General chat** | Gemma 3 4B | Gemma 4 E4B | Gemma 4 26B | Qwen3 30B-A3B |
@@ -1246,6 +1504,8 @@ Open Draw Things (macOS) or ComfyUI → type a prompt → get an image for your 
 | **Summarization** | Phi-4 Mini | Mistral 7B | Mistral Small 24B | Qwen3 30B-A3B |
 | **Translation** | Gemma 3 4B | Gemma 4 E4B | Gemma 4 26B | Gemma 4 31B |
 | **Document/PDF analysis** | — | Gemma 4 E4B + Open WebUI | Gemma 4 26B + Open WebUI | Qwen3 30B-A3B + Open WebUI |
+
+</div>
 
 ---
 
