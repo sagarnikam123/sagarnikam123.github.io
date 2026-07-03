@@ -207,7 +207,7 @@ brew install --cask iterm2 termius
 
 #### Browsers
 ```bash
-brew install --cask google-chrome firefox brave-browser microsoft-edge opera
+brew install --cask google-chrome firefox brave-browser microsoft-edge opera cyberduck
 ```
 
 #### Code Editors & IDEs
