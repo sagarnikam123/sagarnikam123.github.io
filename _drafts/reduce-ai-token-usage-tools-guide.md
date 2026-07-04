@@ -2,12 +2,12 @@
 title: "Reduce AI Token Usage: Tools That Cut Context Size by 50–95% (Install & Usage Guide)"
 description: "A practical guide to tools that reduce AI coding agent token consumption — RTK, Headroom, LeanCTX, Ponytail, Caveman, and TokenSave. Learn what each does, how to install them across agents (Claude Code, Gemini CLI, Cursor, Kiro), which ones conflict, and how to stack them for maximum savings."
 author: sagarnikam123
-date: 2026-07-03 12:00:00 +0530
+date: 2026-07-04 12:00:00 +0530
 categories: [ai, developer-tools]
 tags: [ai, tokens, context-window, llm, claude-code, gemini-cli, cursor, kiro, ponytail, caveman, headroom, rtk, lean-ctx, tokensave, prompt-engineering, cost-optimization, context-engineering]
 mermaid: true
 image:
-  path: assets/img/posts/20260703/reduce-ai-token-usage-tools-guide.webp
+  path: assets/img/posts/20260704/reduce-ai-token-usage-tools-guide.jpg
   alt: Guide to reducing AI coding agent token usage with RTK, Headroom, LeanCTX, Ponytail, Caveman, and TokenSave
 ---
 
@@ -76,7 +76,7 @@ graph LR
 The three tools in this guide attack different parts of this pipeline:
 
 | Tool | Target | How It Saves |
-|------|--------|--------------|
+| ------ | -------- | -------------- |
 | **Ponytail** | Code generation | Agent writes less code (reuses stdlib, native features, existing code) |
 | **Caveman** | Agent responses | Agent speaks in compressed fragments (~75% fewer output tokens) |
 | **Headroom** | Agent input | Compresses files, tool outputs, and logs before they reach the model |
@@ -157,7 +157,7 @@ codex plugin marketplace add DietrichGebert/ponytail
 ### Ponytail Usage & Commands
 
 | Command | Description |
-|---------|-------------|
+| --------- | ------------- |
 | `/ponytail lite` | Builds what you asked, names the lazier alternative in one line |
 | `/ponytail full` | The ladder enforced. Stdlib and native first. Shortest diff. (Default) |
 | `/ponytail ultra` | YAGNI extremist. Ships the one-liner and challenges the requirement |
@@ -172,7 +172,7 @@ codex plugin marketplace add DietrichGebert/ponytail
 Measured on real Claude Code sessions editing a FastAPI + React repo (12 feature tasks, Haiku 4.5):
 
 | Metric | Reduction |
-|--------|-----------|
+| -------- | ----------- |
 | Lines of code | -54% (up to 94%) |
 | Tokens used | -22% |
 | Cost | -20% |
@@ -238,7 +238,7 @@ Or manually copy the rule from `src/rules/caveman-activate.md` into your agent's
 ### Caveman Usage & Commands
 
 | Command | Description |
-|---------|-------------|
+| --------- | ------------- |
 | `/caveman` | Activate caveman mode (or say "caveman mode") |
 | `/caveman lite` | Light compression — still readable prose |
 | `/caveman full` | Default. Fragments, no articles |
@@ -252,7 +252,7 @@ Or manually copy the rule from `src/rules/caveman-activate.md` into your agent's
 ### Caveman Intensity Levels
 
 | Level | Style | Example |
-|-------|-------|---------|
+| ------- | ------- | --------- |
 | `lite` | Shorter prose, still grammatical | "The bug is in the auth middleware. Missing null check on line 42." |
 | `full` | Fragments, no articles | "Bug in auth middleware. Missing null check line 42." |
 | `ultra` | Telegram-style | "auth middleware L42. null check missing." |
@@ -269,12 +269,16 @@ Headroom compresses everything your AI agent **reads** — tool outputs, log fil
 
 It achieves 60–95% compression depending on content type:
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Content Type | Before | After | Savings |
-|-------------|--------|-------|---------|
+| ------------- | -------- | ------- | --------- |
 | Code search (100 results) | 17,765 tokens | 1,408 tokens | 92% |
 | SRE incident debugging | 65,694 tokens | 5,118 tokens | 92% |
 | GitHub issue triage | 54,174 tokens | 14,761 tokens | 73% |
 | Codebase exploration | 78,502 tokens | 41,254 tokens | 47% |
+
+</div>
 
 The compression is **reversible** — originals are cached locally and retrievable on demand.
 
@@ -363,7 +367,7 @@ headroom output-savings  # show output token reduction estimate
 ### Headroom Agent Compatibility
 
 | Agent | Support | Notes |
-|-------|---------|-------|
+| ------- | --------- | ------- |
 | Claude Code | ✅ Full | `headroom wrap claude` |
 | Codex | ✅ Full | Shares memory with Claude |
 | Copilot CLI | ✅ Full | `headroom wrap copilot` |
@@ -397,7 +401,7 @@ graph TB
 ```
 
 | Stack | What You Get |
-|-------|-------------|
+| ------- | ------------- |
 | Ponytail only | Agent writes minimal code. Good default for any project. |
 | Caveman only | Agent speaks in fragments. Saves output tokens. |
 | Headroom only | Input compressed. Best for large codebases with lots of file reads. |
@@ -415,7 +419,7 @@ Beyond the three tools covered in depth above, the broader ecosystem includes **
 <div style="overflow-x: auto;" markdown="1">
 
 | Tool | Layer | What It Compresses | Install | Stars |
-|------|-------|-------------------|---------|-------|
+| ------ | ------- | ------------------- | --------- | ------- |
 | **[RTK](https://github.com/rtk-ai/rtk)** | Shell output | CLI command output (git, tests, builds, docker, kubectl) | `brew install rtk` | 68k |
 | **[Headroom](https://github.com/headroomlabs-ai/headroom)** | All input context | Files, tool outputs, logs, RAG, conversation history | `pipx install "headroom-ai[all]"` | 56k |
 | **[LeanCTX](https://github.com/yvgude/lean-ctx)** | All context + memory | File reads, shell, session memory, code graph (MCP server) | `brew tap yvgude/lean-ctx && brew install lean-ctx` | 3.1k |
@@ -435,11 +439,15 @@ RTK sits between your AI agent and the shell. When the agent runs `git status`, 
 
 **Example savings:**
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Command | Without RTK | With RTK | Savings |
-|---------|-------------|----------|---------|
+| ----------------------------------- | ---------------------------------- | ------------------------- | ------- |
 | `git push` | ~200 tokens (15 lines of progress) | ~10 tokens ("ok main") | 95% |
 | `cargo test` (15 tests, 2 failures) | ~200+ lines | ~20 lines (failures only) | 90% |
 | 30-min session total | ~118k tokens | ~24k tokens | 80% |
+
+</div>
 
 #### Install RTK
 
@@ -509,6 +517,7 @@ rtk discover            # find missed savings opportunities
 LeanCTX is the most ambitious tool in this space. It's a full context engineering layer — not just compression, but also caching, memory persistence, code graph, and multi-agent coordination.
 
 Key features beyond basic compression:
+
 - **Cached re-reads**: first read costs normal tokens, re-reads cost ~13 tokens
 - **Session memory**: context persists across chats (no more "I already told you this")
 - **10 read modes**: `full`, `map`, `signatures`, `diff`, `lines:N-M`, `density:X`, etc.
@@ -689,7 +698,7 @@ graph TB
 <div style="overflow-x: auto;" markdown="1">
 
 | Pair | Verdict | Explanation |
-|------|---------|-------------|
+| ------ | --------- | ------------- |
 | **RTK + Headroom** | ✅ Safe | Headroom bundles RTK internally for shell rewriting. They're designed together. |
 | **RTK + LeanCTX** | ⚠️ Pick one | Both compress shell output with similar patterns. Running both creates double-rewriting. |
 | **Headroom + LeanCTX** | ⚠️ Pick one | Both run as proxies that compress requests. LeanCTX can install Headroom as an addon (`lean-ctx addon add headroom`) but running both standalone duplicates work. |
@@ -758,7 +767,7 @@ LeanCTX + TokenSave + Ponytail + Caveman
 ## Quick Install Cheat Sheet (macOS)
 
 | Tool | Install | Then Run |
-|------|---------|----------|
+| ------ | --------- | ---------- |
 | **RTK** | `brew install rtk` | `rtk init -g` (Claude Code) / `rtk init -g --gemini` |
 | **Headroom** | `pipx install --python python3.13 "headroom-ai[all]"` | `headroom wrap claude` or `headroom proxy --port 8787` |
 | **LeanCTX** | `brew tap yvgude/lean-ctx && brew install lean-ctx` | `lean-ctx onboard` |
@@ -775,7 +784,7 @@ LeanCTX + TokenSave + Ponytail + Caveman
 <div style="overflow-x: auto;" markdown="1">
 
 | Feature | RTK | Headroom | LeanCTX | Ponytail | Caveman | TokenSave |
-|---------|-----|----------|---------|----------|---------|-----------|
+| --------- | ----- | ---------- | --------- | ---------- | --------- | ----------- |
 | **Target** | Shell output | All input context | All context + memory | Code generation | Agent responses | Code lookups |
 | **Token savings** | 60–90% (shell) | 60–95% (all input) | 60–90% + caching | ~22% (less code) | ~75% (output) | Varies (fewer reads) |
 | **Runtime** | Rust binary | Python process | Rust binary | None (rules) | None (rules) | Rust binary (MCP) |
@@ -821,7 +830,7 @@ A common question: "Do I need to start these tools every time I reboot my machin
 <div style="overflow-x: auto;" markdown="1">
 
 | Tool | Runs as... | Start on boot? | Start/Stop |
-|------|-----------|----------------|------------|
+| ------ | ----------- | ---------------- | ------------ |
 | **Ponytail** | Static file (rules injected into agent prompt) | No — always loaded automatically | Nothing to manage |
 | **Caveman** | Static file / plugin hooks | No — loaded when agent starts | Nothing to manage |
 | **RTK** | On-demand binary (called per command, exits immediately) | No — invoked per-command by the hook | Nothing to manage |
@@ -1008,7 +1017,7 @@ curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.
 All these tools are actively maintained. Here's how to keep them current or remove them cleanly:
 
 | Tool | Upgrade | Uninstall |
-|------|---------|-----------|
+| ------ | --------- | ----------- |
 | **RTK** | `brew upgrade rtk` | `rtk init -g --uninstall && brew uninstall rtk` |
 | **Headroom** | `headroom update` | `pipx uninstall headroom-ai` + remove LaunchAgent |
 | **LeanCTX** | `lean-ctx update` | `lean-ctx uninstall` (removes hooks, configs, binary) |
