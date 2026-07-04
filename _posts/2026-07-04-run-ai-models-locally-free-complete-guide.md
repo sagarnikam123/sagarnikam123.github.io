@@ -1,14 +1,15 @@
 ---
-title: "Run AI Models Locally for Free: Complete Guide by RAM Size (8 GB to 32 GB)"
-description: "A practical guide to running open-source AI models locally on your machine for coding, text generation, image creation, audio transcription, and more. Includes model recommendations by RAM size, setup instructions for Ollama, and integration with VS Code, terminal tools (Aider, Fabric, ShellGPT, Mods), and 30+ other apps."
+title: "Run AI Models Locally for Free: Complete Guide by RAM Size (8 GB to 64 GB)"
+description: "A practical guide to running open-source AI models locally on your machine for coding, text generation, image creation, audio transcription, and more. Includes model recommendations by RAM size, setup instructions for Ollama, and integration with VS Code, terminal tools (Aider, Fabric, ShellGPT, Mods), and other apps."
 author: sagarnikam123
-date: 2026-05-03 12:00:00 +0530
-categories: [ai, open-source]
-tags: [ai, ollama, local-ai, open-source-models, coding-assistant, llm, stable-diffusion, whisper, machine-learning, aider, fabric, shell-gpt, mods, terminal-tools]
+date: 2026-07-04 12:00:00 +0530
+categories: [ai, devops, open-source]
+tags: [ollama, local-ai, coding-assistant, llm, aider]
 mermaid: true
 image:
-  path: assets/img/posts/20260503/run-ai-models-locally-free-complete-guide.webp
-  alt: Complete guide to running AI models locally for free organized by RAM size
+  path: assets/img/posts/20260704/run-ai-models-locally-free-complete-guide.webp
+  lqip: data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAAAQBQCdASogACAAPzmMv1evKSajqAqp4CcJQBjejSv3xh1A0cTe2eDeE0Y4oYETdL/AAP73APqHuci+/N5s5dGW70G7jKAUCQHkjHRL15qFBAKc5RNHXHxZB4LzuNmfb7hPXGOYLhQAaA1Qlo5ryuqMrkrjjsONDViKyG+T0VscPw2/NWG4SjDrMJmRBGsNwpHIAA==
+  alt: Complete guide to running AI models locally for free organized by RAM size from 8 GB to 64 GB
 ---
 
 You don't need a cloud subscription or an expensive GPU to use AI in your daily workflow. Open-source models have matured to the point where a regular laptop can run capable AI for coding, writing, image generation, audio transcription, and more — completely free, completely private.
@@ -20,35 +21,21 @@ This guide covers everything: how to pick the right model for your hardware, how
 ## Table of Contents
 
 - [Why Run AI Locally?](#why-run-ai-locally)
+- [Quick Decision: Pick Your Tools](#quick-decision-pick-your-tools)
 - [How Local AI Models Work](#how-local-ai-models-work-quick-primer)
 - [The RAM Budget Rule](#the-ram-budget-rule)
 - [Got a GPU? How It Changes Everything](#got-a-gpu-how-it-changes-everything)
 - [Context Window: Why It Matters](#context-window-why-it-matters)
 - [Model Recommendations by RAM and Use Case](#model-recommendations-by-ram-and-use-case)
-  - [8 GB RAM — The Essentials](#8-gb-ram--the-essentials)
-  - [16 GB RAM — The Sweet Spot](#16-gb-ram--the-sweet-spot-for-most-developers)
-  - [24 GB RAM — Power User Territory](#24-gb-ram--power-user-territory)
-  - [32 GB RAM — Maximum Local AI](#32-gb-ram--maximum-local-ai-experience)
 - [Setup Guide: Ollama](#setup-guide-ollama-text-code-vision-models)
 - [Beyond Ollama: Other Free Tools](#beyond-ollama-other-free-tools-to-run-local-ai)
 - [Setup Guide: Whisper.cpp (Audio)](#setup-guide-whispercpp-audio-transcription)
 - [Setup Guide: Piper (Text-to-Speech)](#setup-guide-piper-text-to-speech)
 - [Setup Guide: Image Generation](#setup-guide-image-generation-stable-diffusion)
-- [What About Video Generation?](#what-about-video-generation)
 - [Customizing Models with Modelfile](#customizing-models-with-modelfile)
 - [Integrate with Your Editor & Workflow](#integrate-with-your-editor--workflow)
-  - [Option 1: Continue (Recommended)](#option-1-continue-recommended)
-  - [Option 2: Cline (Agentic Coding)](#option-2-cline-agentic-coding)
-  - [Option 3: Open WebUI (Browser-Based Chat)](#option-3-open-webui-browser-based-chat)
-  - [Option 4: Aider (AI Pair Programming in Terminal)](#option-4-aider-ai-pair-programming-in-terminal)
-  - [Option 5: Fabric (AI Prompt Patterns)](#option-5-fabric-ai-prompt-patterns-from-terminal)
-  - [Option 6: ShellGPT (sgpt)](#option-6-shellgpt-sgpt)
-  - [Option 7: Mods (by Charmbracelet)](#option-7-mods-by-charmbracelet)
-  - [Option 8: Chatblade](#option-8-chatblade)
-  - [Connecting Any CLI Tool to Local Models](#connecting-any-cli-tool-to-local-models)
-  - [Upgrade & Uninstall Terminal AI Tools](#upgrade--uninstall-terminal-ai-tools)
 - [Ollama Integrations](#ollama-integrations-where-you-can-use-local-models)
-- [Speed Benchmarks: What to Expect](#speed-benchmarks-what-to-expect-on-apple-silicon)
+- [Speed Benchmarks](#speed-benchmarks-what-to-expect-on-apple-silicon)
 - [Local vs Cloud: Honest Comparison](#local-vs-cloud-honest-comparison)
 - [How to Evaluate a Model Yourself](#how-to-evaluate-a-model-yourself)
 - [Daily Workflow Examples](#daily-workflow-examples)
@@ -70,6 +57,110 @@ Before diving into models and setup, here's why local AI is worth your time:
 - **Customizable** — fine-tune models, adjust parameters, create custom system prompts
 
 The trade-off is straightforward: local models are smaller and less capable than cloud giants like GPT-4o or Claude. But for 80% of daily tasks — code completions, explaining errors, summarizing documents, generating images — they're more than enough.
+
+---
+
+## Quick Decision: Pick Your Tools
+
+Before diving into the technical details, here's the big picture. Running AI locally requires two things:
+
+1. **A runtime** — software that loads and serves models on your machine
+2. **A workflow tool** — the interface you actually interact with (editor extension, terminal command, chat UI)
+
+Pick one from each table, install them, then scroll to [your RAM tier](#model-recommendations-by-ram-and-use-case) to choose the right model.
+
+> **Don't know where to start?** Install [Ollama](https://ollama.com) + the [Continue](https://marketplace.visualstudio.com/items?itemName=Continue.continue) VS Code extension. You'll be up and running in 5 minutes.
+
+### Runtimes: How You Load & Serve Models
+
+<div style="overflow-x: auto;" markdown="1">
+
+| Tool | Type | Best For | Platform | Open Source | Install |
+| ------ | ------ | ---------- | ---------- | ------------- | --------- |
+| [**Ollama**](https://ollama.com) | CLI + API server | Most users — simplest setup, massive ecosystem | Mac, Linux, Windows | ✅ | `brew install ollama` or [download](https://ollama.com/download) |
+| [**LM Studio**](https://lmstudio.ai) | Desktop GUI | Beginners, model browsing, "Chat with Docs" | Mac, Linux, Windows | ❌ (free) | [Download app](https://lmstudio.ai) |
+| [**oMLX**](https://omlx.ai) | CLI server | Apple Silicon speed demons, coding agents (5x TTFT) | Mac only | ✅ (Apache 2.0) | [GitHub](https://omlx.ai) |
+| [**Unsloth Studio**](https://unsloth.ai/docs/new/studio) | Web GUI | Model comparison arena, fine-tuning, observability | Mac, Linux, Windows | ✅ (AGPL-3.0) | [GitHub](https://github.com/unslothai/unsloth) |
+| [**Pinokio**](https://pinokio.co) | App store | Non-technical — one-click install for 160+ AI tools | Mac, Linux, Windows | ✅ | [Download](https://pinokio.co) |
+| [**LocalAI**](https://localai.io) | API server | Multi-modal (text, image, audio, embeddings) in one API | Mac, Linux, Windows | ✅ | [Docs](https://localai.io/basics/getting_started/) |
+
+</div>
+
+> **Start here:** If you're unsure, install **Ollama**. It's the most widely supported runtime — nearly every tool in the next table connects to it.
+
+### Workflow Tools: How You Use the Models
+
+#### Terminal / CLI Tools
+
+<div style="overflow-x: auto;" markdown="1">
+
+| Tool | Best For | Key Feature | Install | Connects To |
+| ------ | ---------- | ------------- | --------- | ------------- |
+| [**Aider**](https://aider.chat/) | AI pair programming | Edits files directly, auto-commits with git | `pipx install aider-chat` | Ollama, LM Studio, cloud |
+| [**Fabric**](https://github.com/danielmiessler/fabric) | Prompt patterns (summarize, extract, write) | 100+ crowdsourced prompt templates, pipe anything | `go install github.com/danielmiessler/fabric@latest` | Ollama |
+| [**ShellGPT**](https://github.com/TheR1D/shell_gpt) | Shell command generation | Forgot a `ffmpeg` flag? Just ask | `pip install shell-gpt` | Ollama (OpenAI-compat) |
+| [**Mods**](https://github.com/charmbracelet/mods) | Pipe stdin → LLM → formatted output | Unix philosophy — compose with any CLI | `brew install charmbracelet/tap/mods` | Ollama |
+| [**Chatblade**](https://github.com/npiv/chatblade) | Scripting & JSON output | Chain prompts in bash, structured responses | `pip install chatblade` | Ollama (OpenAI-compat) |
+
+</div>
+
+#### Editor Extensions
+
+<div style="overflow-x: auto;" markdown="1">
+
+| Tool | Editor | Best For | Key Feature | Install |
+| ------ | -------- | ---------- | ------------- | --------- |
+| [**Continue**](https://github.com/continuedev/continue) | VS Code | Code chat + tab autocomplete | @file context, inline edits, multi-model | [Marketplace](https://marketplace.visualstudio.com/items?itemName=Continue.continue) |
+| [**Cline**](https://github.com/cline/cline) | VS Code | Agentic coding (creates/edits files autonomously) | Runs terminal, iterates on errors | [Marketplace](https://marketplace.visualstudio.com/items?itemName=saoudrizwan.claude-dev) |
+| [**Roo Code**](https://github.com/RooVetGit/Roo-Code) | VS Code | Cline fork with extra features | Same workflow, community-driven | [Marketplace](https://marketplace.visualstudio.com/items?itemName=RooVet.roo-code) |
+
+</div>
+
+#### GUI / Chat Apps
+
+<div style="overflow-x: auto;" markdown="1">
+
+| Tool | Best For | Key Feature | Install | Connects To |
+| ------ | ---------- | ------------- | --------- | ------------- |
+| [**Open WebUI**](https://github.com/open-webui/open-webui) | ChatGPT-like UI, PDF/doc upload | Multi-model, history, RAG built-in | `docker run` ([docs](https://docs.openwebui.com)) | Ollama |
+| [**Goose**](https://goose-docs.ai) | Autonomous agent, MCP extensions | Desktop + CLI, 70+ extensions, subagents | [Download](https://goose-docs.ai) | Ollama |
+| [**Joanium**](https://www.joanium.com) | File-aware automations, scheduling | Reads project files, GitHub/Gmail/Calendar integrations | [Download](https://www.joanium.com) | Ollama + 10 providers |
+| [**Jan**](https://jan.ai) | Simple offline ChatGPT alternative | Clean chat UI, zero cloud dependency | [Download](https://jan.ai) | Built-in + Ollama |
+| [**GPT4All**](https://gpt4all.io) | One-click local chat + document Q&A | Minimal setup, non-technical friendly | [Download](https://gpt4all.io) | Built-in |
+| [**Enchanted**](https://github.com/gluonfield/enchanted) | iOS/macOS native chat | Free on App Store, smooth native UX | [App Store](https://apps.apple.com/app/enchanted-llm/id6474268307) | Ollama |
+
+</div>
+
+#### Coding Agents (Autonomous)
+
+> **Note:** Coding agents work best with 14B+ parameter models (16 GB RAM minimum). On 8 GB, they'll be limited to simple tasks.
+
+<div style="overflow-x: auto;" markdown="1">
+
+| Tool | Best For | Key Feature | Install | Connects To |
+| ------ | ---------- | ------------- | --------- | ------------- |
+| [**OpenCode**](https://opencode.ai) | Terminal + VS Code + desktop agent | 75+ providers, MIT license, 153k+ stars | `curl -fsSL https://opencode.ai/install.sh \| bash` | Ollama |
+| [**OpenHands**](https://www.all-hands.dev) | Sandboxed autonomous coding | Reads repos, edits files, runs tests, iterates | `pip install openhands` or Docker | Ollama |
+| [**OpenHuman**](https://www.openhuman.dev) | Personal AI with memory + app integrations | Gmail, Slack, Notion, GitHub — desktop app (Rust) | [Download](https://www.openhuman.dev) | Ollama, LM Studio |
+| [**Hermes Agent**](https://github.com/NousResearch/hermes-agent) | Self-improving personal AI | Learns from experience, persistent memory, scheduling | [Install script](https://github.com/NousResearch/hermes-agent) | Ollama |
+
+</div>
+
+### Non-Text Tools (Audio, Image, TTS)
+
+<div style="overflow-x: auto;" markdown="1">
+
+| Task | Tool | Type | Install | Notes |
+| ------ | ------ | ------ | --------- | ------- |
+| Speech-to-text | [**Whisper.cpp**](https://github.com/ggerganov/whisper.cpp) | CLI | `brew install whisper-cpp` | Best local transcription |
+| Text-to-speech | [**Piper**](https://github.com/OHF-Voice/piper1-gpl) | CLI | `pip install piper-tts` | 30+ languages, runs on CPU |
+| Image generation | [**Draw Things**](https://drawthings.ai) | macOS app | Mac App Store (free) | Native Metal acceleration |
+| Image generation | [**ComfyUI**](https://github.com/comfyanonymous/ComfyUI) | Web UI | `git clone` + `pip install` | Linux/Windows, node-based |
+| Image generation | [**Stability Matrix**](https://lykos.ai) | Desktop | [Download](https://lykos.ai) | One-click SD installer |
+
+</div>
+
+> **Typical setup for a developer:** Ollama (runtime) + Continue (editor) + Aider or Mods (terminal). Total install time: ~10 minutes. Then pick a model from [your RAM tier](#model-recommendations-by-ram-and-use-case) below.
 
 ---
 
@@ -95,14 +186,18 @@ Quantization is compressing a model's weights from high-precision numbers (16-bi
 
 Models come in different **quantization levels** that trade quality for size:
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Quantization | Quality | Size Reduction | When to Use |
-|-------------|---------|---------------|-------------|
+| ------------- | --------- | --------------- | ------------- |
 | **F16** (full) | Best | None (baseline) | Only if you have massive RAM |
 | **Q8** | Near-perfect | ~50% smaller | Best quality-to-size ratio |
 | **Q6_K** | Excellent | ~58% smaller | Sweet spot for most users |
 | **Q4_K_M** | Good | ~70% smaller | Default for most Ollama models |
 | **Q3_K** | Acceptable | ~75% smaller | When RAM is very tight |
 | **Q2_K** | Degraded | ~80% smaller | Last resort |
+
+</div>
 
 Most models on Ollama default to **Q4_K_M** — a good balance. You don't need to worry about this unless you're optimizing for a specific RAM budget.
 
@@ -116,16 +211,21 @@ Most models on Ollama default to **Q4_K_M** — a good balance. You don't need t
 
 Not all your RAM is available for AI models. Here's the realistic breakdown:
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Total RAM | OS + Apps Overhead | Available for Models | Practical Model Size Limit |
-|-----------|-------------------|---------------------|--------------------------|
+| ----------- | ------------------- | --------------------- | -------------------------- |
 | **8 GB** | ~4 GB | ~4 GB | Up to 3B-7B parameter models |
 | **16 GB** | ~5 GB | ~11 GB | Up to 7B-14B parameter models |
 | **24 GB** | ~6 GB | ~18 GB | Up to 14B-22B parameter models |
-| **32 GB** | ~8 GB | ~24 GB | Up to 22B-30B parameter models |
+| **32 GB** | ~8 GB | ~24 GB | Up to 22B-35B parameter models |
+| **64 GB** | ~10 GB | ~54 GB | Up to 70B-80B parameter models (MoE) |
+
+</div>
 
 > **Rule of thumb**: The model file size (shown by `ollama list`) should be **at most 80%** of your available RAM. Going beyond that causes memory swapping, which makes inference painfully slow.
 
-> **Got 36 GB or more?** MacBook Pros with M4 Pro/Max chips come in 36, 48, 64, and 128 GB configurations. If that's you, follow the 32 GB recommendations — you can run the same models with more headroom, larger context windows, or multiple models loaded simultaneously. At 64 GB+, you can run 70B parameter models like Llama 3.1 70B or Qwen3 32B at full quality.
+> **Got 36-48 GB?** MacBook Pros with M4 Pro/Max chips come in 36, 48, 64, and 128 GB configurations. At 36-48 GB, follow the 32 GB recommendations with more headroom — you can use larger context windows or keep two models loaded simultaneously. At 64 GB, use the [64 GB section](#64-gb-ram--cloud-killer-territory). At 128 GB+, you can run truly massive models like Llama 3.1 70B at full Q8 quality or Qwen3-Coder-Next with large context.
 
 ---
 
@@ -215,6 +315,7 @@ Get-CimInstance Win32_VideoController | Select-Object Name, AdapterRAM
 ```
 
 For NVIDIA specifically:
+
 ```powershell
 nvidia-smi
 ```
@@ -222,7 +323,7 @@ nvidia-smi
 ### Step 2: Understand VRAM vs RAM
 
 | Scenario | What Determines Model Size | Speed |
-|----------|---------------------------|-------|
+| ---------- | --------------------------- | ------- |
 | **Apple Silicon** (M1-M4) | Total unified RAM (shared between CPU & GPU) | Fast — GPU uses all available memory |
 | **Dedicated NVIDIA GPU** | VRAM is primary; system RAM is backup for overflow | Fastest when model fits fully in VRAM |
 | **AMD GPU (ROCm)** | VRAM (same as NVIDIA, but Linux-only) | Fast when supported |
@@ -235,14 +336,18 @@ nvidia-smi
 
 If you have a dedicated NVIDIA/AMD GPU, choose models based on **VRAM**, not system RAM:
 
+<div style="overflow-x: auto;" markdown="1">
+
 | VRAM | Best Model Size | Examples | Expected Speed |
-|------|----------------|---------|----------------|
+| ------ | ---------------- | --------- | ---------------- |
 | **6 GB** | 3B-7B (Q4) | Qwen2.5-Coder 3B, Gemma 3 4B, Llama 3.2 3B | 40-80 tok/s |
 | **8 GB** | 7B (Q4) | Llama 3.1 8B, Mistral 7B, Qwen2.5-Coder 7B | 50-100 tok/s |
 | **12 GB** | 7B (Q8) or 14B (Q4) | Qwen2.5-Coder 14B, Phi-4 14B, Gemma 4 E4B | 30-70 tok/s |
 | **16 GB** | 14B (Q6) or 22B (Q4) | Codestral 22B, Mistral Small 24B | 25-50 tok/s |
 | **24 GB** | 22B (Q6) or 30B (Q4) | Qwen3 30B-A3B, Gemma 4 26B, Qwen3-Coder 30B | 20-45 tok/s |
 | **48 GB** | 70B (Q4) | Llama 3.1 70B, Qwen3 32B (full precision) | 15-30 tok/s |
+
+</div>
 
 *Speeds approximate for NVIDIA RTX 4000-series. Older cards (RTX 3000) are ~20-30% slower.*
 
@@ -296,7 +401,7 @@ graph TD
 ### Summary: How GPU Changes the Rules
 
 | Without GPU (CPU-only) | With GPU |
-|----------------------|----------|
+| ---------------------- | ---------- |
 | Model size limited by RAM | Model size limited by VRAM (for full speed) |
 | 5-25 tok/s typical | 30-150 tok/s typical |
 | All RAM recommendations in this guide apply directly | Use VRAM table above for model sizing |
@@ -314,7 +419,7 @@ graph TD
 The **context window** is how much text a model can "see" at once — your prompt, the conversation history, and the response all share this window. For coding, this is critical:
 
 | Context Size | What It Means | Good For |
-|-------------|---------------|----------|
+| ------------- | --------------- | ---------- |
 | **4K tokens** | ~3,000 words | Short Q&A, simple completions |
 | **8K tokens** | ~6,000 words | Single-file code review, short conversations |
 | **32K tokens** | ~24,000 words | Multi-file context, longer conversations |
@@ -340,7 +445,7 @@ curl http://localhost:11434/api/generate -d '{
 ### Context Windows of Popular Models
 
 | Model | Max Context | Default on Ollama |
-|-------|------------|-------------------|
+| ------- | ------------ | ------------------- |
 | Gemma 4 (all sizes) | 128K-256K | 2048 |
 | Qwen3 (all sizes) | 32K-128K | 2048 |
 | Qwen3-Coder 30B | 128K | 2048 |
@@ -352,8 +457,9 @@ Always override the default if you need more context for coding or document anal
 
 ---
 
-
 ## Model Recommendations by RAM and Use Case
+
+> **Audio & TTS (all RAM tiers):** For speech-to-text, use [Whisper.cpp](#setup-guide-whispercpp-audio-transcription) — the `large-v3-turbo q5` model (~0.57 GB) is the best value at any RAM tier. On 8 GB use `small` (~0.5 GB) if RAM is tight. For text-to-speech, use [Piper](#setup-guide-piper-text-to-speech) (~60-100 MB per voice, runs on CPU). Both are lightweight and run alongside any LLM without conflict.
 
 ### 8 GB RAM — The Essentials
 
@@ -361,40 +467,38 @@ With 8 GB, you can run one small model at a time. Close unnecessary apps (especi
 
 #### Text & Chat
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Model | Size | Command | Context | Strengths |
-|-------|------|---------|---------|-----------|
+| ------- | ------ | --------- | --------- | ----------- |
 | **Gemma 4 E2B** | ~7.2 GB | `ollama pull gemma4:e2b` | 128K | Google's latest, vision built-in. ⚠️ Tight fit — requires closing all apps, will use swap on 8 GB |
 | **Gemma 3 4B** | ~3.3 GB | `ollama pull gemma3:4b` | 128K | Efficient small model, good general knowledge |
 | **Phi-4 Mini 3.8B** | ~2.5 GB | `ollama pull phi4-mini` | 16K | Microsoft's small model, strong reasoning for its size |
 | **Llama 3.2 3B** | ~2 GB | `ollama pull llama3.2:3b` | 128K | Meta's compact model, fast and capable |
 
+</div>
+
 #### Coding
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Model | Size | Command | Context | Strengths |
 |-------|------|---------|---------|-----------|
 | **Qwen2.5-Coder 3B** | ~2 GB | `ollama pull qwen2.5-coder:3b` | 32K | Best small coding model, fill-in-the-middle support |
 | **DeepSeek-Coder 1.3B** | ~0.8 GB | `ollama pull deepseek-coder:1.3b` | 16K | Ultra-light, good for autocomplete only |
 
+</div>
+
 #### Image Understanding (Vision)
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Model | Size | Command | Strengths |
 |-------|------|---------|-----------|
 | **Gemma 4 E2B** | ~7.2 GB | `ollama pull gemma4:e2b` | Vision built-in — describe images, read diagrams |
 | **MiniCPM-V 3B** | ~2 GB | `ollama pull minicpm-v` | Lighter vision model, works better on 8 GB |
 
-#### Audio (Speech-to-Text)
-
-| Tool | Size | Command | Strengths |
-|------|------|---------|-----------|
-| **Whisper.cpp (small)** | ~0.5 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Fast transcription, decent accuracy |
-| **Whisper.cpp (large-v3-turbo q5)** | ~0.57 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Near-large quality, fast — best value |
-| **Whisper.cpp (base)** | ~0.15 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Ultra-light, basic accuracy |
-
-#### Text-to-Speech
-
-| Tool | Size | Command | Strengths |
-|------|------|---------|-----------|
-| **Piper** | ~60 MB per voice | See [setup below](#setup-guide-piper-text-to-speech) | Fast neural TTS, runs on CPU, 30+ languages |
+</div>
 
 > **8 GB verdict**: You can do basic chat, simple code completions, light image understanding, and audio transcription. Don't expect multi-turn complex reasoning or large codebase analysis. Gemma 4 E2B is the most capable option but leaves almost no headroom.
 
@@ -406,43 +510,41 @@ This is where local AI becomes genuinely useful. You can run 7B-14B models comfo
 
 #### Text & Chat
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Model | Size | Command | Context | Strengths |
-|-------|------|---------|---------|-----------|
+| ------- | ------ | --------- | --------- | ----------- |
 | **Gemma 4 E4B** | ~9.6 GB | `ollama pull gemma4` | 128K | Google's latest, vision + text, excellent quality |
 | **Gemma 3 12B** | ~8.1 GB | `ollama pull gemma3:12b` | 128K | Excellent general-purpose, multimodal |
 | **Llama 3.1 8B** | ~4.7 GB | `ollama pull llama3.1` | 128K | Meta's workhorse, great instruction following |
 | **Mistral 7B** | ~4.1 GB | `ollama pull mistral` | 32K | Fast, good at structured output and summarization |
 | **Phi-4 14B** | ~9 GB | `ollama pull phi4` | 16K | Microsoft's reasoning model, punches above its weight |
 
+</div>
+
 #### Coding
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Model | Size | Command | Context | Strengths |
-|-------|------|---------|---------|-----------|
+| ------- | ------ | --------- | --------- | ----------- |
 | **Qwen2.5-Coder 7B** | ~4.7 GB | `ollama pull qwen2.5-coder:7b` | 32K | Best coding model at this size, excellent completions |
 | **Qwen2.5-Coder 14B** | ~9 GB | `ollama pull qwen2.5-coder:14b` | 32K | Stronger code generation, fits tight on 16 GB |
 | **DeepSeek-Coder-V2 Lite 16B** | ~9 GB | `ollama pull deepseek-coder-v2:16b` | 128K | MoE architecture, good at code generation |
 
+</div>
+
 #### Image Understanding (Vision)
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Model | Size | Command | Strengths |
-|-------|------|---------|-----------|
+| ------- | ------ | --------- | ----------- |
 | **Gemma 4 E4B** | ~9.6 GB | `ollama pull gemma4` | Built-in vision — handles text + images in one model |
 | **Gemma 3 12B** | ~8.1 GB | `ollama pull gemma3:12b` | Built-in vision, slightly older but proven |
 | **LLaVA 13B** | ~8 GB | `ollama pull llava:13b` | Dedicated vision model, good image analysis |
 
-#### Audio (Speech-to-Text)
-
-| Tool | Size | Command | Strengths |
-|------|------|---------|-----------|
-| **Whisper.cpp (large-v3-turbo q5)** | ~0.57 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Best speed/quality ratio — recommended |
-| **Whisper.cpp (medium)** | ~1.5 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Good accuracy, handles accents well |
-| **Whisper.cpp (small)** | ~0.5 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Faster, slightly less accurate |
-
-#### Text-to-Speech
-
-| Tool | Size | Command | Strengths |
-|------|------|---------|-----------|
-| **Piper (medium quality)** | ~60 MB per voice | See [setup below](#setup-guide-piper-text-to-speech) | Natural-sounding, real-time on CPU |
+</div>
 
 > **16 GB verdict**: This is where local AI becomes a real productivity tool. You get solid coding assistance, good chat, image understanding, and audio transcription. Run one model at a time for best performance.
 
@@ -454,41 +556,39 @@ You can run larger models and even keep two smaller models loaded simultaneously
 
 #### Text & Chat
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Model | Size | Command | Context | Strengths |
-|-------|------|---------|---------|-----------|
+| ------- | ------ | --------- | --------- | ----------- |
 | **Gemma 4 26B (MoE)** | ~18 GB | `ollama pull gemma4:26b` | 256K | Google's latest MoE, vision + text, 256K context |
 | **Qwen3 14B** | ~9 GB | `ollama pull qwen3:14b` | 128K | Strong reasoning, supports thinking mode |
 | **Gemma 3 27B** | ~17 GB | `ollama pull gemma3:27b` | 128K | Excellent quality, proven multimodal |
 | **Mistral Small 24B** | ~14 GB | `ollama pull mistral-small` | 128K | Great at structured tasks, function calling |
 
+</div>
+
 #### Coding
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Model | Size | Command | Context | Strengths |
-|-------|------|---------|---------|-----------|
+| ------- | ------ | --------- | --------- | ----------- |
 | **Codestral 22B** | ~13 GB | `ollama pull codestral` | 32K | Mistral's dedicated coding model, 80+ languages |
 | **Qwen2.5-Coder 14B** | ~9 GB | `ollama pull qwen2.5-coder:14b` | 32K | Best dedicated coding model at this tier |
 | **DeepSeek-Coder-V2 16B** | ~9 GB | `ollama pull deepseek-coder-v2:16b` | 128K | Good at code generation and explanation |
 
+</div>
+
 #### Image Understanding (Vision)
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Model | Size | Command | Strengths |
 |-------|------|---------|-----------|
 | **Gemma 4 26B** | ~18 GB | `ollama pull gemma4:26b` | Best vision at this tier, 256K context |
 | **Gemma 3 27B** | ~17 GB | `ollama pull gemma3:27b` | Built-in vision, excellent quality |
 
-#### Audio (Speech-to-Text)
-
-| Tool | Size | Command | Strengths |
-|------|------|---------|-----------|
-| **Whisper.cpp (large-v3-turbo q5)** | ~0.57 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Best speed/quality — recommended |
-| **Whisper.cpp (large-v3)** | ~3 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Best transcription quality |
-| **Whisper.cpp (medium)** | ~1.5 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Good balance of speed and accuracy |
-
-#### Text-to-Speech
-
-| Tool | Size | Command | Strengths |
-|------|------|---------|-----------|
-| **Piper (high quality)** | ~100 MB per voice | See [setup below](#setup-guide-piper-text-to-speech) | Best local TTS quality |
+</div>
 
 #### Recommended Dual-Model Setup
 
@@ -512,43 +612,42 @@ This is the best consumer-level experience. You can run the largest open models 
 
 #### Text & Chat
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Model | Size | Command | Context | Strengths |
-|-------|------|---------|---------|-----------|
+| ------- | ------ | --------- | --------- | ----------- |
+| **Qwen3.6 35B-A3B** | ~24 GB | `ollama pull qwen3.6:35b` | 256K | 2026 MoE — 3B active, 256K context, agentic coding + vision |
 | **Qwen3 30B-A3B** | ~18 GB | `ollama pull qwen3:30b-a3b` | 128K | MoE — 30B knowledge, 3B inference speed. Best value |
 | **Gemma 4 26B (MoE)** | ~18 GB | `ollama pull gemma4:26b` | 256K | Google's latest, vision + text, 256K context |
 | **Gemma 4 31B (Dense)** | ~20 GB | `ollama pull gemma4:31b` | 256K | Dense model, highest quality Gemma 4 |
-| **Gemma 3 27B** | ~17 GB | `ollama pull gemma3:27b` | 128K | Proven quality, multimodal built-in |
 | **Command-R 35B** | ~20 GB | `ollama pull command-r` | 128K | Cohere's model, excellent at RAG and tool use |
+
+</div>
 
 #### Coding
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Model | Size | Command | Context | Strengths |
-|-------|------|---------|---------|-----------|
+| ------- | ------ | --------- | --------- | ----------- |
 | **Qwen3-Coder 30B** | ~19 GB | `ollama pull qwen3-coder` | 128K | Purpose-built for code, agentic workflows, Apache 2.0 |
+| **Qwen3.6 35B-A3B** | ~24 GB | `ollama pull qwen3.6:35b` | 256K | Newer, stronger reasoning, 256K context |
 | **Qwen3 30B-A3B** | ~18 GB | `ollama pull qwen3:30b-a3b` | 128K | Fast MoE with strong code abilities |
 | **Codestral 22B** | ~13 GB | `ollama pull codestral` | 32K | Dedicated coding model, 80+ languages |
-| **Qwen2.5-Coder 14B** | ~9 GB | `ollama pull qwen2.5-coder:14b` | 32K | Leaves room for a second model |
+
+</div>
 
 #### Image Understanding (Vision)
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Model | Size | Command | Strengths |
-|-------|------|---------|-----------|
+| ------- | ------ | --------- | ----------- |
 | **Gemma 4 31B** | ~20 GB | `ollama pull gemma4:31b` | Best local vision model, 256K context |
 | **Gemma 4 26B** | ~18 GB | `ollama pull gemma4:26b` | MoE variant, faster inference |
 | **Llama 3.2 Vision 11B** | ~7 GB | `ollama pull llama3.2-vision` | Good vision, leaves room for other models |
 
-#### Audio (Speech-to-Text)
-
-| Tool | Size | Command | Strengths |
-|------|------|---------|-----------|
-| **Whisper.cpp (large-v3-turbo q5)** | ~0.57 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Best speed/quality — recommended for most |
-| **Whisper.cpp (large-v3)** | ~3 GB | See [setup below](#setup-guide-whispercpp-audio-transcription) | Best local transcription quality |
-
-#### Text-to-Speech
-
-| Tool | Size | Command | Strengths |
-|------|------|---------|-----------|
-| **Piper (high quality)** | ~100 MB per voice | See [setup below](#setup-guide-piper-text-to-speech) | Best local TTS quality, multiple voices |
+</div>
 
 #### Recommended Multi-Model Setup
 
@@ -562,8 +661,74 @@ ollama pull qwen2.5-coder:7b
 # Keep ~9 GB free for OS + apps
 ```
 
-> **32 GB verdict**: You get a genuinely powerful local AI setup. Qwen3 30B-A3B (MoE) is the standout for general use — fast and remarkably capable. For dedicated coding, Qwen3-Coder 30B is the new king.
+> **32 GB verdict**: You get a genuinely powerful local AI setup. Qwen3.6 35B-A3B is the new standout (256K context, agentic-ready). Qwen3 30B-A3B remains the fastest value pick. For dedicated coding, Qwen3-Coder 30B is the king.
 
+---
+
+### 64 GB RAM — Cloud-Killer Territory
+
+With 64 GB of unified memory (M4 Max, M3 Ultra) or system RAM + VRAM, you can run the largest MoE models that rival cloud coding APIs. This is where local AI truly competes with Claude and GPT for agentic coding.
+
+#### Text & Chat
+
+<div style="overflow-x: auto;" markdown="1">
+
+| Model | Size | Command | Context | Strengths |
+| ------- | ------ | --------- | --------- | ----------- |
+| **Qwen3-Coder-Next** | ~46 GB | `ollama pull qwen3-coder-next` | 131K | 80B total / 3B active — best local coding agent model of 2026 |
+| **Llama 3.1 70B** | ~40 GB | `ollama pull llama3.1:70b` | 128K | Meta's flagship, excellent instruction following |
+| **Qwen3.6 35B-A3B (Q8)** | ~36 GB | `ollama pull qwen3.6:35b-a3b-q8_0` | 256K | Full-quality Qwen3.6 without quantization loss |
+| **Qwen3 32B (Dense)** | ~20 GB | `ollama pull qwen3:32b` | 128K | Dense model, leaves headroom for large context |
+
+</div>
+
+#### Coding
+
+<div style="overflow-x: auto;" markdown="1">
+
+| Model | Size | Command | Context | Strengths |
+| ------- | ------ | --------- | --------- | ----------- |
+| **Qwen3-Coder-Next** | ~46 GB | `ollama pull qwen3-coder-next` | 131K | Purpose-built for coding agents. 80B MoE, 3B active — SWE-Bench ~70% |
+| **Qwen3-Coder 30B (Q8)** | ~32 GB | `ollama pull qwen3-coder:30b-q8_0` | 128K | Full-quality Qwen3-Coder without quantization loss |
+| **Qwen3.6 35B-A3B** | ~24 GB | `ollama pull qwen3.6:35b` | 256K | Fast agentic model, 256K context for large repos |
+| **DeepSeek-V2.5 236B (Q2)** | ~50 GB | Community GGUF | 128K | MoE giant at aggressive quantization, experimental |
+
+</div>
+
+#### Image Understanding (Vision)
+
+<div style="overflow-x: auto;" markdown="1">
+
+| Model | Size | Command | Strengths |
+|-------|------|---------|-----------|
+| **Gemma 4 31B (Q8)** | ~33 GB | `ollama pull gemma4:31b-q8_0` | Best vision, full quality, 256K context |
+| **Llama 3.2 Vision 90B** | ~55 GB | `ollama pull llama3.2-vision:90b` | Meta's largest vision model |
+
+</div>
+
+#### Recommended Multi-Model Setup
+
+```bash
+# Primary coding agent (~46 GB)
+ollama pull qwen3-coder-next
+
+# Lightweight autocomplete (~4.7 GB) — runs alongside
+ollama pull qwen2.5-coder:7b
+
+# Keep ~13 GB free for OS + apps + context
+```
+
+Or for a versatile non-coding setup:
+
+```bash
+# Reasoning + general purpose (~40 GB)
+ollama pull llama3.1:70b
+
+# Vision model when needed (~24 GB) — swap with llama3.1
+ollama pull qwen3.6:35b
+```
+
+> **64 GB verdict**: This is cloud-killer territory. Qwen3-Coder-Next (80B MoE, 3B active) matches paid coding APIs for agentic workflows — file edits, test runs, multi-step debugging — completely free and private. If you're buying a Mac for local AI coding, 64 GB unified memory is the sweet spot.
 
 ---
 
@@ -574,7 +739,7 @@ ollama pull qwen2.5-coder:7b
 ### Step 1: Install Ollama
 
 | Platform | Install Command / Method | Requirements |
-|----------|------------------------|--------------|
+| ---------- | ------------------------ | -------------- |
 | **macOS** | Download from [ollama.com/download/mac](https://ollama.com/download/mac) or `brew install ollama` | macOS Sonoma 14+, Apple M-series or Intel |
 | **Linux** | `curl -fsSL https://ollama.com/install.sh \| sh` | Any modern distro. [GPU setup](https://docs.ollama.com/linux) optional |
 | **Windows** | Download from [ollama.com/download/windows](https://ollama.com/download/windows) | Windows 10 22H2+. No admin needed |
@@ -642,44 +807,41 @@ ollama pull <model>      # Download or update a model
 
 ## Beyond Ollama: Other Free Tools to Run Local AI
 
-Ollama is the easiest starting point, but it's not the only option. Here's a quick look at the broader ecosystem, categorized by use case.
+The [Quick Decision table](#quick-decision-pick-your-tools) above covers the most popular options. This section lists specialized tools for users who need lower-level control, production serving, or platform-specific hardware.
 
-### CLI & Developer Tools
+### Low-Level Inference Engines
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Tool | What It Is | Best For | Open Source |
-|------|-----------|----------|-------------|
+| ------ | ----------- | ---------- | ------------- |
 | [**llama.cpp**](https://github.com/ggml-org/llama.cpp) | The C/C++ inference engine Ollama is built on | Maximum control over quantization, context, and parameters | ✅ Yes |
 | [**MLX / mlx-lm**](https://github.com/ml-explore/mlx) | Apple's native framework for Apple Silicon | Fastest inference on Macs — up to 4x faster than llama.cpp for some models | ✅ Yes |
-| [**oMLX**](https://omlx.ai) | macOS-native MLX server with SSD KV caching. Drops TTFT from 90s to <5s for coding agents. Continuous batching, OpenAI + Anthropic API compatible | Apple Silicon users running coding agents (Claude Code, Cursor, OpenClaw). 14.8k+ stars | ✅ Yes (Apache 2.0) |
-| [**LocalAI**](https://localai.io) | OpenAI-compatible API server with multimodal support | Text, images, audio, embeddings — all through one API. Supports GGUF, GPTQ, AWQ, Safetensors | ✅ Yes |
 
-### Desktop Apps (GUI)
-
-| Tool | What It Is | Best For | Open Source |
-|------|-----------|----------|-------------|
-| [**Unsloth Studio**](https://unsloth.ai/docs/new/studio) | Web UI for running GGUF/safetensor models + no-code fine-tuning, model arena, data recipes | Run and train models locally with observability. Compare models side-by-side. Mac/Windows/Linux | ✅ Yes (AGPL-3.0) |
-| [**Joanium**](https://www.joanium.com) | Local-first AI desktop app — reads project files, runs scheduled automations, background agents, connects to GitHub/Gmail/Google Drive/Calendar | Developers who want AI beyond chat: file-aware automations, scheduling, and multi-provider support (10+ providers including local models). Free forever, no account required | ✅ Yes ([GitHub](https://github.com/Joanium/Joanium)) |
-| [**Pinokio**](https://pinokio.co) | One-click app store for local AI tools. Browse, install, and run ComfyUI, Whisper, TTS, LLMs, and 160+ AI apps with zero setup | Non-technical users who want to try many local AI tools without terminal commands | ✅ Yes |
-| [**LM Studio**](https://lmstudio.ai) | Polished desktop app with model browser, chat UI, and local API server | Beginners, model comparison, "Chat with Documents" RAG. Supports GGUF + MLX formats | ❌ Free, not OSS |
-| [**Jan**](https://jan.ai) | Offline ChatGPT alternative with desktop app and CLI | Privacy-first users who want a clean chat interface with zero cloud dependency | ✅ Yes |
-| [**GPT4All**](https://gpt4all.io) | One-click desktop app by Nomic AI | Non-technical users who want local chat + document Q&A with minimal setup | ✅ Yes |
+</div>
 
 ### Production & High-Throughput Serving
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Tool | What It Is | Best For | Open Source |
-|------|-----------|----------|-------------|
+| ------ | ----------- | ---------- | ------------- |
 | [**vLLM**](https://github.com/vllm-project/vllm) | Production inference server with continuous batching and PagedAttention | Multi-user serving, high concurrency. V1 engine supports text, audio, embeddings, multimodal | ✅ Yes |
 | [**SGLang**](https://github.com/sgl-project/sglang) | High-throughput serving framework from UC Berkeley | Structured output, constrained decoding, production API serving | ✅ Yes |
 | [**TGI**](https://github.com/huggingface/text-generation-inference) | Hugging Face's inference server with built-in observability | Teams already in the HF ecosystem, metrics-heavy deployments | ✅ Yes |
 
+</div>
+
 ### Platform-Specific & Niche
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Tool | What It Is | Best For | Open Source |
-|------|-----------|----------|-------------|
+| ------ | ----------- | ---------- | ------------- |
 | [**Docker Model Runner**](https://docs.docker.com) | Run GGUF models directly from Docker Desktop | Teams already in container workflows — pull models like Docker images | Partial |
 | [**Lemonade**](https://github.com/amd/lemonade) | AMD's tool for Ryzen AI NPU hardware | AMD laptop users with dedicated NPUs — includes MCP tool calling | ✅ Yes |
 
-> **Which should you pick?** For most readers of this guide: start with **Ollama** (simplest CLI + API), try **LM Studio** or **Unsloth Studio** if you prefer a GUI (Unsloth is open-source and adds fine-tuning + model arena), use **Joanium** if you want file-aware automations and scheduling beyond chat, use **Pinokio** if you want one-click installs for image/audio/video AI tools, use **oMLX** if you're on Apple Silicon and want the fastest inference for coding agents, use **Goose** or **OpenHuman** if you want an agentic workflow with local models and persistent memory. Everything else is for specialized needs.
+</div>
 
 ---
 
@@ -714,14 +876,18 @@ curl -L -o ~/.local/share/whisper-cpp/ggml-large-v3-turbo-q5_0.bin \
 
 #### Which Model to Choose?
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Model File | Size | Speed | Accuracy | Best For |
-|-----------|------|-------|----------|----------|
+| ----------- | ------ | ------- | ---------- | ---------- |
 | `ggml-tiny.bin` | 78 MB | Fastest | Basic | Quick tests |
 | `ggml-base.bin` | 148 MB | Very fast | Decent | Clear speech, low RAM |
 | `ggml-small.bin` | 488 MB | Fast | Good | Meetings, podcasts |
 | `ggml-medium.bin` | 1.53 GB | Moderate | Very good | Accented speech, noisy audio |
 | `ggml-large-v3-turbo-q5_0.bin` | 574 MB | Fast | Excellent | **Best pick — large quality at medium speed** |
 | `ggml-large-v3.bin` | 3.1 GB | Slow | Best | Professional transcription |
+
+</div>
 
 > **Pro tip**: The `large-v3-turbo` model is a distilled version of large-v3 — nearly the same accuracy but ~4x faster. The `q5_0` quantized variant (574 MB) is the sweet spot for most users.
 
@@ -858,24 +1024,18 @@ If you don't want to deal with Python environments and git clones:
 
 ### Image Model Recommendations by RAM
 
+<div style="overflow-x: auto;" markdown="1">
+
 | RAM | Model | Size | Quality | Generation Time |
-|-----|-------|------|---------|----------------|
+| ----- | ------- | ------ | --------- | ---------------- |
 | **8 GB** | SD 1.5 | ~2 GB | Basic, 512x512 | ~10-20 sec |
 | **16 GB** | SDXL | ~6.5 GB | Good, 1024x1024 | ~15-30 sec |
 | **24 GB** | SDXL + refiner | ~12 GB | High quality with refinement | ~30-60 sec |
 | **32 GB** | FLUX.1-dev | ~12 GB | State-of-the-art, best prompt adherence | ~20-40 sec |
 
+</div>
+
 *Times estimated on Apple M2 Pro. NVIDIA GPUs are typically 2-3x faster for image generation.*
-
----
-
-## What About Video Generation?
-
-**Short answer: not practical locally yet.**
-
-Video generation models like Sora, Runway Gen-3, and Kling require massive GPU memory (48+ GB VRAM) and take minutes to hours per clip even on high-end hardware. The smallest usable open-source video models (like CogVideoX) need at minimum 24 GB of dedicated GPU VRAM — not unified RAM.
-
-If you need AI video generation, cloud services are currently the only practical option. This will likely change in 2-3 years as models get more efficient, but for now, focus your local setup on text, code, images, and audio.
 
 ---
 
@@ -942,12 +1102,11 @@ drafting, and editing. Your suggestions are vivid and original. You match
 the tone and style the user is going for."""
 ```
 
-
 ---
 
 ## Integrate with Your Editor & Workflow
 
-The real power of local AI comes when it's integrated into your editor. Here's how to set up a full coding assistant experience in VS Code.
+Already picked your tools from the [Quick Decision table](#quick-decision-pick-your-tools)? Here's how to configure each one. The real power of local AI comes when it's integrated into your editor and terminal — below are detailed setup instructions.
 
 ### Option 1: Continue (Recommended)
 
@@ -1024,6 +1183,7 @@ Open `http://localhost:3000` — it auto-detects all your Ollama models. Great f
 [Aider](https://aider.chat/) is an open-source terminal-based AI pair programming tool (44k+ GitHub stars, 6.8M+ installs). It edits files directly in your codebase, auto-commits changes with sensible messages, and works with local Ollama models — completely free, completely private.
 
 **Why Aider stands out for local AI:**
+
 - Works directly on your existing codebase (not a sandbox)
 - Auto-commits changes with git — easy to diff, undo, or review
 - Maps your entire repo for context-aware edits
@@ -1062,7 +1222,7 @@ aider --model ollama_chat/qwen2.5-coder:14b
 **Recommended local models for Aider:**
 
 | RAM | Model | Command |
-|-----|-------|---------|
+| ----- | ------- | --------- |
 | 8 GB | Qwen2.5 Coder 7B | `aider --model ollama_chat/qwen2.5-coder:7b` |
 | 16 GB | Qwen2.5 Coder 14B | `aider --model ollama_chat/qwen2.5-coder:14b` |
 | 24 GB+ | Codestral 22B | `aider --model ollama_chat/codestral:22b` |
@@ -1218,22 +1378,21 @@ chatblade -e "list 5 python testing libraries" | jq .
 
 ### Connecting Any CLI Tool to Local Models
 
-Most terminal AI tools were built for OpenAI's API. Since Ollama provides an OpenAI-compatible API at `http://localhost:11434/v1`, you can connect almost any tool by overriding two environment variables:
+Most terminal AI tools support OpenAI's API format. Since Ollama is compatible at `http://localhost:11434/v1`, add this to `~/.zshrc`:
 
 ```bash
-# Add to ~/.zshrc — works with sgpt, chatblade, and many other tools
 export OPENAI_API_BASE=http://localhost:11434/v1
-export OPENAI_API_KEY=not-needed   # any string works, Ollama doesn't check it
+export OPENAI_API_KEY=not-needed
 ```
 
-This trick works with any tool that accepts `OPENAI_API_BASE` or `OPENAI_BASE_URL` configuration — LM Studio uses port 1234 instead (`http://localhost:1234/v1`).
+This covers sgpt, chatblade, and most other tools that accept `OPENAI_API_BASE` or `OPENAI_BASE_URL`. LM Studio uses port 1234 instead.
 
 ### Upgrade & Uninstall Terminal AI Tools
 
 Keep your tools current or remove them cleanly:
 
 | Tool | Upgrade | Uninstall |
-|------|---------|-----------|
+| ------ | --------- | ----------- |
 | **Ollama** | `brew upgrade ollama` | `brew uninstall ollama && rm -rf ~/.ollama` |
 | **Aider** | `aider --upgrade` or `pipx upgrade aider-chat` | `pipx uninstall aider-chat` |
 | **Fabric** | `go install github.com/danielmiessler/fabric@latest` | `rm $(which fabric)` |
@@ -1244,79 +1403,49 @@ Keep your tools current or remove them cleanly:
 | **Cline (VS Code)** | Auto-updates via VS Code Marketplace | Uninstall from Extensions panel |
 | **Open WebUI** | `docker pull ghcr.io/open-webui/open-webui:main && docker restart open-webui` | `docker rm -f open-webui && docker volume rm open-webui` |
 
-**Removing downloaded models** (frees disk space):
-
-```bash
-# List all downloaded models
-ollama list
-
-# Remove a specific model
-ollama rm qwen2.5-coder:14b
-
-# Remove all models (nuclear option)
-rm -rf ~/.ollama/models
-```
-
-> **Tip:** Models are the biggest disk consumers. A 14B model uses ~8 GB, a 32B model ~20 GB. Run `ollama list` periodically and remove models you're not using.
+> **Tip:** Models are the biggest disk consumers (8-20 GB each). Run `ollama list` periodically and `ollama rm <model>` for ones you're not using.
 
 ---
 
 ## Ollama Integrations: Where You Can Use Local Models
 
-> **Note:** For detailed setup guides on Aider, Fabric, ShellGPT, Mods, and Chatblade, see the [Integrate with Your Editor & Workflow](#integrate-with-your-editor--workflow) section above. The table below is a quick-reference overview of the broader ecosystem.
+Beyond the tools covered in the [Quick Decision table](#quick-decision-pick-your-tools) and [setup guides above](#integrate-with-your-editor--workflow), here are additional integrations worth knowing about. Ollama exposes an OpenAI-compatible API at `http://localhost:11434/v1` — any tool that supports a custom OpenAI endpoint can connect to it.
 
-Ollama acts as a background API server at `http://localhost:11434`. You can connect a massive ecosystem of external tools to it by simply pointing their API endpoint settings to your local machine.
-
-### Coding Agents (Terminal & Desktop)
+### IDEs & Editors (Beyond VS Code)
 
 | Tool | What It Does | Setup |
-|------|-------------|-------|
-| [**OpenCode**](https://opencode.ai) | Open-source (MIT) AI coding agent — terminal, VS Code, desktop. 75+ providers including Ollama. 153k+ GitHub stars | Install binary, set provider to Ollama. `curl -fsSL https://opencode.ai/install.sh \| bash` |
-| [**Goose**](https://goose-docs.ai) | Open-source AI agent (Apache 2.0) — desktop app, CLI, and API. 70+ MCP extensions, subagents, recipes. Now under the Agentic AI Foundation (Linux Foundation) | Select "Ollama" in provider settings. Install via `curl -fsSL https://github.com/aaif-goose/goose/releases/download/stable/download_cli.sh \| bash` |
-| [**OpenHands**](https://www.all-hands.dev) | Autonomous coding agent — sandboxed execution, reads repos, edits files, runs tests, iterates. 72k+ stars. Has its own OpenHands-LM 32B model | `pip install openhands` or Docker. Set LLM provider to Ollama |
-| [**Pi**](https://pi.dev) | Minimal open-source terminal coding agent. Extensible via TypeScript skills, prompt templates, themes. Supports Ollama/oMLX | `npm install -g @anthropic-ai/pi` → configure local model provider |
-| [**Aider**](https://aider.chat/) | AI pair programming in your terminal | Run with `aider --model ollama/qwen2.5-coder:7b` |
-| [**Fabric**](https://github.com/danielmiessler/fabric) | CLI framework with 100+ crowdsourced AI prompt "patterns" (summarize, extract wisdom, write essays). Pipe any text through it | `go install github.com/danielmiessler/fabric@latest` then `fabric --setup` → select Ollama |
-| [**Claude Code**](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) | Anthropic's terminal agent | Requires Anthropic API key or OpenAI-compatible proxy to use with local models |
-
-### AI Assistants
-
-| Tool | What It Does | Setup |
-|------|-------------|-------|
-| [**Hermes Agent**](https://github.com/NousResearch/hermes-agent) | Self-improving AI agent by Nous Research (MIT, 163k+ stars). Built-in learning loop — creates skills from experience, persistent memory, cron scheduling, subagent delegation. Works with any model including Ollama. Talks via Telegram, Discord, Slack, WhatsApp, Signal, or CLI | `curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scripts/install.sh \| bash` then `hermes model` → select Ollama |
-| [**OpenClaw**](https://openclaw.ai) | Open-source personal AI assistant. Persistent memory, browser control, file access, self-extending skills. Talk to it via WhatsApp, Telegram, Discord, or iMessage. Note: primarily uses cloud APIs (Claude/GPT); local model support is limited and community-reported as less reliable | `curl -fsSL https://openclaw.ai/install.sh \| bash` → connect chat app |
-| [**Khoj**](https://khoj.dev) | Self-hosted "AI second brain" — chat with docs, web search, custom agents, scheduled automations. Obsidian & Emacs plugins | `pip install khoj` or Docker. Set LLM to Ollama in admin settings |
-| [**OpenHuman**](https://www.openhuman.dev) | Open-source (GPL-3.0) desktop AI agent by TinyHumans — personal memory, app integrations (Gmail, Slack, Telegram, Notion, GitHub), voice, local knowledge base. Built in Rust, 17k+ stars | Install desktop app → connects to Ollama or LM Studio for local inference. Two-minute setup, no config files |
-| [**AnythingLLM**](https://anythingllm.com/) | Desktop app with built-in RAG and document chat | Select Ollama as LLM provider |
-| [**Msty**](https://msty.app/) | Clean multi-model chat interface | Auto-detects local Ollama instance |
-| [**Chatbox**](https://chatboxai.app/) | Cross-platform desktop client for multiple AI APIs | Set provider to Ollama |
-| [**Enchanted**](https://github.com/gluonfield/enchanted) | Native iOS/macOS app for chatting with Ollama models. Free on App Store | Install from App Store → set Ollama server endpoint in settings |
-
-> **Hermes Agent vs OpenClaw**: Hermes is the spiritual successor to OpenClaw (has built-in `hermes claw migrate`). Hermes is the better fit for this guide: first-class Ollama support, self-improving skills, MIT license, 163k stars, and runs on any server — not tied to your laptop. OpenClaw works but is more tightly coupled to cloud APIs for reliable tool-calling.
-
-### IDEs & Editors
-
-| Tool | What It Does | Setup |
-|------|-------------|-------|
-| [**VS Code**](https://docs.ollama.com/integrations/vscode) | Models in Copilot Chat picker (VS Code 1.113+) | `ollama launch vscode` |
-| [**Continue**](https://github.com/continuedev/continue) | Open-source AI code assistant — chat, autocomplete, inline edit. Works with Ollama, LM Studio, any local model | Marketplace → configure Ollama endpoint |
-| [**Cline**](https://docs.ollama.com/integrations/cline) | VS Code extension — set provider to Ollama, 32K+ context | Marketplace → configure |
-| [**Roo Code**](https://docs.ollama.com/integrations/roo-code) | Cline fork with same Ollama setup | Marketplace → configure |
+| ------ | ------------- | ------- |
+| [**VS Code (native)**](https://docs.ollama.com/integrations/vscode) | Models in Copilot Chat picker (VS Code 1.113+) | `ollama launch vscode` |
 | [**JetBrains**](https://docs.ollama.com/integrations/jetbrains) | IntelliJ, PyCharm, WebStorm — needs JetBrains AI subscription | Settings → AI → Ollama |
 | [**Xcode**](https://docs.ollama.com/integrations/xcode) | Xcode 26+ with Apple Intelligence | Settings → Locally Hosted |
 | [**Zed**](https://docs.ollama.com/integrations/zed) | Native Ollama provider | Configure → Ollama |
+| [**marimo**](https://docs.ollama.com/integrations/marimo) | Python notebook with AI chat + code completion | Settings → AI → Ollama |
+
+### Coding Agents (Additional)
+
+| Tool | What It Does | Setup |
+| ------ | ------------- | ------- |
+| [**Pi**](https://pi.dev) | Minimal terminal coding agent. TypeScript skills, prompt templates, themes | `npm install -g @anthropic-ai/pi` → configure local model |
+| [**Claude Code**](https://docs.anthropic.com/en/docs/agents-and-tools/claude-code/overview) | Anthropic's terminal agent | Requires API key or OpenAI-compatible proxy |
 
 ### Chat, RAG & Automation
 
 | Tool | What It Does | Setup |
-|------|-------------|-------|
+| ------ | ------------- | ------- |
 | [**Onyx**](https://docs.ollama.com/integrations/onyx) | Self-hosted chat with RAG, web search, agents, connectors (Drive, Slack, Email) | Docker → Ollama provider |
-| [**Kotaemon**](https://github.com/Cinnamon/kotaemon) | Open-source RAG tool for chatting with documents — clean UI, citation support, multi-model | `pip install kotaemon` or Docker → set Ollama endpoint |
-| [**PrivateGPT**](https://github.com/zylon-ai/private-gpt) | Ingest entire document collections into vector space, query via API. 100% local RAG pipeline | Docker or pip install → configure Ollama as LLM provider |
+| [**Kotaemon**](https://github.com/Cinnamon/kotaemon) | RAG tool for chatting with documents — clean UI, citation support | `pip install kotaemon` or Docker → set Ollama endpoint |
+| [**PrivateGPT**](https://github.com/zylon-ai/private-gpt) | Ingest document collections into vector space, 100% local RAG | Docker or pip → configure Ollama |
+| [**Khoj**](https://khoj.dev) | Self-hosted "AI second brain" — docs, web search, scheduled automations | `pip install khoj` or Docker → Ollama in admin settings |
+| [**AnythingLLM**](https://anythingllm.com/) | Desktop app with built-in RAG and document chat | Select Ollama as LLM provider |
 | [**n8n**](https://docs.ollama.com/integrations/n8n) | Visual workflow automation with Ollama nodes | Credential → Ollama |
-| [**marimo**](https://docs.ollama.com/integrations/marimo) | Python notebook with AI chat + code completion | Settings → AI → Ollama |
 
-> **Tip**: Ollama exposes an OpenAI-compatible API at `http://localhost:11434/v1`. Any tool that supports a "custom OpenAI endpoint" can connect to Ollama — even if it's not listed here.
+### Other Chat Clients
+
+| Tool | What It Does | Setup |
+| ------ | ------------- | ------- |
+| [**Msty**](https://msty.app/) | Clean multi-model chat interface | Auto-detects local Ollama |
+| [**Chatbox**](https://chatboxai.app/) | Cross-platform desktop client for multiple AI APIs | Set provider to Ollama |
+| [**OpenClaw**](https://openclaw.ai) | Personal AI assistant via WhatsApp/Telegram/Discord. Note: cloud APIs work more reliably than local | `curl -fsSL https://openclaw.ai/install.sh \| bash` |
 
 ---
 
@@ -1328,15 +1457,15 @@ Speed is measured in **tokens per second (tok/s)**. For reference, comfortable r
 
 <div style="overflow-x: auto;" markdown="1">
 
-| Model | M1 (8 GB) | M1 Pro (16 GB) | M2 Pro (16 GB) | M3 Pro (18 GB) | M4 Pro (24 GB) | M4 Max (32+ GB) |
-|-------|-----------|----------------|----------------|----------------|----------------|-----------------|
-| **Gemma 3 4B** | ~25 | ~35 | ~40 | ~45 | ~55 | ~70 |
-| **Llama 3.1 8B** | — | ~20 | ~25 | ~30 | ~40 | ~50 |
-| **Gemma 4 E4B** | — | ~15 | ~20 | ~25 | ~35 | ~45 |
-| **Qwen2.5-Coder 14B** | — | ~8 | ~12 | ~15 | ~22 | ~30 |
-| **Codestral 22B** | — | — | — | ~8 | ~15 | ~22 |
-| **Qwen3 30B-A3B (MoE)** | — | — | — | — | ~18 | ~30 |
-| **Gemma 4 26B (MoE)** | — | — | — | — | ~15 | ~25 |
+| Model | M1 (8 GB) | M1 Pro (16 GB) | M2 Pro (16 GB) | M3 Pro (18 GB) | M4 Pro (24 GB) | M4 Max (32 GB) | M4 Max (64 GB) |
+| ------- | ----------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
+| **Gemma 3 4B** | ~25 | ~35 | ~40 | ~45 | ~55 | ~70 | ~70 |
+| **Llama 3.1 8B** | — | ~20 | ~25 | ~30 | ~40 | ~50 | ~50 |
+| **Gemma 4 E4B** | — | ~15 | ~20 | ~25 | ~35 | ~45 | ~45 |
+| **Qwen2.5-Coder 14B** | — | ~8 | ~12 | ~15 | ~22 | ~30 | ~30 |
+| **Qwen3.6 35B-A3B (MoE)** | — | — | — | — | ~15 | ~25 | ~35 |
+| **Qwen3-Coder-Next (MoE)** | — | — | — | — | — | — | ~25 |
+| **Llama 3.1 70B** | — | — | — | — | — | — | ~12 |
 
 </div>
 
@@ -1344,97 +1473,42 @@ Speed is measured in **tokens per second (tok/s)**. For reference, comfortable r
 
 > **Key insight**: MoE models (Qwen3 30B-A3B, Gemma 4 26B) are significantly faster than dense models of similar total parameter count because they only activate a fraction of parameters per token. A 30B MoE model can be faster than a 14B dense model.
 
-### Intel/AMD Comparison
+### Intel/AMD & NVIDIA Comparison
 
-On Intel/AMD laptops without a dedicated GPU, expect roughly **3-5x slower** speeds than Apple Silicon with the same RAM. An NVIDIA GPU closes this gap significantly.
-
-### NVIDIA GPU Users (Linux/Windows)
-
-If you have a dedicated NVIDIA GPU (RTX 3060–4090), local AI performance is excellent:
-
-- **VRAM is king**: Models loaded into GPU VRAM run 3-10x faster than CPU-only. A 12 GB VRAM GPU can run 7B models at 60-100+ tok/s.
-- **VRAM + system RAM**: Ollama automatically splits models between GPU and CPU when the model exceeds VRAM. A 24 GB model on a 12 GB GPU will partially offload to CPU — slower than full GPU but still faster than CPU-only.
-- **Practical guidance**: RTX 3060 (12 GB) → comfortable with 7B models. RTX 4070 Ti (12 GB) → same capacity, faster. RTX 4090 (24 GB) → runs 14B-22B models entirely in VRAM.
-- **Setup**: Ollama auto-detects NVIDIA GPUs on Linux/Windows. No extra config needed — just install the [NVIDIA drivers](https://docs.ollama.com/gpu) and Ollama handles the rest.
+- **Intel/AMD (no GPU)**: Expect roughly **3-5x slower** speeds than Apple Silicon with the same RAM.
+- **NVIDIA GPU**: Closes the gap entirely — see the [GPU section](#got-a-gpu-how-it-changes-everything) for VRAM-based model selection and expected speeds.
 
 ---
 
 ## Local vs Cloud: Honest Comparison
 
 | Factor | Local (Ollama) | Cloud (ChatGPT, Claude, etc.) |
-|--------|---------------|-------------------------------|
-| **Cost** | Free forever | $20-200/month or per-token pricing |
-| **Privacy** | 100% — data never leaves your machine | Data sent to provider servers |
-| **Speed** | 10-50 tok/s (depends on hardware) | 50-150 tok/s typically |
-| **Quality (simple tasks)** | 90-95% of cloud quality | Baseline |
-| **Quality (complex reasoning)** | 60-75% of cloud quality | Baseline |
-| **Context window (practical)** | 8K-64K (limited by RAM) | 128K-200K |
-| **Offline** | Yes | No |
-| **Rate limits** | None | Yes (varies by plan) |
-| **Multi-modal** | Text, images, audio | Text, images, audio, video, web |
-| **Tool use / agents** | Good — Hermes, OpenCode, Goose work with local models | Advanced |
-| **Setup effort** | 10-30 minutes | Sign up and go |
+| -------- | --------------- | ------------------------------- |
+| **Cost** | Free forever | $20-200/month or per-token |
+| **Privacy** | 100% local | Data sent to provider |
+| **Speed** | 10-50 tok/s | 50-150 tok/s |
+| **Quality (routine tasks)** | 90-95% of cloud | Baseline |
+| **Quality (complex reasoning)** | 60-75% of cloud | Baseline |
+| **Context window** | 8K-64K (RAM-limited) | 128K-200K |
+| **Offline** | ✅ | ❌ |
+| **Setup** | 10-30 minutes | Sign up and go |
 
-**When to use local**: Routine coding tasks, code completions, quick Q&A, document summarization, privacy-sensitive work, offline scenarios.
+**Use local for**: routine coding, completions, Q&A, summarization, privacy-sensitive work, offline.
 
-**When to use cloud**: Complex multi-step reasoning, large codebase refactoring, cutting-edge capabilities, agent workflows with many tools.
+**Use cloud for**: complex multi-step reasoning, large refactors, cutting-edge capabilities.
 
 ---
 
 ## How to Evaluate a Model Yourself
 
-Don't just trust benchmark leaderboards — test models against your actual use cases. Here's a practical evaluation framework:
+Don't just trust benchmarks — test against your actual use cases:
 
-### Step 1: Define Your Test Prompts
+1. **Create 5 test prompts** from your real work (code review, generation, explanation, debugging, summarization)
+2. **Run the same prompts** on 2-3 candidate models: `ollama run <model> "your prompt"`
+3. **Rate each on**: correctness, speed, code quality, instruction following
+4. **Check resources**: `ollama ps` shows memory usage — ensure you have headroom
 
-Create 5-10 prompts that represent your real work:
-
-```bash
-# Save test prompts to a file
-cat > test-prompts.txt << 'EOF'
-1. Explain what this TypeScript function does: [paste a real function from your codebase]
-2. Write a SQL query to find the top 10 users by activity in the last 30 days
-3. Review this code for security issues: [paste real code]
-4. Convert this Python script to TypeScript: [paste real code]
-5. Summarize this error log and suggest fixes: [paste real error output]
-EOF
-```
-
-### Step 2: Run Each Model
-
-```bash
-# Test model A
-ollama run gemma4 "your test prompt here"
-
-# Test model B
-ollama run qwen3:30b-a3b "your test prompt here"
-
-# Compare side-by-side in Open WebUI for easier comparison
-```
-
-### Step 3: Score on What Matters to You
-
-Rate each model 1-5 on:
-
-- **Correctness** — Is the output factually/technically correct?
-- **Relevance** — Does it answer what you actually asked?
-- **Speed** — Is it fast enough for interactive use?
-- **Code quality** — Is generated code clean, idiomatic, and working?
-- **Instruction following** — Does it follow your format/style requirements?
-
-### Step 4: Check Resource Usage
-
-```bash
-# While a model is running, check memory usage
-ollama ps
-
-# On macOS, check system memory pressure
-memory_pressure
-
-# Or use Activity Monitor → Memory tab
-```
-
-> **Practical tip**: The "best" model is the one that gives you good-enough results at a speed you find comfortable. A slightly less capable model that responds in 2 seconds is often more useful than a better model that takes 10 seconds.
+> **Practical tip**: The "best" model is the one that gives good-enough results at a comfortable speed. A model that responds in 2 seconds often beats a better model that takes 10 seconds. Use Open WebUI to compare responses side-by-side.
 
 ---
 
@@ -1492,18 +1566,18 @@ Open Draw Things (macOS) or ComfyUI → type a prompt → get an image for your 
 
 <div style="overflow-x: auto;" markdown="1">
 
-| Task | 8 GB | 16 GB | 24 GB | 32 GB |
-|------|------|-------|-------|-------|
-| **General chat** | Gemma 3 4B | Gemma 4 E4B | Gemma 4 26B | Qwen3 30B-A3B |
-| **Coding (chat)** | Qwen2.5-Coder 3B | Qwen2.5-Coder 7B | Codestral 22B | Qwen3-Coder 30B |
-| **Tab autocomplete** | DeepSeek-Coder 1.3B | Qwen2.5-Coder 7B | Qwen2.5-Coder 7B | Qwen2.5-Coder 7B |
-| **Image understanding** | MiniCPM-V 3B | Gemma 4 E4B | Gemma 4 26B | Gemma 4 31B |
-| **Audio transcription** | Whisper small | Whisper large-v3-turbo q5 | Whisper large-v3-turbo q5 | Whisper large-v3 |
-| **Text-to-speech** | Piper medium | Piper medium | Piper high | Piper high |
-| **Image generation** | SD 1.5 | SDXL | SDXL + refiner | FLUX.1-dev |
-| **Summarization** | Phi-4 Mini | Mistral 7B | Mistral Small 24B | Qwen3 30B-A3B |
-| **Translation** | Gemma 3 4B | Gemma 4 E4B | Gemma 4 26B | Gemma 4 31B |
-| **Document/PDF analysis** | — | Gemma 4 E4B + Open WebUI | Gemma 4 26B + Open WebUI | Qwen3 30B-A3B + Open WebUI |
+| Task | 8 GB | 16 GB | 24 GB | 32 GB | 64 GB |
+| ------ | ------ | ------- | ------- | ------- | ------- |
+| **General chat** | Gemma 3 4B | Gemma 4 E4B | Gemma 4 26B | Qwen3.6 35B-A3B | Llama 3.1 70B |
+| **Coding (chat)** | Qwen2.5-Coder 3B | Qwen2.5-Coder 7B | Codestral 22B | Qwen3-Coder 30B | Qwen3-Coder-Next |
+| **Tab autocomplete** | DeepSeek-Coder 1.3B | Qwen2.5-Coder 7B | Qwen2.5-Coder 7B | Qwen2.5-Coder 7B | Qwen2.5-Coder 7B |
+| **Image understanding** | MiniCPM-V 3B | Gemma 4 E4B | Gemma 4 26B | Gemma 4 31B | Gemma 4 31B (Q8) |
+| **Audio transcription** | Whisper small | Whisper large-v3-turbo q5 | Whisper large-v3-turbo q5 | Whisper large-v3 | Whisper large-v3 |
+| **Text-to-speech** | Piper medium | Piper medium | Piper high | Piper high | Piper high |
+| **Image generation** | SD 1.5 | SDXL | SDXL + refiner | FLUX.1-dev | FLUX.1-dev |
+| **Summarization** | Phi-4 Mini | Mistral 7B | Mistral Small 24B | Qwen3.6 35B-A3B | Llama 3.1 70B |
+| **Coding agents** | — | — | Codestral 22B | Qwen3-Coder 30B | Qwen3-Coder-Next |
+| **Document/PDF analysis** | — | Gemma 4 E4B + Open WebUI | Gemma 4 26B + Open WebUI | Qwen3.6 35B + Open WebUI | Llama 3.1 70B + Open WebUI |
 
 </div>
 
@@ -1512,14 +1586,13 @@ Open Draw Things (macOS) or ComfyUI → type a prompt → get an image for your 
 ## Tips for the Best Experience
 
 1. **Close unnecessary apps** before running models — browsers with many tabs are RAM-hungry
-2. **Use one model at a time** on 8-16 GB RAM — Ollama keeps models loaded in memory.
-3. **Unload models to free RAM** — Use `ollama stop <model>` to forcefully clear a model from memory, or start Ollama with `OLLAMA_KEEP_ALIVE=0` so models unload immediately after a request finishes.
-4. **Override the default context window** — Ollama often defaults to a conservative 2048 tokens to save RAM. Set `PARAMETER num_ctx 16384` in a Modelfile for coding tasks to utilize the full context.
-5. **Apple Silicon users**: Ollama uses the GPU automatically via unified memory
-6. **Check model size before pulling**: `ollama show <model>` shows the actual size, quantization, and license
-7. **SSD matters**: models load from disk on first use — an SSD makes this near-instant vs. minutes on HDD
-8. **Create custom Modelfiles** for your common tasks — a coding assistant with the right system prompt and temperature is noticeably better than the default
-9. **Keep Ollama updated** — new versions regularly add performance improvements and new model support (`brew upgrade ollama`)
+2. **Use one model at a time** on 8-16 GB RAM
+3. **Unload models explicitly** — `ollama stop <model>` frees RAM immediately, or set `OLLAMA_KEEP_ALIVE=0`
+4. **Override the default context** — Ollama defaults to 2048 tokens. Set `num_ctx` to 16384+ for coding tasks
+5. **Check model size before pulling** — `ollama show <model>` shows size, quantization, and license
+6. **SSD matters** — models load from disk on first use. SSD = near-instant, HDD = minutes
+7. **Create custom Modelfiles** — a coding assistant with the right system prompt and temperature is noticeably better than defaults
+8. **Keep Ollama updated** — `brew upgrade ollama` for regular performance improvements
 
 ---
 
@@ -1527,85 +1600,49 @@ Open Draw Things (macOS) or ComfyUI → type a prompt → get an image for your 
 
 ### Can local models replace ChatGPT/Claude?
 
-For simple tasks (code completions, explanations, summaries, quick questions) — yes. For complex multi-step reasoning or large codebase analysis — cloud models still have a significant edge. Best approach: local for routine work, cloud for complex tasks.
+For routine tasks (code completions, explanations, summaries) — yes. For complex multi-step reasoning or large codebase analysis — cloud models still have an edge. Best approach: local for routine, cloud for complex.
 
 ### Is Apple Silicon better than Intel/AMD for local AI?
 
-Yes, significantly. Apple Silicon's unified memory lets the GPU access all RAM directly. An M1 with 16 GB outperforms most Intel laptops with 32 GB for AI inference. On Intel/AMD without a dedicated GPU, expect 3-5x slower speeds. [Research from Apple](https://arxiv.org/html/2601.19139v1) shows up to 525 tok/s on M4 Max with optimized frameworks.
+Yes, significantly. Unified memory lets the GPU access all RAM directly. An M1 with 16 GB outperforms most Intel laptops with 32 GB for AI inference. See [GPU section](#got-a-gpu-how-it-changes-everything) for details.
 
 ### How much disk space do I need?
 
-Budget 5-30 GB per model. A typical setup with 2-3 models needs 20-50 GB free. Models are stored in `~/.ollama/models/`.
-
-### How fast are local models?
-
-On Apple Silicon, expect 15-50 tok/s for most models — fast enough for interactive use. MoE models (like Qwen3 30B-A3B) are particularly fast because they only activate a fraction of their parameters per token. See the [speed benchmarks section](#speed-benchmarks-what-to-expect-on-apple-silicon) for detailed numbers.
+Budget 5-30 GB per model. A typical 2-3 model setup needs 20-50 GB free. Models live in `~/.ollama/models/`.
 
 ### Can I use these models commercially?
 
-Most models listed here have permissive licenses. Notable details:
-- **Gemma 4**: [Gemma license](https://ai.google.dev/gemma/terms) — free for commercial use, redistribution allowed
-- **Qwen3 / Qwen3-Coder**: Apache 2.0 — fully open for commercial use
-- **Llama models**: Meta's community license — free for commercial use under 700M monthly active users
-- **Codestral**: Mistral Non-Production License (MNPL) — check before commercial use
-- **FLUX.1-dev**: Non-commercial license (use FLUX.1-schnell for commercial)
-- **Whisper**: MIT license — fully open
-- **Piper**: GPL 3.0 — open source, check implications for your use case
+Most have permissive licenses:
 
-Always check the specific model's license on its [Ollama library page](https://ollama.com/library) or Hugging Face page.
+- **Gemma 4**: [Gemma license](https://ai.google.dev/gemma/terms) — commercial use OK
+- **Qwen3 / Qwen3-Coder**: Apache 2.0 — fully open
+- **Llama models**: Meta community license — free under 700M MAU
+- **Codestral**: Mistral Non-Production License — check before commercial use
+- **FLUX.1-dev**: Non-commercial (use FLUX.1-schnell for commercial)
+- **Whisper**: MIT — fully open
+- **Piper**: GPL 3.0
+
+Always verify on the model's [Ollama library page](https://ollama.com/library) or Hugging Face page.
 
 ### Do I need a GPU?
 
-No. All models listed here run on CPU. However, Apple Silicon Macs and NVIDIA GPUs accelerate inference significantly (2-5x faster). AMD GPUs have partial support via ROCm on Linux.
-
-### Can I run multiple models at the same time?
-
-Yes, but each model consumes RAM while loaded. On 32 GB, you can run a chat model + an autocomplete model. On 16 GB or less, stick to one model at a time. You can use the command `ollama stop <model>` to forcefully unload a model and free up RAM before loading a new one.
+No. All models run on CPU. Apple Silicon and NVIDIA GPUs make it 2-5x faster. See [GPU section](#got-a-gpu-how-it-changes-everything).
 
 ### How do I use local AI for PDF/document analysis?
 
-Use [Open WebUI](https://github.com/open-webui/open-webui) (simplest — run with Docker, upload files in chat), [Kotaemon](https://github.com/Cinnamon/kotaemon) or [PrivateGPT](https://github.com/zylon-ai/private-gpt) (for large document collections with RAG), [Khoj](https://khoj.dev) (for ongoing knowledge management with automations), or [AnythingLLM](https://anythingllm.com) (desktop app with built-in RAG). All connect to Ollama for local inference.
+Use [Open WebUI](https://github.com/open-webui/open-webui) (simplest — Docker, upload files in chat), [Kotaemon](https://github.com/Cinnamon/kotaemon) or [PrivateGPT](https://github.com/zylon-ai/private-gpt) (large document collections), or [AnythingLLM](https://anythingllm.com) (desktop RAG). All connect to Ollama.
 
 ---
 
 ## References
 
-- [Ollama Official Site](https://ollama.com) — Model library and downloads
-- [Ollama Model Library](https://ollama.com/library) — Browse all available models with sizes and context windows
-- [Ollama Context Length Documentation](https://docs.ollama.com/context-length) — How to configure context windows
-- [Ollama Modelfile Documentation](https://github.com/ollama/ollama/blob/main/docs/modelfile.md) — Custom model configuration
-- [Goose (Agentic AI Foundation)](https://goose-docs.ai) — Open-source AI agent with desktop app, CLI, and 70+ MCP extensions
-- [Unsloth Studio](https://unsloth.ai/docs/new/studio) — Open-source web UI for running and training models locally
-- [OpenCode](https://opencode.ai) — Open-source AI coding agent for terminal, VS Code, and desktop
-- [OpenHands](https://www.all-hands.dev) — Open-source autonomous coding agent with sandboxed execution
-- [Fabric](https://github.com/danielmiessler/fabric) — Open-source CLI framework with 100+ crowdsourced AI prompt patterns
-- [Khoj](https://khoj.dev) — Self-hosted AI second brain with document chat and automations
-- [Kotaemon](https://github.com/Cinnamon/kotaemon) — Open-source RAG tool for document Q&A
-- [PrivateGPT](https://github.com/zylon-ai/private-gpt) — Private document chat with local RAG pipeline
-- [Enchanted](https://github.com/gluonfield/enchanted) — Native iOS/macOS client for Ollama
-- [OpenClaw](https://openclaw.ai) — Open-source personal AI assistant with persistent memory and chat app integration
-- [Hermes Agent](https://github.com/NousResearch/hermes-agent) — Self-improving AI agent by Nous Research (MIT, 163k+ stars)
-- [oMLX](https://omlx.ai) — macOS-native MLX inference server with SSD KV caching for coding agents
-- [Pinokio](https://pinokio.co) — One-click app store for local AI tools (image gen, TTS, LLMs, and more)
-- [Stability Matrix (Lykos AI)](https://lykos.ai) — Multi-platform package manager for Stable Diffusion
-- [OpenHuman](https://www.openhuman.dev) — Open-source desktop AI agent with personal memory and app integrations (GPL-3.0)
-- [Joanium](https://www.joanium.com) — Local-first AI desktop app with file-aware automations and scheduling
-- [Pi](https://pi.dev) — Minimal open-source terminal coding agent
-- [Continue](https://github.com/continuedev/continue) — Open-source AI coding extension for VS Code
+- [Ollama Official Site & Model Library](https://ollama.com/library) — Browse models with sizes, context windows, and licenses
+- [Ollama Documentation](https://docs.ollama.com) — Context length, GPU setup, integrations, platform guides
+- [Ollama Modelfile Docs](https://github.com/ollama/ollama/blob/main/docs/modelfile.md) — Custom model configuration
+- [Hugging Face Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard) — Model benchmarks
+- [tps.sh](https://tps.sh) — Community tokens-per-second benchmarks for Apple Silicon
+- [Apple Silicon LLM Inference Research](https://arxiv.org/html/2601.19139v1) — Native inference performance
 - [Whisper.cpp](https://github.com/ggerganov/whisper.cpp) — Local speech-to-text
 - [Piper TTS](https://github.com/OHF-Voice/piper1-gpl) — Local neural text-to-speech
-- [ComfyUI](https://github.com/comfyanonymous/ComfyUI) — Local image generation
-- [Draw Things](https://drawthings.ai) — macOS native image generation
-- [Open WebUI](https://github.com/open-webui/open-webui) — Self-hosted ChatGPT-like interface with document upload
-- [Hugging Face Open LLM Leaderboard](https://huggingface.co/spaces/open-llm-leaderboard/open_llm_leaderboard) — Model benchmarks and comparisons
 - [llama.cpp](https://github.com/ggml-org/llama.cpp) — The C/C++ inference engine behind Ollama
 - [MLX](https://github.com/ml-explore/mlx) — Apple's native array framework for Apple Silicon
-- [LM Studio](https://lmstudio.ai) — Desktop app for local model management and chat
-- [Jan](https://jan.ai) — Open-source offline ChatGPT alternative
-- [GPT4All](https://gpt4all.io) — One-click local AI by Nomic AI
-- [LocalAI](https://localai.io) — OpenAI-compatible multimodal local API server
-- [vLLM](https://github.com/vllm-project/vllm) — Production-grade inference serving
-- [SGLang](https://github.com/sgl-project/sglang) — High-throughput LLM serving framework
-- [Ollama Integrations](https://docs.ollama.com/integrations) — Full list of official Ollama integrations
-- [tps.sh](https://tps.sh) — Community tokens-per-second benchmarks
-- [Apple Silicon LLM Inference Research](https://arxiv.org/html/2601.19139v1) — Native inference performance on Apple Silicon
