@@ -207,7 +207,7 @@ brew install --cask iterm2 termius
 
 #### Browsers
 ```bash
-brew install --cask google-chrome firefox brave-browser microsoft-edge opera cyberduck
+brew install --cask google-chrome firefox brave-browser microsoft-edge opera
 ```
 
 #### Code Editors & IDEs
@@ -276,7 +276,7 @@ brew install --cask virtualbox
 #### VPN & Networking
 ```bash
 brew install wireshark
-brew install --cask tunnelblick openvpn-connect
+brew install --cask tunnelblick openvpn-connect cyberduck
 ```
 
 #### Data Science & 3D
