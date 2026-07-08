@@ -628,12 +628,12 @@ This is the best consumer-level experience. You can run the largest open models 
 
 <div style="overflow-x: auto;" markdown="1">
 
-| Model | Size | Command | Context | Strengths |
-| ------- | ------ | --------- | --------- | ----------- |
-| **Qwen3-Coder 30B** | ~19 GB | `ollama pull qwen3-coder` | 128K | Purpose-built for code, agentic workflows, Apache 2.0 |
-| **Qwen3.6 35B-A3B** | ~24 GB | `ollama pull qwen3.6:35b` | 256K | Newer, stronger reasoning, 256K context |
-| **Qwen3 30B-A3B** | ~18 GB | `ollama pull qwen3:30b-a3b` | 128K | Fast MoE with strong code abilities |
-| **Codestral 22B** | ~13 GB | `ollama pull codestral` | 32K | Dedicated coding model, 80+ languages |
+| Model               | Size   | Command                       | Context | Strengths                                             |
+| ---------------------| --------| -------------------------------| ---------| -------------------------------------------------------|
+| **Qwen3-Coder 30B** | ~19 GB | `ollama pull qwen3-coder:30b` | 128K    | Purpose-built for code, agentic workflows, Apache 2.0 |
+| **Qwen3.6 35B-A3B** | ~24 GB | `ollama pull qwen3.6:35b-a3b` | 256K    | Newer, stronger reasoning, 256K context               |
+| **Qwen3 30B-A3B**   | ~18 GB | `ollama pull qwen3:30b-a3b`   | 128K    | Fast MoE with strong code abilities                   |
+| **Codestral 22B**   | ~13 GB | `ollama pull codestral:22b`       | 32K     | Dedicated coding model, 80+ languages                 |
 
 </div>
 
