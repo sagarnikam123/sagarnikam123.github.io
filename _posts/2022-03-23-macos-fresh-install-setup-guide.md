@@ -241,15 +241,20 @@ brew install --cask dotnet-sdk android-commandlinetools
 #### Databases
 ```bash
 brew install sqlite
-brew install --cask dbeaver-community mysqlworkbench tableplus db-browser-for-sqlite
+brew install --cask dbeaver-community mysqlworkbench tableplus db-browser-for-sqlite beekeeper-studio postgres-app pgadmin4
 ```
 
 #### DevOps & Containers
 ```bash
 brew install --cask docker orbstack rancher podman-desktop
-brew install crane skopeo # Container tools
 brew install minikube helm # Kubernetes tools
+brew install crane skopeo # Container tools
 brew install --cask headlamp  # Kubernetes web UI
+brew install --cask aptakube    # Kubernetes desktop client
+brew install --cask skyhook-io/tap/radar-desktop # # Kubernetes desktop UI
+brew install --cask openlens    # Open source build of Lens Kubernetes IDE
+brew install --cask monokle    # DE dedicated to high-quality Kubernetes YAML configurations
+brew install k9s    # Kubernetes CLI To Manage Your Clusters In Style
 brew install --cask lens      # Kubernetes IDE
 brew tap hashicorp/tap
 brew install hashicorp/tap/terraform tfenv terragrunt
