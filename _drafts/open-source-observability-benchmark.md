@@ -13,7 +13,7 @@ image:
 
 > Feature tables tell you what exists. Benchmarks tell you what works.
 
-This is Part 2 of our open-source observability comparison. [Part 1](/posts/open-source-observability-platform-comparison/) evaluated documented capabilities across 12 platforms and 25 criteria. Here we deploy each platform on identical hardware and measure what documentation can't tell you.
+This is Part 2 of our open-source observability comparison. [Part 1]({% post_url open-source-observability-platform-comparison %}) evaluated documented capabilities across 12 platforms and 25 criteria. Here we deploy each platform on identical hardware and measure what documentation can't tell you.
 
 **The rule:** Same hardware, same OTel Collector, same telemetry dataset, same retention config. No marketing. No trust. Just numbers.
 
@@ -27,6 +27,7 @@ This is Part 2 of our open-source observability comparison. [Part 1](/posts/open
   - [Open-Source Benchmark Tools & Frameworks](#open-source-benchmark-tools--frameworks)
   - [Telemetry Generator](#telemetry-generator)
   - [Measurement Stack](#measurement-stack)
+- [Benchmark Phases](#benchmark-phases)
 - [The 15 Benchmarks](#the-15-benchmarks)
   - [Benchmark 1 — Idle Footprint](#benchmark-1--idle-footprint)
   - [Benchmark 2 — Log Ingestion Throughput](#benchmark-2--log-ingestion-throughput)
@@ -43,6 +44,7 @@ This is Part 2 of our open-source observability comparison. [Part 1](/posts/open
   - [Benchmark 13 — Upgrade Challenge](#benchmark-13--upgrade-challenge)
   - [Benchmark 14 — Restart / Recovery](#benchmark-14--restart--recovery)
   - [Benchmark 15 — Noisy-Neighbor Query](#benchmark-15--noisy-neighbor-query)
+- [What These Benchmarks Don't Cover](#what-these-benchmarks-dont-cover)
 - [Results](#results)
   - [Hero Table](#hero-table)
   - [Detailed Results per Benchmark](#detailed-results-per-benchmark)
@@ -77,6 +79,11 @@ CPU:        16 vCPU
 RAM:        64 GB
 Disk:       1 TB NVMe
 ```
+
+**Deployment mode:**
+
+- **Phase 1:** Docker Compose on bare VM (no Kubernetes). This isolates platform performance from K8s overhead and is the simplest reproducible setup.
+- **Phase 2:** Kubernetes (k3s single-node) for platforms that require it (Coroot's eBPF node agent, operators that need K8s APIs). Platforms that don't require K8s still run via Docker Compose for consistency with Phase 1 results.
 
 ### Isolation Rules
 
@@ -184,6 +191,36 @@ Application-level metrics:
 
 ---
 
+## Benchmark Phases
+
+Not all 12 platforms are benchmarked simultaneously. We run in two phases to keep the project manageable while covering the clearest architectural comparisons first.
+
+**Phase 1 (primary — Docker Compose on bare VM):**
+
+| Platform | Why included |
+| :--- | :--- |
+| SigNoz | Unified ClickHouse observability |
+| OpenObserve | Unified Rust / object-storage platform |
+| ClickStack | ClickHouse-native observability |
+| Grafana LGTM | Composable best-of-breed stack |
+| VictoriaMetrics stack | Specialized signal-specific databases |
+| Uptrace | Lightweight OTel / ClickHouse APM |
+
+**Phase 2 (extended — includes K8s where required):**
+
+| Platform | Why separate |
+| :--- | :--- |
+| Coroot | eBPF node agent requires Linux kernel 5.8+ and benefits from K8s; ingestion model differs |
+| OneUptime | Broader reliability platform evaluation (incidents, on-call, status pages) |
+| Highlight.io | Developer-first / frontend-focused; different signal emphasis |
+| Elastic Observability | Search-centric architecture; JVM tuning differs |
+| Apache SkyWalking | APM-first; JVM-based OAP server |
+| OpenSearch Observability | Search-centric; Data Prepper pipeline adds setup complexity |
+
+> Phase 1 results are published first. Phase 2 extends the comparison tables once complete.
+
+---
+
 ## The 15 Benchmarks
 
 ### Benchmark 1 — Idle Footprint
@@ -245,6 +282,8 @@ Application-level metrics:
 | 25,000 logs/sec | 30 min | ~45M |
 | 50,000 logs/sec | 30 min | ~90M |
 
+**Stabilization protocol:** 5-minute warm-up at each rate before measurement begins. Measurements taken from minutes 5–30. 2-minute cool-down between rate changes to let queues drain and compaction settle.
+
 **Captured metrics per rate:**
 
 - Actual records/sec ingested (sustained)
@@ -260,7 +299,15 @@ Application-level metrics:
 | SigNoz | | | | | | | |
 | OpenObserve | | | | | | | |
 | ClickStack | | | | | | | |
-| ... | | | | | | | |
+| OneUptime | | | | | | | |
+| Uptrace | | | | | | | |
+| Coroot | | | | | | | |
+| Grafana LGTM | | | | | | | |
+| Apache SkyWalking | | | | | | | |
+| OpenSearch Observability | | | | | | | |
+| VictoriaMetrics stack | | | | | | | |
+| Highlight.io | | | | | | | |
+| Elastic Observability | | | | | | | |
 
 <!-- TODO: Fill after running benchmarks -->
 
@@ -291,7 +338,16 @@ Application-level metrics:
 | :--- | ---: | ---: | ---: | :---: | ---: | ---: |
 | SigNoz | | | | | | |
 | OpenObserve | | | | | | |
-| ... | | | | | | |
+| ClickStack | | | | | | |
+| OneUptime | | | | | | |
+| Uptrace | | | | | | |
+| Coroot | | | | | | |
+| Grafana LGTM | | | | | | |
+| Apache SkyWalking | | | | | | |
+| OpenSearch Observability | | | | | | |
+| VictoriaMetrics stack | | | | | | |
+| Highlight.io | | | | | | |
+| Elastic Observability | | | | | | |
 
 <!-- TODO: Fill after running benchmarks -->
 
@@ -329,7 +385,7 @@ Application-level metrics:
 
 - Logs: ~100 GB raw (calculated from record size × count)
 - Traces: ~50 GB raw
-- Metrics: ~X million datapoints at Y cardinality
+- Metrics: 500 million datapoints at 100,000 active time series (matching Benchmark 4 baseline)
 
 **Formula:**
 
@@ -343,7 +399,16 @@ compression_ratio = raw_input_bytes / stored_bytes_after_compaction
 | :--- | ---: | ---: | ---: | ---: |
 | SigNoz | 150 GB | | | |
 | OpenObserve | 150 GB | | | |
-| ... | | | | |
+| ClickStack | 150 GB | | | |
+| OneUptime | 150 GB | | | |
+| Uptrace | 150 GB | | | |
+| Coroot | 150 GB | | | |
+| Grafana LGTM | 150 GB | | | |
+| Apache SkyWalking | 150 GB | | | |
+| OpenSearch Observability | 150 GB | | | |
+| VictoriaMetrics stack | 150 GB | | | |
+| Highlight.io | 150 GB | | | |
+| Elastic Observability | 150 GB | | | |
 
 <!-- TODO: Fill after running benchmarks -->
 
@@ -370,7 +435,16 @@ compression_ratio = raw_input_bytes / stored_bytes_after_compaction
 | :--- | ---: | ---: | ---: | ---: | ---: | ---: |
 | SigNoz | | | | | | |
 | OpenObserve | | | | | | |
-| ... | | | | | | |
+| ClickStack | | | | | | |
+| OneUptime | | | | | | |
+| Uptrace | | | | | | |
+| Coroot | | | | | | |
+| Grafana LGTM | | | | | | |
+| Apache SkyWalking | | | | | | |
+| OpenSearch Observability | | | | | | |
+| VictoriaMetrics stack | | | | | | |
+| Highlight.io | | | | | | |
+| Elastic Observability | | | | | | |
 
 <!-- TODO: Fill after running benchmarks -->
 
@@ -438,6 +512,8 @@ This produces:
 
 **Scoring:** 1-5 scale per scenario, with notes on friction points.
 
+> **Note on platforms without built-in UI:** VictoriaMetrics stack and Coroot (for log/trace exploration) rely on Grafana as their visualization layer. For these platforms, we test the Grafana + datasource plugin experience and note the additional setup required. The "clicks to root-cause" metric includes any context switches between Grafana panels or datasources.
+
 ---
 
 ### Benchmark 10 — Failure / Backpressure
@@ -501,7 +577,16 @@ This produces:
 | :--- | ---: | ---: | ---: | ---: | ---: | ---: |
 | SigNoz | | | | | | |
 | OpenObserve | | | | | | |
-| ... | | | | | | |
+| ClickStack | | | | | | |
+| OneUptime | | | | | | |
+| Uptrace | | | | | | |
+| Coroot | | | | | | |
+| Grafana LGTM | | | | | | |
+| Apache SkyWalking | | | | | | |
+| OpenSearch Observability | | | | | | |
+| VictoriaMetrics stack | | | | | | |
+| Highlight.io | | | | | | |
+| Elastic Observability | | | | | | |
 
 <!-- TODO: Fill after running benchmarks -->
 
@@ -565,11 +650,35 @@ Last 30 days, count logs group by service, http.route, status
 
 ---
 
+## What These Benchmarks Don't Cover
+
+These benchmarks are designed for single-node, short-duration evaluation. They do not measure:
+
+- **Multi-tenant isolation** — all tests run a single tenant; noisy-neighbor between tenants is untested
+- **Long-term stability** — 30-minute ingestion windows don't expose memory leaks or compaction debt that appears after weeks
+- **Production traffic patterns** — real workloads have bursty, diurnal patterns; our generators produce steady-state load
+- **Geo-distributed deployments** — all tests run in a single region/machine
+- **Mixed-version upgrades** — we test N-1 → N only, not rolling upgrades across a cluster
+- **Security/auth overhead** — SSO, RBAC, and TLS are disabled to isolate performance from auth latency
+- **Cost modeling** — we measure resource usage but don't convert to cloud pricing (too variable across providers)
+
+> If any of these gaps are critical to your decision, extend the benchmark suite or run a focused POC in your actual environment.
+
+---
+
 ## Results
 
 ### Hero Table
 
+> **Score columns explained:**
+> - **Correlation** = Benchmark 9 average score (1-5 scale across scenarios A/B/C)
+> - **Ops Score** = weighted average of Benchmarks 10–15 (failure recovery, retention, TTFT, upgrade, restart, noisy-neighbor) normalized to 1-10
+> - **OSS Score** = criteria #1–2 from Part 1 (free completeness + license friendliness) normalized to 1-10
+> - **Total** = weighted sum across all 25 criteria from the Scoring table below
+
 <!-- TODO: Fill after all benchmarks complete -->
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Platform | TTFT | Idle RAM | Max Logs/s | Max Spans/s | 150GB→stored | Log Q5 p95 | Trace T1 | Correlation | Ops Score | OSS Score | **Total** |
 | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -585,6 +694,8 @@ Last 30 days, count logs group by service, http.route, status
 | VictoriaMetrics stack | | | | | | | | | | | |
 | Highlight.io | | | | | | | | | | | |
 | Elastic Observability | | | | | | | | | | | |
+
+</div>
 
 ### Detailed Results per Benchmark
 
@@ -616,9 +727,11 @@ Last 30 days, count logs group by service, http.route, status
 
 ## Scoring (25 Criteria)
 
-Weighted scores from [Part 1's criteria framework](/posts/open-source-observability-platform-comparison/#the-25-scored-criteria), populated with both documentation-based and benchmark-based evidence.
+Weighted scores from [Part 1's criteria framework]({% post_url open-source-observability-platform-comparison %}#the-25-scored-criteria), populated with both documentation-based and benchmark-based evidence.
 
 <!-- TODO: Fill with weighted scores after benchmarks -->
+
+<div style="overflow-x: auto;" markdown="1">
 
 | # | Criterion | Weight | SigNoz | OpenObserve | ClickStack | OneUptime | Uptrace | Coroot | Grafana | SkyWalking | OpenSearch | Victoria | Highlight | Elastic |
 | ---: | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -629,7 +742,7 @@ Weighted scores from [Part 1's criteria framework](/posts/open-source-observabil
 | 5 | Traces | **5%** | | | | | | | | | | | | |
 | 6 | OTel native | **5%** | | | | | | | | | | | | |
 | 7 | Prometheus compat | 3% | | | | | | | | | | | | |
-| 8 | Signal correlation | 4% | | | | | | | | | | | | |
+| 8 | Signal correlation | **5%** | | | | | | | | | | | | |
 | 9 | APM | 4% | | | | | | | | | | | | |
 | 10 | K8s monitoring | 4% | | | | | | | | | | | | |
 | 11 | Infra monitoring | 3% | | | | | | | | | | | | |
@@ -639,7 +752,7 @@ Weighted scores from [Part 1's criteria framework](/posts/open-source-observabil
 | 15 | Alerting/SLO | 4% | | | | | | | | | | | | |
 | 16 | Query UX | 4% | | | | | | | | | | | | |
 | 17 | Install complexity | 3% | | | | | | | | | | | | |
-| 18 | Ops complexity | 4% | | | | | | | | | | | | |
+| 18 | Ops complexity | **5%** | | | | | | | | | | | | |
 | 19 | Ingestion throughput | **5%** | | | | | | | | | | | | |
 | 20 | Query performance | **5%** | | | | | | | | | | | | |
 | 21 | Storage efficiency | **5%** | | | | | | | | | | | | |
@@ -648,6 +761,8 @@ Weighted scores from [Part 1's criteria framework](/posts/open-source-observabil
 | 24 | High-cardinality | 3% | | | | | | | | | | | | |
 | 25 | HA/scalability | 3% | | | | | | | | | | | | |
 | | **Weighted Total** | **100%** | | | | | | | | | | | | |
+
+</div>
 
 ---
 

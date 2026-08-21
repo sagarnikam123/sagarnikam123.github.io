@@ -13,7 +13,7 @@ image:
 
 > **A checkmark indicates that a feature exists. It does not indicate that the feature is good.**
 
-Choosing a self-hosted observability platform that handles logs, metrics, and traces together — without vendor lock-in — requires more than counting feature checkboxes. This is Part 1 of a two-part comparison: here we document capabilities, classify architectures, and help you shortlist 2-3 candidates. [Part 2](/posts/open-source-observability-benchmark/) benchmarks the shortlisted platforms on identical hardware with identical workloads.
+Choosing a self-hosted observability platform that handles logs, metrics, and traces together — without vendor lock-in — requires more than counting feature checkboxes. This is Part 1 of a two-part comparison: here we document capabilities, classify architectures, and help you shortlist 2-3 candidates. [Part 2]({% post_url open-source-observability-benchmark %}) benchmarks the shortlisted platforms on identical hardware with identical workloads.
 
 The questions that matter:
 
@@ -30,12 +30,14 @@ The questions that matter:
 - [The 12 Candidates](#the-12-candidates)
 - [Architecture Classification](#architecture-classification)
 - [Legend](#legend)
+- [How We Evaluated](#how-we-evaluated)
 - [Core Telemetry Matrix](#core-telemetry-matrix)
 - [Architecture & Deployment Matrix](#architecture--deployment-matrix)
 - [Operator/SRE Capability Matrix](#operatorsre-capability-matrix)
 - [Developer / Query Experience Matrix](#developer--query-experience-matrix)
 - [Licensing / "Actually Free" Matrix](#licensing--actually-free-matrix)
 - [The 25 Scored Criteria](#the-25-scored-criteria)
+- [Known Limitations & Gotchas](#known-limitations--gotchas)
 - [When to Use What](#when-to-use-what)
 - [Honorable Mentions](#honorable-mentions)
 - [Next: Part 2 — Benchmarks](#next-part-2--benchmarks)
@@ -73,8 +75,8 @@ We evaluate platforms that provide **all three observability signals** — logs,
 | **[Apache SkyWalking](https://github.com/apache/skywalking)** | Java | BanyanDB / Elasticsearch | Apache 2.0 | ~24k stars |
 | **[OpenSearch Observability](https://github.com/opensearch-project/OpenSearch)** | Java | OpenSearch + Data Prepper | Apache 2.0 | ~10k stars |
 | **[VictoriaMetrics stack](https://github.com/VictoriaMetrics/VictoriaMetrics)** | Go | VM / VL / VT (specialized DBs) | Apache 2.0 | ~13k stars |
-| **[Highlight.io](https://github.com/highlight/highlight)** | Go, TypeScript | ClickHouse + PostgreSQL | Apache 2.0 | ~15k stars |
-| **[Elastic Observability](https://github.com/elastic/elasticsearch)** | Java, TypeScript | Elasticsearch | AGPL v3 / Apache 2.0 | ~70k stars |
+| **[Highlight.io](https://github.com/highlight/highlight)** | Go, TypeScript | ClickHouse + PostgreSQL | Apache 2.0 | ~8k stars |
+| **[Elastic Observability](https://github.com/elastic/elasticsearch)** | Java, TypeScript | Elasticsearch | AGPL v3 (core 8.16+); Elastic License 2.0 (some features); Beats/Agents: Apache 2.0 | ~70k stars |
 
 > Star counts approximate as of mid-2026. Always check GitHub for current numbers.
 
@@ -93,7 +95,11 @@ graph TB
         CS[ClickStack<br/>ClickHouse + HyperDX]
         OU[OneUptime<br/>Full reliability platform]
         UP[Uptrace<br/>Go + ClickHouse]
-        HL[Highlight.io<br/>ClickHouse + full-stack]
+    end
+
+    subgraph "Developer-First Platform"
+        direction LR
+        HL[Highlight.io<br/>Session replay + OTel backend]
     end
 
     subgraph "Composable / Multi-Backend Stacks"
@@ -113,7 +119,8 @@ graph TB
 
 | Classification | Platforms | Trade-off |
 | :--- | :--- | :--- |
-| **All-in-one** | SigNoz, OpenObserve, ClickStack, OneUptime, Uptrace, Highlight.io | Unified UX, single team to operate; less flexibility per signal |
+| **All-in-one** | SigNoz, OpenObserve, ClickStack, OneUptime, Uptrace | Unified UX, single team to operate; less flexibility per signal |
+| **Developer-first** | Highlight.io | Session replay + error monitoring heritage extending into backend OTel; frontend-focused UX, backend observability still maturing |
 | **Composable** | Grafana LGTM, VictoriaMetrics stack | Best-of-breed per signal; higher operational complexity |
 | **eBPF-centric** | Coroot | Auto-discovery, zero-code; different ingestion model |
 | **APM-first** | SkyWalking | Deep service topology; Java ecosystem heritage |
@@ -134,7 +141,15 @@ graph TB
 
 ---
 
+## How We Evaluated
+
+Ratings in the matrices below (✅/◐/⭐/🧪/EE) are based on official documentation review, GitHub source inspection, and quick Docker deployments of each platform as of August 2026. We did not assign ✅ based on marketing pages alone — each capability was cross-referenced against docs, changelogs, or a working deployment. Items marked 🧪 are explicitly deferred to hands-on benchmarking in Part 2.
+
+---
+
 ## Core Telemetry Matrix
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Criterion | SigNoz | OpenObserve | ClickStack | OneUptime | Uptrace | Coroot | Grafana LGTM | SkyWalking | OpenSearch | VictoriaMetrics | Highlight.io | Elastic Observability |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -152,6 +167,8 @@ graph TB
 
 **Key insight:** All-in-one platforms (SigNoz, OpenObserve, ClickStack, Highlight.io) naturally provide tighter cross-signal correlation because all data lives in one backend. Composable stacks (Grafana, VictoriaMetrics) require explicit linking between separate databases.
 
+</div>
+
 Sources: [SigNoz docs](https://signoz.io/docs/), [OpenObserve docs](https://openobserve.ai/docs/), [Uptrace OTel](https://uptrace.dev/ingest/opentelemetry), [OpenSearch observability](https://docs.opensearch.org/latest/observing-your-data/), [SkyWalking concepts](https://skywalking.apache.org/docs/), [VictoriaMetrics OTel](https://docs.victoriametrics.com/opentelemetry/readme/), [Highlight.io docs](https://www.highlight.io/docs), [Elastic Observability docs](https://www.elastic.co/docs/current/observability)
 
 ---
@@ -160,9 +177,11 @@ Sources: [SigNoz docs](https://signoz.io/docs/), [OpenObserve docs](https://open
 
 > This table may be **more valuable than the feature table** — it explains what you actually have to operate.
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Criterion | SigNoz | OpenObserve | ClickStack | OneUptime | Uptrace | Coroot | Grafana LGTM | SkyWalking | OpenSearch | VictoriaMetrics | Highlight.io | Elastic Observability |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| **Free self-host** | ✅ | ✅ | ✅ | ✅ | ✅ Community | ✅ Community | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Free self-host** | ✅ | ✅ | ✅ | ✅ | ✅ Community | ✅ Community | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ Basic (ML/anomaly = EE) |
 | **Primary storage** | ClickHouse | Own engine + obj storage | ClickHouse | PG + ClickHouse | ClickHouse | Prom + CH | Loki/Mimir/Tempo | Pluggable | OpenSearch | VM/VL/VT | ClickHouse + PG | Elasticsearch |
 | **Backend systems count** | Low (2-3) | Low (1) | Low (2-3) | Medium (4+) | Medium (2-3) | Medium (3+) | **High (5+)** | Medium (2-3) | Medium (2-3) | **3 specialized DBs** | Medium (3-4) | Medium (2-3) |
 | **Single binary option** | ◐ | ⭐ | ◐ | — | ✅ (+ CH) | ◐ | — | ◐ | — | ✅ per backend | — | — |
@@ -177,9 +196,11 @@ Sources: [SigNoz docs](https://signoz.io/docs/), [OpenObserve docs](https://open
 
 Sources: [OneUptime architecture](https://oneuptime.com/docs/en/self-hosted/architecture), [Uptrace self-hosting](https://uptrace.dev/get/hosted), [Coroot architecture](https://docs.coroot.com/installation/architecture/), [VictoriaMetrics OTel](https://docs.victoriametrics.com/opentelemetry/readme/)
 
----
+</div>
 
 ## Operator/SRE Capability Matrix
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Criterion | SigNoz | OpenObserve | ClickStack | OneUptime | Uptrace | Coroot | Grafana LGTM | SkyWalking | OpenSearch | VictoriaMetrics | Highlight.io | Elastic Observability |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -201,9 +222,11 @@ Sources: [OneUptime architecture](https://oneuptime.com/docs/en/self-hosted/arch
 
 Sources: [OneUptime profiling](https://oneuptime.com/docs/en/telemetry/profiles), [Coroot eBPF](https://docs.coroot.com/installation/performance-impact/), [OpenObserve OBI](https://openobserve.ai/docs/ingestion/traces/obi/), [Highlight session replay](https://www.highlight.io/docs/general/product-features/session-replay/overview)
 
----
+</div>
 
 ## Developer / Query Experience Matrix
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Criterion | SigNoz | OpenObserve | ClickStack | OneUptime | Uptrace | Coroot | Grafana LGTM | SkyWalking | OpenSearch | VictoriaMetrics | Highlight.io | Elastic Observability |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -221,7 +244,7 @@ Sources: [OneUptime profiling](https://oneuptime.com/docs/en/telemetry/profiles)
 
 Sources: [OpenSearch PPL](https://docs.opensearch.org/latest/observing-your-data/exploring-observability-data/discover-logs/), [VictoriaLogs querying](https://docs.victoriametrics.com/victorialogs/querying/), [Tempo TraceQL](https://grafana.com/docs/tempo/latest/), [Elastic ES|QL](https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html)
 
----
+</div>
 
 ## Licensing / "Actually Free" Matrix
 
@@ -240,7 +263,7 @@ Sources: [OpenSearch PPL](https://docs.opensearch.org/latest/observing-your-data
 | **OpenSearch** | Apache 2.0 | ✅ | Plugin/managed-service feature differences |
 | **VictoriaMetrics stack** | Apache 2.0 | ✅ | Enterprise/cloud features (downsampling, etc.) |
 | **Highlight.io** | Apache 2.0 | ✅ | Cloud-managed features vs self-hosted Docker core |
-| **Elastic Observability** | AGPL v3 / Apache 2.0 | ✅ | Platinum/Enterprise features (ML, advanced security) vs Free basic |
+| **Elastic Observability** | AGPL v3 (core since 8.16+); Elastic License 2.0 (some features); Beats/Agents: Apache 2.0 | ✅ | Free "Basic" tier lacks ML anomaly detection, advanced security, cross-cluster replication (Platinum/Enterprise EE) |
 
 Sources: [OpenObserve FAQ](https://openobserve.ai/faqs/), [ClickStack](https://clickhouse.com/clickstack), [OneUptime](https://oneuptime.com/), [Uptrace pricing](https://uptrace.dev/pricing)
 
@@ -248,7 +271,7 @@ Sources: [OpenObserve FAQ](https://openobserve.ai/faqs/), [ClickStack](https://c
 
 ## The 25 Scored Criteria
 
-These criteria form the evaluation framework for both Part 1 (documentation-based) and [Part 2](/posts/open-source-observability-benchmark/) (benchmark-based).
+These criteria form the evaluation framework for both Part 1 (documentation-based) and [Part 2]({% post_url open-source-observability-benchmark %}) (benchmark-based).
 
 | # | Criterion | Weight | Source |
 | ---: | :--- | ---: | :--- |
@@ -259,7 +282,7 @@ These criteria form the evaluation framework for both Part 1 (documentation-base
 | 5 | Distributed tracing | **5%** | Core matrix + benchmark |
 | 6 | Native OpenTelemetry support | **5%** | Core matrix |
 | 7 | Prometheus compatibility | 3% | Core matrix |
-| 8 | Signal correlation | 4% | Benchmark (Part 2) |
+| 8 | Signal correlation | **5%** | Benchmark (Part 2) |
 | 9 | APM experience | 4% | Operator matrix |
 | 10 | Kubernetes monitoring | 4% | Operator matrix |
 | 11 | Infrastructure monitoring | 3% | Operator matrix |
@@ -269,7 +292,7 @@ These criteria form the evaluation framework for both Part 1 (documentation-base
 | 15 | Alerting/SLO | 4% | Operator matrix |
 | 16 | Query language/UX | 4% | Query matrix + benchmark |
 | 17 | Installation complexity | 3% | Benchmark (Part 2: TTFT) |
-| 18 | Operational complexity | 4% | Benchmark (Part 2) |
+| 18 | Operational complexity | **5%** | Benchmark (Part 2) |
 | 19 | Ingestion throughput | **5%** | Benchmark (Part 2) |
 | 20 | Query performance | **5%** | Benchmark (Part 2) |
 | 21 | Storage efficiency | **5%** | Benchmark (Part 2) |
@@ -280,6 +303,29 @@ These criteria form the evaluation framework for both Part 1 (documentation-base
 | | **Total** | **100%** | |
 
 > RUM, session replay, on-call, status pages scored as **bonus features** — otherwise platforms solving a wider problem get rewarded for scope rather than observability quality.
+
+---
+
+## Known Limitations & Gotchas
+
+Every platform has operational pain points that feature tables won't reveal. These are sourced from community reports, GitHub issues, and deployment experience — verify against your version before deciding.
+
+| Platform | Key limitation | Impact |
+| :--- | :--- | :--- |
+| **SigNoz** | ClickHouse upgrades are manual and version-sensitive | Upgrade windows require planning; schema migrations can break |
+| **OpenObserve** | Younger project; some features (alerts, dashboards) still maturing | May hit edge cases in complex alerting rules |
+| **ClickStack** | Relatively new rebrand; ecosystem still consolidating post-acquisition | Documentation and migration paths may lag |
+| **OneUptime** | 10+ containers idle; heavy baseline resource usage | Not suitable for small VMs or constrained environments |
+| **Uptrace** | Community edition has limited features vs paid; small contributor base | Risk of slower bug fixes; fewer community resources |
+| **Coroot** | eBPF requires Linux kernel 5.8+; limited to infra it can instrument | Not useful for non-Linux or serverless workloads |
+| **Grafana LGTM** | 5+ services to maintain; config sprawl across components | Requires dedicated platform team; steep learning curve |
+| **SkyWalking** | JVM-based OAP server is memory-hungry; BanyanDB still maturing | Minimum 2-4 GB RAM for OAP alone; storage choice matters |
+| **OpenSearch** | Java heap tuning required; index management adds ops overhead | JVM GC pauses at scale; ISM policies need careful design |
+| **VictoriaMetrics** | Three separate databases to operate; VictoriaTraces is newest/least mature | Trace component less battle-tested than VM/VL |
+| **Highlight.io** | Developer/frontend-focused heritage; backend observability is secondary | Metrics and infra monitoring less mature than APM-first tools |
+| **Elastic Observability** | ML/anomaly detection requires Platinum license; high memory baseline | Free tier missing key ops features; 4+ GB heap minimum |
+
+> These are known ceilings, not dealbreakers. Every production deployment hits platform-specific friction — the question is whether the friction aligns with your team's strengths.
 
 ---
 
@@ -332,7 +378,7 @@ These criteria form the evaluation framework for both Part 1 (documentation-base
 
 Feature tables tell you what exists. They don't tell you what works well.
 
-In [Part 2: Benchmarking Open-Source Observability](/posts/open-source-observability-benchmark/), we deploy each platform on identical hardware (8 vCPU, 32 GB RAM, 500 GB NVMe) and run 15 standardized benchmarks:
+In [Part 2: Benchmarking Open-Source Observability]({% post_url open-source-observability-benchmark %}), we deploy each platform on identical hardware (8 vCPU, 32 GB RAM, 500 GB NVMe) and run 15 standardized benchmarks:
 
 - **Idle footprint** — what does it cost to run with zero traffic?
 - **Ingestion throughput** — logs, traces, and metrics under increasing load
