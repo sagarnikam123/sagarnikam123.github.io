@@ -370,8 +370,10 @@ lean-ctx uninstall    # Removes hooks, binary, and configs
 # Standard install (code AST only):
 uv tool install graphifyy
 
-# Full install (recommended — includes SQL parsing + Gemini doc extraction):
-uv tool install "graphifyy[gemini,sql]" --force
+# With extras (add what your projects use):
+uv tool install "graphifyy[terraform]"              # Terraform/HCL .tf files
+uv tool install "graphifyy[gemini,sql]"             # SQL + Gemini doc extraction
+uv tool install "graphifyy[terraform,sql,gemini]"   # combine multiple extras
 
 # Register skill with your agent:
 graphify install                       # Claude Code
@@ -379,9 +381,17 @@ graphify kiro install                  # Kiro
 graphify install --platform gemini     # Gemini CLI
 ```
 
-> **Why install `graphifyy[gemini,sql]`?** 
-> * `[sql]`: Adds `tree-sitter-sql` so your `.sql` migration and query files are indexed into the graph.
-> * `[gemini]`: Adds API dependencies needed if you want Graphify to semantically summarize Markdown, text docs, and images.
+> **Common extras:**
+> * `[terraform]`: Adds `tree-sitter-hcl` so `.tf`/`.tfvars`/`.hcl` files are parsed into the graph (without it, Terraform files are silently skipped).
+> * `[sql]`: Adds `tree-sitter-sql` so `.sql` migration and query files are indexed.
+> * `[gemini]`: Adds API dependencies for semantic doc/image extraction.
+> * Full list: [Optional extras](https://github.com/Graphify-Labs/graphify#optional-extras-install-only-what-you-need)
+
+**Rebuilding after adding extras:**
+```bash
+graphify extract . --code-only --force
+```
+`--force` overwrites the existing graph even if the new build has fewer/different nodes. Required after adding an extra (e.g. `[terraform]`) because the previous run cached those files as "zero nodes" — without `--force`, graphify skips them.
 
 ### Scope: Global vs Per-Project
 
@@ -403,6 +413,23 @@ git add graphify-out/ .gitattributes && git commit -m "chore: add knowledge grap
 ```
 
 > `graphify hook install` also creates `.gitattributes` with a custom merge driver (`graphify-out/graph.json merge=graphify`) so two developers committing in parallel get their graphs union-merged automatically — no conflict markers.
+
+> **Handling Git Hook Updates (Prevent Dirty Trees):**
+> `graphify hook install` creates a post-commit hook that regenerates `graphify-out/` after each commit, leaving the working directory dirty. Replace it with a self-amending post-commit hook that folds the graph update into the same commit automatically:
+>
+> Add to `.git/hooks/post-commit`:
+> ```bash
+> #!/bin/sh
+> # Guard prevents infinite loop from --amend re-triggering this hook.
+> [ -n "$GRAPHIFY_RUNNING" ] && exit 0
+> if command -v graphify >/dev/null 2>&1; then
+>     export GRAPHIFY_RUNNING=1
+>     graphify extract . --code-only >/dev/null 2>&1
+>     git add graphify-out/
+>     git commit --amend --no-edit --no-verify
+> fi
+> ```
+> *(Make executable with `chmod +x .git/hooks/post-commit`)*
 
 ```bash
 # Mode B: Full Multimodal (Code + Markdown Docs + Images):
@@ -472,11 +499,21 @@ npm install -g pyright bash-language-server
 ln -sf $(which node) ~/.local/bin/node
 ```
 
-### Initialize a Project (required per repo)
+### Initialize or Re-index a Project (per repo)
 ```bash
 cd your-project
-serena init                    # one-time global init (creates ~/.serena/serena_config.yml)
-serena project create . --index   # creates .serena/project.yml and indexes symbols
+
+# One-time global init (creates ~/.serena/serena_config.yml):
+serena init
+
+# First time in a repo (creates .serena/project.yml and indexes symbols):
+serena project create . --index
+
+# If the project is already created, re-index existing symbols with:
+serena project index
+
+# Verify LSP health and symbol retrieval:
+serena project health-check
 ```
 
 ### Scope: Global vs Per-Project
@@ -505,15 +542,16 @@ Exposes tools automatically to your agent: `find_symbol`, `find_referencing_symb
 
 On first activation, Serena auto-onboards: it reads your project structure, build system, and test setup, then stores knowledge as markdown memories in `.serena/memories/`. Future sessions skip the scan and use cached knowledge — similar to LeanCTX's session memory but scoped to code structure.
 
-**Context options for different agents:**
-| Agent | Context flag |
-| :--- | :--- |
-| Kiro / Cursor / VS Code | `--context ide` |
-| Claude Code | `--context claude-code` |
-| Codex | `--context codex` |
-| Antigravity | `--context antigravity` |
-| Copilot CLI | `--context copilot-cli` |
-| CLI agents (auto-detect project) | `--project-from-cwd` (for terminal agents like Gemini CLI, Codex) |
+**Context options & config locations for different agents:**
+
+| Agent | Config File Path | Context Flag & Args |
+| :--- | :--- | :--- |
+| **Kiro (Per-project)** | `.kiro/settings/mcp.json` *(repo root)* | `"args": ["start-mcp-server", "--context", "ide", "--project-from-cwd"]` |
+| **Kiro (Global)** | `~/.kiro/settings/mcp.json` | `"args": ["start-mcp-server", "--context", "ide", "--project-from-cwd"]` |
+| **Cursor** | `.cursor/mcp.json` or `~/.cursor/mcp.json` | `"args": ["start-mcp-server", "--context", "ide", "--project-from-cwd"]` |
+| **Claude Code** | `~/.claude/settings.json` | `"args": ["start-mcp-server", "--context", "claude-code", "--project-from-cwd"]` |
+| **Antigravity** | `~/.gemini/antigravity/mcp.json` | `"args": ["start-mcp-server", "--context", "antigravity", "--project-from-cwd"]` |
+| **Codex / Terminal Agents** | Terminal command *(from project root)* | `serena start-mcp-server --context codex --project-from-cwd` |
 
 ### Update & Uninstall
 ```bash
