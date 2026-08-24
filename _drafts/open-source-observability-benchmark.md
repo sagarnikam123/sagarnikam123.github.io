@@ -156,6 +156,8 @@ Rather than reinventing synthetic load from scratch, our benchmarking harness bu
 - **[Elasticsearch / OpenSearch Sizing Principles](https://www.elastic.co/guide/en/elasticsearch/reference/current/tune-for-indexing-speed.html):** Recommended segment merge policies, refresh intervals, and bulk sizing for log ingestion.
 - **[ClickHouse Observability Schemas Guide](https://clickhouse.com/blog/storing-log-data-in-clickhouse-fluent-bit-vector):** Optimal codecs (`ZSTD`, `DoubleDelta`), sorting keys, and partitioning schemes for telemetry tables.
 
+> **Why not ClickBench?** [ClickBench](https://benchmark.clickhouse.com/) measures analytical DBMS query performance on structured tabular data. Our benchmark tests end-to-end observability workflows — OTLP ingestion, cross-signal correlation, and real-world query patterns — which ClickBench does not cover.
+
 ### Telemetry Generator
 
 **Primary workload:** [OpenTelemetry Astronomy Shop (Demo)](https://github.com/open-telemetry/opentelemetry-demo) — produces realistic logs, metrics, and traces across multiple microservices.
