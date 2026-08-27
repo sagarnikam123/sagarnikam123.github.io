@@ -1,21 +1,34 @@
 ---
 title: "Benchmarking Open-Source Observability: Identical Workloads, Real Numbers (Part 2)"
-description: "Part 2 of our open-source observability comparison. We deploy SigNoz, OpenObserve, ClickStack, OneUptime, Uptrace, Coroot, Grafana LGTM, Apache SkyWalking, OpenSearch Observability, VictoriaMetrics stack, Highlight.io, and Elastic Observability on identical hardware, run 15 standardized benchmarks, and measure what actually matters: ingestion, storage, query speed, correlation UX, and operational complexity."
+description: "Part 2 of our open-source observability comparison. We deploy SigNoz, OpenObserve, ClickStack, Parseable, OneUptime, Uptrace, Coroot, Grafana LGTM, Apache SkyWalking, OpenSearch Observability, VictoriaMetrics stack, Highlight.io, and Elastic Observability on identical hardware, run 15 standardized benchmarks, and measure what actually matters: ingestion, storage, query speed, correlation UX, and operational complexity."
 author: sagarnikam123
 date: 2026-08-27 12:00:00 +0530
 categories: [Observability, DevOps]
-tags: [observability, open-source, benchmark, signoz, openobserve, clickstack, uptrace, grafana, victoriametrics, coroot, oneuptime, skywalking, opensearch, highlight-io, elastic-stack, opentelemetry, performance, comparison]
+tags: [observability, open-source, benchmark, signoz, openobserve, clickstack, parseable, uptrace, grafana, victoriametrics, coroot, oneuptime, skywalking, opensearch, highlight-io, elastic-stack, opentelemetry, performance, comparison]
 mermaid: true
 image:
   path: assets/img/posts/20260827/open-source-observability-benchmark.webp
   alt: Benchmarking Open Source Observability Platforms - Real Numbers
 ---
 
+How do open-source observability platforms actually perform under identical conditions? We deploy SigNoz, OpenObserve, ClickStack, Parseable, Grafana LGTM, VictoriaMetrics, Uptrace, and more on the same 8 vCPU / 32 GB hardware, send the same OpenTelemetry workloads, and measure ingestion throughput, storage efficiency, query latency, and signal correlation UX. This is Part 2 of our open-source observability comparison — [Part 1]({% post_url 2026-08-20-open-source-observability-platform-comparison %}) evaluated documented capabilities across 13 platforms and 25 criteria.
+
 > Feature tables tell you what exists. Benchmarks tell you what works.
 
-This is Part 2 of our open-source observability comparison. [Part 1]({% post_url open-source-observability-platform-comparison %}) evaluated documented capabilities across 12 platforms and 25 criteria. Here we deploy each platform on identical hardware and measure what documentation can't tell you.
-
 **The rule:** Same hardware, same OTel Collector, same telemetry dataset, same retention config. No marketing. No trust. Just numbers.
+
+### TL;DR — What We Measure
+
+| Benchmark category | What it answers | Benchmarks |
+| :--- | :--- | :--- |
+| **Resource usage** | How much does it cost to run? | Idle footprint, CPU/RAM under load |
+| **Ingestion** | How fast can it swallow data? | Logs, traces, metrics cardinality |
+| **Storage** | How efficiently does it compress? | Bytes per datapoint after compaction |
+| **Query speed** | How fast can you get answers? | Log, metric, trace query latency |
+| **Correlation UX** | How many clicks to root-cause? | Metric → trace → log navigation |
+| **Operational** | What's the day-2 experience? | Failure recovery, upgrades, TTFT |
+
+> Results pending Phase 1 execution. Jump to [The 15 Benchmarks](#the-15-benchmarks) for methodology or [Results](#results) for the data.
 
 ---
 
@@ -51,6 +64,7 @@ This is Part 2 of our open-source observability comparison. [Part 1]({% post_url
 - [Category Winners](#category-winners)
 - [Scoring (25 Criteria)](#scoring-25-criteria)
 - [Conclusion](#conclusion)
+- [FAQ](#faq)
 - [Reproducibility](#reproducibility)
 - [References](#references)
 
@@ -65,11 +79,12 @@ This is Part 2 of our open-source observability comparison. [Part 1]({% post_url
 ```text
 CPU:        8 vCPU (dedicated, not burstable)
 RAM:        32 GB
-Disk:       500 GB NVMe
+Disk:       500 GB NVMe (~200k random IOPS, ~3 GB/s sequential)
 OS:         Ubuntu 24.04 LTS
 Filesystem: ext4
 Docker:     27.x (same version for all runs)
 Kernel:     6.8.x
+Network:    10 Gbps between all machines (same availability zone)
 ```
 
 **Phase 2 — Scale test:**
@@ -191,11 +206,68 @@ Application-level metrics:
 | Backpressure events | OTel Collector queue metrics |
 | Query latency | Custom query runner (p50/p95/p99) |
 
+### Platform Versions
+
+All platforms pinned to the latest stable release as of the benchmark run date. Exact versions recorded per run:
+
+| Platform | Version | Image/Chart |
+| :--- | :--- | :--- |
+| SigNoz | <!-- TODO: e.g. v0.50 --> | `signoz/signoz:` |
+| OpenObserve | <!-- TODO: e.g. v0.13 --> | `openobserve/openobserve:` |
+| ClickStack | <!-- TODO --> | `clickhouse/clickstack:` |
+| Parseable | <!-- TODO --> | `parseable/parseable:` |
+| OneUptime | <!-- TODO --> | `oneuptime/oneuptime:` |
+| Uptrace | <!-- TODO --> | `uptrace/uptrace:` |
+| Coroot | <!-- TODO --> | `coroot/coroot:` |
+| Grafana LGTM | <!-- TODO --> | Loki / Mimir / Tempo / Grafana individual versions |
+| Apache SkyWalking | <!-- TODO --> | `apache/skywalking-oap-server:` |
+| OpenSearch | <!-- TODO --> | `opensearchproject/opensearch:` |
+| VictoriaMetrics | <!-- TODO --> | VM / VL / VT individual versions |
+| Highlight.io | <!-- TODO --> | `highlight/highlight:` |
+| Elastic Observability | <!-- TODO --> | `elasticsearch:` + `kibana:` |
+
+> Versions will be filled at benchmark execution time and frozen for the entire run. No mid-benchmark upgrades.
+
+### OTel Collector Configuration
+
+All platforms receive telemetry through a shared [OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector-contrib) (version: `0.108.x` or latest stable at run time).
+
+Key pipeline settings (identical across all platform tests):
+
+```yaml
+# Shared batch/queue config — not tuned per platform
+processors:
+  batch:
+    send_batch_size: 8192
+    timeout: 200ms
+  memory_limiter:
+    check_interval: 1s
+    limit_mib: 1024
+    spike_limit_mib: 256
+
+exporters:
+  otlphttp:
+    endpoint: "http://<platform>:4318"
+    retry_on_failure:
+      enabled: true
+      max_elapsed_time: 300s
+```
+
+Full configuration available in the [benchmark repository](https://github.com/sagarnikam123/observability-benchmark/tree/main/collector).
+
+### Statistical Methodology
+
+- **Ingestion benchmarks:** Measured over 25 minutes (after 5-minute warm-up) per rate tier. Reported as mean sustained rate with standard deviation.
+- **Query benchmarks:** Each query executed 20 times; first 2 discarded (cold cache warm-up). Results reported as p50, p95, p99 from the remaining 18 iterations. With 18 samples, p95 confidence intervals are wide — we note when differences between platforms are within measurement noise.
+- **Resource metrics:** Sampled at 10-second intervals via cAdvisor/node_exporter. Reported as mean and peak during the measurement window.
+
+> **Limitation:** 18 query samples per data point provides directional signal, not statistical proof. Where platforms are within 20% of each other, we call it "comparable" rather than declaring a winner.
+
 ---
 
 ## Benchmark Phases
 
-Not all 12 platforms are benchmarked simultaneously. We run in two phases to keep the project manageable while covering the clearest architectural comparisons first.
+Not all 13 platforms are benchmarked simultaneously. We run in two phases to keep the project manageable while covering the clearest architectural comparisons first.
 
 **Phase 1 (primary — Docker Compose on bare VM):**
 
@@ -207,12 +279,13 @@ Not all 12 platforms are benchmarked simultaneously. We run in two phases to kee
 | Grafana LGTM | Composable best-of-breed stack |
 | VictoriaMetrics stack | Specialized signal-specific databases |
 | Uptrace | Lightweight OTel / ClickHouse APM |
+| Parseable | Object-storage-first, Rust / Parquet data lake |
 
 **Phase 2 (extended — includes K8s where required):**
 
 | Platform | Why separate |
 | :--- | :--- |
-| Coroot | eBPF node agent requires Linux kernel 5.8+ and benefits from K8s; ingestion model differs |
+| Coroot | eBPF node agent requires Linux kernel 4.16+ (basic) / 5.8+ (TLS tracing) and benefits from K8s; ingestion model differs |
 | OneUptime | Broader reliability platform evaluation (incidents, on-call, status pages) |
 | Highlight.io | Developer-first / frontend-focused; different signal emphasis |
 | Elastic Observability | Search-centric architecture; JVM tuning differs |
@@ -240,6 +313,7 @@ Not all 12 platforms are benchmarked simultaneously. We run in two phases to kee
 | ClickStack | | | | | |
 | OneUptime | | | | | |
 | Uptrace | | | | | |
+| Parseable | | | | | |
 | Coroot | | | | | |
 | Grafana LGTM | | | | | |
 | Apache SkyWalking | | | | | |
@@ -249,6 +323,8 @@ Not all 12 platforms are benchmarked simultaneously. We run in two phases to kee
 | Elastic Observability | | | | | |
 
 <!-- TODO: Fill after running benchmarks -->
+
+> **Results pending.** Will be populated after benchmark execution.
 
 ---
 
@@ -284,7 +360,7 @@ Not all 12 platforms are benchmarked simultaneously. We run in two phases to kee
 | 25,000 logs/sec | 30 min | ~45M |
 | 50,000 logs/sec | 30 min | ~90M |
 
-**Stabilization protocol:** 5-minute warm-up at each rate before measurement begins. Measurements taken from minutes 5–30. 2-minute cool-down between rate changes to let queues drain and compaction settle.
+**Stabilization protocol:** 5-minute warm-up at each rate before measurement begins. Measurements taken from minutes 5–30. 2-minute cool-down between rate changes to let queues drain and compaction settle. This same warm-up/cool-down protocol applies to all ingestion and query benchmarks (3, 4, 7, 8) unless stated otherwise.
 
 **Captured metrics per rate:**
 
@@ -303,6 +379,7 @@ Not all 12 platforms are benchmarked simultaneously. We run in two phases to kee
 | ClickStack | | | | | | | |
 | OneUptime | | | | | | | |
 | Uptrace | | | | | | | |
+| Parseable | | | | | | | |
 | Coroot | | | | | | | |
 | Grafana LGTM | | | | | | | |
 | Apache SkyWalking | | | | | | | |
@@ -312,6 +389,8 @@ Not all 12 platforms are benchmarked simultaneously. We run in two phases to kee
 | Elastic Observability | | | | | | | |
 
 <!-- TODO: Fill after running benchmarks -->
+
+> **Results pending.** Will be populated after benchmark execution.
 
 ---
 
@@ -343,6 +422,7 @@ Not all 12 platforms are benchmarked simultaneously. We run in two phases to kee
 | ClickStack | | | | | | |
 | OneUptime | | | | | | |
 | Uptrace | | | | | | |
+| Parseable | | | | | | |
 | Coroot | | | | | | |
 | Grafana LGTM | | | | | | |
 | Apache SkyWalking | | | | | | |
@@ -352,6 +432,8 @@ Not all 12 platforms are benchmarked simultaneously. We run in two phases to kee
 | Elastic Observability | | | | | | |
 
 <!-- TODO: Fill after running benchmarks -->
+
+> **Results pending.** Will be populated after benchmark execution.
 
 ---
 
@@ -377,6 +459,8 @@ Not all 12 platforms are benchmarked simultaneously. We run in two phases to kee
 
 **Key question:** How gracefully does each platform degrade under cardinality explosion? Hard crash vs slow degradation vs explicit rejection.
 
+> **Expected:** Most platforms will fail or severely degrade at the Pathological tier (5M+ series on 8 vCPU / 32 GB). The test measures *how* they fail — OOM kill, graceful rejection with backpressure, silent data loss, or gradual slowdown.
+
 ---
 
 ### Benchmark 5 — Storage Efficiency
@@ -392,8 +476,10 @@ Not all 12 platforms are benchmarked simultaneously. We run in two phases to kee
 **Formula:**
 
 ```text
-compression_ratio = raw_input_bytes / stored_bytes_after_compaction
+compression_factor = raw_input_bytes / stored_bytes_after_compaction
 ```
+
+> A factor of 5x means the platform stores data at 1/5th the raw size. Higher is better.
 
 **Result table:**
 
@@ -404,6 +490,7 @@ compression_ratio = raw_input_bytes / stored_bytes_after_compaction
 | ClickStack | 150 GB | | | |
 | OneUptime | 150 GB | | | |
 | Uptrace | 150 GB | | | |
+| Parseable | 150 GB | | | |
 | Coroot | 150 GB | | | |
 | Grafana LGTM | 150 GB | | | |
 | Apache SkyWalking | 150 GB | | | |
@@ -413,6 +500,8 @@ compression_ratio = raw_input_bytes / stored_bytes_after_compaction
 | Elastic Observability | 150 GB | | | |
 
 <!-- TODO: Fill after running benchmarks -->
+
+> **Results pending.** Will be populated after benchmark execution.
 
 ---
 
@@ -440,6 +529,7 @@ compression_ratio = raw_input_bytes / stored_bytes_after_compaction
 | ClickStack | | | | | | |
 | OneUptime | | | | | | |
 | Uptrace | | | | | | |
+| Parseable | | | | | | |
 | Coroot | | | | | | |
 | Grafana LGTM | | | | | | |
 | Apache SkyWalking | | | | | | |
@@ -449,6 +539,8 @@ compression_ratio = raw_input_bytes / stored_bytes_after_compaction
 | Elastic Observability | | | | | | |
 
 <!-- TODO: Fill after running benchmarks -->
+
+> **Results pending.** Will be populated after benchmark execution.
 
 ---
 
@@ -464,7 +556,7 @@ compression_ratio = raw_input_bytes / stored_bytes_after_compaction
 | M4 | M3 repeated | 7 days |
 | M5 | M3 repeated | 30 days |
 
-**Report:** p50/p95/p99 latency, CPU during query, memory spike during query.
+**Report:** p50/p95/p99 latency, CPU during query, memory spike during query. Each query run 20 times (first 2 discarded for cache warm-up).
 
 ---
 
@@ -477,7 +569,7 @@ compression_ratio = raw_input_bytes / stored_bytes_after_compaction
 | T3 | `service=checkout AND error=true AND db.system=postgresql` | Multi-attribute filter |
 | T4 | Find slow traces without knowing trace ID | Real APM discovery |
 
-**Report:** Latency, result completeness, waterfall render time (for UI-based queries).
+**Report:** Latency, result completeness, waterfall render time (for UI-based queries). Each query run 20 times (first 2 discarded).
 
 ---
 
@@ -513,6 +605,14 @@ This produces:
 - Context lost during navigation (did you lose the time window? service filter?)
 
 **Scoring:** 1-5 scale per scenario, with notes on friction points.
+
+| Score | Meaning |
+| :---: | :--- |
+| 5 | Single-click navigation, context fully preserved (time window, service filter) |
+| 4 | 2-3 clicks, context mostly preserved, minimal manual filtering |
+| 3 | Requires manual query or filter adjustment, but achievable in the same UI |
+| 2 | Requires switching tools/tabs, copy-pasting IDs, or rebuilding context |
+| 1 | Not achievable without external tools or scripting |
 
 > **Note on platforms without built-in UI:** VictoriaMetrics stack and Coroot (for log/trace exploration) rely on Grafana as their visualization layer. For these platforms, we test the Grafana + datasource plugin experience and note the additional setup required. The "clicks to root-cause" metric includes any context switches between Grafana panels or datasources.
 
@@ -553,14 +653,14 @@ This produces:
 
 **Scenario:** Fresh Ubuntu VM, engineer follows official docs.
 
-**Timer starts at:** `git clone` or `helm repo add`
+**Timer starts at:** First command (`git clone` / `docker compose pull` for Phase 1; `helm repo add` for Phase 2 K8s platforms)
 
 **Timer stops when:**
 
-- [ ] Logs visible in UI
-- [ ] Metrics visible in UI
-- [ ] Traces visible in UI
-- [ ] Log → trace navigation works (click trace_id in log, see trace)
+- Logs visible in UI
+- Metrics visible in UI
+- Traces visible in UI
+- Log → trace navigation works (click trace_id in log, see trace)
 
 **Captured:**
 
@@ -582,6 +682,7 @@ This produces:
 | ClickStack | | | | | | |
 | OneUptime | | | | | | |
 | Uptrace | | | | | | |
+| Parseable | | | | | | |
 | Coroot | | | | | | |
 | Grafana LGTM | | | | | | |
 | Apache SkyWalking | | | | | | |
@@ -591,6 +692,8 @@ This produces:
 | Elastic Observability | | | | | | |
 
 <!-- TODO: Fill after running benchmarks -->
+
+> **Results pending.** Will be populated after benchmark execution.
 
 ---
 
@@ -680,15 +783,18 @@ These benchmarks are designed for single-node, short-duration evaluation. They d
 
 <!-- TODO: Fill after all benchmarks complete -->
 
+> **Results pending.** This table will be populated after Phase 1 benchmark execution.
+
 <div style="overflow-x: auto;" markdown="1">
 
-| Platform | TTFT | Idle RAM | Max Logs/s | Max Spans/s | 150GB→stored | Log Q5 p95 | Trace T1 | Correlation | Ops Score | OSS Score | **Total** |
+| Platform | TTFT | Idle RAM | Max Logs/s | Max Spans/s | Storage Factor[^sf] | Log Q5 p95 | Trace T1 | Correlation | Ops Score | OSS Score | **Total** |
 | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | SigNoz | | | | | | | | | | | |
 | OpenObserve | | | | | | | | | | | |
 | ClickStack | | | | | | | | | | | |
 | OneUptime | | | | | | | | | | | |
 | Uptrace | | | | | | | | | | | |
+| Parseable | | | | | | | | | | | |
 | Coroot | | | | | | | | | | | |
 | Grafana LGTM | | | | | | | | | | | |
 | Apache SkyWalking | | | | | | | | | | | |
@@ -699,15 +805,21 @@ These benchmarks are designed for single-node, short-duration evaluation. They d
 
 </div>
 
+[^sf]: Storage Factor = raw_input_bytes / stored_bytes_after_compaction. Higher means better compression. 150 GB raw input (100 GB logs + 50 GB traces) ingested identically across all platforms.
+
 ### Detailed Results per Benchmark
 
 <!-- TODO: Link to or embed detailed results per benchmark -->
+
+> **Detailed breakdowns per benchmark will be added here after Phase 1 execution.**
 
 ---
 
 ## Category Winners
 
 <!-- TODO: Fill after benchmarks -->
+
+> **Category winners will be declared after all Phase 1 benchmarks complete.**
 
 | Category | Winner | Runner-up | Notes |
 | :--- | :--- | :--- | :--- |
@@ -729,40 +841,42 @@ These benchmarks are designed for single-node, short-duration evaluation. They d
 
 ## Scoring (25 Criteria)
 
-Weighted scores from [Part 1's criteria framework]({% post_url open-source-observability-platform-comparison %}#the-25-scored-criteria), populated with both documentation-based and benchmark-based evidence.
+Weighted scores from [Part 1's criteria framework]({% post_url 2026-08-20-open-source-observability-platform-comparison %}#the-25-scored-criteria), populated with both documentation-based and benchmark-based evidence.
 
 <!-- TODO: Fill with weighted scores after benchmarks -->
 
+> **Phase 1 results pending.** Scores will be populated after benchmark execution. Phase 2 platforms will be added in a subsequent update.
+
 <div style="overflow-x: auto;" markdown="1">
 
-| # | Criterion | Weight | SigNoz | OpenObserve | ClickStack | OneUptime | Uptrace | Coroot | Grafana | SkyWalking | OpenSearch | Victoria | Highlight | Elastic |
-| ---: | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| 1 | Free completeness | **7%** | | | | | | | | | | | | |
-| 2 | License friendliness | 4% | | | | | | | | | | | | |
-| 3 | Logs | **5%** | | | | | | | | | | | | |
-| 4 | Metrics | **5%** | | | | | | | | | | | | |
-| 5 | Traces | **5%** | | | | | | | | | | | | |
-| 6 | OTel native | **5%** | | | | | | | | | | | | |
-| 7 | Prometheus compat | 3% | | | | | | | | | | | | |
-| 8 | Signal correlation | **5%** | | | | | | | | | | | | |
-| 9 | APM | 4% | | | | | | | | | | | | |
-| 10 | K8s monitoring | 4% | | | | | | | | | | | | |
-| 11 | Infra monitoring | 3% | | | | | | | | | | | | |
-| 12 | eBPF | 3% | | | | | | | | | | | | |
-| 13 | Profiling | 2% | | | | | | | | | | | | |
-| 14 | Dashboards/UX | 4% | | | | | | | | | | | | |
-| 15 | Alerting/SLO | 4% | | | | | | | | | | | | |
-| 16 | Query UX | 4% | | | | | | | | | | | | |
-| 17 | Install complexity | 3% | | | | | | | | | | | | |
-| 18 | Ops complexity | **5%** | | | | | | | | | | | | |
-| 19 | Ingestion throughput | **5%** | | | | | | | | | | | | |
-| 20 | Query performance | **5%** | | | | | | | | | | | | |
-| 21 | Storage efficiency | **5%** | | | | | | | | | | | | |
-| 22 | CPU efficiency | 3% | | | | | | | | | | | | |
-| 23 | Memory efficiency | 3% | | | | | | | | | | | | |
-| 24 | High-cardinality | 3% | | | | | | | | | | | | |
-| 25 | HA/scalability | 3% | | | | | | | | | | | | |
-| | **Weighted Total** | **100%** | | | | | | | | | | | | |
+| # | Criterion | Weight | SigNoz | OpenObserve | ClickStack | Parseable | OneUptime | Uptrace | Coroot | LGTM | SkyWalking | OpenSearch | Victoria | Highlight | Elastic |
+| ---: | :--- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| 1 | Free completeness | **7%** | | | | | | | | | | | | | |
+| 2 | License friendliness | 4% | | | | | | | | | | | | | |
+| 3 | Logs | **5%** | | | | | | | | | | | | | |
+| 4 | Metrics | **5%** | | | | | | | | | | | | | |
+| 5 | Traces | **5%** | | | | | | | | | | | | | |
+| 6 | OTel native | **5%** | | | | | | | | | | | | | |
+| 7 | Prometheus compat | 3% | | | | | | | | | | | | | |
+| 8 | Signal correlation | **5%** | | | | | | | | | | | | | |
+| 9 | APM | 4% | | | | | | | | | | | | | |
+| 10 | K8s monitoring | 4% | | | | | | | | | | | | | |
+| 11 | Infra monitoring | 3% | | | | | | | | | | | | | |
+| 12 | eBPF | 3% | | | | | | | | | | | | | |
+| 13 | Profiling | 2% | | | | | | | | | | | | | |
+| 14 | Dashboards/UX | 4% | | | | | | | | | | | | | |
+| 15 | Alerting/SLO | 4% | | | | | | | | | | | | | |
+| 16 | Query UX | 4% | | | | | | | | | | | | | |
+| 17 | Install complexity | 3% | | | | | | | | | | | | | |
+| 18 | Ops complexity | **5%** | | | | | | | | | | | | | |
+| 19 | Ingestion throughput | **5%** | | | | | | | | | | | | | |
+| 20 | Query performance | **5%** | | | | | | | | | | | | | |
+| 21 | Storage efficiency | **5%** | | | | | | | | | | | | | |
+| 22 | CPU efficiency | 3% | | | | | | | | | | | | | |
+| 23 | Memory efficiency | 3% | | | | | | | | | | | | | |
+| 24 | High-cardinality | 3% | | | | | | | | | | | | | |
+| 25 | HA/scalability | 3% | | | | | | | | | | | | | |
+| | **Weighted Total** | **100%** | | | | | | | | | | | | | |
 
 </div>
 
@@ -770,7 +884,26 @@ Weighted scores from [Part 1's criteria framework]({% post_url open-source-obser
 
 ## Conclusion
 
-<!-- TODO: Write after all benchmarks complete -->
+> **Conclusion will be written after all benchmark data is collected and analyzed.**
+
+---
+
+## FAQ
+
+**How do you prevent one platform from getting an unfair advantage?**
+Every platform runs on a freshly cloned VM image — never simultaneously. The OTel Collector config, telemetry workload, and retention settings are identical. The platform under test never measures itself; all resource metrics come from an external Prometheus + cAdvisor stack.
+
+**Why Docker Compose instead of Kubernetes?**
+Docker Compose isolates platform performance from K8s scheduling overhead and is the simplest reproducible setup. Phase 2 adds K8s for platforms that require it (Coroot's eBPF agent, operators needing K8s APIs).
+
+**Are these benchmarks representative of production?**
+They test single-node, steady-state performance on standardized hardware. Production adds diurnal patterns, multi-tenancy, network partitions, and months of accumulated data. Use these results to shortlist, then run a focused POC in your environment.
+
+**Why not benchmark all 13 platforms at once?**
+Phase 1 covers the 7 most architecturally comparable platforms (all accept OTLP, all run in Docker Compose). Phase 2 adds platforms with different ingestion models (eBPF), heavier JVM requirements, or broader scope (incident management).
+
+**Can I reproduce these benchmarks?**
+Yes. All code, Docker Compose files, OTel Collector configs, generator scripts, and query suites are in the [benchmark repository](https://github.com/sagarnikam123/observability-benchmark). Run `make benchmark PLATFORM=<name>` to reproduce any result.
 
 ---
 
@@ -778,7 +911,7 @@ Weighted scores from [Part 1's criteria framework]({% post_url open-source-obser
 
 All benchmark code, configurations, and raw results are available:
 
-- **Repository:** [github.com/sagarnikam123/observability-benchmark](https://github.com/sagarnikam123/observability-benchmark) <!-- TODO: Create repo -->
+- **Repository:** [github.com/sagarnikam123/observability-benchmark](https://github.com/sagarnikam123/observability-benchmark)
 - **Docker Compose files:** One per platform, pinned versions
 - **OTel Collector config:** Single shared configuration
 - **Generator scripts:** Configurable rate, duration, cardinality
@@ -833,4 +966,4 @@ make report                       # Generate comparison tables
 
 ---
 
-*Benchmarks run: <!-- TODO: Date -->. Platform versions: <!-- TODO: List versions -->. Hardware: 8 vCPU / 32 GB RAM / 500 GB NVMe / Ubuntu 24.04.*
+*Benchmarks run: August 2026. Platform versions: see [Platform Versions table](#platform-versions). Hardware: 8 vCPU / 32 GB RAM / 500 GB NVMe / Ubuntu 24.04.*

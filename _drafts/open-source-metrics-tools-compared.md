@@ -11,13 +11,31 @@ image:
   alt: Open Source Metrics and Time-Series Tools Compared
 ---
 
+Which open-source metrics tool should you use in 2026? This article compares 30+ self-hostable time-series databases, monitoring suites, and metric collectors — from Prometheus-compatible scalable TSDBs like VictoriaMetrics, Mimir, and Thanos to traditional databases like InfluxDB and Graphite, complete monitoring stacks like Zabbix and Netdata, and collection agents like Telegraf and Grafana Alloy.
+
 > Metrics are the first signal you check and the last signal you want to lose. Your TSDB choice determines cost at scale, query speed under cardinality pressure, and how long you can retain history.
+
+### TL;DR — Quick Recommendations
+
+| Use case | Best fit | Runner-up |
+| :--- | :--- | :--- |
+| **Simple single-cluster Prometheus** | Prometheus | VictoriaMetrics (single) |
+| **Prometheus replacement, lower resources** | VictoriaMetrics (single) | Prometheus |
+| **Scale to millions of series** | VictoriaMetrics (cluster) | Mimir |
+| **Long-term storage on S3/GCS** | Thanos | Mimir |
+| **Multi-tenant metrics platform** | Mimir | Cortex |
+| **Modern SQL-first TSDB** | InfluxDB 3 Core | QuestDB |
+| **Enterprise infra monitoring (all-in-one)** | Zabbix | Checkmk Raw |
+| **Real-time per-second metrics, zero config** | Netdata | — |
+| **AGPL license unacceptable** | VictoriaMetrics / Thanos | Prometheus |
+
+> Jump to [Section 1](#section-1-prometheus-compatible-metrics-systems) for Prometheus-compatible systems or [When to Use What](#when-to-use-what) for the full decision table.
 
 This article focuses exclusively on **open-source, self-hostable metrics tools** — platforms primarily designed for collecting, storing, querying, and alerting on numeric time-series data. No mandatory commercial licenses, no SaaS accounts required.
 
 **Excluded:** Managed services (Grafana Cloud Metrics, Amazon Managed Prometheus, Azure Managed Prometheus), logs/traces-focused observability platforms (SigNoz, OpenObserve, ClickStack, Elastic), and commercial-only products.
 
-For full-platform comparisons covering logs + metrics + traces together, see [Part 1: Open-Source Observability Platforms Compared]({% post_url open-source-observability-platform-comparison %}).
+For full-platform comparisons covering logs + metrics + traces together, see [Part 1: Open-Source Observability Platforms Compared]({% post_url 2026-08-20-open-source-observability-platform-comparison %}).
 
 ---
 
@@ -50,6 +68,7 @@ For full-platform comparisons covering logs + metrics + traces together, see [Pa
 - [Section 5: Open-Source Metrics Instrumentation Libraries](#section-5-open-source-metrics-instrumentation-libraries)
 - [Section 6: Ecosystem & Complementary Tools](#section-6-ecosystem--complementary-tools)
 - [Recommended Benchmark Scope](#recommended-benchmark-scope)
+- [FAQ](#faq)
 - [References](#references)
 
 ---
@@ -66,20 +85,36 @@ For full-platform comparisons covering logs + metrics + traces together, see [Pa
 
 ---
 
+## Legend
+
+| Symbol | Meaning |
+| :---: | :--- |
+| ✅ | Supported / available |
+| ◐ | Partial support or requires additional setup / integration |
+| ⭐ | Particular strength or best-in-class |
+| — | Not supported or not applicable |
+| EE | Enterprise/paid edition only |
+
+---
+
 ## Section 1: Prometheus-Compatible Metrics Systems
 
-These are the strongest candidates if you want something comparable to Prometheus or VictoriaMetrics — PromQL-compatible, scrape-oriented, cloud-native metrics.
+These are the strongest candidates for PromQL-compatible, scrape-oriented, cloud-native metrics — whether you need a single-node TSDB or a horizontally-scalable platform.
 
 ### The Candidates
 
-| Project | License | Scrapes metrics itself? | PromQL | Distributed | Object storage | GitHub | Recommendation |
+<div style="overflow-x: auto;" markdown="1">
+
+| Project | License | Scrapes metrics itself? | PromQL | Distributed | Object storage | GitHub | Positioning |
 | :--- | :--- | ---: | ---: | ---: | ---: | :--- | :--- |
-| **[Prometheus](https://github.com/prometheus/prometheus)** | Apache 2.0 | Yes | Yes | No, not natively | No | ⭐ 65.8k · 👥 1,203 | Baseline |
-| **[VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics)** | Apache 2.0 (Community) | Yes | MetricsQL/PromQL | Yes, cluster edition | Limited; not primary | ⭐ 17.6k · 👥 407 | Strong |
-| **[Grafana Mimir](https://github.com/grafana/mimir)** | AGPLv3 | No | Yes | Yes | Yes | ⭐ 5.2k · 👥 448 | Strong |
-| **[Thanos](https://github.com/thanos-io/thanos)** | Apache 2.0 | No; extends Prometheus | Yes | Yes | Yes | ⭐ 14.2k · 👥 691 | Strong |
-| **[Cortex](https://github.com/cortexproject/cortex)** | Apache 2.0 | No | Yes | Yes | Yes | ⭐ 5.9k · 👥 334 | Strong, overlaps Mimir |
-| **[M3](https://github.com/m3db/m3)** | Apache 2.0 | Through coordinator | Yes | Yes | Primarily distributed disks | ⭐ 4.9k · 👥 113 | Consider for extreme scale |
+| **[Prometheus](https://github.com/prometheus/prometheus)** | Apache 2.0 | Yes | Yes | No, not natively | No | ⭐ 65.8k · 👥 1,203 | Industry standard / baseline |
+| **[VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics)** | Apache 2.0 (Community) | Yes | MetricsQL/PromQL | Yes, cluster edition | Limited; not primary | ⭐ 17.6k · 👥 407 | Drop-in replacement, lower resources |
+| **[Grafana Mimir](https://github.com/grafana/mimir)** | AGPLv3 | No | Yes | Yes | Yes | ⭐ 5.2k · 👥 448 | Multi-tenant metrics platform |
+| **[Thanos](https://github.com/thanos-io/thanos)** | Apache 2.0 | No; extends Prometheus | Yes | Yes | Yes | ⭐ 14.2k · 👥 691 | Long-term storage layer for Prometheus |
+| **[Cortex](https://github.com/cortexproject/cortex)** | Apache 2.0 | No | Yes | Yes | Yes | ⭐ 5.9k · 👥 334 | Legacy multi-tenant (superseded by Mimir) |
+| **[M3](https://github.com/m3db/m3)** | Apache 2.0 | Through coordinator | Yes | Yes | Primarily distributed disks | ⭐ 4.9k · 👥 113 | Extreme scale (declining maintenance) |
+
+</div>
 
 ### Architecture Classification
 
@@ -113,12 +148,14 @@ graph TB
 
 ### Feature Comparison
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Criterion | Prometheus | VictoriaMetrics | Mimir | Thanos | Cortex | M3 |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Query language** | PromQL | MetricsQL (PromQL superset) | PromQL | PromQL | PromQL | M3QL / PromQL |
 | **Remote write receive** | ✅ (receiver flag) | ⭐ | ⭐ | ✅ (Receive component) | ⭐ | ✅ |
 | **Remote read** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **OTLP metrics ingestion** | ✅ (experimental) | ✅ | ✅ | ✅ (via Receive) | ✅ | ◐ |
+| **OTLP metrics ingestion** | ✅ (GA since 3.x) | ✅ | ✅ | ✅ (via Receive) | ✅ | ◐ |
 | **Scrape targets directly** | ⭐ | ⭐ (vmagent) | — (use Prometheus/Alloy) | — (use Prometheus) | — (use Prometheus) | ◐ (coordinator) |
 | **Multi-tenancy** | — | ✅ (cluster) | ⭐ | ✅ | ⭐ | ✅ |
 | **Downsampling** | — (recording rules only) | ✅ (enterprise) | ✅ (compactor) | ⭐ (compactor) | ✅ | ⭐ |
@@ -129,6 +166,8 @@ graph TB
 | **Alerting** | ⭐ (→ Alertmanager) | ✅ (vmalert → AM) | ✅ (ruler → AM) | ✅ (ruler → AM) | ✅ (ruler → AM) | ◐ |
 | **Service discovery** | ⭐ | ⭐ (vmagent) | — | — | — | ◐ |
 | **Global deduplication** | — | ✅ | ✅ | ✅ (compactor) | ✅ | ✅ |
+
+</div>
 
 ### Cardinality & Scale
 
@@ -146,7 +185,7 @@ graph TB
 | Tool | Object storage | Multi-year retention | Tiered storage | Global query across regions |
 | :--- | :---: | :---: | :---: | :---: |
 | Prometheus | — (local only) | ◐ (disk-limited) | — | — (federation limited) |
-| VictoriaMetrics | ◐ (enterprise only) | ⭐ (local is efficient) | ✅ (enterprise) | ✅ (vmselect multi-level) |
+| VictoriaMetrics | ◐ (enterprise for S3/GCS; local disk efficient for multi-year) | ⭐ (local is efficient) | ✅ (enterprise) | ✅ (vmselect multi-level) |
 | Mimir | ⭐ (primary architecture) | ⭐ | ✅ (compaction tiers) | ✅ (multi-zone) |
 | Thanos | ⭐ (primary architecture) | ⭐ | ✅ (compaction) | ⭐ (Store Gateway) |
 | Cortex | ⭐ (primary architecture) | ⭐ | ✅ | ✅ (multi-zone) |
@@ -209,7 +248,7 @@ graph TB
 | **Prometheus** | Single-node only; OOM under cardinality explosion; no native long-term storage or HA |
 | **VictoriaMetrics** | Downsampling, some cluster features (multi-retention, dedup) require enterprise license |
 | **Mimir** | Complex microservices deployment; requires object storage; AGPL license |
-| **Thanos** | Eventual consistency (not real-time on recent data); compactor is single point of failure; dedup not always perfect |
+| **Thanos** | Eventual consistency on Store Gateway data (not real-time); sidecar queries are real-time but require Prometheus to be running; compactor is single point of failure; dedup not always perfect |
 | **Cortex** | Effectively superseded by Mimir (same team); maintenance is community-driven |
 | **M3** | Effectively unmaintained (Uber reduced investment); complex to operate; steep learning curve |
 
@@ -238,8 +277,13 @@ These store numeric time-series data but are not necessarily Prometheus-native. 
 | **[Gnocchi](https://github.com/gnocchixyz/gnocchi)** | Apache 2.0 | Pluggable (file, Ceph, Swift, S3) | REST API | Metrics-as-a-Service; OpenStack heritage (⭐ 323 · 👥 94) |
 | **[RRDtool](https://oss.oetiker.ch/rrdtool/)** | GPL | Fixed-size RRD files | RRD API/CLI | Appliances and network graphs |
 | **[Performance Co-Pilot (PCP)](https://github.com/performancecopilot/pcp)** | GPL / LGPL | Local and distributed archives | PCP tools/APIs | Linux performance metrics (⭐ 1.1k · 👥 179) |
+| **[GreptimeDB](https://github.com/GreptimeTeam/greptimedb)** | Apache 2.0 | Distributed, object-storage-native | SQL, PromQL | Unified TSDB for metrics/logs/traces (⭐ 5.2k · 👥 100+) |
+| **[QuestDB](https://github.com/questdb/questdb)** | Apache 2.0 | Column-oriented, memory-mapped | SQL (PostgreSQL wire), InfluxDB line protocol | High-throughput ingestion, financial/IoT metrics (⭐ 14.9k · 👥 100+) |
+| **[TDengine](https://github.com/taosdata/TDengine)** | AGPL v3 (Community) | Distributed, columnar time-series | SQL (custom dialect) | IoT/industrial metrics at scale (⭐ 24.1k · 👥 200+) |
 
 ### Comparison
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Tool | Scrape-based | Push-based | PromQL compat | SQL | Compression | Object storage | Cardinality limit | Current status |
 | :--- | :---: | :---: | :---: | :---: | :--- | :---: | :--- | :--- |
@@ -251,6 +295,27 @@ These store numeric time-series data but are not necessarily Prometheus-native. 
 | Gnocchi | — | ✅ | — | — | Pluggable | ✅ (S3/Ceph/Swift) | Archive-policy-based | Mature, OpenStack |
 | RRDtool | — | ✅ | — | — | Fixed-size | — | Fixed by design | Stable, legacy |
 | PCP | ⭐ (pmcd) | — | ◐ (via pmseries/Redis) | — | PCP archives | — | Host-level | Active, Linux-focused |
+| GreptimeDB | — | ✅ | ⭐ (native PromQL) | ⭐ | Columnar/Parquet | ⭐ | Unbounded | Active, early maturity |
+| QuestDB | — | ⭐ (ILP, high-throughput) | — | ⭐ (PG wire) | Column-oriented | — | Unbounded | Active |
+| TDengine | — | ⭐ | — | ⭐ (custom SQL) | Columnar + compression | ◐ | Supertable-based | Active, IoT-focused |
+
+</div>
+
+### Known Limitations
+
+| Tool | Key limitation |
+| :--- | :--- |
+| **InfluxDB 3 Core** | New generation; clustering is enterprise-only; ecosystem still migrating from 2.x |
+| **InfluxDB OSS 2.x** | Maintenance mode; Flux language has steep learning curve; no new features |
+| **Graphite** | No native PromQL; whisper storage scales poorly; limited metadata/labels |
+| **OpenTSDB** | Requires HBase/Bigtable (heavy ops); low community activity; no native dashboards |
+| **KairosDB** | Requires Cassandra; low community activity; limited query capabilities |
+| **Gnocchi** | Niche OpenStack heritage; small community outside OpenStack users |
+| **RRDtool** | Fixed-size storage (no unlimited retention); no clustering; legacy API |
+| **PCP** | Host-focused; limited distributed query; small ecosystem outside Red Hat/Linux perf |
+| **GreptimeDB** | Young project; observability UX (dashboards, alerting) requires external tools |
+| **QuestDB** | No PromQL; no built-in alerting; primarily ingestion-optimized (queries can lag on complex aggregations) |
+| **TDengine** | AGPL license; custom SQL dialect (not standard); primarily IoT/industrial positioning |
 
 ### When to Use What
 
@@ -264,6 +329,9 @@ These store numeric time-series data but are not necessarily Prometheus-native. 
 | **Embedded devices, fixed-size storage** | RRDtool | — |
 | **Linux kernel/system performance deep-dive** | Performance Co-Pilot | — |
 | **Existing InfluxDB 1.x/2.x investment** | InfluxDB 3 Core (migrate) | InfluxDB 2.x |
+| **PromQL + SQL in one TSDB, object-storage-native** | GreptimeDB | InfluxDB 3 Core |
+| **Extreme ingestion throughput, financial/IoT** | QuestDB | TDengine |
+| **IoT / industrial metrics at massive scale** | TDengine | QuestDB |
 
 ---
 
@@ -288,6 +356,8 @@ Complete monitoring products — they collect, store, alert, and visualize metri
 
 ### Comparison
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Tool | Agent-based | SNMP | Auto-discovery | Built-in dashboards | Alerting | API | Prometheus export | Scale |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
 | Zabbix | ⭐ | ⭐ | ⭐ | ⭐ | ⭐ | ✅ | ✅ | Enterprise-grade |
@@ -300,6 +370,8 @@ Complete monitoring products — they collect, store, alert, and visualize metri
 | Nagios Core | ⭐ (plugins) | ✅ | ◐ | ◐ | ⭐ | ◐ | ◐ | Traditional |
 | Checkmk Raw | ⭐ | ⭐ | ⭐ | ⭐ | ⭐ | ✅ | ✅ | Enterprise-grade |
 | Shinken | ⭐ (Nagios compat) | ✅ | ◐ | ◐ | ✅ | ◐ | — | Legacy |
+
+</div>
 
 ### When to Use What
 
@@ -339,7 +411,11 @@ These do not replace a metrics database — they collect, process, and forward m
 
 > **Note:** OpenTelemetry Collector and Grafana Alloy are open-source and can collect metrics, but they are not metrics-only — they also process logs and traces. They remain the recommended multi-signal collectors for OTel-native environments.
 
+> **Key metric-forwarding agents worth knowing:** **Grafana Alloy** (successor to Grafana Agent; collects, transforms, and forwards metrics/logs/traces), **vmagent** (VictoriaMetrics' scraper and remote-write forwarder — often lower resource usage than Prometheus for scraping), and **Prometheus Agent mode** (`--enable-feature=agent` — scrape-only mode that remote-writes without local storage). These sit between "collector" and "backend" in your stack and are often the right choice for edge/satellite collection.
+
 ### Comparison
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Tool | System metrics | App metrics | Network/SNMP | Push | Pull/scrape | Multi-output | Plugin ecosystem |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :--- |
@@ -354,6 +430,8 @@ These do not replace a metrics database — they collect, process, and forward m
 | mtail | — | ✅ (from logs) | — | — | ⭐ (Prometheus) | — | Regex-based |
 | Diamond | ⭐ | ◐ | ◐ | ⭐ | — | ✅ | Python-based |
 | tcollector | ⭐ | ◐ | — | ⭐ (OpenTSDB) | — | — | Script-based |
+
+</div>
 
 ---
 
@@ -374,17 +452,38 @@ Libraries developers embed inside applications to expose metrics:
 | **[App Metrics](https://www.app-metrics.io/)** | .NET | Application metrics instrumentation |
 | **[HdrHistogram](https://hdrhistogram.github.io/HdrHistogram/)** | Multiple languages | High-dynamic-range latency histograms |
 
+### Choosing an Instrumentation Library
+
+| If you need... | Best fit | Notes |
+| :--- | :--- | :--- |
+| **Vendor-neutral, multi-signal (metrics + traces + logs)** | OpenTelemetry Metrics SDK | Future-proof; supports OTLP export to any backend |
+| **Prometheus-native, pull-based exposition** | Prometheus client libraries | Simplest path if your backend is Prometheus/VM/Mimir |
+| **JVM with multiple backend flexibility** | Micrometer | Bridges to Prometheus, Datadog, Atlas, etc. via registries |
+| **JVM legacy / existing Dropwizard apps** | Dropwizard Metrics | Mature; less actively developed than Micrometer |
+| **Node.js + Prometheus** | prom-client | De facto standard for Node Prometheus metrics |
+| **High-resolution latency recording** | HdrHistogram | Use alongside other libraries for percentile accuracy |
+
+> **Guidance:** For new projects, prefer **OpenTelemetry Metrics SDK** (vendor-neutral, multi-signal) or **Prometheus client libraries** (simpler, pull-model). Micrometer is the standard for JVM. All three support push (OTLP/remote-write) and pull (scrape) models to varying degrees.
+
 ---
 
 ## Section 6: Ecosystem & Complementary Tools
 
-Tools that complement the metrics platforms above — alerting, dashboards, and complete self-hosted monitoring solutions.
+Tools that complement the metrics platforms above — alerting, dashboards, Kubernetes integration, and complete self-hosted monitoring solutions.
 
 | Tool | License | Purpose | GitHub |
 | :--- | :--- | :--- | :--- |
+| **[Grafana](https://github.com/grafana/grafana)** | AGPL v3 | The de facto visualization layer for Prometheus-compatible metrics; dashboards, explore, alerting UI | ⭐ 65k+ · 👥 3,800+ |
 | **[Prometheus Alertmanager](https://github.com/prometheus/alertmanager)** | Apache 2.0 | Alert routing, deduplication, grouping, and notification (used by Prometheus, VictoriaMetrics, Mimir, Thanos, Cortex) | ⭐ 8.6k · 👥 410 |
+| **[Karma](https://github.com/prymitive/karma)** | Apache 2.0 | Alert dashboard for Alertmanager — multi-instance aggregation, filtering, silencing UI | ⭐ 2.4k · 👥 50+ |
+| **[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)** | Apache 2.0 | Generates Prometheus metrics about Kubernetes object state (deployments, pods, nodes) | ⭐ 5.5k · 👥 350+ |
+| **[prometheus-operator](https://github.com/prometheus-operator/prometheus-operator)** | Apache 2.0 | Kubernetes operator for Prometheus, Alertmanager, and Thanos — CRD-based management | ⭐ 9.3k · 👥 500+ |
+| **[Prometheus Pushgateway](https://github.com/prometheus/pushgateway)** | Apache 2.0 | Allows batch jobs to expose metrics to Prometheus via push | ⭐ 3.1k · 👥 130+ |
+| **[Thanos Operator](https://github.com/thanos-io/thanos-operator)** | Apache 2.0 | Kubernetes operator for Thanos components | Emerging |
 | **[Dashglass](https://github.com/bleemeo/dashglass)** | Apache 2.0 | Lightweight Prometheus-native dashboards with GitOps-first file storage — single Go binary, no database | ⭐ 6 · 👥 1 |
 | **[Bleemeo Community Edition](https://github.com/bleemeo/bleemeo-community-edition)** | Open-source | Complete self-hosted monitoring stack combining Glouton (agent) + SquirrelDB (TSDB) + Grafana, with push model and horizontal scaling | ⭐ 14 · 👥 5 |
+
+> **Community-size note:** Dashglass and Bleemeo Community Edition are included for completeness but have very small communities (<50 stars). Evaluate maintenance risk before adopting in production — bus-factor and long-term support are concerns at this scale.
 
 ---
 
@@ -430,6 +529,28 @@ For a fair performance comparison, only architecturally comparable tools should 
 
 ---
 
+## FAQ
+
+**What is the best Prometheus alternative in 2026?**
+**VictoriaMetrics** (single-node) is the most popular drop-in Prometheus alternative — it accepts the same scrape configs, speaks PromQL (via MetricsQL superset), uses less RAM, and handles higher cardinality. For distributed setups, VictoriaMetrics cluster or Grafana Mimir are the leading choices.
+
+**Should I use Thanos or Mimir for long-term metrics storage?**
+**Thanos** if you want to keep your existing Prometheus instances and add a long-term storage layer non-disruptively. **Mimir** if you're building a new multi-tenant metrics platform from scratch and want a single scalable system (no Prometheus instances needed). Both use object storage (S3/GCS).
+
+**Is Cortex still maintained?**
+Cortex is a CNCF incubating project with community contributions, but active development has shifted to Grafana Mimir (same team, same architecture). Choose Mimir for new deployments; Cortex is viable only if you're already running it.
+
+**What is MetricsQL vs PromQL?**
+MetricsQL is VictoriaMetrics' superset of PromQL — it adds WITH expressions, label manipulation functions, and extended rollup functions while remaining backwards-compatible. Any valid PromQL query is valid MetricsQL.
+
+**How many active time series can Prometheus handle?**
+On a well-tuned single node (8+ cores, 32+ GB RAM, SSD), Prometheus handles 1–5 million active series. Beyond that, you need VictoriaMetrics cluster, Mimir, or Thanos to shard the load.
+
+**Which metrics tool has the lowest resource usage?**
+**VictoriaMetrics single-node** — it can run on 1 GB RAM and handles millions of series more efficiently than Prometheus due to its custom merge-tree storage engine. **Netdata** is also extremely lightweight for collection (per-host agent at ~50 MB RAM).
+
+---
+
 ## References
 
 ### Prometheus-Compatible Systems
@@ -451,6 +572,9 @@ For a fair performance comparison, only architecturally comparable tools should 
 - [Gnocchi Documentation](https://gnocchi.xyz/)
 - [RRDtool Documentation](https://oss.oetiker.ch/rrdtool/)
 - [Performance Co-Pilot](https://pcp.io/)
+- [GreptimeDB Documentation](https://docs.greptime.com/)
+- [QuestDB Documentation](https://questdb.io/docs/)
+- [TDengine Documentation](https://docs.tdengine.com/)
 
 ### Monitoring Suites
 - [Zabbix Documentation](https://www.zabbix.com/documentation)
@@ -476,7 +600,11 @@ For a fair performance comparison, only architecturally comparable tools should 
 - [OpenMetrics](https://openmetrics.io/)
 
 ### Ecosystem & Complementary Tools
+- [Grafana](https://github.com/grafana/grafana)
 - [Prometheus Alertmanager](https://github.com/prometheus/alertmanager)
+- [Karma](https://github.com/prymitive/karma)
+- [kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)
+- [prometheus-operator](https://github.com/prometheus-operator/prometheus-operator)
 - [Dashglass](https://github.com/bleemeo/dashglass)
 - [Bleemeo Community Edition](https://github.com/bleemeo/bleemeo-community-edition)
 - [Glouton](https://github.com/bleemeo/glouton)

@@ -11,17 +11,36 @@ image:
   alt: Open Source Continuous Profiling Tools Compared
 ---
 
+Which open-source continuous profiling tool should you self-host in 2026? This article compares dedicated profiling platforms (Grafana Pyroscope, Parca, Yandex Perforator, Intel gProfiler), fleet-wide eBPF agents (OpenTelemetry eBPF Profiler), language-specific profilers (async-profiler, py-spy, pprof, Clinic.js), kernel/eBPF tools (perf, BCC, bpftrace), and visualization utilities (Speedscope, FlameGraph) — covering architecture, language coverage, overhead, storage, and operational complexity.
+
 > Metrics tell you WHEN something is slow. Traces tell you WHERE in the call chain. Profiles tell you WHY — which function, which allocation, which lock.
+
+### TL;DR — Quick Recommendations
+
+| Use case | Best fit | Runner-up |
+| :--- | :--- | :--- |
+| **Full profiling platform, Grafana ecosystem** | Pyroscope | Parca |
+| **eBPF-first, zero-code, Apache 2.0** | Parca | OTel eBPF Profiler + Pyroscope |
+| **Large Linux C/C++/Go/Rust fleets** | Perforator | Parca |
+| **Multi-runtime detection (Java + Python + native)** | gProfiler | Pyroscope |
+| **Standards-oriented OTel collection** | OTel eBPF Profiler | Parca Agent |
+| **Java/Kotlin production profiling** | async-profiler → Pyroscope | JFR → Pyroscope |
+| **Python production profiling** | py-spy → Pyroscope | gProfiler |
+| **Go production profiling** | pprof → Pyroscope | Parca |
+| **AGPL license unacceptable** | Parca / Perforator | gProfiler |
+
+> Jump to [Section 1](#section-1-open-source-continuous-profiling-platforms) for platform comparison or [When to Use What](#when-to-use-what) for the full decision table.
 
 This article focuses exclusively on **open-source, self-hostable profiling tools** — no mandatory commercial licenses, no mandatory SaaS accounts. The profiling ecosystem spans continuous profiling platforms, fleet-wide agents, language-specific profilers, kernel/eBPF tools, and visualization utilities.
 
-**Excluded from the primary benchmark:** Multi-signal observability platforms (SigNoz, Coroot, SkyWalking, Elastic, OneUptime) — these support profiling but are broader APM/observability systems. For full-platform comparisons, see [Part 1: Open-Source Observability Platforms Compared]({% post_url open-source-observability-platform-comparison %}).
+**Excluded from the primary benchmark:** Multi-signal observability platforms (SigNoz, Coroot, SkyWalking, Elastic, OneUptime) — these support profiling but are broader APM/observability systems. For full-platform comparisons, see [Part 1: Open-Source Observability Platforms Compared]({% post_url 2026-08-20-open-source-observability-platform-comparison %}).
 
 ---
 
 ## Table of Contents
 
 - [Scope & Selection Criteria](#scope--selection-criteria)
+- [Legend](#legend)
 - [Taxonomy](#taxonomy)
 - [Section 1: Open-Source Continuous Profiling Platforms](#section-1-open-source-continuous-profiling-platforms)
   - [The Candidates](#the-candidates)
@@ -47,6 +66,7 @@ This article focuses exclusively on **open-source, self-hostable profiling tools
 - [Section 6: Linux, Native and eBPF Profiling Tools](#section-6-linux-native-and-ebpf-profiling-tools)
 - [Section 7: Profile Formats and Visualization](#section-7-profile-formats-and-visualization)
 - [Recommended Evaluation Scope](#recommended-evaluation-scope)
+- [FAQ](#faq)
 - [References](#references)
 
 ---
@@ -60,6 +80,18 @@ This article focuses exclusively on **open-source, self-hostable profiling tools
 | **No mandatory commercial license** | Free edition covers primary profiling functionality |
 | **No mandatory SaaS account** | No phone-home, no cloud signup required |
 | **Primarily designed for profiling** | Not a multi-signal platform that also does profiling |
+
+---
+
+## Legend
+
+| Symbol | Meaning |
+| :---: | :--- |
+| ✅ | Supported / available |
+| ◐ | Partial support or requires additional setup |
+| ⭐ | Particular strength or best-in-class |
+| 🧪 | Experimental / early support |
+| — | Not supported or not applicable |
 
 ---
 
@@ -122,22 +154,28 @@ These are the closest equivalents to Grafana Pyroscope — always-on, fleet-wide
 
 ### The Candidates
 
-| Platform | License | Collection | Backend/Storage | UI | Language Coverage | Recommendation |
+<div style="overflow-x: auto;" markdown="1">
+
+| Platform | License | Collection | Backend/Storage | UI | Language Coverage | Positioning |
 | :--- | :--- | :--- | :--- | ---: | :--- | :--- |
-| **[Grafana Pyroscope](https://github.com/grafana/pyroscope)** | AGPLv3 (server); mostly Apache 2.0 (agents) | SDKs, pprof, JFR, eBPF, OTLP profiles | Built-in, scalable architecture | Grafana | Broad | Strong |
-| **[Parca](https://github.com/parca-dev/parca)** | Apache 2.0 | Parca Agent, eBPF, pprof | Built-in columnar storage | Built-in / Grafana | Native + several runtimes | Strong |
-| **[Yandex Perforator](https://github.com/yandex/perforator)** | Apache 2.0; some GPLv2 components | eBPF agent | Scalable profile and binary storage | Built-in | C/C++, Go, Rust; experimental Java/Python | Strong / emerging |
-| **[Intel gProfiler](https://github.com/intel/gprofiler)** | Apache 2.0 | Multiple runtime profilers + perf/eBPF | Local files or Performance Studio | Flamegraphs / Studio | Broad | Strong agent; smaller backend |
-| **[gProfiler Performance Studio](https://github.com/intel/gprofiler-performance-studio)** | Open-source | Receives gProfiler data | Central aggregation | Yes | Depends on gProfiler | Consider |
-| **[OpenTelemetry eBPF Profiler](https://github.com/open-telemetry/opentelemetry-ebpf-profiler)** | Apache 2.0; eBPF GPLv2 | System-wide eBPF | Requires a backend (Pyroscope/Parca) | No | Broad Linux runtime coverage | Strong collector |
+| **[Grafana Pyroscope](https://github.com/grafana/pyroscope)** | AGPLv3 (server); mostly Apache 2.0 (agents) | SDKs, pprof, JFR, eBPF, OTLP profiles | Built-in, scalable architecture | Grafana | Broad | Industry standard, Grafana-native |
+| **[Parca](https://github.com/parca-dev/parca)** | Apache 2.0 | Parca Agent, eBPF, pprof | Built-in columnar storage | Built-in / Grafana | Native + several runtimes | eBPF-first, Apache licensed |
+| **[Yandex Perforator](https://github.com/yandex/perforator)** | Apache 2.0; some GPLv2 components | eBPF agent | Scalable profile and binary storage | Built-in | C/C++, Go, Rust; experimental Java/Python | Large native-code fleets |
+| **[Intel gProfiler](https://github.com/intel/gprofiler)** | Apache 2.0 | Multiple runtime profilers + perf/eBPF | Local files or Performance Studio | Flamegraphs / Studio | Broad | Multi-runtime detection agent |
+| **[gProfiler Performance Studio](https://github.com/intel/gprofiler-performance-studio)** | Open-source | Receives gProfiler data | Central aggregation | Yes | Depends on gProfiler | Central aggregation for gProfiler |
+| **[OpenTelemetry eBPF Profiler](https://github.com/open-telemetry/opentelemetry-ebpf-profiler)** | Apache 2.0; eBPF GPLv2 | System-wide eBPF | Requires a backend (Pyroscope/Parca) | No | Broad Linux runtime coverage | Standards-oriented collector agent |
 | **[KubeFlame](https://github.com/pyroscope-io/kubeflame)** | Apache 2.0 | Kubernetes perf collection | Temporary / local | Flamegraphs | Native Linux workloads | Historical / niche |
 | **[Prodfiler](https://prodfiler.com/)** | Unclear OSS status | Whole-system agent | Hosted | Yes | Broad | Do not prioritize |
+
+</div>
 
 > **Primary shortlist:** Grafana Pyroscope, Parca, Yandex Perforator, Intel gProfiler + Performance Studio, OpenTelemetry eBPF Profiler (as collection agent).
 
 > **Parca acquisition note:** Parca remains open source and maintained following Polar Signals' August 2026 acquisition by Dash0. [Polar Signals announcement](https://www.polarsignals.com/blog/posts/2026/08/17/polar-signals-is-joining-dash0).
 
 ### High-Level Feature Comparison
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Capability | Pyroscope | Parca | Perforator | gProfiler | OTel eBPF Profiler |
 | :--- | ---: | ---: | ---: | ---: | ---: |
@@ -156,6 +194,8 @@ These are the closest equivalents to Grafana Pyroscope — always-on, fleet-wide
 | **Non-Linux support** | Some language agents | Server yes; eBPF agent Linux | Primarily Linux | Primarily Linux | Linux |
 | **Object-storage architecture** | Yes (scalable mode) | Deployment-dependent | Scalable profile storage | Studio-dependent | Backend-dependent |
 | **Diff/flamegraph comparison** | Yes | Yes | Yes | Limited / Studio | Backend-dependent |
+
+</div>
 
 ### Architecture Classification
 
@@ -196,12 +236,18 @@ graph TB
 
 ### Collection Mechanisms
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Mechanism | How it works | Overhead | Symbol quality | Code changes required |
-| :--- | :--- | :--- | :--- | :---: |
+| :--- | :--- | :--- | :--- | :--- | :---: |
 | **eBPF (kernel perf_events)** | Kernel-level stack sampling via BPF programs | Very low (<1%) | Depends on debug symbols / frame pointers | No |
 | **SDK / library instrumentation** | Language runtime hooks (pprof endpoint, JFR) | Low (1–3%) | ⭐ (runtime-aware) | Yes (import SDK) |
 | **Process sampling (external)** | External process reads target stack periodically | Low (1–5%) | Good (DWARF / frame pointers) | No |
 | **Multi-profiler agent** | Detects runtimes, attaches appropriate profiler | Low (1–3%) | ⭐ (runtime-specific) | No |
+
+</div>
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Platform | Primary mechanism | Secondary mechanism |
 | :--- | :--- | :--- |
@@ -211,7 +257,11 @@ graph TB
 | gProfiler | Multi-profiler agent (async-profiler, perf, py-spy, etc.) | — |
 | OTel eBPF Profiler | eBPF (system-wide) | — |
 
+</div>
+
 ### Language & Runtime Coverage
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Platform | Java/JVM | Go | Python | Rust | Node.js | .NET | C/C++ | Ruby |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -221,9 +271,13 @@ graph TB
 | gProfiler | ⭐ (async-profiler) | ✅ (perf/eBPF) | ⭐ (py-spy) | ✅ (perf) | ✅ | ◐ | ✅ (perf) | ✅ |
 | OTel eBPF Profiler | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
+</div>
+
 **Key insight:** eBPF-based profilers (Parca, Perforator, OTel eBPF) are language-agnostic at the kernel level but depend on debug symbols / frame pointers for quality. SDK-based profilers (Pyroscope agents, async-profiler) give richer runtime-specific data (allocations, goroutines, locks) but require per-language integration.
 
 ### Storage & Retention
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Platform | Storage backend | Object storage | Compression | Typical retention | Estimated storage (per node/day) |
 | :--- | :--- | :---: | :--- | :--- | :--- |
@@ -235,6 +289,8 @@ graph TB
 
 ### Query & Visualization
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Platform | Flamegraph | Icicle graph | Diff view (before/after) | Time-series selection | Tag/label filtering | Trace → profile linking |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: |
 | Pyroscope | ⭐ | ⭐ | ⭐ | ⭐ | ⭐ | ✅ (span → flamegraph) |
@@ -242,6 +298,8 @@ graph TB
 | Perforator | ⭐ | ✅ | ✅ | ✅ | ✅ | ◐ |
 | gProfiler + Studio | ✅ | ✅ | ◐ | ✅ | ◐ | — |
 | OTel eBPF Profiler | — (backend-dependent) | — | — | — | — | — |
+
+</div>
 
 ### Operational Complexity
 
@@ -455,6 +513,28 @@ Parca's eBPF agent can profile JVM processes, but runtime-aware Java profiling t
 - FlameGraph scripts
 - Hotspot (perf data GUI)
 - Grafana (Pyroscope datasource)
+
+---
+
+## FAQ
+
+**What is continuous profiling and why do I need it?**
+Continuous profiling samples your application's CPU, memory, and lock usage in production at all times (with <1–3% overhead). Unlike on-demand profiling, you can look back at *any* time window to understand why latency spiked — without needing to reproduce the issue.
+
+**What is the best open-source alternative to Datadog Continuous Profiler?**
+**Grafana Pyroscope** — it covers the same languages (Java, Go, Python, .NET, Ruby, Node.js), supports flame graphs, diff views, time-range selection, and integrates with Grafana for trace-to-profile linking. **Parca** is the runner-up with a simpler eBPF-first approach.
+
+**Should I use Pyroscope or Parca?**
+Use **Pyroscope** if you want the broadest language coverage via runtime-aware SDKs (async-profiler for Java, py-spy for Python), Grafana integration, and a mature scalable backend. Use **Parca** if you want zero-code eBPF profiling with an Apache 2.0 license and simpler deployment (single binary + agent).
+
+**What overhead does continuous profiling add?**
+eBPF-based profilers (Parca, OTel eBPF Profiler) typically add <1% CPU overhead. SDK-based profilers (Pyroscope agents using async-profiler or py-spy) add 1–3%. Both are safe for production.
+
+**Can I link traces to profiles (span-level profiling)?**
+Yes — Pyroscope supports linking a specific trace span to the corresponding flame graph, showing exactly which functions consumed time during that request. This requires the Pyroscope SDK or OTel integration with span profiling enabled.
+
+**What is the OpenTelemetry Profiling signal?**
+OpenTelemetry is standardizing a Profiles signal (alongside Metrics, Logs, Traces). The OTel eBPF Profiler generates profiles in this format. As of 2026, the specification is stabilizing — Pyroscope and Parca are adding OTLP Profiles ingestion support.
 
 ---
 

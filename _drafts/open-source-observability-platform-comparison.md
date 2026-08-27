@@ -8,17 +8,30 @@ tags: [observability, open-source, signoz, openobserve, clickstack, oneuptime, u
 mermaid: true
 image:
   path: assets/img/posts/20260820/open-source-observability-comparison.webp
-  alt: Open Source Observability Platform Comparison - 12 Tools Evaluated
+  alt: Open Source Observability Platform Comparison - 13 Tools Evaluated
 ---
+
+Choosing a self-hosted observability platform that handles logs, metrics, and traces together — without vendor lock-in — requires more than counting feature checkboxes. This is Part 1 of a two-part comparison: here we document capabilities, classify architectures, and help you shortlist 2-3 candidates. [Part 2]({% post_url 2026-08-27-open-source-observability-benchmark %}) benchmarks the shortlisted platforms on identical hardware with identical workloads.
 
 > **A checkmark indicates that a feature exists. It does not indicate that the feature is good.**
 
-Choosing a self-hosted observability platform that handles logs, metrics, and traces together — without vendor lock-in — requires more than counting feature checkboxes. This is Part 1 of a two-part comparison: here we document capabilities, classify architectures, and help you shortlist 2-3 candidates. [Part 2]({% post_url open-source-observability-benchmark %}) benchmarks the shortlisted platforms on identical hardware with identical workloads.
+### TL;DR — Quick Recommendations
+
+| Use case | Best fit | Why |
+| :--- | :--- | :--- |
+| **Fastest setup, lowest resources** | OpenObserve | Single binary, Rust, object storage |
+| **ClickHouse SQL + full APM** | SigNoz or ClickStack | Unified backend, strong correlation |
+| **Maximum flexibility, mature ecosystem** | Grafana LGTM | Best-of-breed per signal |
+| **All-in-one reliability (monitoring + incidents + on-call)** | OneUptime | Widest scope in one deploy |
+| **Zero-code, eBPF auto-discovery** | Coroot | No instrumentation needed |
+| **Existing Prometheus investment** | VictoriaMetrics stack | Drop-in compatible, 3 specialized DBs |
+
+> Read on for the full 25-criteria evaluation, or jump to [When to Use What](#when-to-use-what) for all scenarios.
 
 The questions that matter:
 
 - Can I send standard OTLP without vendor-specific transformations?
-- Can I correlate a metric spike → trace → log in few clicks?
+- Can I correlate a metric spike → trace → log in a few clicks?
 - Can one engineer operate this stack?
 - Can I do all of that using only the free self-hosted edition?
 
@@ -29,6 +42,7 @@ The questions that matter:
 - [Approach](#approach)
 - [The 13 Candidates](#the-13-candidates)
 - [Architecture Classification](#architecture-classification)
+- [When to Use What](#when-to-use-what)
 - [Legend](#legend)
 - [How We Evaluated](#how-we-evaluated)
 - [Core Telemetry Matrix](#core-telemetry-matrix)
@@ -38,7 +52,7 @@ The questions that matter:
 - [Licensing / "Actually Free" Matrix](#licensing--actually-free-matrix)
 - [The 25 Scored Criteria](#the-25-scored-criteria)
 - [Known Limitations & Gotchas](#known-limitations--gotchas)
-- [When to Use What](#when-to-use-what)
+- [FAQ](#faq)
 - [Honorable Mentions](#honorable-mentions)
 - [Next: Part 2 — Benchmarks](#next-part-2--benchmarks)
 - [References](#references)
@@ -67,7 +81,7 @@ We evaluate platforms that provide **all three observability signals** — logs,
 | :--- | :--- | :--- | :--- | :--- |
 | **[SigNoz](https://github.com/SigNoz/signoz)** | Go, TypeScript | ClickHouse | MIT (Enterprise: paid) | ~20k stars |
 | **[OpenObserve](https://github.com/openobserve/openobserve)** | Rust | Object storage (S3/MinIO/disk) | AGPL v3 | ~14k stars |
-| **[ClickStack](https://github.com/ClickHouse/ClickStack)** | TypeScript, Go | ClickHouse | Apache 2.0 + MIT (HyperDX) | ~22k stars |
+| **[ClickStack](https://github.com/ClickHouse/ClickStack)** | TypeScript, Go | ClickHouse | Apache 2.0 | ~22k stars |
 | **[Parseable](https://github.com/parseablehq/parseable)** | Rust | Object storage (S3/MinIO/disk) — Parquet | AGPL v3 | ~4k stars |
 | **[OneUptime](https://github.com/OneUptime/oneuptime)** | TypeScript | PostgreSQL + ClickHouse | Apache 2.0 | ~5k stars |
 | **[Uptrace](https://github.com/uptrace/uptrace)** | Go | ClickHouse | AGPL v3 (BSL enterprise) | ~4k stars |
@@ -77,7 +91,7 @@ We evaluate platforms that provide **all three observability signals** — logs,
 | **[OpenSearch Observability](https://github.com/opensearch-project/OpenSearch)** | Java | OpenSearch + Data Prepper | Apache 2.0 | ~10k stars |
 | **[VictoriaMetrics stack](https://github.com/VictoriaMetrics/VictoriaMetrics)** | Go | VM / VL / VT (specialized DBs) | Apache 2.0 | ~13k stars |
 | **[Highlight.io](https://github.com/highlight/highlight)** | Go, TypeScript | ClickHouse + PostgreSQL | Apache 2.0 | ~8k stars |
-| **[Elastic Observability](https://github.com/elastic/elasticsearch)** | Java, TypeScript | Elasticsearch | AGPL v3 (core 8.16+); Elastic License 2.0 (some features); Beats/Agents: Apache 2.0 | ~70k stars |
+| **[Elastic Observability](https://github.com/elastic/elasticsearch)** | Java, TypeScript | Elasticsearch | AGPL v3 (core server since 8.16); Elastic License 2.0 (X-Pack: ML, advanced security, CCR); Beats/Agents: Apache 2.0 | ~70k stars |
 
 > Star counts approximate as of mid-2026. Always check GitHub for current numbers.
 
@@ -130,6 +144,29 @@ graph TB
 
 ---
 
+## When to Use What
+
+| If you need... | Best fit | Runner-up |
+| :--- | :--- | :--- |
+| **Fastest time to value, single binary** | OpenObserve | Parseable |
+| **ClickHouse SQL power + full observability** | SigNoz | ClickStack |
+| **Maximum flexibility, mature ecosystem** | Grafana LGTM | VictoriaMetrics stack |
+| **APM-first with deep Java/K8s tracing** | Apache SkyWalking | SigNoz |
+| **All-in-one reliability platform (monitoring + incidents + on-call)** | OneUptime | Grafana (with OnCall/IRM) |
+| **Minimal resource footprint** | OpenObserve | Parseable |
+| **Existing ClickHouse investment** | ClickStack | SigNoz |
+| **Object-storage-first, cost-optimized at scale** | OpenObserve | Parseable |
+| **Data lake / open Parquet ownership** | Parseable | OpenObserve |
+| **Session replay + frontend error monitoring** | Highlight.io | ClickStack |
+| **OpenTelemetry-native from day one** | SigNoz | Uptrace |
+| **Zero-code/eBPF auto-discovery** | Coroot | Grafana (Beyla) |
+| **Existing Prometheus/Grafana investment** | VictoriaMetrics stack | Grafana LGTM |
+| **Full-text search, analytics & ES\|QL** | Elastic Observability | OpenSearch |
+| **Kubernetes-native with auto-topology** | Coroot | Grafana LGTM |
+| **High-cardinality wide events, SQL-first** | Parseable | OpenObserve |
+
+---
+
 ## Legend
 
 | Symbol | Meaning |
@@ -147,6 +184,8 @@ graph TB
 
 Ratings in the matrices below (✅/◐/⭐/🧪/EE) are based on official documentation review, GitHub source inspection, and quick Docker deployments of each platform as of August 2026. We did not assign ✅ based on marketing pages alone — each capability was cross-referenced against docs, changelogs, or a working deployment. Items marked 🧪 are explicitly deferred to hands-on benchmarking in Part 2.
 
+> **Note:** The comparison matrices below have 13 columns. They're best viewed on a desktop or landscape tablet — scroll horizontally on smaller screens.
+
 ---
 
 ## Core Telemetry Matrix
@@ -160,7 +199,7 @@ Ratings in the matrices below (✅/◐/⭐/🧪/EE) are based on official docume
 | **Traces** | ✅ | ✅ | ✅ | ✅ (APM view = EE) | ✅ | ✅ | ✅ | ✅ Tempo | ✅ | ✅ | ✅ VictoriaTraces | ✅ | ✅ APM |
 | **Native OTLP ingestion** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ logs/traces | ✅ via Alloy | ✅ | ✅ via Data Prepper | ✅ | ✅ | ✅ |
 | **OTLP HTTP** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **OTLP gRPC** | ✅ | ✅ | ✅ | ◐ (HTTP only) | ✅ | ✅ | 🧪 | ✅ | ✅ | ✅ | 🧪 | ✅ | ✅ |
+| **OTLP gRPC** | ✅ | ✅ | ✅ | — (HTTP only) | ✅ | ✅ | 🧪 | ✅ | ✅ | ✅ | 🧪 | ✅ | ✅ |
 | **Prometheus compat** | ✅ | ✅ | ◐ | EE (PromQL) | ◐ | ✅ | ⭐ | ⭐ | ✅ | ✅ | ⭐ | ✅ | ✅ |
 | **Trace ↔ logs correlation** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **Metrics ↔ traces** | ✅ | ✅ | ✅ | EE | 🧪 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -184,8 +223,8 @@ Sources: [SigNoz docs](https://signoz.io/docs/), [OpenObserve docs](https://open
 | Criterion | SigNoz | OpenObserve | ClickStack | Parseable | OneUptime | Uptrace | Coroot | Grafana LGTM | SkyWalking | OpenSearch | VictoriaMetrics | Highlight.io | Elastic Observability |
 | :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | **Free self-host** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ Community | ✅ Community | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ Basic (ML/anomaly = EE) |
-| **Primary storage** | ClickHouse | Own engine + obj storage | ClickHouse | Parquet on obj storage | PG + ClickHouse | ClickHouse | Prom + CH | Loki/Mimir/Tempo | Pluggable | OpenSearch | VM/VL/VT | ClickHouse + PG | Elasticsearch |
-| **Backend systems count** | Low (2-3) | Low (1) | Low (2-3) | Low (1) | Medium (4+) | Medium (2-3) | Medium (3+) | **High (5+)** | Medium (2-3) | Medium (2-3) | **3 specialized DBs** | Medium (3-4) | Medium (2-3) |
+| **Primary storage** | ClickHouse | Own engine + obj storage | ClickHouse | Parquet on obj storage | PG + ClickHouse | ClickHouse | PG + ClickHouse / Prom | Loki/Mimir/Tempo | Pluggable | OpenSearch | VM/VL/VT | ClickHouse + PG | Elasticsearch |
+| **Backend systems count** | 2–3 | 1 | 2–3 | 1 | 4–6 | 2–3 | 3–4 | **5+** | 2–3 | 2–3 | **3** | 3–4 | 2–3 |
 | **Single binary option** | ◐ | ⭐ | ◐ | ⭐ | — | ✅ (+ CH) | ◐ | — | ◐ | — | ✅ per backend | — | — |
 | **Docker Compose** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | **Kubernetes/Helm** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭐ | ⭐ | ✅ | ✅ | ⭐ | ✅ | ⭐ |
@@ -195,6 +234,9 @@ Sources: [SigNoz docs](https://signoz.io/docs/), [OpenObserve docs](https://open
 | **Horizontal scaling** | ✅ | ✅ | ✅ | EE | ✅ | ✅ | ✅ | ⭐ | ✅ | ⭐ | ⭐ | ✅ | ⭐ |
 | **Operational complexity** | 🧪 Medium | 🧪 Low | 🧪 Medium | 🧪 Low | 🧪 High | 🧪 Medium | 🧪 Medium | 🧪 High | 🧪 Medium | 🧪 Medium | 🧪 Medium-High | 🧪 Medium | 🧪 Medium-High |
 | **Upgrade complexity** | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 |
+| **Multi-tenancy** | EE | ⭐ native orgs | ◐ | ◐ | ✅ | ◐ | — | ⭐ | ✅ | ⭐ | ⭐ | ◐ | ⭐ |
+| **Data retention / tiering** | ✅ TTL + CH tiered | ✅ hot/warm/cold | ✅ CH TTL | ✅ lifecycle policies | ✅ | ✅ TTL | ◐ | ⭐ compactor + tiering | ✅ TTL | ⭐ ISM hot/warm/cold | ⭐ retention filters | ✅ TTL | ⭐ ILM hot/warm/cold/frozen |
+| **Pipeline / transformation** | OTel Collector | ✅ built-in pipelines | OTel Collector | ✅ built-in | OTel Collector | OTel Collector | — (eBPF direct) | ⭐ Alloy / OTel | ✅ LAL pipelines | ✅ Data Prepper | OTel Collector | OTel Collector | ⭐ Ingest pipelines |
 
 Sources: [OneUptime architecture](https://oneuptime.com/docs/en/self-hosted/architecture), [Uptrace self-hosting](https://uptrace.dev/get/hosted), [Coroot architecture](https://docs.coroot.com/installation/architecture/), [VictoriaMetrics OTel](https://docs.victoriametrics.com/opentelemetry/readme/)
 
@@ -211,8 +253,8 @@ Sources: [OneUptime architecture](https://oneuptime.com/docs/en/self-hosted/arch
 | **Service map** | ✅ | ✅ | ✅ | EE | ✅ | ✅ | ⭐ | ✅ | ⭐ | ✅ | ◐ Grafana | ✅ | ⭐ |
 | **APM views** | ⭐ | ✅ | ✅ | EE | ✅ | ⭐ | ⭐ | ✅ | ⭐ | ✅ | ◐ | ⭐ | ⭐ |
 | **RED metrics** | ✅ | ✅ | ✅ | EE | ✅ | ✅ | ⭐ | ✅ | ⭐ | ✅ | ◐ | ✅ | ✅ |
-| **eBPF auto-instrumentation** | ◐ | ✅ OBI | ◐ | ◐ | — | ◐ | ⭐ native | ◐ Beyla | ◐ | ◐ | ◐ | ◐ | ◐ Profiling |
-| **Continuous profiling** | EE | EE | — | — | ✅ | — | ⭐ | ✅ Pyroscope | ✅ | — | ◐ | — | ⭐ Universal Prof |
+| **eBPF auto-instrumentation** | ◐ | ✅ OBI[^obi] | ◐ | ◐ | — | ◐ | ⭐ native | ◐ Beyla | ◐ | ◐ | ◐ | ◐ | ◐ Profiling |
+| **Continuous profiling** | ✅ | EE | — | — | ✅ | — | ⭐ | ✅ Pyroscope | ✅ | — | ◐ | — | ⭐ Universal Prof |
 | **Alerting** | ✅ | ✅ | ✅ | ✅ SQL alerts | ⭐ | ✅ | ✅ | ⭐ | ✅ | ⭐ | ✅ vmalert | ✅ | ⭐ |
 | **SLO management** | EE | 🧪 | 🧪 | — | ⭐ | 🧪 | ⭐ | ✅ | 🧪 | 🧪 | ✅ | 🧪 | ⭐ |
 | **Incident management** | — | — | — | — | ⭐ | — | — | ◐ IRM | — | — | — | — | ◐ |
@@ -221,6 +263,8 @@ Sources: [OneUptime architecture](https://oneuptime.com/docs/en/self-hosted/arch
 | **Session replay / RUM** | — | ✅ | ✅ | — | — | — | — | ◐ Faro | — | — | — | ⭐ native | ◐ RUM |
 
 **Key insight:** OneUptime is uniquely positioned as a full reliability platform (monitoring + incident + status pages + on-call). Coroot is uniquely positioned for eBPF-first, zero-code observability. Highlight.io bridges developer-focused session replay and error monitoring with backend OTel telemetry.
+
+[^obi]: OpenObserve OBI (OpenObserve Built-in Instrumentation) is their eBPF-based zero-code agent — it uses kernel-level eBPF probes under the hood but is packaged as a standalone agent binary.
 
 Sources: [OneUptime profiling](https://oneuptime.com/docs/en/telemetry/profiles), [Coroot eBPF](https://docs.coroot.com/installation/performance-impact/), [OpenObserve OBI](https://openobserve.ai/docs/ingestion/traces/obi/), [Highlight session replay](https://www.highlight.io/docs/general/product-features/session-replay/overview)
 
@@ -250,7 +294,7 @@ Sources: [OpenSearch PPL](https://docs.opensearch.org/latest/observing-your-data
 
 ## Licensing / "Actually Free" Matrix
 
-> Don't score "open source = 10" because a GitHub repo exists. Score: **How much observability functionality can I operate without purchasing a license?**
+> Don't score "open source = 10" because a GitHub repo exists. Score by: **how much observability functionality can you operate without purchasing a license?**
 
 | Platform | License | Free self-host | Issue to verify |
 | :--- | :--- | :---: | :--- |
@@ -266,7 +310,7 @@ Sources: [OpenSearch PPL](https://docs.opensearch.org/latest/observing-your-data
 | **OpenSearch** | Apache 2.0 | ✅ | Plugin/managed-service feature differences |
 | **VictoriaMetrics stack** | Apache 2.0 | ✅ | Enterprise/cloud features (downsampling, etc.) |
 | **Highlight.io** | Apache 2.0 | ✅ | Cloud-managed features vs self-hosted Docker core |
-| **Elastic Observability** | AGPL v3 (core since 8.16+); Elastic License 2.0 (some features); Beats/Agents: Apache 2.0 | ✅ | Free "Basic" tier lacks ML anomaly detection, advanced security, cross-cluster replication (Platinum/Enterprise EE) |
+| **Elastic Observability** | AGPL v3 (Elasticsearch core server since 8.16); Elastic License 2.0 (X-Pack features: ML, advanced security, CCR); Beats/Agents: Apache 2.0 | ✅ | Free "Basic" tier lacks ML anomaly detection, advanced security, cross-cluster replication (Platinum/Enterprise EE) |
 
 Sources: [OpenObserve FAQ](https://openobserve.ai/faqs/), [ClickStack](https://clickhouse.com/clickstack), [OneUptime](https://oneuptime.com/), [Uptrace pricing](https://uptrace.dev/pricing)
 
@@ -274,7 +318,7 @@ Sources: [OpenObserve FAQ](https://openobserve.ai/faqs/), [ClickStack](https://c
 
 ## The 25 Scored Criteria
 
-These criteria form the evaluation framework for both Part 1 (documentation-based) and [Part 2]({% post_url open-source-observability-benchmark %}) (benchmark-based).
+These criteria form the evaluation framework for both Part 1 (documentation-based) and [Part 2]({% post_url 2026-08-27-open-source-observability-benchmark %}) (benchmark-based).
 
 | # | Criterion | Weight | Source |
 | ---: | :--- | ---: | :--- |
@@ -321,11 +365,11 @@ Every platform has operational pain points that feature tables won't reveal. The
 | **Parseable** | OSS lacks PromQL, APM views, HA, anomaly detection; smaller community (~4k stars) | Must evaluate whether SQL-only access to metrics/traces is sufficient; fewer community resources |
 | **OneUptime** | 10+ containers idle; heavy baseline resource usage | Not suitable for small VMs or constrained environments |
 | **Uptrace** | Community edition has limited features vs paid; small contributor base | Risk of slower bug fixes; fewer community resources |
-| **Coroot** | eBPF requires Linux kernel 5.8+; limited to infra it can instrument | Not useful for non-Linux or serverless workloads |
+| **Coroot** | eBPF requires Linux kernel 4.16+ (basic metrics) / 5.8+ (TLS tracing); limited to infra it can instrument | Not useful for non-Linux or serverless workloads |
 | **Grafana LGTM** | 5+ services to maintain; config sprawl across components | Requires dedicated platform team; steep learning curve |
 | **SkyWalking** | JVM-based OAP server is memory-hungry; BanyanDB still maturing | Minimum 2-4 GB RAM for OAP alone; storage choice matters |
 | **OpenSearch** | Java heap tuning required; index management adds ops overhead | JVM GC pauses at scale; ISM policies need careful design |
-| **VictoriaMetrics** | Three separate databases to operate; VictoriaTraces is newest/least mature | Trace component less battle-tested than VM/VL |
+| **VictoriaMetrics** | Full three-signal stack requires three separate databases (VM, VL, VT); VictoriaTraces is newest/least mature | Single-signal deployments are simple; full-stack adds operational overhead; trace component less battle-tested |
 | **Highlight.io** | Developer/frontend-focused heritage; backend observability is secondary | Metrics and infra monitoring less mature than APM-first tools |
 | **Elastic Observability** | ML/anomaly detection requires Platinum license; high memory baseline | Free tier missing key ops features; 4+ GB heap minimum |
 
@@ -333,26 +377,22 @@ Every platform has operational pain points that feature tables won't reveal. The
 
 ---
 
-## When to Use What
+## FAQ
 
-| If you need... | Best fit | Runner-up |
-| :--- | :--- | :--- |
-| **Fastest time to value, single binary** | OpenObserve | Parseable |
-| **ClickHouse SQL power + full observability** | SigNoz | ClickStack |
-| **Maximum flexibility, mature ecosystem** | Grafana LGTM | VictoriaMetrics stack |
-| **APM-first with deep Java/K8s tracing** | Apache SkyWalking | SigNoz |
-| **All-in-one reliability platform (monitoring + incidents + on-call)** | OneUptime | Grafana (with OnCall/IRM) |
-| **Minimal resource footprint** | OpenObserve | Parseable |
-| **Existing ClickHouse investment** | ClickStack | SigNoz |
-| **Object-storage-first, cost-optimized at scale** | OpenObserve | Parseable |
-| **Data lake / open Parquet ownership** | Parseable | OpenObserve |
-| **Session replay + frontend error monitoring** | Highlight.io | ClickStack |
-| **OpenTelemetry-native from day one** | SigNoz | Uptrace |
-| **Zero-code/eBPF auto-discovery** | Coroot | Grafana (Beyla) |
-| **Existing Prometheus/Grafana investment** | VictoriaMetrics stack | Grafana LGTM |
-| **Full-text search, analytics & ES|QL** | Elastic Observability | OpenSearch |
-| **Kubernetes-native with auto-topology** | Coroot | Grafana LGTM |
-| **High-cardinality wide events, SQL-first** | Parseable | OpenObserve |
+**What is the best open-source alternative to Datadog?**
+For a single-platform Datadog replacement with logs, metrics, traces, and APM in one UI, **SigNoz** or **OpenObserve** are the closest match. SigNoz offers ClickHouse-powered APM with strong OTel support; OpenObserve provides similar scope with lower resource usage.
+
+**Which observability platform uses the least resources?**
+**OpenObserve** (single Rust binary, ~200 MB idle RAM) and **Parseable** (Rust, Parquet on object storage) have the smallest footprints. Both can run on 2 GB RAM VMs.
+
+**Can I replace Grafana + Prometheus + Loki + Tempo with one tool?**
+Yes — SigNoz, OpenObserve, and ClickStack each provide all four capabilities (dashboards, metrics, logs, traces) in a single deployment. The trade-off is less per-signal flexibility compared to the composable Grafana LGTM stack.
+
+**Which platform has the best OpenTelemetry support?**
+All 13 platforms accept OTLP. **SigNoz** and **Uptrace** were built OTel-native from the start with the tightest integration. **Grafana LGTM** (via Alloy) and **VictoriaMetrics** also have mature OTLP endpoints.
+
+**Is AGPL a problem for self-hosting?**
+AGPL requires sharing source modifications if you offer the software as a network service to others. For internal self-hosted use (your own team querying your own data), AGPL imposes no distribution obligation. Consult your legal team if you embed the platform in a product you sell.
 
 ---
 
@@ -368,7 +408,7 @@ Every platform has operational pain points that feature tables won't reveal. The
 
 ### HyperDX
 
-[HyperDX](https://github.com/hyperdxio/hyperdx) — The UI/platform layer that powers ClickStack. After ClickHouse's acquisition, HyperDX and ClickStack share the same ecosystem. We evaluate ClickStack as the complete stack rather than double-counting the same platform.
+[HyperDX](https://github.com/hyperdxio/hyperdx) — The UI/platform layer that powers ClickStack. ClickHouse acquired HyperDX in 2025 and ships it as ClickStack — the same codebase under a unified Apache 2.0 license. We evaluate ClickStack as the complete stack rather than double-counting the same platform.
 
 ### Quickwit
 
@@ -380,7 +420,7 @@ Every platform has operational pain points that feature tables won't reveal. The
 
 Feature tables tell you what exists. They don't tell you what works well.
 
-In [Part 2: Benchmarking Open-Source Observability]({% post_url open-source-observability-benchmark %}), we deploy each platform on identical hardware (8 vCPU, 32 GB RAM, 500 GB NVMe) and run 15 standardized benchmarks:
+In [Part 2: Benchmarking Open-Source Observability]({% post_url 2026-08-27-open-source-observability-benchmark %}), we deploy each platform on identical hardware (8 vCPU, 32 GB RAM, 500 GB NVMe) and run 15 standardized benchmarks:
 
 - **Idle footprint** — what does it cost to run with zero traffic?
 - **Ingestion throughput** — logs, traces, and metrics under increasing load

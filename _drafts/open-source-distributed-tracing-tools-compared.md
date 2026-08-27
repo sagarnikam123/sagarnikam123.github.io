@@ -11,17 +11,36 @@ image:
   alt: Open Source Distributed Tracing Tools Compared
 ---
 
+Which open-source distributed tracing backend should you self-host in 2026? This article compares dedicated trace backends (Jaeger v2, Grafana Tempo, Zipkin), auto-instrumentation tools (OpenTelemetry Operator, Odigos, eBPF), trace collectors (OpenTelemetry Collector, Alloy), language SDKs, and developer tools — covering architecture, query capabilities, storage backends, sampling strategies, span-derived metrics, and operational complexity.
+
 > A trace is a debugging session you didn't know you'd need. The right tracing backend makes the difference between finding root cause in 30 seconds or 30 minutes.
+
+### TL;DR — Quick Recommendations
+
+| Use case | Best fit | Runner-up |
+| :--- | :--- | :--- |
+| **Complete tracing with built-in UI** | Jaeger v2 | Zipkin |
+| **Most expressive trace query language** | Tempo (TraceQL) | Jaeger v2 (with ES/OS) |
+| **Cheapest storage at scale (object storage)** | Tempo | — |
+| **Simplest deployment** | Zipkin | Jaeger v2 (monolithic) |
+| **Adaptive sampling built-in** | Jaeger v2 | — |
+| **Existing Elasticsearch/OpenSearch** | Jaeger v2 | Zipkin |
+| **Grafana ecosystem** | Tempo | Jaeger v2 |
+| **AGPL license unacceptable** | Jaeger v2 / Zipkin | — |
+| **Kubernetes auto-instrumentation** | OTel Operator | Odigos |
+
+> Jump to [Section 1](#section-1-dedicated-open-source-tracing-backends) for backend comparison or [When to Use What](#when-to-use-what) for the full decision table.
 
 This article focuses exclusively on **open-source, self-hostable distributed tracing tools** — no mandatory commercial licenses, no mandatory SaaS accounts. The tracing ecosystem includes backends, collectors, auto-instrumentation, SDKs, and developer tools.
 
-**Excluded from the primary benchmark:** Multi-signal observability platforms (SigNoz, OpenObserve, ClickStack, Uptrace, Coroot, DeepFlow) — these support tracing but are broader APM/observability systems. They are listed in Section 3 for reference but do not belong in a strict trace-backend comparison. For full-platform comparisons, see [Part 1: Open-Source Observability Platforms Compared]({% post_url open-source-observability-platform-comparison %}).
+**Excluded from the primary benchmark:** Multi-signal observability platforms (SigNoz, OpenObserve, ClickStack, Uptrace, Coroot, DeepFlow) — these support tracing but are broader APM/observability systems. They are listed in Section 2 for reference but do not belong in a strict trace-backend comparison. For full-platform comparisons, see [Part 1: Open-Source Observability Platforms Compared]({% post_url 2026-08-20-open-source-observability-platform-comparison %}).
 
 ---
 
 ## Table of Contents
 
 - [Scope & Selection Criteria](#scope--selection-criteria)
+- [Legend](#legend)
 - [Section 1: Dedicated Open-Source Tracing Backends](#section-1-dedicated-open-source-tracing-backends)
   - [The Candidates](#the-candidates)
   - [Jaeger v2 vs Tempo vs Zipkin](#jaeger-v2-vs-tempo-vs-zipkin)
@@ -48,6 +67,7 @@ This article focuses exclusively on **open-source, self-hostable distributed tra
 - [Section 7: Local Trace Viewers and Developer Tools](#section-7-local-trace-viewers-and-developer-tools)
 - [Section 8: Trace-Derived Monitoring and Alerting](#section-8-trace-derived-monitoring-and-alerting)
 - [Recommended Evaluation Scope](#recommended-evaluation-scope)
+- [FAQ](#faq)
 - [References](#references)
 
 ---
@@ -64,25 +84,42 @@ This article focuses exclusively on **open-source, self-hostable distributed tra
 
 ---
 
+## Legend
+
+| Symbol | Meaning |
+| :---: | :--- |
+| ✅ | Supported / available |
+| ◐ | Partial support or requires additional setup / integration |
+| ⭐ | Particular strength or best-in-class |
+| — | Not supported or not applicable |
+
+---
+
 ## Section 1: Dedicated Open-Source Tracing Backends
 
 These are the closest equivalents to each other — purpose-built distributed trace storage and query systems.
 
 ### The Candidates
 
-| Platform | License | Ingestion | Query/Search | Storage | UI | Recommendation |
+<div style="overflow-x: auto;" markdown="1">
+
+| Platform | License | Ingestion | Query/Search | Storage | UI | Positioning |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **[Jaeger v2](https://www.jaegertracing.io/docs/latest/)** | Apache 2.0 | OTLP, Jaeger, Zipkin, Kafka | Jaeger APIs, attribute search | OpenSearch, Elasticsearch, Cassandra, Badger, memory | Built-in | Strong |
-| **[Grafana Tempo](https://grafana.com/docs/tempo/latest/)** | AGPLv3 | OTLP, Jaeger, Zipkin | TraceQL, trace ID | S3, GCS, Azure Blob, MinIO; filesystem for dev | Grafana | Strong |
-| **[Zipkin](https://zipkin.io/)** | Apache 2.0 | Zipkin v1/v2; OTLP through Collector | Service, operation, tag, duration, trace ID | Cassandra, Elasticsearch/OpenSearch, memory | Built-in | Strong (simple) |
-| **[Hypertrace](https://github.com/hypertrace/hypertrace)** | Apache 2.0 | OpenTelemetry | Trace and service analytics | Multiple internal components | Built-in | Niche |
+| **[Jaeger v2](https://www.jaegertracing.io/docs/latest/)** | Apache 2.0 | OTLP, Jaeger, Zipkin, Kafka | Jaeger APIs, attribute search | OpenSearch, Elasticsearch, Cassandra, Badger, memory | Built-in | Complete tracing system, Apache licensed |
+| **[Grafana Tempo](https://grafana.com/docs/tempo/latest/)** | AGPLv3 | OTLP, Jaeger, Zipkin | TraceQL, trace ID | S3, GCS, Azure Blob, MinIO; filesystem for dev | Grafana | Object-storage-first, TraceQL power |
+| **[Zipkin](https://zipkin.io/)** | Apache 2.0 | Zipkin v1/v2; OTLP through Collector | Service, operation, tag, duration, trace ID | Cassandra, Elasticsearch/OpenSearch, memory | Built-in | Simplest possible deployment |
+| **[Hypertrace](https://github.com/hypertrace/hypertrace)** | Apache 2.0 | OpenTelemetry | Trace and service analytics | Multiple internal components | Built-in | Niche; limited maintenance |
 | **[Haystack](https://github.com/ExpediaDotCom/haystack)** | Apache 2.0 | Zipkin-compatible | Trace search and trends | Cassandra, Elasticsearch, Kafka | Built-in | Historical; not recommended |
+
+</div>
 
 > **Practical shortlist for new deployments:** Jaeger v2, Grafana Tempo, Zipkin. Hypertrace is niche. Haystack is no longer a strong choice.
 
 > **Jaeger v1 note:** Jaeger v1 reached end of life on December 31, 2025. New deployments should use Jaeger v2, which is built on the OpenTelemetry Collector framework. [Jaeger lifecycle](https://www.jaegertracing.io/download/).
 
 ### Jaeger v2 vs Tempo vs Zipkin
+
+<div style="overflow-x: auto;" markdown="1">
 
 | Capability | Jaeger v2 | Grafana Tempo | Zipkin |
 | :--- | :--- | :--- | :--- |
@@ -105,6 +142,8 @@ These are the closest equivalents to each other — purpose-built distributed tr
 | **Service graphs** | Jaeger SPM / OTel connector | Tempo metrics-generator | Dependency graph |
 | **Primary strength** | Complete tracing experience | Cost-efficient storage at scale | Simplicity |
 | **Main limitation** | Requires external database at scale | Requires Grafana; more infrastructure | Less powerful search and analytics |
+
+</div>
 
 ### Architecture Classification
 
@@ -138,11 +177,15 @@ graph TB
 
 ### Ingestion & Protocol Support
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Tool | OTLP gRPC | OTLP HTTP | Jaeger Thrift/gRPC | Zipkin v1/v2 | Kafka consumer | Max tested throughput |
 | :--- | :---: | :---: | :---: | :---: | :---: | :--- |
 | Jaeger v2 | ⭐ (native) | ⭐ (native) | ✅ (deprecated but supported) | ✅ | ⭐ | 100k+ spans/sec |
 | Tempo | ⭐ (native) | ⭐ (native) | ✅ | ✅ | ⭐ (3.0 distributed) | 100k+ spans/sec |
-| Zipkin | ◐ (via OTel Collector) | ◐ (via OTel Collector) | — | ⭐ (native) | ✅ | 10k–50k spans/sec |
+| Zipkin | ◐ (via OTel Collector) | ◐ (via OTel Collector) | — | ⭐ (native) | ✅ | 10k–50k spans/sec (storage-dependent) |
+
+</div>
 
 > Jaeger v2's native protocols (Thrift, gRPC model) are deprecated. OTLP should be preferred for all new deployments.
 
@@ -163,11 +206,15 @@ graph TB
 
 ### Storage Backends
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Tool | Supported backends | Object storage | Estimated bytes/span | Retention strategy | Compaction |
 | :--- | :--- | :---: | :--- | :--- | :--- |
 | Jaeger v2 | Elasticsearch, OpenSearch, Cassandra, Badger, memory, gRPC plugin | — | 500–2000 bytes (ES/Cassandra) | TTL per backend | Backend-managed |
 | Tempo | S3, GCS, Azure Blob, MinIO, filesystem | ⭐ (primary) | 100–500 bytes (Parquet) | Time-based block deletion | Built-in compactor |
 | Zipkin | Cassandra, Elasticsearch, OpenSearch, MySQL, memory | — | 500–2000 bytes (ES/Cassandra) | TTL per backend | Backend-managed |
+
+</div>
 
 > Tempo's Parquet-based block format achieves significantly better storage efficiency than Elasticsearch/Cassandra-backed solutions because it uses columnar compression and avoids per-document indexing overhead.
 
@@ -195,11 +242,15 @@ graph TB
 
 ### Operational Complexity
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Tool | Min RAM | Components (monolithic) | Components (distributed) | External dependencies | Upgrade path | Team size needed |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | Jaeger v2 | 512 MB | 1 binary | 2–3 (collector + query + ingester) | Cassandra/ES/OS (at scale) | Simple (OTel-based) | 1 |
 | Tempo | 1 GB | 1 binary | 4–6 (distributor/ingester/compactor/querier/metrics-gen) + Kafka (3.0) | Object storage; Kafka (distributed) | Schema versioned | 1–2 |
 | Zipkin | 512 MB | 1 JAR | N/A (scale via storage) | Cassandra/ES/OS (at scale) | Simple | 1 |
+
+</div>
 
 ### When to Use What
 
@@ -232,6 +283,8 @@ graph TB
 
 These support traces but are not trace-only systems. They belong in an "all-in-one observability platforms" comparison rather than a strict trace-backend benchmark.
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Platform | License model | Other signals | Trace storage |
 | :--- | :--- | :--- | :--- |
 | **[Apache SkyWalking](https://skywalking.apache.org/)** | Apache 2.0 | Metrics, logs, profiles, topology | BanyanDB or Elasticsearch |
@@ -245,6 +298,8 @@ These support traces but are not trace-only systems. They belong in an "all-in-o
 | **[Pinpoint](https://pinpoint-apm.github.io/pinpoint/)** | Apache 2.0 | APM metrics, topology | HBase / compatible |
 | **[OpenSearch Trace Analytics](https://opensearch.org/docs/latest/observing-your-data/trace/ta-dashboards/)** | Apache 2.0 | Logs, general search | OpenSearch |
 | **[OneUptime](https://oneuptime.com/)** | Apache 2.0 / community | Metrics, logs, incidents, profiles | Platform-dependent |
+
+</div>
 
 > Do not put these in the primary Jaeger/Tempo/Zipkin benchmark.
 
@@ -303,6 +358,8 @@ flowchart TD
 
 ### Platform-Wide Auto-Instrumentation
 
+<div style="overflow-x: auto;" markdown="1">
+
 | Tool | License | Approach | Languages |
 | :--- | :--- | :--- | :--- |
 | **[OpenTelemetry Operator](https://github.com/open-telemetry/opentelemetry-operator)** | Apache 2.0 | Injects language agents in Kubernetes | Java, .NET, Node.js, Python, Go |
@@ -311,6 +368,8 @@ flowchart TD
 | **[Grafana Beyla](https://github.com/grafana/beyla)** | Apache 2.0 | eBPF | Being superseded/evolved through OTel eBPF Instrumentation |
 | **[Pixie](https://px.dev/)** | Apache 2.0 | eBPF-based Kubernetes visibility | Language-independent protocols |
 | **[Cilium Hubble](https://github.com/cilium/hubble)** | Apache 2.0 | eBPF network-flow visibility | Network-level (not full application tracing) |
+
+</div>
 
 > **OBI note:** OpenTelemetry eBPF Instrumentation (formerly based on Grafana Beyla) reached its first alpha release in late 2025. It generates traces without modifying application source code, but runtime-aware agents generally provide deeper framework and business-operation spans. [OBI announcement](https://opentelemetry.io/blog/2025/obi-announcing-first-release/).
 
@@ -476,6 +535,28 @@ Alertmanager
 ### Broader platforms with tracing (covered in Part 1)
 
 - SkyWalking, SigNoz, VictoriaTraces, Uptrace, OpenObserve, ClickStack, Coroot, DeepFlow, Pinpoint, OpenSearch
+
+---
+
+## FAQ
+
+**What is the best open-source distributed tracing tool in 2026?**
+**Jaeger v2** for a complete, batteries-included tracing system with built-in UI and Apache 2.0 license. **Grafana Tempo** for the most powerful query language (TraceQL) and cheapest storage at scale via object storage. The choice depends on whether you prioritize built-in UI + adaptive sampling (Jaeger) or query expressiveness + storage cost (Tempo).
+
+**Should I use Jaeger or Tempo?**
+Use **Jaeger v2** if you want a self-contained system with built-in UI, adaptive sampling, and existing Elasticsearch/Cassandra infrastructure. Use **Tempo** if you already use Grafana, want object-storage-native architecture, need TraceQL structural queries, or want built-in span-derived metrics. Both handle 100k+ spans/sec.
+
+**Is Zipkin still relevant in 2026?**
+Zipkin remains the simplest tracing backend — a single JAR file with a built-in UI. It's ideal for small teams, development environments, or organizations that need minimal operational overhead. For production at scale, Jaeger v2 or Tempo offer better query capabilities and throughput.
+
+**What is TraceQL?**
+TraceQL is Grafana Tempo's purpose-built trace query language. It supports structural queries across span parent/child relationships (`{ .http.method = "GET" } >> { status = error }`), duration filters, regex on attributes, and aggregation — making it the most expressive open-source trace query language available.
+
+**How do I get alerts from traces?**
+Tracing backends don't alert directly. Use the **OpenTelemetry Collector's span-metrics connector** to generate RED metrics (Rate, Error, Duration) from spans, export them to Prometheus/VictoriaMetrics, and alert via Alertmanager. Tempo also has a built-in metrics-generator for this purpose.
+
+**What happened to Jaeger v1?**
+Jaeger v1 reached end of life on December 31, 2025. Jaeger v2 is a complete rewrite built on the OpenTelemetry Collector framework. It's backwards-compatible with v1 APIs but uses OTLP as the primary protocol. All new deployments should use v2.
 
 ---
 
