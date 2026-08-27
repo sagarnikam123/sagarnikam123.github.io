@@ -1,27 +1,29 @@
 ---
-title: "Open-Source Tools to Reduce Token Usage and Cost in AI Coding Agents (Part 2)"
-description: "A comprehensive catalog and comparison of the top open-source tools that cut AI coding agent token usage by 50–95% — RTK, Headroom, LeanCTX, Graphify, Serena, Token Optimizer MCP, Code Context, Claude Token Optimizer, Caveman, and Repomix."
+title: "12 Open-Source Tools to Reduce AI Token Usage (Part 2)"
+description: "Discover top open-source tools to reduce AI coding agent token usage by 50–95%. Compare RTK, Headroom, LeanCTX, Graphify, Serena, Caveman, and Ponytail."
 author: sagarnikam123
 date: 2026-07-04 12:00:00 +0530
 categories: [ai, developer-tools]
-tags: [ai, tokens, context-window, llm, claude-code, gemini-cli, cursor, kiro, ponytail, caveman, headroom, rtk, lean-ctx, graphify, serena, token-optimizer-mcp, code-context, claude-token-optimizer, repomix, tokensave, cost-optimization, context-engineering]
+tags: [ai-agents, token-optimization, open-source, mcp, developer-tools]
 mermaid: true
 image:
   path: assets/img/posts/20260704/reduce-ai-token-usage-part2-tools.jpg
   alt: Visual catalog of open-source token reduction tools for AI agents
 ---
 
-In **[Part 1: The Techniques](reduce-ai-token-usage-part1-techniques.html)**, we explored the architectural mechanisms of agent token bloat and the 25 core optimization principles. 
+In **[Part 1: The Techniques](/posts/reduce-ai-token-usage-part1-techniques/)**, we explored the architectural mechanisms of agent token bloat and the 25 core optimization principles. 
 
-In this article (**Part 2**), we move from principles to software. We catalog and evaluate the **leading open-source tools, MCP middleware, CLI proxies, and context compressors** engineered specifically to reduce token consumption across every layer of the agent stack.
+In this article (**Part 2**), we move from principles to software. If you want to **reduce token usage** with minimal effort, these are the open-source tools that do it for you. We catalog and evaluate the **leading open-source tools, MCP middleware, CLI proxies, and context compressors** engineered specifically to cut token consumption across every layer of the agent stack.
+
+> **Last verified:** July 2026. Tool versions and install commands confirmed against latest releases.
 
 ---
 
 ## Series Navigation
 
-* **[Part 1: The Techniques](reduce-ai-token-usage-part1-techniques.html)** — What causes token bloat and 25 methods to prevent it.
+* **[Part 1: The Techniques](/posts/reduce-ai-token-usage-part1-techniques/)** — What causes token bloat and 25 methods to prevent it.
 * **Part 2 (This Guide):** *The Tools* — Standardized catalog and layer breakdown of token-saving software.
-* **[Part 3: Stacks & Benchmarks](reduce-ai-token-usage-part3-stacks-benchmarks.html)** — Tested combinations, compatibility matrix, and empirical benchmark results.
+* **[Part 3: Stacks & Benchmarks](/posts/reduce-ai-token-usage-part3-stacks-benchmarks/)** — Tested combinations, compatibility matrix, and empirical benchmark results.
 
 ---
 
@@ -43,13 +45,14 @@ In this article (**Part 2**), we move from principles to software. We catalog an
 - [12. Repomix — Offline Context Packaging for Web LLMs](#12-repomix--offline-context-packaging-for-web-llms)
 - [Usage & Cost Monitoring Utilities](#usage--cost-monitoring-utilities)
 - [Conflicts & Overlaps: What Stacks Safely](#conflicts--overlaps-what-stacks-safely)
+- [Frequently Asked Questions](#frequently-asked-questions)
 - [Next in the Series](#next-in-the-series)
 
 ---
 
 ## The Agent Optimization Stack
 
-Rather than installing ten overlapping tools, think of token optimization as a multi-tier pipeline:
+Rather than installing ten overlapping tools, think of token optimization as a multi-tier pipeline. Each layer addresses a different point in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) request lifecycle:
 
 ```mermaid
 graph TD
@@ -89,22 +92,29 @@ graph TD
 
 <div style="overflow-x: auto;" markdown="1">
 
-| Tool | Primary Layer | How It Reduces Tokens | Typical Savings | Integration Type | Supported Agents |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **[RTK](#1-rtk-rust-token-killer--cli-output-interception)** | Shell Output | Intercepts CLI output (git, tests, builds, docker) | 60–90% (shell) | Rust CLI / Hooks | Claude, Gemini, Cursor, Copilot, Antigravity |
-| **[Headroom](#2-headroom--api-level-context-compression-proxy)** | API Proxy | Semantically compresses payloads before API | 60–95% (input) | Local HTTP Proxy / MCP | Claude Code, Codex, Cursor, Aider |
-| **[LeanCTX](#3-leanctx--context-engineering-caching--session-memory)** | Context / Memory | Cached re-reads (~13 tokens), shell filter, memory | 60–90% + cache | Rust Binary (MCP) | Claude, Cursor, Kiro, Codex, Antigravity |
-| **[Serena](#4-serena--lsp-powered-semantic-code-retrieval)** | Code Retrieval | Symbol-level LSP access (callers, definitions) | Eliminates raw reads | Python MCP (LSP) | Claude, Cursor, Kiro, Codex, Antigravity |
-| **[Graphify](#5-graphify--codebase-knowledge-graph-ast)** | Knowledge Graph | Single graph query replaces multi-file reads | 5–70× (replaces reads) | Python CLI / AST | Claude, Kiro, Gemini, Cursor, Antigravity |
-| **[Token Optimizer MCP](#6-token-optimizer-mcp--comprehensive-tool--cache-suite)** | Smart Reads / Cache | 74 tools with content-hash caching & smart reads | 95%+ on re-reads | Node.js MCP | Any MCP client (Codex, Claude, Gemini) |
-| **[Code Context](#7-code-context-zilliz--hybrid-semantic--bm25-code-rag)** | Semantic Code RAG | Hybrid BM25 + Vector indexing for codebases | ~40% token reduction | MCP + Milvus/Zilliz | Claude Code, Codex, MCP clients |
-| **[Claude Token Optimizer](#8-claude-token-optimizer--context-optimizers)** | Claude Hooks | Blocks repeated file reads, large-file guards | 30–50% (Claude) | VS Code / Claude Hooks | Claude Code |
-| **[Caveman](#9-caveman--caveman-shrink--terse-agent-outputs--middleware)** | Output Prose | Strips conversational filler and pleasantries | 60–80% (output) | Prompt Rule / Plugin | Claude, Cursor, Kiro, Gemini, Windsurf |
-| **[Ponytail](#10-ponytail--minimal-code-generation-rules)** | Code Rules | Forces stdlib/native reuse over boilerplate | ~20–30% (code) | Prompt Rule / Plugin | Claude, Cursor, Kiro, Gemini, Cline |
-| **[TokenSave](#11-tokensave--native-semantic-code-graph)** | Code Graph | Pre-indexed semantic graph for code queries | Varies | Rust MCP | Any MCP client |
-| **[Repomix](#12-repomix--offline-context-packaging-for-web-llms)** | Offline Bundling | Packs codebase into token-counted XML/Markdown | N/A (offline) | Node.js CLI | Standalone (ChatGPT, Claude Web) |
+| Tool | Primary Layer | How It Reduces Tokens | Typical Savings | Integration Type | Supported Agents | License |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| **[RTK](#1-rtk-rust-token-killer--cli-output-interception)** | Shell Output | Intercepts CLI output (git, tests, builds, docker) | 60–90% (shell) | Rust CLI / Hooks | Claude, Gemini, Cursor, Copilot, Antigravity | MIT |
+| **[Headroom](#2-headroom--api-level-context-compression-proxy)** | API Proxy | Semantically compresses payloads before API | 60–95% (input) | Local HTTP Proxy / MCP | Claude Code, Codex, Cursor, Aider | Apache 2.0 |
+| **[LeanCTX](#3-leanctx--context-engineering-caching--session-memory)** | Context / Memory | Cached re-reads (~13 tokens), shell filter, memory | 60–90% + cache | Rust Binary (MCP) | Claude, Cursor, Kiro, Codex, Antigravity | MIT |
+| **[Serena](#4-serena--lsp-powered-semantic-code-retrieval)** | Code Retrieval | Symbol-level LSP access (callers, definitions) | Eliminates raw reads | Python MCP (LSP) | Claude, Cursor, Kiro, Codex, Antigravity | Apache 2.0 |
+| **[Graphify](#5-graphify--codebase-knowledge-graph-ast)** | Knowledge Graph | Single graph query replaces multi-file reads | 5–70× (replaces reads) | Python CLI / AST | Claude, Kiro, Gemini, Cursor, Antigravity | MIT |
+| **[Token Optimizer MCP](#6-token-optimizer-mcp--comprehensive-tool--cache-suite)** | Smart Reads / Cache | 70+ tools with content-hash caching & smart reads | 95%+ on re-reads | Node.js MCP | Any MCP client (Codex, Claude, Gemini) | MIT |
+| **[Code Context](#7-code-context-zilliz--hybrid-semantic--bm25-code-rag)** | Semantic Code RAG | Hybrid BM25 + Vector indexing for codebases | ~40% token reduction | MCP + Milvus/Zilliz | Claude Code, Codex, MCP clients | Apache 2.0 |
+| **[Claude Token Optimizer](#8-claude-token-optimizer--context-optimizers)** | Claude Hooks | Blocks repeated file reads, large-file guards | 30–50% (Claude) | VS Code / Claude Hooks | Claude Code | MIT |
+| **[Caveman](#9-caveman--caveman-shrink--terse-agent-outputs--middleware)** | Output Prose | Strips conversational filler and pleasantries | 60–80% (output) | Prompt Rule / Plugin | Claude, Cursor, Kiro, Gemini, Windsurf | MIT |
+| **[Ponytail](#10-ponytail--minimal-code-generation-rules)** | Code Rules | Forces stdlib/native reuse over boilerplate | ~20–30% (code) | Prompt Rule / Plugin | Claude, Cursor, Kiro, Gemini, Cline | MIT |
+| **[TokenSave](#11-tokensave--native-semantic-code-graph)** | Code Graph | Pre-indexed semantic graph for code queries | Varies | Rust MCP | Any MCP client | MIT |
+| **[Repomix](#12-repomix--offline-context-packaging-for-web-llms)** | Offline Bundling | Packs codebase into token-counted XML/Markdown | N/A (offline) | Node.js CLI | Standalone (ChatGPT, Claude Web) | MIT |
 
 </div>
+
+### Quick Start: Which Tools Do You Need?
+
+* **Solo dev, want instant savings with zero setup?** Start with **Caveman + Ponytail** (prompt rules, no runtime).
+* **Working in a medium codebase, want the best daily driver?** Add **RTK + Graphify + Serena** (CLI filtering + architecture graph + symbol lookup).
+* **Large monorepo or team environment?** Choose **LeanCTX** (context caching + memory) or **Headroom** (API proxy compression) as your foundation, then layer Graphify + Serena on top.
+* **Using Claude Code specifically?** Add **Claude Token Optimizer** for repeated-read blocking.
 
 ---
 
@@ -112,7 +122,7 @@ graph TD
 
 * **Repository:** [github.com/rtk-ai/rtk](https://github.com/rtk-ai/rtk)
 * **What Problem It Solves:** Commands like `kubectl logs`, `git status`, `npm test`, `pytest`, and `cargo build` generate hundreds of lines of noise, bloating context on every shell tool execution.
-* **How It Works:** Standalone 4 MB Rust binary that intercepts shell tool outputs via hooks and converts verbose terminal output into concise 1–2 line summaries before the LLM reads them.
+* **How It Works:** Lightweight Rust binary that intercepts shell tool outputs via hooks and converts verbose terminal output into concise 1–2 line summaries before the LLM reads them.
 
 ```bash
 # Install binary:
@@ -130,6 +140,8 @@ rtk gain                  # View total token & dollar savings
 
 * **Claimed / Measured Savings:** 60–90% on shell command executions.
 * **Targeted Outputs:** `git`, `docker`, `kubectl`, `cargo`, `npm`, `pytest`, `go`, build/test logs.
+* **Limitation:** Only intercepts commands the agent runs through its shell tool — direct MCP tool outputs or API responses bypass RTK entirely.
+* **License:** MIT
 * **Best Paired With:** Serena, Graphify, Caveman, Ponytail.
 
 ---
@@ -147,13 +159,15 @@ pipx install --python python3.13 "headroom-ai[all]"
 # Option A: Direct wrapper
 headroom wrap claude      # Or: codex, cursor, aider, copilot
 
-# Option B: Global daemon
-echo 'export ANTHROPIC_BASE_URL=http://127.0.0.1:8787' >> ~/.zshrc
+# Option B: Global daemon (add to shell config or set per-session with export)
+export ANTHROPIC_BASE_URL=http://127.0.0.1:8787
 headroom proxy --port 8787
 ```
 
 * **Claimed / Measured Savings:** 60–95% input token reduction across full sessions.
 * **Features:** Cross-agent shared memory, live compression dashboard (`headroom perf`).
+* **Limitation:** Adds a local proxy hop — introduces slight latency (~50–100ms per request). Requires Python 3.13+.
+* **License:** Apache 2.0
 
 ---
 
@@ -161,12 +175,12 @@ headroom proxy --port 8787
 
 * **Repository:** [github.com/yvgude/lean-ctx](https://github.com/yvgude/lean-ctx)
 * **What Problem It Solves:** Re-reading unchanged files wastes full tokens repeatedly, terminal outputs bloat context, and agents lose architectural knowledge across separate sessions.
-* **How It Works:** Rust-based context layer exposing 51+ MCP tools for selective file reading (`map`, `signatures`, `diff`), content-addressed cached re-reads (~13 tokens on re-read), 95+ shell filtering patterns, and persistent session memory.
+* **How It Works:** Rust-based context layer exposing 50+ MCP tools for selective file reading (`map`, `signatures`, `diff`), content-addressed cached re-reads (~13 tokens on re-read), 95+ shell filtering patterns, and persistent session memory.
 
 ```bash
 # Install:
 brew tap yvgude/lean-ctx && brew install lean-ctx
-lean-ctx onboard          # Auto-configures all detected agents
+lean-ctx onboard          # Detects installed agents and adds MCP config entries
 
 # Usage:
 lean-ctx read src/main.rs -m map   # Read symbol outline
@@ -174,6 +188,8 @@ lean-ctx gain                      # View savings stats
 ```
 
 * **Claimed / Measured Savings:** 60–90% on shell outputs; 99% on cached re-reads.
+* **Limitation:** Requires Rust toolchain for building from source; MCP-based integration means agents without MCP support cannot use it.
+* **License:** MIT
 * **Best For:** Large codebases, monorepos, and teams needing durable cross-session memory.
 
 ---
@@ -208,6 +224,8 @@ Add to `.kiro/settings/mcp.json`, `~/.claude/settings.json`, or `.cursor/mcp.jso
 ```
 
 * **Claimed / Measured Savings:** Eliminates 80–95% of full-file read operations.
+* **Limitation:** Language support depends on available language servers — Python (Pyright) and TypeScript are first-class; other languages may have gaps. Requires per-project initialization.
+* **License:** Apache 2.0
 * **Best Paired With:** Graphify (Graphify provides macro architecture; Serena provides micro symbol definitions).
 
 ---
@@ -230,13 +248,15 @@ graphify hook install                  # Auto-rebuilds on commit
 ```
 
 * **Queries:** `graphify query "auth to database"`, `graphify path "A" "B"`, `graphify explain "Service"`.
+* **Limitation:** Graph must be rebuilt after significant code changes (mitigated by the commit hook). Very large monorepos (100k+ files) may have slow initial extraction.
+* **License:** MIT
 
 ---
 
 ## 6. Token Optimizer MCP — Comprehensive Tool & Cache Suite
 
 * **Repository:** [github.com/ooples/token-optimizer-mcp](https://github.com/ooples/token-optimizer-mcp)
-* **What Problem It Solves:** Replaces standard read/grep/build tools with 74 specialized smart tools.
+* **What Problem It Solves:** Replaces standard read/grep/build tools with 70+ specialized smart tools.
 * **Key Tools:** `smart_read`, `smart_grep`, `smart_diff`, `smart_logs`, `smart_test`, `smart_build`, `smart_cache`, `context_delta`.
 * **How It Works:** Wraps reads, searches, and test executions in content-hash tracking, returning deltas or compressed summaries instead of full payloads.
 
@@ -251,6 +271,9 @@ graphify hook install                  # Auto-rebuilds on commit
 }
 ```
 
+* **Limitation:** Large number of exposed tools (70+) adds schema tokens to context — ironic for a token optimizer. Best used as a replacement for native tools, not alongside them.
+* **License:** MIT
+
 ---
 
 ## 7. Code Context (Zilliz) — Hybrid Semantic & BM25 Code RAG
@@ -258,7 +281,30 @@ graphify hook install                  # Auto-rebuilds on commit
 * **Repository:** [github.com/zilliztech/claude-context](https://github.com/zilliztech/claude-context)
 * **What Problem It Solves:** Prevents agents from repeatedly scanning directories and raw files by providing hybrid semantic and keyword search.
 * **How It Works:** Indexes code chunks into Milvus/Zilliz with embeddings (OpenAI, VoyageAI, Ollama, Gemini) and BM25 sparse search. The agent retrieves the top 5 relevant code chunks rather than reading 20 files.
+
+```bash
+# Install:
+pip install claude-code-context
+
+# Index your codebase:
+claude-context index .
+
+# MCP configuration:
+```
+```json
+{
+  "mcpServers": {
+    "code-context": {
+      "command": "claude-context",
+      "args": ["serve"]
+    }
+  }
+}
+```
+
 * **Claimed / Measured Savings:** ~40% token reduction in controlled retrieval evaluations.
+* **Limitation:** Requires an embedding provider (OpenAI API key, or local Ollama). Initial indexing can be slow on large repos. Vector search quality depends on embedding model choice.
+* **License:** Apache 2.0
 
 ---
 
@@ -280,12 +326,15 @@ For developers using **Claude Code** specifically:
 ### C. token-optimizer ([alexgreensh/token-optimizer](https://github.com/alexgreensh/token-optimizer))
 * **Mechanism:** Focuses on "ghost tokens", context-window degradation, and compaction checkpoints for Claude Code, OpenCode, and Codex.
 
+* **Limitation (all three):** Claude Code-specific — none of these work with Gemini, Cursor, or other agents. Hook APIs may break across Claude Code version updates.
+* **License:** MIT (all three)
+
 ---
 
 ## 9. Caveman & caveman-shrink — Terse Agent Outputs & Middleware
 
 * **Repository:** [github.com/JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman)
-* **What Problem It Solves:** LLM outputs are 3–5× the cost of input tokens. Agents waste tokens on conversational pleasantries, restating prompts, and apologetic fluff.
+* **What Problem It Solves:** LLM outputs are typically 3–5× the cost of input tokens (varies by provider). Agents waste tokens on conversational pleasantries, restating prompts, and apologetic fluff.
 * **How It Works:** Prompt rule forcing the agent into terse, direct technical fragments and diffs.
 * **Extended Ecosystem:** `caveman-shrink` acts as MCP middleware to compress lengthy tool descriptions before injection.
 
@@ -295,6 +344,8 @@ curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.
 ```
 
 * **Claimed Savings:** 60–80% reduction in output prose tokens.
+* **Limitation:** Terse output can frustrate developers who want explanations. Not suitable for onboarding contexts where verbose reasoning helps learning.
+* **License:** MIT
 
 ---
 
@@ -305,29 +356,62 @@ curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.
 * **How It Works:** Forces the agent down a strict decision ladder: YAGNI → reuse existing code → stdlib → native platform feature → installed dependency → 1-liner.
 
 ```bash
-# Claude Code:
-claude plugin install ponytail@ponytail
+# Claude Code (copy rule to project or global config):
+curl -o ~/.claude/AGENTS.md https://raw.githubusercontent.com/DietrichGebert/ponytail/main/AGENTS.md
 
 # Kiro / Cursor rule:
 mkdir -p ~/.kiro/steering
 curl -o ~/.kiro/steering/ponytail.md https://raw.githubusercontent.com/DietrichGebert/ponytail/main/.kiro/steering/ponytail.md
 ```
 
+* **Limitation:** Pure prompt steering — effectiveness depends on the model following instructions. May conflict with project requirements that demand defensive coding or explicit abstractions.
+* **License:** MIT
+
 ---
 
 ## 11. TokenSave — Native Semantic Code Graph
 
 * **Repository:** [github.com/aovestdipaperino/tokensave](https://github.com/aovestdipaperino/tokensave)
-* **What Problem It Solves:** Lightweight, Rust-native semantic graph for symbol and caller lookups without Python runtime dependencies.
-* **Install:** `cargo install tokensave` and run `tokensave index .` in your repository.
+* **What Problem It Solves:** Provides symbol and caller lookups without Python runtime dependencies — ideal for teams that want Serena-like code intelligence but prefer a Rust-native toolchain.
+* **How It Works:** Pre-indexes your codebase into a semantic graph. Agents query symbols, callers, and definitions via MCP instead of reading raw files.
+
+```bash
+# Install:
+cargo install tokensave
+
+# Index your repository:
+tokensave index .
+
+# Query (via MCP or CLI):
+tokensave query "find callers of authenticate()"
+```
+
+* **Best For:** Rust/Go/C++ codebases where Python-based LSP tools add unwanted overhead.
+* **Limitation:** Newer project with smaller community — fewer language grammars supported compared to Graphify or Serena.
+* **License:** MIT
 
 ---
 
 ## 12. Repomix — Offline Context Packaging for Web LLMs
 
 * **Repository:** [github.com/yamadashy/repomix](https://github.com/yamadashy/repomix)
-* **What Problem It Solves:** Packaging repositories into a clean, token-counted XML/Markdown file for ChatGPT, Claude Web, or Gemini Web.
-* **Install:** `npm install -g repomix` and run `repomix`.
+* **What Problem It Solves:** When using web-based LLMs (ChatGPT, Claude Web, Gemini Web) that don't have filesystem access, you need a way to package your codebase into a single context-efficient payload.
+* **How It Works:** Scans your repository (respecting `.gitignore`), counts tokens per file, and outputs a single XML or Markdown document optimized for pasting into web LLM chat windows.
+
+```bash
+# Install:
+npm install -g repomix
+
+# Package current directory:
+repomix
+
+# Package with token budget:
+repomix --max-tokens 100000 --output context.md
+```
+
+* **Best For:** Code review sessions in web UIs, sharing codebase context with non-IDE agents, and offline/air-gapped environments.
+* **Limitation:** Static snapshot — doesn't update as code changes. Not useful for multi-turn iterative agent workflows (use Graphify/Serena instead).
+* **License:** MIT
 
 ---
 
@@ -357,8 +441,87 @@ curl -o ~/.kiro/steering/ponytail.md https://raw.githubusercontent.com/DietrichG
 
 ---
 
+## Frequently Asked Questions
+
+**Which tool should I install first to reduce token usage?**
+Start with **Caveman** (zero setup, 60–80% output token reduction) and **RTK** (`brew install rtk`, 60–90% shell output reduction). These two cover the highest-cost token sources without changing your workflow.
+
+**RTK vs Headroom vs LeanCTX — which should I choose?**
+They operate at different layers. RTK filters CLI output only. Headroom compresses the entire API payload (including file reads and history). LeanCTX provides cached reads + session memory + shell filtering. Pick ONE from the proxy/cache layer (Headroom or LeanCTX), and RTK can stack with LeanCTX but not alongside LeanCTX's shell filtering. See the Conflicts table above.
+
+**Do these tools work with Claude Code, Cursor, and Gemini CLI?**
+Most do. RTK, Caveman, Ponytail, Graphify, and Serena work across all major agents. Headroom is strongest with Anthropic-API agents (Claude Code, Codex, Aider). Claude Token Optimizer is Claude Code-specific. Check the "Supported Agents" column in the comparison matrix.
+
+**Will these tools break my existing MCP setup?**
+No — they add alongside existing tools. Caveman and Ponytail are pure prompt rules. RTK is a CLI hook. Graphify and Serena register as additional MCP servers. The only conflict risk is running two proxy-layer tools simultaneously (Headroom + LeanCTX + Token Optimizer MCP — pick one).
+
+**Are these tools free and open source?**
+Yes. Every tool listed here is MIT or Apache 2.0 licensed. No paid tiers, no usage limits, no telemetry. They run entirely locally.
+
+**How do I measure actual savings after installing these tools?**
+Use `rtk gain` (RTK savings), `headroom perf` (proxy compression stats), `/usage` in Claude Code (session totals), or `npx ccusage` (historical dollar tracking). Compare your tokens-per-task before and after.
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Which tool should I install first to reduce token usage?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Start with Caveman (zero setup, 60–80% output token reduction) and RTK (brew install rtk, 60–90% shell output reduction). These two cover the highest-cost token sources without changing your workflow."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "RTK vs Headroom vs LeanCTX — which should I choose?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "They operate at different layers. RTK filters CLI output only. Headroom compresses the entire API payload. LeanCTX provides cached reads, session memory, and shell filtering. Pick one from the proxy/cache layer (Headroom or LeanCTX)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do these tools work with Claude Code, Cursor, and Gemini CLI?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Most do. RTK, Caveman, Ponytail, Graphify, and Serena work across all major agents. Headroom is strongest with Anthropic-API agents. Claude Token Optimizer is Claude Code-specific."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Will these tools break my existing MCP setup?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No — they add alongside existing tools. Caveman and Ponytail are prompt rules, RTK is a CLI hook, and Graphify and Serena register as additional MCP servers."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are these tools free and open source?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Every tool listed here is MIT or Apache 2.0 licensed with no paid tiers, no usage limits, and runs entirely locally."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I measure actual savings after installing these tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use rtk gain (RTK savings), headroom perf (proxy compression stats), /usage in Claude Code (session totals), or npx ccusage (historical dollar tracking)."
+      }
+    }
+  ]
+}
+</script>
+
+---
+
 ## Next in the Series
 
 Now that you know every tool in the ecosystem and their compatibility rules:
 
-👉 **Proceed to [Part 3: Building a Token-Efficient AI Coding Agent Stack](reduce-ai-token-usage-part3-stacks-benchmarks.html)** — Dive into complete reference architectures (Option A Minimal, Option B Balanced, Option C Max Context), agent setup matrices, and empirical benchmark data.
+**Proceed to [Part 3: Building a Token-Efficient AI Coding Agent Stack](/posts/reduce-ai-token-usage-part3-stacks-benchmarks/)** — Dive into complete reference architectures (Option A Minimal, Option B Balanced, Option C Max Context), agent setup matrices, and empirical benchmark data.
