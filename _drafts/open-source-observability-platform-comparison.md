@@ -4,7 +4,7 @@ description: "A practical comparison of 13 self-hosted open-source observability
 author: sagarnikam123
 date: 2026-08-20 12:00:00 +0530
 categories: [Observability, DevOps]
-tags: [observability, open-source, signoz, openobserve, clickstack, oneuptime, uptrace, coroot, grafana, skywalking, opensearch, victoriametrics, highlight-io, elastic-stack, parseable, opentelemetry, logs, metrics, traces, comparison]
+tags: [open-source-observability, observability-platform-comparison, signoz, openobserve, opentelemetry]
 mermaid: true
 image:
   path: assets/img/posts/20260820/open-source-observability-comparison.webp

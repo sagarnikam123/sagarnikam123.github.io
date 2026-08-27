@@ -4,7 +4,7 @@ description: "A comprehensive comparison of open-source, self-hostable continuou
 author: sagarnikam123
 date: 2026-09-24 12:00:00 +0530
 categories: [Observability, DevOps]
-tags: [profiling, continuous-profiling, open-source, pyroscope, parca, perforator, gprofiler, opentelemetry, ebpf, async-profiler, py-spy, pprof, jfr, flamegraph, cpu-profiling, memory-profiling, allocation-profiling, comparison]
+tags: [continuous-profiling, pyroscope-vs-parca, ebpf-profiling, flamegraph, open-source-profiler]
 mermaid: true
 image:
   path: assets/img/posts/20260924/open-source-continuous-profiling-tools.webp

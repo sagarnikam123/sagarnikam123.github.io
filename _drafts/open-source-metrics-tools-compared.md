@@ -4,7 +4,7 @@ description: "A comprehensive comparison of open-source, self-hostable metrics p
 author: sagarnikam123
 date: 2026-09-10 12:00:00 +0530
 categories: [Observability, DevOps]
-tags: [metrics, time-series, open-source, prometheus, victoriametrics, mimir, thanos, cortex, m3, influxdb, graphite, opentsdb, zabbix, netdata, icinga, telegraf, statsd, collectd, promql, metricsql, cardinality, tsdb, comparison]
+tags: [prometheus-alternatives, open-source-metrics, victoriametrics, thanos-vs-mimir, time-series-database]
 mermaid: true
 image:
   path: assets/img/posts/20260910/open-source-metrics-tools.webp

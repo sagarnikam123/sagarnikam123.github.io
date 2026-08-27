@@ -4,7 +4,7 @@ description: "A complete map of every open-source observability project in the C
 author: sagarnikam123
 date: 2026-10-01 12:00:00 +0530
 categories: [Observability, DevOps]
-tags: [cncf, cloud-native, observability, prometheus, opentelemetry, fluentd, fluent-bit, jaeger, thanos, cortex, pixie, perses, kepler, k8sgpt, holmesgpt, inspektor-gadget, kuberhealthy, trickster, headlamp, landscape, kubernetes]
+tags: [cncf-observability, cncf-projects, cloud-native-monitoring, prometheus, opentelemetry]
 mermaid: true
 image:
   path: assets/img/posts/20261001/cncf-observability-landscape.webp

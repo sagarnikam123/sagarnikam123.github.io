@@ -4,7 +4,7 @@ description: "Part 2 of our open-source observability comparison. We deploy SigN
 author: sagarnikam123
 date: 2026-08-27 12:00:00 +0530
 categories: [Observability, DevOps]
-tags: [observability, open-source, benchmark, signoz, openobserve, clickstack, parseable, uptrace, grafana, victoriametrics, coroot, oneuptime, skywalking, opensearch, highlight-io, elastic-stack, opentelemetry, performance, comparison]
+tags: [observability-benchmark, open-source-observability, signoz-vs-openobserve, grafana-lgtm, opentelemetry]
 mermaid: true
 image:
   path: assets/img/posts/20260827/open-source-observability-benchmark.webp

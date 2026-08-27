@@ -4,7 +4,7 @@ description: "A comprehensive comparison of open-source, self-hostable log manag
 author: sagarnikam123
 date: 2026-09-03 12:00:00 +0530
 categories: [Observability, DevOps]
-tags: [logs, log-management, open-source, loki, victorialogs, parseable, clp, zincsearch, opensearch, elasticsearch, quickwit, fluent-bit, fluentd, syslog-ng, rsyslog, logql, logsql, full-text-search, comparison]
+tags: [open-source-log-management, loki-vs-elasticsearch, victorialogs, fluent-bit, log-aggregation]
 mermaid: true
 image:
   path: assets/img/posts/20260903/open-source-log-management-tools.webp

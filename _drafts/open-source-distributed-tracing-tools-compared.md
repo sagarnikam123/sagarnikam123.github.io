@@ -4,7 +4,7 @@ description: "A comprehensive comparison of open-source, self-hostable distribut
 author: sagarnikam123
 date: 2026-09-17 12:00:00 +0530
 categories: [Observability, DevOps]
-tags: [tracing, distributed-tracing, open-source, jaeger, tempo, zipkin, opentelemetry, otlp, traceql, ebpf, odigos, sampling, tail-sampling, span-metrics, service-graph, auto-instrumentation, comparison]
+tags: [distributed-tracing, jaeger-vs-tempo, opentelemetry-tracing, zipkin, traceql]
 mermaid: true
 image:
   path: assets/img/posts/20260917/open-source-distributed-tracing-tools.webp
