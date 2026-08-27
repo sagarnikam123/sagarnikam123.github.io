@@ -107,12 +107,12 @@ These are the strongest candidates for PromQL-compatible, scrape-oriented, cloud
 
 | Project | License | Scrapes metrics itself? | PromQL | Distributed | Object storage | GitHub | Positioning |
 | :--- | :--- | ---: | ---: | ---: | ---: | :--- | :--- |
-| **[Prometheus](https://github.com/prometheus/prometheus)** | Apache 2.0 | Yes | Yes | No, not natively | No | ⭐ 65.8k · 👥 1,203 | Industry standard / baseline |
-| **[VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics)** | Apache 2.0 (Community) | Yes | MetricsQL/PromQL | Yes, cluster edition | Limited; not primary | ⭐ 17.6k · 👥 407 | Drop-in replacement, lower resources |
-| **[Grafana Mimir](https://github.com/grafana/mimir)** | AGPLv3 | No | Yes | Yes | Yes | ⭐ 5.2k · 👥 448 | Multi-tenant metrics platform |
-| **[Thanos](https://github.com/thanos-io/thanos)** | Apache 2.0 | No; extends Prometheus | Yes | Yes | Yes | ⭐ 14.2k · 👥 691 | Long-term storage layer for Prometheus |
-| **[Cortex](https://github.com/cortexproject/cortex)** | Apache 2.0 | No | Yes | Yes | Yes | ⭐ 5.9k · 👥 334 | Legacy multi-tenant (superseded by Mimir) |
-| **[M3](https://github.com/m3db/m3)** | Apache 2.0 | Through coordinator | Yes | Yes | Primarily distributed disks | ⭐ 4.9k · 👥 113 | Extreme scale (declining maintenance) |
+| **[Prometheus](https://github.com/prometheus/prometheus)** | Apache 2.0 | Yes | Yes | No, not natively | No | ⭐ 56k+ · 👥 1,200+ · Since 2012 · **CNCF Graduated** | Industry standard / baseline |
+| **[VictoriaMetrics](https://github.com/VictoriaMetrics/VictoriaMetrics)** | Apache 2.0 (Community) | Yes | MetricsQL/PromQL | Yes, cluster edition | Limited; not primary | ⭐ 17.6k · 👥 400+ · Since 2018 | Drop-in replacement, lower resources |
+| **[Grafana Mimir](https://github.com/grafana/mimir)** | AGPLv3 | No | Yes | Yes | Yes | ⭐ 5.2k · 👥 450+ · Since 2022 | Multi-tenant metrics platform |
+| **[Thanos](https://github.com/thanos-io/thanos)** | Apache 2.0 | No; extends Prometheus | Yes | Yes | Yes | ⭐ 14.2k · 👥 690+ · Since 2017 · **CNCF Incubating** | Long-term storage layer for Prometheus |
+| **[Cortex](https://github.com/cortexproject/cortex)** | Apache 2.0 | No | Yes | Yes | Yes | ⭐ 5.9k · 👥 334 · Since 2016 · **CNCF Incubating** | Legacy multi-tenant (superseded by Mimir) |
+| **[M3](https://github.com/m3db/m3)** | Apache 2.0 | Through coordinator | Yes | Yes | Primarily distributed disks | ⭐ 4.9k · 👥 113 · Since 2017 | Extreme scale (declining maintenance) |
 
 </div>
 
@@ -269,17 +269,17 @@ These store numeric time-series data but are not necessarily Prometheus-native. 
 
 | Project | License | Storage architecture | Interface/query | Positioning |
 | :--- | :--- | :--- | :--- | :--- |
-| **[InfluxDB 3 Core](https://github.com/influxdata/influxdb)** | MIT / Apache 2.0 | Columnar / object-store-oriented | SQL, InfluxDB line protocol | Modern general-purpose TSDB (⭐ 31.7k · 👥 527) |
-| **[InfluxDB OSS 2.x](https://github.com/influxdata/influxdb)** | MIT | Local TSM engine | Flux, InfluxQL | Established but older generation |
-| **[Graphite](https://graphite.readthedocs.io/en/latest/overview.html)** | Apache 2.0 | Whisper files | Graphite functions | Mature, metrics-only, push-based |
-| **[OpenTSDB](https://github.com/OpenTSDB/opentsdb)** | LGPL / GPL | HBase or Bigtable | OpenTSDB API | Scalable but operationally heavy (⭐ 5.1k · 👥 127) |
-| **[KairosDB](https://github.com/kairosdb/kairosdb)** | Apache 2.0 | Cassandra | REST and Graphite API | Useful in Cassandra environments (⭐ 1.8k · 👥 58) |
-| **[Gnocchi](https://github.com/gnocchixyz/gnocchi)** | Apache 2.0 | Pluggable (file, Ceph, Swift, S3) | REST API | Metrics-as-a-Service; OpenStack heritage (⭐ 323 · 👥 94) |
-| **[RRDtool](https://oss.oetiker.ch/rrdtool/)** | GPL | Fixed-size RRD files | RRD API/CLI | Appliances and network graphs |
-| **[Performance Co-Pilot (PCP)](https://github.com/performancecopilot/pcp)** | GPL / LGPL | Local and distributed archives | PCP tools/APIs | Linux performance metrics (⭐ 1.1k · 👥 179) |
-| **[GreptimeDB](https://github.com/GreptimeTeam/greptimedb)** | Apache 2.0 | Distributed, object-storage-native | SQL, PromQL | Unified TSDB for metrics/logs/traces (⭐ 5.2k · 👥 100+) |
-| **[QuestDB](https://github.com/questdb/questdb)** | Apache 2.0 | Column-oriented, memory-mapped | SQL (PostgreSQL wire), InfluxDB line protocol | High-throughput ingestion, financial/IoT metrics (⭐ 14.9k · 👥 100+) |
-| **[TDengine](https://github.com/taosdata/TDengine)** | AGPL v3 (Community) | Distributed, columnar time-series | SQL (custom dialect) | IoT/industrial metrics at scale (⭐ 24.1k · 👥 200+) |
+| **[InfluxDB 3 Core](https://github.com/influxdata/influxdb)** | MIT / Apache 2.0 | Columnar / object-store-oriented | SQL, InfluxDB line protocol | Modern general-purpose TSDB (⭐ 31.7k · 👥 527 · Since 2013) |
+| **[InfluxDB OSS 2.x](https://github.com/influxdata/influxdb)** | MIT | Local TSM engine | Flux, InfluxQL | Established but older generation (Since 2013) |
+| **[Graphite](https://github.com/graphite-project/graphite-web)** | Apache 2.0 | Whisper files | Graphite functions | Mature, metrics-only, push-based (⭐ 5.9k · 👥 200+ · Since 2008) |
+| **[OpenTSDB](https://github.com/OpenTSDB/opentsdb)** | LGPL / GPL | HBase or Bigtable | OpenTSDB API | Scalable but operationally heavy (⭐ 5.1k · 👥 127 · Since 2010) |
+| **[KairosDB](https://github.com/kairosdb/kairosdb)** | Apache 2.0 | Cassandra | REST and Graphite API | Useful in Cassandra environments (⭐ 1.8k · 👥 58 · Since 2013) |
+| **[Gnocchi](https://github.com/gnocchixyz/gnocchi)** | Apache 2.0 | Pluggable (file, Ceph, Swift, S3) | REST API | Metrics-as-a-Service; OpenStack heritage (⭐ 323 · 👥 94 · Since 2014) |
+| **[RRDtool](https://oss.oetiker.ch/rrdtool/)** | GPL | Fixed-size RRD files | RRD API/CLI | Appliances and network graphs (Since 1999) |
+| **[Performance Co-Pilot (PCP)](https://github.com/performancecopilot/pcp)** | GPL / LGPL | Local and distributed archives | PCP tools/APIs | Linux performance metrics (⭐ 1.1k · 👥 179 · Since 2000) |
+| **[GreptimeDB](https://github.com/GreptimeTeam/greptimedb)** | Apache 2.0 | Distributed, object-storage-native | SQL, PromQL | Unified TSDB for metrics/logs/traces (⭐ 5.2k · 👥 100+ · Since 2022) |
+| **[QuestDB](https://github.com/questdb/questdb)** | Apache 2.0 | Column-oriented, memory-mapped | SQL (PostgreSQL wire), InfluxDB line protocol | High-throughput ingestion, financial/IoT metrics (⭐ 14.9k · 👥 100+ · Since 2014) |
+| **[TDengine](https://github.com/taosdata/TDengine)** | AGPL v3 (Community) | Distributed, columnar time-series | SQL (custom dialect) | IoT/industrial metrics at scale (⭐ 24.1k · 👥 200+ · Since 2019) |
 
 ### Comparison
 
@@ -343,16 +343,16 @@ Complete monitoring products — they collect, store, alert, and visualize metri
 
 | Project | License | Primary focus | Suitable for |
 | :--- | :--- | :--- | :--- |
-| **[Zabbix](https://www.zabbix.com/)** | GPL | Infrastructure and network metrics | Servers, VMs, databases, SNMP |
-| **[Netdata Agent](https://github.com/netdata/netdata)** | GPL v3+ | High-resolution real-time metrics | Host and container troubleshooting |
-| **[Icinga 2](https://icinga.com/docs/icinga-2/latest/)** | GPL | Checks, availability, performance data | Traditional infrastructure monitoring |
-| **[LibreNMS](https://www.librenms.org/)** | GPL | SNMP / network monitoring | Routers, switches, firewalls |
-| **[OpenNMS](https://www.opennms.com/)** | AGPL | Large-scale network monitoring | Telecom and enterprise networks |
-| **[Cacti](https://www.cacti.net/)** | GPL | SNMP and RRD graphs | Network capacity monitoring |
-| **[Munin](https://munin-monitoring.org/)** | GPL | Server metrics | Simple host monitoring |
-| **[Nagios Core](https://www.nagios.org/projects/nagios-core/)** | GPL | Availability and plugin checks | Traditional server monitoring |
-| **[Checkmk Raw Edition](https://checkmk.com/product/raw-edition)** | GPL | Infrastructure monitoring | Agent and SNMP monitoring |
-| **[Shinken](https://github.com/naparuba/shinken)** | AGPL | Nagios-compatible monitoring | Legacy/Nagios environments |
+| **[Zabbix](https://github.com/zabbix/zabbix)** | GPL | Infrastructure and network metrics | Servers, VMs, databases, SNMP (⭐ 5k · Since 2001) |
+| **[Netdata Agent](https://github.com/netdata/netdata)** | GPL v3+ | High-resolution real-time metrics | Host and container troubleshooting (⭐ 73k · Since 2013) |
+| **[Icinga 2](https://github.com/Icinga/icinga2)** | GPL | Checks, availability, performance data | Traditional infrastructure monitoring (⭐ 2k · Since 2012) |
+| **[LibreNMS](https://github.com/librenms/librenms)** | GPL | SNMP / network monitoring | Routers, switches, firewalls (⭐ 4k · Since 2013) |
+| **[OpenNMS](https://github.com/OpenNMS/opennms)** | AGPL | Large-scale network monitoring | Telecom and enterprise networks (⭐ 500+ · Since 1999) |
+| **[Cacti](https://github.com/Cacti/cacti)** | GPL | SNMP and RRD graphs | Network capacity monitoring (⭐ 1.7k · Since 2004) |
+| **[Munin](https://github.com/munin-monitoring/munin)** | GPL | Server metrics | Simple host monitoring (⭐ 2k · Since 2003) |
+| **[Nagios Core](https://github.com/NagiosEnterprises/nagioscore)** | GPL | Availability and plugin checks | Traditional server monitoring (⭐ 1.6k · Since 1999) |
+| **[Checkmk Raw Edition](https://github.com/Checkmk/checkmk)** | GPL | Infrastructure monitoring | Agent and SNMP monitoring (⭐ 1.6k · Since 2014) |
+| **[Shinken](https://github.com/naparuba/shinken)** | AGPL | Nagios-compatible monitoring | Legacy/Nagios environments (⭐ 900+ · Since 2009) |
 
 ### Comparison
 
@@ -396,18 +396,18 @@ These do not replace a metrics database — they collect, process, and forward m
 
 | Tool | License | Function |
 | :--- | :--- | :--- |
-| **[Telegraf](https://github.com/influxdata/telegraf)** | MIT | Plugin-based metric collection and forwarding (⭐ 17.8k · 👥 1,423) |
-| **[collectd](https://collectd.org/)** | MIT / GPL components | Lightweight system metric collector |
-| **[StatsD](https://github.com/statsd/statsd)** | MIT | Application metric aggregation (UDP) |
-| **[Prometheus Node Exporter](https://github.com/prometheus/node_exporter)** | Apache 2.0 | Linux host metrics (⭐ 13.7k · 👥 462) |
-| **[Prometheus Blackbox Exporter](https://github.com/prometheus/blackbox_exporter)** | Apache 2.0 | HTTP, TCP, DNS, ICMP probing |
-| **[Prometheus SNMP Exporter](https://github.com/prometheus/snmp_exporter)** | Apache 2.0 | SNMP metrics for Prometheus |
-| **[Prometheus JMX Exporter](https://github.com/prometheus/jmx_exporter)** | Apache 2.0 | JVM metrics for Prometheus |
-| **[Grafana Beyla](https://github.com/grafana/beyla)** | Apache 2.0 | eBPF-based application metrics (zero-code) |
-| **[Glouton](https://github.com/bleemeo/glouton)** | Apache 2.0 | Single-binary monitoring agent with auto-discovery, embedded TSDB, and local dashboard (⭐ 61 · 👥 12) |
-| **[mtail](https://github.com/google/mtail)** | Apache 2.0 | Produces metrics by parsing application logs |
-| **[Diamond](https://github.com/python-diamond/Diamond)** | MIT | Python metrics collector |
-| **[tcollector](https://github.com/OpenTSDB/tcollector)** | LGPL | Collects and forwards metrics to OpenTSDB |
+| **[Telegraf](https://github.com/influxdata/telegraf)** | MIT | Plugin-based metric collection and forwarding (⭐ 15k · 👥 1,400+ · Since 2015) |
+| **[collectd](https://github.com/collectd/collectd)** | MIT / GPL components | Lightweight system metric collector (⭐ 3.1k · 👥 200+ · Since 2005) |
+| **[StatsD](https://github.com/statsd/statsd)** | MIT | Application metric aggregation (UDP) (⭐ 17.6k · 👥 150+ · Since 2010) |
+| **[Prometheus Node Exporter](https://github.com/prometheus/node_exporter)** | Apache 2.0 | Linux host metrics (⭐ 13.7k · 👥 462 · Since 2013 · **CNCF**) |
+| **[Prometheus Blackbox Exporter](https://github.com/prometheus/blackbox_exporter)** | Apache 2.0 | HTTP, TCP, DNS, ICMP probing (⭐ 4.8k · Since 2015 · **CNCF**) |
+| **[Prometheus SNMP Exporter](https://github.com/prometheus/snmp_exporter)** | Apache 2.0 | SNMP metrics for Prometheus (⭐ 1.7k · Since 2016 · **CNCF**) |
+| **[Prometheus JMX Exporter](https://github.com/prometheus/jmx_exporter)** | Apache 2.0 | JVM metrics for Prometheus (⭐ 3k · Since 2013 · **CNCF**) |
+| **[Grafana Beyla](https://github.com/grafana/beyla)** | Apache 2.0 | eBPF-based application metrics (zero-code) (⭐ 1.5k · Since 2023) |
+| **[Glouton](https://github.com/bleemeo/glouton)** | Apache 2.0 | Single-binary monitoring agent with auto-discovery, embedded TSDB, and local dashboard (⭐ 61 · 👥 12 · Since 2019) |
+| **[mtail](https://github.com/google/mtail)** | Apache 2.0 | Produces metrics by parsing application logs (⭐ 3.9k · Since 2011) |
+| **[Diamond](https://github.com/python-diamond/Diamond)** | MIT | Python metrics collector (⭐ 1.7k · Since 2011) |
+| **[tcollector](https://github.com/OpenTSDB/tcollector)** | LGPL | Collects and forwards metrics to OpenTSDB (⭐ 500+ · Since 2010) |
 
 > **Note:** OpenTelemetry Collector and Grafana Alloy are open-source and can collect metrics, but they are not metrics-only — they also process logs and traces. They remain the recommended multi-signal collectors for OTel-native environments.
 
@@ -473,13 +473,17 @@ Tools that complement the metrics platforms above — alerting, dashboards, Kube
 
 | Tool | License | Purpose | GitHub |
 | :--- | :--- | :--- | :--- |
-| **[Grafana](https://github.com/grafana/grafana)** | AGPL v3 | The de facto visualization layer for Prometheus-compatible metrics; dashboards, explore, alerting UI | ⭐ 65k+ · 👥 3,800+ |
-| **[Prometheus Alertmanager](https://github.com/prometheus/alertmanager)** | Apache 2.0 | Alert routing, deduplication, grouping, and notification (used by Prometheus, VictoriaMetrics, Mimir, Thanos, Cortex) | ⭐ 8.6k · 👥 410 |
-| **[Karma](https://github.com/prymitive/karma)** | Apache 2.0 | Alert dashboard for Alertmanager — multi-instance aggregation, filtering, silencing UI | ⭐ 2.4k · 👥 50+ |
-| **[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)** | Apache 2.0 | Generates Prometheus metrics about Kubernetes object state (deployments, pods, nodes) | ⭐ 5.5k · 👥 350+ |
-| **[prometheus-operator](https://github.com/prometheus-operator/prometheus-operator)** | Apache 2.0 | Kubernetes operator for Prometheus, Alertmanager, and Thanos — CRD-based management | ⭐ 9.3k · 👥 500+ |
-| **[Prometheus Pushgateway](https://github.com/prometheus/pushgateway)** | Apache 2.0 | Allows batch jobs to expose metrics to Prometheus via push | ⭐ 3.1k · 👥 130+ |
-| **[Thanos Operator](https://github.com/thanos-io/thanos-operator)** | Apache 2.0 | Kubernetes operator for Thanos components | Emerging |
+| **[Grafana](https://github.com/grafana/grafana)** | AGPL v3 | The de facto visualization layer for Prometheus-compatible metrics; dashboards, explore, alerting UI | ⭐ 66k · 👥 3,800+ · Since 2013 |
+| **[Prometheus Alertmanager](https://github.com/prometheus/alertmanager)** | Apache 2.0 | Alert routing, deduplication, grouping, and notification (used by Prometheus, VictoriaMetrics, Mimir, Thanos, Cortex) | ⭐ 8.6k · 👥 410 · Since 2013 · **CNCF** |
+| **[Karma](https://github.com/prymitive/karma)** | Apache 2.0 | Alert dashboard for Alertmanager — multi-instance aggregation, filtering, silencing UI | ⭐ 2.4k · 👥 50+ · Since 2018 |
+| **[kube-state-metrics](https://github.com/kubernetes/kube-state-metrics)** | Apache 2.0 | Generates Prometheus metrics about Kubernetes object state (deployments, pods, nodes) | ⭐ 5.5k · 👥 350+ · Since 2016 |
+| **[prometheus-operator](https://github.com/prometheus-operator/prometheus-operator)** | Apache 2.0 | Kubernetes operator for Prometheus, Alertmanager, and Thanos — CRD-based management | ⭐ 9.3k · 👥 500+ · Since 2016 |
+| **[Prometheus Pushgateway](https://github.com/prometheus/pushgateway)** | Apache 2.0 | Allows batch jobs to expose metrics to Prometheus via push | ⭐ 3.1k · 👥 130+ · Since 2012 · **CNCF** |
+| **[Perses](https://github.com/perses/perses)** | Apache 2.0 | GitOps-native dashboards — dashboards-as-code, K8s CRDs, schema validation | ⭐ 1.2k · 👥 30+ · Since 2021 · **CNCF Sandbox** |
+| **[Trickster](https://github.com/trickstercache/trickster)** | Apache 2.0 | HTTP reverse proxy cache and TSDB dashboard accelerator for Prometheus/InfluxDB/ClickHouse | ⭐ 2k · 👥 30+ · Since 2018 · **CNCF Sandbox** |
+| **[Kuberhealthy](https://github.com/kuberhealthy/kuberhealthy)** | Apache 2.0 | K8s operator for synthetic health checks — exports Prometheus metrics | ⭐ 1.8k · 👥 60+ · Since 2018 · **CNCF Sandbox** |
+| **[Kepler](https://github.com/sustainable-computing-io/kepler)** | Apache 2.0 | Energy consumption Prometheus exporter — uses eBPF for per-container/pod power metrics | ⭐ 1.4k · 👥 80+ · Since 2022 · **CNCF Sandbox** |
+| **[Thanos Operator](https://github.com/thanos-io/thanos-operator)** | Apache 2.0 | Kubernetes operator for Thanos components | Emerging · **CNCF** |
 | **[Dashglass](https://github.com/bleemeo/dashglass)** | Apache 2.0 | Lightweight Prometheus-native dashboards with GitOps-first file storage — single Go binary, no database | ⭐ 6 · 👥 1 |
 | **[Bleemeo Community Edition](https://github.com/bleemeo/bleemeo-community-edition)** | Open-source | Complete self-hosted monitoring stack combining Glouton (agent) + SquirrelDB (TSDB) + Grafana, with push model and horizontal scaling | ⭐ 14 · 👥 5 |
 

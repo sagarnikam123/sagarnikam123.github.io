@@ -104,11 +104,11 @@ These are the closest equivalents to Loki and VictoriaLogs — purpose-built log
 
 | Platform | License | Query Language | Storage Model | Full-text Search | UI Included | GitHub | Positioning |
 | :--- | :--- | :--- | :--- | ---: | ---: | :--- | :--- |
-| **[Grafana Loki](https://github.com/grafana/loki)** | AGPLv3 | LogQL | Filesystem or object storage | Limited; label-first | No; use Grafana | ⭐ 25k+ · 👥 800+ | Industry standard for Grafana users |
-| **[VictoriaLogs](https://github.com/VictoriaMetrics/VictoriaLogs)** | Apache 2.0 | LogsQL | Local storage | Yes | Basic UI / Grafana | ⭐ 2.2k · 👥 365 | Lightest self-hosted log DB |
-| **[Parseable](https://github.com/parseablehq/parseable)** | AGPLv3 | SQL-oriented query APIs | Object storage | Yes | Yes | ⭐ 4k+ · 👥 50+ | SQL-first log analytics |
-| **[CLP](https://github.com/y-scope/clp)** | Apache 2.0 | CLP search/query interfaces | Highly compressed log archives | Yes | Yes | ⭐ 2k+ · 👥 30+ | Compression-specialized archival |
-| **[ZincSearch](https://github.com/zincsearch/zincsearch)** | Apache 2.0 | Elasticsearch-compatible APIs | Local / object-oriented | Yes | Yes | ⭐ 17k+ · 👥 70+ | Lightweight ES alternative |
+| **[Grafana Loki](https://github.com/grafana/loki)** | AGPLv3 | LogQL | Filesystem or object storage | Limited; label-first | No; use Grafana | ⭐ 25k+ · 👥 800+ · Since 2018 | Industry standard for Grafana users |
+| **[VictoriaLogs](https://github.com/VictoriaMetrics/VictoriaMetrics)** | Apache 2.0 | LogsQL | Local storage | Yes | Basic UI / Grafana | ⭐ 17.6k (mono-repo) · 👥 400+ · Since 2023 (VL) | Lightest self-hosted log DB |
+| **[Parseable](https://github.com/parseablehq/parseable)** | AGPLv3 | SQL-oriented query APIs | Object storage | Yes | Yes | ⭐ 4k+ · 👥 50+ · Since 2022 | SQL-first log analytics |
+| **[CLP](https://github.com/y-scope/clp)** | Apache 2.0 | CLP search/query interfaces | Highly compressed log archives | Yes | Yes | ⭐ 2k+ · 👥 30+ · Since 2021 | Compression-specialized archival |
+| **[ZincSearch](https://github.com/zincsearch/zincsearch)** | Apache 2.0 | Elasticsearch-compatible APIs | Local / object-oriented | Yes | Yes | ⭐ 17k+ · 👥 70+ · Since 2021 | Lightweight ES alternative |
 
 </div>
 
@@ -258,10 +258,10 @@ These are open-source and free to self-host, but they are not exclusively log da
 
 | Platform | License | Log Stack | Strength | Strictly logs-only? |
 | :--- | :--- | :--- | :--- | ---: |
-| **[OpenSearch](https://opensearch.org/)** | Apache 2.0 | OpenSearch + Dashboards + collector | Full-text search, analytics, alerting | No |
-| **[Apache Solr](https://solr.apache.org/)** | Apache 2.0 | Solr + log shipper | Mature Lucene search | No |
-| **[Apache Lucene](https://lucene.apache.org/)** | Apache 2.0 | Embedded / custom application | Search library underlying many log systems | No |
-| **[Elasticsearch](https://www.elastic.co/elasticsearch)** | Multiple (AGPL v3 core since 8.16; Elastic License 2.0 some features) | Elasticsearch + Kibana | Rich search and analytics | No |
+| **[OpenSearch](https://github.com/opensearch-project/OpenSearch)** | Apache 2.0 | OpenSearch + Dashboards + collector | Full-text search, analytics, alerting (⭐ 10k · 👥 400+ · Since 2021) | No |
+| **[Apache Solr](https://github.com/apache/solr)** | Apache 2.0 | Solr + log shipper | Mature Lucene search (⭐ 1.2k · Since 2006) | No |
+| **[Apache Lucene](https://github.com/apache/lucene)** | Apache 2.0 | Embedded / custom application | Search library underlying many log systems (⭐ 2.8k · Since 1999) | No |
+| **[Elasticsearch](https://github.com/elastic/elasticsearch)** | Multiple (AGPL v3 core since 8.16; Elastic License 2.0 some features) | Elasticsearch + Kibana | Rich search and analytics (⭐ 71k · 👥 2,000+ · Since 2010) | No |
 
 > OpenSearch is the safest fully Apache-licensed alternative for building an Elasticsearch-style log stack.
 
@@ -294,14 +294,14 @@ UIs and platforms that provide log exploration, search, dashboards, and alerting
 
 | Tool | License | Backend | Purpose |
 | :--- | :--- | :--- | :--- |
-| **[OpenSearch Dashboards](https://opensearch.org/docs/latest/dashboards/)** | Apache 2.0 | OpenSearch | Search, dashboards, alerting |
-| **[Grafana](https://grafana.com/oss/grafana/)** | AGPLv3 | Loki, VictoriaLogs, OpenSearch, ES | Log exploration and dashboards |
-| **[Kibana](https://www.elastic.co/kibana)** | Elastic / AGPL-related licensing (varies by source/distribution) | Elasticsearch | Log search and visualization |
-| **[Graylog Open](https://graylog.org/products/source-available/)** | Source-available (not strictly OSI open-source) | OpenSearch / data node | Complete log management |
-| **[Dozzle](https://github.com/amir20/dozzle)** | MIT | Docker runtime | Live Docker log viewer |
-| **[Logdy](https://github.com/logdyhq/logdy-core)** | Apache 2.0 | Local streams / files | Browser-based local log viewer |
-| **[lnav](https://lnav.org/)** | BSD-2-Clause | Local files / journal | Terminal log analysis |
-| **[GoAccess](https://goaccess.io/)** | MIT | Access-log files | Real-time web access-log analytics |
+| **[OpenSearch Dashboards](https://github.com/opensearch-project/OpenSearch-Dashboards)** | Apache 2.0 | OpenSearch | Search, dashboards, alerting (⭐ 1.7k · Since 2021) |
+| **[Grafana](https://github.com/grafana/grafana)** | AGPLv3 | Loki, VictoriaLogs, OpenSearch, ES | Log exploration and dashboards (⭐ 66k · Since 2013) |
+| **[Kibana](https://github.com/elastic/kibana)** | AGPL v3 / ELv2 | Elasticsearch | Log search and visualization (⭐ 20k · Since 2013) |
+| **[Graylog Open](https://github.com/Graylog2/graylog2-server)** | Source-available (not strictly OSI) | OpenSearch / data node | Complete log management (⭐ 7.5k · Since 2010) |
+| **[Dozzle](https://github.com/amir20/dozzle)** | MIT | Docker runtime | Live Docker log viewer (⭐ 7k+ · Since 2018) |
+| **[Logdy](https://github.com/logdyhq/logdy-core)** | Apache 2.0 | Local streams / files | Browser-based local log viewer (⭐ 1k+ · Since 2023) |
+| **[lnav](https://github.com/tstack/lnav)** | BSD-2-Clause | Local files / journal | Terminal log analysis (⭐ 7.5k · Since 2007) |
+| **[GoAccess](https://github.com/allinurl/goaccess)** | MIT | Access-log files | Real-time web access-log analytics (⭐ 19k · Since 2010) |
 
 > **Graylog clarification:** Graylog can be used without paying in some configurations, but its current server licensing is source-available rather than conventional OSI-approved open source. Treat it as a separate "free / source-available" category.
 
@@ -332,17 +332,18 @@ These collect, parse, enrich, and forward logs but do not normally provide long-
 
 | Tool | License | Logs only? | Best use |
 | :--- | :--- | ---: | :--- |
-| **[Fluent Bit](https://fluentbit.io/)** | Apache 2.0 | Primarily logs, also metrics/traces | Lightweight Kubernetes and edge agent |
-| **[Vector](https://vector.dev/)** | MPL-2.0 | Primarily logs, also metrics/traces | High-throughput, memory-safe Rust pipeline and aggregator |
-| **[Fluentd](https://www.fluentd.org/)** | Apache 2.0 | Primarily logs | Central log aggregation and routing |
-| **[Logstash](https://www.elastic.co/logstash)** | Elastic licensing | Primarily events/logs | Complex parsing and Elasticsearch pipelines |
-| **[syslog-ng OSE](https://www.syslog-ng.com/products/open-source-log-management/)** | GPL / LGPL | Yes | Syslog collection, processing, routing |
-| **[rsyslog](https://www.rsyslog.com/)** | GPL | Yes | High-performance Linux/syslog collection |
-| **[Loggie](https://github.com/loggie-io/loggie)** | Apache 2.0 | Primarily logs | Kubernetes-native log collection |
-| **[Fluent Operator](https://github.com/fluent/fluent-operator)** | Apache 2.0 | Primarily logs | Manage Fluent Bit/Fluentd in Kubernetes |
-| **[Logging Operator](https://github.com/kube-logging/logging-operator)** | Apache 2.0 | Primarily logs | Kubernetes logging pipelines |
-| **[Filebeat](https://www.elastic.co/beats/filebeat)** | Free / source-available licensing | Yes | Lightweight file and container log shipper |
-| **[Promtail](https://grafana.com/docs/loki/latest/send-data/promtail/)** | AGPLv3 | Yes | **Legacy** Loki agent; EOL March 2026 |
+| **[Fluent Bit](https://github.com/fluent/fluent-bit)** | Apache 2.0 | Primarily logs, also metrics/traces | Lightweight Kubernetes and edge agent (⭐ 6k · 👥 400+ · Since 2014 · **CNCF Incubating**) |
+| **[Vector](https://github.com/vectordotdev/vector)** | MPL-2.0 | Primarily logs, also metrics/traces | High-throughput, memory-safe Rust pipeline and aggregator (⭐ 18.5k · 👥 400+ · Since 2019) |
+| **[Fluentd](https://github.com/fluent/fluentd)** | Apache 2.0 | Primarily logs | Central log aggregation and routing (⭐ 13k · 👥 400+ · Since 2011 · **CNCF Graduated**) |
+| **[Logstash](https://github.com/elastic/logstash)** | Dual (Apache 2.0 / ELv2) | Primarily events/logs | Complex parsing and Elasticsearch pipelines (⭐ 14.3k · 👥 500+ · Since 2009) |
+| **[syslog-ng OSE](https://github.com/syslog-ng/syslog-ng)** | GPL / LGPL | Yes | Syslog collection, processing, routing (⭐ 2.3k · 👥 100+ · Since 1998) |
+| **[rsyslog](https://github.com/rsyslog/rsyslog)** | GPL v3 / Apache 2.0 | Yes | High-performance Linux/syslog collection (⭐ 2.1k · 👥 80+ · Since 2004) |
+| **[Loggie](https://github.com/loggie-io/loggie)** | Apache 2.0 | Primarily logs | Kubernetes-native log collection (⭐ 1.3k · 👥 30+ · Since 2021) |
+| **[Fluent Operator](https://github.com/fluent/fluent-operator)** | Apache 2.0 | Primarily logs | Manage Fluent Bit/Fluentd in Kubernetes (⭐ 600+ · 👥 50+ · Since 2020) |
+| **[Logging Operator](https://github.com/kube-logging/logging-operator)** | Apache 2.0 | Primarily logs | Kubernetes logging pipelines (⭐ 1.6k · 👥 80+ · Since 2018 · **CNCF Sandbox**) |
+| **[Filebeat](https://github.com/elastic/beats)** | Dual (Apache 2.0 / ELv2) | Yes | Lightweight file and container log shipper (⭐ 12.3k mono-repo · 👥 600+ · Since 2014) |
+| **[Promtail](https://github.com/grafana/loki)** | AGPLv3 | Yes | **Legacy** Loki agent; EOL March 2026 (part of Loki repo · Since 2018) |
+| **[Grafana Alloy](https://github.com/grafana/alloy)** | Apache 2.0 | No (multi-signal) | Official Promtail successor — collects logs, metrics, traces, profiles; OTel-compatible (⭐ 1.5k · 👥 200+ · Since 2024) |
 
 > **Promtail note:** Promtail reached end of life in March 2026. For new Loki installations, use Fluent Bit, Vector, Grafana Alloy, or an OpenTelemetry-based collector instead. Alloy and OpenTelemetry Collector are multi-signal tools and do not belong in a strict log-only list.
 
@@ -363,6 +364,7 @@ These collect, parse, enrich, and forward logs but do not normally provide long-
 | Logging Operator | — | — | ⭐ (manages FB/FD) | — (delegated) | — | — | Low (operator) |
 | Filebeat | ◐ | ⭐ | ✅ | ✅ (processors) | ◐ | ✅ | Low (~50 MB) |
 | Promtail | ◐ | ✅ | ✅ | ✅ (pipeline stages) | — (Loki only) | ✅ | Low |
+| Grafana Alloy | ✅ | ⭐ | ⭐ | ⭐ (OTel processors) | ⭐ | ✅ | Medium (~100 MB) |
 
 </div>
 

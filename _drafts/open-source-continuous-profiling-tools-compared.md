@@ -158,13 +158,13 @@ These are the closest equivalents to Grafana Pyroscope — always-on, fleet-wide
 
 | Platform | License | Collection | Backend/Storage | UI | Language Coverage | Positioning |
 | :--- | :--- | :--- | :--- | ---: | :--- | :--- |
-| **[Grafana Pyroscope](https://github.com/grafana/pyroscope)** | AGPLv3 (server); mostly Apache 2.0 (agents) | SDKs, pprof, JFR, eBPF, OTLP profiles | Built-in, scalable architecture | Grafana | Broad | Industry standard, Grafana-native |
-| **[Parca](https://github.com/parca-dev/parca)** | Apache 2.0 | Parca Agent, eBPF, pprof | Built-in columnar storage | Built-in / Grafana | Native + several runtimes | eBPF-first, Apache licensed |
-| **[Yandex Perforator](https://github.com/yandex/perforator)** | Apache 2.0; some GPLv2 components | eBPF agent | Scalable profile and binary storage | Built-in | C/C++, Go, Rust; experimental Java/Python | Large native-code fleets |
-| **[Intel gProfiler](https://github.com/intel/gprofiler)** | Apache 2.0 | Multiple runtime profilers + perf/eBPF | Local files or Performance Studio | Flamegraphs / Studio | Broad | Multi-runtime detection agent |
-| **[gProfiler Performance Studio](https://github.com/intel/gprofiler-performance-studio)** | Open-source | Receives gProfiler data | Central aggregation | Yes | Depends on gProfiler | Central aggregation for gProfiler |
-| **[OpenTelemetry eBPF Profiler](https://github.com/open-telemetry/opentelemetry-ebpf-profiler)** | Apache 2.0; eBPF GPLv2 | System-wide eBPF | Requires a backend (Pyroscope/Parca) | No | Broad Linux runtime coverage | Standards-oriented collector agent |
-| **[KubeFlame](https://github.com/pyroscope-io/kubeflame)** | Apache 2.0 | Kubernetes perf collection | Temporary / local | Flamegraphs | Native Linux workloads | Historical / niche |
+| **[Grafana Pyroscope](https://github.com/grafana/pyroscope)** | AGPLv3 (server); mostly Apache 2.0 (agents) | SDKs, pprof, JFR, eBPF, OTLP profiles | Built-in, scalable architecture | Grafana | Broad | Industry standard, Grafana-native (⭐ 10k · 👥 200+ · Since 2020) |
+| **[Parca](https://github.com/parca-dev/parca)** | Apache 2.0 | Parca Agent, eBPF, pprof | Built-in columnar storage | Built-in / Grafana | Native + several runtimes | eBPF-first, Apache licensed (⭐ 4k · 👥 60+ · Since 2021) |
+| **[Yandex Perforator](https://github.com/yandex/perforator)** | Apache 2.0; some GPLv2 components | eBPF agent | Scalable profile and binary storage | Built-in | C/C++, Go, Rust; experimental Java/Python | Large native-code fleets (⭐ 800+ · Since 2024) |
+| **[Intel gProfiler](https://github.com/intel/gprofiler)** | Apache 2.0 | Multiple runtime profilers + perf/eBPF | Local files or Performance Studio | Flamegraphs / Studio | Broad | Multi-runtime detection agent (⭐ 750+ · 👥 20+ · Since 2021) |
+| **[gProfiler Performance Studio](https://github.com/intel/gprofiler-performance-studio)** | Open-source | Receives gProfiler data | Central aggregation | Yes | Depends on gProfiler | Central aggregation for gProfiler (⭐ 50+ · Since 2022) |
+| **[OpenTelemetry eBPF Profiler](https://github.com/open-telemetry/opentelemetry-ebpf-profiler)** | Apache 2.0; eBPF GPLv2 | System-wide eBPF | Requires a backend (Pyroscope/Parca) | No | Broad Linux runtime coverage | Standards-oriented collector agent (⭐ 800+ · Since 2023 · **CNCF**) |
+| **[KubeFlame](https://github.com/pyroscope-io/kubeflame)** | Apache 2.0 | Kubernetes perf collection | Temporary / local | Flamegraphs | Native Linux workloads | Historical / niche (⭐ 200+ · Since 2021) |
 | **[Prodfiler](https://prodfiler.com/)** | Unclear OSS status | Whole-system agent | Hosted | Yes | Broad | Do not prioritize |
 
 </div>
@@ -347,15 +347,15 @@ These are not centralized continuous profiling platforms, but they collect high-
 
 | Tool | License | Profile types | Continuous production use |
 | :--- | :--- | :--- | ---: |
-| **[async-profiler](https://github.com/async-profiler/async-profiler)** | Apache 2.0 | CPU, allocation, wall clock, locks, native stacks | Excellent |
-| **[Java Flight Recorder (JFR)](https://openjdk.org/jeps/328)** | Included in OpenJDK | CPU, allocation, GC, locks, I/O, runtime events | Excellent |
-| **[JDK Mission Control](https://github.com/openjdk/jmc)** | Open-source | JFR analysis and visualization | Analysis tool |
-| **[Pyroscope Java Agent](https://github.com/grafana/pyroscope-java)** | Apache 2.0 | CPU, wall, allocation, JFR-based profiles | Excellent (with Pyroscope) |
-| **[Honest Profiler](https://github.com/jvm-profiling-tools/honest-profiler)** | GPLv2 | Low-overhead CPU profiling | Suitable |
-| **[VisualVM](https://visualvm.github.io/)** | GPLv2 + Classpath exception | CPU, memory, threads, heap | Usually on-demand |
-| **[Eclipse Memory Analyzer (MAT)](https://eclipse.dev/mat/)** | EPL | Heap-dump analysis | Offline |
+| **[async-profiler](https://github.com/async-profiler/async-profiler)** | Apache 2.0 | CPU, allocation, wall clock, locks, native stacks | Excellent (⭐ 9.5k · Since 2017) |
+| **[Java Flight Recorder (JFR)](https://openjdk.org/jeps/328)** | Included in OpenJDK | CPU, allocation, GC, locks, I/O, runtime events | Excellent (Since JDK 11) |
+| **[JDK Mission Control](https://github.com/openjdk/jmc)** | Open-source | JFR analysis and visualization | Analysis tool (⭐ 400+ · Since 2018) |
+| **[Pyroscope Java Agent](https://github.com/grafana/pyroscope-java)** | Apache 2.0 | CPU, wall, allocation, JFR-based profiles | Excellent (with Pyroscope) (⭐ 500+ · Since 2021) |
+| **[Honest Profiler](https://github.com/jvm-profiling-tools/honest-profiler)** | GPLv2 | Low-overhead CPU profiling | Suitable (⭐ 1.2k · Since 2014) |
+| **[VisualVM](https://github.com/oracle/visualvm)** | GPLv2 + Classpath exception | CPU, memory, threads, heap | Usually on-demand (⭐ 3.7k · Since 2016) |
+| **[Eclipse Memory Analyzer (MAT)](https://eclipse.dev/mat/)** | EPL | Heap-dump analysis | Offline (Since 2006) |
 | **[JOL](https://openjdk.org/projects/code-tools/jol/)** | GPLv2 | Java object layout | Specialized |
-| **[JITWatch](https://github.com/AdoptOpenJDK/jitwatch)** | Apache 2.0 | JIT compilation analysis | Specialized |
+| **[JITWatch](https://github.com/AdoptOpenJDK/jitwatch)** | Apache 2.0 | JIT compilation analysis | Specialized (⭐ 3k · Since 2013) |
 
 > Commercial (not open-source): JProfiler, YourKit — excluded from this comparison.
 
@@ -379,17 +379,17 @@ Parca's eBPF agent can profile JVM processes, but runtime-aware Java profiling t
 
 | Tool | License | CPU | Memory | Native extensions | Mode |
 | :--- | :--- | ---: | ---: | ---: | :--- |
-| **[py-spy](https://github.com/benfred/py-spy)** | MIT | Yes | No | Optional native mode | Sampling, attach without code changes |
-| **[Scalene](https://github.com/plasma-umass/scalene)** | Apache 2.0 | Yes | Yes | Separates Python/native time | Application profiler |
-| **[Austin](https://github.com/P403n1x87/austin)** | GPLv3 | Yes | Limited | Yes | Sampling |
-| **[Pyinstrument](https://github.com/joerick/pyinstrument)** | BSD | Yes | No | Limited | Statistical profiler |
-| **[Memray](https://github.com/bloomberg/memray)** | Apache 2.0 | No | Excellent | Yes | Allocation/memory profiler |
-| **[Fil](https://github.com/pythonspeed/filprofiler)** | Apache 2.0 | No | Yes | Some native tracking | Peak-memory profiler |
-| **[Yappi](https://github.com/sumerc/yappi)** | MIT | Yes | No | Threads and asyncio | Deterministic/statistical |
-| **[cProfile](https://docs.python.org/3/library/profile.html)** | Python standard library | Yes | No | Limited | Deterministic |
-| **[line_profiler](https://github.com/pyutils/line_profiler)** | BSD | Line-level | No | No | Instrumented |
-| **[memory_profiler](https://github.com/pythonprofilers/memory_profiler)** | BSD | No | Line-level memory | No | On-demand |
-| **[Pyroscope Python](https://grafana.com/docs/pyroscope/latest/configure-client/language-sdks/python/)** | Open-source | Yes | Depending on integration | Runtime-dependent | Continuous |
+| **[py-spy](https://github.com/benfred/py-spy)** | MIT | Yes | No | Optional native mode | Sampling, attach without code changes (⭐ 13k · Since 2018) |
+| **[Scalene](https://github.com/plasma-umass/scalene)** | Apache 2.0 | Yes | Yes | Separates Python/native time | Application profiler (⭐ 12k · Since 2019) |
+| **[Austin](https://github.com/P403n1x87/austin)** | GPLv3 | Yes | Limited | Yes | Sampling (⭐ 1.5k · Since 2018) |
+| **[Pyinstrument](https://github.com/joerick/pyinstrument)** | BSD | Yes | No | Limited | Statistical profiler (⭐ 6.5k · Since 2014) |
+| **[Memray](https://github.com/bloomberg/memray)** | Apache 2.0 | No | Excellent | Yes | Allocation/memory profiler (⭐ 13.5k · Since 2022) |
+| **[Fil](https://github.com/pythonspeed/filprofiler)** | Apache 2.0 | No | Yes | Some native tracking | Peak-memory profiler (⭐ 800+ · Since 2020) |
+| **[Yappi](https://github.com/sumerc/yappi)** | MIT | Yes | No | Threads and asyncio | Deterministic/statistical (⭐ 1.4k · Since 2011) |
+| **[cProfile](https://docs.python.org/3/library/profile.html)** | Python standard library | Yes | No | Limited | Deterministic (built-in) |
+| **[line_profiler](https://github.com/pyutils/line_profiler)** | BSD | Line-level | No | No | Instrumented (⭐ 2.5k · Since 2008) |
+| **[memory_profiler](https://github.com/pythonprofilers/memory_profiler)** | BSD | No | Line-level memory | No | On-demand (⭐ 4.3k · Since 2011) |
+| **[Pyroscope Python](https://github.com/grafana/pyroscope)** | Open-source | Yes | Depending on integration | Runtime-dependent | Continuous (part of Pyroscope) |
 
 ### Recommended Python Stack
 
@@ -404,12 +404,12 @@ Parca's eBPF agent can profile JVM processes, but runtime-aware Java profiling t
 
 | Tool | License | Purpose |
 | :--- | :--- | :--- |
-| **[pprof](https://github.com/google/pprof)** | Apache 2.0 | CPU, heap, allocation, mutex, block, goroutine profiles |
-| **Go `net/http/pprof`** | BSD-style Go license | Exposes application profiles over HTTP |
-| **[Pyroscope Go client](https://github.com/grafana/pyroscope-go)** | Apache 2.0 | Continuously sends Go profiles to Pyroscope |
-| **[fgprof](https://github.com/felixge/fgprof)** | MIT | Combined on-CPU and off-CPU profiling |
-| **[go-torch](https://github.com/uber-archive/go-torch)** | MIT | Flamegraphs from Go profiles; archived |
-| **[go tool trace](https://go.dev/blog/trace)** | Go license | Scheduler, goroutine, GC, runtime tracing |
+| **[pprof](https://github.com/google/pprof)** | Apache 2.0 | CPU, heap, allocation, mutex, block, goroutine profiles (⭐ 8k · Since 2016) |
+| **Go `net/http/pprof`** | BSD-style Go license | Exposes application profiles over HTTP (built-in since Go 1.0) |
+| **[Pyroscope Go client](https://github.com/grafana/pyroscope-go)** | Apache 2.0 | Continuously sends Go profiles to Pyroscope (⭐ 200+ · Since 2021) |
+| **[fgprof](https://github.com/felixge/fgprof)** | MIT | Combined on-CPU and off-CPU profiling (⭐ 3k · Since 2020) |
+| **[go-torch](https://github.com/uber-archive/go-torch)** | MIT | Flamegraphs from Go profiles; archived (⭐ 4.6k · Since 2015 · Archived) |
+| **[go tool trace](https://go.dev/blog/trace)** | Go license | Scheduler, goroutine, GC, runtime tracing (built-in) |
 
 > Go has the best native integration with Pyroscope and Parca — both understand the pprof format natively.
 
@@ -448,22 +448,22 @@ Parca's eBPF agent can profile JVM processes, but runtime-aware Java profiling t
 
 | Tool | License | Primary capability |
 | :--- | :--- | :--- |
-| **[perf](https://perf.wiki.kernel.org/)** | GPLv2 | CPU, hardware counters, call stacks, kernel profiling |
-| **[BCC](https://github.com/iovisor/bcc)** | Apache 2.0 | Collection of eBPF performance tools |
-| **[bpftrace](https://github.com/bpftrace/bpftrace)** | Apache 2.0 | High-level dynamic eBPF tracing |
-| **[Valgrind](https://valgrind.org/)** | GPLv2 | Memory errors, heap, CPU simulation |
-| **[Callgrind](https://valgrind.org/docs/manual/cl-manual.html)** | GPLv2 | Call-graph profiling |
-| **[gperftools](https://github.com/gperftools/gperftools)** | BSD | CPU and heap profiling |
-| **[Heaptrack](https://github.com/KDE/heaptrack)** | LGPL | Native heap-allocation profiling |
-| **[Hotspot](https://github.com/KDAB/hotspot)** | GPLv2 | GUI for Linux perf data |
-| **[FlameGraph](https://github.com/brendangregg/FlameGraph)** | CDDL | Flamegraph-generation scripts |
-| **[uftrace](https://github.com/namhyung/uftrace)** | GPLv2 | Function call tracing and profiling |
-| **[Tracy](https://github.com/wolfpld/tracy)** | BSD | Real-time frame and application profiler |
-| **[Orbit](https://github.com/google/orbit)** | BSD-2-Clause | Native application profiler |
-| **[coz](https://github.com/plasma-umass/coz)** | BSD | Causal profiling |
-| **[OProfile](https://oprofile.sourceforge.io/)** | GPL | System-wide statistical profiling |
-| **[Sysprof](https://gitlab.gnome.org/GNOME/sysprof)** | GPL | Linux system profiler |
-| **[Samply](https://github.com/mstange/samply)** | MIT / Apache 2.0 | Sampling profiler with Firefox Profiler UI |
+| **[perf](https://perf.wiki.kernel.org/)** | GPLv2 | CPU, hardware counters, call stacks, kernel profiling (Linux kernel, Since 2009) |
+| **[BCC](https://github.com/iovisor/bcc)** | Apache 2.0 | Collection of eBPF performance tools (⭐ 21k · Since 2015) |
+| **[bpftrace](https://github.com/bpftrace/bpftrace)** | Apache 2.0 | High-level dynamic eBPF tracing (⭐ 8.9k · Since 2018) |
+| **[Valgrind](https://valgrind.org/)** | GPLv2 | Memory errors, heap, CPU simulation (Since 2000) |
+| **[Callgrind](https://valgrind.org/docs/manual/cl-manual.html)** | GPLv2 | Call-graph profiling (part of Valgrind) |
+| **[gperftools](https://github.com/gperftools/gperftools)** | BSD | CPU and heap profiling (⭐ 8.5k · Since 2005) |
+| **[Heaptrack](https://github.com/KDE/heaptrack)** | LGPL | Native heap-allocation profiling (⭐ 1.5k · Since 2014) |
+| **[Hotspot](https://github.com/KDAB/hotspot)** | GPLv2 | GUI for Linux perf data (⭐ 4.2k · Since 2016) |
+| **[FlameGraph](https://github.com/brendangregg/FlameGraph)** | CDDL | Flamegraph-generation scripts (⭐ 17.5k · Since 2011) |
+| **[uftrace](https://github.com/namhyung/uftrace)** | GPLv2 | Function call tracing and profiling (⭐ 3.2k · Since 2014) |
+| **[Tracy](https://github.com/wolfpld/tracy)** | BSD | Real-time frame and application profiler (⭐ 10k · Since 2017) |
+| **[Orbit](https://github.com/google/orbit)** | BSD-2-Clause | Native application profiler (⭐ 4.1k · Since 2019) |
+| **[coz](https://github.com/plasma-umass/coz)** | BSD | Causal profiling (⭐ 4.1k · Since 2015) |
+| **[OProfile](https://oprofile.sourceforge.io/)** | GPL | System-wide statistical profiling (Since 2002) |
+| **[Sysprof](https://gitlab.gnome.org/GNOME/sysprof)** | GPL | Linux system profiler (Since 2004) |
+| **[Samply](https://github.com/mstange/samply)** | MIT / Apache 2.0 | Sampling profiler with Firefox Profiler UI (⭐ 2.5k · Since 2022) |
 
 ---
 

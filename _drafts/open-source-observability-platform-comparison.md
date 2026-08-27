@@ -79,19 +79,19 @@ We evaluate platforms that provide **all three observability signals** — logs,
 
 | Platform | Language | Storage Backend | License | GitHub |
 | :--- | :--- | :--- | :--- | :--- |
-| **[SigNoz](https://github.com/SigNoz/signoz)** | Go, TypeScript | ClickHouse | MIT (Enterprise: paid) | ~20k stars |
-| **[OpenObserve](https://github.com/openobserve/openobserve)** | Rust | Object storage (S3/MinIO/disk) | AGPL v3 | ~14k stars |
-| **[ClickStack](https://github.com/ClickHouse/ClickStack)** | TypeScript, Go | ClickHouse | Apache 2.0 | ~22k stars |
-| **[Parseable](https://github.com/parseablehq/parseable)** | Rust | Object storage (S3/MinIO/disk) — Parquet | AGPL v3 | ~4k stars |
-| **[OneUptime](https://github.com/OneUptime/oneuptime)** | TypeScript | PostgreSQL + ClickHouse | Apache 2.0 | ~5k stars |
-| **[Uptrace](https://github.com/uptrace/uptrace)** | Go | ClickHouse | AGPL v3 (BSL enterprise) | ~4k stars |
-| **[Coroot](https://github.com/coroot/coroot)** | Go | Prometheus + ClickHouse | Apache 2.0 | ~4k stars |
-| **[Grafana LGTM](https://github.com/grafana)** | Go | Loki / Mimir / Tempo (object storage) | AGPL v3 | ~75k stars |
-| **[Apache SkyWalking](https://github.com/apache/skywalking)** | Java | BanyanDB / Elasticsearch | Apache 2.0 | ~24k stars |
-| **[OpenSearch Observability](https://github.com/opensearch-project/OpenSearch)** | Java | OpenSearch + Data Prepper | Apache 2.0 | ~10k stars |
-| **[VictoriaMetrics stack](https://github.com/VictoriaMetrics/VictoriaMetrics)** | Go | VM / VL / VT (specialized DBs) | Apache 2.0 | ~13k stars |
-| **[Highlight.io](https://github.com/highlight/highlight)** | Go, TypeScript | ClickHouse + PostgreSQL | Apache 2.0 | ~8k stars |
-| **[Elastic Observability](https://github.com/elastic/elasticsearch)** | Java, TypeScript | Elasticsearch | AGPL v3 (core server since 8.16); Elastic License 2.0 (X-Pack: ML, advanced security, CCR); Beats/Agents: Apache 2.0 | ~70k stars |
+| **[SigNoz](https://github.com/SigNoz/signoz)** | Go, TypeScript | ClickHouse | MIT (Enterprise: paid) | ⭐ ~20k · Since 2021 |
+| **[OpenObserve](https://github.com/openobserve/openobserve)** | Rust | Object storage (S3/MinIO/disk) | AGPL v3 | ⭐ ~14k · Since 2023 |
+| **[ClickStack](https://github.com/ClickHouse/ClickStack)** | TypeScript, Go | ClickHouse | Apache 2.0 | ⭐ ~22k · Since 2023 |
+| **[Parseable](https://github.com/parseablehq/parseable)** | Rust | Object storage (S3/MinIO/disk) — Parquet | AGPL v3 | ⭐ ~4k · Since 2022 |
+| **[OneUptime](https://github.com/OneUptime/oneuptime)** | TypeScript | PostgreSQL + ClickHouse | Apache 2.0 | ⭐ ~5k · Since 2022 |
+| **[Uptrace](https://github.com/uptrace/uptrace)** | Go | ClickHouse | AGPL v3 (BSL enterprise) | ⭐ ~4k · Since 2021 |
+| **[Coroot](https://github.com/coroot/coroot)** | Go | Prometheus + ClickHouse | Apache 2.0 | ⭐ ~4k · Since 2022 |
+| **[Grafana LGTM](https://github.com/grafana)** | Go | Loki / Mimir / Tempo (object storage) | AGPL v3 | ⭐ ~75k · Since 2013 |
+| **[Apache SkyWalking](https://github.com/apache/skywalking)** | Java | BanyanDB / Elasticsearch | Apache 2.0 | ⭐ ~24k · Since 2015 |
+| **[OpenSearch Observability](https://github.com/opensearch-project/OpenSearch)** | Java | OpenSearch + Data Prepper | Apache 2.0 | ⭐ ~10k · Since 2021 |
+| **[VictoriaMetrics stack](https://github.com/VictoriaMetrics/VictoriaMetrics)** | Go | VM / VL / VT (specialized DBs) | Apache 2.0 | ⭐ ~17.6k · Since 2018 |
+| **[Highlight.io](https://github.com/highlight/highlight)** | Go, TypeScript | ClickHouse + PostgreSQL | Apache 2.0 | ⭐ ~8k · Since 2021 |
+| **[Elastic Observability](https://github.com/elastic/elasticsearch)** | Java, TypeScript | Elasticsearch | AGPL v3 (core server since 8.16); Elastic License 2.0 (X-Pack: ML, advanced security, CCR); Beats/Agents: Apache 2.0 | ⭐ ~71k · Since 2010 |
 
 > Star counts approximate as of mid-2026. Always check GitHub for current numbers.
 

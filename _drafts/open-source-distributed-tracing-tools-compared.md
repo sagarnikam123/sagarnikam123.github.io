@@ -105,11 +105,11 @@ These are the closest equivalents to each other — purpose-built distributed tr
 
 | Platform | License | Ingestion | Query/Search | Storage | UI | Positioning |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **[Jaeger v2](https://www.jaegertracing.io/docs/latest/)** | Apache 2.0 | OTLP, Jaeger, Zipkin, Kafka | Jaeger APIs, attribute search | OpenSearch, Elasticsearch, Cassandra, Badger, memory | Built-in | Complete tracing system, Apache licensed |
-| **[Grafana Tempo](https://grafana.com/docs/tempo/latest/)** | AGPLv3 | OTLP, Jaeger, Zipkin | TraceQL, trace ID | S3, GCS, Azure Blob, MinIO; filesystem for dev | Grafana | Object-storage-first, TraceQL power |
-| **[Zipkin](https://zipkin.io/)** | Apache 2.0 | Zipkin v1/v2; OTLP through Collector | Service, operation, tag, duration, trace ID | Cassandra, Elasticsearch/OpenSearch, memory | Built-in | Simplest possible deployment |
-| **[Hypertrace](https://github.com/hypertrace/hypertrace)** | Apache 2.0 | OpenTelemetry | Trace and service analytics | Multiple internal components | Built-in | Niche; limited maintenance |
-| **[Haystack](https://github.com/ExpediaDotCom/haystack)** | Apache 2.0 | Zipkin-compatible | Trace search and trends | Cassandra, Elasticsearch, Kafka | Built-in | Historical; not recommended |
+| **[Jaeger v2](https://github.com/jaegertracing/jaeger)** | Apache 2.0 | OTLP, Jaeger, Zipkin, Kafka | Jaeger APIs, attribute search | OpenSearch, Elasticsearch, Cassandra, Badger, memory | Built-in | Complete tracing system, Apache licensed (⭐ 21k · 👥 500+ · Since 2016 · **CNCF Graduated**) |
+| **[Grafana Tempo](https://github.com/grafana/tempo)** | AGPLv3 | OTLP, Jaeger, Zipkin | TraceQL, trace ID | S3, GCS, Azure Blob, MinIO; filesystem for dev | Grafana | Object-storage-first, TraceQL power (⭐ 4.2k · 👥 300+ · Since 2020) |
+| **[Zipkin](https://github.com/openzipkin/zipkin)** | Apache 2.0 | Zipkin v1/v2; OTLP through Collector | Service, operation, tag, duration, trace ID | Cassandra, Elasticsearch/OpenSearch, memory | Built-in | Simplest possible deployment (⭐ 17.2k · 👥 150+ · Since 2012) |
+| **[Hypertrace](https://github.com/hypertrace/hypertrace)** | Apache 2.0 | OpenTelemetry | Trace and service analytics | Multiple internal components | Built-in | Niche; limited maintenance (⭐ 500+ · Since 2020) |
+| **[Haystack](https://github.com/ExpediaDotCom/haystack)** | Apache 2.0 | Zipkin-compatible | Trace search and trends | Cassandra, Elasticsearch, Kafka | Built-in | Historical; not recommended (⭐ 350+ · Since 2017 · Archived) |
 
 </div>
 
@@ -287,17 +287,17 @@ These support traces but are not trace-only systems. They belong in an "all-in-o
 
 | Platform | License model | Other signals | Trace storage |
 | :--- | :--- | :--- | :--- |
-| **[Apache SkyWalking](https://skywalking.apache.org/)** | Apache 2.0 | Metrics, logs, profiles, topology | BanyanDB or Elasticsearch |
-| **[SigNoz](https://signoz.io/)** | Open-source core | Metrics, logs | ClickHouse |
-| **[VictoriaTraces](https://github.com/VictoriaMetrics/VictoriaTraces)** | Apache 2.0 (⭐ 460 · 👥 33) | Part of VictoriaMetrics stack (metrics via VM, logs via VL) | Custom local/object storage |
-| **[Uptrace](https://uptrace.dev/)** | Open-source / source-available (verify edition) | Metrics, logs | ClickHouse / PostgreSQL |
-| **[OpenObserve](https://openobserve.ai/)** | Open-source core | Logs, metrics, RUM | Object storage |
-| **[HyperDX / ClickStack](https://clickhouse.com/use-cases/observability)** | Open-source components | Logs, metrics, sessions | ClickHouse |
-| **[Coroot](https://coroot.com/)** | Apache 2.0 core | Metrics, logs, profiles | Multiple components |
-| **[DeepFlow](https://deepflow.io/)** | Apache 2.0 | Metrics, logs, flows, eBPF | ClickHouse |
-| **[Pinpoint](https://pinpoint-apm.github.io/pinpoint/)** | Apache 2.0 | APM metrics, topology | HBase / compatible |
-| **[OpenSearch Trace Analytics](https://opensearch.org/docs/latest/observing-your-data/trace/ta-dashboards/)** | Apache 2.0 | Logs, general search | OpenSearch |
-| **[OneUptime](https://oneuptime.com/)** | Apache 2.0 / community | Metrics, logs, incidents, profiles | Platform-dependent |
+| **[Apache SkyWalking](https://github.com/apache/skywalking)** | Apache 2.0 | Metrics, logs, profiles, topology | BanyanDB or Elasticsearch (⭐ 24k · Since 2015) |
+| **[SigNoz](https://github.com/SigNoz/signoz)** | MIT (core) | Metrics, logs | ClickHouse (⭐ 20k · Since 2021) |
+| **[VictoriaTraces](https://github.com/VictoriaMetrics/VictoriaMetrics)** | Apache 2.0 | Part of VictoriaMetrics stack (metrics via VM, logs via VL) | Custom local/object storage (⭐ 17.6k mono-repo · Since 2024 VT) |
+| **[Uptrace](https://github.com/uptrace/uptrace)** | AGPL v3 (community) | Metrics, logs | ClickHouse (⭐ 4k · Since 2021) |
+| **[OpenObserve](https://github.com/openobserve/openobserve)** | AGPL v3 | Logs, metrics, RUM | Object storage (⭐ 14k · Since 2023) |
+| **[ClickStack](https://github.com/ClickHouse/ClickStack)** | Apache 2.0 | Logs, metrics, sessions | ClickHouse (⭐ 22k · Since 2023) |
+| **[Coroot](https://github.com/coroot/coroot)** | Apache 2.0 | Metrics, logs, profiles | Multiple components (⭐ 4k · Since 2022) |
+| **[DeepFlow](https://github.com/deepflowio/deepflow)** | Apache 2.0 | Metrics, logs, flows, eBPF | ClickHouse (⭐ 3.5k · Since 2022) |
+| **[Pinpoint](https://github.com/pinpoint-apm/pinpoint)** | Apache 2.0 | APM metrics, topology | HBase / compatible (⭐ 13.6k · Since 2014) |
+| **[OpenSearch Trace Analytics](https://github.com/opensearch-project/OpenSearch)** | Apache 2.0 | Logs, general search | OpenSearch (⭐ 10k · Since 2021) |
+| **[OneUptime](https://github.com/OneUptime/oneuptime)** | Apache 2.0 | Metrics, logs, incidents, profiles | PostgreSQL + ClickHouse (⭐ 5k · Since 2022) |
 
 </div>
 
@@ -313,14 +313,14 @@ These receive, batch, enrich, filter, sample, and export traces. They do not nor
 
 | Tool | License | Trace functions |
 | :--- | :--- | :--- |
-| **[OpenTelemetry Collector](https://opentelemetry.io/docs/collector/)** | Apache 2.0 | Receive, process, sample, route, export |
-| **[OpenTelemetry Collector Contrib](https://github.com/open-telemetry/opentelemetry-collector-contrib)** | Apache 2.0 | Additional receivers, processors, exporters, connectors |
-| **[Grafana Alloy](https://grafana.com/oss/alloy-opentelemetry-collector/)** | Apache 2.0 | OTel-compatible collection and processing |
-| **[Jaeger v2 Collector](https://www.jaegertracing.io/docs/2.20/architecture/)** | Apache 2.0 | Trace-specific OTel Collector distribution |
-| **[Vector](https://vector.dev/)** | MPL 2.0 | Routes multiple telemetry signals including traces |
-| **[Fluent Bit](https://fluentbit.io/)** | Apache 2.0 | Supports OpenTelemetry ingestion and forwarding |
-| **[Apache NiFi](https://nifi.apache.org/)** | Apache 2.0 | Generic pipelines; can transport trace records |
-| **[OpenTelemetry eBPF Instrumentation](https://opentelemetry.io/docs/zero-code/obi/)** | Apache 2.0 / eBPF component licensing | Zero-code traces and metrics |
+| **[OpenTelemetry Collector](https://github.com/open-telemetry/opentelemetry-collector)** | Apache 2.0 | Receive, process, sample, route, export (⭐ 4.7k · Since 2019 · **CNCF Graduated**) |
+| **[OpenTelemetry Collector Contrib](https://github.com/open-telemetry/opentelemetry-collector-contrib)** | Apache 2.0 | Additional receivers, processors, exporters, connectors (⭐ 3.2k · Since 2019 · **CNCF**) |
+| **[Grafana Alloy](https://github.com/grafana/alloy)** | Apache 2.0 | OTel-compatible collection and processing (⭐ 1.5k · Since 2024) |
+| **[Jaeger v2 Collector](https://github.com/jaegertracing/jaeger)** | Apache 2.0 | Trace-specific OTel Collector distribution (⭐ 21k · **CNCF Graduated**) |
+| **[Vector](https://github.com/vectordotdev/vector)** | MPL 2.0 | Routes multiple telemetry signals including traces (⭐ 18.5k · Since 2019) |
+| **[Fluent Bit](https://github.com/fluent/fluent-bit)** | Apache 2.0 | Supports OpenTelemetry ingestion and forwarding (⭐ 6k · Since 2014 · **CNCF Incubating**) |
+| **[Apache NiFi](https://github.com/apache/nifi)** | Apache 2.0 | Generic pipelines; can transport trace records (⭐ 5k · Since 2014) |
+| **[OpenTelemetry eBPF Instrumentation](https://github.com/open-telemetry/opentelemetry-ebpf-profiler)** | Apache 2.0 / GPL (eBPF) | Zero-code traces and metrics (⭐ 800+ · Since 2023 · **CNCF**) |
 
 ### Important Collector Components
 
@@ -362,12 +362,12 @@ flowchart TD
 
 | Tool | License | Approach | Languages |
 | :--- | :--- | :--- | :--- |
-| **[OpenTelemetry Operator](https://github.com/open-telemetry/opentelemetry-operator)** | Apache 2.0 | Injects language agents in Kubernetes | Java, .NET, Node.js, Python, Go |
-| **[Odigos](https://github.com/odigos-io/odigos)** | Apache 2.0 | eBPF + language instrumentation | Java, Python, .NET, Node.js, Go |
-| **[OpenTelemetry eBPF Instrumentation (OBI)](https://opentelemetry.io/docs/zero-code/obi/)** | Apache 2.0 / GPL (eBPF) | Kernel-level zero-code instrumentation | Java, .NET, Go, Python, Ruby, Node.js, native |
-| **[Grafana Beyla](https://github.com/grafana/beyla)** | Apache 2.0 | eBPF | Being superseded/evolved through OTel eBPF Instrumentation |
-| **[Pixie](https://px.dev/)** | Apache 2.0 | eBPF-based Kubernetes visibility | Language-independent protocols |
-| **[Cilium Hubble](https://github.com/cilium/hubble)** | Apache 2.0 | eBPF network-flow visibility | Network-level (not full application tracing) |
+| **[OpenTelemetry Operator](https://github.com/open-telemetry/opentelemetry-operator)** | Apache 2.0 | Injects language agents in Kubernetes | Java, .NET, Node.js, Python, Go (⭐ 1.2k · Since 2020 · **CNCF**) |
+| **[Odigos](https://github.com/odigos-io/odigos)** | Apache 2.0 | eBPF + language instrumentation | Java, Python, .NET, Node.js, Go (⭐ 3.4k · Since 2022) |
+| **[OpenTelemetry eBPF Instrumentation (OBI)](https://github.com/open-telemetry/opentelemetry-ebpf-profiler)** | Apache 2.0 / GPL (eBPF) | Kernel-level zero-code instrumentation | Java, .NET, Go, Python, Ruby, Node.js, native (Since 2023 · **CNCF**) |
+| **[Grafana Beyla](https://github.com/grafana/beyla)** | Apache 2.0 | eBPF | Being superseded/evolved through OTel eBPF Instrumentation (⭐ 1.5k · Since 2023) |
+| **[Pixie](https://github.com/pixie-io/pixie)** | Apache 2.0 | eBPF-based Kubernetes visibility | Language-independent protocols (⭐ 5.6k · Since 2020 · **CNCF Sandbox**) |
+| **[Cilium Hubble](https://github.com/cilium/hubble)** | Apache 2.0 | eBPF network-flow visibility | Network-level (not full application tracing) (⭐ 3.6k · Since 2019 · **CNCF**) |
 
 </div>
 
