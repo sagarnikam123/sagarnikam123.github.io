@@ -3,7 +3,7 @@ title: "25 Ways to Reduce Token Usage in AI Coding Agents (Part 1)"
 description: "Cut AI coding agent costs by 50–90% across Claude Code, Gemini CLI, Cursor, and Codex with 25 practical token reduction and context engineering techniques."
 author: sagarnikam123
 date: 2026-07-04 10:00:00 +0530
-categories: [ai, developer-tools]
+categories: [AI, Developer-Tools]
 tags: [ai-agents, context-engineering, token-optimization, prompt-caching, cost-optimization]
 mermaid: true
 image:
@@ -17,8 +17,8 @@ Across all agent frameworks, the biggest savings do **not** come from shaving fi
 
 This article is **Part 1** of our 3-part guide to agent efficiency:
 * **Part 1 (This Guide):** *The Techniques* — 25 practical, tool-agnostic methods to eliminate context bloat.
-* **[Part 2: The Tools](/posts/reduce-ai-token-usage-part2-tools/)** — A standardized catalog of open-source tools (RTK, Headroom, LeanCTX, Graphify, Serena, etc.).
-* **[Part 3: Stacks & Benchmarks](/posts/reduce-ai-token-usage-part3-stacks-benchmarks/)** — Tested architectures, agent configuration matrices (Claude Code, Gemini CLI, Cursor, Kiro, Codex, Cline, Antigravity), and empirical benchmarks.
+* **[Part 2: The Tools]({% post_url reduce-ai-token-usage-part2-tools %})** — A standardized catalog of open-source tools (RTK, Headroom, LeanCTX, Graphify, Serena, etc.).
+* **[Part 3: Stacks & Benchmarks]({% post_url reduce-ai-token-usage-part3-stacks-benchmarks %})** — Tested architectures, agent configuration matrices (Claude Code, Gemini CLI, Cursor, Kiro, Codex, Cline, Antigravity), and empirical benchmarks.
 
 ---
 
@@ -265,6 +265,8 @@ Discard:
 
 > **Prompt Caching Note:** Compaction rewrites the conversation prefix, which temporarily creates a cache miss. Compact at natural task milestones, not after every turn.
 
+> **Advanced: Autonomous Context Compression.** Rather than compacting at a fixed token threshold (which can interrupt the agent mid-subtask and corrupt in-flight reasoning), emerging approaches let the agent *itself* decide when to compress — typically between tasks or before consuming large inputs. This avoids the failure mode where reactive-at-limit compaction breaks reasoning continuity. Tools like [context-mode](https://github.com/abstracted-ai/context-mode) implement this by sandboxing bulky data outside the context window and retrieving only relevant fragments on demand.
+
 ---
 
 ## 8. Model Routing & Workload Tiering
@@ -333,6 +335,8 @@ To maintain high cache hit rates:
 2. **Order Static Blocks First:** Place system instructions, MCP schemas, and project specs before the dynamic conversation history.
 3. **Avoid Mid-Session Config Changes:** Reconnecting MCP servers or switching model flags mid-chat invalidates the cache prefix.
 
+> **Advanced: Prefix-Cache as a Loop Invariant.** The [DeepSeek-Reasonix harness](https://github.com/nicobailon/deepseek-reasonix) demonstrates structuring the entire agent loop around cache stability: an immutable prefix (system prompt + tool schemas), an append-only log (conversation turns), and a volatile scratch area (current tool output). This partitioning achieves 99.8%+ cache-hit rates, reducing long-session costs by ~5×. The pattern applies to any provider with prefix caching — structure your context as `[static | append-only | volatile]` rather than randomly interleaving content.
+
 ---
 
 ## 13. Tool & Terminal Output Throttling
@@ -349,6 +353,8 @@ When running shell commands:
 - If a command produces >100 lines, re-run with filtering flags.
 ```
 
+> **Content Negotiation for Agents:** If your agent fetches web documentation or internal pages, serve `text/markdown` when agents request it via `Accept: text/markdown`, while preserving the same human-facing HTML at the same URL. This removes HTML boilerplate before it ever enters the context window. [Vercel's implementation guide](https://vercel.com/blog/making-agent-friendly-pages-with-content-negotiation) demonstrates this pattern — agents get cleaner, cheaper inputs without custom scrapers.
+
 ---
 
 ## 14. Local Preprocessing (jq, awk, ripgrep)
@@ -361,6 +367,8 @@ aws ec2 describe-instances | jq '.Reservations[].Instances[] | {Id: .InstanceId,
 ```
 
 `jq`, `awk`, and `ripgrep` shrink multi-megabyte payloads down to 5 KB of clean JSON before they reach the model.
+
+> **"Think in Code" Paradigm:** Instead of the agent making 10 sequential tool calls (each adding output to context), have it write a single script that performs all 10 operations and returns only the final result. One code-execution call replaces 10 file-read calls, collapsing intermediate outputs that would otherwise bloat the context window. Tools like [context-mode](https://github.com/abstracted-ai/context-mode) formalize this pattern at the MCP layer.
 
 ---
 
@@ -475,7 +483,7 @@ This prevents the agent from generating speculative code edits while it is still
 
 ## 23. Local Model Offloading (Ollama / LM Studio)
 
-Use local models (Qwen 2.5 Coder, Llama 3, DeepSeek) for routine offline workloads:
+Use local models (Qwen Coder, Llama, DeepSeek — latest available) for routine offline workloads:
 * Generating vector embeddings for local codebase search.
 * Summarizing test run logs.
 * Formatting git commit messages and PR descriptions.
@@ -611,6 +619,10 @@ Use `/usage` in Claude Code, `/stats` in Gemini CLI, or `npx ccusage` for detail
 
 Now that you have the complete playbook of techniques:
 
-**Continue to [Part 2: Open-Source Tools to Reduce Token Usage in AI Coding Agents](/posts/reduce-ai-token-usage-part2-tools/)** — A detailed catalog and breakdown of top tools (RTK, Headroom, LeanCTX, Graphify, Serena, Ponytail, Caveman, and more).
+**Continue to [Part 2: Open-Source Tools to Reduce Token Usage in AI Coding Agents]({% post_url reduce-ai-token-usage-part2-tools %})** — A detailed catalog and breakdown of top tools (RTK, Headroom, LeanCTX, Graphify, Serena, Ponytail, Caveman, and more).
 
-**Jump to [Part 3: Building a Token-Efficient AI Coding Agent Stack](/posts/reduce-ai-token-usage-part3-stacks-benchmarks/)** — Tested architectures, agent-by-agent configuration matrices (Claude Code, Gemini CLI, Cursor, Kiro, Codex, Cline, Antigravity), and real-world benchmark data.
+**Jump to [Part 3: Building a Token-Efficient AI Coding Agent Stack]({% post_url reduce-ai-token-usage-part3-stacks-benchmarks %})** — Tested architectures, agent-by-agent configuration matrices (Claude Code, Gemini CLI, Cursor, Kiro, Codex, Cline, Antigravity), and real-world benchmark data.
+
+---
+
+*Last verified: July 2026. Agent capabilities and pricing change rapidly — always check official provider documentation.*
