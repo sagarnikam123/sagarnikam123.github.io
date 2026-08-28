@@ -1,9 +1,9 @@
 ---
-title: "12 Open-Source Tools to Reduce AI Token Usage (Part 2)"
-description: "Discover top open-source tools to reduce AI coding agent token usage by 50–95%. Compare RTK, Headroom, LeanCTX, Graphify, Serena, Caveman, and Ponytail."
+title: "20 Open-Source Tools to Reduce AI Token Usage (Part 2)"
+description: "The best 20 open-source tools to reduce token usage in AI coding agents by 50-95%. Compare RTK, Headroom, LeanCTX, Graphify, Graft, CodeGraph, Serena, Caveman, and more — with install commands, compatibility rules, and per-tool savings data."
 author: sagarnikam123
 date: 2026-07-04 12:00:00 +0530
-categories: [ai, developer-tools]
+categories: [AI, Developer-Tools]
 tags: [ai-agents, token-optimization, open-source, mcp, developer-tools]
 mermaid: true
 image:
@@ -11,7 +11,7 @@ image:
   alt: Visual catalog of open-source token reduction tools for AI agents
 ---
 
-In **[Part 1: The Techniques](/posts/reduce-ai-token-usage-part1-techniques/)**, we explored the architectural mechanisms of agent token bloat and the 25 core optimization principles. 
+In **[Part 1: The Techniques]({% post_url reduce-ai-token-usage-part1-techniques %})**, we explored the architectural mechanisms of agent token bloat and the 25 core optimization principles. 
 
 In this article (**Part 2**), we move from principles to software. If you want to **reduce token usage** with minimal effort, these are the open-source tools that do it for you. We catalog and evaluate the **leading open-source tools, MCP middleware, CLI proxies, and context compressors** engineered specifically to cut token consumption across every layer of the agent stack.
 
@@ -21,9 +21,9 @@ In this article (**Part 2**), we move from principles to software. If you want t
 
 ## Series Navigation
 
-* **[Part 1: The Techniques](/posts/reduce-ai-token-usage-part1-techniques/)** — What causes token bloat and 25 methods to prevent it.
+* **[Part 1: The Techniques]({% post_url reduce-ai-token-usage-part1-techniques %})** — What causes token bloat and 25 methods to prevent it.
 * **Part 2 (This Guide):** *The Tools* — Standardized catalog and layer breakdown of token-saving software.
-* **[Part 3: Stacks & Benchmarks](/posts/reduce-ai-token-usage-part3-stacks-benchmarks/)** — Tested combinations, compatibility matrix, and empirical benchmark results.
+* **[Part 3: Stacks & Benchmarks]({% post_url reduce-ai-token-usage-part3-stacks-benchmarks %})** — Tested combinations, compatibility matrix, and empirical benchmark results.
 
 ---
 
@@ -43,6 +43,14 @@ In this article (**Part 2**), we move from principles to software. If you want t
 - [10. Ponytail — Minimal Code Generation Rules](#10-ponytail--minimal-code-generation-rules)
 - [11. TokenSave — Native Semantic Code Graph](#11-tokensave--native-semantic-code-graph)
 - [12. Repomix — Offline Context Packaging for Web LLMs](#12-repomix--offline-context-packaging-for-web-llms)
+- [13. Graft — Plain-English Codebase Graph](#13-graft--plain-english-codebase-graph)
+- [14. CodeGraph — SQLite-Native Code Knowledge Graph](#14-codegraph--sqlite-native-code-knowledge-graph)
+- [15. Token Savior — Pointer-Based Code Navigation](#15-token-savior--pointer-based-code-navigation)
+- [16. context-mode — Bulky Output Sandboxing](#16-context-mode--bulky-output-sandboxing)
+- [17. semble — Natural-Language Code Search](#17-semble--natural-language-code-search)
+- [18. Trellis — Progressive Spec System](#18-trellis--progressive-spec-system)
+- [19. Context7 — Live Documentation Injection](#19-context7--live-documentation-injection)
+- [20. dirac — Surgical Context Curation](#20-dirac--surgical-context-curation)
 - [Usage & Cost Monitoring Utilities](#usage--cost-monitoring-utilities)
 - [Conflicts & Overlaps: What Stacks Safely](#conflicts--overlaps-what-stacks-safely)
 - [Frequently Asked Questions](#frequently-asked-questions)
@@ -106,6 +114,14 @@ graph TD
 | **[Ponytail](#10-ponytail--minimal-code-generation-rules)** | Code Rules | Forces stdlib/native reuse over boilerplate | ~20–30% (code) | Prompt Rule / Plugin | Claude, Cursor, Kiro, Gemini, Cline | MIT |
 | **[TokenSave](#11-tokensave--native-semantic-code-graph)** | Code Graph | Pre-indexed semantic graph for code queries | Varies | Rust MCP | Any MCP client | MIT |
 | **[Repomix](#12-repomix--offline-context-packaging-for-web-llms)** | Offline Bundling | Packs codebase into token-counted XML/Markdown | N/A (offline) | Node.js CLI | Standalone (ChatGPT, Claude Web) | MIT |
+| **[Graft](#13-graft--plain-english-codebase-graph)** | Knowledge Graph | Linked markdown + symbol wiring graph served via MCP | 66% SWE-bench (vs 54% cold) | MCP / CLI | Claude, Codex, Cursor, Gemini | MIT |
+| **[CodeGraph](#14-codegraph--sqlite-native-code-knowledge-graph)** | Knowledge Graph | Tree-sitter AST → SQLite symbol/call/import graph | 58% fewer tool calls | TypeScript MCP | Claude, Codex, Cursor, Kiro | MIT |
+| **[Token Savior](#15-token-savior--pointer-based-code-navigation)** | Code Navigation | Indexes by symbol so agents navigate by pointer | 77% active token cut | MCP Server | Any MCP client | MIT |
+| **[context-mode](#16-context-mode--bulky-output-sandboxing)** | Context Proxy | Sandboxes bulky tool output outside LLM, retrieves via BM25 | Prevents blowup | MCP Server | Any MCP client | MIT |
+| **[semble](#17-semble--natural-language-code-search)** | Code Search | Natural-language code retrieval replacing grep+read | ~98% token cut | MCP / CLI | Any MCP client | MIT |
+| **[Trellis](#18-trellis--progressive-spec-system)** | Context Delivery | Progressive specs — loads only relevant standards per step | Replaces bloated CLAUDE.md | Config Files | Claude, Cursor, Kiro, Codex | MIT |
+| **[Context7](#19-context7--live-documentation-injection)** | Context Delivery | Injects up-to-date, version-specific library docs | Eliminates hallucinated APIs | MCP / CLI | Any MCP client | Apache 2.0 |
+| **[dirac](#20-dirac--surgical-context-curation)** | Context / Edit | Hash-anchored edits + parallel ops + AST manipulation | 50–80% cost cut | Agent Harness | Claude, Codex, Cursor | MIT |
 
 </div>
 
@@ -415,6 +431,186 @@ repomix --max-tokens 100000 --output context.md
 
 ---
 
+## 13. Graft — Plain-English Codebase Graph
+
+* **Repository:** [github.com/NanoNets/Graft](https://github.com/NanoNets/Graft)
+* **What Problem It Solves:** Agents rediscover repository structure every session because they lack a persistent, human-readable map of how code connects.
+* **How It Works:** Builds a local, regenerable graph of plain-English system explanations and code relationships using tree-sitter, then serves it inside Claude Code, Cursor, Codex, and Gemini via MCP and statusline hooks. Unlike raw AST graphs (Graphify), Graft produces *prose explanations* of what each component does and how it relates to others.
+
+```bash
+# Install:
+npm install -g @nanonets/graft
+
+# Build graph for your project:
+graft index .
+
+# Query via MCP (auto-registered) or CLI:
+graft query "how does auth connect to billing"
+```
+
+* **Claimed / Measured Savings:** Achieved 66% on SWE-bench Verified vs 54% with cold Claude Code — proving that persistent structural context directly improves task success.
+* **Limitation:** Graph regeneration needed after major refactors. Prose descriptions may become stale if not auto-rebuilt.
+* **License:** MIT
+* **Best Paired With:** Serena (Graft provides macro prose context; Serena provides micro symbol lookups).
+
+---
+
+## 14. CodeGraph — SQLite-Native Code Knowledge Graph
+
+* **Repository:** [github.com/nicobailon/codegraph](https://github.com/nicobailon/codegraph)
+* **What Problem It Solves:** Agents burn tokens on grep-and-read exploration cycles when they could query a pre-indexed structural database.
+* **How It Works:** Tree-sitter parses 21+ languages into a local SQLite symbol/call/import graph with FTS5 full-text search and OS-native file watchers for incremental sync. No embeddings, no vector store, no API keys — everything stays local.
+
+```bash
+# Install:
+npm install -g codegraph
+
+# Index your repository:
+codegraph index .
+
+# Query symbols, callers, imports:
+codegraph query "callers of authenticate"
+codegraph query "imports of billing module"
+```
+
+* **Claimed / Measured Savings:** 58% fewer tool calls and 47% fewer tokens in vendor benchmarks across 7 codebases. Independent review measured 70% median tool-call reduction.
+* **Limitation:** 47K+ stars but still pre-1.0 (single maintainer). Symbol graphs fail on fuzzy semantic queries — pair with natural-language search (semble) for best coverage.
+* **License:** MIT
+* **Best Paired With:** semble (for natural-language queries that symbols can't answer).
+
+---
+
+## 15. Token Savior — Pointer-Based Code Navigation
+
+* **Repository:** [github.com/nicobailon/token-savior](https://github.com/nicobailon/token-savior)
+* **What Problem It Solves:** Agents read entire files when they only need one function. Token Savior indexes codebases by symbol so agents navigate by pointer (function/class reference) instead of reading raw file content.
+* **How It Works:** MCP server that exposes navigation tools — jump to definition, find callers, get function body — so agents request exactly the 20 lines they need instead of pulling 500-line files into context.
+
+```json
+{
+  "mcpServers": {
+    "token-savior": {
+      "command": "npx",
+      "args": ["-y", "token-savior-mcp"]
+    }
+  }
+}
+```
+
+* **Claimed / Measured Savings:** 77% active token cut, 76% wall-time reduction.
+* **Limitation:** Symbol-based navigation only — doesn't help with understanding architecture or relationships between modules (pair with Graft/Graphify for that).
+* **License:** MIT
+
+---
+
+## 16. context-mode — Bulky Output Sandboxing
+
+* **Repository:** [github.com/abstracted-ai/context-mode](https://github.com/abstracted-ai/context-mode)
+* **What Problem It Solves:** MCP tool outputs (Playwright snapshots, GitHub issue bodies, log dumps) enter the context window in full, bloating subsequent turns.
+* **How It Works:** Intercepts raw tool output before it enters the context window, sandboxing bulky data outside the LLM. When the agent needs specific information, it retrieves relevant fragments via BM25 keyword matching. Implements the "think in code" paradigm — replacing ten file-read tool calls with one script execution.
+
+```json
+{
+  "mcpServers": {
+    "context-mode": {
+      "command": "npx",
+      "args": ["-y", "context-mode-mcp"]
+    }
+  }
+}
+```
+
+* **Claimed / Measured Savings:** Prevents context blowup from Playwright snapshots, GitHub API responses, and verbose logs that would otherwise consume 10–50K tokens per tool call.
+* **Limitation:** Adds an indirection layer — BM25 retrieval may miss relevant fragments if keywords don't match. Best for known-noisy tool outputs.
+* **License:** MIT
+
+---
+
+## 17. semble — Natural-Language Code Search
+
+* **Repository:** [github.com/MinishLab/semble](https://github.com/MinishLab/semble)
+* **What Problem It Solves:** `grep` + `read` cycles burn tokens when the agent doesn't know the exact symbol name. semble lets agents search code by meaning ("find the rate limiting middleware") instead of exact pattern matching.
+* **How It Works:** Lightweight semantic code search that runs on CPU with zero external dependencies. Ships as an MCP server and CLI. Achieves 99% of a full transformer-based retriever's accuracy at a fraction of the compute.
+
+```bash
+# Install:
+pip install semble
+
+# Index your codebase:
+semble index .
+
+# Search by meaning:
+semble search "authentication token validation"
+```
+
+* **Claimed / Measured Savings:** ~98% token reduction compared to grep+read cycles (returns only the relevant code block, not entire files).
+* **Limitation:** CPU-only inference adds ~100ms per query. Best for medium codebases (under 500K lines); very large monorepos may need chunking.
+* **License:** MIT
+* **Best Paired With:** CodeGraph (semble handles fuzzy/semantic queries; CodeGraph handles structural/symbol queries).
+
+---
+
+## 18. Trellis — Progressive Spec System
+
+* **Repository:** [github.com/trellis-ai/trellis](https://github.com/trellis-ai/trellis)
+* **What Problem It Solves:** Monolithic `CLAUDE.md` / `AGENTS.md` files grow to 800+ lines and are injected on every turn, wasting thousands of tokens on irrelevant rules.
+* **How It Works:** Replaces the single instruction file with a progressive spec system — agents load only the standards, task PRDs, and session journals relevant to the current step. A cross-platform adapter layer translates the same configuration into Claude Code's `CLAUDE.md`, Cursor's rules, Codex's `AGENTS.md`, and more.
+
+```bash
+# Install:
+npm install -g trellis-ctx
+
+# Initialize in your project:
+trellis init
+
+# Generates .trellis/ with modular specs:
+# .trellis/standards/typescript.md
+# .trellis/tasks/current-sprint.md
+# .trellis/sessions/journal.md
+```
+
+* **Claimed / Measured Savings:** Reduces system prompt from 800+ lines to only the 50–100 lines relevant per task step.
+* **Limitation:** Requires upfront effort to decompose existing monolithic instruction files into modular specs. Cross-platform adapters may lag behind agent updates.
+* **License:** MIT
+
+---
+
+## 19. Context7 — Live Documentation Injection
+
+* **Repository:** [github.com/upstash/context7](https://github.com/upstash/context7)
+* **What Problem It Solves:** Agents hallucinate APIs from stale training data. When you ask for Next.js 15 code, the agent generates Next.js 13 patterns because that's what it was trained on.
+* **How It Works:** MCP server and CLI that injects up-to-date, version-specific library documentation directly into agent context at query time. Fetches docs from official sources and serves only the relevant sections.
+
+```json
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": ["-y", "@upstash/context7-mcp@latest"]
+    }
+  }
+}
+```
+
+* **Claimed / Measured Savings:** Eliminates hallucinated APIs and outdated code examples. Reduces retry loops caused by generating code against wrong API versions.
+* **Limitation:** Depends on documentation being available and parseable for the library in question. Less useful for internal/proprietary libraries.
+* **License:** Apache 2.0
+
+---
+
+## 20. dirac — Surgical Context Curation
+
+* **Repository:** [github.com/dirac-ai/dirac](https://github.com/dirac-ai/dirac)
+* **What Problem It Solves:** Standard file-read + string-replace editing wastes tokens by reading entire files and sending full contents back. dirac optimizes for precise, minimal context delivery.
+* **How It Works:** Combines hash-anchored edits (edit by line reference without re-reading the file), massively parallel operations, and AST-level manipulation to minimize both reads and writes. The agent references code by stable anchors rather than re-fetching content.
+
+* **Claimed / Measured Savings:** 50–80% cost reduction while improving code quality (fewer hallucinations from cleaner context).
+* **Limitation:** Requires learning dirac's edit model (hash-anchored references). Not a drop-in replacement for standard file tools in every agent.
+* **License:** MIT
+* **Best Paired With:** Graphify or Graft for architectural awareness; dirac handles the editing efficiency layer.
+
+---
+
 ## Usage & Cost Monitoring Utilities
 
 * **`ccusage`:** Real-time token and dollar tracking specifically for Claude Code (`npx ccusage`).
@@ -432,9 +628,13 @@ repomix --max-tokens 100000 --output context.md
 | :--- | :--- | :--- | :--- |
 | **Output Prose** | Caveman, Ponytail | ✅ **Stack with everything** | Pure prompt steering; zero runtime overhead. |
 | **Shell Interception** | RTK vs LeanCTX Shell | ⚠️ **Pick ONE** | Both intercept terminal output; running both causes double-rewrites. |
-| **Context Proxy & Cache** | Headroom vs LeanCTX Proxy vs Token Optimizer MCP | ⚠️ **Pick ONE** | Running multiple proxies causes nested compression and latency overhead. |
-| **Code Intelligence** | Serena + Graphify | ✅ **Perfect Pair** | Graphify handles macro architecture; Serena resolves micro symbols via LSP. |
-| **Code RAG** | Code Context vs Serena | ⚠️ **Pick ONE** | Code Context uses vector chunks; Serena uses exact LSP symbols. |
+| **Context Proxy & Cache** | Headroom vs LeanCTX Proxy vs Token Optimizer MCP vs context-mode | ⚠️ **Pick ONE** | Running multiple proxies causes nested compression and latency overhead. |
+| **Code Intelligence (Graph)** | Graphify vs Graft vs CodeGraph | ⚠️ **Pick ONE** | All build AST/symbol graphs — overlapping functionality. Graft adds prose explanations; CodeGraph adds SQLite; Graphify adds community detection. |
+| **Code Intelligence (LSP)** | Serena + Token Savior | ✅ **Complementary** | Serena resolves symbols via LSP; Token Savior provides pointer-based navigation. |
+| **Code Search** | semble vs Code Context | ⚠️ **Pick ONE** | Both provide semantic code search; semble is CPU-only/lightweight, Code Context uses vector stores. |
+| **Context Delivery** | Trellis vs monolithic AGENTS.md | ⚠️ **Pick ONE approach** | Trellis replaces monolithic instruction files with progressive specs. |
+| **Documentation** | Context7 | ✅ **Stacks with everything** | Fills a unique gap — live library docs. No conflicts. |
+| **Editing** | dirac vs standard file tools | ⚠️ **Pick ONE** | dirac replaces native read/edit; running both adds confusion. |
 | **Claude-Specific Hooks** | Claude Token Optimizer | ✅ **Pairs with RTK/Serena** | Adds repeated-read blocking natively in Claude Code. |
 
 </div>
@@ -524,4 +724,8 @@ Use `rtk gain` (RTK savings), `headroom perf` (proxy compression stats), `/usage
 
 Now that you know every tool in the ecosystem and their compatibility rules:
 
-**Proceed to [Part 3: Building a Token-Efficient AI Coding Agent Stack](/posts/reduce-ai-token-usage-part3-stacks-benchmarks/)** — Dive into complete reference architectures (Option A Minimal, Option B Balanced, Option C Max Context), agent setup matrices, and empirical benchmark data.
+**Proceed to [Part 3: Building a Token-Efficient AI Coding Agent Stack]({% post_url reduce-ai-token-usage-part3-stacks-benchmarks %})** — Dive into complete reference architectures (Option A Minimal, Option B Balanced, Option C Max Context), agent setup matrices, and empirical benchmark data.
+
+---
+
+*Last verified: July 2026. Tool versions and install commands confirmed against latest releases.*
