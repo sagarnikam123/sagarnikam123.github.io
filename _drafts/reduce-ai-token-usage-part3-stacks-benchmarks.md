@@ -21,8 +21,8 @@ Now, in **Part 3**, we answer the critical implementation question: how do you a
 
 ## Series Navigation
 
-* **[Part 1: The Techniques](/posts/reduce-ai-token-usage-part1-techniques/)** — Understanding agent token bloat and the 25 core reduction principles.
-* **[Part 2: The Tools](/posts/reduce-ai-token-usage-part2-tools/)** — Full catalog, installation commands, and scopes for 12 open-source tools.
+* **[Part 1: The Techniques](reduce-ai-token-usage-part1-techniques.html)** — Understanding agent token bloat and the 25 core reduction principles.
+* **[Part 2: The Tools](reduce-ai-token-usage-part2-tools.html)** — Full catalog, installation commands, and scopes for 20 open-source tools.
 * **Part 3 (This Guide):** *Stacks & Benchmarks* — Reference architectures, agent-by-agent setup matrices, and empirical benchmark data.
 
 ---
@@ -532,6 +532,6 @@ Token bloat is not an unavoidable cost of using AI coding agents—it is an arch
 
 ## Series Recap
 
-* **[Part 1: The Techniques](/posts/reduce-ai-token-usage-part1-techniques/)** — The 25 core token optimization techniques and the universal `AGENTS.md` blueprint.
-* **[Part 2: The Tools](/posts/reduce-ai-token-usage-part2-tools/)** — Comprehensive catalog and install guide for 12 open-source tools.
+* **[Part 1: The Techniques](reduce-ai-token-usage-part1-techniques.html)** — The 25 core token optimization techniques and the universal `AGENTS.md` blueprint.
+* **[Part 2: The Tools](reduce-ai-token-usage-part2-tools.html)** — Comprehensive catalog and install guide for 20 open-source tools.
 * **Part 3 (This Guide):** *Stacks & Benchmarks* — Reference architectures, agent-by-agent setup matrices, and empirical benchmark data.
