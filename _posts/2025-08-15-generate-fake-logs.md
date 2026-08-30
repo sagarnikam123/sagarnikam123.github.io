@@ -209,17 +209,26 @@ Choosing the right **log generation tool** depends on your specific testing requ
 
 **Features:**
 - **Multiple Formats**: JSON, logfmt, Apache (common/combined/error), BSD syslog (RFC3164), Syslog (RFC5424)
+- **Realistic Data**: Optional [faker](https://pypi.org/project/Faker/)-powered enrichment (realistic IPs, HTTP methods/paths, user-agents, hostnames, usernames, companies) auto-enabled when installed, with a zero-dependency fallback so the instant fast path always works
 - **Smart Tracking**: trace_id with PID/Container ID or incremental integers for multi-instance tracking
 - **Flexible Output**: stdout, file, or both simultaneously
+- **Bounded Generation**: Generate an exact number of lines (`--count`) or up to a byte size (`--max-bytes`) then exit — ideal for reproducible fixtures
+- **Gzip Output**: Write compressed logs directly (`--compress` or a `.gz` filename)
+- **File Splitting**: Rotate output into multiple files by line count or bytes (`--split-by`) for log-rotation testing
+- **Fake Time Stepping**: Spread timestamps across a synthetic time range instantly (`--time-step`) without real waiting
 - **Smart File Handling**: Auto-creates directories and default filename
 - **Container-Aware**: Uses container/pod identifiers in containerized environments
 - **Field Control**: Optional timestamp, log level, length, and trace_id fields
+- **Short Flags**: Common options have short forms (`-f`, `-o`, `-n`, `-b`, `-w`, `-p`, `-s`)
 
 **Python Script Usage:**
 ```bash
 # Clone repository
 git clone https://github.com/sagarnikam123/fuzzy-train
 cd fuzzy-train
+
+# Optional: install faker for realistic enriched data (falls back gracefully if skipped)
+pip install -r requirements.txt
 
 # Default JSON logs (90-100 chars, 1 line/sec)
 python3 fuzzy-train.py
@@ -247,7 +256,27 @@ python3 fuzzy-train.py \
 
 # Output to both stdout and file
 python3 fuzzy-train.py --output stdout --file fuzzy-train.log
+
+# Bounded: exactly 1000 lines then exit (writes to default fuzzy-train.log; high rate so it finishes fast)
+python3 fuzzy-train.py --count 1000 --lines-per-second 1000 --output file
+
+# Bounded: generate ~1MB then exit (default fuzzy-train.log)
+python3 fuzzy-train.py --max-bytes 1048576 --lines-per-second 1000 --output file
+
+# Gzip-compressed output (a .gz filename auto-enables compression)
+python3 fuzzy-train.py --count 500 --lines-per-second 1000 --file logs.gz
+
+# Split a 1000-line run into 200-line files (app.log, app1.log, ...)
+python3 fuzzy-train.py --count 1000 --split-by 200 --lines-per-second 1000 --file app.log
+
+# Fake time stepping: 100 logs with timestamps 1 minute apart, generated instantly
+python3 fuzzy-train.py --count 100 --time-step 1m --lines-per-second 1000 --time-zone UTC
+
+# Short flags: -f (format) -n (count) -o (output)
+python3 fuzzy-train.py -f logfmt -n 100 -o stdout
 ```
+
+> **Realistic data:** When the [`faker`](https://pypi.org/project/Faker/) package is installed (`pip install -r requirements.txt`), logs are automatically enriched with realistic contextual data across all formats. Docker/Kubernetes images ship with faker included. Without it, fuzzy-train falls back to its built-in generator, so the zero-dependency fast path is unchanged.
 
 **Docker Usage:**
 ```bash
@@ -265,7 +294,7 @@ docker run --rm -v "$(pwd)":/logs sagarnikam123/fuzzy-train:latest \
     --max-log-length 200 \
     --lines-per-second 2 \
     --time-zone UTC \
-    --log-format logfmt \
+    --log-format "apache combined" \
     --output file \
     --file /logs/fuzzy-train.log
 
@@ -314,22 +343,23 @@ graph LR
         A1[Multi-format Support<br/>JSON, Apache, Syslog, Logfmt]
         A2[Docker & K8s Ready<br/>Container-native]
         A3[Smart Tracking<br/>trace_id, PID, Container ID]
-        A4[Flexible Output<br/>File, stdout, or both]
+        A4[Flexible Output<br/>File, stdout, gzip, split]
         A5[Field Control<br/>Optional metadata]
+        A6[Bounded + Realistic<br/>count/bytes, faker data]
     end
 
     subgraph "flog"
         B1[Apache Focused<br/>Web server logs]
-        B2[High Performance<br/>Go-based, fast]
+        B2[High Performance<br/>Go-based, single binary]
         B3[Compression Support<br/>gzip output]
         B4[Size-based Generation<br/>MB/GB targets]
         B5[Continuous Mode<br/>Loop generation]
     end
 
     subgraph "Use Case Decision"
-        C1[<b>fuzzy-train</b> :<br/>• Multi-format needed<br/>• Container deployment<br/>• Custom trace tracking<br/>• Flexible output options]
+        C1[<b>fuzzy-train</b> :<br/>• Multi-format needed<br/>• Container deployment<br/>• Custom trace tracking<br/>• Bounded/gzip/split output<br/>• Realistic faker data]
 
-        C2[<b>flog</b> :<br/>• Apache logs only<br/>• High performance needed<br/>• Compression required<br/>• Size-based generation]
+        C2[<b>flog</b> :<br/>• Prefer a single Go binary<br/>• Max raw throughput<br/>• Apache-centric workflows]
     end
 
     style A1 fill:#e1f5fe
@@ -337,6 +367,7 @@ graph LR
     style A3 fill:#e1f5fe
     style A4 fill:#e1f5fe
     style A5 fill:#e1f5fe
+    style A6 fill:#e1f5fe
     style B1 fill:#f3e5f5
     style B2 fill:#f3e5f5
     style B3 fill:#f3e5f5
@@ -791,15 +822,23 @@ services:
   auth-service:
     # Volume generated: 2,000 lines/sec × ~200 bytes (150 chars + JSON overhead) = ~381 KB/sec (0.38 MB/sec)
     image: sagarnikam123/fuzzy-train:latest
-    command: >
-      --lines-per-second 2000
-      --min-log-length 120
-      --max-log-length 180
-      --log-format JSON
-      --time-zone UTC
-      --output file
-      --file /logs/auth-service.log
-      --trace-id-type integer
+    command:
+      - --lines-per-second
+      - "2000"
+      - --min-log-length
+      - "120"
+      - --max-log-length
+      - "180"
+      - --log-format
+      - JSON
+      - --time-zone
+      - UTC
+      - --output
+      - file
+      - --file
+      - /logs/auth-service.log
+      - --trace-id-type
+      - integer
     volumes:
       - ./logs:/logs
     container_name: auth-logs
@@ -807,15 +846,23 @@ services:
   payment-service:
     # Volume generated: 1,500 lines/sec × ~175 bytes (125 chars + logfmt overhead) = ~251 KB/sec (0.25 MB/sec)
     image: sagarnikam123/fuzzy-train:latest
-    command: >
-      --lines-per-second 1500
-      --min-log-length 100
-      --max-log-length 150
-      --log-format logfmt
-      --time-zone UTC
-      --output file
-      --file /logs/payment-service.log
-      --trace-id-type integer
+    command:
+      - --lines-per-second
+      - "1500"
+      - --min-log-length
+      - "100"
+      - --max-log-length
+      - "150"
+      - --log-format
+      - logfmt
+      - --time-zone
+      - UTC
+      - --output
+      - file
+      - --file
+      - /logs/payment-service.log
+      - --trace-id-type
+      - integer
     volumes:
       - ./logs:/logs
     container_name: payment-logs
@@ -823,15 +870,23 @@ services:
   user-service:
     # Volume generated: 1,000 lines/sec × ~300 bytes (250 chars + Apache overhead) = ~286 KB/sec (0.29 MB/sec)
     image: sagarnikam123/fuzzy-train:latest
-    command: >
-      --lines-per-second 1000
-      --min-log-length 200
-      --max-log-length 300
-      --log-format "apache combined"
-      --time-zone UTC
-      --output file
-      --file /logs/user-service.log
-      --trace-id-type integer
+    command:
+      - --lines-per-second
+      - "1000"
+      - --min-log-length
+      - "200"
+      - --max-log-length
+      - "300"
+      - --log-format
+      - apache combined
+      - --time-zone
+      - UTC
+      - --output
+      - file
+      - --file
+      - /logs/user-service.log
+      - --trace-id-type
+      - integer
     volumes:
       - ./logs:/logs
     container_name: user-logs
@@ -1144,9 +1199,9 @@ tail -f /var/log/fluent-bit.log
 ### Custom Error Pattern Script
 
 ```python
+#!/usr/bin/env python3
 # simulate_error_patterns.py
 
-#!/usr/bin/env python3
 import subprocess
 import time
 
