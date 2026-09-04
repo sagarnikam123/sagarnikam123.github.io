@@ -1,428 +1,304 @@
-# Jekyll Chirpy Blog Development Guide
+# Jekyll Chirpy Reference Guide
 
-Complete documentation for Jekyll blog development using the Chirpy theme, including tools, workflows, and best practices.
+A concise reference for developing, writing, and customizing blogs with the [Chirpy](https://github.com/cotes2020/jekyll-theme-chirpy) theme.
 
-## 🔧 Local Development
+---
 
-### Jekyll Commands
+## 1. Local Development & Workflow
+
+### Core Commands
+
 ```bash
 # Install Ruby dependencies
 bundle install
 
-# Initialize theme static assets (fontawesome, glightbox, etc.)
-git submodule update --init --recursive
-
-# Serve locally with live reload
+# Run locally with live reload
 bundle exec jekyll serve --livereload
 
-# Serve with drafts
+# Run with drafts included
 bundle exec jekyll serve --drafts
 
-# Build for production
+# Production build
 JEKYLL_ENV=production bundle exec jekyll build
 ```
 
-### Development Workflow
-- **Drafts:** Store in `_drafts/` folder (no date needed)
-- **Draft Creation:** `touch _drafts/my-new-post.md`
-- **Draft to Post:** `mv _drafts/my-new-post.md _posts/$(date +%Y-%m-%d)-my-new-post.md`
-- **Future Posts:** Set future date in front matter
-- **Live Reload:** Auto-refresh browser on file changes
-- **Local URL:** `http://localhost:4000`
+### Publishing Workflow
 
-### Environment Variables
-```bash
-# Development (default)
-JEKYLL_ENV=development
+* **Drafts**: Place in `_drafts/post-title.md` (no date prefix).
+* **Publishing**: Move to `_posts/YYYY-MM-DD-post-title.md`.
+* **Cross-platform deployment**: When committing `Gemfile.lock` from macOS/Windows for GitHub Actions deployment:
+  ```bash
+  bundle lock --add-platform x86_64-linux
+  ```
 
-# Production (enables analytics, PWA)
-JEKYLL_ENV=production
+---
+
+## 2. Post Front Matter
+
+```yaml
+---
+title: "Post Title"
+date: YYYY-MM-DD HH:MM:SS +/-TTTT
+categories: [TopCategory, SubCategory]  # Max 2 levels supported
+tags: [tag1, tag2, tag3]               # Preferred 3-5 tags
+pin: true                              # Pin to top of home page (optional)
+math: true                             # Enable MathJax (optional)
+mermaid: true                          # Enable Mermaid diagrams (optional)
+media_subpath: '/assets/img/posts/YYYYMMDD' # Base path for post images/videos (optional)
+image:
+  path: /assets/img/posts/YYYYMMDD/hero.webp
+  lqip: data:image/webp;base64,...     # Base64 or path to LQIP placeholder
+  alt: Descriptive hero image alt text
+---
 ```
 
-### Self-Hosted Assets
-Self-hosted assets means CSS/JS files are served from your site instead of external CDNs.
+---
 
-When `assets.self_host.enabled: true` in `_config.yml`:
+## 3. Typography & Text Formatting
 
+### Prompts / Callout Boxes
+
+```markdown
+> Tip message
+{: .prompt-tip }
+
+> Info message
+{: .prompt-info }
+
+> Warning message
+{: .prompt-warning }
+
+> Danger message
+{: .prompt-danger }
+```
+
+### Headings & Table of Contents
+
+* By default, H2 and H3 headings populate the TOC.
+* **Skip TOC for a heading**:
+  ```markdown
+  ## Heading to Skip {: data-toc-skip='' }
+  ```
+
+### Lists & Notes
+
+```markdown
+<!-- Task list -->
+- [ ] Todo item
+- [x] Completed item
+
+<!-- Description list -->
+Term
+: Definition text
+
+<!-- Inline filepath -->
+`/path/to/file.ext`{: .filepath}
+
+<!-- Footnotes -->
+Text referencing footnote[^1].
+[^1]: Footnote source content.
+```
+
+---
+
+## 4. Code Blocks
+
+Chirpy uses Rouge syntax highlighting. *(Note: `{% highlight %}` tag is incompatible with Chirpy).*
+
+### Code Block Options
+
+````markdown
+<!-- Language highlighting with line numbers (default) -->
 ```bash
-# Required: Install Node.js dependencies
-npm install
+echo "Hello"
+```
 
-# Required: Build CSS/JS assets before Jekyll build
+<!-- Specify filename in header -->
+```sass
+@import "colors/light";
+```
+{: file="_sass/custom.scss" }
+
+<!-- Hide line numbers -->
+```shell
 npm run build
-
-# Then build Jekyll
-bundle exec jekyll build
 ```
+{: .nolineno }
 
-**Note:** Self-hosted assets require Node.js and npm. For GitHub Pages without custom build process, set `assets.self_host.enabled: false` to use CDN assets.
+<!-- Display raw Liquid tags without rendering -->
+{% raw %}
+```liquid
+{{ page.title }}
+```
+{% endraw %}
+````
 
-## 📝 Content Creation
+---
 
-### Markdown Extensions
-- **Mermaid Diagrams:** Built-in support via `mermaid: true`
-- **Math Equations:** MathJax support via `math: true`
-- **Code Highlighting:** Rouge syntax highlighter
+## 5. Images & Media Embeds
 
-### Post Writing Features
-- **Prompts:** `tip`, `info`, `warning`, `danger` for callout boxes
-- **File Path:** `{: .filepath}` for highlighting file paths
-- **Image Captions:** Automatic caption generation from alt text
-- **Table of Contents:** Auto-generated via `toc: true`
-- **Pin Posts:** `pin: true` to pin important posts
-- **Future Posts:** Set future dates for scheduled publishing
+### Images with Layout Attributes
 
-### SEO Optimization
-- **Meta Descriptions:** 150-170 characters
-- **Categories:** Maximum 3 per post
-- **Tags:** Maximum 5 per post
-- **Structured Data:** JSON-LD for FAQ sections
-
-## ✍️ Content Formatting
-
-### Chirpy Prompts
 ```markdown
-> **Tip:** Use webp-optimizer.sh script for automatic image conversion and LQIP generation!
-{: .prompt-tip }
+<!-- Default centered with caption -->
+![Alt text](screenshot.png){: width="972" height="589" }
+_Caption text centered beneath image_
 
-> **Info:** LQIP should be under 1,500 Base64 characters for optimal performance.
-{: .prompt-info }
+<!-- Float left / right -->
+![Alt text](thumb.png){: .w-50 .left }
+![Alt text](thumb.png){: .w-50 .right }
 
-> **Warning:** Never commit sensitive data like API keys or passwords to your repository.
-{: .prompt-warning }
+<!-- Dark / Light mode switching with shadow and rounded corners -->
+![Light mode only](preview-light.png){: .light .shadow .rounded-10 w='1200' h='630' }
+![Dark mode only](preview-dark.png){: .dark .shadow .rounded-10 w='1200' h='630' }
 
-> **Danger:** Running `git reset --hard` will permanently delete uncommitted changes!
-{: .prompt-danger }
+<!-- Explicit LQIP on inline image -->
+![Alt text](diagram.webp){: lqip="/path/to/lqip.webp" }
 ```
 
-**Rendered Output:**
-> **Tip:** Use webp-optimizer.sh script for automatic image conversion and LQIP generation!
-{: .prompt-tip }
+### Video & Audio Embeds
 
-> **Info:** LQIP should be under 1,500 Base64 characters for optimal performance.
-{: .prompt-info }
+```liquid
+{% comment %} Social Platforms {% endcomment %}
+{% include embed/youtube.html id='VIDEO_ID' %}
+{% include embed/twitch.html id='VIDEO_ID' %}
+{% include embed/bilibili.html id='VIDEO_ID' %}
+{% include embed/spotify.html id='TRACK_ID' compact=1 dark=1 %}
 
-> **Warning:** Never commit sensitive data like API keys or passwords to your repository.
-{: .prompt-warning }
+{% comment %} Direct Video File {% endcomment %}
+{% include embed/video.html src='/path/to/video.mp4' types='ogg|mov' poster='poster.png' title='Video Title' autoplay=false loop=false muted=false %}
 
-> **Danger:** Running `git reset --hard` will permanently delete uncommitted changes!
-{: .prompt-danger }
-
-### File Paths & Code
-```markdown
-`/assets/img/posts/20230131/git-workflows-guide.webp`{: .filepath}
-`_includes/head.html`{: .filepath}
-`webp-optimizer.sh`{: .filepath}
-`~/.gitconfig`{: .filepath}
+{% comment %} Direct Audio File {% endcomment %}
+{% include embed/audio.html src='/path/to/audio.mp3' types='ogg|wav' title='Audio Title' %}
 ```
 
-**Rendered Output:**
-`/assets/img/posts/20230131/git-workflows-guide.webp`{: .filepath}
-`_includes/head.html`{: .filepath}
-`webp-optimizer.sh`{: .filepath}
-`~/.gitconfig`{: .filepath}
+---
 
-```bash
-# Code block with syntax highlighting
-echo "Hello World"
-```
+## 6. Mathematics & Diagrams
 
-- **Code Screenshots:** [Carbon](https://carbon.now.sh/) - Beautiful code screenshots
+### MathJax (`math: true` in Front Matter)
 
-### Mathematics (MathJax)
-```markdown
-<!-- Inline math -->
-$$ \sum_{n=1}^{\infty} 2^{-n} = 1 $$
+* **Block equations**: **Must** have empty blank lines before and after `$$`.
+* **Equation numbering & references**:
+  ```markdown
+  $$
+  \begin{equation}
+    E = mc^2
+    \label{eq:energy}
+  \end{equation}
+  $$
 
-<!-- Block math -->
-$$
-\begin{align}
-  \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &= \frac{4\pi}{c}\vec{\mathbf{j}} \\
-  \nabla \cdot \vec{\mathbf{E}} &= 4 \pi \rho \\
-\end{align}
-$$
-```
-
-## 📸 Image Optimization
-
-### Post Header Images
-- **Size:** 1200x630px (optimal for social media)
-- **Format:** WebP (preferred for performance)
-- **Tools:** [Squoosh.app](https://squoosh.app/) - Google's image optimizer
-- **Location:** `/assets/img/posts/YYYYMMDD/`
-
-### LQIP (Low Quality Image Placeholder)
-- **Optimal Sizes:** 32x32px (recommended), 40x40px (better quality)
-- **Command Line Tool:** ImageMagick
-- **Generation Script:**
-  ```bash
-  # Generate LQIP with ImageMagick
-  convert image.webp -resize 32x32 -blur 0x1 -quality 30 jpg:- | base64
+  Refer to equation \eqref{eq:energy}.
   ```
-- **Online Tools:** [Base64-Image.de](https://www.base64-image.de/) for Base64 conversion
+* **Inline math**: `$$ E = mc^2 $$` (no blank lines).
+* **Inline math inside lists**: Escape first dollar sign: `\$$ x + y = z $$`.
 
-## 🛠️ Development Tools
+### Mermaid Diagrams (`mermaid: true` in Front Matter)
 
-### Favicon Generation
-- **Tool:** [RealFaviconGenerator](https://realfavicongenerator.net/) - Complete favicon package generation
-- **Input:** 512x512px PNG image
-- **Output:** Complete favicon package for `/assets/img/favicons/`
-- **Required Files:** favicon.ico, apple-touch-icon.png, mstile-150x150.png, etc.
-- **Configuration:** Automatic browserconfig.xml and site.webmanifest generation
-
-### Image Processing
-- **ImageMagick:** Command-line image manipulation (see [ImageMagick Usage](https://imagemagick.org/Usage/))
-  ```bash
-  brew install imagemagick  # macOS
-  sudo apt install imagemagick  # Ubuntu
-  ```
-- **libwebp (Google):** WebP conversion and optimization
-  ```bash
-  # Download from: https://developers.google.com/speed/webp/download
-  # Or via Homebrew: brew install webp
-  ```
-- **Sharp CLI:** Node.js image processing
-  ```bash
-  npm install -g sharp-cli
-  ```
-
-### Performance Optimization
-- **Jekyll Compress:** HTML/CSS minification (built into theme)
-- **WebP Conversion:** [Squoosh.app](https://squoosh.app/), ImageMagick, or webp-optimizer.sh script
-- **LQIP Generation:** Custom scripts or [TinyPNG](https://tinypng.com/) for image compression
-
-## 🎯 Mermaid Diagram Guidelines
-
-### Compatibility
-- **Version:** Mermaid v11.4.0+
-- **Gitgraph Syntax:** Use colon syntax
-- **Branch Names:** No forward slashes allowed
-- **Colors:** Use fill and stroke properties
-
-### Example Syntax
-- **Testing Tool:** [Mermaid Live Editor](https://mermaid.live/) - Diagram testing
+````markdown
 ```mermaid
 flowchart TD
-    A["Step 1"] --> B["Step 2"]
-    style A fill:#e8f5e8,stroke:#2e7d32
+  A[Client] -->|Request| B(Proxy)
+  B --> C{Backend}
+  C -->|Response| A
 ```
+````
 
-## 🔧 Useful Scripts
+---
 
-### WebP Conversion Commands
+## 7. Favicon Customization
+
+1. Generate icons at [RealFaviconGenerator](https://realfavicongenerator.net/) using a 512×512 PNG/SVG.
+2. Unzip the package and **DELETE `site.webmanifest`** from the extracted files *(Chirpy generates its own `site.webmanifest`)*.
+3. Copy remaining files (`.png`, `.ico`, `.svg`) into `assets/img/favicons/`.
+
+---
+
+## 8. Asset Optimization Quick Commands
+
 ```bash
-# Blog header images (1200x630px, quality 85, sharpness for text)
+# Convert image to optimized WebP (1200x630, quality 85)
 cwebp -q 85 -resize 1200 630 -sharpness 2 input.jpg -o output.webp
 
-# LQIP generation (32x32px, quality 20)
-cwebp -q 20 -resize 32 32 input.jpg -o lqip.webp
-echo "data:image/webp;base64,$(base64 -i lqip.webp)"
-
-# Batch conversion
-for img in *.{jpg,png}; do
-  cwebp -q 85 -resize 1200 630 -sharpness 2 "$img" -o "${img%.*}.webp"
-done
+# Generate LQIP base64 data URI (32x32, blurred, <1.5 KB)
+convert image.webp -resize 32x32 -blur 0x1 -quality 30 jpg:- | base64
 ```
 
-### LQIP Generator Script (ImageMagick)
+---
+
+## 9. Upgrading Chirpy to Latest Release (Preserving Posts)
+
+To upgrade your theme to the latest release from [Chirpy Releases](https://github.com/cotes2020/jekyll-theme-chirpy/releases) directly on your working branch while keeping all personal posts, drafts, and assets intact:
+
+### Step 1: Fetch Latest Upstream Release Tags
+
 ```bash
-#!/bin/bash
-# lqip-generator.sh
-INPUT="$1"
-convert "$INPUT" -resize 32x32 -blur 0x1 -quality 30 temp_lqip.jpg
-echo "data:image/jpeg;base64,$(base64 -w 0 temp_lqip.jpg)"
-rm temp_lqip.jpg
+# Add upstream remote if not already present
+git remote add upstream https://github.com/cotes2020/jekyll-theme-chirpy.git 2>/dev/null || true
+
+# Fetch all release tags
+git fetch upstream --tags
 ```
 
-### Image Optimization Workflow
-1. **Original Image:** Create at 1200x630px
-2. **Convert to WebP:** Use webp-optimizer.sh script in root folder (quality 85)
-3. **Generate LQIP:** Automatically generated by webp-optimizer.sh script
-4. **Place Files:** Move to `/assets/img/posts/YYYYMMDD/`
+### Step 2: Stash Local Changes & Merge Release Tag
 
-### WebP Quality Settings
-- **q 95:** Highest quality (larger file)
-- **q 85:** ✅ **Recommended** (good balance)
-- **q 75:** Good quality (smaller file)
-- **q 50:** Lower quality (much smaller)
+Stash any uncommitted modifications (e.g. in `package.json`) so Git doesn't block the merge:
 
-### Sharpness Settings
-- **0:** No sharpening (photos)
-- **2:** ✅ **Recommended** (text/diagrams)
-- **3:** Strong (screenshots)
+```bash
+# Stash uncommitted changes
+git stash
 
-## 🎨 Theme Customization
+# List release tags to find the latest version
+git tag -l "v*" --sort="v:refname" | tail -n 5
 
-### Custom Styling
-- **Main CSS:** `_sass/addon/commons.scss`
-- **Variables:** `_sass/addon/variables.scss`
-- **Dark Mode:** Built-in toggle, customizable colors
-- **Fonts:** Override in `_sass/addon/commons.scss`
+# Merge the target release tag without auto-committing
+git merge <RELEASE_TAG> --no-commit
+# Example: git merge v7.6.0 --no-commit
 
-### Sidebar Configuration
-```yaml
-# _config.yml
-avatar: /assets/img/avatar.jpg
-social:
-  name: Your Name
-  email: your@email.com
-  links:
-    - https://github.com/username
-    - https://twitter.com/username
+# Restore your stashed changes
+git stash pop
 ```
 
-### Footer Customization
-- **Copyright:** Auto-generated from site.title
-- **Links:** Edit `_data/contact.yml`
-- **Custom Text:** Modify `_includes/footer.html`
+### Step 3: Protect Personal Content & Configuration
 
-## 📱 PWA Features
+Ensure personal posts, drafts, and configs are preserved, and discard upstream demo posts:
 
-### Enable PWA
-```yaml
-# _config.yml
-pwa:
-  enabled: true
-  cache:
-    enabled: true
+```bash
+# Restore your personal posts, drafts, and configuration if touched
+git checkout HEAD -- _posts/ _drafts/ _config.yml
+
+# Remove any upstream demo posts pulled from the release tag
+git rm -f _posts/2019-08-* 2>/dev/null || true
 ```
 
-### Service Worker
-- **File:** `assets/js/pwa/sw-pwa.js` (auto-generated)
-- **Caching:** Offline page access
-- **Updates:** Auto-refresh on new versions
-- **Scope:** Entire site cached
+### Step 4: Recompile Assets & Update Dependencies
 
-### Web Manifest
-- **File:** `assets/js/pwa/app.min.js`
-- **Icons:** Uses favicon package
-- **Install Prompt:** "Add to Home Screen" on mobile
-- **Offline Support:** Cached pages work offline
+Since Chirpy v5.6/v7.0, compiled JS/CSS distribution files are generated locally:
 
-## 🚀 Deployment & CI/CD
-
-### GitHub Actions
-- **Auto-deploy:** Triggers on push to main branch
-- **Build Process:** Jekyll build + GitHub Pages deployment
-- **Caching:** Dependencies cached for faster builds
-- **Configuration:** `.github/workflows/pages-deploy.yml`
-
-### GitHub Pages Caching
-```yaml
-# Enable caching in GitHub Actions
-- name: Cache dependencies
-  uses: actions/cache@v3
-  with:
-    path: vendor/bundle
-    key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+```bash
+npm install
+npm run build
+git add assets/js/dist _sass/vendors -f
+bundle update
 ```
 
-## 🔍 Analytics & SEO
+### Step 5: Test Locally & Commit
 
-### Google Search Console
-- **Setup:** [Google Search Console](https://search.google.com/search-console)
-- **Site Verification:** Add meta tag or HTML file
-- **Sitemap Submission:** Submit `/sitemap.xml`
-- **Index Coverage:** Monitor crawling issues
-- **Performance:** Track search rankings
+```bash
+# Verify the upgraded site and drafts locally
+bundle exec jekyll serve --drafts
 
-### Schema.org Markup
-```html
-<!-- FAQ Schema (already in Git guide) -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage"
-}
-</script>
+# Commit the upgrade directly
+git commit -m "chore: upgrade theme to <RELEASE_TAG>"
 ```
 
-### SEO Files
-- **Sitemap:** Auto-generated at `/sitemap.xml`
-- **Robots.txt:** Search engine directives at `/robots.txt`
-- **Meta Tags:** Handled by jekyll-seo-tag plugin
-
-## 📊 Monitoring & Analytics
-
-### Google Analytics 4
-- **Setup:** [Google Analytics](https://analytics.google.com/)
-- **Configuration:**
-```yaml
-# _config.yml
-analytics:
-  google:
-    id: G-XXXXXXXXXX
-```
-
-### Core Web Vitals
-- **LCP:** Largest Contentful Paint (<2.5s)
-- **FID:** First Input Delay (<100ms)
-- **CLS:** Cumulative Layout Shift (<0.1)
-- **Tools:** [PageSpeed Insights](https://pagespeed.web.dev/), [Search Console](https://search.google.com/search-console)
-
-### Site Monitoring
-- **[Uptime Robot](https://uptimerobot.com/):** Free monitoring (50 monitors)
-- **[GitHub Actions](https://github.com/features/actions):** Build status monitoring
-- **[Google Search Console](https://search.google.com/search-console):** Crawl error alerts
-- **[Google Analytics](https://analytics.google.com/):** Traffic and performance tracking
-
-### Performance Optimization
-- **Image Optimization:** WebP format, LQIP
-- **Minification:** HTML/CSS/JS compression
-- **Caching:** Browser and CDN caching
-- **PWA:** Offline functionality
-
-### Target Performance Scores
-- **[PageSpeed Insights](https://pagespeed.web.dev/):** 90+ (Mobile & Desktop)
-- **Core Web Vitals:** All green
-- **Image Optimization:** WebP format, proper sizing
-- **LQIP Size:** <2KB (Base64 <1,500 characters)
+> **Targeted File Update (No Git Merge):** To pull only the theme files (`_includes`, `_layouts`, `_sass`, `assets`, `tools`) from the release tag without merging git history:
+> ```bash
+> git checkout <RELEASE_TAG> -- _includes _layouts _sass assets tools
+> npm run build && git add assets/js/dist _sass/vendors -f
+> git commit -m "chore: update theme templates to <RELEASE_TAG>"
+> ```
+{: .prompt-tip }
 
 
 
-## 🎨 Color Palette (Mermaid Diagrams)
-
-### Standard Colors
-- **Success/Main:** `fill:#e8f5e8,stroke:#2e7d32`
-- **Warning:** `fill:#fff3e0,stroke:#f57c00`
-- **Info:** `fill:#e3f2fd,stroke:#1976d2`
-- **Error:** `fill:#ffebee,stroke:#d32f2f`
-- **Neutral:** `fill:#f5f5f5,stroke:#757575`
-
-## 📁 File Organization
-
-### Directory Structure
-```
-/assets/img/
-├── posts/
-│   └── YYYYMMDD/
-│       ├── main-image.webp
-│       └── diagram-1.png
-├── favicons/
-└── avatar/
-```
-
-### Naming Conventions
-- **Posts:** `YYYY-MM-DD-post-title.md`
-- **Images:** `descriptive-name.webp`
-- **Folders:** `YYYYMMDD` format for post dates
-- **Table Creation:** [Markdown Tables Generator](https://www.tablesgenerator.com/markdown_tables) - Visual table creation
-
-## 🎨 Typography & Fonts
-
-### System Fonts (Chirpy Theme)
-- **Primary:** Source Sans Pro (loaded via theme)
-- **Monospace:** Menlo, Monaco, Consolas (system fonts)
-- **Fallback:** System UI fonts for performance
-
-### Font Loading
-- **Method:** CSS font-display: swap for performance
-- **Location:** `_sass/addon/commons.scss`
-
-## 📚 Documentation References
-
-- **[Jekyll Docs](https://jekyllrb.com/docs/)** - Official Jekyll documentation
-- **[Chirpy Theme](https://github.com/cotes2020/jekyll-theme-chirpy)** - Theme repository and docs
-- **[Mermaid Documentation](https://mermaid.js.org/)** - Diagram syntax reference
-- **[ImageMagick Usage](https://imagemagick.org/Usage/)** - Command-line image processing
-- **[libwebp](https://developers.google.com/speed/webp/download)** - Google's WebP encoder/decoder
