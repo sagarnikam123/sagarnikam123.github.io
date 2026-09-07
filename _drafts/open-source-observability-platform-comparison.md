@@ -237,6 +237,18 @@ Sources: [SigNoz docs](https://signoz.io/docs/), [OpenObserve docs](https://open
 | **Multi-tenancy** | EE | ⭐ native orgs | ◐ | ◐ | ✅ | ◐ | — | ⭐ | ✅ | ⭐ | ⭐ | ◐ | ⭐ |
 | **Data retention / tiering** | ✅ TTL + CH tiered | ✅ hot/warm/cold | ✅ CH TTL | ✅ lifecycle policies | ✅ | ✅ TTL | ◐ | ⭐ compactor + tiering | ✅ TTL | ⭐ ISM hot/warm/cold | ⭐ retention filters | ✅ TTL | ⭐ ILM hot/warm/cold/frozen |
 | **Pipeline / transformation** | OTel Collector | ✅ built-in pipelines | OTel Collector | ✅ built-in | OTel Collector | OTel Collector | — (eBPF direct) | ⭐ Alloy / OTel | ✅ LAL pipelines | ✅ Data Prepper | OTel Collector | OTel Collector | ⭐ Ingest pipelines |
+| **Data exclusion / drop rules** | ✅ UI (logs) / OTel YAML | ⭐ UI pipelines (VRL) | ◐ OTel / ClickHouse | ◐ Shipper agent | ◐ Ingest config / OTel | ◐ OTel Collector | ◐ Agent filter | ⭐ Alloy / OTel / Loki | ◐ LAL / Receiver YAML | ✅ Data Prepper | ⭐ relabel_configs / OTel | ◐ OTel Collector | ⭐ Ingest pipelines / Agent |
+| **Config as Code (IaC)** | ✅ TF & K8s Op & API | ✅ TF & REST API | ◐ REST API & SQL | ◐ REST API | ◐ REST API | ◐ REST API & YAML | ◐ Helm & REST API | ⭐ TF & Grizzly & API | ◐ YAML & SWCK | ✅ TF & REST API | ⭐ K8s CRDs & YAML | ◐ REST API & SDK | ⭐ TF & ECK & API |
+
+**Excluding unwanted data / namespaces (e.g., EKS clusters):**
+
+- **At the edge (recommended):** Filter before egress to eliminate cloud bandwidth and ingestion costs. Use an OpenTelemetry Collector `filter` processor (`resource.attributes["k8s.namespace.name"] == "unwanted-namespace"`) or Fluent Bit / Vector drop scripts running as cluster DaemonSets.
+- **At the platform level:** OpenObserve provides a native UI Pipeline builder using Vector Remap Language (VRL) (`if .kubernetes.namespace.name == "unwanted" { abort }`) across logs, metrics, and traces. SigNoz provides a visual Log Pipelines UI to drop logs (metrics/traces are filtered via its internal OTel Collector config). ClickStack, Parseable, and OneUptime guide users to filter at the edge collector or log shipper level.
+
+**IaC & Installation Mechanisms (Helm vs. Operators vs. Scripts):**
+
+- **Installation choices:** All 13 candidates provide official Helm charts for Kubernetes deployments and Docker Compose for sandbox environments. For deep Kubernetes-native management, **VictoriaMetrics** (VM Operator), **Elastic** (ECK Operator), **Apache SkyWalking** (SWCK Operator), and **Parseable** provide official Kubernetes Operators. SigNoz, OpenObserve, and Coroot also provide single-line bash installer scripts for standalone Linux hosts.
+- **Config as Code (IaC for Alerts, Contact Points & Dashboards):** Managing dashboards, alert rules, and contact points in version control (GitOps) is supported via official Terraform providers for **Grafana**, **OpenObserve**, **SigNoz**, **OpenSearch**, and **Elastic**. **VictoriaMetrics** enables pure Kubernetes GitOps via native CRDs (`VMAlert`, `VMRule`, `VMServiceScrape`, `VMDashboard`), while the community-backed SigNoz Alert Operator enables CRD-based alerting. Other platforms support programmatic management via REST APIs and JSON payloads.
 
 Sources: [OneUptime architecture](https://oneuptime.com/docs/en/self-hosted/architecture), [Uptrace self-hosting](https://uptrace.dev/get/hosted), [Coroot architecture](https://docs.coroot.com/installation/architecture/), [VictoriaMetrics OTel](https://docs.victoriametrics.com/opentelemetry/readme/)
 
@@ -255,7 +267,10 @@ Sources: [OneUptime architecture](https://oneuptime.com/docs/en/self-hosted/arch
 | **RED metrics** | ✅ | ✅ | ✅ | EE | ✅ | ✅ | ⭐ | ✅ | ⭐ | ✅ | ◐ | ✅ | ✅ |
 | **eBPF auto-instrumentation** | ◐ | ✅ OBI[^obi] | ◐ | ◐ | — | ◐ | ⭐ native | ◐ Beyla | ◐ | ◐ | ◐ | ◐ | ◐ Profiling |
 | **Continuous profiling** | ✅ | EE | — | — | ✅ | — | ⭐ | ✅ Pyroscope | ✅ | — | ◐ | — | ⭐ Universal Prof |
-| **Alerting** | ✅ | ✅ | ✅ | ✅ SQL alerts | ⭐ | ✅ | ✅ | ⭐ | ✅ | ⭐ | ✅ vmalert | ✅ | ⭐ |
+| **Alerting & creation** | ✅ UI/API/TF | ✅ UI/API/TF | ✅ UI/API | ✅ SQL alerts (UI/API) | ⭐ Workflow canvas & API | ✅ UI/API | ✅ UI/API | ⭐ UI/API/TF | ◐ YAML config only | ✅ UI/API/TF | ◐ vmalert (YAML/API) | ✅ UI/API | ⭐ UI/API/TF |
+| **Alert silencing / muting** | ✅ UI/API (downtime) | ✅ UI/API (cooldown) | ✅ UI/API (editor) | ◐ UI pause only | ⭐ UI/API (rules/deps) | ✅ UI/API | ✅ UI/API | ⭐ UI/API (mutes) | ◐ YAML only (silence-period) | ✅ UI/API (throttling) | ◐ via Alertmanager | ✅ UI/API | ⭐ UI/API (snooze) |
+| **Custom alert body / payload** | ✅ vars & templates | ✅ custom templates | ✅ markdown & vars | ◐ basic webhook | ⭐ rich templates/vars | ✅ Go templates | ◐ fixed summary | ⭐ full Go templating | ◐ fixed schema/name | ✅ Mustache templates | ✅ Go templates | ◐ basic vars | ⭐ Mustache & vars |
+| **UI RBAC (Free tier)** | ◐ Basic (team = EE) | ✅ Built-in (roles/streams) | ✅ Basic roles | ◐ Basic (team = EE) | ✅ Built-in (teams/roles) | ◐ Basic (team = EE) | ◐ Basic (team = EE) | ◐ Basic (team = EE) | ✅ Basic roles | ⭐ Fine-grained (Apache 2) | ◐ via proxy / Grafana | ✅ Basic project roles | ◐ Basic (Spaces = EE) |
 | **SLO management** | EE | 🧪 | 🧪 | — | ⭐ | 🧪 | ⭐ | ✅ | 🧪 | 🧪 | ✅ | 🧪 | ⭐ |
 | **Incident management** | — | — | — | — | ⭐ | — | — | ◐ IRM | — | — | — | — | ◐ |
 | **On-call scheduling** | — | — | — | — | ⭐ | — | — | ◐ OnCall | — | — | — | — | — |
@@ -263,6 +278,13 @@ Sources: [OneUptime architecture](https://oneuptime.com/docs/en/self-hosted/arch
 | **Session replay / RUM** | — | ✅ | ✅ | — | — | — | — | ◐ Faro | — | — | — | ⭐ native | ◐ RUM |
 
 **Key insight:** OneUptime is uniquely positioned as a full reliability platform (monitoring + incident + status pages + on-call). Coroot is uniquely positioned for eBPF-first, zero-code observability. Highlight.io bridges developer-focused session replay and error monitoring with backend OTel telemetry.
+
+**Alert Silencing, Templating & RBAC Nuances:**
+
+- **Silencing alerts in Apache SkyWalking:** SkyWalking's UI alarms are strictly read-only — you cannot manually acknowledge, close, or silence an active alarm from the dashboard. Silencing/throttling must be configured via the `silence-period` parameter in backend `alarm-settings.yml`, which defines how many evaluation cycles the engine waits before re-firing the same alarm on the same entity.
+- **Silencing across modern stacks:** ClickStack provides direct in-editor acknowledge and silence toggles; OpenObserve combines cooldown windows, manual UI pausing, and semantic fingerprint deduplication; OneUptime provides advanced label matchers, inhibition rules, and service topology dependency mapping (muting child alerts if a root-cause gateway fails); SigNoz uses scheduled downtime profiles (data continues being evaluated, but notification dispatches are suppressed); Parseable toggles alerts on/off in the UI but delegates time-bound silencing to upstream engines like Grafana Alerting.
+- **Custom alert body & notification formatting:** Grafana Alerting and VictoriaMetrics (`vmalert`) leverage full Go templating (`{{ .Labels }}`, `{{ .Value }}`) to format custom Markdown or HTML notifications. OpenSearch and Elastic Observability use Mustache templating to dynamically inject field attributes, runbook links, and metrics into Slack/webhook messages. SigNoz and OpenObserve provide dedicated fields for customizable titles, descriptions, and dynamic variables. SkyWalking sends a fixed-format JSON payload to webhooks, allowing only basic `{name}` interpolation in `alarm-settings.yml`.
+- **UI RBAC in free vs. enterprise tiers:** Fine-grained role-based access control is a frequent commercial paywall. **OpenSearch** (via its Apache 2.0 Security plugin), **OpenObserve** (native custom roles & stream-level permissions), and **OneUptime** provide comprehensive UI RBAC out-of-the-box in free self-hosted setups. Conversely, **SigNoz**, **Grafana OSS**, **Elastic Basic**, **Parseable**, and **Coroot** offer standard Admin/Editor/Viewer roles in community tiers, reserving granular team-level or resource-level RBAC for paid Enterprise licenses.
 
 [^obi]: OpenObserve OBI (OpenObserve Built-in Instrumentation) is their eBPF-based zero-code agent — it uses kernel-level eBPF probes under the hood but is packaged as a standalone agent binary.
 
@@ -281,12 +303,17 @@ Sources: [OneUptime profiling](https://oneuptime.com/docs/en/telemetry/profiles)
 | **Trace query** | UI / API | UI / SQL | SQL / UI | SQL (APM = EE) | UI | UI | UI | TraceQL | Native UI | PPL / UI | LogsQL / Jaeger | UI / Waterfall | ES\|QL / UI |
 | **SQL access** | ◐ | ⭐ | ⭐ | ⭐ | ◐ | ◐ | — | — | — | ✅ SQL/PPL | — | ⭐ CH SQL | ⭐ ES\|QL / SQL |
 | **Full-text search** | ✅ | ⭐ | ⭐ | ⭐ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭐ | ⭐ | ⭐ | ⭐ |
-| **Built-in dashboards** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ⭐ | ✅ | ✅ | ◐ Grafana | ✅ | ⭐ |
+| **Dashboards & visual builder** | ✅ drag-and-drop | ✅ drag-and-drop | ✅ HyperDX builder | ✅ Prism builder | ✅ custom panels | ✅ widget builder | ◐ auto-generated only | ⭐ gold standard | ✅ Booster UI templates | ✅ OpenSearch Dashboards | ◐ relies on Grafana | ✅ custom panels | ⭐ Kibana Lens builder |
 | **Grafana plugin** | — | ✅ | — | — | — | — | — | N/A | ✅ | ✅ | ⭐ | — | ✅ |
 | **High-cardinality** | 🧪 | 🧪 | 🧪 | ⭐ data lake | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 |
 | **Query UX** | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 | 🧪 |
 
 **Key insight:** Query-language fragmentation is itself a decision criterion. If your team already knows PromQL, platforms that speak it natively (Grafana, VictoriaMetrics, Coroot) have lower adoption friction. If you prefer SQL, OpenObserve, ClickStack, and Highlight.io give you that directly, while Elastic gives you ES|QL.
+
+**Custom Dashboards on UI:**
+
+- **Full custom builders:** Grafana LGTM and Elastic Observability (Kibana Lens) provide the most flexible visual builders and widget varieties. SigNoz, OpenObserve, ClickStack (HyperDX UI), and OpenSearch Dashboards provide native drag-and-drop custom dashboard builders for metrics, logs, and traces.
+- **Opinionated or delegated dashboards:** Coroot uses an opinionated model focused on auto-generated application health and eBPF maps rather than arbitrary custom dashboard creation. VictoriaMetrics intentionally does not build a standalone dashboarding UI, relying on Grafana OSS for dashboards while offering `vmui` for ad-hoc PromQL/LogsQL exploration.
 
 Sources: [OpenSearch PPL](https://docs.opensearch.org/latest/observing-your-data/exploring-observability-data/discover-logs/), [VictoriaLogs querying](https://docs.victoriametrics.com/victorialogs/querying/), [Tempo TraceQL](https://grafana.com/docs/tempo/latest/), [Elastic ES|QL](https://www.elastic.co/guide/en/elasticsearch/reference/current/esql.html)
 
@@ -362,12 +389,12 @@ Every platform has operational pain points that feature tables won't reveal. The
 | **SigNoz** | ClickHouse upgrades are manual and version-sensitive | Upgrade windows require planning; schema migrations can break |
 | **OpenObserve** | Younger project; some features (alerts, dashboards) still maturing | May hit edge cases in complex alerting rules |
 | **ClickStack** | Relatively new rebrand; ecosystem still consolidating post-acquisition | Documentation and migration paths may lag |
-| **Parseable** | OSS lacks PromQL, APM views, HA, anomaly detection; smaller community (~4k stars) | Must evaluate whether SQL-only access to metrics/traces is sufficient; fewer community resources |
+| **Parseable** | OSS lacks PromQL, APM views, HA, anomaly detection; no native scheduled alert silencing; smaller community (~4k stars) | Must evaluate whether SQL-only access to metrics/traces is sufficient; relies on external Grafana for time-bound alert silencing |
 | **OneUptime** | 10+ containers idle; heavy baseline resource usage | Not suitable for small VMs or constrained environments |
 | **Uptrace** | Community edition has limited features vs paid; small contributor base | Risk of slower bug fixes; fewer community resources |
 | **Coroot** | eBPF requires Linux kernel 4.16+ (basic metrics) / 5.8+ (TLS tracing); limited to infra it can instrument | Not useful for non-Linux or serverless workloads |
 | **Grafana LGTM** | 5+ services to maintain; config sprawl across components | Requires dedicated platform team; steep learning curve |
-| **SkyWalking** | JVM-based OAP server is memory-hungry; BanyanDB still maturing | Minimum 2-4 GB RAM for OAP alone; storage choice matters |
+| **SkyWalking** | JVM-based OAP server is memory-hungry; BanyanDB still maturing; alarms are read-only in UI | Minimum 2-4 GB RAM for OAP alone; alert silencing requires editing `silence-period` in backend `alarm-settings.yml` |
 | **OpenSearch** | Java heap tuning required; index management adds ops overhead | JVM GC pauses at scale; ISM policies need careful design |
 | **VictoriaMetrics** | Full three-signal stack requires three separate databases (VM, VL, VT); VictoriaTraces is newest/least mature | Single-signal deployments are simple; full-stack adds operational overhead; trace component less battle-tested |
 | **Highlight.io** | Developer/frontend-focused heritage; backend observability is secondary | Metrics and infra monitoring less mature than APM-first tools |
@@ -390,6 +417,12 @@ Yes — SigNoz, OpenObserve, and ClickStack each provide all four capabilities (
 
 **Which platform has the best OpenTelemetry support?**
 All 13 platforms accept OTLP. **SigNoz** and **Uptrace** were built OTel-native from the start with the tightest integration. **Grafana LGTM** (via Alloy) and **VictoriaMetrics** also have mature OTLP endpoints.
+
+**How do you silence alerts in Apache SkyWalking?**
+SkyWalking's UI alarms are strictly read-only — there is no dashboard button to acknowledge, close, or silence an active alarm. Alert throttling and muting are managed in the backend configuration file (`alarm-settings.yml`) using the `silence-period` parameter for each rule. `silence-period` specifies the number of evaluation periods the system waits before re-triggering the same alarm on the same entity.
+
+**Can I exclude unwanted namespaces or services (e.g., from an EKS cluster) before ingestion?**
+Yes. The most cost-effective method is filtering at the edge inside your cluster: configure an OpenTelemetry Collector `filter` processor (`resource.attributes["k8s.namespace.name"] == "unwanted"`) or Fluent Bit / Vector drop rule to discard the unwanted namespace before data leaves the cluster (eliminating egress bandwidth and backend compute). Centrally, OpenObserve supports in-app pipeline drops via Vector Remap Language (VRL) across all signals, and SigNoz offers a UI Log Pipelines builder (with trace/metric drops handled via internal OTel Collector config).
 
 **Is AGPL a problem for self-hosting?**
 AGPL requires sharing source modifications if you offer the software as a network service to others. For internal self-hosted use (your own team querying your own data), AGPL imposes no distribution obligation. Consult your legal team if you embed the platform in a product you sell.
