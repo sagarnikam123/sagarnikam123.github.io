@@ -303,7 +303,7 @@ brew install --cask vlc handbrake obs audacity spotify
 
 #### Productivity
 ```bash
-brew install --cask alfred rectangle dropbox notion
+brew install --cask alfred rectangle dropbox notion obsidian
 ```
 
 #### Communication
