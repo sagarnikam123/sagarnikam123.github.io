@@ -33,7 +33,7 @@ Which open-source distributed tracing backend should you self-host in 2026? This
 
 This article focuses exclusively on **open-source, self-hostable distributed tracing tools** — no mandatory commercial licenses, no mandatory SaaS accounts. The tracing ecosystem includes backends, collectors, auto-instrumentation, SDKs, and developer tools.
 
-**Excluded from the primary benchmark:** Multi-signal observability platforms (SigNoz, OpenObserve, ClickStack, Uptrace, Coroot, DeepFlow) — these support tracing but are broader APM/observability systems. They are listed in Section 2 for reference but do not belong in a strict trace-backend comparison. For full-platform comparisons, see [Part 1: Open-Source Observability Platforms Compared]({% post_url 2026-08-20-open-source-observability-platform-comparison %}).
+**Excluded from the primary benchmark:** Multi-signal observability platforms (SigNoz, OpenObserve, ClickStack, Uptrace, Coroot, DeepFlow, Sentry) — these support tracing but are broader APM/observability systems. They are listed in Section 2 for reference but do not belong in a strict trace-backend comparison. For full-platform comparisons, see [Part 1: Open-Source Observability Platforms Compared]({% post_url 2026-08-20-open-source-observability-platform-comparison %}).
 
 ---
 
@@ -55,7 +55,7 @@ This article focuses exclusively on **open-source, self-hostable distributed tra
   - [Known Limitations](#known-limitations)
 - [Section 2: Broader Open-Source Platforms with Tracing](#section-2-broader-open-source-platforms-with-tracing)
 - [Section 3: Trace Collectors and Processing Pipelines](#section-3-trace-collectors-and-processing-pipelines)
-  - [The Candidates](#the-candidates-1)
+  - [Collector Candidates](#collector-candidates)
   - [Important Collector Components](#important-collector-components)
   - [Kubernetes Collection Architecture](#kubernetes-collection-architecture)
 - [Section 4: Open-Source Automatic Instrumentation](#section-4-open-source-automatic-instrumentation)
@@ -114,7 +114,7 @@ These are the closest equivalents to each other — purpose-built distributed tr
 </div>
 
 > **Practical shortlist for new deployments:** Jaeger v2, Grafana Tempo, Zipkin. Hypertrace is niche. Haystack is no longer a strong choice.
-
+>
 > **Jaeger v1 note:** Jaeger v1 reached end of life on December 31, 2025. New deployments should use Jaeger v2, which is built on the OpenTelemetry Collector framework. [Jaeger lifecycle](https://www.jaegertracing.io/download/).
 
 ### Jaeger v2 vs Tempo vs Zipkin
@@ -298,10 +298,13 @@ These support traces but are not trace-only systems. They belong in an "all-in-o
 | **[Pinpoint](https://github.com/pinpoint-apm/pinpoint)** | Apache 2.0 | APM metrics, topology | HBase / compatible (⭐ 13.6k · Since 2014) |
 | **[OpenSearch Trace Analytics](https://github.com/opensearch-project/OpenSearch)** | Apache 2.0 | Logs, general search | OpenSearch (⭐ 10k · Since 2021) |
 | **[OneUptime](https://github.com/OneUptime/oneuptime)** | Apache 2.0 | Metrics, logs, incidents, profiles | PostgreSQL + ClickHouse (⭐ 5k · Since 2022) |
+| **[Sentry (Self-Hosted)](https://github.com/getsentry/sentry)** | FSL-1.1-Apache-2.0 (source-available) | Errors, logs/breadcrumbs, session replay, profiling | ClickHouse / Snuba + Kafka (⭐ ~45k · Since 2010) |
 
 </div>
 
-> Do not put these in the primary Jaeger/Tempo/Zipkin benchmark.
+> **Sentry's tracing niche:** While historically built for error tracking, self-hosted Sentry has expanded into distributed tracing with native OTLP trace ingestion via Sentry Relay. Its core strength is code-level triage — linking a failing span directly to an unhandled exception, stack trace, and frontend Session Replay. However, self-hosting requires significant infrastructure (20+ containers, Kafka, ClickHouse, Snuba) and it uses the source-available FSL-1.1 license rather than pure OSI open-source.
+>
+> **Note:** Do not put these broader multi-signal platforms in the primary Jaeger/Tempo/Zipkin benchmark.
 
 ---
 
@@ -309,7 +312,7 @@ These support traces but are not trace-only systems. They belong in an "all-in-o
 
 These receive, batch, enrich, filter, sample, and export traces. They do not normally provide permanent trace storage.
 
-### The Candidates
+### Collector Candidates
 
 | Tool | License | Trace functions |
 | :--- | :--- | :--- |
@@ -534,7 +537,7 @@ Alertmanager
 
 ### Broader platforms with tracing (covered in Part 1)
 
-- SkyWalking, SigNoz, VictoriaTraces, Uptrace, OpenObserve, ClickStack, Coroot, DeepFlow, Pinpoint, OpenSearch
+- SkyWalking, SigNoz, VictoriaTraces, Uptrace, OpenObserve, ClickStack, Coroot, DeepFlow, Pinpoint, OpenSearch, OneUptime, Sentry
 
 ---
 
@@ -563,6 +566,7 @@ Jaeger v1 reached end of life on December 31, 2025. Jaeger v2 is a complete rewr
 ## References
 
 ### Dedicated Trace Backends
+
 - [Jaeger v2 Documentation](https://www.jaegertracing.io/docs/latest/)
 - [Jaeger Architecture](https://www.jaegertracing.io/docs/2.20/architecture/)
 - [Grafana Tempo Documentation](https://grafana.com/docs/tempo/latest/)
@@ -573,12 +577,14 @@ Jaeger v1 reached end of life on December 31, 2025. Jaeger v2 is a complete rewr
 - [VictoriaTraces](https://github.com/VictoriaMetrics/VictoriaTraces)
 
 ### Collection & Processing
+
 - [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/)
 - [OpenTelemetry Collector Contrib](https://github.com/open-telemetry/opentelemetry-collector-contrib)
 - [Grafana Alloy](https://grafana.com/docs/alloy/latest/)
 - [Vector](https://vector.dev/docs/)
 
 ### Auto-Instrumentation
+
 - [OpenTelemetry Operator](https://github.com/open-telemetry/opentelemetry-operator)
 - [Odigos](https://github.com/odigos-io/odigos)
 - [OpenTelemetry eBPF Instrumentation](https://opentelemetry.io/docs/zero-code/obi/)
@@ -586,20 +592,30 @@ Jaeger v1 reached end of life on December 31, 2025. Jaeger v2 is a complete rewr
 - [Pixie](https://px.dev/)
 
 ### SDKs & Instrumentation
+
 - [OpenTelemetry Language SDKs](https://opentelemetry.io/docs/languages/)
 - [Micrometer Tracing](https://micrometer.io/docs/tracing)
 - [Zipkin Brave](https://github.com/openzipkin/brave)
 
 ### Standards & Protocols
+
 - [W3C Trace Context](https://www.w3.org/TR/trace-context/)
 - [W3C Baggage](https://www.w3.org/TR/baggage/)
 - [OpenTelemetry Specification](https://opentelemetry.io/docs/specs/otel/)
 
 ### Testing & Validation
+
 - [Tracetest](https://github.com/kubeshop/tracetest)
 - [telemetrygen](https://github.com/open-telemetry/opentelemetry-collector-contrib/tree/main/cmd/telemetrygen)
 - [OpenTelemetry Demo](https://opentelemetry.io/docs/demo/)
 - [Tempo Vulture](https://grafana.com/docs/tempo/latest/operations/tempo-vulture/)
+
+### Broader Platforms & APM
+
+- [Apache SkyWalking](https://skywalking.apache.org/docs/)
+- [SigNoz Documentation](https://signoz.io/docs/)
+- [Sentry Documentation](https://docs.sentry.io/)
+- [OneUptime Documentation](https://oneuptime.com/docs)
 
 ---
 
