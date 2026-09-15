@@ -445,7 +445,11 @@ AGPL requires sharing source modifications if you offer the software as a networ
 
 ### Quickwit
 
-[Quickwit](https://github.com/quickwit-oss/quickwit) — Rust search engine optimized for logs and traces on object storage. Excellent search performance but requires Grafana for dashboards and external alerting. A storage/search backend, not a complete observability platform.
+[Quickwit](https://github.com/quickwit-oss/quickwit) — A cloud-native, sub-second search and indexing engine written in Rust (built on top of the Tantivy search library), engineered to query logs and distributed traces directly on cloud object storage (Amazon S3, Azure Blob, Google Cloud Storage, or MinIO) without requiring local SSD caching.
+
+- **Signals & Protocols:** Native OTLP ingestion for logs and traces, Elasticsearch-compatible REST API (queryable via Elasticsearch/OpenSearch clients and Grafana data sources), and a native Jaeger gRPC storage plugin.
+- **Why it's an honorable mention:** Quickwit is a purpose-built storage and search engine rather than an all-in-one APM platform. It lacks an out-of-the-box UI (relying on Grafana or Jaeger UI for visualization), has no native alerting engine, and metrics support remains on its roadmap.
+- **Acquisition & Licensing:** Acquired by Datadog in January 2025 and licensed under Apache 2.0. While the open-source repository remains available and maintained, its development is closely aligned with Datadog's ecosystem rather than functioning as an independent turnkey monitoring suite.
 
 ---
 
