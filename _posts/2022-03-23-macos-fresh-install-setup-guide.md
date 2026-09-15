@@ -16,6 +16,7 @@ Setting up a **fresh macOS installation** can be overwhelming for developers and
 Whether you're a seasoned developer or just starting your coding journey, this comprehensive guide provides step-by-step instructions for configuring the perfect development environment on your new Mac. From package managers to programming languages, we'll cover everything you need for a productive workflow.
 
 ## Table of Contents
+
 - [System Information & Setup](#system-information--setup)
 - [Package Managers](#package-managers)
 - [Terminal Configuration](#terminal-configuration)
@@ -33,6 +34,7 @@ Whether you're a seasoned developer or just starting your coding journey, this c
 ## System Information & Setup
 
 ### Check macOS Version
+
 Verify your macOS version and system information:
 
 ```bash
@@ -48,6 +50,7 @@ uname -a
 ```
 
 ### Configure System Names
+
 Customize your computer's identity for network and terminal display:
 
 ```bash
@@ -68,6 +71,7 @@ sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder
 ```
 
 ### Configure Trackpad Settings
+
 Enable right-click functionality on trackpad:
 
 1. Open **System Settings** (or System Preferences on older macOS)
@@ -78,6 +82,7 @@ Enable right-click functionality on trackpad:
 ## Package Managers
 
 ### Install Homebrew (Recommended)
+
 [Homebrew](https://brew.sh/) is the most popular package manager for macOS, making it easy to install and manage developer tools.
 
 ```bash
@@ -96,6 +101,7 @@ Enable right-click functionality on trackpad:
 **Visual Interface:** [Coldbrew](https://coldbrew.lil.run/) - A visual interface to quickly install your favorite macOS apps from Homebrew Cask.
 
 ### Install MacPorts (Alternative)
+
 [MacPorts](https://www.macports.org/install.php) is an alternative package manager (optional if you're using Homebrew):
 
 ```bash
@@ -108,6 +114,7 @@ port upgrade vim # upgrade specific port
 ## Terminal Configuration
 
 ### Create .zshrc File
+
 Set up your shell configuration file:
 
 ```bash
@@ -115,6 +122,7 @@ nano ~/.zshrc
 ```
 
 ### Enable Terminal Colors
+
 Colorize terminal output for better readability:
 
 ```bash
@@ -123,6 +131,7 @@ source ~/.zshrc
 ```
 
 ### Shell Configuration
+
 Change shell if needed (macOS uses Zsh by default):
 
 ```bash
@@ -137,6 +146,7 @@ chsh -s /bin/zsh
 ```
 
 ### Prioritise Homebrew Bash in PATH
+
 macOS's built-in `/bin/bash` is version 3.2. After `brew install bash`, ensure the Homebrew version is found first:
 
 ```bash
@@ -156,6 +166,7 @@ which bash        # Should show /opt/homebrew/bin/bash
 {: .prompt-tip }
 
 ### Install Oh My Zsh (Recommended)
+
 Enhance your Zsh experience with themes and plugins:
 
 ```bash
@@ -174,6 +185,7 @@ sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.
 ## Development Tools
 
 ### Install Xcode Command Line Tools
+
 Essential for development and Git (install this BEFORE Homebrew):
 
 ```bash
@@ -183,6 +195,7 @@ git --version
 ```
 
 ### Install UV (Python Package Manager)
+
 [UV](https://docs.astral.sh/uv/#highlights) is a fast Python package manager for managing multiple Python versions (covered in detail in Python Development section):
 
 ```bash
@@ -196,27 +209,32 @@ uv python install 3.10 3.11 3.12 3.13
 ### Install via Homebrew (Recommended)
 
 #### CLI Tools & Utilities
+
 ```bash
-brew install wget tmux openssh ffmpeg webp imagemagick
+brew install wget tmux openssh ffmpeg webp imagemagick coreutils
 ```
 
 #### Terminal Emulators
+
 ```bash
 brew install --cask iterm2 termius
 ```
 
 #### Browsers
+
 ```bash
 brew install --cask google-chrome firefox brave-browser microsoft-edge opera
 ```
 
 #### Code Editors & IDEs
+
 ```bash
 brew install --cask visual-studio-code kiro cursor antigravity
 brew install --cask jetbrains-toolbox eclipse-ide android-studio
 ```
 
 #### AI Coding & Local LLMs
+
 ```bash
 brew install --cask claude-code codex-app openclaw
 brew install anomalyco/tap/opencode
@@ -226,11 +244,13 @@ curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scri
 ```
 
 #### Git Tools
+
 ```bash
 brew install --cask github-desktop sourcetree git-credential-manager
 ```
 
 #### Programming Languages & Runtimes
+
 ```bash
 brew install openjdk@21 openjdk@25
 brew install python@3.12 python@3.14
@@ -239,12 +259,14 @@ brew install --cask dotnet-sdk android-commandlinetools
 ```
 
 #### Databases
+
 ```bash
 brew install sqlite
 brew install --cask dbeaver-community mysqlworkbench tableplus db-browser-for-sqlite beekeeper-studio postgres-app pgadmin4
 ```
 
 #### DevOps & Containers
+
 ```bash
 brew install --cask docker orbstack rancher podman-desktop
 brew install minikube helm # Kubernetes tools
@@ -262,67 +284,84 @@ brew install awscli
 brew install gradle
 brew install fluent-bit
 brew install ngrok
-
 ```
 
 #### API Clients
+
 ```bash
 brew install --cask postman insomnia
 ```
 
 #### Cloud CLIs
+
 ```bash
 brew install --cask google-cloud-sdk
 ```
 
 #### Virtualization
+
 ```bash
 brew install --cask virtualbox
 ```
 
 #### VPN & Networking
+
 ```bash
 brew install wireshark
 brew install --cask tunnelblick openvpn-connect cyberduck
 ```
 
 #### Data Science & 3D
+
 ```bash
 brew install --cask rstudio blender
 ```
 
 #### Design
+
 ```bash
 brew install --cask figma gimp inkscape
 ```
 
 #### Media
+
 ```bash
 brew install --cask vlc handbrake obs audacity spotify
 ```
 
 #### Productivity
+
 ```bash
 brew install --cask alfred rectangle dropbox notion obsidian
 ```
 
 #### Communication
+
 ```bash
 brew install --cask slack zoom microsoft-teams discord whatsapp telegram signal
 ```
 
 #### Documents & Downloads
+
 ```bash
 brew install --cask mactex folx
+```
+
+#### Other UI
+
+```bash
+brew install --cask homebrew-app
 ```
 
 ### Manual Downloads (If Homebrew Not Available)
 
 #### Browsers
+
 - [Google Chrome](https://www.google.com/chrome/)
 - [Firefox](https://www.mozilla.org/en-US/firefox/mac/)
 
 #### Code Editors & IDEs
+
 - [Visual Studio Code](https://code.visualstudio.com/download)
   - After installation, add `code` command to PATH:
     1. Open VS Code
@@ -336,13 +375,16 @@ brew install --cask mactex folx
 - [Android Studio](https://developer.android.com/studio) (Android development)
 
 #### Terminal Tools
+
 - [iTerm2](https://iterm2.com/) (Advanced terminal replacement)
 - Oh My Zsh: See [Terminal Configuration](#terminal-configuration) section for complete setup
 
 #### Git GUI Clients
+
 - [GitHub Desktop](https://desktop.github.com/) (Official GitHub client)
 
 #### Communication Tools
+
 - [Slack](https://slack.com/intl/en-in/downloads/mac)
 - [Zoom](https://zoom.us/download)
 - [Microsoft Teams](https://www.microsoft.com/en-in/microsoft-teams/download-app)
@@ -352,15 +394,18 @@ brew install --cask mactex folx
 - [Skype](https://www.skype.com/en/get-skype/download-skype-for-desktop/)
 
 #### Database Tools
+
 - [MySQL Community](https://dev.mysql.com/downloads/mysql/)
 - [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
 - [DBeaver](https://dbeaver.io/download/)
 - [TablePlus](https://tableplus.com/) (Modern database client)
 
 #### Design & Collaboration
+
 - [Figma](https://www.figma.com/downloads/) (Design collaboration)
 
 #### Productivity Tools
+
 - [Alfred](https://www.alfredapp.com/) (Spotlight replacement with workflows)
 - [Rectangle](https://rectangleapp.com/) (Window management)
 - [Maccy](https://maccy.app/) (Lightweight clipboard manager)
@@ -371,26 +416,31 @@ brew install --cask mactex folx
 - [Apparency](https://apparency.macupdate.com/) (App security analysis tool)
 
 #### DevOps & API Tools
+
 - [Docker](https://www.docker.com/products/docker-desktop/)
 - [Lens](https://k8slens.dev/)
 - [Postman](https://www.postman.com/downloads/)
 - [UTM](https://mac.getutm.app/) (Virtualization for Windows/Linux on Mac)
 
 #### Development & Productivity
+
 - [Node.js LTS](https://nodejs.org/en/download)
 - [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html)
 - [Zettlr](https://www.zettlr.com/) (Markdown editor)
 
 #### Media & Content Creation
+
 - [OBS Studio](https://obsproject.com/) (Video recording and live streaming)
 
 #### Data Science & Analytics
+
 - [R](https://cran.r-project.org/bin/macosx/)
 - [RStudio](https://www.rstudio.com/products/rstudio/download/)
 
 ## Programming Languages & Frameworks
 
 ### Java Development
+
 Choose from multiple OpenJDK distributions:
 
 #### OpenJDK Options (LTS Recommended)
@@ -405,6 +455,7 @@ Choose from multiple OpenJDK distributions:
 | [Oracle Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html) | Oracle Corporation  |
 
 #### Install Multiple Java Versions via Homebrew
+
 ```bash
 # Install Java 21 (LTS) and Java 25
 brew install openjdk@21 openjdk@25
@@ -414,6 +465,7 @@ brew install openjdk@21 openjdk@25
 ```
 
 #### Configure Java Version Switching in ~/.zshrc
+
 Add the following to your `~/.zshrc`:
 
 ```bash
@@ -438,6 +490,7 @@ source ~/.zshrc
 ```
 
 #### Switching Java Versions
+
 ```bash
 java21   # switch to Java 21 (LTS) — default
 java25   # switch to Java 25
@@ -449,9 +502,11 @@ java -version   # confirm active version
 > Run `/usr/libexec/java_home -V` to get the exact paths on your machine.
 
 ### Python Development
+
 Choose from multiple Python installation methods:
 
 #### Option 1: UV Package Manager (Recommended for Developers)
+
 [UV](https://docs.astral.sh/uv/) is a fast, modern Python package and project manager — handles multiple Python versions, virtual environments, and package installs in one tool:
 
 ```bash
@@ -471,6 +526,7 @@ source .venv/bin/activate
 ```
 
 #### Option 2: Pyenv (Version Management)
+
 [Pyenv](https://github.com/pyenv/pyenv) allows you to easily switch between Python versions:
 
 ```bash
@@ -495,6 +551,7 @@ python --version
 ```
 
 #### Option 3: Homebrew Installation
+
 ```bash
 # Install specific Python versions via Homebrew
 brew install python@3.12 python@3.14
@@ -508,6 +565,7 @@ pip3 install --upgrade pip
 ```
 
 #### Option 4: Official Python Installer (Simplest)
+
 [Download Python](https://www.python.org/downloads/macos/) from the official website:
 
 1. Visit [python.org/downloads](https://www.python.org/downloads/)
@@ -529,6 +587,7 @@ pip3 --version
 ```
 
 #### pipx (Global Tool Installation / pip3 Fallback)
+
 [pipx](https://pipx.pypa.io/) installs Python tools in isolated environments — useful when `pip3` fails due to system restrictions or conflicts:
 
 ```bash
@@ -545,6 +604,7 @@ pipx list
 ```
 
 #### Essential Python Packages
+
 Install commonly used Python packages:
 
 ```bash
@@ -565,6 +625,7 @@ pip3 install scikit-learn tensorflow pytorch
 ```
 
 #### Configure Virtual Environments
+
 ```bash
 # Create project virtual environment
 python3 -m venv myproject
@@ -578,6 +639,7 @@ deactivate
 ```
 
 ### Go Development
+
 [Download Go](https://go.dev/dl/) and configure:
 
 ```bash
@@ -593,6 +655,7 @@ echo 'export PATH=$PATH:$GOROOT/bin:$GOPATH/bin' >> ~/.zshrc
 ```
 
 ### Maven Build Tool
+
 [Download Maven](https://maven.apache.org/download.cgi) and configure:
 
 ```bash
@@ -610,6 +673,7 @@ echo 'export PATH=$PATH:$MAVEN_HOME/bin' >> ~/.zshrc
 ```
 
 ### Protocol Buffers
+
 [Download Protocol Buffers](https://github.com/protocolbuffers/protobuf/releases) and configure:
 
 ```bash
@@ -625,6 +689,7 @@ protoc --version
 ```
 
 ### Jekyll & Ruby
+
 For static site generation:
 
 ```bash
@@ -649,6 +714,7 @@ bundle exec jekyll serve
 ## Git Configuration
 
 ### Basic Git Setup
+
 Configure Git with your identity:
 
 ```bash
@@ -661,6 +727,7 @@ After setting up your identity, choose one of the authentication methods below. 
 ### Authentication Methods
 
 #### Option 1: SSH Keys (Recommended)
+
 SSH keys provide secure, password-free Git operations. This is the preferred method for daily development.
 
 **Generate and configure SSH key:**
@@ -679,6 +746,7 @@ pbcopy < ~/.ssh/id_ed25519.pub
 ```
 
 **Add SSH key to GitHub:**
+
 1. Go to [GitHub SSH Settings](https://github.com/settings/ssh/new)
 2. Click "New SSH key"
 3. Paste the copied key and give it a title
@@ -708,6 +776,7 @@ git clone git@github.com:username/repo.git
 ```
 
 #### Option 2: HTTPS with Personal Access Token
+
 If you prefer HTTPS, use a [Personal Access Token (PAT)](https://github.com/settings/personal-access-tokens) instead of a password.
 
 **Set up credential caching:**
@@ -728,6 +797,7 @@ The token will be cached in the Keychain automatically for future operations.
 [Generate Personal Access Token here](https://github.com/settings/personal-access-tokens)
 
 ### Switch Existing Repo from HTTPS to SSH
+
 If you cloned a repository using HTTPS and want to switch to SSH (avoids token prompts):
 
 ```bash
@@ -746,11 +816,13 @@ git remote -v
 ### Containers & Kubernetes
 
 #### Container Runtimes
+
 - [Docker Desktop](https://docs.docker.com/desktop/install/mac-install/) - Full Docker experience
 - [Rancher Desktop](https://rancherdesktop.io/) - Docker alternative with Kubernetes
 - [Minikube](https://minikube.sigs.k8s.io/docs/start/) - Local Kubernetes cluster
 
 #### Kubernetes Tools
+
 ```bash
 # Install via Homebrew
 brew install kubectl helm
@@ -758,11 +830,13 @@ brew install --cask lens  # Kubernetes IDE
 ```
 
 ### Monitoring & Observability
+
 - [Grafana](https://grafana.com/grafana/download?edition=oss)
 - [Prometheus](https://prometheus.io/download/)
 - [Jenkins](https://www.jenkins.io/download/)
 
 ### AI Development
+
 - [AWS MCP Servers](https://awslabs.github.io/mcp/)
   ```bash
   # Configure AWS MCP Server
@@ -770,6 +844,7 @@ brew install --cask lens  # Kubernetes IDE
   ```
 
 ## Quick Setup Script
+
 For experienced users, here's a comprehensive setup script:
 
 ```bash
@@ -800,12 +875,14 @@ echo "Setup complete! Please restart your terminal."
 ## Common Issues & Solutions
 
 ### Homebrew Installation Issues
+
 - **Error: Command Line Tools not installed**
   ```bash
   xcode-select --install
   ```
 
 ### PATH Issues
+
 - **Commands not found after installation**
   ```bash
   # Reload shell configuration
@@ -814,6 +891,7 @@ echo "Setup complete! Please restart your terminal."
   ```
 
 ### Permission Issues
+
 - **Permission denied errors**
   ```bash
   # Use sudo for system-level installations
@@ -824,6 +902,7 @@ echo "Setup complete! Please restart your terminal."
   ```
 
 ### Git Authentication
+
 - **Authentication failed**
   - Use Personal Access Token instead of password
   - Ensure token has appropriate permissions
@@ -832,6 +911,7 @@ echo "Setup complete! Please restart your terminal."
 ## Keep Your System Updated
 
 ### Update Homebrew Packages
+
 ```bash
 # Update Homebrew and packages
 brew update && brew upgrade
@@ -841,6 +921,7 @@ brew cleanup
 ```
 
 ### Update macOS
+
 ```bash
 # Check for macOS updates
 softwareupdate -l
@@ -850,6 +931,7 @@ softwareupdate -i -a
 ```
 
 ### Update Development Tools
+
 ```bash
 # Update Node.js packages
 npm update -g
@@ -865,101 +947,36 @@ uv python install 3.12  # Install latest versions
 
 ## Frequently Asked Questions
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What should I install first on a new Mac?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Start with Xcode Command Line Tools and Homebrew package manager. These are foundational tools that most other software depends on. Run 'git --version' to trigger Xcode tools installation, then install Homebrew using the official script."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does a complete macOS setup take?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "A complete developer setup typically takes 2-3 hours, depending on your internet speed and the number of applications you install. The basic setup (Homebrew, Git, Python, Node.js) can be completed in 30-45 minutes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Should I use Homebrew or download apps manually?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Homebrew is recommended for most installations as it handles dependencies automatically, keeps software updated, and allows easy uninstallation. Use manual downloads only for apps not available via Homebrew or when you need specific versions."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which Python installation method is best?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "For beginners, use the official Python installer from python.org. For advanced users managing multiple projects, pyenv or UV provide better version management. Homebrew Python is good for general development work."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I keep my development environment updated?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Run 'brew update && brew upgrade' monthly to update Homebrew packages. Use 'softwareupdate -l' for macOS updates. For Python packages, use 'pip3 list --outdated' to check for updates. Set up a monthly maintenance routine."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What if I encounter permission errors during installation?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use 'sudo' for system-level installations, but avoid using 'sudo' with Homebrew. If you get Homebrew permission errors, run 'sudo chown -R $(whoami) /usr/local/share/zsh' to fix ownership issues."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use this guide for Apple Silicon (M1/M2) Macs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, this guide works for both Intel and Apple Silicon Macs. Homebrew automatically detects your architecture and installs the appropriate versions. Some older software may require Rosetta 2 for compatibility."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I backup my development environment?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use 'brew bundle dump' to create a Brewfile listing all installed packages. Export your shell configuration files (.zshrc, .bashrc). Consider using dotfiles repositories on GitHub to version control your configuration."
-      }
-    }
-  ]
-}
-</script>
-
 ### What should I install first on a new Mac?
+
 Start with **Xcode Command Line Tools** and **Homebrew package manager**. These are foundational tools that most other software depends on. Run `git --version` to trigger Xcode tools installation, then install Homebrew using the official script.
 
 ### How long does a complete macOS setup take?
+
 A complete **developer setup** typically takes 2-3 hours, depending on your internet speed and the number of applications you install. The basic setup (Homebrew, Git, Python, Node.js) can be completed in 30-45 minutes.
 
 ### Should I use Homebrew or download apps manually?
+
 **Homebrew is recommended** for most installations as it handles dependencies automatically, keeps software updated, and allows easy uninstallation. Use manual downloads only for apps not available via Homebrew or when you need specific versions.
 
 ### Which Python installation method is best?
+
 For beginners, use the **official Python installer** from python.org. For advanced users managing multiple projects, **pyenv** or **UV** provide better version management. Homebrew Python is good for general development work.
 
 ### How do I keep my development environment updated?
+
 Run `brew update && brew upgrade` monthly to update Homebrew packages. Use `softwareupdate -l` for macOS updates. For Python packages, use `pip3 list --outdated` to check for updates. Set up a monthly maintenance routine.
 
 ### What if I encounter permission errors during installation?
+
 Use `sudo` for system-level installations, but avoid using `sudo` with Homebrew. If you get Homebrew permission errors, run `sudo chown -R $(whoami) /usr/local/share/zsh` to fix ownership issues.
 
 ### Can I use this guide for Apple Silicon (M1/M2) Macs?
+
 Yes, this guide works for both **Intel and Apple Silicon Macs**. Homebrew automatically detects your architecture and installs the appropriate versions. Some older software may require Rosetta 2 for compatibility.
 
 ### How do I backup my development environment?
+
 Use `brew bundle dump` to create a Brewfile listing all installed packages. Export your shell configuration files (.zshrc, .bashrc). Consider using dotfiles repositories on GitHub to version control your configuration.
 
 ## Conclusion
@@ -967,6 +984,7 @@ Use `brew bundle dump` to create a Brewfile listing all installed packages. Expo
 This comprehensive **macOS setup guide** provides everything needed for a productive development environment on your fresh Mac installation. From essential **developer tools** like Homebrew and Git to programming languages like Python and Java, you now have a solid foundation for any development project.
 
 Key takeaways from this guide:
+
 - **Start with fundamentals**: Xcode Command Line Tools and Homebrew
 - **Use package managers**: Homebrew simplifies installation and maintenance
 - **Configure your environment**: Proper PATH setup and shell configuration
@@ -975,6 +993,7 @@ Key takeaways from this guide:
 Bookmark this guide for future reference and share it with fellow developers setting up new Macs. A well-configured development environment is the foundation of productive coding.
 
 **What's Next?**
+
 - Explore macOS productivity tips and shortcuts to boost your workflow
 - Learn about development workflow optimization for your specific tech stack
 - Set up automated backup solutions to protect your development work
