@@ -16,6 +16,7 @@ Mastering **Linux troubleshooting commands** is essential for system administrat
 Whether you're troubleshooting performance issues, managing services, or diagnosing network problems, these commands will help you quickly identify and resolve system issues.
 
 ## Table of Contents
+
 - [Quick Reference Cheat Sheet](#quick-reference-cheat-sheet)
 - [Safety Guidelines](#safety-guidelines)
 - [System Information & Hardware](#system-information--hardware)
@@ -45,19 +46,23 @@ Whether you're troubleshooting performance issues, managing services, or diagnos
 ### Emergency Commands (⚠️ Use with caution)
 
 **Medium Risk:**
+
 - `kill -9 <pid>` - Force kill process (cannot be ignored)
 - `pkill -9 <process_name>` - Force kill all matching processes
 
 **High Risk:**
+
 - `sudo reboot` - Restart system immediately
 - `sudo iptables -F` - Flush all firewall rules
 - `sudo systemctl stop <critical_service>` - Stop critical system service
 
 **NEVER USE:**
+
 - `rm -rf /` - Delete everything (system destruction)
 - `dd if=/dev/zero of=/dev/sda` - Wipe disk completely
 
 ### Most Used Commands
+
 ```bash
 # System status
 htop                    # Interactive process viewer
@@ -75,12 +80,13 @@ lsof -i                # Network connections
 ## Safety Guidelines
 
 > ⚠️ **Warning:** Commands marked with this symbol can cause system damage or data loss.
-
+>
 > 💡 **Tip:** Always test commands in a non-production environment first.
-
+>
 > 🔒 **Security:** Never run unknown scripts with sudo privileges.
 
-### Before Running Destructive Commands:
+### Before Running Destructive Commands
+
 1. **Backup critical data**
 2. **Test in staging environment**
 3. **Have rollback plan ready**
@@ -89,6 +95,7 @@ lsof -i                # Network connections
 ## System Information & Hardware
 
 ### Operating System Information
+
 Get detailed information about your Linux distribution and version:
 
 ```bash
@@ -99,6 +106,7 @@ lsb_release -a          # Ubuntu/Debian specific
 ```
 
 ### CPU Architecture & Core Information
+
 Analyze CPU specifications and architecture:
 
 ```bash
@@ -122,6 +130,7 @@ cat /proc/cpuinfo | grep "processor" | wc -l
 ## Performance Monitoring & Resource Usage
 
 ### Top Resource Consumers
+
 Identify processes consuming the most CPU and memory:
 
 ```bash
@@ -135,6 +144,7 @@ top -o %MEM | head -n 16
 ```
 
 ### Interactive Process Monitoring
+
 Real-time system monitoring tools:
 
 ```bash
@@ -149,6 +159,7 @@ top     # show all processes
 ## Process Management
 
 ### Finding Processes
+
 Locate specific processes by name or pattern:
 
 ```bash
@@ -163,6 +174,7 @@ pidof <process_name>     # returns PIDs only
 ```
 
 ### Terminating Processes
+
 Safely and forcefully terminate processes:
 
 ```bash
@@ -183,6 +195,7 @@ ps aux | grep -i firefox | awk '{print $2}' | xargs kill -9
 ## SystemD Service Management
 
 ### Listing Services
+
 View and filter system services:
 
 ```bash
@@ -208,6 +221,7 @@ systemctl list-unit-files | grep disabled
 ```
 
 ### Service Control Operations
+
 Manage service lifecycle and configuration:
 
 ```bash
@@ -233,13 +247,16 @@ sudo service <service-name> status
 ```
 
 ### Creating Custom Services
+
 Create and manage custom systemd services:
 
 #### Service File Locations
+
 - System services: `/etc/systemd/system/`
 - User services: `/usr/lib/systemd/system/`
 
 #### Example: Loki Service
+
 ```bash
 sudo tee /etc/systemd/system/loki.service<<EOF
 [Unit]
@@ -258,6 +275,7 @@ EOF
 ```
 
 #### Example: Fluent-bit Service
+
 ```bash
 sudo tee /etc/systemd/system/fluent-bit.service<<EOF
 [Unit]
@@ -279,6 +297,7 @@ EOF
 ```
 
 #### Activating Custom Services
+
 ```bash
 sudo systemctl daemon-reload
 sudo systemctl enable <service-name>
@@ -286,9 +305,11 @@ sudo systemctl start <service-name>
 ```
 
 ### Service Log Analysis (journalctl)
+
 Analyze service logs for troubleshooting:
 
 #### Basic Log Viewing
+
 ```bash
 # View all logs for specific service
 journalctl -u <service-name>
@@ -298,6 +319,7 @@ journalctl -u <service-name> -n 10       # last 10 lines
 ```
 
 #### Time-based Log Filtering
+
 ```bash
 # View logs by time range
 journalctl --since=yesterday -u <service-name>
@@ -306,6 +328,7 @@ journalctl --since "2025-01-01 10:00:00" --until "2025-01-01 11:00:00" -u <servi
 ```
 
 #### Log Content Filtering
+
 ```bash
 # Filter logs by content
 journalctl -u <service-name> | grep "error"
@@ -316,6 +339,7 @@ journalctl -u <service-name> -f
 ```
 
 #### Log Priority Levels
+
 ```bash
 # View logs by severity
 journalctl -u <service-name> -p err      # error and above
@@ -324,6 +348,7 @@ journalctl -u <service-name> -p info     # info and above
 ```
 
 #### Advanced Log Formats
+
 ```bash
 # Detailed log output formats
 journalctl -u <service-name> -o verbose      # detailed output
@@ -333,6 +358,7 @@ journalctl -u <service-name> -x             # with help texts
 ```
 
 #### Boot-specific Logs
+
 ```bash
 # View logs by boot session
 journalctl -u <service-name> -b     # current boot
@@ -341,6 +367,7 @@ journalctl --list-boots             # list available boots
 ```
 
 #### System-wide Log Analysis
+
 ```bash
 # System-wide log commands
 journalctl              # all system logs
@@ -350,6 +377,7 @@ journalctl --disk-usage # journal disk usage
 ```
 
 #### Journal Log Cleanup
+
 ```bash
 # Delete logs older than specified time (system-wide)
 journalctl --vacuum-time=3d   # delete logs older than 3 days
@@ -369,6 +397,7 @@ journalctl --vacuum-time=1s -u loki.service    # remove all entries for loki ser
 ## Memory Analysis
 
 ### Memory Usage Overview
+
 Monitor system memory consumption and availability:
 
 ```bash
@@ -386,6 +415,7 @@ cat /proc/meminfo
 ```
 
 ### Memory Performance Monitoring
+
 ```bash
 # Memory usage by process
 ps aux --sort=-%mem | head -10
@@ -397,6 +427,7 @@ sar -r 1 10  # memory utilization every 1 second
 ## Network Configuration & Troubleshooting
 
 ### Network Interface Management
+
 Configure and manage network interfaces:
 
 ```bash
@@ -413,9 +444,11 @@ ip -s link show
 ```
 
 ### Static IP Configuration
+
 Configure static IP addresses:
 
 #### Method 1: Network Interfaces File (Debian/Ubuntu)
+
 ```bash
 # Check current configuration
 sudo ifdown eth0
@@ -436,6 +469,7 @@ sudo ifup eth0
 ```
 
 #### Method 2: Netplan (Ubuntu 18.04+)
+
 ```bash
 # Edit netplan configuration
 sudo nano /etc/netplan/01-network-manager-all.yaml
@@ -445,6 +479,7 @@ sudo netplan apply
 ```
 
 ### Network Connectivity Testing
+
 ```bash
 # Test connectivity
 ping -c 4 google.com
@@ -462,6 +497,7 @@ mtr google.com  # continuous traceroute
 ## Port Management & Network Services
 
 ### Listing Open Ports
+
 Identify active network services and listening ports:
 
 ```bash
@@ -475,6 +511,7 @@ sudo ss -tunpl
 ```
 
 ### Port-to-Service Mapping
+
 Identify services associated with port numbers:
 
 ```bash
@@ -490,6 +527,7 @@ cat /etc/services | grep 8080
 ```
 
 ### Process-to-Port Analysis
+
 Identify which processes are using specific ports:
 
 ```bash
@@ -509,6 +547,7 @@ sudo netstat -peanut | grep ":5140"
 ```
 
 ### Terminating Port-specific Processes
+
 Kill processes using specific ports:
 
 ```bash
@@ -522,6 +561,7 @@ fuser -k 9092/tcp
 ```
 
 ### Port Connectivity Testing
+
 Test network service availability:
 
 ```bash
@@ -539,6 +579,7 @@ curl -I http://localhost:8080  # HTTP service test
 ```
 
 ### Port Scanning & Service Discovery
+
 Scan for open ports and running services:
 
 ```bash
@@ -558,6 +599,7 @@ nmap -A localhost  # aggressive scan with OS detection
 ```
 
 ### Firewall Configuration
+
 Manage firewall rules for port access:
 
 ```bash
@@ -581,6 +623,7 @@ sudo service iptables save                    # RHEL/CentOS
 ## File System Operations
 
 ### File Size Analysis
+
 Analyze file and directory sizes:
 
 ```bash
@@ -598,6 +641,7 @@ du -BT yourfile.txt         # terabytes
 ```
 
 ### File Content Statistics
+
 Analyze file content metrics:
 
 ```bash
@@ -608,6 +652,7 @@ wc -c yourfile.txt          # number of characters/bytes
 ```
 
 ### Longest Line Analysis
+
 Find and analyze the longest lines in files:
 
 ```bash
@@ -622,6 +667,7 @@ awk '{ if ( length > max ) { max = length; line = NR } } END { print "Line", lin
 ```
 
 ### Viewing Specific Lines
+
 Extract specific lines from files:
 
 ```bash
@@ -635,10 +681,42 @@ sed -n '42,45p' yourfile.txt
 awk 'NR>=42 && NR<=45' yourfile.txt
 ```
 
+### Disk Space & Filesystem Analysis
+
+Monitor storage capacity, available space, and filesystem health across all drives:
+
+```bash
+# Physical filesystems only (exclude tmpfs, devtmpfs, squashfs)
+df -hT -x tmpfs -x devtmpfs -x squashfs
+
+# All mounted filesystems (human-readable)
+df -h
+
+# Check inode usage (diagnose "No space left on device" when free space exists)
+df -ihT -x tmpfs -x devtmpfs
+
+# Block device tree with mount points, total size, used and available space
+lsblk -o NAME,SIZE,FSUSED,FSAVAIL,FSUSE%,MOUNTPOINTS
+
+# Raw partition tables and disk capacity
+sudo fdisk -l
+```
+
 ### Directory Size Analysis
+
 Analyze directory and folder sizes:
 
 ```bash
+# Root partition breakdown (stays on single filesystem, ignores other mounts like /var or /opt)
+sudo du -xhd 1 / 2>/dev/null | sort -h
+sudo du -xh --max-depth=1 / 2>/dev/null | sort -h  # older du versions
+
+# Top 20 largest files or folders on root filesystem
+sudo du -ahx / 2>/dev/null | sort -rh | head -20
+
+# Interactive disk usage browser (TUI)
+sudo ncdu -x /
+
 # Show all folders in current directory
 du -sh */                   # human-readable, unsorted
 du -sh */ | sort -hr        # sorted largest first
@@ -656,15 +734,12 @@ ls -lhS                     # human-readable
 ls -lS                      # bytes
 du -ah . | sort -hr         # all files/folders, human-readable
 du -ah . | sort -hr | head -10  # top 10 largest
-
-# Disk usage summary
-df -h                       # filesystem usage
-du -sh .                    # current directory total
 ```
 
 ## Permissions & Ownership
 
 ### Changing File Ownership
+
 Modify file and directory ownership:
 
 ```bash
@@ -683,6 +758,7 @@ sudo chgrp groupname filename
 ```
 
 ### File Permissions
+
 Manage file and directory permissions:
 
 ```bash
@@ -707,6 +783,7 @@ chmod -R 755 directory/
 ## System Control
 
 ### System Shutdown & Restart
+
 Safely shutdown and restart the system:
 
 ```bash
@@ -729,6 +806,7 @@ sudo shutdown -c            # cancel scheduled shutdown
 ## Development Environment
 
 ### Python Development
+
 Resolve common Python development issues:
 
 ```bash
@@ -753,6 +831,7 @@ pip install -r requirements.txt
 ```
 
 ### Code Editor Tips
+
 Useful shortcuts and configurations:
 
 ```bash
@@ -767,6 +846,7 @@ code .                     # open current directory
 ## Cloud & Container Tools
 
 ### Minikube Management
+
 Manage local Kubernetes development environment:
 
 ```bash
@@ -792,6 +872,7 @@ minikube start --kubernetes-version=v1.32.0 --cpus=4 --memory=8192 --disk-size=3
 ```
 
 ### AWS CLI Operations
+
 Monitor AWS resources from command line:
 
 ```bash
@@ -818,9 +899,11 @@ aws s3 sync ./local-folder s3://bucket-name/
 ## Common Troubleshooting Scenarios
 
 ### Scenario 1: High CPU Usage
+
 **Problem:** Server running slow, high load average
 
 **Solution Steps:**
+
 1. `htop` - Identify CPU-intensive processes
 2. `ps aux --sort -%cpu | head -10` - List top CPU consumers
 3. `kill -15 <pid>` - Gracefully terminate problematic process
@@ -838,9 +921,11 @@ root      1234 95.2  2.1 123456  8192 ?        R    10:30   5:23 problematic_app
 ```
 
 ### Scenario 2: Out of Memory
+
 **Problem:** Applications crashing, system unresponsive
 
 **Solution Steps:**
+
 1. `free -h` - Check available memory
 2. `ps aux --sort -%mem | head -10` - Find memory hogs
 3. `sudo swapoff -a && sudo swapon -a` - Clear swap cache
@@ -856,26 +941,43 @@ Swap:          2.0G        1.8G        200M
 **Interpretation:** Critical - only 50M available memory, swap heavily used
 
 ### Scenario 3: Network Connectivity Issues
+
 **Problem:** Cannot reach external services
 
 **Solution Steps:**
+
 1. `ping 8.8.8.8` - Test internet connectivity
 2. `ip route show` - Check routing table
 3. `systemctl status NetworkManager` - Check network service
 4. `sudo systemctl restart NetworkManager` - Restart networking
 
 ### Scenario 4: Service Won't Start
+
 **Problem:** Critical service fails to start
 
 **Solution Steps:**
+
 1. `systemctl status <service>` - Check service status
 2. `journalctl -u <service> -n 50` - View recent logs
 3. Check configuration files for syntax errors
 4. `systemctl daemon-reload` - Reload if config changed
 
+### Scenario 5: Disk Space Full / Root Partition at 100%
+
+**Problem:** Disk full error ("No space left on device"), services failing to write logs, or databases crashing
+
+**Solution Steps:**
+
+1. `df -hT -x tmpfs -x devtmpfs` - Identify which mounted disk or partition is full
+2. `df -ih` - Verify it is not inode exhaustion
+3. `sudo du -xhd 1 / 2>/dev/null | sort -h` - Find the largest directories on the root filesystem without traversing into other mounts
+4. `sudo du -ahx /var 2>/dev/null | sort -rh | head -20` - Drill into suspect directory (e.g., `/var` or `/opt`) to find large files
+5. `sudo journalctl --vacuum-size=500M` - Free space from oversized systemd journal logs
+
 ## Log Management & Analysis
 
 ### Critical Log Locations
+
 ```bash
 /var/log/syslog         # System messages (Ubuntu/Debian)
 /var/log/messages       # System messages (CentOS/RHEL)
@@ -887,6 +989,7 @@ Swap:          2.0G        1.8G        200M
 ```
 
 ### Log Analysis Commands
+
 ```bash
 # Find errors in logs
 grep -i error /var/log/syslog
@@ -909,6 +1012,7 @@ find /var/log -type f -size +100M -exec ls -lh {} \;
 ```
 
 ### Log Rotation Management
+
 ```bash
 # Check logrotate configuration
 cat /etc/logrotate.conf
@@ -924,6 +1028,7 @@ sudo logrotate -d /etc/logrotate.conf
 ## Security & Intrusion Detection
 
 ### Failed Login Attempts
+
 ```bash
 # Check failed SSH attempts
 grep "Failed password" /var/log/auth.log
@@ -939,6 +1044,7 @@ who         # Currently logged in users
 ```
 
 ### Process Security Analysis
+
 ```bash
 # Check for suspicious processes
 ps aux | grep -E "(nc|netcat|ncat)"
@@ -954,6 +1060,7 @@ ss -tuln | grep LISTEN
 ```
 
 ### File System Security
+
 ```bash
 # Find files with unusual permissions
 find / -perm -4000 -type f 2>/dev/null  # SUID files
@@ -1049,7 +1156,7 @@ sudo iptables -L             # Firewall rules
 
 ## Troubleshooting Decision Tree
 
-```
+```text
 System Issue?
 ├── Performance Problem?
 │   ├── High CPU → Check processes (htop, ps aux --sort -%cpu)
@@ -1087,7 +1194,8 @@ System Issue?
 
 This comprehensive guide covers essential **Linux troubleshooting commands** for system administrators and DevOps engineers. Regular practice with these commands will improve your ability to quickly diagnose and resolve system issues.
 
-### Key Takeaways:
+### Key Takeaways
+
 - **System monitoring**: Use `htop`, `top`, and `ps` for process analysis
 - **Service management**: Master `systemctl` and `journalctl` for service control
 - **Network troubleshooting**: Leverage `netstat`, `lsof`, and `nmap` for network issues
@@ -1111,13 +1219,16 @@ systemctl --failed                     # Failed services
 ## Related Articles
 
 ### Development Workflow Integration
+
 - **[Complete Git Workflows Guide]({% post_url 2023-01-31-git-workflows-guide %}){:target="_blank"}** - Master Git commands and workflows for version control in your Linux development environment
 - **[Ubuntu Fresh Install Setup Guide]({% post_url 2021-08-20-ubuntu-fresh-install-setup-guide %}){:target="_blank"}** - Complete Ubuntu development environment setup and system configuration
 
 ### System Administration
+
 These Linux troubleshooting commands are essential for managing development servers, CI/CD pipelines, and production environments. Master both system setup and troubleshooting for complete Linux administration expertise.
 
 ## Additional Learning Resources
+
 - [Linux System Administration Best Practices](https://www.redhat.com/sysadmin/)
 - [Advanced SystemD Service Management](https://www.freedesktop.org/software/systemd/man/systemd.service.html)
 - [Network Security with iptables](https://netfilter.org/documentation/HOWTO/packet-filtering-HOWTO.html)
