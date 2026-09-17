@@ -89,10 +89,15 @@ Use backslash to escape special characters: \*literal asterisks\*
 ### ATX Style (Recommended)
 
 # H1 Header
+
 ## H2 Header
+
 ### H3 Header
+
 #### H4 Header
+
 ##### H5 Header
+
 ###### H6 Header
 
 ```markdown
@@ -128,11 +133,11 @@ Header 2
 
 ### Unordered Lists
 
-* Item 1
-* Item 2
-  * Nested item
-  * Another nested item
-* Item 3
+- Item 1
+- Item 2
+  - Nested item
+  - Another nested item
+- Item 3
 
 ```markdown
 * Item 1
@@ -198,7 +203,7 @@ This is a [reference link][1] and another [reference link][google].
 
 ### Automatic Links
 
-https://www.google.com
+<https://www.google.com>
 ```markdown
 https://www.google.com
 ```
@@ -608,15 +613,18 @@ Code example:
 Choose the right Markdown editor for your workflow:
 
 ### Online Editors
+
 - **[StackEdit](https://stackedit.io/)** - Full-featured online editor with live preview, export to HTML/PDF, and cloud sync
 - **[Dillinger](https://dillinger.io/)** - Clean web-based editor with export to HTML, styled HTML, PDF, and Markdown
 - **[HackMD](https://hackmd.io/)** - Collaborative editor with real-time sync, presentation mode, and team features
 
 ### Desktop Applications
+
 - **[Typora](https://typora.io/)** - WYSIWYG editor with seamless live preview and export capabilities
 - **[Obsidian](https://obsidian.md/)** - Knowledge management with Markdown support and graph visualization
 
 ### IDE Extensions
+
 - **[Vim Markdown](https://github.com/preservim/vim-markdown)** - Vim plugin for Markdown syntax highlighting and folding
 
 ---
@@ -626,10 +634,13 @@ Choose the right Markdown editor for your workflow:
 Different platforms use variations of Markdown with additional features:
 
 ### [CommonMark](https://commonmark.org/)
+
 Standardized specification for consistent Markdown parsing across platforms. Visit the [CommonMark spec](https://spec.commonmark.org/) for complete documentation.
 
 ### [GitHub Flavored Markdown (GFM)](https://github.github.com/gfm/)
+
 Extends CommonMark with:
+
 - Tables
 - Task lists
 - Strikethrough
@@ -637,7 +648,9 @@ Extends CommonMark with:
 - Syntax highlighting in code blocks
 
 ### Extended Syntax
+
 Many processors support additional features:
+
 - Footnotes
 - Definition lists
 - Table alignment

@@ -17,6 +17,7 @@ Master **Git workflows** from basic commands to advanced techniques. This compre
 Whether you're a beginner learning your first `git commit` or an expert implementing complex **Git workflows**, this guide provides 48 essential Git commands, troubleshooting solutions, and best practices for modern software development.
 
 ## Table of Contents
+
 - [Getting Started](#getting-started)
 - [Basic Git Operations](#basic-git-operations)
 - [Git Workflow Overview](#git-workflow-overview)
@@ -38,6 +39,7 @@ Whether you're a beginner learning your first `git commit` or an expert implemen
 ## Getting Started
 
 ### What is Git?
+
 Git is a distributed version control system that tracks changes in files and coordinates work among multiple developers. It's essential for modern software development.
 
 ### 📝 Complete Git Commands Quick Reference (48 Commands)
@@ -96,6 +98,7 @@ Git is a distributed version control system that tracks changes in files and coo
 | 🔄 `git rebase -i`                 | Interactive rebase     | Edit commit history interactively         |
 
 ### Initial Git Setup
+
 ```shell
 # configure your identity
 git config --global user.name "Your Name"
@@ -114,6 +117,7 @@ git config --list
 ## Basic Git Operations
 
 ### Repository Initialization
+
 ```shell
 # create new repository
 git init
@@ -123,6 +127,7 @@ git clone <repository_URL>
 ```
 
 ### File Operations
+
 ```shell
 # add files to staging area
 git add <file_name>
@@ -143,6 +148,7 @@ git log -p         # show patch/diff for each commit
 ```
 
 ### File Management Commands
+
 ```shell
 # move/rename files (Git-aware)
 git mv old_filename.txt new_filename.txt
@@ -171,6 +177,7 @@ git ls-files --ignored             # show ignored files
 ```
 
 ### Viewing Changes and Information
+
 ```shell
 # show specific commit details
 git show <commit_hash>             # show commit details and diff
@@ -220,6 +227,7 @@ flowchart TD
 ## Branch Management
 
 ### Main vs Master Branch
+
 **Important:** GitHub changed the default branch name from `master` to `main` in 2020. New repositories use `main` by default, but older repositories may still use `master`. Both work identically - it's just a naming convention.
 
 ```shell
@@ -237,6 +245,7 @@ git push -u origin main
 ```
 
 ### Creating and Switching Branches
+
 ```shell
 # list all branches
 git branch -a
@@ -249,6 +258,7 @@ git checkout -b <new_branch>
 ```
 
 ### Branch Operations
+
 ```shell
 # delete remote branch
 git push origin --delete <branch_name>
@@ -267,6 +277,7 @@ git merge-base main feature-branch # find common ancestor
 ```
 
 ### Working with Specific Branches
+
 ```shell
 # pull specific branch
 git clone <remote_url>
@@ -282,6 +293,7 @@ git push -u origin <new-branch>
 ## Remote Repository Operations
 
 ### Basic Remote Commands
+
 ```shell
 # push with upstream tracking
 git push -u origin <branch_name>  # set upstream
@@ -304,6 +316,7 @@ git push origin --delete <branch>  # delete remote branch
 ```
 
 ### Fork Synchronization
+
 **Fork** is your personal copy of someone else's repository where you can make changes without affecting the original.
 
 ```shell
@@ -353,9 +366,11 @@ flowchart TD
     style F fill:#fce4ec,stroke:#c2185b,stroke-width:2px
     style G fill:#fff8e1,stroke:#fbc02d,stroke-width:2px
 ```
+
 ### Common Issues and Solutions
 
 #### Detached HEAD State
+
 **Detached HEAD** means you're not on any branch, just viewing a specific commit.
 
 ```shell
@@ -366,8 +381,8 @@ git checkout -b new-branch-name
 git checkout main
 ```
 
-
 #### Recovering Lost Commits
+
 ```shell
 # find lost commits
 git reflog
@@ -379,6 +394,7 @@ git checkout -b recovered-branch
 ```
 
 #### Merge Conflicts
+
 **Merge conflicts** occur when Git can't automatically combine changes from different branches.
 
 ```shell
@@ -391,6 +407,7 @@ git merge --abort
 ```
 
 #### Repository Issues
+
 ```shell
 # check repository integrity
 git fsck --full
@@ -404,6 +421,7 @@ git clean -fd   # files and directories
 ```
 
 #### Line Ending Problems
+
 ```shell
 # configure line endings
 git config --global core.autocrlf true   # Windows
@@ -414,6 +432,7 @@ git config --global core.autocrlf false  # no conversion
 ## History & Search Operations
 
 ### Searching Through Repository
+
 ```shell
 # search for text in files
 git grep "search_term"             # search in working directory
@@ -439,6 +458,7 @@ git log -p --grep="fix" --since="1 month ago"
 ```
 
 ### Binary Search for Bugs
+
 **Git bisect** helps you find the exact commit that introduced a bug using binary search.
 
 ```shell
@@ -463,6 +483,7 @@ git bisect run ./test_script.sh    # script returns 0 for good, 1 for bad
 ## Advanced Git Techniques
 
 ### Stashing Changes
+
 **Stashing** temporarily saves your uncommitted changes so you can switch branches or pull updates without losing work.
 
 ```shell
@@ -481,6 +502,7 @@ git stash clear
 ```
 
 ### Rebase Operations
+
 **Rebase** rewrites commit history by moving your commits to a new base, creating a cleaner linear history.
 
 ```mermaid
@@ -518,6 +540,7 @@ flowchart LR
 ### Merge vs Rebase: Visual Comparison
 
 #### Starting Scenario
+
 **Common situation**: You have a feature branch that needs to be integrated with the main branch.
 
 ```mermaid
@@ -537,6 +560,7 @@ flowchart LR
 ```
 
 #### Merge Approach Result
+
 **`git merge feature`** - Preserves history with merge commit:
 
 ```mermaid
@@ -559,6 +583,7 @@ flowchart LR
 ```
 
 #### Rebase Approach Result
+
 **`git rebase main`** - Creates clean linear history:
 
 ```mermaid
@@ -642,6 +667,7 @@ git merge feature-branch         # fast-forward merge
 ### Cherry-Pick vs Reset: Visual Comparison
 
 #### Starting Scenario
+
 **Common situation**: You need to apply specific commits or undo changes in your Git history.
 
 ```mermaid
@@ -663,6 +689,7 @@ flowchart LR
 ```
 
 #### Cherry-Pick Result
+
 **`git cherry-pick E`** - Copies specific commit to current branch:
 
 ```mermaid
@@ -686,6 +713,7 @@ flowchart LR
 ```
 
 #### Reset Result
+
 **`git reset --hard HEAD~1`** - Moves HEAD back and discards changes:
 
 ```mermaid
@@ -780,6 +808,7 @@ git clean -fd                        # remove untracked files & directories
 ### Git Revert vs Reset: Visual Comparison
 
 #### Starting Scenario
+
 **Common situation**: You have commits you want to undo, but need to choose the right approach.
 
 ```mermaid
@@ -799,6 +828,7 @@ flowchart LR
 ```
 
 #### Revert Approach Result
+
 **`git revert C`** - Creates new commit that undoes changes:
 
 ```mermaid
@@ -820,6 +850,7 @@ flowchart LR
 ```
 
 #### Reset Approach Result
+
 **`git reset --hard B`** - Moves HEAD back and discards commits:
 
 ```mermaid
@@ -841,6 +872,7 @@ flowchart LR
 ### Git Revert vs Reset: When to Use Each
 
 #### 🔄 Git Revert (Recommended for Shared Repositories)
+
 **Revert** creates a new commit that undoes the changes from a previous commit, making it safe for shared repositories.
 
 ```shell
@@ -860,6 +892,7 @@ git revert --edit <commit_hash>      # edit revert commit message
 ```
 
 #### ⏪ Git Reset (Use with Caution)
+
 **Reset** moves the branch pointer and can discard commits permanently. Only use on private branches.
 
 ```shell
@@ -878,6 +911,7 @@ git reset HEAD file.txt    # unstage specific file
 ### Cherry-Pick and Reset: Advanced Usage
 
 #### Interactive Rebase: Editing History
+
 **Interactive rebase** allows you to edit, reorder, squash, or delete commits in your history.
 
 ```shell
@@ -906,6 +940,7 @@ git rebase --abort
 ```
 
 ### Interactive Cherry-Pick
+
 ```shell
 # cherry-pick with edit opportunity
 git cherry-pick --edit <commit_hash>
@@ -917,6 +952,7 @@ git commit -m "modified cherry-picked commit"
 ```
 
 ### Tag Operations
+
 **Tags** mark specific points in Git history, typically used for release versions (v1.0, v2.0).
 
 ```shell
@@ -985,6 +1021,7 @@ git flow hotfix finish critical-fix
 ```
 
 ### GitHub Flow
+
 **GitHub Flow** is a simple workflow where you create feature branches and merge them via pull requests.
 
 ```mermaid
@@ -1034,6 +1071,7 @@ git branch -d feature/new-feature
 ```
 
 ### Team Collaboration Best Practices
+
 ```shell
 # daily workflow
 git checkout main
@@ -1046,6 +1084,7 @@ git push --force-with-lease origin feature/my-feature
 ## Maintenance & Cleanup
 
 ### Repository Maintenance
+
 ```shell
 # garbage collection and optimization
 git gc                           # basic garbage collection
@@ -1073,6 +1112,7 @@ git remote prune origin         # remove stale remote branches
 ```
 
 ### Cleanup Commands
+
 ```shell
 # clean working directory
 git clean -n                    # dry run - show what would be deleted
@@ -1097,6 +1137,7 @@ git reflog expire --expire-unreachable=7.days --all
 ```
 
 ### Archive and Backup
+
 ```shell
 # create archive of repository
 git archive --format=zip --output=backup.zip HEAD
@@ -1117,6 +1158,7 @@ git clone backup.bundle restored-repo
 ### Git Security
 
 #### Personal Access Token Setup
+
 **Personal Access Token (PAT)** is a secure alternative to passwords for GitHub authentication.
 
 For secure GitHub authentication, use Personal Access Tokens instead of passwords:
@@ -1130,6 +1172,7 @@ git config --global credential.helper osxkeychain
 ```
 
 **Generate Personal Access Token:**
+
 1. Go to [GitHub Settings > Personal Access Tokens](https://github.com/settings/personal-access-tokens){:target="_blank"}
 2. Click "Generate new token (classic)"
 3. Select required scopes: `repo`, `workflow`, `write:packages`
@@ -1137,6 +1180,7 @@ git config --global credential.helper osxkeychain
 5. Use this token as your password when Git prompts for authentication
 
 #### GPG Commit Signing
+
 **GPG signing** cryptographically proves that commits came from you, adding security and authenticity.
 
 ```shell
@@ -1152,6 +1196,7 @@ git commit -S -m "signed commit"
 ```
 
 #### Credential Management
+
 ```shell
 # store credentials securely (macOS)
 git config --global credential.helper osxkeychain
@@ -1164,6 +1209,7 @@ git config --global credential.helper store
 ```
 
 ### Performance Optimization
+
 ```shell
 # Git LFS for large files
 git lfs install
@@ -1198,6 +1244,7 @@ git update-index --untracked-cache         # cache untracked files
 ```
 
 ### `.gitignore` Best Practices
+
 ```shell
 # Node.js
 node_modules/
@@ -1228,9 +1275,11 @@ Thumbs.db
 ## Git Hooks & Automation
 
 ### Pre-commit Hooks
+
 **Hooks** are scripts that run automatically at specific Git events (before commit, after push, etc.).
 
 #### Using Pre-commit Framework
+
 [Pre-commit](https://pre-commit.com/){:target="_blank"} is a framework for managing multi-language pre-commit hooks that automatically formats code, checks syntax, and runs tests before commits.
 
 ```shell
@@ -1260,6 +1309,7 @@ git commit --no-verify -m "your commit message" <file-name>
 ```
 
 #### Pre-commit Configuration
+
 Create `.pre-commit-config.yaml` in your repository root:
 
 ```yaml
@@ -1284,6 +1334,7 @@ repos:
 Explore more pre-built hooks at [pre-commit-hooks repository](https://github.com/pre-commit/pre-commit-hooks){:target="_blank"}.
 
 #### Manual Pre-commit Hook
+
 ```shell
 # create custom pre-commit hook
 cat > .git/hooks/pre-commit << 'EOF'
@@ -1298,6 +1349,7 @@ chmod +x .git/hooks/pre-commit
 ```
 
 ### Post-commit Hooks
+
 **Post-commit hooks** run after a successful commit and are useful for notifications, deployments, or logging.
 
 ```shell
@@ -1312,6 +1364,7 @@ chmod +x .git/hooks/post-commit
 ## Advanced Scenarios
 
 ### Multiple Remotes
+
 ```shell
 # work with multiple remotes
 git remote add upstream <original_repo>
@@ -1337,6 +1390,7 @@ git remote set-url --add --push origin <repo2_url>
 ```
 
 ### Monorepo Management
+
 **Monorepo** is a single repository containing multiple projects/applications, allowing shared code, unified tooling, and coordinated releases across teams.
 
 ```shell
@@ -1363,6 +1417,7 @@ git worktree prune
 ```
 
 ### Submodules
+
 **Submodules** allow you to include external Git repositories as subdirectories within your main repository, keeping them as separate, independently versioned projects.
 
 ```shell
@@ -1393,6 +1448,7 @@ rm -rf .git/modules/<path>
 ## Real-world Examples
 
 ### Open Source Contribution
+
 ```shell
 # 1. Fork repository on GitHub
 # 2. Clone your fork
@@ -1416,6 +1472,7 @@ git push origin fix/issue-123
 ```
 
 ### Hotfix Deployment
+
 ```shell
 # emergency hotfix workflow
 git checkout main
@@ -1445,6 +1502,7 @@ git branch -d hotfix/critical-bug
 ## Quick Reference
 
 ### Essential Commands
+
 ```shell
 # Status and Information
 git status              # working directory status
@@ -1483,6 +1541,7 @@ git rm --cached <file>  # remove from Git but keep local file
 ```
 
 ### Useful Aliases
+
 ```shell
 # create helpful aliases
 git config --global alias.st "status"
@@ -1502,6 +1561,7 @@ git config --global alias.hist "log --pretty=format:'%h %ad | %s%d [%an]' --grap
 ```
 
 ### Git Tools Integration
+
 ```shell
 # VS Code integration
 git config --global core.editor "code --wait"
@@ -1512,6 +1572,7 @@ git gui                 # commit tool
 ```
 
 **Popular GUI Tools:**
+
 - [SourceTree](https://www.sourcetreeapp.com/){:target="_blank"} (free)
 - [GitKraken](https://www.gitkraken.com/){:target="_blank"} (paid)
 - [GitHub Desktop](https://desktop.github.com/){:target="_blank"} (free)
@@ -1618,16 +1679,20 @@ git gui                 # commit tool
 </script>
 
 ### What is the difference between Git and GitHub?
+
 **Git** is the version control system that tracks changes in your code locally. **GitHub** is a cloud-based hosting service for Git repositories that adds collaboration features like pull requests, issues, and project management tools.
 
 ### How do I undo the last commit in Git?
+
 Use `git reset --soft HEAD~1` to undo the last commit while keeping your changes staged, or `git reset --hard HEAD~1` to completely remove the commit and all changes.
 
 ### What's the difference between git pull and git fetch?
+
 - **`git fetch`** downloads changes from remote repository but doesn't merge them into your current branch
 - **`git pull`** downloads changes and automatically merges them into your current branch (`git pull = git fetch + git merge`)
 
 ### How do I resolve merge conflicts in Git?
+
 1. Git will mark conflicted files with conflict markers (`<<<<<<<`, `=======`, `>>>>>>>`)
 2. Edit the files to resolve conflicts manually
 3. Remove conflict markers
@@ -1635,11 +1700,13 @@ Use `git reset --soft HEAD~1` to undo the last commit while keeping your changes
 5. Complete the merge with `git commit`
 
 ### Should I use merge or rebase for integrating changes?
+
 - **Use merge** for public branches and when you want to preserve commit history
 - **Use rebase** for private feature branches to create a cleaner, linear history
 - Never rebase commits that have been pushed to shared repositories
 
 ### How do I delete a Git branch locally and remotely?
+
 ```shell
 # Delete local branch
 git branch -d branch-name
@@ -1649,6 +1716,7 @@ git push origin --delete branch-name
 ```
 
 ### What is a detached HEAD state and how do I fix it?
+
 Detached HEAD occurs when you checkout a specific commit instead of a branch. To fix:
 ```shell
 # Create a new branch from current position
@@ -1659,6 +1727,7 @@ git checkout main
 ```
 
 ### How do I see what files have changed in Git?
+
 ```shell
 git status          # See staged/unstaged changes
 git diff            # See unstaged changes
@@ -1667,6 +1736,7 @@ git log --stat      # See files changed in commits
 ```
 
 ### What's the best Git workflow for teams?
+
 - **GitHub Flow**: Simple, continuous deployment (feature branches → main)
 - **Git Flow**: Structured releases with develop/main branches
 - **GitLab Flow**: Environment-based branching (production, staging, feature)
@@ -1674,6 +1744,7 @@ git log --stat      # See files changed in commits
 Choose based on your team size, release frequency, and deployment strategy.
 
 ### How do I configure Git for the first time?
+
 ```shell
 git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
@@ -1682,6 +1753,7 @@ git config --global credential.helper osxkeychain  # macOS
 ```
 
 ### Can I recover deleted commits in Git?
+
 Yes, use `git reflog` to find the commit hash, then:
 ```shell
 git reflog                    # Find lost commit
@@ -1690,6 +1762,7 @@ git checkout -b recovery-branch  # Create branch to save it
 ```
 
 ### How do I ignore files that are already tracked?
+
 ```shell
 # Add file to .gitignore first
 echo "filename.txt" >> .gitignore
@@ -1702,6 +1775,7 @@ git commit -m "Stop tracking filename.txt"
 ## Best Practices Summary
 
 ### Commit Guidelines
+
 - Use imperative mood: "Add feature" not "Added feature"
 - Keep first line under 50 characters
 - Use conventional commits: `feat:`, `fix:`, `docs:`, `refactor:`
@@ -1709,6 +1783,7 @@ git commit -m "Stop tracking filename.txt"
 - Make atomic commits (one logical change per commit)
 
 ### Branching Strategy
+
 - Use descriptive branch names: `feature/user-authentication`
 - Keep branches small and focused
 - Delete merged branches promptly
@@ -1716,6 +1791,7 @@ git commit -m "Stop tracking filename.txt"
 - Use branch protection rules in team environments
 
 ### Security Checklist
+
 - Never commit secrets or credentials
 - Use `.gitignore` for sensitive files
 - Sign important commits with GPG
@@ -1724,6 +1800,7 @@ git commit -m "Stop tracking filename.txt"
 - Enable two-factor authentication
 
 ### Performance Tips
+
 - Use shallow clones for large repositories
 - Configure Git LFS for binary files
 - Regular maintenance: `git gc`
@@ -1734,7 +1811,8 @@ git commit -m "Stop tracking filename.txt"
 
 Mastering **Git workflows** is essential for modern software development and team collaboration. This comprehensive guide has covered everything from basic Git commands to advanced techniques, providing you with 48 essential Git commands and the knowledge to handle any version control scenario.
 
-### Key Takeaways:
+### Key Takeaways
+
 - **Start with fundamentals**: Master basic Git operations before advancing to complex workflows
 - **Choose the right workflow**: Git Flow for structured releases, GitHub Flow for continuous deployment
 - **Prioritize security**: Use Personal Access Tokens and GPG signing for secure development
@@ -1743,13 +1821,15 @@ Mastering **Git workflows** is essential for modern software development and tea
 - **Maintain repositories**: Regular cleanup and optimization keeps Git running smoothly
 - **Search efficiently**: Use git grep, git log filters, and git bisect for effective debugging
 
-### Next Steps:
+### Next Steps
+
 1. **Practice regularly** - Use Git daily to build muscle memory
 2. **Explore advanced features** - Experiment with hooks, submodules, and automation
 3. **Join the community** - Contribute to open source projects to gain real-world experience
 4. **Stay updated** - Follow Git releases and new workflow patterns
 
-### Related Developer Resources:
+### Related Developer Resources
+
 - **[macOS Fresh Install Setup Guide]({% post_url 2022-03-23-macos-fresh-install-setup-guide %}){:target="_blank"}** - Complete development environment setup including Git configuration
 - **[Ubuntu Fresh Install Setup Guide]({% post_url 2021-08-20-ubuntu-fresh-install-setup-guide %}){:target="_blank"}** - Essential Ubuntu development environment with Git, Java, and DevOps tools
 - **[Linux Troubleshooting Commands Guide]({% post_url 2016-06-14-linux-troubleshooting-commands %}){:target="_blank"}** - Essential Linux commands for managing Git servers and development environments

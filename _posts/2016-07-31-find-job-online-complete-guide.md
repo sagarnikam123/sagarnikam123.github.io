@@ -15,6 +15,7 @@ image:
 **Finding jobs online** requires more than just uploading your resume to job boards. This comprehensive guide reveals proven strategies used by successful job seekers to land their dream roles through digital channels.
 
 **What you'll learn:**
+
 - LinkedIn optimization techniques that get recruiter attention
 - GitHub portfolio strategies that showcase your skills
 - ATS-friendly resume formatting that passes automated screening
@@ -61,13 +62,15 @@ flowchart LR
 ```
 
 ### Week 1-2: Foundation Setup
+
 - [ ] Audit current online presence (Google yourself)
 - [ ] Update LinkedIn profile with professional photo and compelling headline
 - [ ] Create/update GitHub profile with pinned repositories
-- [ ] Set up professional email address (firstname.lastname@domain.com)
+- [ ] Set up professional email address (<firstname.lastname@domain.com>)
 - [ ] Create master resume document with all experiences
 
 ### Week 3-4: Platform Optimization
+
 - [ ] Complete LinkedIn profile (summary, experience, skills, recommendations)
 - [ ] Upload 3-5 quality projects to GitHub with detailed README files
 - [ ] Create personal website/portfolio
@@ -76,6 +79,7 @@ flowchart LR
 - [ ] Start following target companies and industry leaders
 
 ### Week 5-6: Content Creation
+
 - [ ] Write first technical blog post or case study
 - [ ] Share professional insights on LinkedIn (2-3 posts/week)
 - [ ] Contribute to Stack Overflow or relevant forums
@@ -83,6 +87,7 @@ flowchart LR
 - [ ] Update resume for ATS optimization
 
 ### Week 7-8: Active Job Search
+
 - [ ] Apply to 5-10 relevant positions weekly
 - [ ] Customize resume and cover letter for each application
 - [ ] Track applications in spreadsheet or job tracking tool
@@ -90,6 +95,7 @@ flowchart LR
 - [ ] Practice interview skills with mock interviews
 
 ### Ongoing Maintenance
+
 - [ ] Post valuable content regularly (2-3 times/week)
 - [ ] Engage with your professional network
 - [ ] Update skills and certifications
@@ -112,6 +118,7 @@ Complete all profile sections including projects, certifications, and relevant c
 [LinkedIn](https://www.linkedin.com/){:target="_blank" rel="noopener"} remains the most important platform for online job hunting. Optimize your profile with these strategies:
 
 **Profile Optimization Checklist:**
+
 - [ ] Professional headshot (high-quality, business appropriate)
 - [ ] Compelling headline with keywords (not just job title)
 - [ ] Detailed summary highlighting achievements and value proposition
@@ -122,12 +129,14 @@ Complete all profile sections including projects, certifications, and relevant c
 - [ ] Volunteer experience and professional interests
 
 **LinkedIn Headline Examples:**
+
 - ❌ "Software Developer at XYZ Company"
 - ✅ "Full-Stack Developer | React & Node.js Expert | Building Scalable Web Applications"
 - ❌ "Marketing Manager"
 - ✅ "Digital Marketing Manager | SEO & PPC Specialist | Driving 40% Revenue Growth"
 
 **Networking Strategy:**
+
 - Connect with colleagues, alumni, and industry professionals
 - Send personalized connection requests with context
 - Engage with posts through meaningful comments
@@ -139,6 +148,7 @@ Complete all profile sections including projects, certifications, and relevant c
 [GitHub](https://github.com/){:target="_blank" rel="noopener"} serves as your technical portfolio and demonstrates coding skills to potential employers:
 
 **GitHub Profile Optimization:**
+
 - [ ] Professional profile picture and bio
 - [ ] Pinned repositories showcasing best work
 - [ ] Consistent commit history showing regular activity
@@ -148,6 +158,7 @@ Complete all profile sections including projects, certifications, and relevant c
 **Project Portfolio Ideas by Skill Level:**
 
 **Beginner Projects:**
+
 - Personal portfolio website
 - Todo list application
 - Weather app using APIs
@@ -155,6 +166,7 @@ Complete all profile sections including projects, certifications, and relevant c
 - Basic CRUD application
 
 **Intermediate Projects:**
+
 - E-commerce website with payment integration
 - Social media dashboard
 - Data visualization tool
@@ -162,6 +174,7 @@ Complete all profile sections including projects, certifications, and relevant c
 - Automated testing suite
 
 **Advanced Projects:**
+
 - Microservices architecture
 - Machine learning model deployment
 - Real-time chat application
@@ -224,6 +237,7 @@ Step-by-step instructions to run locally
 A personal website establishes your online presence and showcases your expertise:
 
 **Essential Website Sections:**
+
 - [ ] Hero section with clear value proposition
 - [ ] About page with professional story
 - [ ] Portfolio/projects showcase with case studies
@@ -258,6 +272,7 @@ What did you learn from this project?
 ```
 
 **Website Performance Checklist:**
+
 - [ ] Mobile-responsive design
 - [ ] Fast loading times (< 3 seconds)
 - [ ] SEO-optimized meta tags
@@ -361,7 +376,7 @@ Avoid these outdated resume elements that can hurt your online job search:
 - Declaration and signature sections (unnecessary for digital applications)
 - Personal photos (unless specifically required by industry or region)
 - Irrelevant personal details (age, marital status, personal interests unrelated to the job)
-- Unprofessional email addresses (use firstname.lastname@domain.com format)
+- Unprofessional email addresses (use <firstname.lastname@domain.com> format)
 - References section (provide separately when requested by employers)
 
 ### Essential Elements for Online Job Applications
@@ -411,6 +426,7 @@ EDUCATION & CERTIFICATIONS
 "Data analyst with 2+ years experience in Python and SQL. Built automated reporting systems that reduced manual work by 60% and provided insights driving $500K+ cost savings."
 
 **Quantified Achievement Examples:**
+
 - "Increased website traffic by 150% through SEO optimization"
 - "Reduced application load time from 5s to 1.2s through code optimization"
 - "Led team of 5 developers to deliver project 2 weeks ahead of schedule"
@@ -489,6 +505,7 @@ Follow these design principles to create resumes that perform well in online job
 ## Email Templates for Job Search
 
 ### Networking Email Template
+
 ```
 Subject: [Mutual Connection/Company Interest] - Brief Introduction
 
@@ -507,6 +524,7 @@ Best regards,
 ```
 
 ### Follow-up After Application Template
+
 ```
 Subject: Following up on [Position Title] Application
 
@@ -523,6 +541,7 @@ Best regards,
 ```
 
 ### Thank You Email After Interview Template
+
 ```
 Subject: Thank you - [Position Title] Interview
 
@@ -541,30 +560,35 @@ Best regards,
 ## Industry-Specific Job Search Strategies
 
 ### Technology & Software Development
+
 - **Key Platforms:** GitHub, Stack Overflow, AngelList, Dice
 - **Portfolio Focus:** Live projects, clean code, documentation
 - **Skills to Highlight:** Programming languages, frameworks, problem-solving
 - **Networking:** Tech meetups, hackathons, open source contributions
 
 ### Digital Marketing & Growth
+
 - **Key Platforms:** LinkedIn, Twitter, marketing communities
 - **Portfolio Focus:** Campaign results, analytics, case studies
 - **Skills to Highlight:** ROI metrics, tool proficiency, creative campaigns
 - **Networking:** Marketing conferences, LinkedIn groups, industry blogs
 
 ### Design & Creative
+
 - **Key Platforms:** Dribbble, Behance, LinkedIn, Instagram
 - **Portfolio Focus:** Visual projects, design process, client work
 - **Skills to Highlight:** Design tools, user experience, creative thinking
 - **Networking:** Design communities, creative meetups, online challenges
 
 ### Data Science & Analytics
+
 - **Key Platforms:** Kaggle, GitHub, LinkedIn, Stack Overflow
 - **Portfolio Focus:** Data projects, visualizations, machine learning models
 - **Skills to Highlight:** Statistical analysis, programming, business insights
 - **Networking:** Data science meetups, online competitions, research communities
 
 ### Sales & Business Development
+
 - **Key Platforms:** LinkedIn, industry-specific job boards
 - **Portfolio Focus:** Sales achievements, client testimonials, revenue growth
 - **Skills to Highlight:** Relationship building, negotiation, market knowledge
@@ -577,6 +601,7 @@ Best regards,
 Implement these advanced strategies to maximize your online job search success:
 
 **Application Tracking Template (Spreadsheet Columns):**
+
 - Company Name
 - Position Title
 - Application Date
@@ -592,6 +617,7 @@ Implement these advanced strategies to maximize your online job search success:
 **Interview Preparation Checklist:**
 
 **Technical Interviews:**
+
 - [ ] Review common algorithms and data structures
 - [ ] Practice coding problems on [LeetCode](https://leetcode.com){:target="_blank" rel="noopener"}
 - [ ] Prepare system design examples
@@ -599,6 +625,7 @@ Implement these advanced strategies to maximize your online job search success:
 - [ ] Practice explaining technical concepts simply
 
 **Behavioral Interviews:**
+
 - [ ] Prepare STAR method examples (Situation, Task, Action, Result)
 - [ ] Research company culture and values
 - [ ] Prepare questions about the role and team
@@ -606,6 +633,7 @@ Implement these advanced strategies to maximize your online job search success:
 - [ ] Review common behavioral questions
 
 **Video Interview Setup:**
+
 - [ ] Test camera angle and lighting
 - [ ] Check audio quality and internet connection
 - [ ] Prepare professional background
@@ -613,13 +641,15 @@ Implement these advanced strategies to maximize your online job search success:
 - [ ] Test screen sharing functionality
 
 **Professional Communication Standards:**
-- **Email Format:** firstname.lastname@gmail.com
+
+- **Email Format:** <firstname.lastname@gmail.com>
 - **Phone Setup:** Professional voicemail greeting
 - **Response Time:** Within 24 hours for important messages
 - **Tone:** Professional but personable
 - **Consistency:** Same information across all platforms
 
 **Digital Footprint Audit:**
+
 - [ ] Google your name and review first 3 pages of results
 - [ ] Check privacy settings on personal social media
 - [ ] Remove or hide unprofessional content
@@ -629,18 +659,21 @@ Implement these advanced strategies to maximize your online job search success:
 ### Job Search Metrics to Track
 
 **Application Metrics:**
+
 - Applications submitted per week
 - Response rate (callbacks/interviews per application)
 - Interview-to-offer conversion rate
 - Time from application to response
 
 **Network Growth:**
+
 - LinkedIn connections added monthly
 - Professional events attended
 - Informational interviews conducted
 - Referrals received
 
 **Content Performance:**
+
 - Blog post views and engagement
 - LinkedIn post reach and comments
 - GitHub repository stars and forks
@@ -767,6 +800,7 @@ Yes, follow up 1-2 weeks after applying if you haven't heard back. Send a brief,
 ## Key Takeaways
 
 **Essential Actions for Online Job Search Success:**
+
 1. **Build a Strong Foundation:** Complete LinkedIn profile, professional GitHub, personal website
 2. **Create Valuable Content:** Technical blogs, project showcases, industry insights
 3. **Network Strategically:** Engage authentically, provide value before asking for help
@@ -780,12 +814,14 @@ Yes, follow up 1-2 weeks after applying if you haven't heard back. Send a brief,
 Successful online job searching requires a comprehensive digital strategy that goes beyond traditional resume submissions. By implementing the proven techniques in this guide—from LinkedIn optimization and GitHub portfolio development to strategic networking and ATS-friendly resume formatting—you'll significantly improve your chances of landing your dream job.
 
 **Your Next Steps:**
+
 1. **Week 1:** Complete the Foundation Setup checklist
 2. **Week 2:** Optimize your LinkedIn and GitHub profiles
 3. **Week 3:** Create your personal website and start content creation
 4. **Week 4:** Begin active job applications with customized materials
 
 **Key Success Factors:**
+
 - **Consistency:** Maintain regular activity across all platforms
 - **Authenticity:** Build genuine relationships, not just connections
 - **Continuous Learning:** Stay updated with industry trends and new skills
@@ -802,6 +838,7 @@ The job search landscape continues evolving with new platforms, AI tools, and re
 **Connect with the author** on [LinkedIn](https://linkedin.com/in/sagarnikam123){:target="_blank" rel="noopener"} for more career insights and job search tips.
 
 **Related Articles:**
+
 - Resume Writing Best Practices
 - LinkedIn Networking Strategies
 - Remote Work Job Search Tips
