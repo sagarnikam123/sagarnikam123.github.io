@@ -1,7 +1,6 @@
 ---
 title: About
 description: DevOps & Cloud Engineer with 10+ years experience in observability, Kubernetes, AWS, and automation. Advanced Grafana Loki architect and creator of fuzzy-train log generator.
-keywords: DevOps Engineer, Cloud Engineer, Grafana Loki, Kubernetes, AWS, Python automation, observability, Pune India
 icon: fas fa-info-circle
 order: 4
 image: /assets/img/avatar/sagarnikam123.webp
