@@ -3,8 +3,8 @@ title: "Complete Git Workflows Guide: From Beginner to Expert"
 description: "Master Git workflows with 48 essential commands and visual diagrams. Complete beginner-to-expert guide with branching, merging, and troubleshooting."
 author: sagarnikam123
 date: 2023-01-31 12:02:00 +0530
-categories: [development, version-control, git]
-tags: [git, workflow, visual-guide, git-commands, developer-tools]
+categories: [Programming, Git]
+tags: [git-workflows-guide, git-commands-cheat-sheet, git-branching-strategies, git-merge-conflict, gitflow-vs-trunk-based]
 mermaid: true
 image:
   path: /assets/img/posts/20230131/git-workflows-guide.webp
