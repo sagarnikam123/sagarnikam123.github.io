@@ -1,10 +1,10 @@
 ---
 title: "Where to Find the Code Behind Scientific Research (2026)"
-description: "A guide to finding, sharing, and archiving scientific software and source code. Compare GitHub, Software Heritage, Papers With Code, Hugging Face, Code Ocean, Binder, and Zenodo DOI archiving for 100% reproducible research."
+description: "Find and archive research code and scientific software: compare GitHub, Software Heritage, Papers With Code, Code Ocean, and Zenodo DOI archiving."
 author: sagarnikam123
 date: 2026-10-06 12:00:00 +0530
-categories: [research, open-access]
-tags: [scientific-software, research-code, github, software-heritage, papers-with-code, hugging-face, code-ocean, binder, zenodo, reproducibility, open-source, fair, doi, conda, pypi, cran]
+categories: [Research, Open-Science]
+tags: [scientific-software, research-code, papers-with-code, software-heritage, code-reproducibility, zenodo-doi-code, binder]
 mermaid: true
 image:
   path: assets/img/posts/20261006/open-science-code-software-reproducible.webp

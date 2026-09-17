@@ -1,10 +1,10 @@
 ---
-title: "Pharmacy Career Options in India: Jobs, Higher Education & Salary After D.Pharm, B.Pharm, M.Pharm & Pharm.D"
-description: "Complete guide to pharmacy careers in India after D.Pharm, B.Pharm, M.Pharm & Pharm.D. Explore government jobs (Clinical Pharmacist, Drug Inspector), NIPER, IITs, MBA options, salary trends for GPAT, GATE, NIPER JEE, etc"
+title: "Pharmacy Career Options in India: Jobs, Higher Education & Salary"
+description: "Explore pharmacy careers in India after D.Pharm, B.Pharm, and M.Pharm. Learn about government jobs, Drug Inspector exams, higher education, and salary trends."
 author: sagarnikam123
 date: 2026-01-21 12:00:00 +0530
-categories: [medicine, pharmacy, career]
-tags: [pharmacy careers, dpharm, bpharm, mpharm, pharmd, gpat, clinical pharmacist, niper, government jobs, drug inspector]
+categories: [Career, Pharmacy]
+tags: [pharmacy-career-options, government-jobs-for-pharmacist, upsc-drug-inspector, drug-inspector-salary, b-pharmacy-salary, dpharm, bpharm, mpharm, gpat, niper]
 mermaid: true
 image:
   path: assets/img/posts/20260121/pharmacy-career-options-india.webp

@@ -3,7 +3,7 @@ title: "Vector Advanced - Architecture, Production & Comparisons"
 description: "Deep dive into Vector architecture internals, production hardening, high availability, security, and comprehensive comparisons with Fluent Bit, Grafana Alloy, and Logstash."
 author: sagarnikam123
 date: 2026-02-02 12:00:00 +0530
-categories: [vector, observability]
+categories: [Observability, Logging]
 tags: [vector, architecture, production, high-availability, security, comparison]
 mermaid: true
 ---

@@ -3,7 +3,7 @@ title: "Security & SIEM Log Generation for Testing and Training"
 description: "Generate realistic security logs for SIEM testing, SOC training, and compliance validation"
 author: sagarnikam123
 date: 2025-01-18 12:00:00 +0530
-categories: [security]
+categories: [Observability, Security]
 tags: [security, siem, logs, compliance, mitre]
 ---
 

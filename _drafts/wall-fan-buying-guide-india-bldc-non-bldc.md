@@ -2,7 +2,7 @@
 layout: post
 title: "Wall Mounted Fan Buying Guide India 2025–2026: Best BLDC & Non-BLDC Side Wall Fans"
 date: 2026-06-12
-categories: [buying-guide, home-appliances]
+categories: [Buying-Guides, Home-Appliances]
 tags: [wall-fan, bldc-fan, wall-mounted-fan, india, buying-guide, atomberg, orient, crompton, havells, bajaj, usha, v-guard, energy-saving]
 author: Sagar Nikam
 description: "A comprehensive, data-driven buying guide for side wall mounted fans in India. Covers BLDC vs non-BLDC motors, air delivery, sweep size, noise levels, remote control, brand comparison, and curated picks for every room size and budget — so you buy the right wall fan without overpaying."

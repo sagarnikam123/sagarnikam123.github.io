@@ -1,10 +1,10 @@
 ---
 title: "Complete Automation Testing Guide: Tools, Resources & Best Practices"
-description: "Master automation testing with our comprehensive guide covering Playwright, Cypress, Selenium, API testing, and performance testing. Step-by-step tutorials for beginners to advanced testers."
+description: "Complete guide to automation testing tools covering Playwright, Cypress, Selenium, and API testing with step-by-step tutorials for all skill levels."
 author: sagarnikam123
 date: 2019-01-15 10:00:00 +0530
-categories: [testing, automation]
-tags: [automation-testing, playwright, cypress, selenium, api-testing]
+categories: [DevOps, Testing]
+tags: [automation-testing-tools, playwright-tutorial, cypress-testing, selenium-automation, api-testing-tools]
 mermaid: true
 image:
   path: assets/img/posts/20190115/automation-testing-tools-resources-guide.webp

@@ -1,10 +1,10 @@
 ---
 title: "The Complete Guide to Preprint Servers Across All Disciplines (2026)"
-description: "A comprehensive guide to preprint servers organized by discipline. Compare arXiv, bioRxiv, medRxiv, SSRN, ChemRxiv, TechRxiv, and Research Square — screening speed, licensing, DOI assignment, and journal compatibility."
+description: "Complete guide to preprint servers by discipline: compare arXiv, bioRxiv, medRxiv, ChemRxiv, and SSRN across screening speed, DOI minting, and licenses."
 author: sagarnikam123
 date: 2026-09-15 12:00:00 +0530
-categories: [research, open-access]
-tags: [preprints, arxiv, biorxiv, medrxiv, ssrn, research-square, chemrxiv, techrxiv, psyarxiv, socarxiv, osf, open-access, research, scientific-publishing, peer-review]
+categories: [Research, Open-Science]
+tags: [preprint-servers, arxiv-alternatives, biorxiv, medrxiv, open-access-preprints, scientific-publishing, ssrn]
 mermaid: true
 image:
   path: assets/img/posts/20260915/open-science-preprint-servers-guide.webp

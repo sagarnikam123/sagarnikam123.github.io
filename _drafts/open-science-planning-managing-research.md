@@ -1,10 +1,10 @@
 ---
 title: "Free Tools for Planning and Managing Scientific Research (2026)"
-description: "A guide to free, open-source tools for planning, organizing, and managing research projects — reference managers, literature note-taking, project coordination, Data Management Plans (DMPs), and collaborative writing."
+description: "Free open-source tools for planning and managing research: Zotero reference management, OSF project planning, data management plans (DMP), and Overleaf."
 author: sagarnikam123
 date: 2026-11-03 12:00:00 +0530
-categories: [research, open-access]
-tags: [research-planning, project-management, zotero, reference-manager, note-taking, collaboration, data-management-plan, version-control, osf, overleaf, research-tools]
+categories: [Research, Open-Science]
+tags: [research-planning-tools, zotero, reference-managers, data-management-plan, osf-project-management, collaborative-research]
 mermaid: true
 image:
   path: assets/img/posts/20261103/open-science-planning-managing-research.webp

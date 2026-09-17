@@ -3,7 +3,7 @@ title: "Open Design: Install & Run Locally on macOS Apple Silicon"
 description: "Step-by-step guide to installing and running Open Design — a local-first, open-source AI design tool — on macOS Apple Silicon using Docker or pnpm dev mode."
 author: sagarnikam123
 date: 2025-07-15 12:00:00 +0530
-categories: [ai, open-source]
+categories: [AI, Open-Source]
 tags: [open-design, ai, local-ai, macos, apple-silicon, docker, pnpm, design-tools]
 mermaid: false
 image:

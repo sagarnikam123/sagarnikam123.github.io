@@ -1,10 +1,10 @@
 ---
 title: "Where Scientists Share Research Data: 25+ Open Repositories Compared (2026)"
-description: "A comprehensive guide to open research data repositories — general-purpose (Zenodo, Dryad, Figshare, Dataverse, OSF) and discipline-specific (GenBank, PANGAEA, GEO, GBIF, CERN). Compare storage, DOI minting, FAIR compliance, and licensing."
+description: "Compare 25+ open research data repositories: Zenodo, Figshare, Dryad, Dataverse, and OSF. Evaluated on storage limits, DOI minting, FAIR data, and costs."
 author: sagarnikam123
 date: 2026-09-29 12:00:00 +0530
-categories: [research, open-access]
-tags: [research-data, open-data, zenodo, figshare, dryad, dataverse, osf, genbank, pangaea, gbif, open-science, datasets, data-sharing, fair, doi, repositories]
+categories: [Research, Open-Science]
+tags: [open-data-repositories, research-data-sharing, zenodo, figshare, dryad, dataverse, fair-data]
 mermaid: true
 image:
   path: assets/img/posts/20260929/open-science-research-data-repositories.webp

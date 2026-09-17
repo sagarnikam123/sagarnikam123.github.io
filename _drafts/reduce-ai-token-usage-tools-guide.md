@@ -3,7 +3,7 @@ title: "Reduce AI Token Usage: Tools That Cut Context Size by 50–95% (Install 
 description: "A practical, fluff-free guide to 10 tools that reduce AI coding agent token consumption — RTK, Headroom, LeanCTX, Graphify, Serena, Token Optimizer MCP, Repomix, Ponytail, Caveman, and TokenSave. Learn what each does, when to use them, quick install/uninstall commands, and how to stack them without conflicts."
 author: sagarnikam123
 date: 2026-07-04 12:00:00 +0530
-categories: [ai, developer-tools]
+categories: [AI, Coding-Agents]
 tags: [ai, tokens, context-window, llm, claude-code, gemini-cli, cursor, kiro, ponytail, caveman, headroom, rtk, lean-ctx, graphify, serena, token-optimizer-mcp, repomix, tokensave, cost-optimization, context-engineering]
 mermaid: true
 image:

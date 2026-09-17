@@ -1,10 +1,10 @@
 ---
 title: "Complete Grafana Automation with Ansible: CRUD Operations Guide"
-description: "Master Grafana automation with Ansible playbooks. Complete guide covering datasources, dashboards, users, alerts, and multi-environment deployments with CRUD operations, security best practices, and production-ready examples."
+description: "Master Grafana automation with Ansible playbooks. Learn how to automate datasources, dashboards, alerts, and multi-environment setups with CRUD examples."
 author: sagarnikam123
 date: 2025-10-18 12:00:00 +0530
-categories: [devops, automation, monitoring]
-tags: [grafana, ansible, automation, infrastructure-as-code, playbooks]
+categories: [DevOps, Ansible]
+tags: [grafana-ansible-automation, ansible-grafana-playbook, grafana-dashboards-as-code, ansible-galaxy-grafana, infrastructure-as-code-monitoring]
 mermaid: true
 image:
   path: assets/img/posts/20251018/grafana-ansible-automation.webp

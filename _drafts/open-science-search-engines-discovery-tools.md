@@ -1,10 +1,10 @@
 ---
 title: "25+ Free Academic Search Engines and Research Discovery Tools (2026)"
-description: "A practical guide to free academic search engines, open access aggregators, citation graph visualizers, and AI research discovery tools. Compare Google Scholar, OpenAlex, Semantic Scholar, CORE, PubMed, Connected Papers, and more."
+description: "Compare 25+ free academic search engines and literature discovery tools: Google Scholar, OpenAlex, Semantic Scholar, PubMed, CORE, and Connected Papers."
 author: sagarnikam123
 date: 2026-09-08 12:00:00 +0530
-categories: [research, open-access]
-tags: [search-engines, academic-search, google-scholar, openalex, semantic-scholar, core, base, pubmed, connected-papers, research-rabbit, litmaps, elicit, consensus, open-access, research-discovery, citation-graph]
+categories: [Research, Open-Science]
+tags: [academic-search-engines, free-research-paper-search, google-scholar-alternatives, openalex, semantic-scholar, pubmed, connected-papers]
 mermaid: true
 image:
   path: assets/img/posts/20260908/open-science-search-engines-discovery.webp

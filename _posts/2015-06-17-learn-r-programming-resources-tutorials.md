@@ -3,8 +3,8 @@ title: "Learn R Programming: Best Resources, Tutorials & Books"
 description: "Learn R programming with top resources, tutorials, books, datasets, packages, and communities for data science and statistics."
 author: sagarnikam123
 date: 2015-06-17 12:01:00 +0530
-categories: [data science, programming]
-tags: [r programming, data science, statistics, tutorial, machine learning]
+categories: [Programming, R]
+tags: [learn-r-programming, r-programming-tutorial, r-data-science, r-statistics, r-programming-resources]
 mermaid: true
 image:
   path: assets/img/posts/20150617/r-programming-resource-guide.webp

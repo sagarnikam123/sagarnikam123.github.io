@@ -1,10 +1,10 @@
 ---
 title: "20 Open-Source Tools to Reduce AI Token Usage (Part 2)"
-description: "The best 20 open-source tools to reduce token usage in AI coding agents by 50-95%. Compare RTK, Headroom, LeanCTX, Graphify, Graft, CodeGraph, Serena, Caveman, and more — with install commands, compatibility rules, and per-tool savings data."
+description: "Compare 20 open-source tools to reduce AI coding agent token usage by 50–95%, including RTK, Headroom, LeanCTX, Graphify, and Serena with setup commands."
 author: sagarnikam123
 date: 2026-07-04 12:00:00 +0530
-categories: [AI, Developer-Tools]
-tags: [ai-agents, token-optimization, open-source, mcp, developer-tools]
+categories: [AI, Coding-Agents]
+tags: [reduce-token-usage, token-reduction-tools, open-source-ai, mcp-tools, context-compression, rtk, lean-ctx]
 mermaid: true
 image:
   path: assets/img/posts/20260704/reduce-ai-token-usage-part2-tools.jpg

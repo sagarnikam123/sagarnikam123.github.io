@@ -3,8 +3,8 @@ title: "Best Coding Challenge Platforms: LeetCode, HackerRank & More"
 description: "Complete guide to coding challenge platforms for interview prep, competitive programming, hackathons, algorithms & data structures practice."
 author: sagarnikam123
 date: 2015-10-14 12:00:00 +0530
-categories: [programming, coding-challenges, interview-prep]
-tags: [leetcode, hackerrank, algorithms, competitive-programming, coding-practice]
+categories: [Programming, Coding-Challenges]
+tags: [coding-challenge-platforms, coding-interview-practice, competitive-programming, leetcode-alternatives, hackerrank]
 image:
   path: assets/img/posts/20151014/best-coding-challenge-platforms-guide.webp
   lqip: data:image/webp;base64,UklGRuYAAABXRUJQVlA4INoAAAAQBgCdASogACAAPzmEu1OvKKYisBgMAeAnCWwAyNgIHYA0veB+kHvZGXUBUFamvqiwCYEFL4Ft1gAA/vmS6rzY7OY+dI8xtiqhY7lkdV7sLAosiPPP493mNY8LY3/Kj/P00DuZc/IUQS8weNHbqEBrRIAVuIbfTKBv9LUd/eSO1WYAHEYHsa6nLWeYyJD1q9FBQeoq50+U3/NxqKt+iwRuqX6JMN96gJJ43BOeBqECxgg34QLD6VhtqTuBf+QgdJ9W9e4IpMHw+qpF2wwo9HIxYXNZV8dI0/AAAA==

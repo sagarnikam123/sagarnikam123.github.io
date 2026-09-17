@@ -1,10 +1,10 @@
 ---
 title: "Where Can I Publish or Archive My Research for Free? (2026)"
-description: "A practical guide for research producers: how to deposit manuscripts, research data, source code, and protocols for free. Covers preprint servers, Diamond OA journals, self-archiving (Green OA), DOIs, ORCID, licensing, and long-term digital preservation."
+description: "Where to publish or archive research for free: complete guide to preprint servers, Diamond OA journals, Green OA self-archiving, Zenodo, and free DOIs."
 author: sagarnikam123
 date: 2026-10-27 12:00:00 +0530
-categories: [research, open-access]
-tags: [publishing, archiving, preprints, zenodo, osf, institutional-repository, doi, orcid, open-access, self-archiving, green-oa, diamond-oa, preservation, software-heritage, creative-commons]
+categories: [Research, Open-Science]
+tags: [publish-research-free, diamond-open-access, green-oa-self-archiving, free-doi-research, zenodo-archiving, open-access-publishing]
 mermaid: true
 image:
   path: assets/img/posts/20261027/open-science-publish-archive-research-free.webp

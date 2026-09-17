@@ -1,10 +1,10 @@
 ---
 title: "How to Find Research Papers for Free — Legally (2026)"
-description: "A practical 4-tier workflow for finding free, legal copies of paywalled research papers. Covers Unpaywall, Open Access Button, CORE, PubMed Central, institutional repositories, Green OA, and author requests."
+description: "How to find and download paywalled research papers legally for free using Unpaywall, CORE, PubMed Central, open access repositories, and Green OA."
 author: sagarnikam123
 date: 2026-09-22 12:00:00 +0530
-categories: [research, open-access]
-tags: [open-access, paywall, unpaywall, open-access-button, core, pubmed-central, green-oa, gold-oa, diamond-oa, research-papers, free-papers, legal, institutional-repository]
+categories: [Research, Open-Science]
+tags: [free-research-papers-legally, unpaywall, bypass-paywalls-legally, green-open-access, core-open-access, pubmed-central, open-access-button]
 mermaid: true
 image:
   path: assets/img/posts/20260922/open-science-find-paywalled-research-free.webp

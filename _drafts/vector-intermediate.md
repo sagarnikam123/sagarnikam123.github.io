@@ -3,7 +3,7 @@ title: "Vector Intermediate - Transforms, Deployment & Operations"
 description: "Complete guide to Vector transforms, VRL advanced patterns, deployment topologies, Kubernetes deployment, and operational best practices."
 author: sagarnikam123
 date: 2026-02-02 12:00:00 +0530
-categories: [vector, observability]
+categories: [Observability, Logging]
 tags: [vector, transforms, deployment, kubernetes, operations, vrl]
 mermaid: true
 ---

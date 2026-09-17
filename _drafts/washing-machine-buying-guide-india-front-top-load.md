@@ -2,7 +2,7 @@
 layout: post
 title: "Washing Machine Buying Guide India 2026: Best Front Load, Top Load & Semi-Automatic"
 date: 2026-06-09
-categories: [buying-guide, home-appliances]
+categories: [Buying-Guides, Home-Appliances]
 tags: [washing-machine, front-load, top-load, semi-automatic, india, buying-guide, lg, samsung, bosch, ifb, whirlpool, haier, godrej, panasonic]
 author: Sagar Nikam
 excerpt: "A comprehensive, data-driven buying guide for washing machines in India. Compare 30+ models across 20+ parameters including capacity, drum size, motor type, spin speed, energy rating, water consumption, warranty, user ratings, and more — to help you pick the right washing machine for your household."

@@ -3,8 +3,8 @@ title: "25 Ways to Reduce Token Usage in AI Coding Agents (Part 1)"
 description: "Cut AI coding agent costs by 50–90% across Claude Code, Gemini CLI, Cursor, and Codex with 25 practical token reduction and context engineering techniques."
 author: sagarnikam123
 date: 2026-07-04 10:00:00 +0530
-categories: [AI, Developer-Tools]
-tags: [ai-agents, context-engineering, token-optimization, prompt-caching, cost-optimization]
+categories: [AI, Coding-Agents]
+tags: [reduce-token-usage, ai-coding-agents, context-engineering, token-optimization, prompt-caching, cost-optimization, claude-code]
 mermaid: true
 image:
   path: assets/img/posts/20260704/reduce-ai-token-usage-part1-techniques.jpg

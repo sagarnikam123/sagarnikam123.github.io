@@ -1,10 +1,10 @@
 ---
 title: "Apache Kafka Tutorial: Complete Guide from Beginner to Expert"
-description: "Master Apache Kafka with this comprehensive tutorial covering installation, configuration, producers, consumers, Kafka Streams, Connect, and production deployment. Learn streaming platform concepts, real-world examples, and best practices for distributed systems."
+description: "Master Apache Kafka from basics to advanced. Learn installation, architecture, producers, consumers, Kafka Streams, and production deployment."
 author: sagarnikam123
 date: 2017-07-31 12:00:00 +0530
-categories: [distributed-systems, streaming, tutorials]
-tags: [kafka, streaming, messaging, event-driven, microservices]
+categories: [DevOps, Kafka]
+tags: [apache-kafka-tutorial, kafka-architecture, kafka-producers-consumers, kafka-streams, event-driven-architecture]
 mermaid: true
 image:
   path: assets/img/posts/20170731/apache-kafka-guide.webp

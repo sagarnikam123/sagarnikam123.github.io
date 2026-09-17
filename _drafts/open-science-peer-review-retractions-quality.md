@@ -1,10 +1,10 @@
 ---
 title: "How to Evaluate Scientific Research: Peer Review, Retractions & Integrity Tools (2026)"
-description: "A practical guide to evaluating the trustworthiness of scientific papers — peer review models, retraction databases, citation context analysis, evidence hierarchies, post-publication review, and research integrity audit tools."
+description: "How to evaluate scientific papers: guide to peer review models, Retraction Watch database, PubPeer post-publication review, and research integrity tools."
 author: sagarnikam123
 date: 2026-11-10 12:00:00 +0530
-categories: [research, open-access]
-tags: [peer-review, retractions, research-integrity, retraction-watch, evidence-quality, open-peer-review, post-publication-review, citation-context, scite, pubpeer, research-evaluation]
+categories: [Research, Open-Science]
+tags: [evaluate-scientific-research, retraction-watch, pubpeer, open-peer-review, research-integrity, paper-quality-assessment]
 mermaid: true
 image:
   path: assets/img/posts/20261110/open-science-peer-review-retractions-quality.webp

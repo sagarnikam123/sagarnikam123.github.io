@@ -1,10 +1,10 @@
 ---
 title: "Beyond the Paper: Scientific Protocols, Methods & Reproducible Research (2026)"
-description: "A guide to finding and sharing open scientific protocols, experimental methods, preregistrations, and registered reports. Covers protocols.io, OSF, ClinicalTrials.gov, Bio-protocol, and the complete reproducibility stack."
+description: "Find and share open scientific protocols and methods: explore protocols.io, OSF preregistrations, Bio-protocol, and registered reports for reproducibility."
 author: sagarnikam123
 date: 2026-10-13 12:00:00 +0530
-categories: [research, open-access]
-tags: [protocols, methods, reproducibility, preregistration, registered-reports, protocols-io, osf, clinicaltrials, binder, rescience, open-science, replication, experimental-design]
+categories: [Research, Open-Science]
+tags: [scientific-protocols, experimental-methods, protocols-io, osf-preregistration, research-reproducibility, registered-reports]
 mermaid: true
 image:
   path: assets/img/posts/20261013/open-science-protocols-methods-reproducibility.webp

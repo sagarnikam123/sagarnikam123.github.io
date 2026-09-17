@@ -3,7 +3,7 @@ title: "Open Knowledge Format (OKF): AI Agent Knowledge in Markdown"
 description: "Learn Google's Open Knowledge Format (OKF) v0.2 spec to build portable, agent-readable markdown knowledge bases with OpenWiki, trust tiers, and Archify."
 author: sagarnikam123
 date: 2026-08-27 10:00:00 +0530
-categories: [ai, developer-tools]
+categories: [AI, Context-Engineering]
 tags: [okf, open-knowledge-format, ai-agents, context-engineering, knowledge-graph]
 mermaid: true
 image:

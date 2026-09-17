@@ -3,8 +3,8 @@ title: "Token-Efficient AI Agent Stacks & Benchmarks (Part 3)"
 description: "Cut AI agent token usage by 80–92% with 4 tested architecture stacks, setup matrices, and empirical benchmarks across Claude Code, Gemini CLI, and Cursor."
 author: sagarnikam123
 date: 2026-07-04 14:00:00 +0530
-categories: [ai, developer-tools]
-tags: [ai-agents, token-optimization, benchmarks, devops, architecture]
+categories: [AI, Coding-Agents]
+tags: [token-optimization, ai-agent-benchmarks, context-engineering, claude-code-optimization, cursor-setup, agent-architecture]
 mermaid: true
 image:
   path: assets/img/posts/20260704/reduce-ai-token-usage-part3-stacks-benchmarks.jpg

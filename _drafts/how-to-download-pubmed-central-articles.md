@@ -3,7 +3,7 @@ title: "How to Download PubMed Central Articles: Complete Guide to Search, Metad
 description: "A comprehensive guide covering all official methods to download articles from PubMed Central (PMC) — FTP, Cloud Service (AWS), OAI-PMH API, BioC API, E-utilities, EDirect, OA Web Service, Python/Biopython, PubTator 3.0, and Europe PMC. Learn how to search, retrieve metadata, and bulk download PDFs and full-text XML."
 author: sagarnikam123
 date: 2026-05-13 12:00:00 +0530
-categories: [research, bioinformatics]
+categories: [Research, Bioinformatics]
 tags: [pubmed, pmc, ncbi, bioinformatics, text-mining, bulk-download, e-utilities, open-access, research-papers, pubtator, europe-pmc]
 mermaid: true
 ---

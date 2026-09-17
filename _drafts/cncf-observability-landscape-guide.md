@@ -3,7 +3,7 @@ title: "CNCF Observability Landscape Guide: Every Project Mapped to Your Stack (
 description: "A complete map of every open-source observability project in the CNCF landscape — Graduated (Prometheus, Fluentd, Jaeger, OpenTelemetry), Incubating (Thanos, Cortex, Fluent Bit, Litmus, Chaos Mesh), and Sandbox (Pixie, Perses, Kepler, K8sGPT, HolmesGPT, Inspektor Gadget, Kuberhealthy, Trickster, Headlamp), plus 60+ non-CNCF open-source tools (VictoriaMetrics, Grafana, Loki, Mimir, Tempo, Netdata, Zabbix, and more). All with GitHub links, stars, contributors, and first-commit dates."
 author: sagarnikam123
 date: 2026-10-01 12:00:00 +0530
-categories: [Observability, DevOps]
+categories: [Observability, Landscape]
 tags: [cncf-observability, cncf-projects, cloud-native-monitoring, prometheus, opentelemetry]
 mermaid: true
 image:

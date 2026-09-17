@@ -2,7 +2,7 @@
 layout: post
 title: "Windows Laptop Buying Guide India 2026: Best Laptops for Students, Professionals, Designers & More"
 date: 2026-07-01
-categories: [buying-guide, laptops]
+categories: [Buying-Guides, Laptops]
 tags: [laptop, windows-laptop, india, buying-guide, dell, hp, lenovo, asus, acer, msi, intel, amd, ryzen, core-ultra, student-laptop, gaming-laptop, creator-laptop]
 author: Sagar Nikam
 description: "A comprehensive, persona-driven buying guide for Windows laptops in India 2026. Covers processor tiers, RAM, display, battery, and curated picks for students, software professionals, graphic designers, data scientists, gamers, and more — so you buy the right laptop without overpaying."

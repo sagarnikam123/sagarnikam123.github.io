@@ -1,10 +1,10 @@
 ---
 title: "Run AI Models Locally for Free: Complete Guide by RAM Size (8 GB to 64 GB)"
-description: "A practical guide to running open-source AI models locally on your machine for coding, text generation, image creation, audio transcription, and more. Includes model recommendations by RAM size, setup instructions for Ollama, and integration with VS Code, terminal tools (Aider, Fabric, ShellGPT, Mods), and other apps."
+description: "Run open-source AI models locally for free. Complete guide categorized by RAM size, with Ollama setup and integrations for VS Code and terminal tools."
 author: sagarnikam123
 date: 2026-07-04 12:00:00 +0530
-categories: [ai, devops, open-source]
-tags: [ollama, local-ai, coding-assistant, llm, aider]
+categories: [AI, Local-LLMs]
+tags: [run-ai-models-locally, run-llm-locally, ollama-tutorial, local-ai-coding-assistant, open-source-llm]
 mermaid: true
 image:
   path: assets/img/posts/20260704/run-ai-models-locally-free-complete-guide.webp

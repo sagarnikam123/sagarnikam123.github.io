@@ -1,10 +1,10 @@
 ---
 title: "The Ultimate Guide to Cooking Oils in India: Science-Backed Choices for Health"
-description: "A comprehensive, research-based guide to choosing the healthiest cooking oils for Indian kitchens. Learn which oils are best for diabetes, heart disease, and everyday cooking - backed by scientific studies from USDA, ICMR, and leading research institutions."
+description: "A research-based guide to healthy cooking oils in India. Compare choices for diabetes, heart health, and daily cooking based on nutritional studies."
 author: sagarnikam123
 date: 2026-04-27 12:00:00 +0530
-categories: [health, nutrition]
-tags: [cooking-oils, health, diabetes, heart-disease, indian-cooking, nutrition-science, food-safety, wellness]
+categories: [Health, Nutrition]
+tags: [best-cooking-oil-india, healthy-cooking-oils, cooking-oil-for-heart-health, cooking-oil-diabetes, cold-pressed-oil-india]
 image:
   path: assets/img/posts/20260427/cooking-oils-india-health-guide.webp
   lqip: data:image/webp;base64,UklGRtIAAABXRUJQVlA4IMYAAAAwBQCdASogACAAPzmOvVgvKaYjqAqp4CcJbADE+MgEr6+rH/Rw1Ijm2Ko3ED3WbvN/EAD+8cTtbX5g/iG1F73hony0K4IVl6wNB0/WcbreKQnxLvtU3wGXCL7j6wC7Cdrtcj0qR3FEJuJxxXz/Yq4WqM9mGR/W4HBYHyKi4hcmE9DvHqlx/WlPXnSZsBqd6fQDzH1FNNfMt9JpUAuWg0a5ZIJz/IE1wUuAp6IE+kKM3xhFp8FsT3AvpUEiljZkSvX5X1YAAAA=

@@ -3,7 +3,7 @@ title: "Complete Grafana Automation with Terraform: Infrastructure as Code Guide
 description: "Master Grafana automation with Terraform. Complete guide covering datasources, dashboards, folders, alerts, and multi-environment deployments for Grafana OSS, Amazon Managed Grafana, and Azure Managed Grafana with production-ready examples."
 author: sagarnikam123
 date: 2026-02-15 12:00:00 +0530
-categories: [devops, automation, monitoring]
+categories: [DevOps, Automation]
 tags: [grafana, terraform, automation, infrastructure-as-code, iac]
 mermaid: true
 image:

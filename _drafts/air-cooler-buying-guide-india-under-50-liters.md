@@ -2,7 +2,7 @@
 layout: post
 title: "Air Cooler Buying Guide India 2025: Best Personal & Desert Coolers Under 50 Litres"
 date: 2025-06-01
-categories: [buying-guide, home-appliances]
+categories: [Buying-Guides, Home-Appliances]
 tags: [air-cooler, personal-cooler, desert-cooler, summer, india, buying-guide, symphony, crompton, bajaj, havells, orient, blue-star, hindware, croma, livpure, kenstar, voltas, usha]
 author: Sagar Nikam
 excerpt: "A comprehensive, data-driven buying guide for air coolers under 50 litres in India. Compare 35+ models across 25+ parameters including capacity, air delivery, cooling pad type, power, warranty, user ratings, and more — to help you pick the right cooler for your room."

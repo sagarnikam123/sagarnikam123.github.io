@@ -3,7 +3,7 @@ title: "Scientific Benefits of Mantra Chanting: Neuroscience Guide"
 description: "Discover what neuroscience, fMRI, and clinical studies reveal about mantra chanting. Compare Om, Gayatri, and healing mantras with our science-backed guide."
 author: sagarnikam123
 date: 2026-06-20 12:00:00 +0530
-categories: [Health, Neuroscience, Mindfulness]
+categories: [Health, Mindfulness]
 tags: [mantra-chanting, neuroscience, meditation, mental-health, vagus-nerve]
 mermaid: true
 toc: true

@@ -1,10 +1,10 @@
 ---
 title: "Open Research APIs, Metadata & Knowledge Graphs: A Developer's Guide (2026)"
-description: "A developer's guide to 15+ free APIs for accessing scientific paper metadata, citations, full text, authors, institutions, and OA status. Covers OpenAlex, Crossref, Semantic Scholar, NCBI E-Utilities, CORE, Unpaywall, OpenCitations, and building RAG pipelines over papers."
+description: "Developer guide to 15+ free research APIs for paper metadata and citations: OpenAlex, Crossref, Semantic Scholar, Unpaywall, CORE, and NCBI E-Utilities."
 author: sagarnikam123
 date: 2026-10-20 12:00:00 +0530
-categories: [research, open-access]
-tags: [api, openalex, crossref, semantic-scholar, ncbi, e-utilities, core, unpaywall, opencitations, arxiv, datacite, orcid, ror, developers, research-tools, metadata, python]
+categories: [Research, Open-Science]
+tags: [open-research-apis, openalex-api, semantic-scholar-api, crossref-api, scholarly-metadata, python-research-tools, unpaywall-api]
 mermaid: true
 image:
   path: assets/img/posts/20261020/open-science-apis-developers-guide.webp

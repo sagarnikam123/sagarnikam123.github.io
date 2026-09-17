@@ -1,10 +1,10 @@
 ---
 title: "Generate Fake Logs for Testing Log Aggregation Platform: The Ultimate Guide"
-description: "Complete guide to generating realistic fake logs for testing log aggregation systems like Loki, Elastic Stack (ELK), and Splunk. Includes tools, examples, and step-by-step implementation with Docker and Kubernetes"
+description: "Generate realistic fake logs for testing log aggregation systems like Loki, ELK, and Splunk using Python, Docker, and Kubernetes step-by-step."
 author: sagarnikam123
 date: 2025-08-15 12:02:00 +0530
-categories: [logging, devops]
-tags: [log-generation, fake-logs, fuzzy-train, docker, kubernetes, testing, observability]
+categories: [Observability, Logging]
+tags: [fake-log-generator, generate-fake-logs, python-fake-logs, fuzzy-train, docker, kubernetes, log-aggregation, observability]
 mermaid: true
 image:
   path: assets/img/posts/20250815/generate-fake-logs.webp

@@ -2,7 +2,7 @@
 layout: post
 title: "AC Buying Guide India 2025–2026: Best Split, Window & Inverter Air Conditioners"
 date: 2026-06-01
-categories: [buying-guide, home-appliances]
+categories: [Buying-Guides, Home-Appliances]
 tags: [air-conditioner, split-ac, window-ac, inverter-ac, india, buying-guide, daikin, lg, voltas, blue-star, samsung, panasonic, carrier, hitachi, godrej, haier, lloyd, whirlpool]
 author: Sagar Nikam
 excerpt: "A comprehensive, data-driven buying guide for air conditioners in India. Covers tonnage calculation, star ratings, compressor types, refrigerants, brand comparison, installation costs, and curated picks for every room size and budget — so you buy the right AC without overpaying."

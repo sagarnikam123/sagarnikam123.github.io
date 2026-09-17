@@ -3,7 +3,7 @@ title: "Open-Source & Free Tools for Trip Planning, Travel Management, Hiking & 
 description: "A complete guide to open-source, free, and freemium travel software — covering itinerary planning, offline navigation, hiking trails, and instant nearby discovery for food, shopping, and amenities without subscription paywalls."
 author: sagarnikam123
 date: 2026-09-17 12:00:00 +0530
-categories: [travel, open-source]
+categories: [Lifestyle, Travel]
 tags: [open-source-travel, trip-planning, offline-maps, hiking-gps, organic-maps, osmand, openstreetmap, local-discovery]
 mermaid: true
 image:

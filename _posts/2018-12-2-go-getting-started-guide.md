@@ -3,8 +3,8 @@ title: "Go Programming Tutorial: Complete Beginner to Expert Guide"
 description: "Master Go programming from scratch with our comprehensive guide. Covers Go 1.23+, modern patterns, cloud-native development, and production-ready examples."
 author: sagarnikam123
 date: 2018-12-02 12:00:00 +0530
-categories: [go-programming, software-development, tutorials]
-tags: [golang, go-programming, go-tutorial, golang-guide, go-installation, go-frameworks, go-concurrency, programming-tutorial, go-web-development, go-microservices, go-cloud-native, go-beginners]
+categories: [Programming, Go]
+tags: [golang-tutorial, learn-go-programming, go-concurrency, golang-cloud-native, go-beginners-guide]
 mermaid: true
 image:
   path: assets/img/posts/20181202/go-programming-tutorial-guide.webp
