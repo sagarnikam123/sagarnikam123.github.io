@@ -1188,9 +1188,8 @@ flowchart TD
 
 ### Browse More Content
 
-- [Go Programming category](/categories/go-programming) - All Go-related posts and tutorials
-- [Software Development category](/categories/software-development) - Programming guides and best practices
-- [All tutorials and guides](/categories/tutorials) - Complete learning resource collection
+- [Go category](/categories/go/) - All Go-related posts and tutorials
+- [Programming category](/categories/programming/) - Programming guides and best practices
 
 ## Conclusion
 

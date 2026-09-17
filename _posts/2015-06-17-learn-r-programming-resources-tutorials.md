@@ -544,10 +544,10 @@ A: **Beginner (0-3mo)**: R basics + ggplot2 + dplyr → **Intermediate (3-12mo)*
 
 ### **Explore More:**
 
-- [Data Science Resources](/categories/data-science/)
+- [R Category](/categories/r/)
 - [Programming Tutorials](/categories/programming/)
-- [Statistical Analysis Guides](/tags/statistics/)
-- [Machine Learning Resources](/tags/machine-learning/)
+- [R Statistics Guides](/tags/r-statistics/)
+- [R for Data Science](/tags/r-data-science/)
 
 ### **Quick Reference Cards:**
 
