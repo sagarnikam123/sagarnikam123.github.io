@@ -103,6 +103,7 @@ git push origin gh-pages
 ```
 
 ### 🏃♂️ Try It Now - Quick Exercise
+
 1. Create your repository following the steps above
 2. Visit your live site at `https://<username>.github.io`
 3. Edit `index.html` and push changes to see updates
@@ -151,6 +152,7 @@ bundle exec jekyll serve
 > 💡 **Why Bundler?** Ensures consistent gem versions across different environments and prevents "works on my machine" issues.
 
 ### 🏃♂️ Try It Now - Local Setup Exercise
+
 1. Follow the installation steps above
 2. Visit `http://localhost:4000` to see your site
 3. Edit `_config.yml` to change the site title
@@ -242,6 +244,7 @@ graph TD
 > ⚠️ **Beginner Tip:** Files starting with `_` are special Jekyll folders. Regular `.md` files become pages on your site.
 
 ### 🏃♂️ Try It Now - Structure Exercise
+
 1. Create an `about.md` file in your root directory
 2. Add some content with front matter
 3. Visit `/about` on your site to see the new page
@@ -286,6 +289,7 @@ theme: minima
 > ⚠️ **Beginner Tip:** After editing `_config.yml`, restart your local server (`Ctrl+C` then `bundle exec jekyll serve`) to see changes.
 
 ### 🏃♂️ Try It Now - Configuration Exercise
+
 1. Edit your `_config.yml` file
 2. Change the `title` and `description`
 3. Restart your server and see the changes
@@ -446,6 +450,7 @@ mv _drafts/draft-post.md _posts/$(date +%Y-%m-%d)-draft-post.md
 ```
 
 ### 🏃‍♂️ Try It Now - Styling Exercise
+
 1. Create the CSS file above
 2. Change the header color
 3. Refresh your site to see the blue header
@@ -500,6 +505,7 @@ git push origin main
 ### Automatic GitHub Pages ⏱️ 2 mins | 🟢 Beginner
 
 **Default Behavior:**
+
 - Push to `main` branch
 - GitHub automatically builds and deploys
 - No configuration needed
@@ -612,6 +618,7 @@ plugins:
 ```
 
 ### 🏃♂️ Try It Now - SEO Exercise
+
 1. Add the SEO plugin to your `_config.yml`
 2. Add `{% seo %}` to your layout's `<head>` section
 3. Check your page source for new meta tags
@@ -684,6 +691,7 @@ bundle exec jekyll build --verbose
 ```
 
 ### 🏃♂️ Try It Now - Debug Exercise
+
 1. Run `jekyll doctor` to check for issues
 2. Intentionally break your `_config.yml` (add invalid YAML)
 3. Try to build and read the error message
@@ -708,21 +716,27 @@ flowchart LR
 ## ❓ Frequently Asked Questions
 
 ### What is Jekyll and why should I use it?
+
 Jekyll is a static site generator that transforms plain text into static websites and blogs. It's perfect for developers who want fast, secure sites without databases or server-side processing.
 
 ### Is Jekyll free to use?
+
 Yes, Jekyll is completely free and open-source. GitHub Pages hosting is also free for public repositories.
 
 ### Do I need coding experience to use Jekyll?
+
 Basic knowledge helps, but beginners can start with simple themes and learn gradually. Our guide provides step-by-step instructions for all skill levels.
 
 ### How long does it take to set up a Jekyll blog?
+
 With our quick start guide, you can have a basic blog live in 5-10 minutes. Full customization may take several hours depending on your needs.
 
 ### Can I migrate from WordPress to Jekyll?
+
 Yes, there are tools and plugins available to help migrate content from WordPress and other platforms to Jekyll.
 
 ### What's the difference between Jekyll and other static site generators?
+
 Jekyll has excellent GitHub Pages integration, a large community, extensive theme ecosystem, and Ruby-based flexibility that makes it ideal for blogs and documentation sites.
 
 ---
@@ -730,6 +744,7 @@ Jekyll has excellent GitHub Pages integration, a large community, extensive them
 ## 📖 Related Posts
 
 **Continue Your Jekyll Journey:**
+
 - [Jekyll Documentation](https://jekyllrb.com/docs/) - Official Jekyll documentation
 - [Jekyll Themes](https://jekyllthemes.io/) - Browse and download Jekyll themes
 - [Jekyll Plugins](https://jekyllrb.com/docs/plugins/) - Extend Jekyll functionality
@@ -740,6 +755,7 @@ Jekyll has excellent GitHub Pages integration, a large community, extensive them
 - [Liquid Template Language](https://shopify.github.io/liquid/) - Master Jekyll's templating
 
 **Web Development Fundamentals:**
+
 - [Git and GitHub Essentials](https://docs.github.com/en/get-started) - Version control basics
 - [Markdown Guide](https://www.markdownguide.org/) - Complete Markdown reference
 - [CSS Grid and Flexbox](https://css-tricks.com/snippets/css/complete-guide-grid/) - Modern CSS layouts
@@ -750,18 +766,21 @@ Jekyll has excellent GitHub Pages integration, a large community, extensive them
 ## 📚 Resources
 
 ### 🟢 Beginner Resources
+
 - [Jekyll Step by Step Tutorial](https://jekyllrb.com/docs/step-by-step/01-setup/)
 - [GitHub Pages Documentation](https://docs.github.com/en/pages)
 - [Markdown Guide](https://www.markdownguide.org/)
 - [Jekyll Themes Gallery](https://jekyllthemes.io/)
 
 ### 🟡 Intermediate Resources
+
 - [Jekyll Documentation](https://jekyllrb.com/docs/)
 - [Liquid Template Language](https://shopify.github.io/liquid/)
 - [Jekyll Plugins Directory](https://jekyllrb.com/docs/plugins/)
 - [GitHub Pages Versions](https://pages.github.com/versions/)
 
 ### 🔴 Advanced Resources
+
 - [Jekyll Source Code](https://github.com/jekyll/jekyll)
 - [Custom Plugin Development](https://jekyllrb.com/docs/plugins/your-first-plugin/)
 - [Performance Optimization](https://jekyllrb.com/docs/performance/)
@@ -782,18 +801,21 @@ flowchart LR
 </div>
 
 ### 🟢 If You're a Beginner
+
 1. **Complete the Quick Start** - Get your site live first
 2. **Write 3-5 posts** - Focus on content over customization
 3. **Learn basic Markdown** - [Essential syntax guide](https://www.markdownguide.org/) for writing posts
 4. **Customize your About page** - Make it personal
 
 ### 🟡 If You're Intermediate
+
 1. **Set up local development** - Faster iteration cycle
 2. **Choose and customize a theme** - Make it yours
 3. **Add essential plugins** - SEO, analytics, comments
 4. **Organize your content** - Categories and tags
 
 ### 🔴 If You're Advanced
+
 1. **Create custom layouts** - Unique design elements
 2. **Build custom plugins** - Extend Jekyll's functionality
 3. **Optimize performance** - [Fast loading techniques](https://jekyllrb.com/docs/performance/) and best practices
@@ -806,6 +828,7 @@ flowchart LR
 You now have everything needed to create a professional Jekyll blog on GitHub Pages! Whether you're just starting or looking to master advanced techniques, Jekyll provides a powerful platform for blogging and documentation.
 
 **Remember:**
+
 - 🟢 **Beginners:** Start simple, focus on content first
 - 🟡 **Intermediate:** Experiment with themes and plugins
 - 🔴 **Advanced:** Push the boundaries with custom solutions

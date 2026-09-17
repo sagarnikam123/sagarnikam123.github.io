@@ -136,6 +136,7 @@ If you've completed D.Pharm (Diploma in Pharmacy), you can get **direct admissio
 | Admission   | Through state counselling (same exams: MHT CET, KCET, etc.) or direct admission in private colleges |
 
 **Key Points:**
+
 - Lateral entry is governed by [AICTE](https://www.aicte-india.org) and [PCI (Pharmacy Council of India)](https://www.pci.nic.in) norms
 - Some states conduct separate lateral entry counselling
 - Private colleges may have management quota seats for lateral entry
@@ -194,6 +195,7 @@ Central and Indian Government jobs for Pharmacy graduates are highly respected a
 | [RDTL Guwahati](https://cdsco.gov.in/opencms/opencms/en/About-us/Laboratories/)     | Assam            | Testing for North Eastern states                      |
 
 **Roles at CDTLs:**
+
 - Scientific Officer / Analyst — Statutory analysis of drug samples
 - Quality control testing for imported drugs at ports
 - Appellate authority for drug quality disputes
@@ -225,6 +227,7 @@ The [Department of Pharmaceuticals](https://pharmaceuticals.gov.in), Government 
 **HLL Lifecare** recruits pharmacists for [AMRIT Pharmacy outlets](https://www.lifecarehll.com/page/render/reference/Amrit_Pharmacies) and Janasanjeevini Drug Stores at government hospitals across India.
 
 **PSU Pharmacist Roles:**
+
 - Production and manufacturing of pharmaceutical formulations
 - Quality control and quality assurance
 - Regulatory compliance and documentation
@@ -245,6 +248,7 @@ The [Department of Pharmaceuticals](https://pharmaceuticals.gov.in), Government 
 | Selection   | Written Test (80 MCQs, 90 mins) + Skill Test |
 
 **Recruiting Centers:**
+
 - [VSSC (Vikram Sarabhai Space Centre)](https://www.vssc.gov.in), Thiruvananthapuram
 - [SAC (Space Applications Centre)](https://www.sac.gov.in), Ahmedabad
 - Other ISRO centers as per vacancy
@@ -467,6 +471,7 @@ flowchart TD
 ### M.Pharm Specializations
 
 Leads to careers in research, academia, regulatory affairs, and advanced industry roles. Common specializations include:
+
 - Pharmacology
 - Pharmaceutics
 - Pharmaceutical Chemistry
@@ -504,11 +509,13 @@ IIMs do not offer a dedicated "MBA in Pharmaceutical Management" program. Howeve
 | [IIM Sambalpur](https://www.iimsambalpur.ac.in), Odisha | [IIM Sirmaur](https://www.iimsirmaur.ac.in), HP          | [IIM Mumbai](https://www.iimmumbai.ac.in), Maharashtra     |                                                       |
 
 **Admission Requirements:**
+
 - **Entrance Exam:** [CAT](https://iimcat.ac.in) (99+ percentile for top IIMs)
 - **Eligibility:** Any Bachelor's degree (B.Pharm eligible) with 50% marks
 - **Selection:** CAT Score + WAT (Written Ability Test)/GD + Personal Interview
 
 **Career Paths after IIM:**
+
 - Pharma Strategy Consulting (McKinsey, BCG, Bain)
 - Healthcare Consulting (IQVIA, ZS Associates, Deloitte)
 - Product Management in Pharma MNCs
@@ -601,6 +608,7 @@ The admission process generally involves three stages: **Entrance Exam → Group
 **Admission:** Based on MUHS entrance exam + Interview. Apply online at [muhs.ac.in](https://www.muhs.ac.in)
 
 **Career Opportunities:**
+
 - Pharmaceutical Medicine Specialist (Drug Safety, Clinical Trials)
 - Hospital Administrator
 - Public Health Officer
@@ -656,6 +664,7 @@ For working professionals or those who cannot pursue full-time education, severa
 ### Professional Certifications
 
 Short-term programmes in:
+
 - Clinical Research
 - Pharmacovigilance
 - Regulatory Affairs
@@ -682,12 +691,14 @@ B.Pharm graduates have unique opportunities in pharmaceutical law, patent rights
 B.Pharm graduates can pursue a 3-year LLB from any recognized law college.
 
 **Entrance Exams:**
+
 - [CLAT (Common Law Admission Test)](https://consortiumofnlus.ac.in) — For 25 National Law Universities
 - [AILET](https://nludelhi.ac.in) — For NLU Delhi
 - [LSAT India](https://www.lsac.org/lsat) — For private law schools
 - State-level Law CETs
 
 **Career Options after B.Pharm + LLB:**
+
 - Pharmaceutical Patent Lawyer
 - Drug Regulatory Affairs Consultant
 - Legal Advisor to Pharma Companies
@@ -702,6 +713,7 @@ B.Pharm graduates are directly eligible to become Patent Agents without needing 
 **Eligibility:** B.Pharm/M.Pharm degree from recognized university + Indian citizenship
 
 **Exam:** [Indian Patent Agent Examination](https://ipindia.gov.in) (conducted by Indian Patent Office)
+
 - Paper 1: Patents Act, Rules, PCT (Patent Cooperation Treaty)
 - Paper 2: Drafting & Interpretation of Patent Specifications
 - Viva Voce
@@ -761,12 +773,14 @@ B.Pharm graduates are directly eligible to become Patent Agents without needing 
 #### 4. Regulatory Affairs & Drug Law
 
 **Roles:**
+
 - Drug Regulatory Affairs Officer
 - [CDSCO](https://cdsco.gov.in) Compliance Specialist
 - Medical Device Regulatory Specialist
 - Pharmacovigilance & Legal Compliance Officer
 
 **Courses:**
+
 - PG Diploma in Regulatory Affairs — [NIPER](https://www.niper.gov.in), [IGMPI](https://www.igmpi.ac.in)
 - M.Pharm in Regulatory Affairs
 
@@ -783,7 +797,6 @@ B.Pharm graduates are directly eligible to become Patent Agents without needing 
 
 > **Unique Advantage:** Very few lawyers understand pharmaceutical science. B.Pharm + Law/IPR is a rare combination that commands premium salaries in the pharma industry.
 {: .prompt-info }
-
 
 ## 📚 GPAT Preparation Guide
 
@@ -804,21 +817,25 @@ GPAT (Graduate Pharmacy Aptitude Test) is the gateway to M.Pharm admissions in g
 ### Preparation Strategy (6-Month Plan)
 
 **Month 1-2: Foundation Building**
+
 - Complete Pharmaceutics (Physical Pharmacy, Biopharmaceutics, Dosage Forms)
 - Focus on numerical problems — they're scoring
 - Make formula sheets for quick revision
 
 **Month 3-4: Core Subjects**
+
 - Pharmacology — focus on drug classifications, mechanisms, side effects
 - Pharmaceutical Chemistry — SAR, drug synthesis, named reactions
 - Pharmacognosy — biological sources, chemical constituents, uses
 
 **Month 5: Analysis & Revision**
+
 - Pharmaceutical Analysis — instrumental techniques (HPLC, UV, IR, NMR)
 - Revise weak areas using short notes
 - Start solving previous year papers (2018-2025)
 
 **Month 6: Mock Tests & Fine-tuning**
+
 - Attempt 2-3 full-length mock tests weekly
 - Analyze mistakes and revise those topics
 - Focus on high-weightage chapters
@@ -902,6 +919,7 @@ Detailed preparation strategies for GATE and NIPER JEE are covered in their resp
 | **No. of Institutes** | 7                              | 23 (6 relevant)             | 31 (5 relevant)                | 23                                | 15+                           | 37 (7 pharma-relevant)                            | 1                              | 7                              | 6 DAE + 8 TIFR centers        | 1 (+ campuses)              | 2 (Kundli, Thanjavur)         | 1                          |
 
 > **Which exam should you prioritize?**
+>
 > - **[GPAT](https://natboard.edu.in)** — Required for NIPER, some IITs, and many private colleges
 > - **[GATE (BT/XL)](https://gate.iitk.ac.in)** — Required for IITs, NITs, IISERs, BARC OCES, and provides better stipend options
 > - **[GAT-B](https://rcb.res.in/DBTPG/)** — For Central Universities offering M.Sc. Biotechnology
@@ -996,21 +1014,25 @@ NIPER JEE is conducted after GPAT qualification. It's more competitive than GPAT
 **8-Week Preparation Strategy (After GPAT)**
 
 **Week 1-2: Analyze & Plan**
+
 - Check your GPAT weak areas
 - NIPER JEE is faster-paced — practice speed
 - Focus on application-based questions
 
 **Week 3-4: Deep Dive**
+
 - Pharmaceutics: Novel drug delivery, Nanotechnology, Targeted delivery
 - Pharmacology: Molecular pharmacology, Signal transduction, Drug receptors
 - Pharm. Chemistry: Advanced SAR, Drug design, Computational chemistry
 
 **Week 5-6: General Aptitude & Mock Tests**
+
 - English: Reading comprehension, Grammar, Vocabulary
 - Reasoning: Logical reasoning, Data interpretation
 - Current Affairs: Pharma industry news, Drug approvals, Nobel Prizes
 
 **Week 7-8: Full-Length Tests**
+
 - Attempt 4-5 full mock tests
 - Practice completing 200 questions in 2 hours
 - Review mistakes and revise
@@ -1111,16 +1133,19 @@ GATE opens doors to IITs, NITs, PSUs, and provides better stipends than GPAT. B.
 **6-8 Month Preparation Strategy:**
 
 **Phase 1 (Month 1-3): Build Basics**
+
 - If choosing BT: Learn Engineering Mathematics basics (Khan Academy, NPTEL)
 - Study Molecular Biology, Genetics, Biochemistry thoroughly
 - Use NCERT Biology (Class 11-12) for fundamentals
 
 **Phase 2 (Month 4-5): Core Topics**
+
 - Bioprocess Engineering — fermentation, downstream processing
 - Immunology — antibodies, vaccines, immune responses
 - Recombinant DNA Technology — cloning, PCR, sequencing
 
 **Phase 3 (Month 6-8): Practice & Revision**
+
 - Solve GATE previous papers (2015-2025)
 - Attempt topic-wise tests on GATE Overflow
 - Focus on Numerical Ability — it's scoring
@@ -1205,7 +1230,6 @@ Pharmacy students in NITs usually specialize in the following high-growth areas:
 - **Mathematics:** A few NITs require you to have had Mathematics at the 10+2 level for certain M.Tech specializations
 - **Minimum Marks:** Usually a CGPA of 6.5/10 or 60% aggregate is required in your Bachelor's/Master's degree
 
-
 ### AIIMS (23) & INI-CET (4) Institutes
 
 After completing B.Pharm, you are eligible for several postgraduate courses at AIIMS and other [Institutes of National Importance (INIs)](https://www.education.gov.in/en/institutions-national-importance). Admissions are conducted through INI-CET (Institute of National Importance Combined Entrance Test) organized by AIIMS New Delhi.
@@ -1275,6 +1299,7 @@ Pharm.D (Doctor of Pharmacy) graduates have excellent career opportunities in go
 | Locations   | AIIMS (23), JIPMER, PGIMER, NIMHANS, SCTIMST                              |
 
 **Key Responsibilities:**
+
 - Medication therapy management and patient counseling
 - Ward rounds with physicians and therapeutic recommendations
 - Adverse Drug Reaction (ADR) monitoring and reporting
@@ -1552,6 +1577,7 @@ B.Pharm graduates can directly apply for Integrated PhD programs:
 | Interdisciplinary   | Drug Discovery, Computational Biology, Biophysics                   |
 
 **Eligibility:**
+
 - Bachelor's degree (B.Pharm/B.Sc.) with minimum 60% marks
 - Valid JAM-BT/JGEEBILS (TIFR-GS)/GATE score, OR qualify IISER entrance test
 
@@ -1560,6 +1586,7 @@ B.Pharm graduates can directly apply for Integrated PhD programs:
 For M.Pharm/M.Sc. graduates:
 
 **Eligibility:**
+
 - M.Pharm/M.Sc./M.Tech with 60% marks or CGPA 7.0/10
 - Valid [CSIR-UGC NET](https://csirnet.nta.nic.in)/GATE/GPAT qualification required
 
@@ -1671,6 +1698,7 @@ The [OCES (Orientation Course for Engineering Graduates and Science Postgraduate
 | Research Associate     | M.Pharm/Ph.D. in relevant field                              | ₹47,000-54,000/month        |
 
 **TMC Hospitals:**
+
 - [Tata Memorial Hospital](https://tmc.gov.in), Mumbai (Main Campus)
 - [ACTREC (Advanced Centre for Treatment, Research & Education in Cancer)](https://actrec.gov.in), Navi Mumbai
 - [Homi Bhabha Cancer Hospital](https://hbchvaranasi.in), Varanasi
@@ -1691,6 +1719,7 @@ The [OCES (Orientation Course for Engineering Graduates and Science Postgraduate
 | Posting     | Scientific Officer 'C' at BARC, IGCAR, RRCAT, VECC, NFC, AMD, or AERB       |
 
 **BARC Training School Locations:**
+
 - [BARC Training School, Mumbai](https://www.barc.gov.in/careers/training.html) — Nuclear Reactors, Basic & Engineering Sciences
 - [BARC Training School at IGCAR, Kalpakkam](https://www.igcar.gov.in/ocests.html) — Fast Breeder Reactors
 - [BARC Training School at RRCAT, Indore](https://www.rrcat.gov.in/hrd/ts/index.html) — Lasers, Accelerators, Plasma Physics
@@ -1734,6 +1763,7 @@ Source: [TIFR](https://www.tifr.res.in)
 | [InStem Bangalore](https://www.instem.res.in) | Stem Cell Biology, Regenerative Medicine                    |
 
 **2. Direct PhD (4-5 years)** - After M.Pharm/M.Sc.
+
 - Biological Sciences, Chemical Sciences, Interdisciplinary Sciences
 
 **Entrance Exams**
@@ -1744,6 +1774,7 @@ Source: [TIFR](https://www.tifr.res.in)
 | JGEEBILS | Joint Graduate Entrance Exam for Biology & Interdisciplinary Life Sciences | NCBS, InStem, TIFR Mumbai (Biology)    | [www.ncbs.res.in/academic/admissions-JGEEBILS](https://www.ncbs.res.in/academic/admissions-JGEEBILS) |
 
 **Eligibility:**
+
 - **Integrated PhD:** B.Pharm/B.Sc. with 55-60% marks
 - **Direct PhD:** M.Pharm/M.Sc. with 55-60% marks
 - Valid GATE/[CSIR-UGC NET](https://csirnet.nta.nic.in)/JAM score may exempt written test at some centers
@@ -1924,6 +1955,7 @@ ICMR conducts a national-level [DHR-BRET (Biomedical Research Eligibility Test)]
 | [DHR-BRET](https://aiimsexams.ac.in/landingpage/courses/advertisement/6905044c36116d6a6676a872) | ICMR-JRF Exam notifications                                                 |
 
 **How to Apply:**
+
 - **ICMR-JRF:** Apply through [ICMR JRF portal](https://www.icmr.gov.in/junior-research-fellowships-jrf.html) when notifications are released (usually once a year)
 - **Scientist positions:** Monitor [ICMR Employment Portal](https://www.icmr.gov.in/employment-opportunities) for permanent vacancies
 - **Project positions:** Check individual institute websites for walk-in interview notifications
@@ -2065,12 +2097,12 @@ IASST offers JRF and Ph.D. programs in life sciences and natural products resear
 {: .prompt-info }
 
 **How to Apply:**
+
 - **Scientist B:** Apply through [RAC](https://rac.gov.in) when notifications are released (GATE score required)
 - **JRF/Project positions:** Check individual lab websites for walk-in interview notifications
 - **Internships:** Contact labs directly with NOC from your institution
 
 ---
-
 
 ## ❓ Frequently Asked Questions (FAQ)
 
@@ -2083,6 +2115,7 @@ No. D.Pharm is a diploma, and NIPER/IITs require a Bachelor's degree (B.Pharm). 
 **Q: Is GPAT mandatory for all M.Pharm admissions?**
 
 Not always. GPAT is mandatory for:
+
 - NIPER (along with NIPER JEE)
 - Government college M.Pharm seats
 - Stipend eligibility in most colleges
@@ -2101,6 +2134,7 @@ Private colleges may admit without GPAT but won't provide stipends.
 **Q: Can B.Pharm students apply for GATE?**
 
 Yes! B.Pharm students can appear for GATE in:
+
 - **Biotechnology (BT)** — Most relevant for pharma
 - **Life Sciences (XL)** — Broader scope
 

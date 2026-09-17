@@ -15,9 +15,11 @@ image:
 ## 🎯 Understanding Automation Testing
 
 ### What is Automation Testing?
+
 Automation testing uses tools and scripts to execute tests automatically, reducing manual effort and increasing test coverage. Essential for modern software development workflows.
 
 **Key Benefits:**
+
 - **Faster Feedback** - Get test results in minutes, not hours
 - **Higher Test Coverage** - Run thousands of tests automatically
 - **Cost Effective** - Reduce manual testing effort by 70%
@@ -117,10 +119,12 @@ flowchart TD
 ### 📮 API Testing with Postman (No Coding Required)
 
 **Step 1: Install Postman**
+
 - Download [Postman](https://www.postman.com/downloads/){:target="_blank" rel="noopener"} (free)
 - Create a free account
 
 **Step 2: Your First API Test**
+
 1. Create new request: `GET https://jsonplaceholder.typicode.com/users/1`
 2. Click "Send"
 3. Add test in "Tests" tab:
@@ -137,6 +141,7 @@ pm.test("User has name", function () {
 ```
 
 **Step 3: Create Test Collections**
+
 - Group related tests together
 - Run entire collections
 - Export/import for team sharing
@@ -186,13 +191,14 @@ npx playwright test simple-ui.spec.js
 ### 🔧 Common Beginner Issues & Solutions
 
 | Problem | Symptom | Solution |
-|---------|---------|----------|
+| --------- | --------- | ---------- |
 | **Element not found** | `Error: locator.click: Target closed` | Use proper waits: `await page.waitForSelector()` |
 | **Test is flaky** | Passes sometimes, fails others | Remove `sleep()`, use `waitForLoadState()` |
 | **Slow test execution** | Tests take too long | Run tests in parallel: `--workers=4` |
 | **Browser not opening** | Headless mode confusion | Add `--headed` flag to see browser |
 
 **Key Learning Points:**
+
 - ✅ Always use `await` with Playwright actions
 - ✅ Use data-testid attributes for reliable selectors
 - ✅ Write descriptive test names
@@ -203,7 +209,7 @@ npx playwright test simple-ui.spec.js
 ### 📊 Tool Comparison Matrix
 
 | Feature | Playwright | Cypress | Selenium | Recommendation |
-|---------|------------|---------|----------|----------------|
+| --------- | ------------ | --------- | ---------- | ---------------- |
 | **Setup Time** | 5 minutes | 10 minutes | 30 minutes | 🥇 Playwright |
 | **Browser Support** | All modern | Chrome/Edge/Firefox | All | 🥇 Playwright |
 | **Parallel Testing** | ✅ Built-in | ❌ Paid only | ✅ Manual setup | 🥇 Playwright |
@@ -214,6 +220,7 @@ npx playwright test simple-ui.spec.js
 | **Cost** | Free | Free/Paid | Free | 🥇 All Free |
 
 **🎯 Recommendation:**
+
 - **New projects**: [Playwright](https://playwright.dev/){:target="_blank" rel="noopener"}
 - **Existing Cypress projects**: Stay with [Cypress](https://www.cypress.io/){:target="_blank" rel="noopener"}
 - **Legacy systems**: [Selenium](https://selenium.dev/){:target="_blank" rel="noopener"}
@@ -383,6 +390,7 @@ module.exports = {
 ### 🏢 Industry-Specific Testing Patterns
 
 #### E-commerce Applications
+
 ```javascript
 // Shopping cart automation
 test('complete purchase flow', async ({ page }) => {
@@ -396,6 +404,7 @@ test('complete purchase flow', async ({ page }) => {
 ```
 
 #### Banking & Finance
+
 ```javascript
 // Security compliance testing
 test('secure login with 2FA', async ({ page }) => {
@@ -409,6 +418,7 @@ test('secure login with 2FA', async ({ page }) => {
 ```
 
 #### SaaS Applications
+
 ```javascript
 // Multi-tenant testing
 test('tenant isolation', async ({ page }) => {
@@ -424,12 +434,10 @@ test('tenant isolation', async ({ page }) => {
 
 ## 🔴 Advanced Level: Enterprise Testing
 
-
-
 ### ⚡ Performance Benchmarks
 
 | Metric | Playwright | Cypress | Selenium |
-|--------|------------|---------|----------|
+| -------- | ------------ | --------- | ---------- |
 | **Test Execution** | 🥇 Fastest | 🥈 Fast | 🥉 Slower |
 | **Memory Usage** | 🥈 Medium | 🥇 Lowest | 🥉 Highest |
 | **Setup Complexity** | 🥇 Easiest | 🥈 Medium | 🥉 Complex |
@@ -437,6 +445,7 @@ test('tenant isolation', async ({ page }) => {
 | **Cross-browser** | 🥇 Excellent | 🥈 Good | 🥇 Excellent |
 
 **Performance Test Results (1000 tests):**
+
 - **Playwright**: 12 minutes (parallel)
 - **Cypress**: 25 minutes (sequential)
 - **Selenium Grid**: 15 minutes (parallel setup required)
@@ -444,6 +453,7 @@ test('tenant isolation', async ({ page }) => {
 ### 🏗️ Enterprise Architecture Patterns
 
 #### Microservices Testing Strategy
+
 ```javascript
 // Contract testing with API mocking
 const { setupServer } = require('msw/node');
@@ -463,6 +473,7 @@ test('microservice integration', async () => {
 ```
 
 #### Multi-Environment Deployment Testing
+
 ```yaml
 # Advanced CI/CD Pipeline
 stages:
@@ -612,12 +623,14 @@ jobs:
 ### 🔄 What's New in 2024
 
 **Latest Tool Updates:**
+
 - **Playwright 1.40**: New trace viewer, improved mobile testing
 - **Cypress 13.0**: Component testing, improved TypeScript support
 - **Selenium 4.15**: BiDi protocol support, better WebDriver management
 - **k6 0.47**: Enhanced browser testing, improved cloud integration
 
 **Emerging Trends:**
+
 - **AI-Powered Testing**: Tools like [Testim.io](https://testim.io/){:target="_blank" rel="noopener"} using ML for test maintenance
 - **Visual AI**: [Applitools Eyes](https://applitools.com/){:target="_blank" rel="noopener"} for intelligent visual testing
 - **Codeless Automation**: Low-code platforms gaining enterprise adoption
@@ -628,7 +641,7 @@ jobs:
 ### 🔌 API & Backend Testing
 
 | Skill Level | Tools | Description |
-|-------------|-------|-------------|
+| ------------- | ------- | ------------- |
 | **🟢 Beginner** | 📮 **[Postman](https://www.postman.com/){:target="_blank" rel="noopener"}**<br/>🔍 **[Insomnia](https://insomnia.rest/){:target="_blank" rel="noopener"}** | GUI-based, drag & drop interface<br/>Lightweight REST client, perfect for getting started |
 | **🟡 Intermediate** | ☕ **[REST Assured](https://rest-assured.io/){:target="_blank" rel="noopener"}** (Java)<br/>🐍 **[Requests](https://requests.readthedocs.io/){:target="_blank" rel="noopener"} + [pytest](https://pytest.org/){:target="_blank" rel="noopener"}** (Python) | Code-based API testing with powerful assertions<br/>Scriptable HTTP testing with rich ecosystem |
 | **🔴 Advanced** | 📊 **[k6](https://k6.io/){:target="_blank" rel="noopener"} API Tests**<br/>🛠️ **Custom Frameworks** | Performance + API testing combined<br/>Enterprise solutions tailored to specific needs |
@@ -636,7 +649,7 @@ jobs:
 ### 🌐 Web UI Testing
 
 | Skill Level | Tools | Description |
-|-------------|-------|-------------|
+| ------------- | ------- | ------------- |
 | **🟢 Beginner** | 🎭 **[Playwright](https://playwright.dev/){:target="_blank" rel="noopener"}**<br/>✅ **Easy Setup** | Modern, fast, reliable with auto-wait<br/>Built-in screenshots, great for beginners |
 | **🟡 Intermediate** | 🌲 **[Cypress](https://www.cypress.io/){:target="_blank" rel="noopener"}**<br/>🎮 **Interactive Test Runner** | Developer experience focused<br/>Time-travel debugging, video recording |
 | **🔴 Advanced** | 🕷️ **[Selenium](https://selenium.dev/){:target="_blank" rel="noopener"} Grid**<br/>🔧 **Custom Solutions** | Distributed testing, cloud integration<br/>Enterprise frameworks, complex orchestration |
@@ -644,7 +657,7 @@ jobs:
 ### 📱 Mobile App Testing
 
 | Skill Level | Tools | Description |
-|-------------|-------|-------------|
+| ------------- | ------- | ------------- |
 | **🟢 Beginner** | 📱 **[Appium](https://appium.io/){:target="_blank" rel="noopener"} Inspector**<br/>🎯 **Visual Testing** | Record & replay functionality<br/>No coding required, point-and-click interface |
 | **🟡 Intermediate** | ⚛️ **[Detox](https://wix.github.io/Detox/){:target="_blank" rel="noopener"}** (React Native)<br/>🤖 **[Espresso](https://developer.android.com/training/testing/espresso){:target="_blank" rel="noopener"}** (Android) | Fast, reliable mobile testing<br/>Native testing with built-in synchronization |
 | **🔴 Advanced** | ☁️ **[BrowserStack](https://www.browserstack.com/){:target="_blank" rel="noopener"}, [Sauce Labs](https://saucelabs.com/){:target="_blank" rel="noopener"}**<br/>🏭 **[AWS Device Farm](https://aws.amazon.com/device-farm/){:target="_blank" rel="noopener"}, Firebase** | Cloud device testing with real devices<br/>Scalable testing infrastructure |
@@ -652,7 +665,7 @@ jobs:
 ### ⚡ Performance Testing
 
 | Skill Level | Tools | Description |
-|-------------|-------|-------------|
+| ------------- | ------- | ------------- |
 | **🟢 Beginner** | 🔨 **[Apache JMeter](https://jmeter.apache.org/){:target="_blank" rel="noopener"}**<br/>📊 **[Gatling](https://gatling.io/){:target="_blank" rel="noopener"}** | GUI-based load testing with visual reports<br/>High-performance load testing with detailed metrics |
 | **🟡 Intermediate** | 📈 **[k6](https://k6.io/){:target="_blank" rel="noopener"}**<br/>🚀 **[Artillery](https://artillery.io/){:target="_blank" rel="noopener"}** | JavaScript-based performance testing<br/>Modern load testing toolkit with CI/CD integration |
 | **🔴 Advanced** | ☁️ **[BlazeMeter](https://www.blazemeter.com/){:target="_blank" rel="noopener"}**<br/>🏢 **[LoadRunner](https://www.opentext.com/products/loadrunner-professional){:target="_blank" rel="noopener"}** | Cloud-based scalable performance testing<br/>Enterprise-grade performance testing suite |
@@ -660,7 +673,7 @@ jobs:
 ### 🔒 Security Testing
 
 | Skill Level | Tools | Description |
-|-------------|-------|-------------|
+| ------------- | ------- | ------------- |
 | **🟢 Beginner** | 🛡️ **[OWASP ZAP](https://www.zaproxy.org/){:target="_blank" rel="noopener"}**<br/>🔍 **[Burp Suite Community](https://portswigger.net/burp/communitydownload){:target="_blank" rel="noopener"}** | Free web application security scanner<br/>Web vulnerability scanner with proxy |
 | **🟡 Intermediate** | 🐍 **[Bandit](https://bandit.readthedocs.io/){:target="_blank" rel="noopener"}** (Python)<br/>🔐 **[SonarQube](https://www.sonarqube.org/){:target="_blank" rel="noopener"}** | Static security analysis for Python<br/>Code quality and security analysis platform |
 | **🔴 Advanced** | 💼 **[Veracode](https://www.veracode.com/){:target="_blank" rel="noopener"}**<br/>🏢 **[Checkmarx](https://checkmarx.com/){:target="_blank" rel="noopener"}** | Enterprise application security testing<br/>Static and dynamic application security testing |
@@ -668,26 +681,27 @@ jobs:
 ### 🎨 Visual & Accessibility Testing
 
 | Skill Level | Tools | Description |
-|-------------|-------|-------------|
+| ------------- | ------- | ------------- |
 | **🟢 Beginner** | 👁️ **[Percy](https://percy.io/){:target="_blank" rel="noopener"}**<br/>♿ **[axe DevTools](https://www.deque.com/axe/devtools/){:target="_blank" rel="noopener"}** | Visual regression testing made simple<br/>Accessibility testing browser extension |
 | **🟡 Intermediate** | 📸 **[Chromatic](https://www.chromatic.com/){:target="_blank" rel="noopener"}**<br/>🔍 **[Pa11y](https://pa11y.org/){:target="_blank" rel="noopener"}** | Visual testing for Storybook components<br/>Command-line accessibility testing tool |
 | **🔴 Advanced** | 🎯 **[Applitools](https://applitools.com/){:target="_blank" rel="noopener"}**<br/>🤖 **[AI-Powered Testing](https://testim.io/){:target="_blank" rel="noopener"}** | AI-powered visual testing platform<br/>Machine learning enhanced test automation |
 
-
-
 ## 📚 Learning Resources
 
 ### 🎯 Starter Templates
+
 - **[Playwright Starter Kit](https://github.com/microsoft/playwright/tree/main/examples){:target="_blank" rel="noopener"}** - Ready-to-use project structure
 - **[Cypress E2E Template](https://github.com/cypress-io/cypress-example-kitchensink){:target="_blank" rel="noopener"}** - Complete example application
 - **[API Testing Boilerplate](https://github.com/postmanlabs/newman){:target="_blank" rel="noopener"}** - Postman + Newman automation
 
 ### 📋 Cheat Sheets
+
 - **Playwright Commands**: Quick reference for common actions
 - **CSS Selectors Guide**: Best practices for element selection
 - **API Testing Checklist**: Comprehensive testing scenarios
 
 ### ⚙️ Configuration Files
+
 - **Docker Compose**: Multi-browser Selenium Grid setup
 - **GitHub Actions**: Complete CI/CD pipeline templates
 - **Jest Config**: Optimized settings for API testing
@@ -695,12 +709,14 @@ jobs:
 ## 🏆 Best Practices
 
 ### Test Design Principles
+
 - **🎯 Follow the Testing Pyramid** - More unit tests, fewer UI tests
 - **🔄 Keep Tests Independent** - Each test should run in isolation
 - **📝 Use Descriptive Names** - Test names should explain what they verify
 - **🚀 Fast Feedback** - Tests should run quickly and fail fast
 
 ### Framework Design
+
 - **📁 Page Object Model** - Separate test logic from page interactions
 - **📊 Data-Driven Testing** - Use external data sources for test inputs
 - **🔧 Configuration Management** - Environment-specific settings
@@ -709,16 +725,19 @@ jobs:
 ## 📚 Learning Resources
 
 ### Free Courses
+
 - **[Test Automation University](https://testautomationu.applitools.com/){:target="_blank" rel="noopener"}** - Free courses on various testing tools
 - **[Playwright Documentation](https://playwright.dev/docs/intro){:target="_blank" rel="noopener"}** - Official Playwright guides
 - **[Cypress Real World App](https://github.com/cypress-io/cypress-realworld-app){:target="_blank" rel="noopener"}** - Example application with tests
 
 ### Books
+
 - **"The Art of Software Testing"** by Glenford J. Myers
 - **"Agile Testing"** by Lisa Crispin and Janet Gregory
 - **"Continuous Delivery"** by Jez Humble and David Farley
 
 ### Communities
+
 - **[Ministry of Testing](https://www.ministryoftesting.com/){:target="_blank" rel="noopener"}** - Testing community and resources
 - **[Software Testing Help](https://www.softwaretestinghelp.com/){:target="_blank" rel="noopener"}** - Tutorials and guides
 - **[Reddit r/QualityAssurance](https://www.reddit.com/r/QualityAssurance/){:target="_blank" rel="noopener"}** - QA discussions
@@ -726,18 +745,21 @@ jobs:
 ## 👥 Join the Community
 
 ### 🌐 Online Communities
+
 - **[Playwright Discord](https://discord.gg/playwright-807756831384403968){:target="_blank" rel="noopener"}** - Real-time help and discussions
 - **[Cypress Discord](https://discord.gg/cypress){:target="_blank" rel="noopener"}** - Active community support
 - **[Test Automation Slack](https://testautomation.slack.com/){:target="_blank" rel="noopener"}** - Cross-tool discussions
 - **[Ministry of Testing](https://club.ministryoftesting.com/){:target="_blank" rel="noopener"}** - Professional testing community
 
 ### 📅 Learning Events
+
 - **Monthly Webinars**: Live Q&A sessions with experts
 - **TestJS Summit**: Annual JavaScript testing conference
 - **SeleniumConf**: Global Selenium community event
 - **Local Meetups**: Find testing groups in your city
 
 ### 📖 Recommended Reading
+
 - **"Effective Software Testing"** by Mauricio Aniche
 - **"The Art of Software Testing"** by Glenford J. Myers
 - **"Continuous Delivery"** by Jez Humble
@@ -748,6 +770,7 @@ jobs:
 ### 🚀 Your Automation Journey
 
 **Week 1-2: Foundation**
+
 1. **Choose your tools** based on your skill level and project needs
 2. **Complete the readiness checklist** above
 3. **Set up your first test** following our beginner guide
@@ -768,6 +791,7 @@ jobs:
 12. **Mentor others** and contribute to the community
 
 ### 📊 Success Metrics to Track
+
 - **Test Coverage**: Aim for 80%+ critical path coverage
 - **Execution Time**: Keep full suite under 30 minutes
 - **Flaky Test Rate**: Maintain below 5%
@@ -779,31 +803,39 @@ Remember: The best automation framework is the one your team can maintain and sc
 ## 🔍 Frequently Asked Questions
 
 ### What is the best automation testing tool for beginners?
+
 **Postman** for API testing (no coding required) and **Playwright** for UI testing are the most beginner-friendly options.
 
 ### How long does it take to learn automation testing?
+
 - **Basic skills**: 2-4 weeks with daily practice
 - **Intermediate level**: 2-3 months
 - **Advanced expertise**: 6+ months
 
 ### Should I learn Selenium or Playwright?
+
 **Playwright** is recommended for new projects due to modern features, better reliability, and easier setup. Selenium is still valuable for legacy systems.
 
 ### What programming language is best for automation testing?
+
 **JavaScript/TypeScript** offers the best ecosystem with Playwright, Jest, and modern tooling. **Python** is also excellent with pytest and Selenium.
 
 ### How much does automation testing cost?
+
 Most tools are **free and open-source**. Cloud testing platforms like BrowserStack start at $29/month for teams.
 
 ### How do I convince my team to invest in automation?
+
 **Show the ROI**: Present the cost analysis above. **Start small**: Automate one critical user journey. **Demonstrate value**: Show how automation catches bugs faster than manual testing.
 
 ### What's the difference between unit, integration, and E2E tests?
+
 - **Unit tests**: Test individual functions (fast, many)
 - **Integration tests**: Test component interactions (medium speed, some)
 - **E2E tests**: Test complete user workflows (slow, few)
 
 ### How do I handle dynamic content in tests?
+
 **Use smart waits**: `waitForSelector()` instead of `sleep()`. **Implement retry logic**: For flaky elements. **Mock external dependencies**: For consistent test data.
 
 ---

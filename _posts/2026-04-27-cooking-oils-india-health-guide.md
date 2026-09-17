@@ -22,11 +22,13 @@ This comprehensive guide cuts through the confusion with research-backed data fr
 ## Quick Summary: Best Oils at a Glance
 
 **🏆 Top 3 All-Purpose Choices:**
+
 1. **Groundnut (Peanut) Oil** - Best balance of safety, nutrition, and versatility
 2. **Mustard Oil** - Highest smoke point, 71% lower heart disease risk
 3. **Sesame Oil** - Research-proven best for diabetes management
 
 **⚠️ Oils to Avoid for High-Heat Cooking:**
+
 - Sunflower oil (excessive omega-6 causes inflammation)
 - Extra virgin olive oil (smoke point too low for Indian cooking)
 - Coconut oil (82.5% saturated fat, low smoke point)
@@ -122,6 +124,7 @@ Before diving into the comparison, here's what each column means:
 **Equivalent to Smoking:** [Consuming 4 servings of fried food per week](https://pmc.ncbi.nlm.nih.gov/articles/PMC6412032/) (fried in PUFA-rich oils) provides aldehyde intake equivalent to smoking 25 cigarettes daily.
 
 **What These Aldehydes Do:**
+
 - Absorbed from gut into bloodstream ([study on aldehyde absorption](https://pmc.ncbi.nlm.nih.gov/articles/PMC6412032/))
 - Cause [DNA damage and mutations](https://pubmed.ncbi.nlm.nih.gov/12730415/)
 - Promote [cardiovascular disease](https://www.ahajournals.org/doi/full/10.1161/01.cir.100.11.1253)
@@ -141,6 +144,7 @@ Before diving into the comparison, here's what each column means:
 - Oil darkening and off-smell indicate dangerous degradation
 
 **Recommendation:**
+
 - Use fresh oil for each frying session
 - Maximum 2 reuses for PUFA-rich oils
 - [Never reuse oil that has darkened or smells off](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5855206/)
@@ -150,15 +154,18 @@ Before diving into the comparison, here's what each column means:
 ## Detailed Oil Profiles: What Science Says
 
 ### 1. Groundnut (Peanut) Oil ⭐⭐⭐⭐⭐
+
 {: #groundnut-oil}
 
 **Why It's #1 for Indian Cooking:**
+
 - High smoke point (230°C) handles all Indian cooking methods
 - Balanced MUFA content (46.2g) [lowers bad cholesterol](https://pubmed.ncbi.nlm.nih.gov/9006469/)
 - Rich in Vitamin E (15.7mg/100g) - [powerful antioxidant that protects cells from oxidative damage](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3997530/)
 - Neutral flavor doesn't overpower food
 
 **Health Benefits:**
+
 - Maintains stable blood glucose levels ([ICMR research](https://nin.res.in/))
 - [Reduces LDL while maintaining HDL cholesterol](https://pubmed.ncbi.nlm.nih.gov/9006469/)
 - [Anti-inflammatory properties from resveratrol](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4711439/)
@@ -171,6 +178,7 @@ Before diving into the comparison, here's what each column means:
 ---
 
 ### 2. Mustard Oil ⭐⭐⭐⭐⭐
+
 {: #mustard-oil}
 
 **The Heart Health Champion:**
@@ -178,12 +186,14 @@ Before diving into the comparison, here's what each column means:
 [Research from AIIMS](https://www.thepharmaletter.com/mustard-oil-protects-against-heart-attacks) shows people who use mustard oil have **71% lower risk of heart disease** compared to sunflower oil users.
 
 **Nutritional Highlights:**
+
 - Highest MUFA among Indian oils (59.2g/100g)
 - Rich in [omega-3 alpha-linolenic acid (ALA)](https://pubmed.ncbi.nlm.nih.gov/28900017/)
 - Contains [allyl isothiocyanate (antibacterial properties)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4441156/)
 - Highest smoke point (250°C)
 
 **Health Benefits:**
+
 - Dramatically reduces heart disease risk
 - [Boosts metabolism and digestion](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4441156/)
 - [Anti-inflammatory effects from omega-3 alpha-linolenic acid](https://pubmed.ncbi.nlm.nih.gov/28900017/)
@@ -198,6 +208,7 @@ Before diving into the comparison, here's what each column means:
 ---
 
 ### 3. Sesame Oil (Gingelly) ⭐⭐⭐⭐⭐
+
 {: #sesame-oil}
 
 **The Diabetes Management Star:**
@@ -205,12 +216,14 @@ Before diving into the comparison, here's what each column means:
 A [landmark study on edible oils in Type 2 diabetes](https://www.researchgate.net/publication/259639550_Effects_Of_Edible_Oils_In_Type_2_Diabetes_Mellitus) found **sesame oil to have the most benefit**, followed by mustard oil, in managing blood glucose and cholesterol levels.
 
 **Nutritional Highlights:**
+
 - High PUFA (41.7g/100g)
 - Contains [lignans (powerful antioxidants)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6627224/) - sesamol, sesamin, sesamolin
 - Rich in [sesamol (anti-inflammatory and neuroprotective)](https://pubmed.ncbi.nlm.nih.gov/23631782/)
 - Natural preservative properties
 
 **Health Benefits:**
+
 - [Improves insulin sensitivity and glycemic control](https://www.researchgate.net/publication/259639550_Effects_Of_Edible_Oils_In_Type_2_Diabetes_Mellitus)
 - Best for Type 2 diabetes management
 - [Supports skin and hair health through antioxidants](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6627224/)
@@ -223,6 +236,7 @@ A [landmark study on edible oils in Type 2 diabetes](https://www.researchgate.ne
 ---
 
 ### 4. Coconut Oil ⚠️
+
 {: #coconut-oil}
 
 **Use With Caution:**
@@ -230,16 +244,19 @@ A [landmark study on edible oils in Type 2 diabetes](https://www.researchgate.ne
 While popular in South India, coconut oil is **82.5% saturated fat** - [the highest among all cooking oils](https://fdc.nal.usda.gov/food-details/171412/nutrients).
 
 **Nutritional Highlights:**
+
 - Contains medium-chain triglycerides (MCTs) - [easier to metabolize than long-chain fats](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5044790/)
 - Lauric acid (~42% of total fat) - [antimicrobial properties](https://pubmed.ncbi.nlm.nih.gov/21495900/)
 - However, [high saturated fat intake raises LDL cholesterol](https://www.ahajournals.org/doi/10.1161/CIR.0000000000000510)
 
 **When to Use:**
+
 - South Indian curries (low-medium heat only)
 - Baking
 - Hair and skin care
 
 **When to Avoid:**
+
 - Deep frying (low smoke point: 177°C)
 - Daily cooking for heart patients
 - High cholesterol conditions
@@ -249,6 +266,7 @@ While popular in South India, coconut oil is **82.5% saturated fat** - [the high
 ---
 
 ### 5. Rice Bran Oil ⭐⭐⭐⭐
+
 {: #rice-bran-oil}
 
 **The Balanced Choice:**
@@ -256,6 +274,7 @@ While popular in South India, coconut oil is **82.5% saturated fat** - [the high
 Rice bran oil is extracted from the outer layer of rice grains and offers a well-balanced fatty acid profile with unique health benefits.
 
 **Nutritional Highlights:**
+
 - Balanced MUFA (39.3g) and PUFA (35.0g) content
 - High Vitamin E (32.3mg/100g) - excellent antioxidant
 - Contains [oryzanol (gamma-oryzanol) - unique antioxidant compound](https://pubmed.ncbi.nlm.nih.gov/24915331/)
@@ -263,6 +282,7 @@ Rice bran oil is extracted from the outer layer of rice grains and offers a well
 - Neutral flavor
 
 **Health Benefits:**
+
 - [Lowers total and LDL cholesterol levels](https://pubmed.ncbi.nlm.nih.gov/24915331/)
 - [Oryzanol reduces cholesterol absorption in intestines](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4131525/)
 - Supports heart health
@@ -270,6 +290,7 @@ Rice bran oil is extracted from the outer layer of rice grains and offers a well
 - Suitable for diabetes management
 
 **Best Uses:**
+
 - Light frying and sautéing
 - All-purpose cooking
 - Those seeking neutral-flavored oil
@@ -280,6 +301,7 @@ Rice bran oil is extracted from the outer layer of rice grains and offers a well
 ---
 
 ### 6. Olive Oil (Extra Virgin) ⭐⭐⭐⭐⭐
+
 {: #olive-oil}
 
 **The Salad Oil, Not Frying Oil:**
@@ -287,6 +309,7 @@ Rice bran oil is extracted from the outer layer of rice grains and offers a well
 Despite its health benefits, EVOO has a smoke point of only **160°C** - well below Indian frying temperatures (180-220°C).
 
 **Nutritional Highlights:**
+
 - Extremely high MUFA content (~73g/100g per USDA) - highest among all oils
 - Rich in [polyphenols and antioxidants](https://www.mdpi.com/2072-6643/15/20/4314)
 - Contains tyrosol ([improves insulin resistance](https://www.nirvahealth.com/blog/top-cooking-oils-for-diabetes-management))
@@ -294,6 +317,7 @@ Despite its health benefits, EVOO has a smoke point of only **160°C** - well be
 - Very low omega-6 content
 
 **Health Benefits:**
+
 - Excellent for heart health (when used raw)
 - Mediterranean diet staple with proven longevity benefits
 - [Reduces inflammation and oxidative stress](https://www.mdpi.com/2072-6643/15/20/4314)
@@ -301,6 +325,7 @@ Despite its health benefits, EVOO has a smoke point of only **160°C** - well be
 - May reduce risk of chronic diseases
 
 **Best Uses:**
+
 - Salads and dressings
 - Bread dipping
 - Low-heat sautéing (below 160°C)
@@ -314,6 +339,7 @@ Despite its health benefits, EVOO has a smoke point of only **160°C** - well be
 ---
 
 ### 7. Sunflower Oil ⚠️⚠️⚠️
+
 {: #sunflower-oil}
 
 **The Hidden Danger - Avoid for Daily Cooking:**
@@ -321,6 +347,7 @@ Despite its health benefits, EVOO has a smoke point of only **160°C** - well be
 Sunflower oil contains **65.7g omega-6 per 100g** - dangerously high levels that promote chronic inflammation when consumed daily.
 
 **Why It's Problematic:**
+
 - Excessive omega-6 without omega-3 balance ([study on omega-6/omega-3 ratio](https://www.healthline.com/nutrition/optimize-omega-6-omega-3-ratio))
 - Generates [highest aldehyde emissions when heated](https://www.researchgate.net/publication/309343752_Effects_of_cooking_method_cooking_oil_and_food_type_on_aldehyde_emissions_in_cooking_oil_fumes) - more toxic than any other cooking oil
 - Promotes chronic inflammation linked to heart disease, diabetes, and cancer
@@ -328,6 +355,7 @@ Sunflower oil contains **65.7g omega-6 per 100g** - dangerously high levels that
 - Creates toxic compounds even at moderate temperatures
 
 **Health Risks:**
+
 - [Chronic inflammation from omega-6 overload](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4808858/)
 - [Highest production of carcinogenic aldehydes when heated](https://pmc.ncbi.nlm.nih.gov/articles/PMC6412032/)
 - Increases risk of cardiovascular disease
@@ -343,6 +371,7 @@ Sunflower oil contains **65.7g omega-6 per 100g** - dangerously high levels that
 ---
 
 ### 8. Safflower Oil (Kardai) ⭐⭐⭐⭐
+
 {: #safflower-oil}
 
 **Two Types - Choose Wisely:**
@@ -350,12 +379,14 @@ Sunflower oil contains **65.7g omega-6 per 100g** - dangerously high levels that
 Safflower oil, known as **Kardai** in Marathi, comes in two distinct varieties with very different properties:
 
 **High-Oleic Safflower Oil (Recommended):**
+
 - 75% monounsaturated fat (similar to olive oil)
 - Smoke point: 266°C (highest among all cooking oils)
 - Excellent for high-heat cooking
 - Stable and doesn't oxidize easily
 
 **High-Linoleic Safflower Oil (Avoid for cooking):**
+
 - 75% polyunsaturated omega-6 fat
 - Lower smoke point: 225°C
 - Similar problems to sunflower oil
@@ -374,12 +405,14 @@ A [landmark 2011 clinical trial published in *Clinical Nutrition*](https://pmc.n
 - [Trunk fat mass decreased by 6.3%](https://pmc.ncbi.nlm.nih.gov/articles/PMC3115398/)
 
 **Why It Works:**
+
 - The clinical trial used the high-linoleic variant; [its linoleic acid improves insulin sensitivity](https://pmc.ncbi.nlm.nih.gov/articles/PMC3115398/)
 - [Contains vitamin E and tocopherols (antioxidants)](https://www.news-medical.net/health/Safflower-Oil-Benefits-Heart-Blood-Sugar-and-Skin-Health-Explained.aspx)
 - [May reduce visceral (belly) fat specifically](https://pmc.ncbi.nlm.nih.gov/articles/PMC3115398/)
 - For cooking, the high-oleic version is preferred due to heat stability and MUFA benefits similar to olive oil
 
 **Best Uses:**
+
 - High-oleic: Deep frying, high-heat cooking, all-purpose
 - High-linoleic: Salad dressings, cold applications only
 
@@ -390,6 +423,7 @@ A [landmark 2011 clinical trial published in *Clinical Nutrition*](https://pmc.n
 ---
 
 ### 9. Soybean Oil ⚠️⚠️
+
 {: #soybean-oil}
 
 **Not Recommended for Daily Use:**
@@ -397,6 +431,7 @@ A [landmark 2011 clinical trial published in *Clinical Nutrition*](https://pmc.n
 Soybean oil is heavily processed and has similar issues to sunflower oil with high omega-6 content.
 
 **Why to Avoid:**
+
 - High omega-6 content (57.7g/100g) - promotes inflammation
 - Heavily refined and processed with chemical solvents
 - Promotes inflammation when used regularly
@@ -410,6 +445,7 @@ Soybean oil is heavily processed and has similar issues to sunflower oil with hi
 ---
 
 ### 10. Ghee ⚠️
+
 {: #ghee}
 
 **Use as Flavoring, Not Primary Cooking Fat:**
@@ -417,6 +453,7 @@ Soybean oil is heavily processed and has similar issues to sunflower oil with hi
 Ghee holds deep cultural and Ayurvedic significance in India, but its nutritional profile demands moderation — it contains **62g saturated fat per 100g** and **33mg cholesterol per tablespoon**.
 
 **Nutritional Highlights:**
+
 - High smoke point (~250°C) - handles all Indian cooking methods
 - Contains [butyrate (beneficial for gut health and immunity)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4027827/)
 - [Rich in fat-soluble vitamins A, D, E (6.3mg/100g), K](https://pmc.ncbi.nlm.nih.gov/articles/PMC10789628/)
@@ -424,11 +461,13 @@ Ghee holds deep cultural and Ayurvedic significance in India, but its nutritiona
 - [Ayurveda's most referenced therapeutic ingredient (774 mentions)](https://pmc.ncbi.nlm.nih.gov/articles/PMC10789628/) for cognitive health, gut health, and immunity
 
 **Health Concerns:**
+
 - [Very high saturated fat (62g/100g) and contains cholesterol](https://fdc.nal.usda.gov/food-details/173410/nutrients)
 - [2022 clinical trial showed ghee increased LDL and non-HDL cholesterol more than olive oil](https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/effects-of-diets-rich-in-ghee-or-olive-oil-on-cardiometabolic-risk-factors-in-healthy-adults-a-twoperiod-crossover-randomised-trial/ED6B4C8EB745840BEDB44D8EA8F0F0D7)
 - [Historically linked to increased coronary artery disease risk in Asian Indians](https://pmc.ncbi.nlm.nih.gov/articles/PMC3215354/)
 
 **Best Uses:**
+
 - Flavoring (1 teaspoon on dal or rice)
 - Occasional tadka/tempering
 - [Ayurvedic carrier for medicinal herbs](https://pmc.ncbi.nlm.nih.gov/articles/PMC10789628/)
@@ -467,6 +506,7 @@ Ghee holds deep cultural and Ayurvedic significance in India, but its nutritiona
    - Known as Kardai in Maharashtra
 
 **Key Strategies for Weight Management:**
+
 - [Monitor total oil consumption (2-3 tablespoons/day maximum)](https://www.who.int/news-room/fact-sheets/detail/healthy-diet)
 - Use high smoke point oils to avoid toxic compound formation
 - Prefer cold pressed oils for better nutrient retention
@@ -475,6 +515,7 @@ Ghee holds deep cultural and Ayurvedic significance in India, but its nutritiona
 - Measure oil portions rather than pouring freely
 
 **Oils to Avoid for Weight Management:**
+
 - Sunflower oil (promotes inflammation)
 - Soybean oil (heavily processed)
 - Coconut oil (very high in saturated fat)
@@ -510,12 +551,14 @@ Ghee holds deep cultural and Ayurvedic significance in India, but its nutritiona
    - Use for low-heat cooking only
 
 **Why MUFA-Rich Oils Work:**
+
 - [Improve insulin sensitivity and glucose metabolism](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4171027/)
 - [Maintain stable blood glucose levels](https://pubmed.ncbi.nlm.nih.gov/21983060/)
 - [Reduce inflammation markers](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3257631/)
 - [Lower LDL cholesterol (common with diabetes)](https://pubmed.ncbi.nlm.nih.gov/9006469/)
 
 **Oils to Avoid:**
+
 - Sunflower oil (excessive omega-6)
 - Soybean oil (high omega-6)
 - Coconut oil (use minimally)
@@ -532,12 +575,14 @@ Ghee holds deep cultural and Ayurvedic significance in India, but its nutritiona
 4. **Sesame Oil** - Natural antioxidants, anti-inflammatory
 
 **Key Principles:**
+
 - [Choose oils high in MUFA and PUFA](https://www.ahajournals.org/doi/10.1161/CIR.0000000000000510)
 - [Limit saturated fats (<10% of total calories)](https://www.who.int/news-room/fact-sheets/detail/healthy-diet)
 - [Avoid trans fats completely](https://www.who.int/news-room/fact-sheets/detail/trans-fat)
 - [Maintain healthy omega-6 to omega-3 ratio (ideally 4:1 or lower)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4808858/)
 
 **Oils to Limit:**
+
 - Ghee (62g saturated fat/100g, contains cholesterol)
 - Coconut oil (82.5g saturated fat/100g)
 
@@ -563,6 +608,7 @@ Ghee holds deep cultural and Ayurvedic significance in India, but its nutritiona
 ## Regional Oil Traditions in India
 
 ### South India (TN, Karnataka, AP, Kerala)
+
 **Traditional Oils:** Groundnut (primary), Coconut (coastal), Sesame (tempering)
 
 **Why:** Locally grown oilseeds; tropical climate suits coconut; groundnut belt runs across South India
@@ -570,6 +616,7 @@ Ghee holds deep cultural and Ayurvedic significance in India, but its nutritiona
 ---
 
 ### North India (Punjab, UP, Rajasthan)
+
 **Traditional Oils:** Mustard (primary), Ghee (traditional)
 
 **Why:** Mustard grows abundantly in Indo-Gangetic plains; ghee has centuries of Vedic tradition
@@ -577,6 +624,7 @@ Ghee holds deep cultural and Ayurvedic significance in India, but its nutritiona
 ---
 
 ### West India (Maharashtra, Gujarat)
+
 **Traditional Oils:** Groundnut (primary), Safflower/Kardai
 
 **Why:** Gujarat is India's largest groundnut producer; safflower (locally called kardai) is traditional to Maharashtra, especially in rural areas
@@ -584,6 +632,7 @@ Ghee holds deep cultural and Ayurvedic significance in India, but its nutritiona
 ---
 
 ### East India (West Bengal, Odisha, Bihar)
+
 **Traditional Oils:** Mustard (dominant)
 
 **Why:** Deeply embedded in Bengali and Odia cuisine (fish fry, shorshe ilish)
@@ -595,6 +644,7 @@ Ghee holds deep cultural and Ayurvedic significance in India, but its nutritiona
 ### Step 1: Audit Your Current Oil Usage
 
 Ask yourself:
+
 - What oil am I using for deep frying?
 - How many times do I reuse oil?
 - Am I using the right oil for the cooking method?
@@ -602,6 +652,7 @@ Ask yourself:
 ### Step 2: Stock Your Kitchen
 
 **Essential Oils to Have:**
+
 1. **Groundnut oil** (1L) - For deep frying and all-purpose cooking
 2. **Sesame oil** (500ml) - For tempering and pickles
 3. **Mustard oil** (500ml) - For North Indian dishes
@@ -614,6 +665,7 @@ Ask yourself:
 ### Step 3: Follow the Rotation Strategy
 
 Don't rely on a single oil. Rotate between:
+
 - Groundnut oil for deep frying
 - Sesame oil for tempering
 - Mustard oil for North Indian dishes
@@ -635,6 +687,7 @@ This ensures diverse fatty acid profiles and nutrients.
 ### Step 5: Shopping List Template
 
 **For a Family of 4 (Monthly):**
+
 - Cold pressed groundnut oil: 1-2L (₹350-1000)
 - Sesame oil: 500ml (₹225-300)
 - Mustard oil: 500ml (₹150-225)
@@ -651,6 +704,7 @@ This ensures diverse fatty acid profiles and nutrients.
 **A:** Ghee and cooking oil serve different purposes. The answer is nuanced based on recent research combining Ayurvedic and modern perspectives.
 
 **Ghee's Benefits ([Ayurvedic & Modern Research](https://pmc.ncbi.nlm.nih.gov/articles/PMC10789628/)):**
+
 - High smoke point (~250°C) - excellent for high-heat cooking
 - Contains [butyrate (good for gut health and immunity)](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4027827/)
 - [Rich in fat-soluble vitamins A, D, E, K](https://pmc.ncbi.nlm.nih.gov/articles/PMC10789628/)
@@ -659,6 +713,7 @@ This ensures diverse fatty acid profiles and nutrients.
 - [May enhance bioavailability of herbs and nutrients](https://pmc.ncbi.nlm.nih.gov/articles/PMC10789628/)
 
 **Ghee's Concerns:**
+
 - [Very high in saturated fat (62g/100g) and contains cholesterol (33mg/tablespoon)](https://fdc.nal.usda.gov/food-details/173410/nutrients)
 - [Recent 2022 clinical trial showed ghee increased LDL and non-HDL cholesterol more than olive oil](https://www.cambridge.org/core/journals/british-journal-of-nutrition/article/effects-of-diets-rich-in-ghee-or-olive-oil-on-cardiometabolic-risk-factors-in-healthy-adults-a-twoperiod-crossover-randomised-trial/ED6B4C8EB745840BEDB44D8EA8F0F0D7)
 - [Historically implicated in increased coronary artery disease risk in Asian Indians](https://pmc.ncbi.nlm.nih.gov/articles/PMC3215354/)
@@ -672,6 +727,7 @@ Cold pressed groundnut oil has far more MUFA (46.2g vs 28.7g), zero cholesterol,
 ### Q: Can I reuse cooking oil?
 
 **A:** [Reusing oil degrades it further each time](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5855206/). Every reheating cycle:
+
 - [Lowers the smoke point](https://pubmed.ncbi.nlm.nih.gov/28229455/)
 - [Increases free radical formation](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4424767/)
 - [Produces more trans fats](https://www.who.int/news-room/fact-sheets/detail/trans-fat)
@@ -704,6 +760,7 @@ Additionally, [sunflower oil generates the highest levels of toxic aldehydes whe
 Choosing the right cooking oil is one of the simplest yet most impactful health decisions you can make. Here's what the science tells us:
 
 **✅ Do This:**
+
 - Use groundnut or mustard oil for high-heat Indian cooking
 - Choose sesame oil if managing diabetes
 - Rotate between 2-3 different oils
@@ -711,6 +768,7 @@ Choosing the right cooking oil is one of the simplest yet most impactful health 
 - Never reuse oil more than once
 
 **❌ Avoid This:**
+
 - Using sunflower or soybean oil for daily cooking
 - Heating olive oil for frying
 - Reusing oil multiple times

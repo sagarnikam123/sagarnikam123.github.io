@@ -66,17 +66,20 @@ Learn how to compile and run C/C++ programs on Linux with this comprehensive gui
 ## Why GCC Installation is Needed
 
 > 💡 **Important:** GCC is **not** pre-installed on many Linux systems including:
+>
 > - Ubuntu Server, Debian minimal installations
 > - Docker containers (`ubuntu:latest`, `alpine:latest`)
 > - Cloud instances (AWS, GCP, Azure)
 > - Minimal server distributions
 
 **GCC Availability by System:**
+
 - ✅ **Usually included:** Ubuntu Desktop, Fedora Desktop
 - ❌ **Usually missing:** Server installations, containers, cloud instances
 - 🔍 **Check first:** Run `which gcc` to verify
 
 **Choose Your Distribution:**
+
 - 🟠 **Ubuntu/Debian:** Use `apt-get` commands
 - 🔴 **CentOS/RHEL/Fedora:** Use `yum` or `dnf` commands
 - 🔵 **Arch Linux:** Use `pacman` command
@@ -103,6 +106,7 @@ flowchart TD
 ```
 
 ## Table of Contents
+
 - [Why GCC Installation is Needed](#why-gcc-installation-is-needed)
 - [Prerequisites](#prerequisites)
 - [Installing GCC Compiler](#installing-gcc-compiler)
@@ -118,6 +122,7 @@ flowchart TD
 - [References & Further Reading](#references--further-reading)
 
 ## Prerequisites
+
 - Ubuntu/Debian Linux system (or similar distribution)
 - Terminal access with sudo privileges
 - Basic understanding of C/C++ syntax
@@ -126,15 +131,18 @@ flowchart TD
 ## Installing GCC Compiler
 
 ### Installation Progress
+
 **Step 1 of 4:** Installing GCC Compiler ⏳
 
 ### Ubuntu/Debian
+
 ```shell
 sudo apt-get update
 sudo apt-get install build-essential manpages-dev
 ```
 
 ### CentOS/RHEL/Fedora
+
 ```shell
 # CentOS/RHEL
 sudo yum groupinstall "Development Tools"
@@ -146,6 +154,7 @@ sudo dnf install gcc gcc-c++ make
 ```
 
 ### Arch Linux
+
 ```shell
 sudo pacman -S base-devel
 ```
@@ -153,6 +162,7 @@ sudo pacman -S base-devel
 > ⚙️ **What's happening:** This downloads and installs the complete development toolchain (~200MB)
 
 **What this installs:**
+
 - `gcc` - GNU C compiler
 - `g++` - GNU C++ compiler
 - `make` - Build automation tool
@@ -215,6 +225,7 @@ int main(void)
 ### Compile the C Program
 
 **Compilation Checklist:**
+
 - [ ] Source code saved as `helloWorld.c`
 - [ ] Terminal open in correct directory
 - [ ] Ready to compile
@@ -309,12 +320,12 @@ Hello World!
 I'm a C++ program
 ```
 
-
 ## Advanced Compilation
 
 > 🔴 **Advanced Level:** These techniques are for experienced developers
 
 ### Sections by Difficulty
+
 - 🟢 **Beginner:** Basic compilation (above)
 - 🟡 **Intermediate:** Debug flags and optimization
 - 🔴 **Advanced:** Multiple files and libraries
@@ -334,6 +345,7 @@ g++ -g -Wall helloWorld.cpp -o helloWorld
 ```
 
 **Flags explained:**
+
 - `-g` - Include debugging information for GDB
 - `-Wall` - Enable all common warning messages
 
@@ -384,7 +396,7 @@ graph LR
 ### Compilation Flags Comparison
 
 | Flag | Purpose | File Size | Performance | Debug Info |
-|------|---------|-----------|-------------|------------|
+| ------ | --------- | ----------- | ------------- | ------------ |
 | `-O0` | No optimization | Larger | Slower | Yes |
 | `-O1` | Basic optimization | Medium | Faster | Partial |
 | `-O2` | Standard optimization | Smaller | Much Faster | Limited |
@@ -399,6 +411,7 @@ cc program.c -o executable -lm
 ```
 
 **Common libraries:**
+
 - `-lm` - Math library
 - `-lpthread` - POSIX threads
 - `-lssl` - OpenSSL library
@@ -441,27 +454,27 @@ all: $(TARGET_C) $(TARGET_CPP)
 
 # Compile C program
 $(TARGET_C): $(C_SOURCES)
-	$(CC) $(CFLAGS) -o $@ $<
+ $(CC) $(CFLAGS) -o $@ $<
 
 # Compile C++ program
 $(TARGET_CPP): $(CPP_SOURCES)
-	$(CXX) $(CXXFLAGS) -o $@ $<
+ $(CXX) $(CXXFLAGS) -o $@ $<
 
 # Clean compiled files
 clean:
-	rm -f $(TARGET_C) $(TARGET_CPP) *.o
+ rm -f $(TARGET_C) $(TARGET_CPP) *.o
 
 # Install dependencies (example)
 install:
-	sudo apt-get install build-essential
+ sudo apt-get install build-essential
 
 # Show help
 help:
-	@echo "Available targets:"
-	@echo "  all     - Build all programs"
-	@echo "  clean   - Remove compiled files"
-	@echo "  install - Install dependencies"
-	@echo "  help    - Show this help"
+ @echo "Available targets:"
+ @echo "  all     - Build all programs"
+ @echo "  clean   - Remove compiled files"
+ @echo "  install - Install dependencies"
+ @echo "  help    - Show this help"
 
 .PHONY: all clean install help
 ```
@@ -504,19 +517,19 @@ HEADERS = calculator.h utils.h
 
 # Default target
 $(TARGET): $(OBJECTS)
-	$(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
+ $(CXX) $(OBJECTS) -o $(TARGET) $(LDFLAGS)
 
 # Compile object files
 %.o: %.cpp $(HEADERS)
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+ $(CXX) $(CXXFLAGS) -c $< -o $@
 
 # Clean
 clean:
-	rm -f $(OBJECTS) $(TARGET)
+ rm -f $(OBJECTS) $(TARGET)
 
 # Install
 install: $(TARGET)
-	sudo cp $(TARGET) /usr/local/bin/
+ sudo cp $(TARGET) /usr/local/bin/
 
 .PHONY: clean install
 ```
@@ -569,6 +582,7 @@ flowchart TD
 ### Common Issues and Solutions
 
 #### ❌ Error: "Permission denied"
+
 **Solution:**
 ```shell
 # Make file executable
@@ -578,6 +592,7 @@ chmod +x helloWorld
 > 🔧 **Why this works:** Linux requires execute permission to run programs
 
 #### ❌ Error: "Missing libraries"
+
 **Solution:**
 ```shell
 # Install development libraries
@@ -586,6 +601,7 @@ sudo apt-get install libstdc++-dev
 ```
 
 #### ❌ Error: "Compilation errors"
+
 **Solution:**
 ```shell
 # Check for syntax errors with verbose output
@@ -594,6 +610,7 @@ gcc -v -Wall helloWorld.c -o helloWorld
 > 🔍 **Debug tip:** The `-v` flag shows detailed compilation steps
 
 #### ❌ Error: "gcc: command not found"
+
 **Solution:**
 ```shell
 # Verify GCC installation
@@ -608,7 +625,7 @@ sudo apt-get install --reinstall build-essential
 > 📝 **Cheat Sheet:** Bookmark this section for quick command lookup
 
 | Command | Purpose |
-|---------|---------|
+| --------- | --------- |
 | `gcc file.c -o output` | Compile C program |
 | `g++ file.cpp -o output` | Compile C++ program |
 | `./output` | Run executable |
@@ -632,12 +649,14 @@ sudo apt-get install --reinstall build-essential
 > 🎆 **Congratulations!** You've completed the C/C++ Linux compilation tutorial
 
 **Continue Your Learning Journey:**
+
 - 🐛 Learn debugging with GDB debugger
 - 🔨 Create Makefiles for automated builds
 - 🚀 Explore C++ advanced features and best practices
 - 💻 Set up integrated development environments (IDEs)
 
 **Recommended IDEs & Editors:**
+
 - **[VS Code](https://code.visualstudio.com/){:target="_blank" rel="noopener"}** - Lightweight with [C/C++ extensions](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools){:target="_blank" rel="noopener"}
 - **[CLion](https://www.jetbrains.com/clion/){:target="_blank" rel="noopener"}** - Full-featured JetBrains IDE
 - **[Code::Blocks](https://www.codeblocks.org/){:target="_blank" rel="noopener"}** - Free, cross-platform IDE
@@ -645,6 +664,7 @@ sudo apt-get install --reinstall build-essential
 - **[Eclipse CDT](https://www.eclipse.org/cdt/){:target="_blank" rel="noopener"}** - Eclipse-based C/C++ development
 
 **Time Investment Summary:**
+
 - ✅ Installation: 5 minutes
 - ✅ First C program: 10 minutes
 - ✅ First C++ program: 5 minutes
@@ -657,27 +677,32 @@ sudo apt-get install --reinstall build-essential
 ### 🎯 **What You've Accomplished:**
 
 ✅ **GCC Installation & Setup**
+
 - Installed GCC compiler on your Linux distribution
 - Verified installation with version checks
 - Understood system-specific installation methods
 
 ✅ **Basic Compilation Skills**
+
 - Compiled your first C program with `gcc`
 - Compiled your first C++ program with `g++`
 - Learned to run compiled executables
 
 ✅ **Advanced Compilation Techniques**
+
 - Used debugging flags (`-g`, `-Wall`)
 - Applied optimization levels (`-O0`, `-O2`, `-O3`)
 - Linked external libraries (`-lm`, `-lpthread`)
 - Compiled multi-file projects
 
 ✅ **Build Automation**
+
 - Created and used Makefiles
 - Automated compilation workflows
 - Managed project dependencies
 
 ✅ **Troubleshooting Expertise**
+
 - Resolved common compilation errors
 - Fixed permission and library issues
 - Debugged installation problems
@@ -707,24 +732,29 @@ Remember: **The best way to learn is by doing**. Start with simple programs, gra
 ## References & Further Reading
 
 **Official Documentation:**
+
 - [GCC Manual](https://gcc.gnu.org/onlinedocs/){:target="_blank" rel="noopener"} - Complete GCC documentation
 - [GNU Make Manual](https://www.gnu.org/software/make/manual/){:target="_blank" rel="noopener"} - Build automation guide
 - [GDB Manual](https://www.gnu.org/software/gdb/documentation/){:target="_blank" rel="noopener"} - Debugging with GDB
 
 **C/C++ Standards:**
+
 - [C Standard (ISO/IEC 9899)](https://www.iso.org/standard/74528.html){:target="_blank" rel="noopener"} - Current C standard (C18)
 - [C++20 Standard](https://isocpp.org/std/the-standard){:target="_blank" rel="noopener"} - Modern C++ features
 - [cppreference.com](https://en.cppreference.com/){:target="_blank" rel="noopener"} - Comprehensive C/C++ reference
 
 **Learning Resources:**
+
 - [Learn C](https://www.learn-c.org/){:target="_blank" rel="noopener"} - Interactive C tutorial
 - [C++ Tutorial](https://www.cplusplus.com/doc/tutorial/){:target="_blank" rel="noopener"} - Comprehensive C++ guide
 - [Linux Command Line](https://linuxcommand.org/){:target="_blank" rel="noopener"} - Terminal basics
 
 **Practice Projects:**
+
 - **[C-kide](https://github.com/sagarnikam123/C-kide){:target="_blank" rel="noopener"}** - Collection of 30+ fun C programs (developed during my college days) perfect for practicing compilation and learning C concepts
 
 **Community & Support:**
+
 - [Stack Overflow C](https://stackoverflow.com/questions/tagged/c){:target="_blank" rel="noopener"} - Q&A community
 - [Stack Overflow C++](https://stackoverflow.com/questions/tagged/c%2b%2b){:target="_blank" rel="noopener"} - C++ discussions
 - [r/C_Programming](https://reddit.com/r/C_Programming){:target="_blank" rel="noopener"} - Reddit community

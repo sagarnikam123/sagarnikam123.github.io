@@ -95,6 +95,7 @@ graph TB
 ```
 
 ## Table of Contents
+
 - [Why Generate Fake Logs?](#why-generate-fake-logs)
 - [Use Cases for Log Generation](#use-cases-for-log-generation)
 - [Best Tools for Log Generation](#best-tools-for-log-generation)
@@ -175,6 +176,7 @@ flowchart TD
 ### Testing Log Aggregation Systems
 
 **Log aggregation testing** is crucial for validating your observability stack:
+
 - **Cloud-Native Platforms**: [Grafana Loki](https://grafana.com/oss/loki/), [Elastic Stack (ELK)](https://www.elastic.co/elastic-stack), [SigNoz](https://signoz.io/), [OpenSearch](https://opensearch.org/), [Quickwit](https://quickwit.io/)
 - **Enterprise Solutions**: [Splunk](https://www.splunk.com/), [Datadog](https://www.datadoghq.com/), [New Relic](https://newrelic.com/), [Sumo Logic](https://www.sumologic.com/), [Logz.io](https://logz.io/), [Honeycomb](https://www.honeycomb.io/)
 - **Cloud Services**: [AWS CloudWatch](https://aws.amazon.com/cloudwatch/), [Azure Monitor](https://azure.microsoft.com/en-us/products/monitor), [Google Cloud Logging](https://cloud.google.com/logging), [Papertrail](https://www.papertrail.com/)
@@ -185,6 +187,7 @@ flowchart TD
 ### Validating Log Shipping Agents
 
 **Log shipping validation** ensures your data pipeline works correctly:
+
 - **Log Collectors**: [Fluent-bit](https://fluentbit.io/), [Grafana Alloy](https://grafana.com/oss/alloy/), [Vector.dev](https://vector.dev/), [Promtail](https://grafana.com/docs/loki/latest/clients/promtail/), [Fluentd](https://www.fluentd.org/), [Filebeat](https://www.elastic.co/beats/filebeat), [Logstash](https://www.elastic.co/logstash), [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/), [Telegraf](https://www.influxdata.com/time-series-platform/telegraf/)
 - **Configuration Testing**: Verify parsing rules, filtering, and routing logic
 - **Reliability Testing**: Test agent behavior during network failures or high load
@@ -192,12 +195,12 @@ flowchart TD
 ### Development & Operations Use Cases
 
 **DevOps log testing** scenarios include:
+
 - **Parser Development**: Test regex patterns and log parsing rules
 - **Alert System Testing**: Generate specific patterns to trigger monitoring alerts
 - **Dashboard Development**: Create realistic data for visualization testing
 - **Load Testing**: Simulate disk I/O and system resource usage
 - **Training & Demos**: Provide realistic data for learning environments
-
 
 ## Best Tools for Log Generation
 
@@ -208,6 +211,7 @@ Choosing the right **log generation tool** depends on your specific testing requ
 **fuzzy-train** is a versatile **fake log generator** designed for testing and development environments. This **Docker-ready log generation tool** runs anywhere and supports multiple output formats.
 
 **Features:**
+
 - **Multiple Formats**: JSON, logfmt, Apache (common/combined/error), BSD syslog (RFC3164), Syslog (RFC5424)
 - **Realistic Data**: Optional [faker](https://pypi.org/project/Faker/)-powered enrichment (realistic IPs, HTTP methods/paths, user-agents, hostnames, usernames, companies) auto-enabled when installed, with a zero-dependency fallback so the instant fast path always works
 - **Smart Tracking**: trace_id with PID/Container ID or incremental integers for multi-instance tracking
@@ -457,6 +461,7 @@ Follow this **log generation implementation guide** to set up **fake log generat
 ### Step 1: Choose Your Log Format
 
 Selecting the right **log format for testing** is crucial for realistic **log aggregation testing**:
+
 - **Apache Common Log Format**: Web server testing
 - **JSON**: Modern microservices
 - **Syslog**: System-level testing
@@ -467,6 +472,7 @@ Selecting the right **log format for testing** is crucial for realistic **log ag
 Implement **Docker-based log generation** using **fuzzy-train** for scalable testing:
 
 #### Using Docker (Recommended)
+
 ```bash
 # Generate JSON logs to file
 docker run -d --name fuzzy-train-generator \
@@ -488,6 +494,7 @@ docker run -d --name apache-log-generator \
 ```
 
 #### Using Python Script
+
 ```bash
 # Clone and setup fuzzy-train
 git clone https://github.com/sagarnikam123/fuzzy-train
@@ -502,6 +509,7 @@ python3 fuzzy-train.py \
 ```
 
 ### Step 3: Verify Log Generation
+
 ```bash
 # Check generated logs
 tail -f /tmp/logs/fuzzy-train.log
@@ -515,6 +523,7 @@ watch "wc -l /tmp/logs/fuzzy-train.log" # brew install watch
 Configure **log shipping agents** to collect and forward your **generated fake logs** to aggregation platforms:
 
 ### Fluent-bit Configuration
+
 ```bash
 fluent-bit --config=fluent-bit-local-fs-json-loki.yaml
 ```
@@ -554,6 +563,7 @@ pipeline:
 ```
 
 ### Vector.dev Configuration
+
 ```bash
 vector validate config/vector-local-fs-json-loki.yaml
 vector --config=config/vector-local-fs-json-loki.yaml
@@ -602,6 +612,7 @@ api:    # optional
 ```
 
 ### Grafana Alloy Configuration
+
 ```bash
 alloy run config/alloy-local-fs-json-loki.alloy
 # Visit UI - http://127.0.0.1:12345/
@@ -641,6 +652,7 @@ Implement sophisticated **log generation patterns** for comprehensive testing sc
 Understanding **log generation volume calculations** helps optimize your **testing infrastructure**:
 
 **Log Encoding Information:**
+
 - **Character Encoding**: UTF-8
 - **Basic ASCII characters**: 1 byte each (letters, numbers, punctuation)
 - **Newlines**: 1 byte each (`\n`)
@@ -751,7 +763,7 @@ done
 ## 📊 Volume Calculation Breakdown
 
 | Container | Lines/sec | Bytes/line | Volume/sec | MB/sec |
-|-----------|-----------|------------|------------|---------|
+| ----------- | ----------- | ------------ | ------------ | --------- |
 | volume-gen-1 | 50 | ~150 | **7.1 KB** | 0.007 |
 | volume-gen-2 | 50 | ~150 | **7.1 KB** | 0.007 |
 | volume-gen-3 | 50 | ~150 | **7.1 KB** | 0.007 |
@@ -926,7 +938,7 @@ docker-compose down
 ### Docker Compose Multi-Service Volume Breakdown
 
 | Service | Format | Lines/sec | Bytes/line | Volume/sec | MB/hour |
-|---------|--------|-----------|------------|------------|----------|
+| --------- | -------- | ----------- | ------------ | ------------ | ---------- |
 | **auth-service** | JSON | 2,000 | ~200 | **381 KB** | 1,372 MB |
 | **payment-service** | logfmt | 1,500 | ~175 | **251 KB** | 904 MB |
 | **user-service** | Apache | 1,000 | ~300 | **286 KB** | 1,030 MB |
@@ -935,7 +947,7 @@ docker-compose down
 ### Volume Scaling Examples
 
 | Scenario | Total Lines/sec | Volume/sec | Volume/hour | Volume/day |
-|----------|----------------|------------|-------------|------------|
+| ---------- | ---------------- | ------------ | ------------- | ------------ |
 | **Light Testing** | 100 | 20 KB | 72 MB | 1.7 GB |
 | **Medium Load** | 1,000 | 200 KB | 720 MB | 17.3 GB |
 | **Heavy Load** | 4,500 | 918 KB | 3.3 GB | 79.4 GB |
@@ -944,6 +956,7 @@ docker-compose down
 ### Storage Planning Guide
 
 💾 **Disk Space Requirements:**
+
 - **1 hour testing:** ~3.3 GB (heavy load)
 - **8 hour workday:** ~26.4 GB (heavy load)
 - **24 hour continuous:** ~79.4 GB (heavy load)
@@ -1191,6 +1204,7 @@ tail -f /var/log/fluent-bit.log
 ### Log Generation Performance Optimization
 
 **Optimize for High Volume:**
+
 - Use SSD storage for log files
 - Increase file system buffer sizes
 - Monitor disk I/O and memory usage
@@ -1302,8 +1316,6 @@ Follow these **log generation best practices** for effective **log aggregation t
 8. **Security Considerations**: Ensure **fake logs** don't contain sensitive information
 9. **Resource Planning**: Calculate **log generation volume** requirements in advance
 10. **Integration Testing**: Test **log shipping agents** with various **log formats**
-
-
 
 ## Conclusion
 

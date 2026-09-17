@@ -79,6 +79,7 @@ graph TB
 ## When to Use Ansible for Grafana
 
 **Ideal Use Cases:**
+
 - **Multi-environment deployments** - Consistent setup across dev/staging/prod
 - **Infrastructure as Code** - Version-controlled Grafana configurations
 - **Bulk operations** - Managing multiple datasources, dashboards, users
@@ -89,6 +90,7 @@ graph TB
 - **Compliance** - Auditable configuration management
 
 **Not Recommended For:**
+
 - **One-time manual tasks** - Use Grafana UI instead
 - **Frequent dashboard edits** - Use Grafana editor for iterative development
 - **Real-time troubleshooting** - Direct API calls are faster
@@ -161,6 +163,7 @@ ansible-playbook -i inventory.ini operations/folder/folder_create.yml --limit gr
 ## Configuration & Execution
 
 ### Method 1: Direct Variables (Testing)
+
 **Config**: Pass variables directly using `-e`
 **Use Case**: Development and testing
 
@@ -171,6 +174,7 @@ ansible-playbook grafana_info.yml -e "grafana_url=http://localhost:3000" -e "gra
 ```
 
 ### Method 2: Development Setup (Recommended)
+
 **Config**: Variables stored in host_vars/group_vars files
 **Use Case**: Development and testing (this guide focuses on this approach)
 
@@ -201,6 +205,7 @@ grafana_local
 ```
 
 **Important**: `ansible_connection=local` prevents SSH attempts and runs tasks locally. This is required for Grafana API management since:
+
 - Grafana instances are API endpoints, not SSH servers
 - Amazon Managed Grafana/Grafana Cloud don't allow SSH access
 - All API calls are made from your local machine to Grafana URLs
@@ -211,6 +216,7 @@ grafana_local
 > **💡 Tip**: If you completed the [Quick Start](#quick-start-5-minutes), you're already using Method 2. The examples below show additional configuration options and multi-environment setups.
 
 ### Method 3: Production Setup
+
 **Config**: Same structure as Method 2 but with encrypted credentials
 **Use Case**: Production environments
 
@@ -290,6 +296,7 @@ ansible-playbook -i inventory.ini grafana_info.yml --ask-vault-pass -e target_ho
 **Important Note**: The `grafana.grafana` collection modules are primarily designed for **managing** (Create/Update/Delete) resources, not for **retrieving** information. However, this guide provides complete **CRUD operations** by adding **READ** functionality using Ansible's `uri` module to interact directly with Grafana's REST API. This combination gives you full control over all Grafana resources with proper Create, Read, Update, and Delete capabilities.
 
 **Status Legend**:
+
 - ✅ **Working**: Module functions correctly for all operations
 - 🔶 **Limited**: Module works but has restrictions (tier limits, permissions, etc.)
 - ❌ **Broken**: Module has issues preventing normal operation
@@ -650,6 +657,7 @@ ansible-playbook -i inventory.ini operations/datasource/datasource_crud_workflow
 #### Finding jsonData Parameters
 
 **Method 1: Grafana UI (Recommended)**
+
 1. Go to **Configuration → Data Sources**
 2. Add datasource manually via UI
 3. Configure all settings → **Save & Test**
@@ -665,6 +673,7 @@ curl -X GET "$GRAFANA_URL/api/datasources/name/Prometheus" \
 ```
 
 **Common Parameters:**
+
 - **Prometheus**: `{"httpMethod": "POST", "manageAlerts": true, "prometheusType": "Prometheus", "cacheLevel": "High"}`
 - **Loki**: `{"maxLines": 1000, "derivedFields": []}`
 - **InfluxDB**: `{"httpMode": "GET", "keepCookies": []}`
@@ -1166,8 +1175,6 @@ ansible-playbook -i inventory.ini operations/user/user_delete.yml -e target_host
 ansible-playbook -i inventory.ini operations/user/user_crud_workflow.yml -e target_hosts=grafana_local
 ```
 
-
-
 ## Cloud Services Management
 
 ### Cloud API Key Management
@@ -1279,7 +1286,7 @@ ansible-playbook -i inventory.ini operations/cloud_api_key/cloud_api_key_delete.
 
 **⚠️ Important Finding**: Cloud API key management endpoints are **not available** in the current Grafana Cloud API. The `/orgs/{org}/api-keys` endpoint returns 404 even though it's listed in the organization's links. This appears to be a limitation or unimplemented feature in Grafana Cloud.
 
-**Alternative**: Manage Cloud API keys through the Grafana Cloud UI at https://grafana.com/
+**Alternative**: Manage Cloud API keys through the Grafana Cloud UI at <https://grafana.com/>
 
 ### Cloud Plugin Management
 
@@ -1371,6 +1378,7 @@ ansible-playbook -i inventory.ini operations/cloud_plugin/cloud_plugin_delete.ym
 ```
 
 **⚠️ Important Findings**:
+
 - **Module Bug**: The `grafana.grafana.cloud_plugin` module has a KeyError bug in `present_cloud_plugin()` function ([Issue #453](https://github.com/grafana/grafana-ansible-collection/issues/453))
 - **Affected Operations**: Create and update operations fail with `KeyError: 'grafana_api_key'`
 - **Working Operations**: Delete operations work but may have permission issues
@@ -1474,16 +1482,19 @@ ansible-playbook -i inventory.ini operations/cloud_stack/cloud_stack_delete.yml 
 ```
 
 **⚠️ Important Findings**:
+
 - **Free Tier Limitations**: Grafana Cloud Free tier allows only 1 stack, preventing create/update operations
 - **Read Operations**: Work perfectly and return comprehensive stack information including all service URLs
 - **Parameter Issues**: Delete operation has validation issues with instance ID/slug parameters
 - **Functional Module**: The `grafana.grafana.cloud_stack` module works correctly within tier limitations
 
 **⚠️ Testing Limitations**:
+
 - **DO NOT TEST** `cloud_stack_create.yml` on Free tier - will fail due to stack limit
 - **DO NOT TEST** `cloud_stack_delete.yml` on production - will delete your entire Grafana Cloud stack and all data
 - **SAFE TO TEST**: Only `cloud_stack_read.yml` for viewing existing stack information
 - **Paid Tiers**: Create/update operations should work on paid tiers with multiple stack allowances
+
 ## Best Practices
 
 1. **Use Ansible Vault** for all secrets
@@ -1497,15 +1508,18 @@ ansible-playbook -i inventory.ini operations/cloud_stack/cloud_stack_delete.yml 
 ## Frequently Asked Questions (FAQ)
 
 ### Q: How do I fix "Authentication Failed" errors?
+
 **A:** Check your API token validity and verify the Grafana URL is accessible. Ensure your API key has the required permissions for the operations you're trying to perform.
 
 ### Q: What should I do if I get "Module Not Found" errors?
+
 **A:** Install the Grafana collection using:
 ```bash
 ansible-galaxy collection install grafana.grafana
 ```
 
 ### Q: How do I view encrypted vault files?
+
 **A:** Use these commands:
 ```bash
 # View encrypted vault file (requires password)
@@ -1516,6 +1530,7 @@ ansible-vault view vault.yml --vault-password-file .vault_pass
 ```
 
 ### Q: I get "vault.yml exists, please use 'edit' instead" - how to fix?
+
 **A:** This means the file already exists. Use:
 ```bash
 # Edit existing vault
@@ -1526,6 +1541,7 @@ ansible-vault encrypt vault.yml
 ```
 
 ### Q: What does "input is not vault encrypted data" error mean?
+
 **A:** The file is not encrypted. Check if it's plain text and encrypt it:
 ```bash
 # Check if file is plain text
@@ -1540,6 +1556,7 @@ ansible-vault create vault.yml
 ```
 
 ### Q: How do I securely delete vault files?
+
 **A:** Use secure deletion methods:
 ```bash
 # Remove encrypted vault file
@@ -1554,12 +1571,15 @@ ansible-vault create vault.yml
 ```
 
 ### Q: Can I use this with managed Grafana services?
+
 **A:** Yes! This guide works with self-hosted Grafana, Grafana Cloud, Azure Managed Grafana, and Amazon Managed Grafana. Simply update the `grafana_url` to point to your managed instance endpoint.
 
 ### Q: Do I need admin credentials for all operations?
+
 **A:** No. Most operations (datasources, dashboards, folders) only require API keys. Admin username/password is only needed for user management operations.
 
 ### Q: Which Grafana modules are fully functional?
+
 **A:** The core modules (datasource, folder, dashboard, user, alert_contact_point, alert_notification_policy) are fully working. Cloud modules have limitations due to tier restrictions or API availability.
 
 ## Troubleshooting

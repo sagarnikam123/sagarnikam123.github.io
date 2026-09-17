@@ -55,6 +55,7 @@ cat /etc/os-release    # Alternative method
 Ubuntu follows a predictable release schedule with two types of releases:
 
 **LTS (Long Term Support) Releases:**
+
 - Released every **2 years** in April (even years: 20.04, 22.04, 24.04)
 - **5 years** of free security and maintenance updates
 - **10 years** of Extended Security Maintenance (ESM) for Ubuntu Pro subscribers
@@ -62,6 +63,7 @@ Ubuntu follows a predictable release schedule with two types of releases:
 - More stable with fewer feature changes
 
 **Interim Releases:**
+
 - Released every **6 months** (April and October)
 - **9 months** of support until the next interim release
 - Latest features and software versions
@@ -73,11 +75,13 @@ Ubuntu follows a predictable release schedule with two types of releases:
 ```
 
 **Upgrade Paths:**
+
 - **LTS to LTS**: Direct upgrade path (20.04 → 22.04 → 24.04)
 - **Interim releases**: Must upgrade through each version sequentially
 - **Mixed**: Can upgrade from LTS to interim, but not recommended for servers
 
 **Learn More:**
+
 - **[Ubuntu Release Cycle](https://ubuntu.com/about/release-cycle){:target="_blank"}** - Official release information
 - **[Ubuntu Pro](https://ubuntu.com/pro){:target="_blank"}** - Extended security maintenance and enterprise support
 
@@ -181,6 +185,7 @@ sudo apt install htop tree curl wget
 **Zsh Shell with Oh My Zsh:**
 
 *Prerequisites: Install Zsh first (required by Oh My Zsh)*
+
 1. Visit [Installing ZSH](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH){:target="_blank"} for detailed instructions
 
 ```bash
@@ -210,21 +215,25 @@ chsh -s $(which zsh)
 ## 3. Download Essential Applications
 
 ### Web Browsers & Communication
+
 - **[Google Chrome](https://www.google.com/chrome/){:target="_blank"}** - Popular web browser
 - **[Skype](https://www.skype.com/en/get-skype/download-skype-for-desktop/){:target="_blank"}** - Video calling
 - **[Zoom](https://zoom.us/download){:target="_blank"}** - Video conferencing
 
 ### Development Tools
+
 - **[Visual Studio Code](https://code.visualstudio.com/download){:target="_blank"}** - Code editor
 - **[JetBrains Toolbox](https://www.jetbrains.com/toolbox-app/){:target="_blank"}** - PyCharm & IntelliJ IDEA
 - **[Eclipse IDE](https://www.eclipse.org/downloads/packages/){:target="_blank"}** - Java development
 - **[Oracle Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html){:target="_blank"}** - Java Development Kit
 
 ### Cloud Storage & Productivity
+
 - **[Dropbox](https://www.dropbox.com/install-linux){:target="_blank"}** - Cloud storage
 - **[RStudio](https://www.rstudio.com/products/rstudio/download/){:target="_blank"}** - R development environment
 
 ### Database Tools
+
 - **[MySQL Workbench](https://dev.mysql.com/downloads/workbench/){:target="_blank"}** - MySQL database management
 - **[DBeaver](https://dbeaver.io/download/){:target="_blank"}** - Universal database client
 - **[TablePlus](https://tableplus.com/){:target="_blank"}** - Modern database client (Linux version)
@@ -241,7 +250,7 @@ Choose from multiple OpenJDK distributions for Ubuntu development:
 #### OpenJDK Options (LTS Recommended)
 
 | Distribution | Provider | Ubuntu Installation |
-|--------------|----------|--------------------|
+| -------------- | ---------- | -------------------- |
 | [Eclipse Adoptium](https://adoptium.net/){:target="_blank"} | Eclipse Foundation | `sudo apt install temurin-11-jdk` |
 | [Amazon Corretto](https://aws.amazon.com/corretto/){:target="_blank"} | Amazon Web Services | Download .deb package |
 | [Azul Zulu](https://www.azul.com/downloads/?package=jdk#zulu){:target="_blank"} | Azul Systems | Download .deb package |
@@ -250,6 +259,7 @@ Choose from multiple OpenJDK distributions for Ubuntu development:
 | [Oracle Java JDK](https://www.oracle.com/java/technologies/javase-downloads.html){:target="_blank"} | Oracle Corporation | Manual installation |
 
 #### Method 1: Ubuntu Repository (Recommended)
+
 ```bash
 # Install OpenJDK from Ubuntu repositories
 sudo apt update
@@ -263,6 +273,7 @@ javac -version
 ```
 
 #### Method 2: Eclipse Adoptium (Temurin)
+
 ```bash
 # Add Adoptium repository
 wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | sudo apt-key add -
@@ -278,6 +289,7 @@ sudo apt install temurin-17-jdk  # Java 17 LTS
 #### Method 3: Manual Installation (Oracle JDK)
 
 **Download Oracle JDK:**
+
 1. Visit [Oracle Java Downloads](https://www.oracle.com/java/technologies/javase-downloads.html){:target="_blank"}
 2. Accept the license agreement
 3. Download the Linux x64 tar.gz file (e.g., `jdk-17_linux-x64_bin.tar.gz`)
@@ -304,6 +316,7 @@ java -version
 **Note:** Oracle JDK requires accepting the license agreement and may require an Oracle account for download. For most development work, OpenJDK alternatives are recommended.
 
 #### Configure Java Environment
+
 ```bash
 # Find Java installation path
 sudo update-alternatives --config java
@@ -325,6 +338,7 @@ javac -version
 ```
 
 #### Manage Multiple Java Versions
+
 ```bash
 # List installed Java versions
 sudo update-alternatives --config java
@@ -338,6 +352,7 @@ sudo update-alternatives --set javac /usr/lib/jvm/java-11-openjdk-amd64/bin/java
 ### Go Programming Language
 
 **Download Go:**
+
 1. Visit [Go Downloads](https://go.dev/dl/){:target="_blank"}
 2. Download the Linux version (e.g., `go1.21.5.linux-amd64.tar.gz`)
 
@@ -386,6 +401,7 @@ gradle -v
 ```
 
 *Method 2: Manual Installation*
+
 1. Visit [Gradle Releases](https://gradle.org/releases/){:target="_blank"}
 2. Download the Binary-only distribution (e.g., `gradle-8.5-bin.zip`)
 
@@ -426,6 +442,7 @@ mvn -version
 ```
 
 *Method 2: Manual Installation*
+
 1. Visit [Maven Downloads](https://maven.apache.org/download.cgi){:target="_blank"}
 2. Download the Binary tar.gz archive (e.g., `apache-maven-3.9.6-bin.tar.gz`)
 
@@ -468,6 +485,7 @@ npm --version
 ```
 
 **Method 2: NodeSource Repository (Latest LTS)**
+
 1. Visit [Node.js Downloads](https://nodejs.org/en/download/){:target="_blank"} for latest versions
 
 ```bash
@@ -542,6 +560,7 @@ git config --global init.defaultBranch main
 ```
 
 **GitHub Authentication:**
+
 1. [Create Personal Access Token](https://docs.github.com/en/github/authenticating-to-github/keeping-your-account-and-data-secure/creating-a-personal-access-token){:target="_blank"}
 2. Use token instead of password for Git operations
 3. Configure [Git Credential Manager](https://github.com/microsoft/Git-Credential-Manager-Core){:target="_blank"} for secure token storage
@@ -585,6 +604,7 @@ R -e "install.packages(c('devtools', 'rmarkdown', 'tidyverse'), repos='https://c
 ```
 
 **Method 2: Latest R from CRAN Repository**
+
 1. Visit [R for Ubuntu](https://cran.r-project.org/bin/linux/ubuntu/){:target="_blank"} for latest instructions
 
 ```bash
@@ -600,6 +620,7 @@ sudo apt install r-base r-base-dev
 ```
 
 **Install RStudio (Optional)**
+
 1. Visit [RStudio Downloads](https://posit.co/download/rstudio-desktop/){:target="_blank"}
 2. Download the Ubuntu .deb package
 
@@ -614,6 +635,7 @@ sudo apt-get install -f
 ### Markdown Editor (Optional)
 
 **Typora Markdown Editor:**
+
 1. Visit [Typora Downloads](https://typora.io/#linux){:target="_blank"}
 2. Choose your preferred installation method
 
@@ -650,6 +672,7 @@ flatpak run io.typora.Typora
 ```
 
 **Alternative Markdown Editors:**
+
 - **[Ghostwriter](https://ghostwriter.kde.org/){:target="_blank"}** - Distraction-free markdown editor
 - **[Zettlr](https://www.zettlr.com/){:target="_blank"}** - Academic writing and note-taking
 - **[Obsidian](https://obsidian.md/){:target="_blank"}** - Knowledge management and note-taking
@@ -680,6 +703,7 @@ ps --no-headers -o comm 1
 ### Docker Installation
 
 **Method 1: Official Docker Repository (Recommended)**
+
 1. Visit [Docker for Ubuntu](https://docs.docker.com/engine/install/ubuntu/){:target="_blank"}
 
 ```bash
@@ -829,11 +853,13 @@ nmcli device status
 ### Package Management Alternatives (2024)
 
 **Universal Package Formats:**
+
 - **[Snap Store](https://snapcraft.io/store){:target="_blank"}**: Ubuntu's universal packages (improved performance since 2021)
 - **[Flatpak](https://flatpak.org/){:target="_blank"}**: Sandboxed applications with Flathub store
 - **[AppImage](https://appimage.org/){:target="_blank"}**: Portable, no-installation-required applications
 
 **Traditional Package Managers:**
+
 - **APT**: Ubuntu's native package manager (fastest, most compatible)
 - **[Homebrew](https://brew.sh/){:target="_blank"}**: Popular macOS package manager, now supports Linux
 
@@ -853,6 +879,7 @@ brew install --cask visual-studio-code
 ```
 
 ### Development Environment Managers
+
 - **[SDKMAN](https://sdkman.io/){:target="_blank"}**: SDK version management for Java, Scala, Kotlin, Maven, Gradle
 - **[asdf](https://asdf-vm.com/){:target="_blank"}**: Multi-language version manager
 - **[Docker](https://docs.docker.com/engine/install/ubuntu/){:target="_blank"}**: Containerized development environments
@@ -886,6 +913,7 @@ sdk default java 17.0.7-tem
 ### Performance Optimization
 
 **System Performance Metrics:**
+
 - Boot time: ~45s → ~35s (after cleanup)
 - Memory usage: ~1.2GB → ~800MB (post-optimization)
 - Available storage: +2GB (after removing unnecessary packages)
@@ -926,6 +954,7 @@ sudo dpkg-reconfigure -plow unattended-upgrades
 ```
 
 **Security Checklist:**
+
 - ✅ Use strong SSH keys (RSA 4096-bit minimum)
 - ✅ Enable UFW firewall with restrictive rules
 - ✅ Regular security updates via `apt update && apt upgrade`
@@ -934,6 +963,7 @@ sudo dpkg-reconfigure -plow unattended-upgrades
 - ✅ Use encrypted home directory for sensitive data
 
 **Security Resources:**
+
 - **[Ubuntu Security Guide](https://ubuntu.com/security){:target="_blank"}** - Official security documentation
 - **[SSH Key Guide](https://help.ubuntu.com/community/SSH/OpenSSH/Keys){:target="_blank"}** - SSH security best practices
 - **[UFW Documentation](https://help.ubuntu.com/community/UFW){:target="_blank"}** - Firewall configuration
@@ -1051,12 +1081,14 @@ sudo systemctl status <service>  # Service status
 ### Best Practices for Ubuntu Development
 
 **Development Workflow:**
+
 1. **Use version managers** (SDKMAN for Java, NVM for Node.js) for easy version switching
 2. **Separate development environments** using Docker containers or virtual environments
 3. **Regular backups** of configuration files (`~/.bashrc`, `~/.ssh/`, project files)
 4. **Document your setup** for team consistency and future reference
 
 **System Maintenance:**
+
 - **Weekly**: Security updates (`sudo apt update && sudo apt upgrade`)
 - **Monthly**: Full system cleanup (`sudo apt autoremove && sudo apt autoclean`)
 - **Quarterly**: Review installed packages and remove unused software
@@ -1074,25 +1106,26 @@ After completing this setup:
 4. **Install Docker**: For containerized development
 5. **Set Up Backup**: Configure automatic backups
 
-
-
 ---
 
 ## Official Ubuntu Documentation
 
 ### Essential References
+
 - **[Ubuntu Desktop Guide](https://help.ubuntu.com/stable/ubuntu-help/){:target="_blank"}** - Official desktop documentation
 - **[Ubuntu Installation Guide](https://ubuntu.com/tutorials/install-ubuntu-desktop){:target="_blank"}** - Step-by-step installation
 - **[Ubuntu Package Management](https://help.ubuntu.com/community/AptGet/Howto){:target="_blank"}** - APT package manager guide
 - **[Ubuntu Community Help](https://help.ubuntu.com/community/){:target="_blank"}** - Community-driven documentation
 
 ### Development Resources
+
 - **[Ubuntu for Developers](https://ubuntu.com/desktop/developers){:target="_blank"}** - Development tools and workflows
 - **[Snap Store](https://snapcraft.io/store){:target="_blank"}** - Universal Linux packages
 - **[Launchpad](https://launchpad.net/){:target="_blank"}** - Ubuntu development platform
 - **[Ubuntu Packages Search](https://packages.ubuntu.com/){:target="_blank"}** - Find and verify packages
 
 ### Security & Support
+
 - **[Ubuntu Security Notices](https://ubuntu.com/security/notices){:target="_blank"}** - Latest security updates
 - **[Ubuntu Forums](https://ubuntuforums.org/){:target="_blank"}** - Community support
 - **[Ask Ubuntu](https://askubuntu.com/){:target="_blank"}** - Q&A platform
@@ -1103,14 +1136,16 @@ After completing this setup:
 
 This comprehensive **Ubuntu fresh install setup guide** provides everything needed for creating a productive development environment. From essential software installation to security configuration, you now have a complete roadmap for setting up Ubuntu after a fresh installation.
 
-### Key Takeaways:
+### Key Takeaways
+
 - **Start with system updates** and choose your preferred package management approach
 - **Install essential multimedia support** for complete Ubuntu functionality
 - **Configure development environment** with proper PATH variables and tools
 - **Prioritize security** with SSH keys and firewall configuration
 - **Optimize system performance** for better resource utilization
 
-### Related Ubuntu Resources:
+### Related Ubuntu Resources
+
 - **[Linux Troubleshooting Commands Guide]({% post_url 2016-06-14-linux-troubleshooting-commands %}){:target="_blank"}** - Essential commands for Ubuntu system administration
 - **[Complete Git Workflows Guide]({% post_url 2023-01-31-git-workflows-guide %}){:target="_blank"}** - Version control setup for your Ubuntu development environment
 

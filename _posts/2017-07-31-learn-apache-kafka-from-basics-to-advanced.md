@@ -42,6 +42,7 @@ flowchart TD
 - [ ] Text editor/IDE ready
 
 ## 📚 Table of Contents
+
 - [🟢 Beginner Level](#-beginner-level)
 - [🟡 Intermediate Level](#-intermediate-level)
 - [🟠 Advanced Level](#-advanced-level)
@@ -54,7 +55,6 @@ flowchart TD
 
 # 🟢 Beginner Level
 
-
 ## What is Apache Kafka?
 
 Apache Kafka is a distributed streaming platform that acts as a high-throughput message broker for real-time data pipelines. It stores streams of records in fault-tolerant, scalable topics that can be consumed by multiple applications.
@@ -62,23 +62,24 @@ Apache Kafka is a distributed streaming platform that acts as a high-throughput 
 ## Core Concepts
 
 ### Core Components
+
 - **[Broker](https://kafka.apache.org/documentation/#brokerconfigs)**: A Kafka server that stores and serves messages
 - **[Topic](https://kafka.apache.org/documentation/#topicconfigs)**: A category or feed name to which messages are published
 - **[Partition](https://kafka.apache.org/documentation/#intro_concepts_and_terms)**: An ordered, immutable sequence of messages within a topic
 - **[Offset](https://kafka.apache.org/documentation/#semantics)**: A unique identifier for each message within a partition
 
 ### Applications
+
 - **[Producer](https://kafka.apache.org/documentation/#producerapi)**: An application that publishes messages to Kafka topics
 - **[Consumer](https://kafka.apache.org/documentation/#consumerapi)**: An application that subscribes to topics and processes messages
 - **[Consumer Group](https://kafka.apache.org/documentation/#intro_consumers)**: A group of consumers that work together to consume a topic
-
-
 
 ## Why Use Kafka?
 
 Kafka decouples data producers from consumers, enabling scalable real-time data processing and reliable message delivery. It provides durability, high availability, and can handle millions of messages per second across distributed systems.
 
 ### Performance Benchmarks
+
 - **Throughput**: 2M+ messages/sec per broker
 - **Latency**: <10ms end-to-end
 - **Storage**: Petabyte-scale retention
@@ -152,6 +153,7 @@ Kafka's new consensus protocol that eliminates the dependency on Apache Zookeepe
 ## ⚙️ Prerequisites Checker
 
 ### System Requirements
+
 - [ ] **Java 11+** installed (Java 8 deprecated)
   ```bash
   java -version  # Should show 11 or higher
@@ -430,7 +432,6 @@ echo "Hello Kafka!" | kafka-console-producer.sh --bootstrap-server localhost:909
 
 # 🟡 Intermediate Level
 
-
 ## Apache Kafka Ecosystem 🌐
 
 Kafka is more than just a message broker - it's a complete streaming platform with rich ecosystem of tools and frameworks:
@@ -502,26 +503,31 @@ flowchart LR
 ### Ecosystem Components
 
 **Core Platform:**
+
 - **[Kafka Brokers](https://kafka.apache.org/documentation/#brokerconfigs)**: Message storage and distribution
 - **[KRaft](https://kafka.apache.org/documentation/#kraft)**: Self-managing consensus (replaces Zookeeper)
 
 **Data Integration:**
+
 - **[Kafka Connect](https://kafka.apache.org/documentation/#connect)**: Framework for connecting external systems
 - **[Source Connectors](https://www.confluent.io/hub/)**: Import data from databases, files, APIs
 - **[Sink Connectors](https://www.confluent.io/hub/)**: Export data to warehouses, search engines, storage
 
 **Stream Processing:**
+
 - **[Kafka Streams](https://kafka.apache.org/documentation/streams/)**: Java library for stream processing
 - **[ksqlDB](https://ksqldb.io/)**: SQL engine for stream processing
 - **[Apache Flink](https://flink.apache.org/)**: Advanced stream processing framework
 - **[Spark Streaming](https://spark.apache.org/streaming/)**: Micro-batch processing
 
 **Schema & Governance:**
+
 - **[Schema Registry](https://docs.confluent.io/platform/current/schema-registry/)**: Centralized schema management
 - **[REST Proxy](https://docs.confluent.io/platform/current/kafka-rest/)**: HTTP interface to Kafka
 - **[Control Center](https://docs.confluent.io/platform/current/control-center/)**: Management and monitoring UI
 
 **Monitoring & Operations:**
+
 - **JMX Metrics**: Built-in monitoring via Java Management Extensions
 - **[Prometheus](https://prometheus.io/) + [Grafana](https://grafana.com/)**: Modern monitoring stack
 - **[Kafka UI](https://github.com/provectus/kafka-ui)**: Web-based cluster management
@@ -618,7 +624,6 @@ kafka:
 ---
 
 # 🟠 Advanced Level
-
 
 ## Kafka Connect
 
@@ -754,7 +759,6 @@ ssl.truststore.password=password
 ---
 
 # 🔴 Expert Level
-
 
 ## Production Architecture
 
@@ -939,7 +943,7 @@ bin/kafka-dump-log.sh --files /tmp/kraft-combined-logs/my-topic-0/00000000000000
 ## Kafka UI Tools Comparison
 
 | Tool | Type | Features | Best For |
-|------|------|----------|----------|
+| ------ | ------ | ---------- | ---------- |
 | **[AKHQ](https://akhq.io/)** | Web UI | Topics, consumers, schema registry | Development |
 | **[Kafdrop](https://github.com/obsidiandynamics/kafdrop)** | Web UI | Lightweight, topic browsing | Quick debugging |
 | **[Confluent Control Center](https://docs.confluent.io/platform/current/control-center/index.html)** | Enterprise | Full monitoring, alerting | Production |
@@ -981,6 +985,7 @@ kcg --group my-group --describe
 ## Monitoring Dashboard Templates
 
 ### Grafana Dashboard JSON
+
 ```json
 {
   "dashboard": {
