@@ -315,6 +315,7 @@ brew install --cask tunnelblick openvpn-connect cyberduck
 
 ```bash
 brew install --cask rstudio blender
+brew install jupyterlab
 ```
 
 #### Design
