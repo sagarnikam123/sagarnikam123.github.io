@@ -246,7 +246,7 @@ curl -fsSL https://raw.githubusercontent.com/NousResearch/hermes-agent/main/scri
 #### Git Tools
 
 ```bash
-brew install --cask github-desktop sourcetree git-credential-manager
+brew install --cask github-desktop sourcetree git-credential-manager --cask sourcetree
 ```
 
 #### Programming Languages & Runtimes
