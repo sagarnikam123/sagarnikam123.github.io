@@ -229,7 +229,7 @@ brew install --cask google-chrome firefox brave-browser microsoft-edge opera
 #### Code Editors & IDEs
 
 ```bash
-brew install --cask visual-studio-code kiro cursor antigravity
+brew install --cask visual-studio-code kiro cursor antigravity chatgpt
 brew install --cask jetbrains-toolbox eclipse-ide android-studio
 ```
 
