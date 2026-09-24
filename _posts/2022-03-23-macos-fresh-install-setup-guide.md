@@ -214,10 +214,11 @@ uv python install 3.10 3.11 3.12 3.13
 brew install wget tmux openssh ffmpeg webp imagemagick coreutils
 ```
 
-#### Terminal Emulators
+#### Terminal Emulators or SSH clients
 
 ```bash
 brew install --cask iterm2 termius
+brew install --cask xpipe-io/tap/xpipe
 ```
 
 #### Browsers
