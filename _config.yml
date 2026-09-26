@@ -104,6 +104,11 @@ analytics:
 pageviews:
   # provider: goatcounter # now only supports 'goatcounter' - disabled to prevent CORS errors
 
+# Google AdSense — set each to true to show ads
+google_ads:
+  sidebar: false # right-side panel ads
+  bottom: false # bottom of article / main content
+
 # Prefer color scheme setting.
 #
 # Note: Keep empty will follow the system prefer color by default,

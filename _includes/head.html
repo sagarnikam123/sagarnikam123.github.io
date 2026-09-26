@@ -10,10 +10,12 @@
     })(window, document, 'script', 'dataLayer', 'GTM-M72TCG8H');</script>
   <!-- End Google Tag Manager -->
 
+  {% if site.google_ads.sidebar or site.google_ads.bottom %}
   <!-- Google AdSense -->
   <meta name="google-adsense-platform-account" content="ca-pub-6989641014144867">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6989641014144867"
     crossorigin="anonymous"></script>
+  {% endif %}
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-BQJDZPDSGJ"></script>
