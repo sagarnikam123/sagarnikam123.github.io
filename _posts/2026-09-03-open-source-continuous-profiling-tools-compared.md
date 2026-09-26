@@ -8,7 +8,7 @@ tags: [continuous-profiling, pyroscope-vs-parca, ebpf-profiling, grafana-pyrosco
 mermaid: true
 image:
   path: assets/img/posts/20260903/open-source-continuous-profiling-tools.webp
-  lqip: data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAACQBACdASogACAAPzmIulOvKSWisAgB4CcJQAAj3WgL8No7OvGlTeUpHzQLAAAA/vqk7Yt5imydH1kOcV8AnaZ2PcbhQal3wZOgYZQlVt4W8WfVpfsHf+7/gJH21D4A
+  lqip: data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAACQBACdASogACAAPzmOwFcvKacjqAqp4CcJbAAjzMIBHz+IaA9nEm9TxIkSHhAA/vfi2BbgBSziwSNCoKTOTYWBSmcweX6aCjbr+oMH4+U2zPENkTo+kAqOadFMNI5yXmXn09voHi4cqBsxfcuWhPhs6gZEsGg8i+O5nWtozREJ4AAA
   alt: Open Source Continuous Profiling Tools Compared
 ---
 
