@@ -7,7 +7,7 @@ categories: [AI, Coding-Agents]
 tags: [reduce-token-usage, ai-coding-agents, context-engineering, token-optimization, prompt-caching, claude-code]
 mermaid: true
 image:
-  path: assets/img/posts/20260704/reduce-ai-token-usage-part1-techniques.jpg
+  path: assets/img/posts/20260928/reduce-ai-token-usage-part1-techniques.webp
   alt: Visual representation of token reduction pipeline in AI coding agents
 ---
 
@@ -17,7 +17,7 @@ Across all agent frameworks, the biggest savings do **not** come from shaving fi
 
 This article is **Part 1** of our 2-part guide to agent efficiency:
 * **Part 1 (This Guide):** *The Techniques* — 25 practical, tool-agnostic methods to eliminate context bloat.
-* **[Part 2: The Tools]({% post_url reduce-ai-token-usage-part2-tools %})** — A standardized catalog of open-source tools (RTK, Headroom, LeanCTX, Graphify, Serena, etc.).
+* **[Part 2: The Tools]({% post_url 2026-09-28-reduce-ai-token-usage-part2-tools %})** — A standardized catalog of open-source tools (RTK, Headroom, LeanCTX, Graphify, Serena, etc.).
 
 ### TL;DR
 
@@ -25,7 +25,7 @@ This article is **Part 1** of our 2-part guide to agent efficiency:
 * Highest leverage: ignore rules, small `AGENTS.md`, fresh sessions, model routing, MCP pruning.
 * Filter shell/logs locally; use progressive disclosure instead of full-repo dumps.
 * Keep prompt-cache prefixes byte-stable; compact only at task milestones.
-* Measure tokens per successful task — then automate filters with tools in [Part 2]({% post_url reduce-ai-token-usage-part2-tools %}).
+* Measure tokens per successful task — then automate filters with tools in [Part 2]({% post_url 2026-09-28-reduce-ai-token-usage-part2-tools %}).
 
 ---
 
@@ -237,7 +237,7 @@ Discard:
 
 > **Prompt Caching Note:** Compaction rewrites the conversation prefix, which temporarily creates a cache miss. Compact at natural task milestones, not after every turn.
 
-> **Advanced: Autonomous Context Compression.** Rather than compacting at a fixed token threshold (which can interrupt the agent mid-subtask and corrupt in-flight reasoning), emerging approaches let the agent *itself* decide when to compress — typically between tasks or before consuming large inputs. This avoids the failure mode where reactive-at-limit compaction breaks reasoning continuity. Tools like [context-mode](https://github.com/abstracted-ai/context-mode) implement this by sandboxing bulky data outside the context window and retrieving only relevant fragments on demand.
+> **Advanced: Autonomous Context Compression.** Rather than compacting at a fixed token threshold (which can interrupt the agent mid-subtask and corrupt in-flight reasoning), emerging approaches let the agent *itself* decide when to compress — typically between tasks or before consuming large inputs. This avoids the failure mode where reactive-at-limit compaction breaks reasoning continuity. Tools like [context-mode](https://github.com/mksglu/context-mode) implement this by sandboxing bulky data outside the context window and retrieving only relevant fragments on demand.
 
 ---
 
@@ -295,7 +295,7 @@ Modern MCP specifications support **Tool Discovery / Tool Search**. Instead of i
 2. When the model needs Kubernetes functionality, it calls `search_tools` and dynamically loads the 3 required schemas into context.
 3. Schemas for unused tools never enter the conversation at all.
 
-This is still an emerging pattern — not all agent frameworks support it yet. Claude Code and Cursor currently load all configured MCP tools at session start. However, MCP middleware that compresses tool descriptions (e.g. community **caveman-shrink**-style shrinkers) and profile splitting (§10) serve as interim solutions until lazy loading becomes standard. Tool catalogs and setup are covered in [Part 2]({% post_url reduce-ai-token-usage-part2-tools %}).
+This is still an emerging pattern — not all agent frameworks support it yet. Claude Code and Cursor currently load all configured MCP tools at session start. However, MCP middleware that compresses tool descriptions (e.g. community **caveman-shrink**-style shrinkers) and profile splitting (§10) serve as interim solutions until lazy loading becomes standard. Tool catalogs and setup are covered in [Part 2]({% post_url 2026-09-28-reduce-ai-token-usage-part2-tools %}).
 
 ---
 
@@ -313,13 +313,13 @@ To maintain high cache hit rates:
 2. **Order Static Blocks First:** Place system instructions, MCP schemas, and project specs before the dynamic conversation history.
 3. **Avoid Mid-Session Config Changes:** Reconnecting MCP servers or switching model flags mid-chat invalidates the cache prefix.
 
-> **Advanced: Prefix-Cache as a Loop Invariant.** The [DeepSeek-Reasonix harness](https://github.com/nicobailon/deepseek-reasonix) demonstrates structuring the entire agent loop around cache stability: an immutable prefix (system prompt + tool schemas), an append-only log (conversation turns), and a volatile scratch area (current tool output). That project reports 99.8%+ cache-hit rates and roughly ~5× lower long-session cost—treat those figures as **author-reported**, not independent benchmarks. The pattern applies to any provider with prefix caching — structure your context as `[static | append-only | volatile]` rather than randomly interleaving content.
+> **Advanced: Prefix-Cache as a Loop Invariant.** The [DeepSeek-Reasonix harness](https://github.com/esengine/DeepSeek-Reasonix) demonstrates structuring the entire agent loop around cache stability: an immutable prefix (system prompt + tool schemas), an append-only log (conversation turns), and a volatile scratch area (current tool output). That project reports 99.8%+ cache-hit rates and roughly ~5× lower long-session cost—treat those figures as **author-reported**, not independent benchmarks. The pattern applies to any provider with prefix caching — structure your context as `[static | append-only | volatile]` rather than randomly interleaving content.
 
 ---
 
 ## 13. Tool & Terminal Output Throttling
 
-Sections §4 and §14 cover *what* to filter. This section covers *how to instruct the agent* to self-throttle when you can't intercept outputs externally (e.g., no CLI filter wrapper such as **RTK**—covered in [Part 2]({% post_url reduce-ai-token-usage-part2-tools %})—or when MCP tool calls return large structured JSON):
+Sections §4 and §14 cover *what* to filter. This section covers *how to instruct the agent* to self-throttle when you can't intercept outputs externally (e.g., no CLI filter wrapper such as **RTK**—covered in [Part 2]({% post_url 2026-09-28-reduce-ai-token-usage-part2-tools %})—or when MCP tool calls return large structured JSON):
 
 ```markdown
 <!-- Global Instruction -->
@@ -346,7 +346,7 @@ aws ec2 describe-instances | jq '.Reservations[].Instances[] | {Id: .InstanceId,
 
 `jq`, `awk`, and `ripgrep` shrink multi-megabyte payloads down to 5 KB of clean JSON before they reach the model.
 
-> **"Think in Code" Paradigm:** Instead of the agent making 10 sequential tool calls (each adding output to context), have it write a single script that performs all 10 operations and returns only the final result. One code-execution call replaces 10 file-read calls, collapsing intermediate outputs that would otherwise bloat the context window. Tools like [context-mode](https://github.com/abstracted-ai/context-mode) formalize this pattern at the MCP layer.
+> **"Think in Code" Paradigm:** Instead of the agent making 10 sequential tool calls (each adding output to context), have it write a single script that performs all 10 operations and returns only the final result. One code-execution call replaces 10 file-read calls, collapsing intermediate outputs that would otherwise bloat the context window. Tools like [context-mode](https://github.com/mksglu/context-mode) formalize this pattern at the MCP layer.
 
 ---
 
@@ -374,7 +374,7 @@ Generate maps with `tree -L 3` (respecting ignore rules), language-aware indexer
 
 ## 16. Semantic Code Indexing & AST Retrieval
 
-For large codebases, use AST-based knowledge graphs (**Graphify**, covered in [Part 2]({% post_url reduce-ai-token-usage-part2-tools %})) or LSP symbol indexes (**Serena**, also Part 2):
+For large codebases, use AST-based knowledge graphs (**Graphify**, covered in [Part 2]({% post_url 2026-09-28-reduce-ai-token-usage-part2-tools %})) or LSP symbol indexes (**Serena**, also Part 2):
 * **AST Graphs:** Answer questions like *"Where does UserService interact with billing?"* in 1 graph query (often ~hundreds of tokens) instead of reading many files (often tens of thousands of tokens). Exact ratios are illustrative.
 * **LSP Indexing:** Queries exact function signatures and callers without reading whole file bodies.
 
@@ -499,7 +499,7 @@ Efficiency = Total Tokens Billed / Successful Tasks Completed
 
 Without a denominator (successful tasks), raw token charts reward under-scoped work. Log tokens alongside whether the PR landed or the bug closed.
 
-Use built-in agent commands and (optionally) tool-side meters from [Part 2]({% post_url reduce-ai-token-usage-part2-tools %}):
+Use built-in agent commands and (optionally) tool-side meters from [Part 2]({% post_url 2026-09-28-reduce-ai-token-usage-part2-tools %}):
 * **Claude Code:** `/usage`
 * **Gemini CLI:** `/stats`
 * **Dollar rollups:** `npx ccusage` (or your provider's usage dashboard)
@@ -543,7 +543,7 @@ Standardize this concise `AGENTS.md` across all your repositories:
 ## Frequently Asked Questions
 
 **How much can I realistically save on token costs?**
-Results vary widely by repo and agent. In practice, teams often see meaningful cuts from technique-only changes alone: ignore rules + smaller instruction files + fresh sessions + local shell filtering + terse outputs. Larger reductions usually require automating those patterns with tooling (CLI filters, code intelligence, or proxy stacks—catalogued in [Part 2]({% post_url reduce-ai-token-usage-part2-tools %})). Treat any headline percentage as a hypothesis until you measure tokens per successful task (§24) on *your* workload.
+Results vary widely by repo and agent. In practice, teams often see meaningful cuts from technique-only changes alone: ignore rules + smaller instruction files + fresh sessions + local shell filtering + terse outputs. Larger reductions usually require automating those patterns with tooling (CLI filters, code intelligence, or proxy stacks—catalogued in [Part 2]({% post_url 2026-09-28-reduce-ai-token-usage-part2-tools %})). Treat any headline percentage as a hypothesis until you measure tokens per successful task (§24) on *your* workload.
 
 **Does reducing context hurt code quality?**
 Removing *irrelevant* context (build artifacts, verbose logs, unchanged files) improves quality — models suffer less attention degradation. However, aggressively withholding *relevant* context causes hallucinations. The goal is precision, not starvation.
@@ -623,7 +623,7 @@ Use `/usage` in Claude Code, `/stats` in Gemini CLI, or `npx ccusage` for detail
 
 Now that you have the complete playbook of techniques:
 
-**Continue to [Part 2: Open-Source Tools to Reduce Token Usage in AI Coding Agents]({% post_url reduce-ai-token-usage-part2-tools %})** — A detailed catalog and breakdown of top tools (RTK, Headroom, LeanCTX, Graphify, Serena, Ponytail, Caveman, and more).
+**Continue to [Part 2: Open-Source Tools to Reduce Token Usage in AI Coding Agents]({% post_url 2026-09-28-reduce-ai-token-usage-part2-tools %})** — A detailed catalog and breakdown of top tools (RTK, Headroom, LeanCTX, Graphify, Serena, Ponytail, Caveman, and more).
 
 ---
 

@@ -12,7 +12,7 @@ image:
   alt: Open-source tools that reduce AI coding agent token usage across shell, MCP, and proxy layers
 ---
 
-In **[Part 1: The Techniques]({% post_url reduce-ai-token-usage-part1-techniques %})**, we explored the architectural mechanisms of agent token bloat and the 25 core optimization principles. 
+In **[Part 1: The Techniques]({% post_url 2026-09-28-reduce-ai-token-usage-part1-techniques %})**, we explored the architectural mechanisms of agent token bloat and the 25 core optimization principles. 
 
 In this article (**Part 2**), we move from principles to software. If you want to **reduce token usage** with minimal effort, these are the open-source tools that do it for you. We evaluate **18 open-source tools, MCP middleware, CLI proxies, and context compressors** engineered specifically to cut token consumption across every layer of the agent stack.
 
@@ -22,7 +22,7 @@ In this article (**Part 2**), we move from principles to software. If you want t
 
 ## Series Navigation
 
-* **[Part 1: The Techniques]({% post_url reduce-ai-token-usage-part1-techniques %})** — What causes token bloat and 25 methods to prevent it.
+* **[Part 1: The Techniques]({% post_url 2026-09-28-reduce-ai-token-usage-part1-techniques %})** — What causes token bloat and 25 methods to prevent it.
 * **Part 2 (This Guide):** *The Tools* — Standardized catalog, comparison matrix, and layer breakdown of token-saving software.
 
 ### TL;DR
@@ -524,7 +524,7 @@ Run `rtk gain` for RTK terminal savings, `headroom perf` for proxy compression m
 
 ## Next in the Series
 
-Now that you know the tools and their compatibility rules, revisit **[Part 1: The Techniques]({% post_url reduce-ai-token-usage-part1-techniques %})** for the architectural playbook—or install the Quick Start stack above and measure your token savings on your next task.
+Now that you know the tools and their compatibility rules, revisit **[Part 1: The Techniques]({% post_url 2026-09-28-reduce-ai-token-usage-part1-techniques %})** for the architectural playbook—or install the Quick Start stack above and measure your token savings on your next task.
 
 ---
 
