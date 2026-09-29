@@ -1,37 +1,62 @@
 ---
-title: "Open-Source Uptime Monitoring Tools Compared: Uptime Kuma, Gatus, OpenStatus & OneUptime"
-description: "Compare self-hosted open-source uptime monitoring tools — Uptime Kuma, Gatus, OpenStatus, and OneUptime — on status pages, alerting, IaC, and operational fit."
+title: "10 Best Open-Source Uptime Monitoring Tools Compared"
+description: "Compare 10 open-source uptime monitoring tools like Uptime Kuma, Gatus, and OpenStatus on synthetic probes, status pages, alerting, and GitOps workflows."
 author: sagarnikam123
 date: 2026-09-22 12:00:00 +0530
-categories: [Observability, Monitoring]
-tags: [open-source-uptime-monitoring, uptime-kuma, gatus, openstatus, oneuptime, status-page, synthetic-monitoring]
+categories: [Observability, Platforms]
+tags: [open-source-uptime-monitoring, uptime-kuma, status-page, synthetic-monitoring, gatus]
+toc: true
 mermaid: true
 image:
   path: assets/img/posts/20260922/open-source-uptime-monitoring-tools-compared.webp
-  alt: Comparison of open-source uptime monitoring tools Uptime Kuma, Gatus, OpenStatus, and OneUptime
+  lqip: data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAwBQCdASogACAAPzWAtlOvKCUit/VYAeAmiWwAd8AP15luxLvMTxT8N61f77tSngrryAD++qTssUIQQCQNSexlH5IvdUARZoP/lrEQVT257aYLGAu7UTaSbKkdMf0YJ+QTrFvjF0EJ9mPr8xMpmoN/3JOtoSE5WOsVQQUEoA8yLg2mDHIAAA==
+  alt: Comparison of 10 open-source uptime monitoring tools
 ---
 
-Which open-source uptime monitoring tool should you self-host in 2026? Uptime monitoring answers a different question than APM or log platforms: *is this endpoint reachable and behaving correctly right now?* Commercial SaaS tools (UptimeRobot, Pingdom, Better Stack) make that easy — until probe volume, status-page branding, or data residency push you toward self-hosting. This guide compares four open-source uptime monitoring tools teams actually deploy: **Uptime Kuma**, **Gatus**, **OpenStatus**, and **OneUptime**.
+Which open-source uptime monitoring tool should you deploy in 2026? Uptime monitoring answers a fundamentally different question than APM or log platforms: *is this endpoint reachable and behaving correctly right now from the outside world?* 
+
+Commercial SaaS tools (UptimeRobot, Pingdom, Better Stack) make that easy — until probe volume, custom status-page branding, data privacy, or budget constraints push you toward open source. 
+
+This guide evaluates and compares the **10 leading open-source uptime monitoring tools** that offer active synthetic probing, alerting, and status communication:
+
+1. **[Uptime Kuma](https://github.com/louislam/uptime-kuma)** — The gold standard for UI-first homelab & SMB monitoring.
+2. **[Gatus](https://github.com/TwiN/gatus)** — Ultra-lightweight Go single binary with YAML condition expressions.
+3. **[OpenStatus](https://github.com/openstatusHQ/openstatus)** — Modern Monitoring-as-Code with Terraform, CLI, MCP agents, and Next.js status pages.
+4. **[OneUptime](https://github.com/OneUptime/oneuptime)** — Complete reliability suite replacing Pingdom, Statuspage, PagerDuty, and APM in one deploy.
+5. **[Kener](https://github.com/rajnandan1/kener)** — Sleek SvelteKit status page with monitors-as-code and live SVG badges.
+6. **[Upptime](https://github.com/upptime/upptime)** — Zero-infrastructure, 100% serverless monitor running on GitHub Actions & Pages.
+7. **[UptimeFlare](https://github.com/lyc8503/UptimeFlare)** — Serverless edge prober running across 310+ cities on Cloudflare Workers & Pages.
+8. **[Vigil](https://github.com/valeriansaliou/vigil)** — High-performance Rust microservices status page and prober.
+9. **[Apache HertzBeat](https://github.com/apache/hertzbeat)** — Top-level Apache project for agentless multi-protocol synthetic & infrastructure monitoring.
+10. **[Statping-ng](https://github.com/statping-ng/statping-ng)** — Classic self-hosted status board and prober in a single Go binary.
 
 For full three-signal observability platforms (logs + metrics + traces), see our [open-source observability platform comparison]({% post_url 2026-09-07-open-source-observability-platform-comparison %}). For commercial pricing context, see the [paid observability platforms pricing guide]({% post_url 2026-09-01-paid-observability-platforms-pricing-comparison %}).
 
 ## TL;DR — Quick Recommendations
 
-| Use case | Best fit | Why |
-| -------- | -------- | --- |
-| **Homelab / fastest UI setup** | Uptime Kuma | One Docker container, 90+ notification channels, polished status pages |
-| **GitOps / YAML-as-code checks** | Gatus | Single Go binary, condition expressions, Prometheus metrics |
-| **Monitoring-as-code + agent MCP / Terraform** | OpenStatus | YAML/Terraform/CLI/MCP, branded status pages; multi-region via cloud or private locations |
-| **Uptime + incidents + on-call + OTel in one box** | OneUptime | Widest reliability scope; replaces Pingdom + PagerDuty + Statuspage + APM |
+| Use Case | Best Fit | Runner-Up | Why |
+| -------- | -------- | --------- | --- |
+| **Homelab / fastest point-and-click UI** | **Uptime Kuma** | Statping-ng | Single Docker container, 90+ notification channels, polished status pages |
+| **GitOps / declarative YAML checks** | **Gatus** | Upptime | Single Go binary, condition DSL over latency/body/certs, native Prometheus metrics |
+| **Monitoring-as-Code + Terraform / AI MCP** | **OpenStatus** | Gatus | Native Terraform provider, typed API, and Model Context Protocol (MCP) server for agents |
+| **All-in-one: Uptime + Status + On-Call + OTel** | **OneUptime** | OpenStatus | Replaces UptimeRobot + PagerDuty + Statuspage in a single unified deployment |
+| **Modern SvelteKit status page + live badges** | **Kener** | OpenStatus | Sleek design, monitors-as-code (JSON/YAML), embeddable live SVG badges |
+| **Zero-infrastructure / 100% serverless on GitHub** | **Upptime** | UptimeFlare | Runs entirely on GitHub Actions cron schedules; commits data to Git and publishes to Pages |
+| **Global multi-region edge probing ($0 servers)** | **UptimeFlare** | Upptime | Probes from 310+ Cloudflare edge cities; runs on Cloudflare Workers + KV free tier |
+| **Ultra-lightweight microservices prober (<25MB RAM)** | **Vigil** | Gatus | Native Rust binary, microservice push agents, ultra-low resource footprint |
+| **Enterprise agentless & multi-protocol checks** | **Apache HertzBeat** | OneUptime | HTTP, JMX, SNMP, JDBC, SSH probers with AI diagnostics and clustering |
 
-> Jump to [When to Use What](#when-to-use-what) for the full decision table, or [Architecture Classification](#architecture-classification) for how these tools differ at the design level.
+> Jump to [When to Use What](#when-to-use-what) for the detailed decision guide, or review the [Comparison Matrices](#core-monitoring-capability-matrix) below.
+{: .prompt-tip }
 
 ## Table of Contents
 
 - [TL;DR — Quick Recommendations](#tldr--quick-recommendations)
-- [Approach](#approach)
+- [Approach & Scope Demarcation](#approach--scope-demarcation)
+  - [Selection Criteria](#selection-criteria)
+  - [What This Guide Is NOT: Exclusions & NMS Demarcation](#what-this-guide-is-not-exclusions--nms-demarcation)
 - [Candidate Tools Evaluated](#candidate-tools-evaluated)
-- [Architecture Classification](#architecture-classification)
+- [Architectural Archetypes](#architectural-archetypes)
 - [Core Monitoring Capability Matrix](#core-monitoring-capability-matrix)
 - [Status Page & Incident Communication Matrix](#status-page--incident-communication-matrix)
 - [Alerting & Reliability Operations Matrix](#alerting--reliability-operations-matrix)
@@ -41,296 +66,411 @@ For full three-signal observability platforms (logs + metrics + traces), see our
 - [When to Use What](#when-to-use-what)
 - [Known Limitations & Gotchas](#known-limitations--gotchas)
 - [FAQ](#faq)
-- [Honorable Mentions](#honorable-mentions)
+- [Honorable Mentions & Specialized Alternatives](#honorable-mentions--specialized-alternatives)
 - [How This Fits the Observability Series](#how-this-fits-the-observability-series)
 - [References](#references)
 
-## Approach
+## Approach & Scope Demarcation
 
-We evaluate tools whose **primary job** is synthetic uptime / availability checks and status communication — not full observability platforms that merely include a ping monitor as a side feature.
+### Selection Criteria
 
-| Selection Criterion | Requirement |
-| ------------------- | ----------- |
-| **Open source** | Public source repo with a usable self-hosted path |
-| **Self-hostable** | Runs on your infrastructure without a mandatory cloud account |
-| **Uptime-first** | HTTP/TCP/DNS (or equivalent) probes are a core product surface |
-| **Active project** | Maintained releases and community usage as of mid–late 2026 |
+To qualify for this comparison, tools had to meet four strict criteria:
+1. **Open Source:** Public source code repository under a recognized OSI or permissive open-source license.
+2. **Active Synthetic Engine:** Must contain an active prober daemon or scheduled engine that tests external endpoints (HTTP, TCP, DNS, etc.).
+3. **Status Communication Surface:** Must provide a built-in status page or dashboard for incident transparency.
+4. **Deployable Without Mandatory Paid Cloud:** Fully usable self-hosted or via free-tier serverless/Git automation platforms.
 
-**Excluded:** SaaS-only uptime products (Pingdom, UptimeRobot cloud), pure cron-heartbeat tools (covered under Honorable Mentions), and multi-signal platforms already covered in the companion observability platform comparison — except OneUptime, which is included here because its uptime + status-page + on-call story is a direct UptimeRobot/Statuspage replacement.
+### What This Guide Is NOT: Exclusions & NMS Demarcation
+
+To keep the comparison practically actionable, we deliberately exclude three adjacent categories:
+
+1. **Traditional Network Management Systems (NMS) — [Zabbix](https://github.com/zabbix/zabbix), [Nagios Core](https://github.com/NagiosEnterprises/nagioscore), [LibreNMS](https://github.com/librenms/librenms), [Icinga 2](https://github.com/Icinga/icinga2):**  
+   These are enterprise infrastructure monitoring suites focused on SNMP polling, switch port health, server CPU/memory agents, and hardware sensors. While they can ping URLs, they lack developer-friendly public status pages, subscriber email/SMS workflows, modern UI branding, and GitOps workflows.
+2. **Headless Metric Exporters — [Prometheus Blackbox Exporter](https://github.com/prometheus/blackbox_exporter):**  
+   Blackbox Exporter is the industry standard for probing HTTP, DNS, TCP, ICMP, and gRPC endpoints in Kubernetes. However, it is an exporter that generates Prometheus metrics, not a status communication product. (See [FAQ](#faq) for how to use it alongside status tools).
+3. **Inverted / Cron Heartbeat Monitors — [Healthchecks](https://github.com/healthchecks/healthchecks):**  
+   Healthchecks is a dead-man's snitch: your backup scripts and background cron jobs ping *it*. If a job goes silent, it alerts. This is the inverse of active outward synthetic probing.
+4. **Static Status Page Generators without Probers — [Cachet](https://github.com/cachethq/cachet), [cState](https://github.com/cstate/cstate):**  
+   These provide incident communication frontends but require third-party scripts or manual API calls to report uptime.
 
 ## Legend
 
 | Symbol | Meaning |
-| ------ | ------- |
-| ✅ | Clearly supported / documented |
-| ◐ | Partial support or requires extra setup |
-| ⭐ | Particular strength worth testing |
-| — | Not supported or not applicable |
-| EE | Enterprise / paid boundary — verify before committing |
+| :---: | ------- |
+| ✅ | Fully supported and documented out of the box |
+| ◐ | Partial support, experimental, or requires extra scripting/plugins |
+| ⭐ | Standout strength or benchmark implementation |
+| — | Not supported or out of scope |
+| EE | Enterprise edition / commercial boundary required |
 
 ## Candidate Tools Evaluated
 
-| Tool | Language | Storage | License | GitHub (Sep 2026) |
-| ---- | -------- | ------- | ------- | ----------------- |
-| **[Uptime Kuma](https://github.com/louislam/uptime-kuma)** | JavaScript (Node.js + Vue) | SQLite (local volume) | MIT | ⭐ ~91.7k · Since 2021 |
-| **[Gatus](https://github.com/TwiN/gatus)** | Go | Memory / SQLite / PostgreSQL | Apache 2.0 | ⭐ ~12.1k · Since 2019 |
-| **[OpenStatus](https://github.com/openstatusHQ/openstatus)** | TypeScript (Next.js) | Turso/libSQL + Tinybird | AGPL-3.0 | ⭐ ~9.1k · Since 2023 |
-| **[OneUptime](https://github.com/OneUptime/oneuptime)** | TypeScript | PostgreSQL + ClickHouse | Apache 2.0 (+ EE dir) | ⭐ ~7.6k · Since 2021 |
+| Tool | Primary Language / Stack | Storage / State | License | GitHub Stars (Sep 2026) | MCP / AI Agents | Primary Persona |
+| ---- | ------------------------ | --------------- | ------- | ----------------------- | :-------------: | --------------- |
+| **[Uptime Kuma](https://github.com/louislam/uptime-kuma)** | Node.js + Vue.js | SQLite (local volume) | MIT | ⭐ ~92.0k | ◐ Community | Homelabber, SMB, UI-first DevOps |
+| **[Gatus](https://github.com/TwiN/gatus)** | Go | Memory / SQLite / PostgreSQL | Apache 2.0 | ⭐ ~12.2k | — | SRE, Kubernetes / GitOps Engineer |
+| **[OpenStatus](https://github.com/openstatusHQ/openstatus)** | TypeScript (Next.js) | Turso (libSQL) + Tinybird | AGPL-3.0 | ⭐ ~9.2k | ⭐ Official | Modern Web Dev, Platform Engineer |
+| **[OneUptime](https://github.com/OneUptime/oneuptime)** | TypeScript | PostgreSQL + ClickHouse | Apache 2.0 (+ EE) | ⭐ ~7.7k | ⭐ Official | SRE Team, Reliability Org |
+| **[Kener](https://github.com/rajnandan1/kener)** | TypeScript (SvelteKit + Node.js) | SQLite / JSON configs | MIT | ⭐ ~4.2k | — | Developer, Product Team |
+| **[Upptime](https://github.com/upptime/upptime)** | TypeScript / GitHub Actions | Git Repository / GitHub Issues | MIT | ⭐ ~16.5k | ◐ Copilot Actions | Indie Hacker, Open Source Maintainer |
+| **[UptimeFlare](https://github.com/lyc8503/UptimeFlare)** | TypeScript / Cloudflare Workers | Cloudflare KV | MIT | ⭐ ~3.6k | — | Jamstack Dev, Zero-Budget Operator |
+| **[Vigil](https://github.com/valeriansaliou/vigil)** | Rust | In-memory + local config | MPL-2.0 | ⭐ ~4.7k | — | Microservice Architect, Systems Dev |
+| **[Apache HertzBeat](https://github.com/apache/hertzbeat)** | Java (Spring Boot) + Vue | H2 / MySQL / VictoriaMetrics | Apache 2.0 | ⭐ ~5.6k | ⭐ Official | Enterprise IT, Multi-Protocol Ops |
+| **[Statping-ng](https://github.com/statping-ng/statping-ng)** | Go + Vue.js | SQLite / MySQL / PostgreSQL | GPL-3.0 | ⭐ ~2.2k | — | Self-Host Enthusiast, Classic Ops |
 
-Star counts retrieved from the GitHub API on 2026-09-22; project links appear in the table above and in [References](#references).
+## Architectural Archetypes
 
-## Architecture Classification
-
-Understanding design philosophy matters more than feature checklists. A single-binary YAML checker is a different operational animal from a multi-container reliability platform — even when both claim "uptime + status page."
+Before evaluating features, it is critical to understand the four architectural patterns that govern open-source uptime tools:
 
 ```mermaid
-flowchart TB
-    subgraph "UI-First Homelab Monitor"
-        direction LR
-        UK["Uptime Kuma<br/>Node + SQLite<br/>Click-to-configure"]
+flowchart TD
+    subgraph S1["1. UI-First Containers"]
+        UK["Uptime Kuma<br/>(Node + SQLite)"]
+        SP["Statping-ng<br/>(Go + SQLite/PG)"]
     end
 
-    subgraph "Config-as-Code Probe Engine"
-        direction LR
-        GA["Gatus<br/>Go single binary<br/>YAML conditions"]
+    subgraph S2["2. Code-First & GitOps Engines"]
+        GA["Gatus<br/>(Go Single Binary)"]
+        KN["Kener<br/>(SvelteKit + Monitors-as-Code)"]
+        VG["Vigil<br/>(Rust Microservices)"]
     end
 
-    subgraph "Monitoring-as-Code + Status Platform"
-        direction LR
-        OS["OpenStatus<br/>Next.js + Turso + Tinybird<br/>YAML / Terraform / MCP"]
+    subgraph S3["3. Zero-Server / Edge Probers"]
+        UP["Upptime<br/>(GitHub Actions + Pages)"]
+        UF["UptimeFlare<br/>(Cloudflare Workers + KV)"]
     end
 
-    subgraph "Full Reliability Platform"
-        direction LR
-        OU["OneUptime<br/>PG + ClickHouse<br/>Uptime + Incidents + On-call + OTel"]
+    subgraph S4["4. Full Reliability & Enterprise Suites"]
+        OS["OpenStatus<br/>(Next.js + Turso + IaC/MCP)"]
+        OU["OneUptime<br/>(PG + ClickHouse + On-Call)"]
+        HB["Apache HertzBeat<br/>(Java Agentless + AI)"]
     end
 ```
 
-| Architecture class | Tool | What you operate | Typical footprint (approx.) |
-| ------------------ | ---- | ---------------- | --------------------------- |
-| **UI-first monitor** | Uptime Kuma | One container + persistent volume | Hundreds of MB RAM on a small VPS |
-| **Config-as-code probe** | Gatus | One binary/container + config file | Tens of MB RAM; lightest of the four |
-| **MaC status platform** | OpenStatus | Compose stack (dashboard, status pages, API, probes, analytics) | Multi-service; larger than Kuma/Gatus |
-| **Reliability platform** | OneUptime | Docker Compose or Helm (10+ services at full scope) | Multi-GB RAM for a full-stack deploy |
+| Archetype | Tools | How It Operates | Best Fit |
+| --------- | ----- | --------------- | -------- |
+| **UI-First Container** | Uptime Kuma, Statping-ng | Single container with embedded DB; configured via interactive web GUI | Homelabs, small business apps, operators who prefer visual setup |
+| **Code-First Engine** | Gatus, Kener, Vigil | Single binary or lightweight runtime reading YAML/JSON configurations | GitOps pipelines, microservices, developers who version checks in Git |
+| **Zero-Server Edge** | Upptime, UptimeFlare | Runs completely on third-party serverless infrastructure (GitHub or Cloudflare) | $0 budget, zero server maintenance, indie projects, open-source repos |
+| **Reliability Suite** | OpenStatus, OneUptime, HertzBeat | Multi-service platform integrating monitoring, incidents, on-call, or telemetry | Engineering teams replacing multi-tool commercial SaaS stacks |
+
+---
 
 ## Core Monitoring Capability Matrix
 
 <div style="overflow-x: auto;" markdown="1">
 
-| Criterion | Uptime Kuma | Gatus | OpenStatus | OneUptime |
-| --------- | ----------- | ----- | ---------- | --------- |
-| **HTTP(S) checks** | ✅ | ✅ | ✅ | ✅ |
-| **TCP / port checks** | ✅ | ✅ | ✅ | ✅ |
-| **DNS checks** | ✅ | ✅ | ✅ | ✅ |
-| **ICMP / ping** | ✅ | ✅ | ◐ | ✅ |
-| **Keyword / body assert** | ✅ keyword | ⭐ condition DSL | ✅ | ✅ |
-| **JSON path / query assert** | ✅ JSON query | ⭐ `[BODY].path` | ✅ | ✅ |
-| **SSL / cert expiry** | ✅ | ⭐ `[CERTIFICATE_EXPIRATION]` | ✅ | ✅ |
-| **gRPC** | — | ✅ | — | ◐ |
-| **WebSocket** | ✅ | ✅ | — | ◐ |
-| **SSH / STARTTLS / UDP / SCTP** | — | ⭐ | — | — |
-| **Docker container monitor** | ✅ | — | — | ✅ (infra agents) |
-| **Push / heartbeat monitors** | ✅ | ✅ external endpoints | ✅ | ✅ |
-| **Multi-step suites / flows** | ◐ | ⭐ suites (alpha) | ✅ flows | ✅ synthetics / workflows |
-| **Multi-region probes** | ◐ (manual multi-instance) | ◐ external push / remote (exp.) | ⭐ public regions on managed cloud; ◐ self-host = private locations you run | ⭐ global probes |
-| **Min practical interval** | 20s (UI); can go lower | Default 60s; configurable | Cloud tier limits; self-host lower | Configurable |
-| **Prometheus metrics export** | ◐ | ⭐ native | ◐ | ✅ (OTel / metrics stack) |
+| Capability | Uptime Kuma | Gatus | OpenStatus | OneUptime | Kener | Upptime | UptimeFlare | Vigil | HertzBeat | Statping-ng |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **HTTP(S) GET/POST** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **TCP Port Probes** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **DNS Resolution** | ✅ | ✅ | ✅ | ✅ | ✅ | ◐ script | — | — | ✅ | ◐ |
+| **ICMP / Ping** | ✅ | ✅ | ◐ | ✅ | ◐ | ◐ TCP ping | — | ✅ | ✅ | ✅ |
+| **Keyword / Body Assert** | ✅ keyword | ⭐ condition DSL | ✅ | ✅ | ✅ regex | ✅ response | ◐ text | ◐ text | ⭐ DSL | ✅ |
+| **JSON Path / Query** | ✅ JSON query | ⭐ `[BODY].path` | ✅ | ✅ | ✅ | ◐ jq script | ◐ | — | ⭐ JSON path | ◐ |
+| **SSL / TLS Expiry** | ✅ | ⭐ conditions | ✅ | ✅ | ✅ | ✅ | ◐ | ✅ | ✅ | ✅ |
+| **gRPC & WebSockets** | ◐ WS only | ⭐ gRPC + WS | — | ◐ WS only | — | — | — | — | ◐ gRPC | ◐ gRPC |
+| **Advanced Protocols (SSH/SNMP/JDBC)** | — | ⭐ SSH/STARTTLS | — | — | — | — | — | — | ⭐ JMX/SNMP/JDBC | — |
+| **Docker Container Health** | ✅ | — | — | ✅ agent | — | — | — | — | ✅ K8s/Docker | — |
+| **Multi-Step Synthetic Flows** | ◐ | ⭐ suites (alpha) | ✅ flows | ✅ workflows | ◐ chained | ◐ Actions | — | — | ◐ | — |
+| **Multi-Region Probes** | ◐ multi-instance | ◐ remote push | ⭐ cloud fleet / ◐ private | ⭐ global | ◐ workers | ◐ runners | ⭐ 310+ edge cities | ◐ reporters | ◐ cluster | — |
+| **Minimum Interval** | 20s | 10s–60s | Configurable | Configurable | 1s–60s | **5 minutes** | 1–2 minutes | 5s–30s | 10s | 30s |
+| **Prometheus Metrics Export** | ◐ scrape | ⭐ native `/metrics` | ◐ | ✅ OTel stack | ◐ API | — | — | ◐ prometheus | ⭐ native | ✅ `/metrics` |
 
 </div>
 
-**Takeaway:** Gatus wins on **protocol breadth and assertion expressiveness** (condition language over status, body, latency, certs). Uptime Kuma wins on **monitor-type variety for operators who click** (Docker, Steam, MQTT-adjacent patterns, keyword, JSON query). OpenStatus (managed cloud) and OneUptime win when **geographic probe diversity** matters more than exotic protocol coverage — self-hosted OpenStatus relies on private locations you operate.
+**Key Insights:**
+- **Best Assertion Power:** **Gatus** and **Apache HertzBeat** provide expressive condition languages evaluating status code, response time, SSL expiration, and nested JSON payloads simultaneously.
+- **Widest Protocol Coverage:** **Apache HertzBeat** excels beyond web endpoints, natively checking databases (MySQL/PostgreSQL), JMX, SNMP, and SSH.
+- **Geographic Edge Probing:** **UptimeFlare** automatically leverages Cloudflare's network of 310+ cities, making it an extraordinary free synthetic checker for global latency.
+
+---
 
 ## Status Page & Incident Communication Matrix
 
 <div style="overflow-x: auto;" markdown="1">
 
-| Criterion | Uptime Kuma | Gatus | OpenStatus | OneUptime |
-| --------- | ----------- | ----- | ---------- | --------- |
-| **Public status page** | ⭐ | ✅ (dashboard / status) | ⭐ | ⭐ |
-| **Custom domain mapping** | ✅ | ◐ (reverse proxy) | ✅ | ✅ |
-| **Password / private page** | ✅ | ◐ basic auth / OIDC gate | ✅ | ✅ |
-| **Maintenance windows** | ✅ | ✅ per-endpoint | ✅ | ✅ |
-| **Subscriber email / SMS** | ◐ RSS-focused | — | ✅ email + RSS + webhooks | ⭐ email + SMS |
-| **Manual incident posts** | ✅ | — | ✅ | ⭐ full incident workflow |
-| **Auto-open incidents from checks** | ◐ | — | ✅ | ⭐ |
-| **Branding / theming** | ✅ | ◐ functional UI | ⭐ | ⭐ |
-| **Multiple status pages** | ✅ | ◐ | ✅ | ✅ |
+| Capability | Uptime Kuma | Gatus | OpenStatus | OneUptime | Kener | Upptime | UptimeFlare | Vigil | HertzBeat | Statping-ng |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Public Status Page** | ⭐ Polished | ✅ Functional | ⭐ Modern | ⭐ Enterprise | ⭐ SvelteKit | ⭐ Pages | ✅ Interactive | ✅ Responsive | ◐ Dashboard | ✅ Classic |
+| **Custom Domain Mapping** | ✅ | ◐ proxy | ✅ | ✅ | ✅ | ✅ CNAME | ✅ Cloudflare | ◐ proxy | ◐ proxy | ✅ |
+| **Password / Private Page** | ✅ | ◐ basic auth | ✅ | ✅ | ✅ session | — public | ◐ CF access | ◐ basic auth | ✅ RBAC | ✅ |
+| **Incident Timeline Posts** | ✅ Manual | — | ✅ Rich text | ⭐ Full lifecycle | ✅ UI / API | ⭐ GitHub Issues | ✅ Issues | ✅ Events | ◐ Logs | ✅ Incidents |
+| **Auto-Open on Outage** | ◐ | — | ✅ | ⭐ Auto-declare | ✅ | ⭐ Auto Issue | ◐ | ◐ | ◐ | ✅ |
+| **Subscriber Email / SMS** | ◐ RSS | — | ✅ Email + RSS | ⭐ Email + SMS | ◐ RSS/Webhooks | ◐ Watch/RSS | ◐ Webhooks | ◐ Webhooks | ◐ Webhooks | ◐ Email |
+| **Maintenance Windows** | ✅ | ✅ per-endpoint | ✅ | ✅ | ✅ | ◐ workflow pause | ◐ | ◐ | ✅ | ◐ |
+| **Embeddable Status Badges** | ◐ | ✅ | ✅ | ✅ | ⭐ Live SVG/PNG | ⭐ shields.io | ◐ | ✅ | ◐ | ✅ |
+| **Design Customization** | Light/Dark CSS | Minimal CSS | ⭐ Tailwind theming | ⭐ Full branding | ⭐ Svelte themes | Markdown/CSS | Custom CSS | Clean HTML | Enterprise UI | Custom SCSS |
 
 </div>
 
-If your main goal is a **customer-facing status page with subscribers**, OpenStatus and OneUptime are in a different league from Gatus. Uptime Kuma sits in the middle — strong status pages for homelabs and small products, weaker on SMS subscriber fan-out and formal incident workflow.
+**Key Insights:**
+- **Most Modern Public Facing UI:** **OpenStatus** and **Kener** produce status pages that look and feel like premium modern SaaS products.
+- **Most Automated Incident Workflow:** **Upptime** uses GitHub Issues natively: an outage opens an issue with response time logs; resolution automatically closes the issue and tallies downtime.
+- **Enterprise Incident Communications:** **OneUptime** provides end-to-end subscriber fan-out across Email, SMS, webhooks, and private team dashboards.
+
+---
 
 ## Alerting & Reliability Operations Matrix
 
 <div style="overflow-x: auto;" markdown="1">
 
-| Criterion | Uptime Kuma | Gatus | OpenStatus | OneUptime |
-| --------- | ----------- | ----- | ---------- | --------- |
-| **Notification channel count** | ⭐ 90+ | ✅ 40+ providers | ✅ Slack/Discord/PagerDuty/email… | ⭐ SMS / call / push / Slack |
-| **Failure threshold / anti-flap** | ✅ | ⭐ `failure-threshold` / `success-threshold` | ✅ | ✅ |
-| **On-call schedules** | — | — | ◐ | ⭐ |
-| **Escalation policies** | — | — | ◐ | ⭐ |
-| **Incident declare → postmortem** | ◐ lightweight | — | ◐ | ⭐ |
-| **Workflow automation** | — | — | ◐ | ⭐ visual workflows |
-| **AI / agent assist on incidents** | — | — | ⭐ MCP for agents | ⭐ agentic auto-fix PR path |
-| **Team RBAC** | ◐ single-user oriented | ◐ auth gate | ✅ | ✅ (EE for SAML/OIDC/SCIM) |
+| Capability | Uptime Kuma | Gatus | OpenStatus | OneUptime | Kener | Upptime | UptimeFlare | Vigil | HertzBeat | Statping-ng |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Notification Channels** | ⭐ 90+ | ✅ 40+ | ✅ 15+ | ⭐ SMS/Call/Slack | ✅ Slack/Discord/Email | ✅ 10+ | ✅ 10+ Webhooks | ✅ Slack/Twilio/Telegram | ⭐ 20+ channels | ✅ 10+ |
+| **Anti-Flap / Thresholds** | ✅ | ⭐ Failure/Success counts | ✅ | ✅ | ✅ | ◐ Consecutive runs | ◐ | ✅ | ⭐ Smart threshold | ✅ |
+| **On-Call Schedules** | — | — | ◐ | ⭐ Native | — | — | — | — | — | — |
+| **Escalation Policies** | — | — | ◐ | ⭐ Native | — | — | — | — | ◐ | — |
+| **Automated Remediation** | — | — | ◐ | ⭐ Workflows | — | ⭐ GitHub Actions | — | — | ◐ Hooks | — |
+| **AI / Agent Integrations** | ◐ Community MCP | — | ⭐ Native MCP | ⭐ Native MCP + Auto-fix | — | ◐ Copilot Actions | — | — | ⭐ Native MCP + AI diag | — |
 
 </div>
 
-Uptime Kuma's notification breadth is unmatched for "tell me on Telegram/Discord/Gotify." OneUptime is the only candidate that honestly replaces **PagerDuty-class on-call** plus incident management in the same deploy. OpenStatus is the best fit when **AI agents and IaC** should own monitor lifecycle; Gatus is best when alerting is "page Slack/PagerDuty from YAML conditions" without an incident product.
+**Key Insights:**
+- **Notification Variety King:** **Uptime Kuma** supports over 90 notification services (Gotify, Telegram, Pushover, Discord, Matrix, Signal, Ntfy).
+- **PagerDuty Replacement:** **OneUptime** is the only candidate featuring genuine on-call rotation schedules, escalation policies, and SMS/phone alerting in the same package.
+- **AI Agent Native:** **OpenStatus**, **OneUptime**, and **Apache HertzBeat** provide native Model Context Protocol (MCP) servers allowing autonomous AI coding agents to query status, investigate errors, and update status pages programmatically.
+
+---
 
 ## Configuration, IaC & Developer Experience Matrix
 
 <div style="overflow-x: auto;" markdown="1">
 
-| Criterion | Uptime Kuma | Gatus | OpenStatus | OneUptime |
-| --------- | ----------- | ----- | ---------- | --------- |
-| **Primary config model** | Web UI → SQLite | ⭐ YAML files | ⭐ YAML + Terraform + CLI | UI + API + agents |
-| **Git-friendly / reviewable** | ◐ export/backup | ⭐ | ⭐ | ◐ |
-| **Hot reload config** | UI live | ✅ (with caveats) | ✅ apply from CI | ✅ |
-| **REST / typed API** | ✅ | ✅ | ⭐ | ⭐ |
-| **Terraform provider** | — | — | ⭐ | ◐ |
-| **MCP server for agents** | — | — | ⭐ | ◐ |
-| **CLI `--json` for agents** | — | ◐ | ⭐ | ◐ |
-| **Learning curve** | Lowest | Low (if you like YAML) | Medium | Highest |
+| Capability | Uptime Kuma | Gatus | OpenStatus | OneUptime | Kener | Upptime | UptimeFlare | Vigil | HertzBeat | Statping-ng |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Configuration Model** | Web UI → SQLite | ⭐ YAML files | ⭐ YAML/Terraform/CLI | UI + API | ⭐ JSON/YAML | ⭐ `.upptimerc.yml` | JavaScript/Worker | Config file (`.cfg`) | Web UI + YAML | Web UI + YAML |
+| **Git-Reviewable (GitOps)** | ◐ export | ⭐ Native Git | ⭐ Native Git | ◐ | ⭐ Native Git | ⭐ 100% Git-native | ◐ Git commit | ⭐ Git-native | ◐ | ◐ |
+| **Hot Reload Config** | Live UI | ✅ Live reload | ✅ CI sync | ✅ Live UI | ✅ Live reload | ✅ Commit trigger | ✅ Worker deploy | ✅ Service reload | ✅ | ◐ |
+| **Terraform Provider** | — | — | ⭐ Official | ◐ Community | — | — | — | — | — | — |
+| **Model Context Protocol (MCP)** | ◐ Community bridge | — | ⭐ Official (`/mcp`) | ⭐ Official (`/MCP`) | — | — | — | — | ⭐ Official (Native) | — |
+| **Typed REST/GraphQL API** | ✅ | ✅ | ⭐ Typed API | ⭐ Comprehensive | ✅ REST API | ◐ GitHub API | ◐ Cloudflare API | ✅ REST API | ⭐ OpenAPI | ✅ REST API |
+| **Learning Curve** | Lowest | Low | Medium | High | Low | Lowest | Low | Low | Medium | Low |
 
 </div>
 
-The real split is **clicks vs commits**. Uptime Kuma optimizes for interactive setup. Gatus and OpenStatus optimize for pull-requestable monitoring. OneUptime optimizes for productized reliability operations — configuration is secondary to workflow breadth.
+**Key Insights:**
+- **Model Context Protocol (MCP) Readiness:** **OpenStatus** (`https://api.openstatus.dev/mcp`), **OneUptime** (`/MCP`), and **Apache HertzBeat** offer official, first-party MCP servers designed for AI agents (Claude Desktop, Cursor, Antigravity) to query uptime telemetry and manage monitors safely. **Uptime Kuma** is supported via popular community bridges (`@davidfuchs/mcp-uptime-kuma`), while Gatus, Kener, Upptime, and Vigil rely on standard Git or REST automation.
+- **Infrastructure as Code:** **OpenStatus** is the clear winner for teams managing monitors alongside cloud infrastructure via its official Terraform provider and CLI.
+
+---
 
 ## Architecture & Operational Complexity Matrix
 
-> This table may be **more valuable than the feature table** — it explains what you actually have to operate at 2 AM.
+> What must you configure, patch, and monitor in production?
+{: .prompt-info }
 
 <div style="overflow-x: auto;" markdown="1">
 
-| Criterion | Uptime Kuma | Gatus | OpenStatus | OneUptime |
-| --------- | ----------- | ----- | ---------- | --------- |
-| **Install path** | `docker run` / Compose | Single binary or tiny image | `docker compose` / Coolify / Railway | Compose (`npm start`) or Helm |
-| **External dependencies** | None (SQLite volume) | Optional Postgres | libSQL + Tinybird Local (self-host) | PostgreSQL + ClickHouse (+ more) |
-| **HA / multi-node** | — (SQLite single-writer) | ◐ remote/external patterns | ✅ private locations + managed | ✅ K8s Helm |
-| **Backup story** | Volume backup of `/app/data` | Config in Git + optional DB | DB + analytics store | Platform backup scripts |
-| **Upgrade risk** | Low–medium (watch SQLite migrations) | Low | Medium (multi-service) | Medium–high (many services) |
-| **Team size to operate** | 1 | 1 | 1–2 | 2+ for full stack |
-| **Also does logs/traces/APM** | — | — | — | ⭐ |
+| Dimension | Uptime Kuma | Gatus | OpenStatus | OneUptime | Kener | Upptime | UptimeFlare | Vigil | HertzBeat | Statping-ng |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Runtime Stack** | Node.js + Vue | Go Binary | Next.js + Bun/Node | Node / TS Services | Node.js / SvelteKit | GitHub Actions | CF Workers | Rust Binary | Java / Spring Boot | Go Binary |
+| **External Database** | None (SQLite) | None (or PG) | Turso / Tinybird | PG + ClickHouse | None (SQLite) | None (Git) | Cloudflare KV | None (RAM) | H2 (or PG/MySQL) | None (or PG/MySQL) |
+| **Local RAM Footprint** | ~150–300 MB | ⭐ ~15–30 MB | ~250–500 MB | 2–4 GB+ | ~50–150 MB | **0 MB (Serverless)** | **0 MB (Serverless)** | ⭐ ~10–25 MB | ~500 MB – 1 GB | ~50–100 MB |
+| **High Availability (HA)** | — Single writer | ◐ Remote push | ✅ Distributed | ✅ K8s Helm | ◐ Multi-worker | ⭐ GitHub infra | ⭐ Cloudflare edge | ◐ Reporters | ✅ Cluster mode | ◐ |
+| **Server Required?** | Yes (VPS) | Yes (VPS/K8s) | Yes (or Cloud) | Yes (Cluster/VPS) | Yes (VPS) | **No** | **No** | Yes (VPS/Binary) | Yes (VPS/Cluster) | Yes (VPS) |
 
 </div>
 
-**Ops bottom line:** Treat OneUptime as a **platform deployment**, not an uptime sidecar. Treat Gatus as a **library-shaped binary** you can drop beside any service mesh. Uptime Kuma and OpenStatus sit between those extremes.
+**Key Insights:**
+- **Zero Server Overhead:** **Upptime** and **UptimeFlare** run completely serverless. You operate no Linux servers, run no Docker daemons, and manage no database migrations.
+- **Lightest Self-Hosted Footprint:** **Vigil** (Rust) and **Gatus** (Go) consume less than 30MB of RAM, making them ideal sidecars on tiny VPSs or embedded devices.
+- **Heaviest Infrastructure:** **OneUptime** requires planning for a production platform (PostgreSQL, ClickHouse, Redis, background workers).
 
-Install and ops details: see each project's docs linked under [References](#references).
+---
 
 ## Licensing / "Actually Free" Matrix
 
-> Don't score "open source = 10" because a GitHub repo exists. Score by: **how much uptime functionality can you run without purchasing a license?**
+> How much uptime functionality can you run without commercial enterprise boundaries?
+{: .prompt-info }
 
-| Tool | License | Fully usable self-hosted? | Watch-outs |
-| ---- | ------- | ------------------------- | ---------- |
-| **Uptime Kuma** | MIT | ✅ | No commercial fork drama; single-maintainer bus factor |
-| **Gatus** | Apache 2.0 | ✅ | Managed Gatus.io is optional paid; OSS is complete for core monitoring |
-| **OpenStatus** | AGPL-3.0 | ✅ | AGPL obligations if you offer it as a network service to third parties; enterprise features via vendor |
-| **OneUptime** | Apache 2.0 (+ EE directory) | ✅ Community image | SAML/OIDC/SCIM/audit dashboards live under Enterprise license in `ee/` |
+| Tool | License | Open Source Integrity | Watch-Outs / Commercial Limits |
+| ---- | ------- | --------------------- | ------------------------------ |
+| **Uptime Kuma** | MIT | 100% Free | Fully free; single maintainer project bus-factor |
+| **Gatus** | Apache 2.0 | 100% Free | Fully free core binary; optional paid Gatus.io cloud |
+| **OpenStatus** | AGPL-3.0 | Self-Hostable | AGPL obligations if reselling as a service; cloud tier for hosted probers |
+| **OneUptime** | Apache 2.0 (+ EE) | Community Edition Free | Advanced enterprise features (SAML/SCIM, audit logs) reside in `ee/` directory |
+| **Kener** | MIT | 100% Free | Permissive open source; free for commercial use |
+| **Upptime** | MIT | 100% Free | Free; subject to GitHub Actions runner minutes (2,000 min/mo private; unlimited public) |
+| **UptimeFlare** | MIT | 100% Free | Free; subject to Cloudflare Workers free quotas (100k requests/day) |
+| **Vigil** | MPL-2.0 | 100% Free | Free for internal and commercial deployments |
+| **Apache HertzBeat** | Apache 2.0 | 100% Free | Top-level Apache Foundation governance |
+| **Statping-ng** | GPL-3.0 | 100% Free | Open source community fork; slow commit cadence |
+
+---
 
 ## When to Use What
 
-| If you need... | Best fit | Runner-up |
-| -------------- | -------- | --------- |
-| **Fastest path from zero to monitors** | Uptime Kuma | Gatus |
-| **Beautiful UI + 90+ notification integrations** | Uptime Kuma | OneUptime |
-| **Every check in Git, reviewed like infra** | Gatus | OpenStatus |
-| **Condition DSL (latency, JSON, certs, multi-protocol)** | Gatus | OpenStatus |
-| **Tiny resource footprint (Pi / small VPS)** | Gatus | Uptime Kuma |
-| **Terraform + CLI + MCP monitoring-as-code** | OpenStatus | OneUptime |
-| **Branded public status page + email subscribers** | OpenStatus | OneUptime |
-| **Multi-region probes without running your own workers** | OpenStatus (cloud) / OneUptime | Gatus external endpoints |
-| **On-call schedules + escalations + postmortems** | OneUptime | — |
-| **Uptime + logs + traces + APM in one product** | OneUptime | See the companion observability platform comparison |
-| **Replace UptimeRobot only** | Uptime Kuma | Gatus |
-| **Replace UptimeRobot + Statuspage + PagerDuty** | OneUptime | OpenStatus (+ external on-call) |
+```
+                     Where do you want your monitors to run?
+                                     │
+           ┌─────────────────────────┴────────────────────────┐
+           ▼                                                  ▼
+    [ No Servers / $0 ]                                [ Self-Hosted / VPS ]
+           │                                                  │
+   ┌───────┴───────┐                                  ┌───────┴───────────────────┐
+   ▼               ▼                                  ▼                           ▼
+[ GitHub ]   [ Cloudflare ]                    [ How do you configure? ]   [ Full Reliability Suite ]
+   │               │                                  │                           │
+Upptime       UptimeFlare                     ┌───────┴───────┐               OneUptime
+                                              ▼               ▼
+                                         [ Web GUI ]     [ Git / Code ]
+                                              │               │
+                                        Uptime Kuma      ┌────┴────────────────┐
+                                                         ▼                     ▼
+                                                   [ Go / Rust ]       [ TypeScript / IaC ]
+                                                         │                     │
+                                                   Gatus / Vigil       OpenStatus / Kener
+```
+
+### Detailed Decision Guide
+
+- **Choose Uptime Kuma if:** You want a point-and-click UI that runs in one Docker container and can ping almost anything, sending alerts to Telegram, Discord, or Gotify with zero YAML editing.
+- **Choose Gatus if:** You want your monitors checked into Git alongside your Kubernetes manifests, evaluated with rich conditional assertions (latency, JSON body, certs), and exposed as native Prometheus metrics.
+- **Choose OpenStatus if:** You treat monitoring as code via Terraform, want an AI agent (via MCP) to manage your status endpoints, and need a gorgeous customer-facing status page.
+- **Choose OneUptime if:** You want to consolidate UptimeRobot, Statuspage.io, PagerDuty, and OpenTelemetry APM into a single self-hosted reliability platform.
+- **Choose Kener if:** You are building a developer product and want a beautiful, Tailwind-styled SvelteKit status page with live embeddable SVG badges and monitors declared in JSON/YAML.
+- **Choose Upptime if:** You want a completely free, zero-server status page for an open-source project or indie app running 100% inside a GitHub repository.
+- **Choose UptimeFlare if:** You want geo-distributed probing from 310+ cities without running multi-region servers, hosted entirely on Cloudflare's free edge tier.
+- **Choose Vigil if:** You run microservices and need an ultra-low-footprint Rust status server that uses less than 25MB of RAM.
+- **Choose Apache HertzBeat if:** You need an enterprise-grade agentless prober that monitors databases, JMX, SNMP, and SSH alongside HTTP endpoints.
+
+---
 
 ## Known Limitations & Gotchas
 
-| Tool | Key limitation | Practical impact |
+| Tool | Key Limitation | Practical Impact |
 | ---- | -------------- | ---------------- |
-| **Uptime Kuma** | SQLite single-node; config lives in DB not Git; not multi-region by design | Fine for one VPS; weak for geo-distributed probing and GitOps review |
-| **Gatus** | Status page is functional, not a marketing-grade Statuspage.io clone; no subscriber fan-out; limited HA story | Great internal health board; weak customer incident communication |
-| **OpenStatus** | Heavier self-host stack than Kuma/Gatus; AGPL; public multi-region probes are managed-cloud; self-host uses private locations | Budget time for Compose/Coolify; legal review if you resell monitoring; plan your own probe geography |
-| **OneUptime** | Full stack is resource-heavy (multi-service); EE boundary for SSO/SCIM | Overkill if you only need HTTP pings; plan RAM/CPU like an observability platform |
+| **Uptime Kuma** | SQLite single-node; config stored in DB; no native multi-region | Hard to scale across multiple probe locations; not pull-request friendly |
+| **Gatus** | Status page is functional rather than marketing-grade | Great for internal team engineering boards; less suited for consumer SaaS branding |
+| **OpenStatus** | Compose stack is heavier than Kuma/Gatus; AGPL licensing | Requires orchestrating multiple services (Next.js, Turso, Tinybird); legal review if reselling |
+| **OneUptime** | Significant compute footprint (PostgreSQL + ClickHouse + workers) | Overkill if you only need simple HTTP checks; budget RAM like an APM tool |
+| **Kener** | Smaller plugin community than Uptime Kuma | Focuses cleanly on core HTTP/TCP checks rather than niche IoT protocols |
+| **Upptime** | 5-minute minimum interval; dependent on GitHub Actions uptime | Cannot trigger sub-minute outage alerts; Actions queue delays can skew latency graphs |
+| **UptimeFlare** | Bound to Cloudflare Workers execution limits | Subject to Cloudflare free tier quotas; advanced custom scripts require Worker adjustments |
+| **Vigil** | Minimalist status interface; manual alerting configuration | Prioritizes raw speed and microservices over rich subscriber management workflows |
+| **Apache HertzBeat** | Java/JVM memory baseline | Requires 500MB+ RAM; heavier initial setup than Go/Rust single binaries |
+| **Statping-ng** | Community maintenance cadence has slowed | Evaluation needed before deploying in critical production environments |
 
-> These are known ceilings, not dealbreakers. Match friction to your team's strengths: UI operators → Kuma; YAML/GitOps → Gatus/OpenStatus; reliability org → OneUptime.
+---
 
 ## FAQ
 
-### What is the best open-source alternative to UptimeRobot?
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is the best zero-cost, zero-maintenance uptime tool?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Upptime (using GitHub Actions) or UptimeFlare (using Cloudflare Workers). Both run entirely on free cloud tiers without requiring a Linux server, Docker container, or database."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Which uptime monitoring tools support Model Context Protocol (MCP) for AI agents?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "OpenStatus, OneUptime, and Apache HertzBeat provide official native MCP servers for AI agents to query uptime status and declare incidents. Uptime Kuma is supported via popular community MCP bridges."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the difference between Gatus and Prometheus Blackbox Exporter?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Blackbox Exporter is a headless metric exporter that exposes metrics for Prometheus and Alertmanager. Gatus is a self-contained application with a built-in dashboard, condition evaluations, and direct alerts."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use Prometheus Blackbox Exporter with status page tools?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Teams frequently run Prometheus Blackbox Exporter internally for high-frequency SLO alerts, and pair it with a status-first tool like OpenStatus, Kener, or Uptime Kuma for customer-facing communication."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Uptime Kuma vs. Kener: Which should I pick?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Choose Uptime Kuma if you want 90+ notification integrations and point-and-click UI configuration. Choose Kener if you want modern web design (SvelteKit + Tailwind), monitors declared as code in Git, and live embeddable SVG status badges."
+      }
+    }
+  ]
+}
+</script>
 
-For most individuals and small teams, **Uptime Kuma** — one container, rich monitor types, and notification coverage closest to UptimeRobot's "just tell me when it's down" experience. If you want checks as code instead of clicks, choose **Gatus**.
+### What is the best zero-cost, zero-maintenance uptime tool?
+**Upptime** (GitHub Actions) or **UptimeFlare** (Cloudflare Workers). Both run entirely on free cloud tiers without managing a Linux server, Docker container, or database.
 
-### Uptime Kuma vs Gatus — which should I pick?
+### Which uptime monitoring tools support Model Context Protocol (MCP) for AI agents?
+- **OpenStatus** provides an official, cloud/self-hosted MCP server (`https://api.openstatus.dev/mcp`) enabling LLM agents (Claude Desktop, Cursor, Antigravity) to inspect monitor latency, declare status incidents, and schedule maintenance with built-in audit logging and safety gates.
+- **OneUptime** includes an official native MCP server in its repository (`/MCP`), allowing AI coding assistants to correlate alerts, inspect traces, and suggest postmortems.
+- **Apache HertzBeat** features an official native MCP server for agentic metric querying and automated anomaly diagnosis.
+- **Uptime Kuma** can be connected to AI agents using popular community MCP servers (`@davidfuchs/mcp-uptime-kuma` or PyPI `uptime-kuma-mcp-server`) via its Socket.IO API.
+- **Gatus, Kener, Upptime, UptimeFlare, and Vigil** currently do not provide dedicated MCP servers; automation relies on Git commits, GitHub Actions, or REST APIs.
 
-Choose **Uptime Kuma** if you want a GUI, status pages, and maximum notification integrations. Choose **Gatus** if monitors must live in Git, you need JSON/cert/latency condition expressions, or you care about the lightest possible footprint. Feature lists matter less than that workflow split.
+### What is the difference between Gatus and Prometheus Blackbox Exporter?
+**Blackbox Exporter** is a headless metric scraper: it probes endpoints and exposes numbers for Prometheus to scrape and Alertmanager to route. **Gatus** is a complete, self-contained application: it probes endpoints, evaluates condition expressions, displays its own status board, and fires alerts directly (while still optionally exporting Prometheus metrics).
 
-### Is OpenStatus just another status page?
+### Can I use Prometheus Blackbox Exporter with these tools?
+Yes! Many high-scale engineering organizations run **Prometheus Blackbox Exporter** internally for microservice SLO alerts, and pair it with a public status tool like **OpenStatus**, **Kener**, or **Uptime Kuma** for external customer communication.
 
-No. OpenStatus combines **uptime / API monitoring**, **status pages**, and **monitoring-as-code** (YAML, Terraform, CLI, MCP). It is closer to "Better Stack / Checkly-shaped OSS" than to a static status-page generator.
+### Uptime Kuma vs. Kener: Which should I pick?
+Pick **Uptime Kuma** if you prioritize 90+ notification integrations, interactive UI configuration, and niche monitor types (Steam, Docker, DNS). Pick **Kener** if you prioritize modern web design (SvelteKit + Tailwind), monitors declared as code in Git, and live embeddable SVG status badges.
 
-### When is OneUptime worth the operational cost?
+---
 
-When you are stitching together **uptime + status page + on-call + incident management (+ optionally OTel APM)**. If you only need HTTP checks, OneUptime is heavier than Uptime Kuma or Gatus. We also evaluate OneUptime in the broader observability platform comparison linked in the intro.
+## Honorable Mentions & Specialized Alternatives
 
-### Can I run multi-region monitoring with these tools?
+- **[Cachet](https://github.com/cachethq/cachet)** (PHP/Laravel) — The veteran open-source status page system. A major v3 rewrite modernizes the platform for enterprise incident communication.
+- **[cState](https://github.com/cstate/cstate)** (Hugo/Jamstack) — Ultra-fast, minimal static status page generator deployed to Netlify or GitHub Pages without server-side compute.
+- **[Healthchecks](https://github.com/healthchecks/healthchecks)** (Python/Django) — The premier open-source "dead-man's snitch" for monitoring cron jobs, backups, and scheduled tasks.
+- **[Statusnook](https://github.com/goksan/statusnook)** (Go/Docker) — 1-click deployable status page solution for lightweight infrastructure.
 
-**OneUptime** productizes global probes. **OpenStatus** offers public multi-region locations on its managed cloud; a self-hosted OpenStatus deploy uses **private locations** (probes you run yourself), not the vendor’s public region fleet. **Gatus** supports pushing results from remote workers into a central instance (external endpoints / experimental remote patterns). **Uptime Kuma** typically means running separate instances or relying on an external checker to watch your watcher.
-
-### Does Gatus replace Prometheus Alertmanager?
-
-No — and it is not trying to. Gatus answers *synthetic* "is the dependency up?" independent of traffic. Prometheus/Alertmanager answer *telemetry-based* "are error rates / latencies anomalous?" Most production teams eventually want both. See our [open-source metrics tools comparison]({% post_url 2026-09-05-open-source-metrics-tools-compared %}) for the TSDB side.
-
-### Is AGPL a problem for OpenStatus self-hosting?
-
-For **internal** self-hosting (your team monitoring your services), AGPL typically does not force you to publish private modifications. If you **offer OpenStatus as a service to external customers**, AGPL obligations apply — consult counsel. MIT/Apache tools (Kuma, Gatus, OneUptime Community) are simpler for vendors embedding monitoring.
-
-## Honorable Mentions
-
-### Healthchecks
-
-[Healthchecks](https://github.com/healthchecks/healthchecks) (BSD-3, Python/Django, ⭐ ~10k+) — Best-in-class **cron / job heartbeat** monitoring (expect a ping by time T, else alert). Complementary to website uptime tools, not a substitute for HTTP synthetic monitoring.
-
-### Upptime
-
-[Upptime](https://github.com/upptime/upptime) — GitHub Actions–powered uptime checks that open Issues and publish a Pages status site. Excellent zero-infra option; constrained by Actions schedules and GitHub as the control plane.
-
-### Statping-ng
-
-[Statping-ng](https://github.com/statping-ng/statping-ng) — Maintained fork of Statping with UI + API. Smaller community than Kuma/Gatus; evaluate maintenance cadence before adopting.
-
-### Cachet / CachetHQ
-
-Historically popular status-page software. Treat carefully for new greenfield deployments — monitoring depth and maintenance trajectory lag the four primary candidates above.
-
-### Better Stack / Checkly / UptimeRobot (commercial)
-
-Useful baselines for feature expectations (multi-region, scripting, status subscribers). Pricing and lock-in are covered in the paid observability platforms pricing guide linked in the intro.
+---
 
 ## How This Fits the Observability Series
 
+> ### 🧭 The Complete Observability Guide & Comparison Series
+>
 > - **Unified Platforms:** [Open-Source Observability Platforms Compared]({% post_url 2026-09-07-open-source-observability-platform-comparison %})
-> - **Hands-On Testing:** [Benchmarking Open-Source Observability]({% post_url 2026-09-02-open-source-observability-benchmark %})
-> - **Cost & Licensing:** [Paid Observability Platforms & Enterprise Pricing Comparison]({% post_url 2026-09-01-paid-observability-platforms-pricing-comparison %})
-> - **Signal Deep Dives:**
->   - **Logging:** [Open-Source Log Management Tools Compared]({% post_url 2026-09-06-open-source-log-management-tools-compared %})
->   - **Metrics:** [Open-Source Metrics Tools Compared]({% post_url 2026-09-05-open-source-metrics-tools-compared %})
->   - **Tracing:** [Open-Source Distributed Tracing Tools Compared]({% post_url 2026-09-04-open-source-distributed-tracing-tools-compared %})
->   - **Profiling:** [Open-Source Continuous Profiling Tools Compared]({% post_url 2026-09-03-open-source-continuous-profiling-tools-compared %})
-> - **Uptime / Status:** Open-Source Uptime Monitoring Tools Compared
+> - **Hands-On Testing:** [Benchmarking Open-Source Observability: Real Hardware & Ingestion Numbers]({% post_url 2026-09-02-open-source-observability-benchmark %})
+> - **Cost & Licensing Analysis:** [Paid Observability Platforms & Enterprise Pricing Comparison]({% post_url 2026-09-01-paid-observability-platforms-pricing-comparison %})
+> - **Deep-Dive Specialized Signal Guides:**
+>   - **Logging:** [Open-Source Log Management Tools Compared (Loki, VictoriaLogs, Parseable, CLP)]({% post_url 2026-09-06-open-source-log-management-tools-compared %})
+>   - **Metrics & TSDBs:** [Open-Source Metrics Tools & Time-Series DBs Compared]({% post_url 2026-09-05-open-source-metrics-tools-compared %})
+>   - **Distributed Tracing:** [Open-Source Distributed Tracing Tools Compared (Jaeger, Tempo, Zipkin)]({% post_url 2026-09-04-open-source-distributed-tracing-tools-compared %})
+>   - **Continuous Profiling:** [Open-Source Continuous Profiling Tools Compared (Pyroscope, Parca, Perforator)]({% post_url 2026-09-03-open-source-continuous-profiling-tools-compared %})
+>   - **Uptime & Status:** [10 Best Open-Source Uptime Monitoring Tools Compared](/posts/open-source-uptime-monitoring-tools-compared/) *(This Guide)*
+> - **LLM Observability:** [Open-Source LLM Observability Tools Compared](/posts/open-source-llm-observability-tools-compared/) *(Upcoming)*
+{: .prompt-info }
+
+---
 
 ## References
 
-### Official sites & docs
+### Official Projects & Repositories
 
-- [Uptime Kuma site](https://uptime.kuma.pet) · [How to Install (wiki)](https://github.com/louislam/uptime-kuma/wiki/%F0%9F%94%A7-How-to-Install)
-- [Gatus site](https://gatus.io/) · GitHub repo linked in [Candidate Tools](#candidate-tools-evaluated)
-- [OpenStatus site](https://openstatus.dev) · [OpenStatus documentation](https://docs.openstatus.dev/) · [Probes & locations](https://www.openstatus.dev/docs/concept/probes-and-locations)
-- [OneUptime site](https://oneuptime.com) · [OneUptime documentation](https://oneuptime.com/docs)
+- **Uptime Kuma:** [Website](https://uptime.kuma.pet){:target="_blank" rel="noopener"} · [GitHub](https://github.com/louislam/uptime-kuma){:target="_blank" rel="noopener"}
+- **Gatus:** [Website](https://gatus.io/){:target="_blank" rel="noopener"} · [GitHub](https://github.com/TwiN/gatus){:target="_blank" rel="noopener"}
+- **OpenStatus:** [Website](https://openstatus.dev){:target="_blank" rel="noopener"} · [GitHub](https://github.com/openstatusHQ/openstatus){:target="_blank" rel="noopener"} · [Docs](https://docs.openstatus.dev/){:target="_blank" rel="noopener"}
+- **OneUptime:** [Website](https://oneuptime.com){:target="_blank" rel="noopener"} · [GitHub](https://github.com/OneUptime/oneuptime){:target="_blank" rel="noopener"} · [Docs](https://oneuptime.com/docs){:target="_blank" rel="noopener"}
+- **Kener:** [Website](https://kener.ing){:target="_blank" rel="noopener"} · [GitHub](https://github.com/rajnandan1/kener){:target="_blank" rel="noopener"} · [Docs](https://kener.ing/docs){:target="_blank" rel="noopener"}
+- **Upptime:** [Website](https://upptime.js.org){:target="_blank" rel="noopener"} · [GitHub](https://github.com/upptime/upptime){:target="_blank" rel="noopener"}
+- **UptimeFlare:** [GitHub](https://github.com/lyc8503/UptimeFlare){:target="_blank" rel="noopener"}
+- **Vigil:** [GitHub](https://github.com/valeriansaliou/vigil){:target="_blank" rel="noopener"}
+- **Apache HertzBeat:** [Website](https://hertzbeat.apache.org){:target="_blank" rel="noopener"} · [GitHub](https://github.com/apache/hertzbeat){:target="_blank" rel="noopener"}
+- **Statping-ng:** [GitHub](https://github.com/statping-ng/statping-ng){:target="_blank" rel="noopener"}
+- **Prometheus Blackbox Exporter:** [GitHub](https://github.com/prometheus/blackbox_exporter){:target="_blank" rel="noopener"}
+- **Healthchecks:** [Website](https://healthchecks.io){:target="_blank" rel="noopener"} · [GitHub](https://github.com/healthchecks/healthchecks){:target="_blank" rel="noopener"}
+- **Cachet:** [Website](https://cachethq.com){:target="_blank" rel="noopener"} · [GitHub](https://github.com/cachethq/cachet){:target="_blank" rel="noopener"}
+- **cState:** [GitHub](https://github.com/cstate/cstate){:target="_blank" rel="noopener"}
 
 ---
 
