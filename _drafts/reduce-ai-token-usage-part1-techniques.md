@@ -8,6 +8,7 @@ tags: [reduce-token-usage, ai-coding-agents, context-engineering, token-optimiza
 mermaid: true
 image:
   path: assets/img/posts/20260928/reduce-ai-token-usage-part1-techniques.webp
+  lqip: data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQBACdASoUAAsAPzmEuVOvKKWisAgB4CcJYgCdMoADS0Mvpgw3Z1FYAAD+2lc318KZ6x0Io+obKDxaiLgnLdc8Ushuad8UKm5x2LdaAAA=
   alt: Visual representation of token reduction pipeline in AI coding agents
 ---
 
@@ -16,10 +17,11 @@ Autonomous AI coding agents—including **Claude Code, Gemini CLI, Cursor, Kiro,
 Across all agent frameworks, the biggest savings do **not** come from shaving five words off your prompt. They come from systematically controlling **what gets sent to the model on every single agent turn** — the discipline increasingly known as **context engineering**.
 
 This article is **Part 1** of our 2-part guide to agent efficiency:
+
 * **Part 1 (This Guide):** *The Techniques* — 25 practical, tool-agnostic methods to eliminate context bloat.
 * **[Part 2: The Tools]({% post_url 2026-09-28-reduce-ai-token-usage-part2-tools %})** — A standardized catalog of open-source tools (RTK, Headroom, LeanCTX, Graphify, Serena, etc.).
 
-### TL;DR
+## Quick Summary (TL;DR)
 
 * Optimize **what enters context each turn**, not prompt word count.
 * Highest leverage: ignore rules, small `AGENTS.md`, fresh sessions, model routing, MCP pruning.
@@ -30,6 +32,9 @@ This article is **Part 1** of our 2-part guide to agent efficiency:
 ---
 
 ## The Agent Token Loop Problem
+
+> **What is context engineering in AI coding agents?**
+> **Context engineering** is the practice of controlling what data enters an AI agent's context window on each execution turn. Unlike standard one-off chat prompts, autonomous coding agents run in an iterative feedback loop where every command output, full file read, and MCP tool schema is re-sent on every subsequent turn, causing cumulative billed tokens to grow roughly with the square of session length.
 
 In standard chat prompts, cost is roughly static per reply. In an autonomous agent loop, **cumulative billed tokens grow roughly with the square of session length** (each turn re-sends growing history), so per-turn cost rises linearly while total session cost compounds:
 
@@ -46,16 +51,15 @@ graph TD
 Every command output, full file read, and MCP JSON schema remains in working memory for all subsequent turns. An agent reading a 1,000-line file on Turn 2 pays for those 1,000 lines on Turns 3, 4, 5... all the way to Turn 30.
 
 > **A note on tokenizers:** Token counts are not universal. Claude (BPE), GPT (tiktoken), and Gemini (SentencePiece) use different tokenizers — the same source file can be 1,200 tokens in one model and 1,400 in another. The techniques in this guide apply regardless of tokenizer, but when comparing costs across providers, measure in dollars rather than raw token counts.
-
+>
 > **When NOT to optimize:** Context reduction has diminishing returns. Starving a model of relevant context causes hallucinations, wrong assumptions, and wasted retry loops that burn *more* tokens than reading the file would have. The goal is eliminating *irrelevant* context (build artifacts, verbose logs, unchanged files), not withholding information the model actually needs to do its job. If you find the agent asking the same question repeatedly or making wrong assumptions, you've likely over-pruned.
+{: .prompt-warning }
 
 ---
 
 ## The Token Optimization Hierarchy
 
 Prioritize token reduction in this order for maximum cost savings without hurting code quality. Savings ranges below are **illustrative observations from practitioner reports and vendor cache discounts**—not controlled benchmarks. Your results vary with repo size, agent, and workload:
-
-<div style="overflow-x: auto;" markdown="1">
 
 | Rank | Strategy | Potential Savings | Applies To | Core Impact |
 | :--- | :--- | :--- | :--- | :--- |
@@ -70,8 +74,6 @@ Prioritize token reduction in this order for maximum cost savings without hurtin
 | **9** | **Targeted Session Compaction** | ⭐⭐⭐⭐ (40–70%) | Long sessions | Summarizes history at natural task milestones |
 | **10** | **Terse Output Formatting** | ⭐⭐⭐⭐ (60–80% output) | All Agents | Eliminates expensive conversational pleasantries |
 
-</div>
-
 ---
 
 ## 1. Context Hygiene & Ignore Files
@@ -84,6 +86,7 @@ Agent ──> Scans Repo ──> Reads node_modules/, dist/, coverage/, .terrafo
 ```
 
 ### Aggressive Exclusions
+
 Configure your tool-specific ignore files (`.gitignore`, `.aiignore`, `.clineignore`, `.cursorignore`, `.geminiignore`):
 
 ```gitignore
@@ -111,13 +114,15 @@ generated/
 
 System instructions—such as `AGENTS.md`, `CLAUDE.md`, `GEMINI.md`, or `.cursorrules`—are part of the system prompt injected on **every single turn**.
 
-### Bad (800+ lines of static docs):
+### Bad (800+ lines of static docs)
+
 ```markdown
 # Company Architecture
 Our system was created in 2019 using a microservices pattern... [800 lines of history, standards, and tutorials]
 ```
 
-### Good (Compact, actionable rules ~50 lines):
+### Good (Compact, actionable rules ~50 lines)
+
 ```markdown
 # Project: Go 1.24 + Terraform
 
@@ -236,12 +241,13 @@ Discard:
 ```
 
 > **Prompt Caching Note:** Compaction rewrites the conversation prefix, which temporarily creates a cache miss. Compact at natural task milestones, not after every turn.
-
+>
 > **Advanced: Autonomous Context Compression.** Rather than compacting at a fixed token threshold (which can interrupt the agent mid-subtask and corrupt in-flight reasoning), emerging approaches let the agent *itself* decide when to compress — typically between tasks or before consuming large inputs. This avoids the failure mode where reactive-at-limit compaction breaks reasoning continuity. Tools like [context-mode](https://github.com/mksglu/context-mode) implement this by sandboxing bulky data outside the context window and retrieving only relevant fragments on demand.
+{: .prompt-info }
 
 ---
 
-## 8. Model Routing & Workload Tiering
+## 8. Model Routing: Cheap vs Frontier Models
 
 Never use the most expensive frontier model for mechanical or exploratory tasks:
 
@@ -299,16 +305,18 @@ This is still an emerging pattern — not all agent frameworks support it yet. C
 
 ---
 
-## 12. Prompt Caching & Prefix Stability
+## 12. Prompt Caching & Prefix Stability (Claude, Gemini, OpenAI)
 
 Modern APIs (Anthropic, Google Gemini, OpenAI) offer **Prompt Caching** (up to [90% discount on cached tokens](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching)).
 
 Note that caching behavior differs across providers (verify against current docs—APIs change):
+
 * **Anthropic:** Prompt caching is **opt-in** via `cache_control`—either a top-level automatic breakpoint or explicit per-block breakpoints. Matching prefixes then reuse the cache. ([Docs](https://docs.anthropic.com/en/docs/build-with-claude/prompt-caching))
 * **OpenAI:** Prompt caching is **enabled by default** for supported models when prefixes meet the minimum cacheable length; optional explicit breakpoints refine what is reused. ([Docs](https://platform.openai.com/docs/guides/prompt-caching))
 * **Google Gemini:** Implicit caching can discount repeated prefixes; Vertex AI / Gemini also support **explicit** context caching with configurable TTL. ([Docs](https://ai.google.dev/gemini-api/docs/caching))
 
 To maintain high cache hit rates:
+
 1. **Never Put Timestamps or Random UUIDs in System Prompts:** Any dynamic variable at the top of the prompt invalidates the entire cache downstream.
 2. **Order Static Blocks First:** Place system instructions, MCP schemas, and project specs before the dynamic conversation history.
 3. **Avoid Mid-Session Config Changes:** Reconnecting MCP servers or switching model flags mid-chat invalidates the cache prefix.
@@ -375,6 +383,7 @@ Generate maps with `tree -L 3` (respecting ignore rules), language-aware indexer
 ## 16. Semantic Code Indexing & AST Retrieval
 
 For large codebases, use AST-based knowledge graphs (**Graphify**, covered in [Part 2]({% post_url 2026-09-28-reduce-ai-token-usage-part2-tools %})) or LSP symbol indexes (**Serena**, also Part 2):
+
 * **AST Graphs:** Answer questions like *"Where does UserService interact with billing?"* in 1 graph query (often ~hundreds of tokens) instead of reading many files (often tens of thousands of tokens). Exact ratios are illustrative.
 * **LSP Indexing:** Queries exact function signatures and callers without reading whole file bodies.
 
@@ -408,7 +417,8 @@ Autonomous agents can get stuck in endless retry loops:
 Edit ──> Test Fails ──> Edit ──> Test Fails ──> (Repeats 15 times = 300k tokens burned)
 ```
 
-### Prevention Rules:
+### Prevention Rules
+
 * *"If the same approach fails twice, stop and explain the blocker to the user."*
 * *"Do not retry an identical command unless inputs have changed."*
 * *"Cap debugging iterations at 3 attempts before asking for guidance."*
@@ -455,6 +465,7 @@ Done.
 ## 21. Skipping Planning Overhead on Trivial Edits
 
 Do not demand multi-step implementation plans for simple 5-line fixes:
+
 * **Complex Task:** *"Explore codebase, create implementation plan, request review, then execute."*
 * **Trivial Task:** *"Fix typo in README directly with targeted edit."*
 
@@ -467,6 +478,7 @@ Planning modes spawn extra turns, tool calls, and sometimes subagents (§17). Re
 ## 22. Separating Exploration from Implementation
 
 For large refactors, split the workflow into two distinct user turns:
+
 1. **Turn 1 (Exploration):** *"Search only. Locate relevant files and summarize the root cause. Do NOT modify any code."*
 2. **Turn 2 (Execution):** *"Implement the agreed fix on `src/auth.ts`."*
 
@@ -479,6 +491,7 @@ This prevents the agent from generating speculative code edits while it is still
 ## 23. Local Model Offloading (Ollama / LM Studio)
 
 Use local models (Qwen Coder, Llama, DeepSeek — latest available) for routine offline workloads:
+
 * Generating vector embeddings for local codebase search.
 * Summarizing test run logs.
 * Formatting git commit messages and PR descriptions.
@@ -500,6 +513,7 @@ Efficiency = Total Tokens Billed / Successful Tasks Completed
 Without a denominator (successful tasks), raw token charts reward under-scoped work. Log tokens alongside whether the PR landed or the bug closed.
 
 Use built-in agent commands and (optionally) tool-side meters from [Part 2]({% post_url 2026-09-28-reduce-ai-token-usage-part2-tools %}):
+
 * **Claude Code:** `/usage`
 * **Gemini CLI:** `/stats`
 * **Dollar rollups:** `npx ccusage` (or your provider's usage dashboard)
@@ -559,63 +573,6 @@ Cached tokens are significantly discounted versus uncached input (often on the o
 
 **How do I measure my current token consumption?**
 Use `/usage` in Claude Code, `/stats` in Gemini CLI, or `npx ccusage` for detailed dollar tracking. If you install CLI filtering tools such as RTK (Part 2), their savings commands (e.g. `rtk gain`) show filter-specific impact.
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "How much can I realistically save on token costs?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Results vary by repo and agent. Technique-only changes (ignore rules, smaller instruction files, fresh sessions, local shell filtering, terse outputs) often yield meaningful savings. Larger reductions usually require tooling such as CLI filters, code intelligence, or proxy stacks. Measure tokens per successful task on your own workload."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does reducing context hurt code quality?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Removing irrelevant context (build artifacts, verbose logs, unchanged files) improves quality — models suffer less attention degradation. However, aggressively withholding relevant context causes hallucinations. The goal is precision, not starvation."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do these techniques work with all AI coding agents?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "The core principles (context hygiene, progressive disclosure, session resets, terse output) apply universally. Specific implementations vary across agent frameworks."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the single highest-impact change I can make today?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Configure your ignore files (.aiignore, .cursorignore, .geminiignore) to exclude node_modules/, dist/, .terraform/, and other generated directories."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is prompt caching free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Cached tokens are significantly discounted versus uncached input (check current provider price cards), but not free. The key benefit is cost reduction on repeated prefixes."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I measure my current token consumption?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Use /usage in Claude Code, /stats in Gemini CLI, or npx ccusage for detailed dollar tracking. Optional CLI filtering tools can report filter-specific savings when installed."
-      }
-    }
-  ]
-}
-</script>
 
 ---
 

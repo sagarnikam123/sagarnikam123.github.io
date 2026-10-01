@@ -12,7 +12,7 @@ image:
   alt: Open-source tools that reduce AI coding agent token usage across shell, MCP, and proxy layers
 ---
 
-In **[Part 1: The Techniques]({% post_url 2026-09-28-reduce-ai-token-usage-part1-techniques %})**, we explored the architectural mechanisms of agent token bloat and the 25 core optimization principles. 
+In **[Part 1: The Techniques]({% post_url 2026-09-28-reduce-ai-token-usage-part1-techniques %})**, we explored the architectural mechanisms of agent token bloat and the 25 core optimization principles.
 
 In this article (**Part 2**), we move from principles to software. If you want to **reduce token usage** with minimal effort, these are the open-source tools that do it for you. We evaluate **18 open-source tools, MCP middleware, CLI proxies, and context compressors** engineered specifically to cut token consumption across every layer of the agent stack.
 
@@ -36,6 +36,9 @@ In this article (**Part 2**), we move from principles to software. If you want t
 ---
 
 ## The Agent Optimization Stack
+
+> **What are token reduction tools for AI coding agents?**
+> **Token reduction tools** are open-source utilities, CLI hooks, MCP middleware, and local proxies designed to compress, filter, or cache terminal outputs, file reads, and prompt context before they reach an LLM, reducing API billing and latency by 60–90%.
 
 Rather than installing ten overlapping tools, think of token optimization as a multi-tier pipeline. Each layer addresses a different point in the [Model Context Protocol (MCP)](https://modelcontextprotocol.io/) and agent lifecycle:
 
@@ -83,8 +86,6 @@ Peers marked **“pick ONE”** are alternatives, not a shopping list—details 
 
 Use this matrix to quickly evaluate tools by layer, mechanism, target use case, and claimed savings. Click any tool name to jump to its fast-decision profile.
 
-<div style="overflow-x: auto;" markdown="1">
-
 | Tool | ★ Stars | Layer | How It Cuts Tokens | Best For (When to Use) | Claimed Savings |
 | :--- | ---: | :--- | :--- | :--- | :--- |
 | **[Ponytail](#1-ponytail--yagni-code-rules)** | 147k | Code Rules | 7-step ladder forces stdlib/native reuse over new code | Preventing agent code bloat with zero runtime | ~20–30% (code) |
@@ -105,8 +106,6 @@ Use this matrix to quickly evaluate tools by layer, mechanism, target use case, 
 | **[Token Savior](#16-token-savior--pointer-navigation--memory)** | 1.2k | Navigation & Memory | Indexes symbols for pointer navigation + SQLite/vector memory | Multi-session memory and pointer-based navigation | Up to 97% injected tokens |
 | **[TokenSave](#17-tokensave--rust-semantic-code-graph)** | 650 | Rust Code Graph | Pre-indexed semantic graph in Rust for symbol/caller lookups | Fast, lightweight symbol graphing without Python/LSP | 60–90% file read tokens |
 | **[Token Optimizer MCP](#18-token-optimizer-mcp--smart-tool-caching)** | 537 | Tool Caching | Content-hash caching and compression for repeated MCP calls | Workflows with redundant/repetitive tool invocations | >95% on repeated calls |
-
-</div>
 
 ---
 
@@ -420,8 +419,6 @@ To verify your savings after installing these tools, use these monitoring utilit
 
 ## Conflicts & Overlaps: What Stacks Safely
 
-<div style="overflow-x: auto;" markdown="1">
-
 | Layer / Capability | Tools | Compatibility Rule | Explanation & Guidance |
 | :--- | :--- | :--- | :--- |
 | **Prompt steering** | Caveman (terse prose) + Ponytail (YAGNI code) | ✅ **Stack with everything** | Pure prompt rules; zero runtime overhead. They do different jobs (output style vs. code generation discipline)—use both. |
@@ -435,8 +432,6 @@ To verify your savings after installing these tools, use these monitoring utilit
 | **Offline repository pack** | Repomix | ✅ **Orthogonal (web chat)** | One-shot snapshot bundler for browser chats (ChatGPT, Claude web). Not intended for active multi-turn CLI agent loops. |
 | **Agent harness** | Dirac vs. Claude Code / Cursor / Aider | ⚠️ **Pick ONE** | Dirac is a standalone agent with its own hash-anchored edit engine; do not run Dirac and another agent simultaneously on the same workspace. |
 
-</div>
-
 ---
 
 ## Frequently Asked Questions
@@ -446,9 +441,11 @@ Start with **Caveman** (zero setup, 60–80% output token reduction) and **RTK**
 
 **RTK vs Headroom vs LeanCTX — which should I choose?**
 They operate at different layers:
-- **RTK** filters CLI command output only.
-- **Headroom** acts as an API proxy, compressing full payloads (file reads, conversation history, tool outputs).
-- **LeanCTX** caches file reads (~13 tokens on re-reads), provides AST signatures, and adds session memory.
+
+* **RTK** filters CLI command output only.
+* **Headroom** acts as an API proxy, compressing full payloads (file reads, conversation history, tool outputs).
+* **LeanCTX** caches file reads (~13 tokens on re-reads), provides AST signatures, and adds session memory.
+
 Pick **one** proxy/cache tool (Headroom or LeanCTX). If LeanCTX's shell filter is enabled, skip RTK.
 
 **Do these tools work with Claude Code, Cursor, and Gemini CLI?**
@@ -462,63 +459,6 @@ Most are open-source under MIT or Apache 2.0. Notable exceptions: Serena's appli
 
 **How do I measure actual savings after installing these tools?**
 Run `rtk gain` for RTK terminal savings, `headroom perf` for proxy compression metrics, or `npx ccusage` for Claude Code dollar tracking. Compare your tokens-per-task before and after installation.
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Which tool should I install first to reduce token usage?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Start with Caveman (zero setup, 60–80% output token reduction) and RTK (brew install rtk, 60–90% shell output reduction). These two eliminate the highest-volume token waste without altering your coding workflow."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "RTK vs Headroom vs LeanCTX — which should I choose?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "They operate at different layers. RTK filters CLI command output only. Headroom acts as an API proxy compressing full payloads. LeanCTX caches file reads and adds session memory. Pick one proxy/cache tool."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Do these tools work with Claude Code, Cursor, and Gemini CLI?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. RTK, Caveman, Ponytail, Graphify, and Serena work across all major coding agents via MCP or shell hooks."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will these tools break my existing MCP setup?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No, as long as you do not run multiple proxy-layer tools simultaneously. Prompt rules, CLI hooks, and MCP servers register alongside existing tools."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are these tools free and open source?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Most are open-source under MIT or Apache 2.0. Serena includes GPL-3.0-or-later components and context-mode uses Elastic License 2.0."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How do I measure actual savings after installing these tools?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Run rtk gain for RTK terminal savings, headroom perf for proxy compression metrics, or npx ccusage for Claude Code dollar tracking."
-      }
-    }
-  ]
-}
-</script>
 
 ---
 
