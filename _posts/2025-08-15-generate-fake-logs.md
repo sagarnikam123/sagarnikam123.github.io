@@ -212,7 +212,7 @@ Choosing the right **log generation tool** depends on your specific testing requ
 
 **Features:**
 
-- **Multiple Formats**: JSON, logfmt, Apache (common/combined/error), BSD syslog (RFC3164), Syslog (RFC5424)
+- **Multiple Formats**: JSON, logfmt, HTTP access, Apache (common/combined/error), BSD syslog (RFC3164), Syslog (RFC5424)
 - **Realistic Data**: Optional [faker](https://pypi.org/project/Faker/)-powered enrichment (realistic IPs, HTTP methods/paths, user-agents, hostnames, usernames, companies) auto-enabled when installed, with a zero-dependency fallback so the instant fast path always works
 - **Smart Tracking**: trace_id with PID/Container ID or incremental integers for multi-instance tracking
 - **Flexible Output**: stdout, file, or both simultaneously
@@ -220,6 +220,7 @@ Choosing the right **log generation tool** depends on your specific testing requ
 - **Gzip Output**: Write compressed logs directly (`--compress` or a `.gz` filename)
 - **File Splitting**: Rotate output into multiple files by line count or bytes (`--split-by`) for log-rotation testing
 - **Fake Time Stepping**: Spread timestamps across a synthetic time range instantly (`--time-step`) without real waiting
+- **Failure Rate & HTTP Access** (opt-in): `--failure-rate` for ERROR/HTTP 500 mix, `--log-format http` for access-style lines, `--arrival exponential` for burstier pacing — defaults unchanged when omitted
 - **Smart File Handling**: Auto-creates directories and default filename
 - **Container-Aware**: Uses container/pod identifiers in containerized environments
 - **Field Control**: Optional timestamp, log level, length, and trace_id fields
@@ -278,6 +279,28 @@ python3 fuzzy-train.py --count 100 --time-step 1m --lines-per-second 1000 --time
 
 # Short flags: -f (format) -n (count) -o (output)
 python3 fuzzy-train.py -f logfmt -n 100 -o stdout
+
+# HTTP access logs + controlled failure rate (opt-in; default JSON unchanged without these flags)
+python3 fuzzy-train.py -f http --failure-rate 0.05 --get-post-ratio 0.9 \
+    --get-duration-ms 500 --post-duration-ms 2000 --arrival exponential \
+    --lines-per-second 2 -n 20
+
+# Bias ERROR level on JSON (alert / dashboard testing) without switching format
+python3 fuzzy-train.py --failure-rate 0.2 -n 50 --lines-per-second 1000
+
+# Apache combined with ~10% status 500
+python3 fuzzy-train.py -f "apache combined" --failure-rate 0.1 -n 50 --lines-per-second 1000
+```
+
+Example shapes (output varies each run):
+
+```text
+# JSON without --failure-rate (levels are a random mix)
+{"timestamp": "2026-10-02T12:55:10.660305+05:30", "level": "DEBUG", "message": "Crawford, Mueller and Valentine processed request for jnelson@example.org host web-44.perez.info r", "trace_id": "85483-00000001", "length": 98}
+
+# -f http --failure-rate 0.3 (failed lines: level=error + status=500)
+2026-10-02T12:59:23.680914+05:30 level=error method=GET url=/wp-content/tag status=500 duration=120ms
+2026-10-02T12:59:23.685397+05:30 level=info method=GET url=/wp-content status=200 duration=181ms
 ```
 
 > **Realistic data:** When the [`faker`](https://pypi.org/project/Faker/) package is installed (`pip install -r requirements.txt`), logs are automatically enriched with realistic contextual data across all formats. Docker/Kubernetes images ship with faker included. Without it, fuzzy-train falls back to its built-in generator, so the zero-dependency fast path is unchanged.
@@ -344,12 +367,12 @@ kubectl get pods -l app=fuzzy-train
 ```mermaid
 graph LR
     subgraph "fuzzy-train"
-        A1[Multi-format Support<br/>JSON, Apache, Syslog, Logfmt]
+        A1[Multi-format Support<br/>JSON, HTTP, Apache, Syslog, Logfmt]
         A2[Docker & K8s Ready<br/>Container-native]
         A3[Smart Tracking<br/>trace_id, PID, Container ID]
         A4[Flexible Output<br/>File, stdout, gzip, split]
         A5[Field Control<br/>Optional metadata]
-        A6[Bounded + Realistic<br/>count/bytes, faker data]
+        A6[Failure rate + Bounded<br/>ERROR/500, count/bytes, faker]
     end
 
     subgraph "flog"
@@ -361,7 +384,7 @@ graph LR
     end
 
     subgraph "Use Case Decision"
-        C1[<b>fuzzy-train</b> :<br/>• Multi-format needed<br/>• Container deployment<br/>• Custom trace tracking<br/>• Bounded/gzip/split output<br/>• Realistic faker data]
+        C1[<b>fuzzy-train</b> :<br/>• Multi-format / HTTP access<br/>• Container deployment<br/>• Failure-rate alert testing<br/>• Bounded/gzip/split output<br/>• Realistic faker data]
 
         C2[<b>flog</b> :<br/>• Prefer a single Go binary<br/>• Max raw throughput<br/>• Apache-centric workflows]
     end
@@ -462,7 +485,8 @@ Follow this **log generation implementation guide** to set up **fake log generat
 
 Selecting the right **log format for testing** is crucial for realistic **log aggregation testing**:
 
-- **Apache Common Log Format**: Web server testing
+- **Apache Common / Combined**: Web server testing
+- **HTTP access** (`--log-format http`): method/url/status/duration lines for alert and parser demos
 - **JSON**: Modern microservices
 - **Syslog**: System-level testing
 - **Logfmt**: Structured key-value logs
@@ -775,46 +799,32 @@ done
 
 ### Error Pattern Simulation
 
-Simulate realistic **error patterns** and **log bursts** for comprehensive **log aggregation testing**:
+Simulate realistic **error patterns** for **alert testing** and **log aggregation** — prefer a controlled ERROR/HTTP 500 mix over guessing from volume alone.
 
-**Simulating Error Bursts:**
+Flag recipes (`--failure-rate`, `-f http`) are in [fuzzy-train examples](#1-fuzzy-train---versatile-log-generator) above. Here: write files and spot-check.
+
 ```bash
-# Clean up any existing log files
-rm -f /tmp/logs/*
 mkdir -p /tmp/logs
 
-# Normal operation logs
-# 📈 Normal Operations Volume
-# Lines: 5/sec | Size: ~150 bytes/line | Volume: 0.7 KB/sec (0.0007 MB/sec)
-docker run -d --name normal-ops \
-  -v /tmp/logs:/logs \
-  sagarnikam123/fuzzy-train:latest \
-  --lines-per-second 5 \
-  --log-format JSON \
-  --output file \
-  --file /logs/normal.log
+# ~20% ERROR in JSON (level-based alerts)
+docker run --rm -v /tmp/logs:/logs sagarnikam123/fuzzy-train:latest \
+  --failure-rate 0.2 --lines-per-second 1000 \
+  --log-format JSON --output file --file /logs/errors-mixed.log -n 200
 
-# Simulate error burst (high frequency for 2 minutes)
-# 🚨 ERROR BURST VOLUME CALCULATION
-# Lines: 5,000/sec | Size: ~225 bytes/line | Volume: 1.07 MB/sec
-# Duration: 2 minutes | Total data: ~128 MB
-sleep 30
-docker run --rm \
-  -v /tmp/logs:/logs \
-  sagarnikam123/fuzzy-train:latest \
+# Spot-check ERROR count (expect roughly ~40 of 200)
+grep -c '"level": "ERROR"' /tmp/logs/errors-mixed.log
+```
+
+**Volume burst (stress ingestion rate):** omit `--failure-rate` if you only care about throughput; add it when the burst should also contain ERROR/500 lines.
+
+```bash
+# High line rate for 2 minutes (ingestion stress only — no failure-rate)
+docker run --rm -v /tmp/logs:/logs sagarnikam123/fuzzy-train:latest \
   --lines-per-second 5000 \
-  --min-log-length 150 \
-  --max-log-length 200 \
-  --log-format JSON \
-  --output file \
-  --file /logs/error-burst.log &
-
-# Stop error burst after 2 minutes
+  --min-log-length 150 --max-log-length 200 \
+  --log-format JSON --output file --file /logs/volume-burst.log &
 sleep 120
-docker stop $(docker ps -q --filter ancestor=sagarnikam123/fuzzy-train:latest)
-
-# Remove stopped containers
-docker rm $(docker ps -aq --filter ancestor=sagarnikam123/fuzzy-train:latest)
+docker stop $(docker ps -q --filter ancestor=sagarnikam123/fuzzy-train:latest) 2>/dev/null || true
 ```
 
 ### Multi-Service Log Simulation
@@ -1220,20 +1230,23 @@ import subprocess
 import time
 
 def simulate_error_patterns():
+    # rate = lines/sec; failure = P(ERROR) / P(HTTP 500) for that phase
     patterns = [
-        {"rate": 2, "duration": 60, "format": "JSON"},    # Normal operation: 2 lines/sec × ~150 bytes = ~0.3 KB/sec
-        {"rate": 20, "duration": 30, "format": "JSON"},   # Error spike: 20 lines/sec × ~150 bytes = ~2.9 KB/sec
-        {"rate": 5, "duration": 45, "format": "JSON"},    # Recovery period: 5 lines/sec × ~150 bytes = ~0.7 KB/sec
-        {"rate": 100, "duration": 15, "format": "syslog"} # Critical failure: 100 lines/sec × ~200 bytes = ~19.1 KB/sec
+        {"rate": 2, "duration": 60, "format": "JSON", "failure": 0.02},    # Normal: low ERROR mix
+        {"rate": 20, "duration": 30, "format": "JSON", "failure": 0.4},    # Error spike: volume + high ERROR
+        {"rate": 5, "duration": 45, "format": "JSON", "failure": 0.1},     # Recovery
+        {"rate": 100, "duration": 15, "format": "syslog", "failure": 0.5}, # Critical: high rate + high ERROR
     ]
 
     for i, pattern in enumerate(patterns):
-        print(f"Starting pattern {i+1}: {pattern['rate']} logs/sec for {pattern['duration']}s")
+        print(f"Starting pattern {i+1}: {pattern['rate']} logs/sec, "
+              f"failure-rate={pattern['failure']} for {pattern['duration']}s")
 
         process = subprocess.Popen([
             "python3", "fuzzy-train.py",
             "--lines-per-second", str(pattern["rate"]),
             "--log-format", pattern["format"],
+            "--failure-rate", str(pattern["failure"]),
             "--output", "file",
             "--file", f"/tmp/logs/pattern-{i+1}.log"
         ])
