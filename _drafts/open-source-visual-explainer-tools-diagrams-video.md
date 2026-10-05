@@ -51,6 +51,8 @@ Paid whiteboards (Miro, Lucid, Whimsical, IcePanel, Eraser SaaS) appear only as 
 | **Standard business process exchange** | BPMN 2.0 | bpmn-js (keep the watermark), Kroki BPMN |
 | **Hand-drawn workshop sketch** | Whiteboard | Excalidraw (MIT), diagrams.net sketch |
 | **ASCII that diffs in a PR** | Boxes in text | svgbob, Pikchr, ditaa, D2 ASCII export |
+| **Protocol bytes / digital timing** | Bytefield or waveform | [bytefield-svg](https://github.com/Deep-Symmetry/bytefield-svg) (EPL-2.0); [WaveDrom](https://wavedrom.com/) (MIT) |
+| **Database schema as text** | ER / DBML | [DBML](https://www.dbml.org/) + [dbml-renderer](https://github.com/softwaretechnik-berlin/dbml-renderer) (ISC); [erd](https://github.com/BurntSushi/erd) (Unlicense); or Mermaid `erDiagram` |
 | **Embed a diagram editor in a product** | JS graph/model library | JointJS (MPL-2.0), maxGraph, bpmn-js; not GoJS / JointJS+ |
 | **Metabolic / signaling pathway** | Curated map or interaction network | [Reactome](https://reactome.org/) viewer; Cytoscape.js / desktop |
 | **Cell / molecule figure (BioRender-style)** | Icon library + vector canvas | [Inkscape](https://inkscape.org/) + [Bioicons](https://bioicons.com/) (credit **per icon**) |
@@ -242,11 +244,13 @@ sequenceDiagram
 
 ### D2 — “readable architecture as code”
 
-**What it is:** [d2lang.com](https://d2lang.com/) language, **MPL-2.0**. Nested containers, sequence (`shape: sequence_diagram`), sketch mode, ASCII export.
+**What it is:** [d2lang.com](https://d2lang.com/) language, **MPL-2.0**. Nested containers, sequence (`shape: sequence_diagram`), sketch mode, ASCII export. Bundled layouts: **dagre** and **ELK**.
 
 **Best for:** architecture that Mermaid flattens badly.
 
-**MCP:** **no official server** as of maintainer comments on [terrastruct/d2#2518](https://github.com/terrastruct/d2/issues/2518) (2025). Community: [i2y/d2mcp](https://github.com/i2y/d2mcp). Terrastruct’s commercial UI is separate.
+**License trap:** **TALA** (Terrastruct’s architecture layout) is a **separate commercial** engine — not part of the MPL-2.0 CLI default. Terrastruct’s hosted UI is also separate from the open language.
+
+**MCP:** **no official server** as of maintainer comments on [terrastruct/d2#2518](https://github.com/terrastruct/d2/issues/2518) (2025). Community: [i2y/d2mcp](https://github.com/i2y/d2mcp).
 
 ### C4: Structurizr DSL and C4-PlantUML
 
@@ -275,9 +279,26 @@ The [C4 model](https://c4model.com/) is **notation-independent**. Tools implemen
 
 **Use it as:** GitLab admin opt-in renderer, CI step, or the engine behind MCP wrappers. **Self-host** if diagrams contain internals. Public kroki.io is a convenience, not a vault.
 
+
+### Niche diagram-as-code (specialty jobs)
+
+These are OSS text→picture tools for **one job**. Prefer Mermaid/PlantUML/D2 first; reach here when the form matches. Most also render through [Kroki](https://kroki.io/).
+
+| Tool | Job | License |
+| ---- | --- | ------- |
+| **[blockdiag](http://blockdiag.com/)** family (`seqdiag`, `actdiag`, `nwdiag`, `packetdiag`, `rackdiag`) | Simple block / sequence / network / rack pictures in Python | **Apache-2.0** |
+| **[WaveDrom](https://wavedrom.com/)** | Digital timing diagrams from WaveJSON | **MIT** |
+| **[bytefield-svg](https://github.com/Deep-Symmetry/bytefield-svg)** | Protocol / packet byte layouts | **EPL-2.0** |
+| **[DBML](https://www.dbml.org/)** + **[dbml-renderer](https://github.com/softwaretechnik-berlin/dbml-renderer)** | Database schema as text → SVG | Language docs open; renderer **ISC**. [dbdiagram.io](https://dbdiagram.io/) is a **hosted** editor, not the OSS grant |
+| **[erd](https://github.com/BurntSushi/erd)** | ER diagrams from a tiny text format (Haskell + Graphviz) | **Unlicense** |
+| **[WireViz](https://github.com/wireviz/WireViz)** | Cable / wiring harness diagrams from YAML | **GPL-3.0** |
+| **TikZ / PGF** (via LaTeX or Kroki `tikz`) | Publication figures in papers | LPPL-family TeX; steep — see [FAQ](#what-about-tikz--latex) |
+
+**Not diagram-as-code for this catalog:** Vega / Vega-Lite (charts → data-viz companion), GraphQL schema visualizers, SchemaSpy (DB introspection HTML), and free SaaS editors (Eraser, Lucid, IcePanel). “Free to use in a browser” ≠ OSI.
+
 ### Bonus: Python “Diagrams” (cloud icons as code)
 
-[mingrammer/diagrams](https://github.com/mingrammer/diagrams) (**[MIT](https://github.com/mingrammer/diagrams/blob/master/LICENSE)**) builds cloud architecture pictures from Python (Graphviz under the hood). Handy when the story is AWS/GCP/K8s boxes and you already write Python. Still diagram-as-code — not a video tool.
+[mingrammer/diagrams](https://github.com/mingrammer/diagrams) (**[MIT](https://github.com/mingrammer/diagrams/blob/master/LICENSE)**) builds cloud architecture pictures from Python (Graphviz under the hood): declare AWS/GCP/Azure/K8s nodes as objects, wire them with `>>` / `<<`, export PNG/SVG with vendor icons. Handy when you already write Python. Still diagram-as-code — not a video tool.
 
 ## Part B: Canvas tools (workshops & icons)
 
@@ -627,7 +648,8 @@ Trap column only — first-choice tools are in the TL;DR and [When to use what](
 32. **state.js** — [@steelbreeze/state](https://github.com/steelbreeze/state) is an FSM **runtime**, not a state *diagram* renderer.  
 33. **Health Icons** — icons **CC0**; git repo **MIT** ([healthicons.org](https://healthicons.org/)).  
 34. **SciDraw** — free drawings; **credit the author and SciDraw** (DOI), not “public domain pack.”  
-35. **Chemix** — web lab editor, **not open source**. Espinoza lists it next to Bioicons; filter that. Attribution rules on [help.chemix.org](https://help.chemix.org/article/24-license).
+35. **Chemix** — web lab editor, **not open source**. Espinoza lists it next to Bioicons; filter that. Attribution rules on [help.chemix.org](https://help.chemix.org/article/24-license).  
+36. **D2 vs TALA** — D2 language/CLI is **MPL-2.0** (dagre/ELK); **TALA** layout and Terrastruct’s product UI are commercial.
 
 ## Common mistakes
 
@@ -659,6 +681,10 @@ Trap column only — first-choice tools are in the TL;DR and [When to use what](
 | API or checkout order | Sequence | Swimlane on canvas | Mermaid sequence |
 | Object lifecycle | State machine | Swimlane | Mermaid / PlantUML state |
 | Data path | Graph / DFD | Annotated flowchart | Graphviz / diagrams.net |
+| Protocol bit layout | Bytefield | Annotated table | bytefield-svg |
+| Digital timing | Waveform | Sequence | WaveDrom |
+| DB schema in Git | ER / DBML | Mermaid ER | DBML renderer or erd |
+| Cable harness | Wiring YAML | Hand-drawn | WireViz |
 | Brainstorm | Mind map | Outline | Markmap |
 | Facilitation workshop | Whiteboard | Stickies on paper | Excalidraw |
 | Infra icons | Canvas or Python Diagrams | — | diagrams.net |
@@ -760,6 +786,8 @@ Unbeatable in papers; steep. Kroki can render `tikz`. For blogs and READMEs, sta
 - [Graphviz license](https://graphviz.org/license/) · [D2](https://d2lang.com/) · [Structurizr docs](https://docs.structurizr.com/)
 - [Kroki](https://kroki.io/) · [Kroki HTTP usage](https://docs.kroki.io/kroki/setup/usage/)
 - [Markmap](https://markmap.js.org/) · [Nomnoml](https://www.nomnoml.com/) · [Pikchr](https://pikchr.org/)
+- [blockdiag](http://blockdiag.com/) · [WaveDrom](https://wavedrom.com/) · [bytefield-svg](https://github.com/Deep-Symmetry/bytefield-svg)
+- [DBML](https://www.dbml.org/) · [dbml-renderer](https://github.com/softwaretechnik-berlin/dbml-renderer) · [erd](https://github.com/BurntSushi/erd) · [WireViz](https://github.com/wireviz/WireViz)
 - [diagrams.net / draw.io](https://www.drawio.com/) · [jgraph/drawio](https://github.com/jgraph/drawio)
 - [Excalidraw](https://github.com/excalidraw/excalidraw) · [Penpot](https://penpot.app/) · [Inkscape license](https://www.inkscape.org/about/license/)
 - [bpmn.io license](https://bpmn.io/license) · [mingrammer/diagrams](https://github.com/mingrammer/diagrams)
