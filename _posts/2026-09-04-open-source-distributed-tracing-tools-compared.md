@@ -574,6 +574,7 @@ Jaeger v1 reached end of life on December 31, 2025. Jaeger v2 is a complete rewr
 >   - **Metrics & TSDBs:** [Open-Source Metrics Tools & Time-Series DBs Compared]({% post_url 2026-09-05-open-source-metrics-tools-compared %})
 >   - **Distributed Tracing:** [Open-Source Distributed Tracing Tools Compared (Jaeger, Tempo, Zipkin)]({% post_url 2026-09-04-open-source-distributed-tracing-tools-compared %})
 >   - **Continuous Profiling:** [Open-Source Continuous Profiling Tools Compared (Pyroscope, Parca, Perforator)]({% post_url 2026-09-03-open-source-continuous-profiling-tools-compared %})
+>   - **Uptime & Status:** [10 Best Open-Source Uptime Monitoring Tools Compared]({% post_url 2026-10-07-open-source-uptime-monitoring-tools-compared %})
 {: .prompt-info }
 
 ---
