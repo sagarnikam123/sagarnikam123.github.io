@@ -270,7 +270,7 @@ brew install --cask dbeaver-community mysqlworkbench tableplus db-browser-for-sq
 
 ```bash
 brew install --cask docker orbstack rancher podman-desktop
-brew install minikube helm # Kubernetes tools
+brew install minikube helm kind # Kubernetes tools
 brew install crane skopeo # Container tools
 brew install --cask headlamp freelens monokle # Kubernetes Desktop client
 brew install kubectl-radar # or brew install skyhook-io/tap/radar # Kubernetes web UI
