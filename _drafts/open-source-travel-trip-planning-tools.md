@@ -27,6 +27,9 @@ flowchart TD
         W["Wikivoyage + Kiwix<br/>(Offline Travel Guide)"]
         C["Curiosio<br/>(AI Itinerary Generation)"]
         TR["TREK<br/>(Self-Hosted Real-time Planner)"]
+        DW["Dawarich<br/>(Location History & Timeline)"]
+        TP["TRIP<br/>(Minimalist Map & POI Planner)"]
+        AT["AirTrail<br/>(Personal Flight Logger)"]
         AL["AdventureLog<br/>(Travel Journal & Stats)"]
         WL["Wanderlog<br/>(Cloud Visual Itinerary)"]
     end
@@ -39,7 +42,7 @@ flowchart TD
 
     subgraph Hiking["3. Trail & Outdoor Trekking"]
         BR["BRouter-web<br/>(Elevation & Custom Routing)"]
-        QM["QMapShack / Viking<br/>(Desktop GPX/Track Workbench)"]
+        QM["QMapShack / Viking / OpenTopoMap<br/>(Track & Topo Workbenches)"]
         TS["Trail Sense<br/>(Wilderness Sensor Toolkit)"]
     end
 
@@ -50,7 +53,7 @@ flowchart TD
     end
 
     subgraph Dev["5. Developer Engines & APIs"]
-        RO["OSRM / Valhalla / GraphHopper<br/>(Routing Engines)"]
+        RO["OSRM / Valhalla / ORS / OTP<br/>(Routing & Transit Engines)"]
         LIB["Leaflet / MapLibre GL / gpxpy<br/>(UI & Track Libraries)"]
     end
 
@@ -112,35 +115,86 @@ Managing flight details, lodging reservations, daily itineraries, and expenses w
 * **Platform:** Web, Docker, Self-hosted.
 * **Best for:** Self-hosters who want private, self-managed travel tracking and personal travel journals.
 
-[AdventureLog](https://github.com/seanmorley15/AdventureLog){:target="_blank"} (formerly Wanderer) is a lightweight self-hosted travel tracker. It allows you to create itineraries, log destinations visited, attach photos and notes, and view personal travel statistics on interactive global maps without sharing location history with ad networks.
+[AdventureLog](https://github.com/seanmorley15/AdventureLog){:target="_blank"} (formerly Wanderer) is a lightweight self-hosted travel tracker. It allows you to create itineraries, log destinations visited, attach photos and notes, and view personal travel statistics on interactive global maps without sharing location history with ad networks:
 
-* Features full Docker Compose deployment.
-* Supports custom markers, notes, and visit dates.
-* Multi-user support with private and shared journals.
+* **Travel Journaling & Pinpoints:** Log visits, annotate stops with Markdown journal notes, attach trip photos, and drop custom colored pins across interactive global maps.
+* **Visited Countries & Stats:** Automatically calculates your travel milestones, visited countries and territory percentages, and total journey days.
+* **Self-Hosted & Multi-User:** Single-command Docker Compose setup with multi-user isolation, private journals, and optional public trip sharing.
 
-### 5. Wanderlog (Web & Mobile)
+### 5. Dawarich
+
+* **License & Pricing:** Open-source (AGPLv3), 100% Free self-hosted.
+* **Platform:** Docker Compose (PostgreSQL/PostGIS, Redis, Sidekiq), Web, Mobile companion apps (iOS & Android).
+* **Best for:** The definitive self-hosted Google Maps Timeline replacement, location history tracking, and travel exploration analytics.
+
+[Dawarich](https://github.com/Freika/dawarich){:target="_blank"} is a powerful self-hosted alternative to Google Timeline (formerly Google Location History). It collects, processes, and visualizes your real-time and historical travel paths with total privacy:
+
+* **Google Timeline & Takeout Replacement:** Seamlessly imports years of location history from Google Takeout (Semantic Location History JSON), OwnTracks, Strava, GPX files, and Immich photo libraries.
+* **Exploration & Fog of War:** Features an interactive "Fog of War" gamified world map where unvisited areas remain cloaked, dynamically revealing regions as you explore them, alongside comprehensive heatmaps.
+* **Automatic Trip & Place Detection:** Clusters location pings into discrete trips, stopovers, cities, and countries, automatically calculating travel statistics (distance traveled, countries visited, duration).
+* **Reverse Geocoding:** Integrates with local Photon or Nominatim instances to resolve raw coordinates into human-readable street addresses and landmarks without external API limits.
+* **Active Mobile Sync:** Pair with the official Dawarich iOS/Android app or lightweight background loggers like OwnTracks or Overland.
+
+### 6. TRIP
+
+* **License & Pricing:** Open-source (MIT), 100% Free self-hosted.
+* **Platform:** Web, Docker (`itskovacs/trip`).
+* **Best for:** Minimalist, privacy-first map-centric trip planning and multi-day POI organization.
+
+[TRIP](https://github.com/itskovacs/trip){:target="_blank"} is a streamlined, lightweight open-source travel planner designed for travelers who prefer an uncluttered, map-first interface over heavy all-in-one software:
+
+* **Map-Centric Itinerary Builder:** Plot points of interest directly on an interactive map, organize stops into day-by-day itineraries, and categorize destinations (lodging, dining, museums, scenic viewpoints) with custom pins.
+* **OIDC & Single Sign-On:** Native support for OpenID Connect (Authelia, Authentik, Keycloak) enables frictionless, secure authentication for family and friend groups.
+* **Zero Telemetry & Lightweight Footprint:** Extremely lean Docker deployment with no user tracking, advertising scripts, or third-party analytical cookies.
+
+### 7. AirTrail
+
+* **License & Pricing:** Open-source (GPLv3), 100% Free self-hosted.
+* **Platform:** Web, Docker (`johanohly/airtrail`).
+* **Best for:** Self-hosted flight logging, interactive 3D globe flight path mapping, and personal aviation statistics.
+
+[AirTrail](https://github.com/johanohly/AirTrail){:target="_blank"} is an open-source personal air travel tracker and visualization platform — the ideal self-hosted alternative to proprietary services like Flighty, App in the Air, and MyFlightradar24:
+
+* **Interactive 3D & 2D Flight Mapping:** Visualizes your lifetime flight history on an interactive 3D globe and 2D projections with curved great-circle trajectories.
+* **Aviation Analytics:** Computes total air mileage, cumulative hours flown, carbon emission estimates, top airlines, aircraft models (e.g., A350, 787), and airport hub counts.
+* **One-Click Imports:** Painlessly migrates existing flight logs from Flighty, MyFlightradar24, OpenFlights, and TripIt CSV/JSON exports.
+* **Multi-User with OAuth:** Features user management with OAuth/OIDC support and optional public profile sharing to showcase your flight map to friends.
+
+### 8. Wanderlog (Web & Mobile)
 
 * **License & Pricing:** Proprietary, generous Free tier (no credit card required; optional Pro upgrade for offline route optimization).
 * **Platform:** Web, iOS, Android.
 * **Best for:** Collaborative group trip planning, road trip routing, and interactive day-by-day itineraries.
 
-[Wanderlog](https://wanderlog.com/){:target="_blank"} is one of the most intuitive visual trip planners available. The free tier offers unlimited itinerary creation, real-time collaboration with travel partners, automated import of flight/hotel reservation emails, and route distance calculation between daily attractions on an integrated map.
+[Wanderlog](https://wanderlog.com/){:target="_blank"} is one of the most intuitive visual trip planners available. The free tier offers unlimited itinerary creation, real-time collaboration with travel partners, automated import of flight/hotel reservation emails, and route distance calculation between daily attractions on an integrated map:
 
-### 6. Curiosio
+* **Collaborative Visual Itineraries:** Real-time multi-user editing with pin-drop map views, automated travel times between attractions, and daily schedule reordering.
+* **Reservation Forwarding:** Forward flight, hotel, rental car, and restaurant confirmation emails to automatically populate your itinerary schedule.
+* **Cost Splitting & Export:** Built-in shared expense ledger with debt simplification and offline-friendly export options.
+
+### 9. Curiosio
 
 * **License & Pricing:** Free to use web service.
-* **Platform:** Web.
+* **Platform:** Web ([curiosio.com](https://curiosio.com/){:target="_blank"}).
 * **Best for:** Algorithmic multi-city road trip planning based on time, budget, and curiosity points.
 
-[Curiosio](https://curiosio.com/){:target="_blank"} uses open graph algorithms and geopolitical data to generate optimized road trip itineraries. You specify a start and finish location, budget, number of travelers, and total trip days; Curiosio calculates driving routes, stops, scenic attractions, and daily schedules automatically.
+[Curiosio](https://curiosio.com/){:target="_blank"} uses open graph algorithms and geopolitical data to generate optimized road trip itineraries. You specify a start and finish location, budget, number of travelers, and total trip days; Curiosio calculates driving routes, stops, scenic attractions, and daily schedules automatically:
 
-### 7. Wikivoyage + Kiwix (Offline World Travel Guide)
+* **Budget & Duration Constraint Solving:** Dynamically tailors road trip loops to match your exact vehicle budget, day limit, and pacing preferences.
+* **Curiosity & Scenic Routing:** Selects scenic detours, national parks, UNESCO heritage sites, and hidden gems along your driving trajectory.
+* **Interactive Day-by-Day Schedules:** Visualizes daily driving hours, overnight stops, and points of interest with exportable turn-by-turn routes.
+
+### 10. Wikivoyage + Kiwix (Offline World Travel Guide)
 
 * **License & Pricing:** Creative Commons (CC BY-SA 4.0), 100% Free & Open-source reader.
 * **Platform:** Android, iOS, Windows, macOS, Linux.
 * **Best for:** Complete, offline cultural, safety, dining, and transit guides without an internet connection.
 
-[Wikivoyage](https://www.wikivoyage.org/){:target="_blank"} is the Wikipedia foundation's open-content travel guide, maintained by global volunteers. By pairing it with [Kiwix](https://kiwix.org/){:target="_blank"} (an open-source offline reader), you can download the entire worldwide Wikivoyage database (including historical context, neighborhood safety ratings, food recommendations, and transit tips) directly to your phone or laptop storage.
+[Wikivoyage](https://www.wikivoyage.org/){:target="_blank"} is the Wikipedia foundation's open-content travel guide, maintained by global volunteers. By pairing it with [Kiwix](https://kiwix.org/){:target="_blank"} (an open-source offline reader), you can download the entire worldwide Wikivoyage database directly to your phone or laptop storage:
+
+* **Zero Data Footprint:** Store the entire worldwide travel encyclopedia (~1–2 GB with compressed images) on device storage for flight mode or remote areas.
+* **Non-Commercial Advice:** Unbiased, volunteer-written recommendations on neighborhood safety, cultural etiquette, scams to avoid, and public transit navigation.
+* **Full Text Search & Offline Hyperlinks:** Instant local search for cities, attractions, and phrases with zero cell service or Wi-Fi required.
 
 ---
 
@@ -165,7 +219,11 @@ Reliable navigation without mobile data roaming fees, cellular dead zones, or ba
 * **Platform:** Android, iOS.
 * **Best for:** Advanced power users needing topological layers, nautical charts, GPX recording, and hillshading.
 
-[OsmAnd](https://osmand.net/){:target="_blank"} is the most feature-rich OpenStreetMap navigation engine available on mobile. Beyond turn-by-turn driving and pedestrian directions, OsmAnd supports multi-layered map overlays (satellite imagery, OpenSeaMap, contour lines, relief hillshading), customizable route recalculations, and advanced GPX track recording.
+[OsmAnd](https://osmand.net/){:target="_blank"} is the most feature-rich OpenStreetMap navigation engine available on mobile. Beyond turn-by-turn driving and pedestrian directions, OsmAnd supports multi-layered map overlays, customizable route recalculations, and advanced GPX track recording:
+
+* **Multi-Layered Topo Cartography:** Render high-resolution contour lines, 3D relief hillshading, slope angles, and nautical charts (OpenSeaMap) directly over vector maps.
+* **Extensive GPX Toolset:** Record GPS tracks in real time, view live speed and elevation graphs, import external trail files, and follow precision waypoint navigation.
+* **Deep Route Customization:** Configure routing profiles for pedestrians, mountain bikes, motorcycles, 4x4 vehicles, or RVs with fine-tuned surface and avoidance settings.
 
 ### 3. Mapy.cz (Windy Maps)
 
@@ -173,7 +231,11 @@ Reliable navigation without mobile data roaming fees, cellular dead zones, or ba
 * **Platform:** Web, Android, iOS.
 * **Best for:** The world's clearest outdoor tourist and trail cartography.
 
-[Mapy.cz](https://en.mapy.cz/){:target="_blank"} offers some of the most beautifully styled outdoor tourist maps in existence. Marked hiking trails, cycling routes, ski tracks, water sources, and viewpoints are highlighted with standard international trail colors, making route planning significantly clearer than generic road maps. Maps can be downloaded offline per country or region for free.
+[Mapy.cz](https://en.mapy.cz/){:target="_blank"} offers some of the most beautifully styled outdoor tourist maps in existence. Marked hiking trails, cycling routes, ski tracks, water sources, and viewpoints are highlighted with standard international trail colors, making route planning significantly clearer than generic road maps:
+
+* **Standardized Trail Color-Coding:** Marked international hiking trails, bike routes, and cross-country ski paths highlighted with vivid official trail blaze colors.
+* **Comprehensive Offline Downloads:** Download full countries or regional map packages for free with offline search and tourist POI listings.
+* **Elevation & Profile Planning:** Instant elevation cross-sections, estimated walking and hiking durations based on gradient, and scenic photo panoramas.
 
 ---
 
@@ -187,7 +249,11 @@ Tools designed for remote wilderness expeditions, trail route calculation, GPX t
 * **Platform:** Web ([brouter.de/brouter-web](https://brouter.de/brouter-web/){:target="_blank"}), Android (as an offline routing service for OsmAnd/Locus).
 * **Best for:** Elevation-aware, highly customizable hiking and cycling routing.
 
-BRouter is a high-performance offline and online routing engine that takes elevation, surface quality (gravel, pavement, mud), and steep gradients into account. The browser-based interface allows you to draw multi-day hiking or bikepacking routes, visualize interactive elevation cross-sections, and export clean GPX tracks.
+BRouter is a high-performance offline and online routing engine that takes elevation, surface quality (gravel, pavement, mud), and steep gradients into account. The browser-based interface allows you to draw multi-day hiking or bikepacking routes, visualize interactive elevation cross-sections, and export clean GPX tracks:
+
+* **Gradient & Surface Costing:** Applies sophisticated profile scripts (trekking, gravel, fast bike, safety-first) to calculate optimal routes avoiding steep inclines or hazardous highways.
+* **Interactive Elevation Analysis:** Drag waypoints interactively while watching real-time updates to elevation profiles, climb statistics, and surface breakdowns.
+* **GPX Export & Integration:** Seamlessly export GPX routes to OsmAnd, Organic Maps, or handheld Garmin devices.
 
 ### 2. QMapShack & Viking (Desktop Track Workbenches)
 
@@ -216,7 +282,11 @@ BRouter is a high-performance offline and online routing engine that takes eleva
 * **Platform:** Web ([opentopomap.org](https://opentopomap.org/){:target="_blank"}) & Garmin GPS device downloads.
 * **Best for:** Classic topographic map styling rendered with 20-meter contour lines and hillshade layers.
 
-OpenTopoMap renders OpenStreetMap vector data and SRTM elevation measurements in the traditional visual style of European and US national topographic surveys. You can print physical waterproof trail paper maps or load the map tiles onto handheld Garmin devices.
+OpenTopoMap renders OpenStreetMap vector data and SRTM elevation measurements in the traditional visual style of European and US national topographic surveys:
+
+* **National Survey Cartography:** High-contrast contour lines (20m intervals), shaded relief, and distinct woodland/rock terrain markings modeled on European official topographic standards.
+* **Garmin Device Compatibility:** Free pre-compiled image files (`gmapsupp.img`) downloadable directly to micro-SD cards for handheld Garmin outdoor GPS units.
+* **High-Resolution Print Maps:** Export custom scaled PDF or image maps for physical paper backup on backcountry expeditions.
 
 ---
 
@@ -267,7 +337,11 @@ out skel qt;
 * **Platform:** Web ([wheelmap.org](https://wheelmap.org/){:target="_blank"}), iOS, Android.
 * **Best for:** Checking wheelchair accessibility, stroller access, and step-free access for nearby businesses and transit hubs.
 
-Created by the non-profit organization Sozialhelden, Wheelmap crowdsources accessibility information using a clear traffic-light rating system (Green = fully wheelchair accessible; Yellow = partial/small step; Red = inaccessible). It is an invaluable resource for travelers with reduced mobility, luggage carts, or families with strollers.
+Created by the non-profit organization Sozialhelden, Wheelmap crowdsources accessibility information using a clear traffic-light rating system:
+
+* **Traffic-Light Accessibility System:** Places marked with Green (fully wheelchair and step-free accessible), Yellow (partial accessibility / max 7 cm step), or Red (inaccessible).
+* **Restroom & Entryway Details:** Specific crowd-verified notes on accessible toilet presence, interior turning radius, door widths, and ramp availability.
+* **OpenStreetMap Integration:** All user contributions and accessibility ratings are synchronized directly back to the global OpenStreetMap database.
 
 ### 5. Too Good To Go (Food Waste & Budget Dining)
 
@@ -275,7 +349,11 @@ Created by the non-profit organization Sozialhelden, Wheelmap crowdsources acces
 * **Platform:** iOS, Android.
 * **Best for:** Discovering heavily discounted fresh meals, bakery boxes, and grocery items nearby while traveling.
 
-[Too Good To Go](https://toogoodtogo.com/){:target="_blank"} connects travelers with local bakeries, cafes, supermarkets, and restaurants that have surplus food at the end of breakfast, lunch, or dinner service. Meals are sold in "Surprise Bags" at roughly 60–75% off standard menu prices, making it an excellent tool for budget-conscious culinary exploration.
+[Too Good To Go](https://toogoodtogo.com/){:target="_blank"} connects travelers with local bakeries, cafes, supermarkets, and restaurants that have surplus food at the end of breakfast, lunch, or dinner service:
+
+* **Surprise Bag Food Rescue:** Buy surplus food packages from bakeries, sushi bars, hotels, and cafes at roughly 60–75% off standard menu prices.
+* **Radius-Based Map Search:** Browse an interactive live map of food pickup windows around your hotel, hostel, or transit station.
+* **Budget & Sustainable Dining:** Enjoy quality local meals while reducing travel meal expenses and preventing urban food waste.
 
 ---
 
@@ -286,6 +364,7 @@ For developers building custom itinerary builders, GPS track processors, or trav
 | Library / Tool | Language / Runtime | Purpose | License |
 | :--- | :--- | :--- | :--- |
 | **[OpenTripPlanner (OTP)](https://www.opentripplanner.org/){:target="_blank"}** | Java | Multi-modal transit planner combining GTFS schedules, walking, bike-share | LGPLv3 |
+| **[OpenRouteService (ORS)](https://openrouteservice.org/){:target="_blank"}** | Java | OSM routing, reachable area isochrones, time-distance matrix, map matching | Apache 2.0 |
 | **[OSRM](https://project-osrm.org/){:target="_blank"}** | C++ | Ultra-fast shortest path routing engine on road networks | BSD 2-Clause |
 | **[Valhalla](https://github.com/valhalla/valhalla){:target="_blank"}** | C++ | Turn-by-turn routing with dynamic costing, time-distance matrices, elevation | MIT |
 | **[GraphHopper](https://www.graphhopper.com/open-source/){:target="_blank"}** | Java | Memory-efficient routing engine for car, bike, and walking | Apache 2.0 |
@@ -305,18 +384,24 @@ For developers building custom itinerary builders, GPS track processors, or trav
 | **TREK** | Trip Planning | Open-source (AGPLv3) / Free | Local server storage | Docker / Web | Self-hosted Wanderlog alternative, real-time sync, KItinerary |
 | **OpenTrip** | Trip Planning | Open-source / Free | Web app + PWA offline | Web / Mobile PWA | Fast group planning, expense splitting, voting, no app install |
 | **TripSage AI** | AI Trip Research | Open-source (MIT) / Free | Local self-hosted | Web / Docker | Agentic travel planning, BYOK LLMs, pgvector personal memory |
+| **Dawarich** | Location History | Open-source (AGPLv3) / Free | Local server storage | Docker / Web / Mobile | Self-hosted Google Timeline alternative, heatmaps, Fog of War |
+| **TRIP** | Trip & POI Planning | Open-source (MIT) / Free | Local server storage | Docker / Web | Minimalist map-first itinerary & POI planner, OIDC auth |
+| **AirTrail** | Flight Logging | Open-source (GPLv3) / Free | Local server storage | Docker / Web | Self-hosted Flighty alternative, 3D globe flight maps, stats |
 | **Organic Maps** | Maps & Navigation | Open-source (Apache 2.0) / Free | Full offline vector maps | Android, iOS, Linux | Privacy-first, zero ads, lightning fast |
 | **OsmAnd** | Maps & Navigation | Open-source (GPLv3) / Free | Full offline vector maps | Android, iOS | Contours, nautical charts, GPX tracking |
 | **Mapy.cz** | Maps & Outdoor | Proprietary / 100% Free | Full offline maps | Web, Android, iOS | Clear international hiking & tourist trails |
 | **AdventureLog** | Trip Management | Open-source (AGPLv3) / Free | Local server storage | Docker / Web | Self-hosted travel journal & stats |
 | **Wanderlog** | Trip Management | Proprietary / Free tier | Pro-only offline | Web, Android, iOS | Collaborative day-by-day itineraries |
+| **Curiosio** | Road Trip Planner | Free Web Service | Online | Web | Algorithmic road trip loop calculation by budget & time |
 | **Wikivoyage (Kiwix)** | Travel Research | Open Content (CC BY-SA) / Free | 100% offline document | All OS platforms | Complete worldwide travel encyclopedia |
 | **BRouter-web** | Hiking & Cycling | Open-source (MIT/GPLv3) / Free | Web-based (exports GPX) | Web, Android | Elevation-aware, custom gravel/trail routing |
 | **Trail Sense** | Outdoor Survival | Open-source (MIT) / Free | 100% offline | Android | Compass, barometer storms, backtrack trail |
 | **QMapShack** | Trail Planning | Open-source (GPLv3) / Free | Offline GIS maps | Linux, macOS, Win | Advanced GPX editing & elevation profiles |
 | **OpenTripPlanner** | Routing Engine | Open-source (LGPLv3) / Free | Server engine | Server / Docker | Scheduled public transit GTFS + walking/bike routing |
+| **OpenRouteService** | Routing & Isochrones | Open-source (Apache 2.0) / Free | Server engine | Server / Docker | Reachable area isochrones, time-distance matrices, OSM routing |
 | **Wheelmap** | Local Discovery | Open-source (AGPLv3) / Free | Online | Web, Android, iOS | Wheelchair and stroller accessibility |
 | **OpenVegeMap** | Food Discovery | Open-source (GPLv3) / Free | Online | Web | Filter vegan/vegetarian places via OSM |
+| **Too Good To Go** | Budget Dining | Free / Pay-per-bag | Online | Android, iOS | Discounted surprise meals rescuing restaurant surplus |
 
 ---
 
@@ -324,19 +409,28 @@ For developers building custom itinerary builders, GPS track processors, or trav
 
 ### 1. The Backcountry Hiker & Mountaineer
 
-* **Pre-trip planning:** [BRouter-web](https://brouter.de/brouter-web/){:target="_blank"} (elevation profiling) + [QMapShack](https://github.com/Maproom/qmapshack){:target="_blank"} (GPX waypoint preparation).
+* **Pre-trip planning:** [BRouter-web](https://brouter.de/brouter-web/){:target="_blank"} (elevation profiling) + [QMapShack](https://github.com/Maproom/qmapshack){:target="_blank"} (GPX waypoint preparation) + [OpenTopoMap](https://opentopomap.org/){:target="_blank"} (waterproof paper map backups).
 * **On-trail navigation:** [OsmAnd](https://osmand.net/){:target="_blank"} (loaded with contour lines and hillshade tiles).
 * **Safety & Sensor Backup:** [Trail Sense](https://github.com/kylecorry31/Trail-Sense){:target="_blank"} (barometer storm alarm and backtrack beacon).
 
-### 2. The City Explorer & Foodie
+### 2. The City Explorer & Budget Foodie
 
 * **Navigation & POI:** [Organic Maps](https://organicmaps.app/){:target="_blank"} (fast offline street navigation + direct searching for drinking water and bakeries).
 * **Dining & Culture:** [OpenVegeMap](https://openvegemap.net/){:target="_blank"} / [HappyCow](https://www.happycow.net/){:target="_blank"} + [Wikivoyage via Kiwix](https://kiwix.org/){:target="_blank"} (offline destination history and neighborhood safety advice).
+* **Accessibility:** [Wheelmap](https://wheelmap.org/){:target="_blank"} for step-free routes with strollers or heavy luggage.
 * **Budget Food:** [Too Good To Go](https://toogoodtogo.com/){:target="_blank"} for evening surprise food packs.
 
-### 3. The Digital Nomad, Road Tripper & Group Traveler
+### 3. The Self-Hosted Homelab & Flight Enthusiast
 
-* **Trip Central & Itinerary:** [TREK](https://github.com/liketrek/TREK){:target="_blank"} (self-hosted collaborative planning, expense splitting, reservation PDF parsing) or [Wanderlog](https://wanderlog.com/){:target="_blank"}.
+* **Trip Central & Itinerary:** [TREK](https://github.com/liketrek/TREK){:target="_blank"} (self-hosted collaborative planning, PDF reservation parsing) or [TRIP](https://github.com/itskovacs/trip){:target="_blank"} (lean map-first POI planner with OIDC).
+* **Location History & Heatmaps:** [Dawarich](https://github.com/Freika/dawarich){:target="_blank"} (automated GPS tracking, visited cities stats, Fog of War map, and Google Timeline migration).
+* **Flight Logging & Air Stats:** [AirTrail](https://github.com/johanohly/AirTrail){:target="_blank"} (self-hosted flight logging, 3D world flight maps, and Flighty/TripIt import).
+* **Photo Archiving:** [Immich](https://immich.app/){:target="_blank"} integrated with TREK and Dawarich for automatic GPS-photo matching.
+
+### 4. The Digital Nomad, Road Tripper & Group Expedition
+
+* **Collaborative Planning:** [TREK](https://github.com/liketrek/TREK){:target="_blank"} or [OpenTrip](https://github.com/stvlynn/OpenTrip){:target="_blank"} (instant PWA expense splitting and activity voting) alongside [Wanderlog](https://wanderlog.com/){:target="_blank"}.
 * **Route Ideation:** [Curiosio](https://curiosio.com/){:target="_blank"} for automatic road trip stop calculations.
 * **Driving Navigation:** [Organic Maps](https://organicmaps.app/){:target="_blank"} or [OsmAnd](https://osmand.net/){:target="_blank"} with voice prompts and offline speed camera / speed limit alerts.
 * **Private Photo & Travel Journal:** [AdventureLog](https://github.com/seanmorley15/AdventureLog){:target="_blank"} or [TREK with Immich integration](https://github.com/liketrek/TREK){:target="_blank"}.
+
