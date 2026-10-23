@@ -206,25 +206,21 @@ flowchart TD
 
 Choosing the right **log generation tool** depends on your specific testing requirements. Here are the top-rated tools for **fake log generation**:
 
-### 1. [fuzzy-train](https://github.com/sagarnikam123/fuzzy-train) - Versatile Log Generator
+### 1. [fuzzy-train](https://github.com/sagarnikam123/fuzzy-train) (v3.0.0) - Versatile Log Generator {#1-fuzzy-train---versatile-log-generator}
 
-**fuzzy-train** is a versatile **fake log generator** designed for testing and development environments. This **Docker-ready log generation tool** runs anywhere and supports multiple output formats.
+**fuzzy-train** is a versatile, zero-dependency **fake log generator** designed for observability testing and development. This **Docker- and Kubernetes-ready tool** runs anywhere, supports multiple formats, and includes complete drop-in `flog` argument compatibility.
 
-**Features:**
+**Key Features (v3.0.0):**
 
 - **Multiple Formats**: JSON, logfmt, HTTP access, Apache (common/combined/error), BSD syslog (RFC3164), Syslog (RFC5424)
-- **Realistic Data**: Optional [faker](https://pypi.org/project/Faker/)-powered enrichment (realistic IPs, HTTP methods/paths, user-agents, hostnames, usernames, companies) auto-enabled when installed, with a zero-dependency fallback so the instant fast path always works
-- **Smart Tracking**: trace_id with PID/Container ID or incremental integers for multi-instance tracking
-- **Flexible Output**: stdout, file, or both simultaneously
-- **Bounded Generation**: Generate an exact number of lines (`--count`) or up to a byte size (`--max-bytes`) then exit — ideal for reproducible fixtures
-- **Gzip Output**: Write compressed logs directly (`--compress` or a `.gz` filename)
-- **File Splitting**: Rotate output into multiple files by line count or bytes (`--split-by`) for log-rotation testing
-- **Fake Time Stepping**: Spread timestamps across a synthetic time range instantly (`--time-step`) without real waiting
-- **Failure Rate & HTTP Access** (opt-in): `--failure-rate` for ERROR/HTTP 500 mix, `--log-format http` for access-style lines, `--arrival exponential` for burstier pacing — defaults unchanged when omitted
-- **Smart File Handling**: Auto-creates directories and default filename
-- **Container-Aware**: Uses container/pod identifiers in containerized environments
-- **Field Control**: Optional timestamp, log level, length, and trace_id fields
-- **Short Flags**: Common options have short forms (`-f`, `-o`, `-n`, `-b`, `-w`, `-p`, `-s`)
+- **Multi-Line Stack Traces (`--stack` / `--multiline`)**: Built-in realistic stack traces for 8 languages (`java`, `python`, `go`, `nodejs`, `dotnet`, `ruby`, `rust`, `php`) to test multi-line aggregation in Fluent Bit, Vector.dev, and Promtail
+- **Periodic Error Intervals (`-e, --error-interval`)**: Emit simulated errors or stack traces at exact time intervals (e.g. `1m`, `3m`, `5m`) while regular traffic fills the gaps
+- **Throughput & Volume Controls**: Generate logs at steady byte rates (e.g. `0.5 MB/s` via `-r 2000`, `1.0 MB/s` via `-r 4000`) or stop automatically after a target total volume (`-b 1gb` or `-b 10gb`)
+- **Realistic Data**: Optional [faker](https://pypi.org/project/Faker/)-powered enrichment (realistic IPs, HTTP methods/paths, user-agents, hostnames, usernames, companies) auto-enabled when installed, with a zero-dependency fallback
+- **Smart Tracking**: `trace_id` automatically adapts to local PID, Docker container ID, or Kubernetes 12-char pod name hash
+- **Flexible Output**: stdout, file, or both simultaneously; automatic log rotation (`--split-by`) and gzip compression (`--compress` or `.gz`)
+- **Fake Time Stepping**: Spread timestamps across hours or days instantly (`--time-step 1s`) without real-world waiting
+- **Drop-in `flog` Compatibility**: Supports `-d` (`--delay`), `-t` (`--type`), `-b` (`--bytes`), `-n` (`--number`), `-l` (`--loop`), `-w` (`--overwrite`), and `--duration`
 
 **Python Script Usage:**
 ```bash
@@ -232,127 +228,88 @@ Choosing the right **log generation tool** depends on your specific testing requ
 git clone https://github.com/sagarnikam123/fuzzy-train
 cd fuzzy-train
 
-# Optional: install faker for realistic enriched data (falls back gracefully if skipped)
+# Optional: install faker for enriched data (falls back gracefully to built-in generator if skipped)
 pip install -r requirements.txt
 
-# Default JSON logs (90-100 chars, 1 line/sec)
+# Default JSON logs (streaming to stdout)
 python3 fuzzy-train.py
 
-# Apache common with custom parameters
+# Multi-line Java Spring Boot logs with stack traces every 1 minute
+python3 fuzzy-train.py --stack java -e 1m -r 2 -z utc
+
+# Multi-line Python tracebacks with 20% failure rate
+python3 fuzzy-train.py --stack python --failure-rate 0.2 -r 5
+
+# Stream at ~1.0 MB/sec until 1 GB is reached, then stop (-b 1gb)
+python3 fuzzy-train.py -f json -r 4000 -b 1gb -o file --file 1gb-sample.log
+
+# Stream at ~0.5 MB/sec until 10 GB is reached, then stop (-b 10gb)
+python3 fuzzy-train.py -f json -r 2000 -b 10gb -o file --file 10gb-sample.log
+
+# Split a 10 GB run into ten 1 GB rotated files
+python3 fuzzy-train.py -f json -r 5000 -b 10gb -p 1gb -o file --file 10gb-split.log
+
+# Apache common logs to file with custom message length
 python3 fuzzy-train.py \
     --min-log-length 100 \
     --max-log-length 200 \
     --lines-per-second 5 \
-    --log-format "apache common" \
-    --time-zone UTC \
+    --log-format apache-common \
+    --time-zone utc \
     --output file
 
-# Logfmt with simple trace IDs
-python3 fuzzy-train.py \
-    --log-format logfmt \
-    --trace-id-type integer
+# HTTP access logs with 10% 500 errors and exponential arrival (realistic bursts)
+python3 fuzzy-train.py -f http --failure-rate 0.1 --arrival exponential -r 10 -n 100
 
-# Clean logs (no metadata)
-python3 fuzzy-train.py \
-    --no-timestamp \
-    --no-log-level \
-    --no-length \
-    --no-trace-id
-
-# Output to both stdout and file
-python3 fuzzy-train.py --output stdout --file fuzzy-train.log
-
-# Bounded: exactly 1000 lines then exit (writes to default fuzzy-train.log; high rate so it finishes fast)
-python3 fuzzy-train.py --count 1000 --lines-per-second 1000 --output file
-
-# Bounded: generate ~1MB then exit (default fuzzy-train.log)
-python3 fuzzy-train.py --max-bytes 1048576 --lines-per-second 1000 --output file
-
-# Gzip-compressed output (a .gz filename auto-enables compression)
-python3 fuzzy-train.py --count 500 --lines-per-second 1000 --file logs.gz
-
-# Split a 1000-line run into 200-line files (app.log, app1.log, ...)
-python3 fuzzy-train.py --count 1000 --split-by 200 --lines-per-second 1000 --file app.log
-
-# Fake time stepping: 100 logs with timestamps 1 minute apart, generated instantly
-python3 fuzzy-train.py --count 100 --time-step 1m --lines-per-second 1000 --time-zone UTC
-
-# Short flags: -f (format) -n (count) -o (output)
-python3 fuzzy-train.py -f logfmt -n 100 -o stdout
-
-# HTTP access logs + controlled failure rate (opt-in; default JSON unchanged without these flags)
-python3 fuzzy-train.py -f http --failure-rate 0.05 --get-post-ratio 0.9 \
-    --get-duration-ms 500 --post-duration-ms 2000 --arrival exponential \
-    --lines-per-second 2 -n 20
-
-# Bias ERROR level on JSON (alert / dashboard testing) without switching format
-python3 fuzzy-train.py --failure-rate 0.2 -n 50 --lines-per-second 1000
-
-# Apache combined with ~10% status 500
-python3 fuzzy-train.py -f "apache combined" --failure-rate 0.1 -n 50 --lines-per-second 1000
+# Fast Historical Backfill: 10,000 logs stamped 1s apart (~2.7 hours of history) generated in ~5s
+python3 fuzzy-train.py -f json -n 10000 -s 1s -r 2000 -z utc -o historical.log
 ```
-
-Example shapes (output varies each run):
-
-```text
-# JSON without --failure-rate (levels are a random mix)
-{"timestamp": "2026-10-02T12:55:10.660305+05:30", "level": "DEBUG", "message": "Crawford, Mueller and Valentine processed request for jnelson@example.org host web-44.perez.info r", "trace_id": "85483-00000001", "length": 98}
-
-# -f http --failure-rate 0.3 (failed lines: level=error + status=500)
-2026-10-02T12:59:23.680914+05:30 level=error method=GET url=/wp-content/tag status=500 duration=120ms
-2026-10-02T12:59:23.685397+05:30 level=info method=GET url=/wp-content status=200 duration=181ms
-```
-
-> **Realistic data:** When the [`faker`](https://pypi.org/project/Faker/) package is installed (`pip install -r requirements.txt`), logs are automatically enriched with realistic contextual data across all formats. Docker/Kubernetes images ship with faker included. Without it, fuzzy-train falls back to its built-in generator, so the zero-dependency fast path is unchanged.
 
 **Docker Usage:**
 ```bash
-# Quick start with defaults
-docker pull sagarnikam123/fuzzy-train:latest
+# Quick start with defaults (v3.0.0 / latest)
 docker run --rm sagarnikam123/fuzzy-train:latest
 
-# Run in background
-docker run -d --name fuzzy-train-log-generator sagarnikam123/fuzzy-train:latest \
-    --lines-per-second 2 --log-format JSON
+# Multi-line stack trace generator (Java)
+docker run -d --name log-streamer-java \
+  sagarnikam123/fuzzy-train:latest \
+  --stack java -e 1m -r 2
 
-# Apache combined logs with volume mount
-docker run --rm -v "$(pwd)":/logs sagarnikam123/fuzzy-train:latest \
-    --min-log-length 180 \
-    --max-log-length 200 \
-    --lines-per-second 2 \
-    --time-zone UTC \
-    --log-format "apache combined" \
-    --output file \
-    --file /logs/fuzzy-train.log
+# Stream at 1.0 MB/sec until 1 GB is written, then exit cleanly
+docker run --rm -v "$(pwd)/logs":/logs sagarnikam123/fuzzy-train:latest \
+  -f json -r 4000 -b 1gb -o file --file /logs/benchmark-1gb.log
 
-# High-volume syslog for load testing
-docker run --rm sagarnikam123/fuzzy-train:latest \
-    --lines-per-second 10 \
-    --log-format syslog \
-    --time-zone UTC \
-    --output file
-
-# Cleanup running containers
-docker stop $(docker ps -q --filter ancestor=sagarnikam123/fuzzy-train:latest)
-docker rm $(docker ps -aq --filter ancestor=sagarnikam123/fuzzy-train:latest)
+# Run in background with structured JSON at 500 lines/sec
+docker run -d --name fuzzy-train-json \
+  sagarnikam123/fuzzy-train:latest \
+  -f json -r 500 -z utc
 ```
 
-**Kubernetes Deployment:**
+**Kubernetes Deployment (Dedicated `fuzzy-train` Namespace):**
+
+All manifests automatically create the **`fuzzy-train`** namespace so your cluster's default namespace stays clean:
+
 ```bash
-# Download YAML files
-wget https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/k8s/deployment-file.yaml
-wget https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/k8s/deployment-stdout.yaml
-wget https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/k8s/daemonset-stdout.yaml
+# 🚀 1. All-in-One Observability Stack (4 workloads: Java multiline, JSON, HTTP, and DaemonSet)
+kubectl apply -f https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/examples/k8s/all-in-one-namespace-stack.yaml
 
-# Deploy to Kubernetes cluster
-kubectl apply -f deployment-file.yaml
-kubectl apply -f deployment-stdout.yaml
+# ☸️ 2. Per-Node Multi-Line Stack Trace DaemonSet (runs on all nodes, emits errors every 1m)
+kubectl apply -f https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/examples/k8s/daemonset-per-node-multiline.yaml
 
-# Optional: Deploy as DaemonSet for cluster-wide generation
-kubectl apply -f daemonset-stdout.yaml
+# ☸️ 3. Per-Node JSON DaemonSet (structured logs on every node, 1m error interval)
+kubectl apply -f https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/examples/k8s/daemonset-per-node-json.yaml
 
-# Check running pods
-kubectl get pods -l app=fuzzy-train
+# ⏱️ 4. Volume Benchmark Job: Streams 1.0 MB/sec until 1 GB is reached, then terminates
+kubectl apply -f https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/examples/k8s/volume-benchmark-job.yaml
+
+# View running pods in the dedicated namespace
+kubectl get pods -n fuzzy-train
+
+# Tail Java multi-line logs live
+kubectl logs -n fuzzy-train -l app=fuzzy-train-multiline -f
+
+# Clean up all resources in one command:
+kubectl delete namespace fuzzy-train
 ```
 
 ### 2. [flog](https://github.com/mingrammer/flog) - Fast Log Generator
@@ -366,13 +323,13 @@ kubectl get pods -l app=fuzzy-train
 
 ```mermaid
 graph LR
-    subgraph "fuzzy-train"
-        A1[Multi-format Support<br/>JSON, HTTP, Apache, Syslog, Logfmt]
-        A2[Docker & K8s Ready<br/>Container-native]
-        A3[Smart Tracking<br/>trace_id, PID, Container ID]
-        A4[Flexible Output<br/>File, stdout, gzip, split]
-        A5[Field Control<br/>Optional metadata]
-        A6[Failure rate + Bounded<br/>ERROR/500, count/bytes, faker]
+    subgraph "fuzzy-train (v3.0.0)"
+        A1[Multi-format & Stacks<br/>JSON, Logfmt, Apache, Syslog<br/>8-Lang Multi-line Stack Traces]
+        A2[Docker & K8s Ready<br/>Self-contained namespace<br/>DaemonSets & Jobs]
+        A3[Smart Tracking<br/>trace_id, PID, Container ID, Pod Hash]
+        A4[Throughput & Volume Caps<br/>0.5 - 1.0 MB/s, 1GB/10GB limits]
+        A5[Alert & Anomaly Simulation<br/>--failure-rate & -e 1m/3m intervals]
+        A6[Drop-in flog Parity<br/>-d delay, -t type, -b bytes, -l loop]
     end
 
     subgraph "flog"
@@ -384,9 +341,9 @@ graph LR
     end
 
     subgraph "Use Case Decision"
-        C1[<b>fuzzy-train</b> :<br/>• Multi-format / HTTP access<br/>• Container deployment<br/>• Failure-rate alert testing<br/>• Bounded/gzip/split output<br/>• Realistic faker data]
+        C1[<b>fuzzy-train</b> :<br/>• Multi-format & Multi-line exceptions<br/>• Periodic error intervals (1m/3m)<br/>• K8s DaemonSets / Microservices mesh<br/>• Throughput & target volume limits<br/>• Realistic faker data & drop-in flog flags]
 
-        C2[<b>flog</b> :<br/>• Prefer a single Go binary<br/>• Max raw throughput<br/>• Apache-centric workflows]
+        C2[<b>flog</b> :<br/>• Prefer a single Go binary<br/>• Max raw throughput<br/>• Simple Apache-centric workflows]
     end
 
     style A1 fill:#e1f5fe
@@ -698,6 +655,43 @@ To generate 10 MB/sec of log data, you need to calculate the required lines per 
 
 - **Option 3: Many small instances** - 50 instances × 1,049 lines/sec each = 52,450 total lines/sec. Per instance parameters: --lines-per-second 1049 --min-log-length 130 --max-log-length 170
 
+### Generating Target Throughput (0.5 MB/s, 1.0 MB/s) & Total Volume Caps (1 GB, 10 GB)
+
+Observability engineers often need to test storage rate limiters or evaluate query performance over a bounded dataset (e.g. "Stream at exactly 1 MB/sec until 1 GB is reached, then stop"):
+
+#### Throughput Pacing Cheat-Sheet:
+
+| Desired Throughput | Log Format | Average Line Size | Recommended `-r` Flag |
+| :--- | :--- | :--- | :--- |
+| **0.5 MB/sec** (~512 KB/s) | `json` | ~250 B | **`-r 2000`** |
+| **1.0 MB/sec** (~1024 KB/s) | `json` | ~250 B | **`-r 4000`** |
+| **0.5 MB/sec** | `apache-combined` | ~300 B | **`-r 1700`** |
+| **1.0 MB/sec** | `apache-combined` | ~300 B | **`-r 3400`** |
+| **0.5 MB/sec** | `logfmt` | ~175 B | **`-r 2900`** |
+| **1.0 MB/sec** | `logfmt` | ~175 B | **`-r 5800`** |
+
+> **Pro-Tip: Make 1 Line = Exactly 1 KB**:  
+> Pass `--min-log-length 900 --max-log-length 900`. With JSON overhead, each log line is exactly 1,024 bytes (1 KB). This provides a 1:1 match:
+> - **0.5 MB/sec**: `-r 500`
+> - **1.0 MB/sec**: `-r 1000`
+
+#### Practical Recipes:
+
+```bash
+# 1. Stream at 1.0 MB/sec until 1 GB is reached (~17 minutes), then exit:
+python3 fuzzy-train.py -f json -r 4000 -b 1gb -o file --file test-1gb.log
+
+# 2. Stream at 0.5 MB/sec until 10 GB is reached (~5.6 hours), then exit:
+python3 fuzzy-train.py -f json -r 2000 -b 10gb -o file --file test-10gb.log
+
+# 3. Generate 10 GB in Docker split into ten 1 GB rotated files:
+docker run --rm -v "$(pwd)/logs":/logs sagarnikam123/fuzzy-train:latest \
+  -f json -r 5000 -b 10gb -p 1gb -o file --file /logs/benchmark.log
+
+# 4. Kubernetes Job: Generate 1 GB at 1.0 MB/sec in the 'fuzzy-train' namespace and complete:
+kubectl apply -f https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/examples/k8s/volume-benchmark-job.yaml
+```
+
 ## Volume Calculation Visualization
 
 ```mermaid
@@ -923,10 +917,10 @@ rm -f logs/* 2>/dev/null || true
 mkdir -p logs
 
 # Start all services in background
-docker-compose up -d
+docker compose up -d           # or legacy: docker-compose up -d
 
 # View running services
-docker-compose ps
+docker compose ps
 
 # Check generated log files
 ls -la logs/
@@ -940,7 +934,10 @@ tail -f logs/user-service.log
 tail -f logs/*.log
 
 # Stop all services
-docker-compose down
+docker compose down
+
+# Tip: To run a 4-tier microservice simulation with Java multi-line stack traces, use:
+# docker compose -f examples/docker/docker-compose-observability.yml up -d
 ```
 
 ## 📊 Volume Calculation Reference
@@ -1036,63 +1033,64 @@ graph TB
 
 ### Kubernetes DaemonSet for Cluster-Wide Generation
 
-Deploy **cluster-wide log generation** using **Kubernetes DaemonSet** for distributed testing:
+Deploy **cluster-wide log generation** using **Kubernetes DaemonSet** to test node-level log collectors (Fluent Bit, Vector, Promtail) tailing `/var/log/pods`:
 
 ```yaml
-# daemonset-stdout.yaml
-# Volume generated per node: 10 lines/sec × ~170 bytes (120 chars + JSON overhead) = ~1.6 KB/sec
-# Total cluster volume = 1.6 KB/sec × (Number of nodes)
-
+# daemonset-per-node-multiline.yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fuzzy-train
+---
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: fuzzy-train-daemonset
+  name: fuzzy-train-node-multiline
+  namespace: fuzzy-train
 spec:
   selector:
     matchLabels:
-      app: fuzzy-train-daemonset
+      app: fuzzy-train-node-multiline
   template:
     metadata:
       labels:
-        app: fuzzy-train-daemonset
+        app: fuzzy-train-node-multiline
     spec:
+      tolerations:
+        - operator: Exists      # Deploy to ALL nodes including control-plane
       containers:
-      - name: fuzzy-train
+      - name: generator
         image: sagarnikam123/fuzzy-train:latest
         args:
+          - "--stack"
+          - "java"              # Realistic multi-line stack traces
+          - "--error-interval"
+          - "1m"                # Emits a multi-line exception every 1 minute
           - "--lines-per-second"
-          - "10"                    # Adjust for desired rate per node
-          - "--min-log-length"
-          - "90"                    # Adjust for desired log size
-          - "--max-log-length"
-          - "150"                   # Adjust for desired log size
+          - "2"
           - "--time-zone"
-          - "UTC"
-          - "--log-format"
-          - "JSON"
-          - "--output"
-          - "stdout"
+          - "utc"
 ```
 
-**Deploy and manage DaemonSet:**
+**Deploy and Manage DaemonSets:**
 ```bash
-# Deploy DaemonSet
-kubectl apply -f daemonset-stdout.yaml
+# Option A: Deploy Multi-Line Stack Trace DaemonSet (Java errors every 1m)
+kubectl apply -f https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/examples/k8s/daemonset-per-node-multiline.yaml
 
-# Check DaemonSet status
-kubectl get daemonset fuzzy-train-daemonset
+# Option B: Deploy Structured JSON DaemonSet (errors every 1m)
+kubectl apply -f https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/examples/k8s/daemonset-per-node-json.yaml
 
-# View pods on all nodes
-kubectl get pods -l app=fuzzy-train-daemonset -o wide
+# Check DaemonSet status in fuzzy-train namespace
+kubectl get daemonset -n fuzzy-train
 
-# View logs from all pods
-kubectl logs -l app=fuzzy-train-daemonset --tail=50
+# View running pods on all nodes
+kubectl get pods -n fuzzy-train -o wide
 
-# View logs from specific pod
-kubectl logs $(kubectl get pods -l app=fuzzy-train-daemonset -o jsonpath='{.items[0].metadata.name}') -f
+# View logs from all node pods simultaneously
+kubectl logs -n fuzzy-train -l app=fuzzy-train-node-multiline -f --max-log-requests=10
 
-# Cleanup DaemonSet
-kubectl delete -f daemonset-stdout.yaml
+# Cleanup entire namespace and workloads in one command:
+kubectl delete namespace fuzzy-train
 ```
 
 ## Kubernetes Cluster-Wide Log Generation
@@ -1165,22 +1163,21 @@ graph TB
 
 **Tweaking Volume and Rate:**
 ```bash
-# For high-volume testing - increase rate and log size
-# Volume generated per node: 50 lines/sec × ~350 bytes (350 chars + overhead) = ~16.8 KB/sec
-# Edit daemonset-stdout.yaml:
-# --lines-per-second: "50"     # 50 logs/sec per node
-# --min-log-length: "200"      # Larger logs
-# --max-log-length: "500"      # Up to 500 chars
+# High-volume stress testing on all nodes:
+# Volume per node: 50 lines/sec × ~350 bytes = ~17 KB/sec (~1 MB/min per node)
+# Edit args in examples/k8s/daemonset-per-node-json.yaml:
+# - "--lines-per-second"
+# - "50"
+# - "--min-log-length"
+# - "200"
+# - "--max-log-length"
+# - "500"
 
-# For low-volume testing - decrease rate and log size
-# Volume generated per node: 1 line/sec × ~125 bytes (75 chars + overhead) = ~0.12 KB/sec
-# Edit daemonset-stdout.yaml:
-# --lines-per-second: "1"       # 1 log/sec per node
-# --min-log-length: "50"       # Smaller logs
-# --max-log-length: "100"      # Up to 100 chars
+# Adjust periodic error frequency:
+# Set -e 1m (every 1 min) or -e 3m (every 3 mins) to test anomaly alert thresholds
 
-# Apply changes
-kubectl apply -f daemonset-stdout.yaml
+# Apply changes to fuzzy-train namespace:
+kubectl apply -f https://raw.githubusercontent.com/sagarnikam123/fuzzy-train/refs/heads/main/examples/k8s/daemonset-per-node-json.yaml
 ```
 
 ## Troubleshooting Log Generation
@@ -1357,7 +1354,8 @@ Follow these **log generation best practices** for effective **log aggregation t
 
 ### Related Log Generation Resources
 
-- [fuzzy-train GitHub Repository](https://github.com/sagarnikam123/fuzzy-train) - Versatile **log generation tool**
+- [fuzzy-train GitHub Repository](https://github.com/sagarnikam123/fuzzy-train) - Versatile **log generation tool** (v3.0.0)
+- [fuzzy-train Observability Recipes](https://github.com/sagarnikam123/fuzzy-train/tree/main/examples) - Copy-paste Standalone, Docker Compose & Kubernetes examples
 - [flog GitHub Repository](https://github.com/mingrammer/flog) - Fast **fake log generator**
 - [Fluent-bit Documentation](https://docs.fluentbit.io/) - **Log shipping agent** configuration
 - [Vector.dev Documentation](https://vector.dev/docs/) - Modern **log processing** pipeline
