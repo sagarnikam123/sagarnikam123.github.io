@@ -30,7 +30,7 @@ This guide covers everything: how to pick the right model for your hardware, how
 - [Setup Guide: Ollama](#setup-guide-ollama-text-code-vision-models)
 - [Beyond Ollama: Other Free Tools](#beyond-ollama-other-free-tools-to-run-local-ai)
 - [Setup Guide: Whisper.cpp (Audio)](#setup-guide-whispercpp-audio-transcription)
-- [Setup Guide: Piper (Text-to-Speech)](#setup-guide-piper-text-to-speech)
+- [Setup Guide: Text-to-Speech (Kokoro & Piper)](#setup-guide-text-to-speech-kokoro--piper)
 - [Setup Guide: Image Generation](#setup-guide-image-generation-stable-diffusion)
 - [Customizing Models with Modelfile](#customizing-models-with-modelfile)
 - [Integrate with Your Editor & Workflow](#integrate-with-your-editor--workflow)
@@ -78,7 +78,7 @@ Pick one from each table, install them, then scroll to [your RAM tier](#model-re
 | Tool | Type | Best For | Platform | Open Source | Install |
 | ------ | ------ | ---------- | ---------- | ------------- | --------- |
 | [**Ollama**](https://ollama.com) | CLI + API server | Most users — simplest setup, massive ecosystem | Mac, Linux, Windows | ✅ | `brew install ollama` or [download](https://ollama.com/download) |
-| [**LM Studio**](https://lmstudio.ai) | Desktop GUI | Beginners, model browsing, "Chat with Docs" | Mac, Linux, Windows | ❌ (free) | [Download app](https://lmstudio.ai) |
+| [**LM Studio**](https://lmstudio.ai) | Desktop GUI + CLI (`lms`) | Beginners, model browsing, headless `lms` server | Mac, Linux, Windows | ❌ (free) | [Download app](https://lmstudio.ai) |
 | [**oMLX**](https://omlx.ai) | CLI server | Apple Silicon speed demons, coding agents (5x TTFT) | Mac only | ✅ (Apache 2.0) | [GitHub](https://omlx.ai) |
 | [**Unsloth Studio**](https://unsloth.ai/docs/new/studio) | Web GUI | Model comparison arena, fine-tuning, observability | Mac, Linux, Windows | ✅ (AGPL-3.0) | [GitHub](https://github.com/unslothai/unsloth) |
 | [**Pinokio**](https://pinokio.co) | App store | Non-technical — one-click install for 160+ AI tools | Mac, Linux, Windows | ✅ | [Download](https://pinokio.co) |
@@ -146,6 +146,9 @@ Pick one from each table, install them, then scroll to [your RAM tier](#model-re
 
 </div>
 
+> **Looking for a deep dive into AI coding tools?** See our comprehensive guide to the [10 Best Open-Source AI Coding Assistants & Agents Compared]({% post_url 2026-10-25-best-open-source-ai-coding-assistants %}).
+{: .prompt-tip }
+
 ### Non-Text Tools (Audio, Image, TTS)
 
 <div style="overflow-x: auto;" markdown="1">
@@ -153,7 +156,8 @@ Pick one from each table, install them, then scroll to [your RAM tier](#model-re
 | Task | Tool | Type | Install | Notes |
 | ------ | ------ | ------ | --------- | ------- |
 | Speech-to-text | [**Whisper.cpp**](https://github.com/ggerganov/whisper.cpp) | CLI | `brew install whisper-cpp` | Best local transcription |
-| Text-to-speech | [**Piper**](https://github.com/OHF-Voice/piper1-gpl) | CLI | `pip install piper-tts` | 30+ languages, runs on CPU |
+| Text-to-speech | [**Kokoro-82M**](https://huggingface.co/hexgrad/Kokoro-82M) | CLI / Python | `pip install kokoro` | Studio quality, natural human prosody, Apache 2.0 |
+| Text-to-speech | [**Piper**](https://github.com/OHF-Voice/piper1-gpl) | CLI | `pip install piper-tts` | Ultra-fast on low-spec CPUs / Raspberry Pi |
 | Image generation | [**Draw Things**](https://drawthings.ai) | macOS app | Mac App Store (free) | Native Metal acceleration |
 | Image generation | [**ComfyUI**](https://github.com/comfyanonymous/ComfyUI) | Web UI | `git clone` + `pip install` | Linux/Windows, node-based |
 | Image generation | [**Stability Matrix**](https://lykos.ai) | Desktop | [Download](https://lykos.ai) | One-click SD installer |
@@ -459,7 +463,7 @@ Always override the default if you need more context for coding or document anal
 
 ## Model Recommendations by RAM and Use Case
 
-> **Audio & TTS (all RAM tiers):** For speech-to-text, use [Whisper.cpp](#setup-guide-whispercpp-audio-transcription) — the `large-v3-turbo q5` model (~0.57 GB) is the best value at any RAM tier. On 8 GB use `small` (~0.5 GB) if RAM is tight. For text-to-speech, use [Piper](#setup-guide-piper-text-to-speech) (~60-100 MB per voice, runs on CPU). Both are lightweight and run alongside any LLM without conflict.
+> **Audio & TTS (all RAM tiers):** For speech-to-text, use [Whisper.cpp](#setup-guide-whispercpp-audio-transcription) — the `large-v3-turbo q5` model (~0.57 GB) is the best value at any RAM tier. On 8 GB use `small` (~0.5 GB) if RAM is tight. For text-to-speech, use [Kokoro or Piper](#setup-guide-text-to-speech-kokoro--piper) (Kokoro for natural human prosody, Piper for ultra-low RAM on CPU). Both are lightweight and run alongside any LLM without conflict.
 
 ### 8 GB RAM — The Essentials
 
@@ -803,6 +807,26 @@ ollama pull <model>      # Download or update a model
 
 > **Prefer a visual API explorer?** The [Ollama REST API Postman Collection](https://www.postman.com/postman-student-programs/ollama-api/documentation/suc47x8/ollama-rest-api) has pre-built requests for generate, chat, structured output, JSON mode, and model management — great for testing before writing code. For programmatic use, see the official [Python](https://github.com/ollama/ollama-python) and [JavaScript](https://github.com/ollama/ollama-js) client libraries.
 
+### Local Vector Embeddings for RAG (Zero API Cost)
+
+If you are building a private knowledge base or chatting with your documents using tools like **Open WebUI**, **AnythingLLM**, **ChromaDB**, or **LangChain**, you don't need to send document chunks to OpenAI's embedding API. Ollama runs local embedding models natively:
+
+```bash
+# Pull the standard high-performance embedding model (~274 MB)
+ollama pull nomic-embed-text
+
+# Or pull the multilingual embedding model (~2.2 GB)
+ollama pull bge-m3
+
+# Test the local embeddings API
+curl http://localhost:11434/api/embeddings -d '{
+  "model": "nomic-embed-text",
+  "prompt": "Vectorize this sensitive document chunk locally"
+}'
+```
+
+Local embeddings execute in milliseconds on CPU or GPU and keep your vector database 100% private and air-gapped.
+
 ---
 
 ## Beyond Ollama: Other Free Tools to Run Local AI
@@ -819,6 +843,12 @@ The [Quick Decision table](#quick-decision-pick-your-tools) above covers the mos
 | [**MLX / mlx-lm**](https://github.com/ml-explore/mlx) | Apple's native framework for Apple Silicon | Fastest inference on Macs — up to 4x faster than llama.cpp for some models | ✅ Yes |
 
 </div>
+
+> **`llama.cpp` built-in Web UI (`llama-server`):** You don't need Python or external wrappers to get a clean UI. Run `llama-server -m model.gguf -c 4096 --port 8080` to launch an instant web chat interface and OpenAI-compatible API directly from the native binary.
+{: .prompt-tip }
+
+> **LM Studio Headless CLI (`lms`):** LM Studio now includes a native command-line interface. Run `lms server start` and `lms load <model>` to serve models headlessly on remote servers or local terminal scripts without keeping the GUI open.
+{: .prompt-info }
 
 ### Production & High-Throughput Serving
 
@@ -934,50 +964,91 @@ ffmpeg -i voice-memo.m4a -ar 16000 -ac 1 -c:a pcm_s16le output.wav
 
 ---
 
-## Setup Guide: Piper (Text-to-Speech)
+## Setup Guide: Text-to-Speech (Kokoro & Piper)
 
-[Piper](https://github.com/OHF-Voice/piper1-gpl) is a fast, local neural text-to-speech engine. It runs entirely on CPU, needs minimal RAM (~60-100 MB per voice), and supports 30+ languages.
+For generating speech locally without cloud fees, two open-weight tools lead the ecosystem: **Kokoro (82M)** for natural, studio-quality speech, and **Piper** for ultra-lightweight execution on low-spec hardware.
 
-### Install
+### Kokoro (82M) — Studio-Quality Natural Speech
+
+[Kokoro-82M](https://huggingface.co/hexgrad/Kokoro-82M) is the breakthrough local TTS model of 2025/2026. At just 82 million parameters, it produces speech with near-human prosody, natural pauses, and realistic emotional inflection — running at **5x real-time on standard CPUs**.
+
+* **License:** Apache 2.0 (fully open for commercial use)
+* **Model Size:** ~82M parameters (~330 MB)
+* **Speed:** ~5x real-time on CPU, near-instant on Apple Silicon / GPUs
+
+#### Install & Quickstart
+
+```bash
+# Install Kokoro and soundfile library
+pip install kokoro soundfile
+```
+
+Generate speech with Python:
+
+```python
+from kokoro import KPipeline
+import soundfile as sf
+
+# Initialize English pipeline ('a' for American English, 'b' for British)
+pipeline = KPipeline(lang_code='a')
+
+text = "Local AI models have matured to the point where any laptop can run them privately."
+
+# Generate audio using the popular 'af_heart' voice
+generator = pipeline(text, voice='af_heart', speed=1.0)
+for i, (gs, ps, audio) in enumerate(generator):
+    sf.write(f"output_{i}.wav", audio, 24000)
+    print(f"Generated output_{i}.wav")
+```
+
+---
+
+### Piper — Ultra-Fast, Low-Resource Edge TTS
+
+[Piper](https://github.com/OHF-Voice/piper1-gpl) is built for speed and low-power devices. It runs comfortably on older CPUs and Raspberry Pis, with voice models under 60–100 MB.
+
+* **License:** GPL-3.0
+* **Best For:** Smart home voice alerts, Raspberry Pi projects, and instant terminal notifications.
+
+#### Install & Download Voice
 
 ```bash
 # Install via pip
 pip install piper-tts
-```
 
-### Download a Voice Model
-
-Piper requires a model file (`.onnx`) and its config (`.onnx.json`). Browse available voices at [huggingface.co/rhasspy/piper-voices](https://huggingface.co/rhasspy/piper-voices/tree/main).
-
-```bash
-# Create a directory for voice models
+# Create directory and download a US English voice (~60 MB)
 mkdir -p ~/.local/share/piper-voices
-
-# Download a US English voice (medium quality, ~60 MB)
 curl -L -o ~/.local/share/piper-voices/en_US-lessac-medium.onnx \
   https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/medium/en_US-lessac-medium.onnx
-
 curl -L -o ~/.local/share/piper-voices/en_US-lessac-medium.onnx.json \
   https://huggingface.co/rhasspy/piper-voices/resolve/main/en/en_US/lessac/medium/en_US-lessac-medium.onnx.json
 ```
 
-### Generate Speech
+#### Generate Speech
 
 ```bash
-# Generate speech to a WAV file
-echo "Hello, this is a test of local text to speech." | \
-  piper -m ~/.local/share/piper-voices/en_US-lessac-medium.onnx -f output.wav
-
-# Play directly (macOS)
-echo "The build failed with 3 errors." | \
-  piper -m ~/.local/share/piper-voices/en_US-lessac-medium.onnx -f temp.wav && afplay temp.wav && rm temp.wav
-
-# Pipe from a file
-cat notes.txt | \
-  piper -m ~/.local/share/piper-voices/en_US-lessac-medium.onnx -f notes-audio.wav
+# Pipe text to audio
+echo "Build succeeded with zero errors." | \
+  piper -m ~/.local/share/piper-voices/en_US-lessac-medium.onnx -f build-success.wav
 ```
 
 > **Note**: Piper does not have a `--list-voices` flag. You choose a voice by downloading its `.onnx` + `.onnx.json` files and passing the path via `-m`. Browse voices with audio samples at [rhasspy.github.io/piper-samples](https://rhasspy.github.io/piper-samples/).
+
+---
+
+### Kokoro vs. Piper Comparison
+
+<div style="overflow-x: auto;" markdown="1">
+
+| Feature | Kokoro-82M | Piper |
+| :--- | :--- | :--- |
+| **Voice Naturalness** | **Studio Quality** (human inflection, breathing, natural cadence) | **Functional** (clean and intelligible, but flatter) |
+| **Model Size** | ~330 MB (82M params) | ~60–100 MB per voice |
+| **Performance** | Fast (~5x real-time on CPU) | **Ultra-Fast** (100x+ real-time, runs on Raspberry Pi) |
+| **License** | **Apache 2.0** (Permissive, commercial-friendly) | **GPL-3.0** (Copyleft) |
+| **Best Used For** | Podcasts, audiobooks, content narration, proofreading | CLI alerts, CI/CD chimes, smart home / IoT integration |
+
+</div>
 
 ### Use Cases for Local TTS
 
@@ -1149,14 +1220,21 @@ tabAutocompleteModel:
 - **Context awareness** — reference files with `@file`, codebase with `@codebase`
 - **Document analysis** — drag PDFs or docs into the chat for summarization and Q&A
 
-### Option 2: Cline (Agentic Coding)
+### Option 2: Autonomous Coding Agents (Aider & Cline)
 
-[Cline](https://github.com/cline/cline) is an open-source VS Code extension that acts as an autonomous coding agent — it can create files, run terminal commands, and iterate on code with your approval:
+If you want an AI agent that doesn't just chat, but autonomously edits files, executes terminal tests, and verifies code using your local Ollama models:
 
-1. Install the Cline extension from VS Code Marketplace
-2. In settings, set provider to "Ollama"
-3. Set the endpoint to `http://localhost:11434`
-4. Select your model (recommend 32K+ context for best results)
+* **In the Terminal — [Aider](https://aider.chat/):** Connects natively to Ollama and automatically crafts Git commits with descriptive messages for every modification:
+  ```bash
+  # Install Aider and run against your local model
+  uv tool install aider-chat@latest
+  export OLLAMA_API_BASE=http://127.0.0.1:11434
+  aider --model ollama_chat/qwen2.5-coder:14b
+  ```
+* **In VS Code — [Cline](https://github.com/cline/cline):** An autonomous agent extension featuring step-by-step human approval on every file edit and bash command. Install from VS Code Marketplace, set provider to **Ollama** (`http://localhost:11434`), and select your model with a `32768` context window.
+
+> For an in-depth comparison of open-source coding agents (Aider, Cline, OpenCode, OpenHands, Goose, Zed), benchmarks, and free cloud API tiers, see our dedicated guide: **[10 Best Open-Source AI Coding Assistants & Agents Compared]({% post_url 2026-10-25-best-open-source-ai-coding-assistants %})**.
+{: .prompt-tip }
 
 ### Option 3: Open WebUI (Browser-Based Chat)
 
@@ -1178,87 +1256,7 @@ Open `http://localhost:3000` — it auto-detects all your Ollama models. Great f
 - Sharing with team members on your local network
 - Comparing responses from different models side-by-side
 
-### Option 4: Aider (AI Pair Programming in Terminal)
-
-[Aider](https://aider.chat/) is an open-source terminal-based AI pair programming tool (44k+ GitHub stars, 6.8M+ installs). It edits files directly in your codebase, auto-commits changes with sensible messages, and works with local Ollama models — completely free, completely private.
-
-**Why Aider stands out for local AI:**
-
-- Works directly on your existing codebase (not a sandbox)
-- Auto-commits changes with git — easy to diff, undo, or review
-- Maps your entire repo for context-aware edits
-- Supports 100+ programming languages
-- Voice-to-code, linting, testing integration
-
-**Install Aider:**
-
-```bash
-# One-liner (installs aider + python 3.12 if needed)
-curl -LsSf https://aider.chat/install.sh | sh
-
-# Or via pipx
-pipx install aider-chat
-
-# Or via uv
-uv tool install --force --python python3.12 aider-chat@latest
-```
-
-**Connect Aider to Ollama:**
-
-```bash
-# Set the Ollama endpoint (default, usually already correct)
-export OLLAMA_API_BASE=http://127.0.0.1:11434
-
-# Pull a good coding model
-ollama pull qwen2.5-coder:14b
-
-# Start aider with your local model
-cd /path/to/your/project
-aider --model ollama_chat/qwen2.5-coder:14b
-```
-
-> Use `ollama_chat/` prefix (not `ollama/`) for chat-optimized interactions.
-
-**Recommended local models for Aider:**
-
-| RAM | Model | Command |
-| ----- | ------- | --------- |
-| 8 GB | Qwen2.5 Coder 7B | `aider --model ollama_chat/qwen2.5-coder:7b` |
-| 16 GB | Qwen2.5 Coder 14B | `aider --model ollama_chat/qwen2.5-coder:14b` |
-| 24 GB+ | Codestral 22B | `aider --model ollama_chat/codestral:22b` |
-| 32 GB+ | Qwen2.5 Coder 32B | `aider --model ollama_chat/qwen2.5-coder:32b` |
-
-**Context window note:** Ollama defaults to a 2K context window, which is too small for real coding. Aider auto-adjusts this for each request, but you can also fix it with a `.aider.model.settings.yml` file in your project:
-
-```yaml
-- name: ollama_chat/qwen2.5-coder:14b
-  extra_params:
-    num_ctx: 32768
-```
-
-**Example session:**
-
-```bash
-$ cd ~/projects/my-app
-$ aider --model ollama_chat/qwen2.5-coder:14b
-
-Aider v0.82.0
-Model: ollama_chat/qwen2.5-coder:14b
-
-> Add pagination to the /users API endpoint
-
-# Aider edits your files, shows the diff, and auto-commits with:
-# "feat: add pagination to /users endpoint with limit/offset params"
-```
-
-**Aider also works with cloud models** (DeepSeek, Claude, GPT-4o) if you want to mix local and cloud:
-
-```bash
-aider --model deepseek --api-key deepseek=<key>
-aider --model sonnet --api-key anthropic=<key>
-```
-
-### Option 5: Fabric (AI Prompt Patterns from Terminal)
+### Option 4: Fabric (AI Prompt Patterns from Terminal)
 
 [Fabric](https://github.com/danielmiessler/fabric) is a CLI framework with 100+ crowdsourced AI prompt "patterns" — highly optimized prompts for tasks like summarizing articles, extracting wisdom from videos, writing essays, or analyzing security reports. You pipe any text through it.
 
@@ -1284,7 +1282,7 @@ yt --transcript "https://youtube.com/watch?v=..." | fabric --pattern extract_wis
 cat notes.md | fabric --pattern write_essay --model llama3
 ```
 
-### Option 6: ShellGPT (sgpt)
+### Option 5: ShellGPT (sgpt)
 
 [ShellGPT](https://github.com/TheR1D/shell_gpt) is a command-line productivity tool for generating shell commands, code snippets, and general text. Forget a complex `ffmpeg` or `tar` command? Just ask.
 
@@ -1315,7 +1313,7 @@ sgpt --code "python function to merge two sorted lists"
 sgpt "explain the difference between TCP and UDP"
 ```
 
-### Option 7: Mods (by Charmbracelet)
+### Option 6: Mods (by Charmbracelet)
 
 [Mods](https://github.com/charmbracelet/mods) is built for piping — take stdin, process it with an LLM, get beautifully formatted Markdown output.
 
@@ -1349,7 +1347,7 @@ npm test 2>&1 | mods "What went wrong and how to fix it?"
 git diff | mods "Review this code change for bugs"
 ```
 
-### Option 8: Chatblade
+### Option 7: Chatblade
 
 [Chatblade](https://github.com/npiv/chatblade) is a versatile CLI for LLM interactions — pipe output, format as JSON, and create complex prompt chains in bash.
 
@@ -1620,6 +1618,7 @@ Most have permissive licenses:
 - **Codestral**: Mistral Non-Production License — check before commercial use
 - **FLUX.1-dev**: Non-commercial (use FLUX.1-schnell for commercial)
 - **Whisper**: MIT — fully open
+- **Kokoro**: Apache 2.0 — commercial use OK
 - **Piper**: GPL 3.0
 
 Always verify on the model's [Ollama library page](https://ollama.com/library) or Hugging Face page.
@@ -1643,6 +1642,7 @@ Use [Open WebUI](https://github.com/open-webui/open-webui) (simplest — Docker,
 - [tps.sh](https://tps.sh) — Community tokens-per-second benchmarks for Apple Silicon
 - [Apple Silicon LLM Inference Research](https://arxiv.org/html/2601.19139v1) — Native inference performance
 - [Whisper.cpp](https://github.com/ggerganov/whisper.cpp) — Local speech-to-text
+- [Kokoro-82M TTS](https://huggingface.co/hexgrad/Kokoro-82M) — Studio-quality open-weight text-to-speech
 - [Piper TTS](https://github.com/OHF-Voice/piper1-gpl) — Local neural text-to-speech
 - [llama.cpp](https://github.com/ggml-org/llama.cpp) — The C/C++ inference engine behind Ollama
 - [MLX](https://github.com/ml-explore/mlx) — Apple's native array framework for Apple Silicon
