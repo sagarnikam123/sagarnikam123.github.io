@@ -206,7 +206,7 @@ flowchart TD
 
 Choosing the right **log generation tool** depends on your specific testing requirements. Here are the top-rated tools for **fake log generation**:
 
-### 1. [fuzzy-train](https://github.com/sagarnikam123/fuzzy-train) (v3.0.0) - Versatile Log Generator {#1-fuzzy-train---versatile-log-generator}
+### 1. [fuzzy-train](https://github.com/sagarnikam123/fuzzy-train) - Versatile Log Generator
 
 **fuzzy-train** is a versatile, zero-dependency **fake log generator** designed for observability testing and development. This **Docker- and Kubernetes-ready tool** runs anywhere, supports multiple formats, and includes complete drop-in `flog` argument compatibility.
 
