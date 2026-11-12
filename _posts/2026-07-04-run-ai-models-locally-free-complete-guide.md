@@ -229,7 +229,7 @@ Not all your RAM is available for AI models. Here's the realistic breakdown:
 
 > **Rule of thumb**: The model file size (shown by `ollama list`) should be **at most 80%** of your available RAM. Going beyond that causes memory swapping, which makes inference painfully slow.
 
-> **Got 36-48 GB?** MacBook Pros with M4 Pro/Max chips come in 36, 48, 64, and 128 GB configurations. At 36-48 GB, follow the 32 GB recommendations with more headroom — you can use larger context windows or keep two models loaded simultaneously. At 64 GB, use the [64 GB section](#64-gb-ram--cloud-killer-territory). At 128 GB+, you can run truly massive models like Llama 3.1 70B at full Q8 quality or Qwen3-Coder-Next with large context.
+> **Got 36-48 GB?** MacBook Pros with M4 Pro/Max chips come in 36, 48, 64, and 128 GB configurations. At 36-48 GB, follow the 32 GB recommendations with more headroom — you can use larger context windows or keep two models loaded simultaneously. At 64 GB, use the [64 GB section](#64-gb-ram--cloud-killer-territory). At 128 GB+, you can run truly massive models like Llama 3.3 70B, Qwen3.8 27B at Q8/BF16, or Qwen3-Coder-Next with large context.
 
 ---
 
@@ -344,12 +344,12 @@ If you have a dedicated NVIDIA/AMD GPU, choose models based on **VRAM**, not sys
 
 | VRAM | Best Model Size | Examples | Expected Speed |
 | ------ | ---------------- | --------- | ---------------- |
-| **6 GB** | 3B-7B (Q4) | Qwen2.5-Coder 3B, Gemma 3 4B, Llama 3.2 3B | 40-80 tok/s |
-| **8 GB** | 7B (Q4) | Llama 3.1 8B, Mistral 7B, Qwen2.5-Coder 7B | 50-100 tok/s |
-| **12 GB** | 7B (Q8) or 14B (Q4) | Qwen2.5-Coder 14B, Phi-4 14B, Gemma 4 E4B | 30-70 tok/s |
-| **16 GB** | 14B (Q6) or 22B (Q4) | Codestral 22B, Mistral Small 24B | 25-50 tok/s |
-| **24 GB** | 22B (Q6) or 30B (Q4) | Qwen3 30B-A3B, Gemma 4 26B, Qwen3-Coder 30B | 20-45 tok/s |
-| **48 GB** | 70B (Q4) | Llama 3.1 70B, Qwen3 32B (full precision) | 15-30 tok/s |
+| **6 GB** | 3B-4B (Q4) | Qwen3.5 4B, Ministral 3 3B, Qwen2.5-Coder 3B | 40-80 tok/s |
+| **8 GB** | 4B-9B (Q4) | Qwen3.5 4B, Gemma 4 E4B, Qwen2.5-Coder 7B | 50-100 tok/s |
+| **12 GB** | 9B-14B (Q4) | Qwen3.5 9B, Gemma 4 12B, gpt-oss 20B (tight) | 30-70 tok/s |
+| **16 GB** | 12B-20B | Gemma 4 12B, MiMo-V2.6 9B, gpt-oss 20B | 25-55 tok/s |
+| **24 GB** | 26B-30B (Q4) | Gemma 4 26B, Qwen3.8 27B, Qwen3-Coder 30B | 20-45 tok/s |
+| **48 GB** | 70B (Q4) or 27B (Q8) | Llama 3.3 70B, Qwen3.8 27B Q8, Qwen3-Coder-Next | 15-30 tok/s |
 
 </div>
 
@@ -451,7 +451,8 @@ curl http://localhost:11434/api/generate -d '{
 | Model | Max Context | Default on Ollama |
 | ------- | ------------ | ------------------- |
 | Gemma 4 (all sizes) | 128K-256K | 2048 |
-| Qwen3 (all sizes) | 32K-128K | 2048 |
+| Qwen3.5 / 3.6 / 3.8 | 256K | 2048 |
+| Qwen3 (dense/MoE) | 40K-256K | 2048 |
 | Qwen3-Coder 30B | 128K | 2048 |
 | Llama 3.1 8B | 128K | 2048 |
 | Codestral 22B | 32K | 2048 |
@@ -463,11 +464,13 @@ Always override the default if you need more context for coding or document anal
 
 ## Model Recommendations by RAM and Use Case
 
+> **Updated November 2026.** Picks below are **open-weight models you can run locally** via [Ollama](https://ollama.com/search) (Apache 2.0 / MIT / Gemma where noted). [OpenRouter rankings](https://openrouter.ai/rankings) are useful for *usage popularity*, but the current leaders there (DeepSeek V4.1 Flash, GLM 5.3 Flash, Hy4, GPT-6, Claude) are mostly **API/cloud** — Ollama lists several as cloud-only and they do not fit a laptop. Prefer the local tags in this section.
+
 > **Audio & TTS (all RAM tiers):** For speech-to-text, use [Whisper.cpp](#setup-guide-whispercpp-audio-transcription) — the `large-v3-turbo q5` model (~0.57 GB) is the best value at any RAM tier. On 8 GB use `small` (~0.5 GB) if RAM is tight. For text-to-speech, use [Kokoro or Piper](#setup-guide-text-to-speech-kokoro--piper) (Kokoro for natural human prosody, Piper for ultra-low RAM on CPU). Both are lightweight and run alongside any LLM without conflict.
 
 ### 8 GB RAM — The Essentials
 
-With 8 GB, you can run one small model at a time. Close unnecessary apps (especially browsers with many tabs) to free up memory.
+With 8 GB, you can run one small model at a time. Close unnecessary apps (especially browsers with many tabs) to free up memory. Prefer **3–4B** downloads (~3–4 GB on disk) so the OS still has headroom.
 
 #### Text & Chat
 
@@ -475,10 +478,10 @@ With 8 GB, you can run one small model at a time. Close unnecessary apps (especi
 
 | Model | Size | Command | Context | Strengths |
 | ------- | ------ | --------- | --------- | ----------- |
-| **Gemma 4 E2B** | ~7.2 GB | `ollama pull gemma4:e2b` | 128K | Google's latest, vision built-in. ⚠️ Tight fit — requires closing all apps, will use swap on 8 GB |
-| **Gemma 3 4B** | ~3.3 GB | `ollama pull gemma3:4b` | 128K | Efficient small model, good general knowledge |
-| **Phi-4 Mini 3.8B** | ~2.5 GB | `ollama pull phi4-mini` | 16K | Microsoft's small model, strong reasoning for its size |
-| **Llama 3.2 3B** | ~2 GB | `ollama pull llama3.2:3b` | 128K | Meta's compact model, fast and capable |
+| **Qwen3.5 4B** | ~3.3–4.0 GB | `ollama pull qwen3.5:4b` | 256K | Best 8 GB default — multimodal (text+image), tools, Apache 2.0 |
+| **Ministral 3 3B** | ~3.0 GB | `ollama pull ministral-3:3b` | 256K | Mistral edge model — vision, agents, very light footprint |
+| **Gemma 4 E2B** | ~4.6–7.5 GB | `ollama pull gemma4:e2b` | 128K | Google edge model with vision. ⚠️ Upper size is tight on 8 GB — close apps |
+| **Phi-4 Mini 3.8B** | ~2.5 GB | `ollama pull phi4-mini` | 16K | Tiny reasoning model when disk/RAM is extremely tight |
 
 </div>
 
@@ -488,8 +491,9 @@ With 8 GB, you can run one small model at a time. Close unnecessary apps (especi
 
 | Model | Size | Command | Context | Strengths |
 |-------|------|---------|---------|-----------|
-| **Qwen2.5-Coder 3B** | ~2 GB | `ollama pull qwen2.5-coder:3b` | 32K | Best small coding model, fill-in-the-middle support |
-| **DeepSeek-Coder 1.3B** | ~0.8 GB | `ollama pull deepseek-coder:1.3b` | 16K | Ultra-light, good for autocomplete only |
+| **Qwen3.5 4B** | ~3.3–4.0 GB | `ollama pull qwen3.5:4b` | 256K | Strongest small coding + tool-use model that still fits 8 GB |
+| **Qwen2.5-Coder 3B** | ~2 GB | `ollama pull qwen2.5-coder:3b` | 32K | Dedicated coder with fill-in-the-middle — great for tab autocomplete |
+| **DeepSeek-Coder 1.3B** | ~0.8 GB | `ollama pull deepseek-coder:1.3b` | 16K | Ultra-light autocomplete when every megabyte counts |
 
 </div>
 
@@ -499,18 +503,19 @@ With 8 GB, you can run one small model at a time. Close unnecessary apps (especi
 
 | Model | Size | Command | Strengths |
 |-------|------|---------|-----------|
-| **Gemma 4 E2B** | ~7.2 GB | `ollama pull gemma4:e2b` | Vision built-in — describe images, read diagrams |
-| **MiniCPM-V 3B** | ~2 GB | `ollama pull minicpm-v` | Lighter vision model, works better on 8 GB |
+| **Qwen3.5 4B** | ~3.3–4.0 GB | `ollama pull qwen3.5:4b` | Native vision + text in one model — best everyday pick |
+| **Ministral 3 3B** | ~3.0 GB | `ollama pull ministral-3:3b` | Light multimodal alternative |
+| **Gemma 4 E2B** | ~4.6–7.5 GB | `ollama pull gemma4:e2b` | Stronger vision when you can free enough RAM |
 
 </div>
 
-> **8 GB verdict**: You can do basic chat, simple code completions, light image understanding, and audio transcription. Don't expect multi-turn complex reasoning or large codebase analysis. Gemma 4 E2B is the most capable option but leaves almost no headroom.
+> **8 GB verdict**: Start with **Qwen3.5 4B**. You get chat, light coding, and image understanding without thrashing. Gemma 4 E2B/E4B are more capable but leave almost no headroom on a true 8 GB machine.
 
 ---
 
 ### 16 GB RAM — The Sweet Spot for Most Developers
 
-This is where local AI becomes genuinely useful. You can run 7B-14B models comfortably.
+This is where local AI becomes genuinely useful. You can run ~7–14B-class models comfortably (or OpenAI's gpt-oss 20B if you keep apps closed).
 
 #### Text & Chat
 
@@ -518,11 +523,11 @@ This is where local AI becomes genuinely useful. You can run 7B-14B models comfo
 
 | Model | Size | Command | Context | Strengths |
 | ------- | ------ | --------- | --------- | ----------- |
-| **Gemma 4 E4B** | ~9.6 GB | `ollama pull gemma4` | 128K | Google's latest, vision + text, excellent quality |
-| **Gemma 3 12B** | ~8.1 GB | `ollama pull gemma3:12b` | 128K | Excellent general-purpose, multimodal |
-| **Llama 3.1 8B** | ~4.7 GB | `ollama pull llama3.1` | 128K | Meta's workhorse, great instruction following |
-| **Mistral 7B** | ~4.1 GB | `ollama pull mistral` | 32K | Fast, good at structured output and summarization |
-| **Phi-4 14B** | ~9 GB | `ollama pull phi4` | 16K | Microsoft's reasoning model, punches above its weight |
+| **Gemma 4 12B** | ~7.7–8.0 GB | `ollama pull gemma4:12b` | 256K | Top local agent scores at this tier — vision, tools, thinking |
+| **Qwen3.5 9B** | ~6.6–7.6 GB | `ollama pull qwen3.5:9b` | 256K | Strong all-rounder (text+image), fast, Apache 2.0 |
+| **Gemma 4 E4B** | ~6.6–9.5 GB | `ollama pull gemma4:e4b` | 128K | Excellent edge/agent model; default `gemma4` tag |
+| **gpt-oss 20B** | ~14 GB | `ollama pull gpt-oss:20b` | 128K | OpenAI open weights (Apache 2.0) — strong agents; tight fit on 16 GB |
+| **Ministral 3 14B** | ~9.1 GB | `ollama pull ministral-3:14b` | 256K | Solid Mistral multimodal option with room to spare |
 
 </div>
 
@@ -532,9 +537,10 @@ This is where local AI becomes genuinely useful. You can run 7B-14B models comfo
 
 | Model | Size | Command | Context | Strengths |
 | ------- | ------ | --------- | --------- | ----------- |
-| **Qwen2.5-Coder 7B** | ~4.7 GB | `ollama pull qwen2.5-coder:7b` | 32K | Best coding model at this size, excellent completions |
-| **Qwen2.5-Coder 14B** | ~9 GB | `ollama pull qwen2.5-coder:14b` | 32K | Stronger code generation, fits tight on 16 GB |
-| **DeepSeek-Coder-V2 Lite 16B** | ~9 GB | `ollama pull deepseek-coder-v2:16b` | 128K | MoE architecture, good at code generation |
+| **MiMo-V2.6 9B** | ~6.6–8.7 GB | `ollama pull mimo-v2.6` | 256K | Xiaomi distill of Qwen3.5-9B tuned for code + agents (MIT) |
+| **Qwen3.5 9B** | ~6.6–7.6 GB | `ollama pull qwen3.5:9b` | 256K | Best general coding chat at this RAM without a dedicated coder |
+| **Qwen3 14B** | ~9.3 GB | `ollama pull qwen3:14b` | 40K | Dense Qwen3 with thinking mode — strong refactor/explain |
+| **Qwen2.5-Coder 7B** | ~4.7 GB | `ollama pull qwen2.5-coder:7b` | 32K | Still the best lightweight tab-autocomplete companion |
 
 </div>
 
@@ -544,19 +550,19 @@ This is where local AI becomes genuinely useful. You can run 7B-14B models comfo
 
 | Model | Size | Command | Strengths |
 | ------- | ------ | --------- | ----------- |
-| **Gemma 4 E4B** | ~9.6 GB | `ollama pull gemma4` | Built-in vision — handles text + images in one model |
-| **Gemma 3 12B** | ~8.1 GB | `ollama pull gemma3:12b` | Built-in vision, slightly older but proven |
-| **LLaVA 13B** | ~8 GB | `ollama pull llava:13b` | Dedicated vision model, good image analysis |
+| **Gemma 4 12B** | ~7.7–8.0 GB | `ollama pull gemma4:12b` | Best local vision quality at 16 GB |
+| **Qwen3.5 9B** | ~6.6–7.6 GB | `ollama pull qwen3.5:9b` | Native multimodal — chat + screenshots in one model |
+| **Gemma 4 E4B** | ~6.6–9.5 GB | `ollama pull gemma4:e4b` | Capable vision with smaller active parameter count |
 
 </div>
 
-> **16 GB verdict**: This is where local AI becomes a real productivity tool. You get solid coding assistance, good chat, image understanding, and audio transcription. Run one model at a time for best performance.
+> **16 GB verdict**: **Gemma 4 12B** or **Qwen3.5 9B** are the everyday picks. Add **MiMo-V2.6** for coding agents and keep **Qwen2.5-Coder 7B** for tab autocomplete. Only pull **gpt-oss:20b** if you can keep other apps closed.
 
 ---
 
 ### 24 GB RAM — Power User Territory
 
-You can run larger models and even keep two smaller models loaded simultaneously.
+You can run 26–30B-class models and even keep a chat model + small autocomplete model loaded together.
 
 #### Text & Chat
 
@@ -564,10 +570,11 @@ You can run larger models and even keep two smaller models loaded simultaneously
 
 | Model | Size | Command | Context | Strengths |
 | ------- | ------ | --------- | --------- | ----------- |
-| **Gemma 4 26B (MoE)** | ~18 GB | `ollama pull gemma4:26b` | 256K | Google's latest MoE, vision + text, 256K context |
-| **Qwen3 14B** | ~9 GB | `ollama pull qwen3:14b` | 128K | Strong reasoning, supports thinking mode |
-| **Gemma 3 27B** | ~17 GB | `ollama pull gemma3:27b` | 128K | Excellent quality, proven multimodal |
-| **Mistral Small 24B** | ~14 GB | `ollama pull mistral-small` | 128K | Great at structured tasks, function calling |
+| **Gemma 4 26B (MoE)** | ~16–19 GB | `ollama pull gemma4:26b` | 256K | Often #1 on local agent benches — MoE (~4B active), vision built-in |
+| **Qwen3.8 27B** | ~18 GB | `ollama pull qwen3.8:27b` | 256K | Newest Qwen dense local flagship — coding, agents, vision (Apache 2.0) |
+| **Qwen3.6 27B** | ~18–19 GB | `ollama pull qwen3.6:27b` | 256K | Strong agentic coding + thinking preservation |
+| **Qwen3 30B-A3B** | ~18–21 GB | `ollama pull qwen3:30b-a3b` | 256K | MoE speed champion — 30B knowledge, ~3B active |
+| **gpt-oss 20B** | ~14 GB | `ollama pull gpt-oss:20b` | 128K | Leaves headroom for dual-model setups |
 
 </div>
 
@@ -577,9 +584,10 @@ You can run larger models and even keep two smaller models loaded simultaneously
 
 | Model | Size | Command | Context | Strengths |
 | ------- | ------ | --------- | --------- | ----------- |
-| **Codestral 22B** | ~13 GB | `ollama pull codestral` | 32K | Mistral's dedicated coding model, 80+ languages |
-| **Qwen2.5-Coder 14B** | ~9 GB | `ollama pull qwen2.5-coder:14b` | 32K | Best dedicated coding model at this tier |
-| **DeepSeek-Coder-V2 16B** | ~9 GB | `ollama pull deepseek-coder-v2:16b` | 128K | Good at code generation and explanation |
+| **Qwen3-Coder 30B** | ~19 GB | `ollama pull qwen3-coder:30b` | 256K | Purpose-built agentic coder (30B / 3.3B active) |
+| **Devstral Small 2** | ~15 GB | `ollama pull devstral-small-2` | 384K | Mistral's SWE-bench coding agent (24B), multimodal |
+| **Qwen3.8 27B** | ~18 GB | `ollama pull qwen3.8:27b` | 256K | Best single-model "code + chat + vision" pick |
+| **Qwen2.5-Coder 7B** | ~4.7 GB | `ollama pull qwen2.5-coder:7b` | 32K | Keep loaded beside a larger chat model for autocomplete |
 
 </div>
 
@@ -589,30 +597,31 @@ You can run larger models and even keep two smaller models loaded simultaneously
 
 | Model | Size | Command | Strengths |
 |-------|------|---------|-----------|
-| **Gemma 4 26B** | ~18 GB | `ollama pull gemma4:26b` | Best vision at this tier, 256K context |
-| **Gemma 3 27B** | ~17 GB | `ollama pull gemma3:27b` | Built-in vision, excellent quality |
+| **Gemma 4 26B** | ~16–19 GB | `ollama pull gemma4:26b` | Best vision at this tier, 256K context |
+| **Qwen3.8 27B** | ~18 GB | `ollama pull qwen3.8:27b` | Native vision-language — diagrams, docs, screenshots |
+| **Devstral Small 2** | ~15 GB | `ollama pull devstral-small-2` | Vision + coding agents (UI screenshots → code) |
 
 </div>
 
 #### Recommended Dual-Model Setup
 
-With 24 GB, you can run a chat model + a small autocomplete model simultaneously:
+With 24 GB, you can run a chat/reasoning model + a small autocomplete model simultaneously:
 
 ```bash
-# Chat/reasoning model (~14 GB)
-ollama pull mistral-small
+# Primary chat/coding (~18 GB)
+ollama pull qwen3.8:27b
 
 # Tab-autocomplete model (~4.7 GB)
 ollama pull qwen2.5-coder:7b
 ```
 
-> **24 GB verdict**: You get near-cloud-quality responses for most tasks. The dual-model setup (reasoning + autocomplete) is a game-changer for coding workflows. Gemma 4 26B is the standout pick if you run one model at a time.
+> **24 GB verdict**: **Gemma 4 26B** wins most local agent evals; **Qwen3.8 27B** is the best all-in-one daily driver. For pure coding agents, prefer **Qwen3-Coder 30B** or **Devstral Small 2**.
 
 ---
 
 ### 32 GB RAM — Maximum Local AI Experience
 
-This is the best consumer-level experience. You can run the largest open models and multi-model setups.
+This is the best consumer-level experience. You can run the strongest open workstation models and comfortable multi-model setups.
 
 #### Text & Chat
 
@@ -620,11 +629,11 @@ This is the best consumer-level experience. You can run the largest open models 
 
 | Model | Size | Command | Context | Strengths |
 | ------- | ------ | --------- | --------- | ----------- |
-| **Qwen3.6 35B-A3B** | ~24 GB | `ollama pull qwen3.6:35b` | 256K | 2026 MoE — 3B active, 256K context, agentic coding + vision |
-| **Qwen3 30B-A3B** | ~18 GB | `ollama pull qwen3:30b-a3b` | 128K | MoE — 30B knowledge, 3B inference speed. Best value |
-| **Gemma 4 26B (MoE)** | ~18 GB | `ollama pull gemma4:26b` | 256K | Google's latest, vision + text, 256K context |
-| **Gemma 4 31B (Dense)** | ~20 GB | `ollama pull gemma4:31b` | 256K | Dense model, highest quality Gemma 4 |
-| **Command-R 35B** | ~20 GB | `ollama pull command-r` | 128K | Cohere's model, excellent at RAG and tool use |
+| **Qwen3.8 27B** | ~18 GB | `ollama pull qwen3.8:27b` | 256K | Best value daily driver — room for large context + second model |
+| **Gemma 4 31B (Dense)** | ~19–20 GB | `ollama pull gemma4:31b` | 256K | Highest-quality Gemma 4 — reasoning, vision, tools |
+| **Qwen3.6 35B-A3B** | ~23 GB | `ollama pull qwen3.6:35b` | 256K | MoE (~3B active) tuned for agentic coding + vision |
+| **Gemma 4 26B (MoE)** | ~16–19 GB | `ollama pull gemma4:26b` | 256K | Faster MoE alternative when latency matters |
+| **Qwen3 30B-A3B** | ~18–21 GB | `ollama pull qwen3:30b-a3b` | 256K | Still excellent speed/quality MoE pick |
 
 </div>
 
@@ -632,12 +641,12 @@ This is the best consumer-level experience. You can run the largest open models 
 
 <div style="overflow-x: auto;" markdown="1">
 
-| Model               | Size   | Command                       | Context | Strengths                                             |
+| Model | Size | Command | Context | Strengths |
 | ---------------------| --------| -------------------------------| ---------| -------------------------------------------------------|
-| **Qwen3-Coder 30B** | ~19 GB | `ollama pull qwen3-coder:30b` | 128K    | Purpose-built for code, agentic workflows, Apache 2.0 |
-| **Qwen3.6 35B-A3B** | ~24 GB | `ollama pull qwen3.6:35b-a3b` | 256K    | Newer, stronger reasoning, 256K context               |
-| **Qwen3 30B-A3B**   | ~18 GB | `ollama pull qwen3:30b-a3b`   | 128K    | Fast MoE with strong code abilities                   |
-| **Codestral 22B**   | ~13 GB | `ollama pull codestral:22b`       | 32K     | Dedicated coding model, 80+ languages                 |
+| **Qwen3.6 35B-A3B** | ~23 GB | `ollama pull qwen3.6:35b` | 256K | Newest Qwen agentic coding upgrade with vision |
+| **Qwen3-Coder 30B** | ~19 GB | `ollama pull qwen3-coder:30b` | 256K | Dedicated coding MoE for agents / Cline / OpenCode |
+| **Devstral Small 2** | ~15 GB | `ollama pull devstral-small-2` | 384K | Strong SWE-bench agent with huge context |
+| **Qwen3.8 27B** | ~18 GB | `ollama pull qwen3.8:27b` | 256K | One model for chat + code + images |
 
 </div>
 
@@ -647,9 +656,9 @@ This is the best consumer-level experience. You can run the largest open models 
 
 | Model | Size | Command | Strengths |
 | ------- | ------ | --------- | ----------- |
-| **Gemma 4 31B** | ~20 GB | `ollama pull gemma4:31b` | Best local vision model, 256K context |
-| **Gemma 4 26B** | ~18 GB | `ollama pull gemma4:26b` | MoE variant, faster inference |
-| **Llama 3.2 Vision 11B** | ~7 GB | `ollama pull llama3.2-vision` | Good vision, leaves room for other models |
+| **Gemma 4 31B** | ~19–20 GB | `ollama pull gemma4:31b` | Best local vision quality in the 32 GB class |
+| **Qwen3.6 35B** | ~23 GB | `ollama pull qwen3.6:35b` | Multimodal MoE — vision + agentic coding |
+| **Qwen3.8 27B** | ~18 GB | `ollama pull qwen3.8:27b` | Leaves RAM for long context or a second model |
 
 </div>
 
@@ -657,21 +666,21 @@ This is the best consumer-level experience. You can run the largest open models 
 
 ```bash
 # Primary reasoning/chat (~18 GB)
-ollama pull qwen3:30b-a3b
+ollama pull qwen3.8:27b
 
 # Tab-autocomplete for coding (~4.7 GB)
 ollama pull qwen2.5-coder:7b
 
-# Keep ~9 GB free for OS + apps
+# Keep ~9 GB free for OS + apps + context
 ```
 
-> **32 GB verdict**: You get a genuinely powerful local AI setup. Qwen3.6 35B-A3B is the new standout (256K context, agentic-ready). Qwen3 30B-A3B remains the fastest value pick. For dedicated coding, Qwen3-Coder 30B is the king.
+> **32 GB verdict**: Run **Qwen3.8 27B** or **Gemma 4 31B** as your primary model. For coding agents, step up to **Qwen3.6 35B** or **Qwen3-Coder 30B**. You have enough RAM for a dual-model editor workflow.
 
 ---
 
 ### 64 GB RAM — Cloud-Killer Territory
 
-With 64 GB of unified memory (M4 Max, M3 Ultra) or system RAM + VRAM, you can run the largest MoE models that rival cloud coding APIs. This is where local AI truly competes with Claude and GPT for agentic coding.
+With 64 GB of unified memory (M4 Max, M3 Ultra) or system RAM + VRAM, you can run higher-precision quants and 70B-class models that rival cloud APIs for many tasks.
 
 #### Text & Chat
 
@@ -679,10 +688,11 @@ With 64 GB of unified memory (M4 Max, M3 Ultra) or system RAM + VRAM, you can ru
 
 | Model | Size | Command | Context | Strengths |
 | ------- | ------ | --------- | --------- | ----------- |
-| **Qwen3-Coder-Next** | ~46 GB | `ollama pull qwen3-coder-next` | 131K | 80B total / 3B active — best local coding agent model of 2026 |
-| **Llama 3.1 70B** | ~40 GB | `ollama pull llama3.1:70b` | 128K | Meta's flagship, excellent instruction following |
-| **Qwen3.6 35B-A3B (Q8)** | ~36 GB | `ollama pull qwen3.6:35b-a3b-q8_0` | 256K | Full-quality Qwen3.6 without quantization loss |
-| **Qwen3 32B (Dense)** | ~20 GB | `ollama pull qwen3:32b` | 128K | Dense model, leaves headroom for large context |
+| **Qwen3.8 27B (Q8)** | ~30 GB | `ollama pull qwen3.8:27b-q8_0` | 256K | Near-lossless Qwen3.8 — best quality/speed balance |
+| **Llama 3.3 70B** | ~43 GB | `ollama pull llama3.3:70b` | 128K | Meta's 70B instruction model — strong chat & multilingual |
+| **Qwen3.6 35B (Q8)** | ~39 GB | `ollama pull qwen3.6:35b-a3b-q8_0` | 256K | Full-quality MoE for agentic coding + vision |
+| **gpt-oss 120B** | ~65 GB | `ollama pull gpt-oss:120b` | 128K | OpenAI open weights — needs ~80 GB ideally; tight on 64 GB |
+| **Gemma 4 31B (Q8)** | ~33 GB | `ollama pull gemma4:31b-q8_0` | 256K | Full-quality Gemma vision + reasoning |
 
 </div>
 
@@ -692,10 +702,10 @@ With 64 GB of unified memory (M4 Max, M3 Ultra) or system RAM + VRAM, you can ru
 
 | Model | Size | Command | Context | Strengths |
 | ------- | ------ | --------- | --------- | ----------- |
-| **Qwen3-Coder-Next** | ~46 GB | `ollama pull qwen3-coder-next` | 131K | Purpose-built for coding agents. 80B MoE, 3B active — SWE-Bench ~70% |
-| **Qwen3-Coder 30B (Q8)** | ~32 GB | `ollama pull qwen3-coder:30b-q8_0` | 128K | Full-quality Qwen3-Coder without quantization loss |
-| **Qwen3.6 35B-A3B** | ~24 GB | `ollama pull qwen3.6:35b` | 256K | Fast agentic model, 256K context for large repos |
-| **DeepSeek-V2.5 236B (Q2)** | ~50 GB | Community GGUF | 128K | MoE giant at aggressive quantization, experimental |
+| **Qwen3-Coder-Next** | ~52 GB | `ollama pull qwen3-coder-next` | 256K | 80B MoE / ~3B active — top local coding-agent model |
+| **Qwen3-Coder 30B (Q8)** | ~32 GB | `ollama pull qwen3-coder:30b-q8_0` | 256K | Full-quality dedicated coder with headroom for context |
+| **Qwen3.6 35B** | ~23 GB | `ollama pull qwen3.6:35b` | 256K | Fast agentic model; leave RAM for huge repos |
+| **Qwen3.8 27B (Q8)** | ~30 GB | `ollama pull qwen3.8:27b-q8_0` | 256K | High-fidelity general coding without a specialist model |
 
 </div>
 
@@ -705,34 +715,35 @@ With 64 GB of unified memory (M4 Max, M3 Ultra) or system RAM + VRAM, you can ru
 
 | Model | Size | Command | Strengths |
 |-------|------|---------|-----------|
-| **Gemma 4 31B (Q8)** | ~33 GB | `ollama pull gemma4:31b-q8_0` | Best vision, full quality, 256K context |
-| **Llama 3.2 Vision 90B** | ~55 GB | `ollama pull llama3.2-vision:90b` | Meta's largest vision model |
+| **Gemma 4 31B (Q8)** | ~33 GB | `ollama pull gemma4:31b-q8_0` | Best vision fidelity at this tier |
+| **Qwen3.8 27B (Q8)** | ~30 GB | `ollama pull qwen3.8:27b-q8_0` | High-quality multimodal docs/diagrams |
+| **Qwen3.6 35B** | ~23 GB | `ollama pull qwen3.6:35b` | Vision + agentic coding with RAM left over |
 
 </div>
 
 #### Recommended Multi-Model Setup
 
 ```bash
-# Primary coding agent (~46 GB)
+# Primary coding agent (~52 GB)
 ollama pull qwen3-coder-next
 
 # Lightweight autocomplete (~4.7 GB) — runs alongside
 ollama pull qwen2.5-coder:7b
 
-# Keep ~13 GB free for OS + apps + context
+# Keep ~7 GB free for OS + apps + context
 ```
 
 Or for a versatile non-coding setup:
 
 ```bash
-# Reasoning + general purpose (~40 GB)
-ollama pull llama3.1:70b
+# High-quality general + vision (~30 GB)
+ollama pull qwen3.8:27b-q8_0
 
-# Vision model when needed (~24 GB) — swap with llama3.1
-ollama pull qwen3.6:35b
+# Or Meta 70B chat when you need max text quality (~43 GB)
+ollama pull llama3.3:70b
 ```
 
-> **64 GB verdict**: This is cloud-killer territory. Qwen3-Coder-Next (80B MoE, 3B active) matches paid coding APIs for agentic workflows — file edits, test runs, multi-step debugging — completely free and private. If you're buying a Mac for local AI coding, 64 GB unified memory is the sweet spot.
+> **64 GB verdict**: **Qwen3-Coder-Next** is the local coding-agent king. For general chat/vision at near-full precision, use **Qwen3.8 27B Q8** or **Gemma 4 31B Q8**. **Llama 3.3 70B** remains the classic big-chat option. Skip cloud-only OpenRouter leaders unless you intentionally use Ollama Cloud.
 
 ---
 
@@ -1119,7 +1130,7 @@ Ollama's [Modelfile](https://github.com/ollama/ollama/blob/main/docs/modelfile.m
 Create a file called `Modelfile.coding`:
 
 ```dockerfile
-FROM qwen2.5-coder:14b
+FROM qwen3-coder:30b
 
 # Set a larger context window for code
 PARAMETER num_ctx 32768
@@ -1162,7 +1173,7 @@ Be concise and factual. Never add information not present in the source."""
 ### Example: Creative Writing Helper
 
 ```dockerfile
-FROM qwen3:30b-a3b
+FROM qwen3.8:27b
 
 PARAMETER temperature 0.8
 PARAMETER top_p 0.9
@@ -1201,9 +1212,9 @@ models:
     model: qwen3-coder
     apiBase: http://localhost:11434
 
-  - name: Qwen2.5 Coder 14B
+  - name: Qwen3.8 27B
     provider: ollama
-    model: qwen2.5-coder:14b
+    model: qwen3.8:27b
     apiBase: http://localhost:11434
 
 tabAutocompleteModel:
@@ -1457,19 +1468,20 @@ Speed is measured in **tokens per second (tok/s)**. For reference, comfortable r
 
 | Model | M1 (8 GB) | M1 Pro (16 GB) | M2 Pro (16 GB) | M3 Pro (18 GB) | M4 Pro (24 GB) | M4 Max (32 GB) | M4 Max (64 GB) |
 | ------- | ----------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- | ---------------- |
-| **Gemma 3 4B** | ~25 | ~35 | ~40 | ~45 | ~55 | ~70 | ~70 |
-| **Llama 3.1 8B** | — | ~20 | ~25 | ~30 | ~40 | ~50 | ~50 |
+| **Qwen3.5 4B** | ~25 | ~40 | ~45 | ~50 | ~60 | ~75 | ~75 |
 | **Gemma 4 E4B** | — | ~15 | ~20 | ~25 | ~35 | ~45 | ~45 |
-| **Qwen2.5-Coder 14B** | — | ~8 | ~12 | ~15 | ~22 | ~30 | ~30 |
+| **Gemma 4 12B** | — | ~12 | ~15 | ~18 | ~25 | ~35 | ~35 |
+| **Qwen3.8 27B** | — | — | — | — | ~12 | ~18 | ~22 |
+| **Gemma 4 26B (MoE)** | — | — | — | — | ~40 | ~55 | ~65 |
 | **Qwen3.6 35B-A3B (MoE)** | — | — | — | — | ~15 | ~25 | ~35 |
 | **Qwen3-Coder-Next (MoE)** | — | — | — | — | — | — | ~25 |
-| **Llama 3.1 70B** | — | — | — | — | — | — | ~12 |
+| **Llama 3.3 70B** | — | — | — | — | — | — | ~12 |
 
 </div>
 
 *"—" means the model doesn't fit comfortably in that RAM tier. Values are approximate and vary by prompt length, context size, and quantization. Based on community benchmarks from [tps.sh](https://tps.sh) and various Apple Silicon LLM benchmark reports.*
 
-> **Key insight**: MoE models (Qwen3 30B-A3B, Gemma 4 26B) are significantly faster than dense models of similar total parameter count because they only activate a fraction of parameters per token. A 30B MoE model can be faster than a 14B dense model.
+> **Key insight**: MoE models (Qwen3.6 35B-A3B, Gemma 4 26B) are significantly faster than dense models of similar total parameter count because they only activate a fraction of parameters per token. A 30B MoE model can be faster than a 14B dense model.
 
 ### Intel/AMD & NVIDIA Comparison
 
@@ -1527,7 +1539,7 @@ Or in the sidebar chat:
 ### Midday: Write Documentation
 
 ```bash
-ollama run qwen3:30b-a3b "Write a README section explaining how to set up
+ollama run qwen3.8:27b "Write a README section explaining how to set up
 the development environment for a Next.js project with Supabase"
 ```
 
@@ -1566,16 +1578,16 @@ Open Draw Things (macOS) or ComfyUI → type a prompt → get an image for your 
 
 | Task | 8 GB | 16 GB | 24 GB | 32 GB | 64 GB |
 | ------ | ------ | ------- | ------- | ------- | ------- |
-| **General chat** | Gemma 3 4B | Gemma 4 E4B | Gemma 4 26B | Qwen3.6 35B-A3B | Llama 3.1 70B |
-| **Coding (chat)** | Qwen2.5-Coder 3B | Qwen2.5-Coder 7B | Codestral 22B | Qwen3-Coder 30B | Qwen3-Coder-Next |
-| **Tab autocomplete** | DeepSeek-Coder 1.3B | Qwen2.5-Coder 7B | Qwen2.5-Coder 7B | Qwen2.5-Coder 7B | Qwen2.5-Coder 7B |
-| **Image understanding** | MiniCPM-V 3B | Gemma 4 E4B | Gemma 4 26B | Gemma 4 31B | Gemma 4 31B (Q8) |
+| **General chat** | Qwen3.5 4B | Gemma 4 12B | Qwen3.8 27B | Qwen3.8 27B | Qwen3.8 27B (Q8) |
+| **Coding (chat)** | Qwen3.5 4B | MiMo-V2.6 9B | Qwen3-Coder 30B | Qwen3.6 35B | Qwen3-Coder-Next |
+| **Tab autocomplete** | Qwen2.5-Coder 3B | Qwen2.5-Coder 7B | Qwen2.5-Coder 7B | Qwen2.5-Coder 7B | Qwen2.5-Coder 7B |
+| **Image understanding** | Qwen3.5 4B | Gemma 4 12B | Gemma 4 26B | Gemma 4 31B | Gemma 4 31B (Q8) |
 | **Audio transcription** | Whisper small | Whisper large-v3-turbo q5 | Whisper large-v3-turbo q5 | Whisper large-v3 | Whisper large-v3 |
 | **Text-to-speech** | Piper medium | Piper medium | Piper high | Piper high | Piper high |
 | **Image generation** | SD 1.5 | SDXL | SDXL + refiner | FLUX.1-dev | FLUX.1-dev |
-| **Summarization** | Phi-4 Mini | Mistral 7B | Mistral Small 24B | Qwen3.6 35B-A3B | Llama 3.1 70B |
-| **Coding agents** | — | — | Codestral 22B | Qwen3-Coder 30B | Qwen3-Coder-Next |
-| **Document/PDF analysis** | — | Gemma 4 E4B + Open WebUI | Gemma 4 26B + Open WebUI | Qwen3.6 35B + Open WebUI | Llama 3.1 70B + Open WebUI |
+| **Summarization** | Qwen3.5 4B | Qwen3.5 9B | Qwen3.8 27B | Gemma 4 31B | Llama 3.3 70B |
+| **Coding agents** | — | MiMo-V2.6 / gpt-oss 20B | Devstral Small 2 | Qwen3-Coder 30B | Qwen3-Coder-Next |
+| **Document/PDF analysis** | — | Qwen3.5 9B + Open WebUI | Gemma 4 26B + Open WebUI | Qwen3.8 27B + Open WebUI | Qwen3.8 27B Q8 + Open WebUI |
 
 </div>
 
@@ -1612,16 +1624,17 @@ Budget 5-30 GB per model. A typical 2-3 model setup needs 20-50 GB free. Models 
 
 Most have permissive licenses:
 
-- **Gemma 4**: [Gemma license](https://ai.google.dev/gemma/terms) — commercial use OK
-- **Qwen3 / Qwen3-Coder**: Apache 2.0 — fully open
+- **Qwen3.5 / 3.6 / 3.8 / Qwen3-Coder**: Apache 2.0 — commercial use OK
+- **Gemma 4**: Apache 2.0 — commercial use OK
+- **gpt-oss / MiMo-V2.6**: Apache 2.0 / MIT — commercial use OK
+- **Ministral 3 / Devstral Small 2**: Apache 2.0 — commercial use OK
 - **Llama models**: Meta community license — free under 700M MAU
-- **Codestral**: Mistral Non-Production License — check before commercial use
 - **FLUX.1-dev**: Non-commercial (use FLUX.1-schnell for commercial)
 - **Whisper**: MIT — fully open
 - **Kokoro**: Apache 2.0 — commercial use OK
 - **Piper**: GPL 3.0
 
-Always verify on the model's [Ollama library page](https://ollama.com/library) or Hugging Face page.
+Always verify on the model's [Ollama library page](https://ollama.com/library) or Hugging Face page. Cloud-only OpenRouter leaders (DeepSeek V4.1 Flash, GLM 5.3 Flash, etc.) are not substitutes for the local picks above.
 
 ### Do I need a GPU?
 
