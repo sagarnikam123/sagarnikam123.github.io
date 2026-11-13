@@ -3,12 +3,12 @@ layout: post
 title: "EV 2-Wheeler Buying Guide India 2025–2026: Best Electric Scooters & Bikes"
 date: 2026-06-15
 categories: [Buying-Guides, Electric-Vehicles]
-tags: [ev, electric-scooter, electric-bike, electric-vehicles, india, buying-guide, ather, tvs-iqube, bajaj-chetak, hero-vida, river-indie, revolt, green-mobility]
+tags: [ev, electric-scooter, electric-bike, electric-vehicles, india, buying-guide, ather, ather-konarc, tvs-iqube, tvs-orbiter, tvs-x, bajaj-chetak, hero-vida, vida-v2, vida-vx2, vida-kkr, river-indie, honda-activa-e, honda-qc1, honda-qc3, kinetic-e-luna, okinawa, komaki, revolt, green-mobility]
 author: Sagar Nikam
 description: "A comprehensive, data-driven buying guide for electric two-wheelers in India. Covers real-world vs ARAI range, LFP vs NMC battery chemistry, home charging setups, PM E-DRIVE subsidies, brand reliability, service network realities, and curated picks for daily commuting, family utility, and performance — so you switch to electric without buyer's remorse."
 image:
   path: assets/img/posts/20260615/ev-2-wheeler-buying-guide-india.webp
-  alt: EV 2-Wheeler Buying Guide India 2025–2026 — Ather, TVS, Bajaj, Vida, River comparison
+  alt: EV 2-Wheeler Buying Guide India 2025–2026 — Ather, TVS, Honda, Vida, River comparison
 toc: true
 ---
 
@@ -35,7 +35,7 @@ Switching from a petrol scooter (like a Honda Activa or TVS Jupiter) to an elect
 
 This guide cuts through the corporate brochures with transparent, data-backed analysis synthesized from tens of thousands of kilometers of real-world ownership data across Indian cities.
 
-> **Scope:** High-speed, RTO-registered electric two-wheelers (scooters and commuter motorcycles) priced between ₹75,000 and ₹1,80,000 (ex-showroom/on-road), capable of 60+ km/h top speed. We explicitly exclude uncertified, low-speed (<25 km/h) lead-acid scooters which lack basic safety norms.
+> **Scope:** High-speed, RTO-registered electric two-wheelers (scooters and commuter motorcycles) priced mainly between ₹75,000 and ₹1,80,000 (ex-showroom/on-road), capable of 60+ km/h top speed. We also shortlist adjacent options (Honda QC1 / Kinetic E-Luna at ~50 km/h, TVS X above ₹2.5L, and commercial loaders) with clear caveats. We exclude uncertified low-speed (<25 km/h) lead-acid scooters and flag Okinawa Lite / many Komaki CAT 2.0 SKUs as out-of-scope low-speed products.
 
 **Sources:** Synthesized from [Team-BHP EV Community](https://www.team-bhp.com/forum/electric-cars-bikes-evs/), [BikeWale](https://www.bikewale.com/electric-scooters/), [RushLane](https://www.rushlane.com/), [Autocar India](https://www.autocarindia.com/), VAHAN national registration database trends, ARAI regulatory filings, and long-term user ownership logs across Bangalore, Delhi-NCR, Pune, Hyderabad, and Mumbai. Content was rephrased for compliance with licensing restrictions.
 
@@ -47,13 +47,20 @@ If you want an immediate verdict without analyzing battery chemistry graphs, her
 
 | Use Case | Top Pick | Battery (kWh) | Real-World Range | On-Road Price (Est. ₹) | Why It Wins |
 | ---------- | ---------- | :-------------: | :----------------: | -----------------------: | ------------- |
-| **Best Overall / Family Scooter** | **Ather Rizta (Z - 3.7 kWh)** | 3.7 kWh | 115–125 km | 1,45,000–1,55,000 | Massive 34L boot + 22L frunk option, safest traction control (SkidControl), widest seat in India, Ather's proven reliability. |
-| **Most Reliable Commuter** | **TVS iQube (3.4 kWh)** | 3.4 kWh | 95–100 km | 1,30,000–1,40,000 | Legacy TVS build quality, conventional mechanical ergonomics, rock-solid service network, zero software drama. |
-| **Best Build Quality & Durability** | **Bajaj Chetak (3201 / Premium)** | 3.2 kWh | 100–110 km | 1,25,000–1,35,000 | All-metal unibody sheet metal construction, IP67 water wading, robust Chetak dealer service, vintage styling. |
-| **Best Performance & Handling** | **Ather 450X (3.7 kWh)** | 3.7 kWh | 105–110 km | 1,55,000–1,68,000 | Razor-sharp chassis balance, Warp mode thrills, Google Maps dashboard integration, 90 km/h genuine sustained top speed. |
-| **Best Utility & Cargo (The SUV)** | **River Indie** | 4.0 kWh | 110–120 km | 1,40,000–1,50,000 | 43L underseat storage + 12L glovebox, 14-inch motorcycle-sized wheels for potholed Indian roads, crash guards standard. |
-| **Best Budget Commuter** | **Bajaj Chetak 2901** | 2.88 kWh | 85–90 km | 1,04,000–1,10,000 | All-metal body, solid Chetak dealer service, 85+ km real range under ₹1.1 Lakh on-road. |
-| **Best Electric Motorcycle** | **Revolt RV400** | 3.24 kWh | 80–90 km | 1,35,000–1,45,000 | Swappable battery, lightweight commuter stance, USD forks, low running cost for motorcycle purists. |
+| **Best Overall / Family Scooter** | **Ather Rizta Z (3.5 kWh)** | 3.5 kWh | 115–125 km | 1,40,000–1,50,000 | 34L boot + 22L frunk, SkidControl, optional 10-yr battery warranty, TrueRange ~125 km. |
+| **Most Reliable Commuter** | **TVS iQube (3.5 kWh)** | 3.5 kWh | 95–105 km | 1,15,000–1,25,000 | Updated pack lineup, conventional ergonomics, 2,800+ dealers, zero software drama. |
+| **Best Value Newcomer (Metal Body)** | **Ather Konarc S (3.5 kWh)** | 3.5 kWh | 115–130 km | 1,05,000–1,20,000 | Metal body + steel unibody, 14" front wheel, Silent Gear Drive, from ₹99,999 intro. |
+| **Best Build Quality & Durability** | **Bajaj Chetak (3201 / Premium)** | 3.2 kWh | 100–110 km | 1,25,000–1,35,000 | All-metal unibody sheet metal construction, IP67 water wading, robust Chetak dealer service. |
+| **Best Performance & Handling** | **Ather 450X (3.5 kWh)** | 3.5 kWh | 110–125 km | 1,55,000–1,65,000 | 6.4 kW PMSM, Warp mode, Google Maps dash, 90 km/h top speed, Multi-Mode Traction Control. |
+| **Best Utility & Cargo (The SUV)** | **River Indie** | 4.0 kWh | 110–120 km | 1,60,000–1,70,000 | 43L + 12L storage, 14" wheels, chain-drive Gen 2.5, 18° gradeability, crash guards. |
+| **Best Battery Swap Commuter** | **Honda Activa e:** | 1.5×2 kWh | 70–80 km | 1,25,000–1,35,000 | Honda e:SWAP dual packs, 6 kW PMSM, 7" TFT, Activa ergonomics + Honda service. |
+| **Best Honda Fixed-Battery Commuter** | **Honda QC3** | 3.0 kWh | 100–110 km* | 1,40,000–1,50,000 | Official Delhi ex-showroom ₹1,35,000; 145 km IDC claim; 32L boot; 5" TFT + RoadSync; ~110 kg. |
+| **Best Budget Family** | **TVS Orbiter V2** | 3.1 kWh | 100–115 km | 1,15,000–1,28,000 | 845 mm seat, 34L boot, 14" front wheel, legacy TVS network; ~₹1.10L effective with PM E-DRIVE. |
+| **Best Electric Moped** | **Kinetic Green E-Luna X3** | 2.3 kWh | 80–95 km | 75,000–85,000 | Portable 2.3 kWh pack + charger, Luna DNA, ~₹72.5k ex-showroom, apartment-friendly. |
+| **Best Removable-Battery Family (Hero)** | **Vida V2 Pro** | 3.9 kWh dual | 110–120 km | 1,25,000–1,35,000 | Dual removable packs, 165 km IDC, 90 km/h, 0–40 in 2.9s, 7" TFT, Custom modes. |
+| **Best Electric Motorcycle** | **Revolt RV400** | 3.24 kWh | 80–90 km | 1,35,000–1,45,000 | Swappable battery, lightweight commuter stance, USD forks, low running cost. |
+
+> **If weight/size is your top constraint:** jump to [Weight & Dimensions — Critical Filter](#weight--dimensions--critical-filter-per-variant) (sorted by kerb weight per variant). Lightest high-speed picks: **Ather 450 (108–111.6 kg)**, **TVS Orbiter (101–112 kg)**, **iQube 2.3–3.5 (109–119 kg)**.
 
 ---
 
@@ -69,15 +76,17 @@ Selecting the right EV requires a very different mindset than buying a petrol tw
                    ▼
        [Step 2: Charging Viability]
      Do you have a dedicated 15A socket?
-     ├── YES ──► Fixed Battery (Ather, TVS, Bajaj, River)
-     └── NO  ──► Removable Battery (Vida, Revolt) OR Public Fast Charging
+     ├── YES ──► Fixed Battery (Ather, TVS, Bajaj, River, Honda QC1)
+     └── NO  ──► Removable / Swap (Vida V2/VX2, Revolt, Activa e:, Kinetic E-Luna; Okinawa only if high-speed + local service verified) OR Public Fast Charging
                    │
                    ▼
        [Step 3: User Persona & Ergonomics]
      Who is riding the scooter?
-     ├── Family / Elders ──► TVS iQube, Ather Rizta, Bajaj Chetak
-     ├── Tech Enthusiast ──► Ather 450X, River Indie
-     └── Rough Road/Luggage ──► River Indie
+     ├── Family / Elders ──► TVS iQube, Orbiter, Ather Rizta, Konarc, Bajaj Chetak
+     ├── Tech Enthusiast ──► Ather 450X, TVS X, River Indie
+     ├── Battery Swap / No Parking Socket ──► Honda Activa e:, Vida V2/VX2, Kinetic E-Luna
+     ├── Honda fixed home-charge (max range) ──► Honda QC3
+     └── Rough Road/Luggage ──► River Indie, Komaki CAT (commercial)
                    │
                    ▼
        [Step 4: After-Sales Footprint]
@@ -93,8 +102,8 @@ Never base your purchase on the manufacturer's brochure or ARAI/IDC range claim.
 | Daily Commute (Round Trip) | Recommended True Range Needed | Recommended Battery Pack Size | Recommended ARAI Claim |
 | ---------------------------- | ------------------------------- | :-----------------------------: | :----------------------: |
 | Up to 25 km (Local errands) | 60+ km | 2.0 – 2.5 kWh | 85–100 km |
-| 25 – 50 km (Standard office) | 80–100 km | 2.9 – 3.4 kWh | 115–145 km |
-| 50 – 80 km (Heavy commuting) | 115–130 km | 3.7 – 4.0 kWh | 150–175 km |
+| 25 – 50 km (Standard office) | 80–100 km | 2.9 – 3.5 kWh | 115–145 km |
+| 50 – 80 km (Heavy commuting) | 115–130 km | 3.5 – 4.0 kWh | 150–175 km |
 | 80+ km / Gig delivery work | 140+ km | 4.0+ kWh or Dual Swappable | 180+ km |
 
 **Buffer Margin:** Always maintain a minimum **25% cushion**. If your daily travel is 60 km, do not buy a scooter that delivers exactly 60 km in real life. Battery capacity degrades by 10–15% over 4–5 years, and headwind, tire under-inflation, or sudden detours shouldn't induce range anxiety.
@@ -107,7 +116,7 @@ This is the make-or-break filter for electric vehicle adoption in India.
 | ------------------ | -------------------- | -------------------- | --------------------- |
 | **Independent House / Villa** | Minimal. Ground-level parking with easy meter access. | Install an outdoor 15A weather-proof industrial socket with earthing. | Any Fixed Battery EV (Ather, TVS, Bajaj, River). |
 | **Apartment with Allotted Stilt Parking** | Moderate. Requires RWA permission to draw a cable from your flat's meter down to your parking slot. | Obtain RWA NOC, hire an electrician to draw armored cable with a dedicated sub-meter and MCB. | Fixed Battery EV with portable charger or brand wall-box. |
-| **Rented Apartment / Open Street Parking** | High. Landlord or RWA refuses wiring installation; no dedicated ground power. | Bring batteries up to your flat via elevator to charge indoors. | **Removable Battery EVs Only** (Hero Vida V1 Pro, Revolt RV400). |
+| **Rented Apartment / Open Street Parking** | High. Landlord or RWA refuses wiring installation; no dedicated ground power. | Bring batteries up to your flat via elevator to charge indoors. | **Removable Battery EVs Only** (Vida V2 / VX2, Revolt RV400, Kinetic E-Luna). |
 
 > ⚠️ **Warning on Public Charging Dependence:** Do not buy a fixed-battery EV planning to rely *exclusively* on public commercial fast chargers (Ather Grid, Kazam, Bolt.earth). Public chargers are often occupied, iced (blocked by petrol cars), out of order, and fast-charging daily degrades battery life faster while costing ₹18–₹24 per unit (eroding your fuel savings).
 
@@ -117,6 +126,18 @@ Indian electric scooters have split into two clear design philosophies:
 
 1. **Family Utility & Commuter Scooters:** Long flat single seats, neutral upright handlebar ergonomics, massive footboard space for LPG cylinders or grocery bags, progressive throttle calibration (no jerks), dual rear shock absorbers, and physical buttons. Examples: **TVS iQube, Ather Rizta, Bajaj Chetak, Hero Vida**.
 2. **Sporty & Enthusiast Scooters:** Stiff suspension tuned for cornering, aggressive lean angles, compact stepped seats, sharp throttle response (0–40 km/h in under 3.5 seconds), sleek aerodynamic bodywork, and digital touchscreens. Examples: **Ather 450X, Simple One**.
+
+
+### Step 3b: Weight & Dimensions (Do This Before Colour Choice)
+
+Treat physical size as a hard gate, not a footnote:
+
+1. **Sit on it** — both feet should plant flat (or nearly flat) at your typical stop.
+2. **Push it 10 metres** on the showroom floor — that is your basement reality check.
+3. **Measure your parking slot / lift** against L × W (Indie is nearly 2 m long and 765 mm wide).
+4. **If buying removable batteries**, lift the pack once in the showroom (Kinetic ~18 kg; Vida packs ~12 kg class).
+
+Full per-variant numbers are in **[Weight & Dimensions — Critical Filter](#weight--dimensions--critical-filter-per-variant)** below.
 
 ### Step 4: Motor & Drive Type — Mid-Drive vs Hub Motor
 
@@ -146,7 +167,7 @@ The battery pack constitutes 40% to 50% of the entire scooter's cost. Indian man
   Thermal Stability      ⭐⭐⭐ Needs robust cooling       ⭐⭐⭐⭐⭐ Extremely safe in 48°C heat
   Cycle Life             1,000 – 1,500 Cycles (~5-7 yrs)   2,000 – 3,000 Cycles (~10+ yrs)
   Cold Weather Discharge ⭐⭐⭐⭐ Good                       ⭐⭐⭐ Sluggish under 5°C
-  Brands Using           Ather, TVS, Hero Vida             River Indie, Bajaj Chetak (select)
+  Brands Using           Ather, TVS, Hero Vida             River Indie (chain), Bajaj Chetak (select)
 ```
 
 - **NMC (Lithium Nickel Manganese Cobalt Oxide):** Delivers higher range per kilogram of battery weight. Perfect for keeping the scooter nimble under 115 kg. Requires sophisticated BMS (Battery Management System) and thermal dissipation in extreme North/Central Indian summers (45°C+).
@@ -266,12 +287,17 @@ Focused on comfort, pillion ergonomics, storage capacity, and day-to-day usabili
 
 | Rank | Model | Battery (kWh) & Chemistry | ARAI Range (km) | True Range (km) | Top Speed (km/h) | Motor & Drive | Home Charge Time | Boot Space (L) | Warranty (Veh/Bat) | Rating | Price (Ex-Showroom ₹) | Est. On-Road (₹) | Why This Rank |
 | :----: | ------- | :-------------------------: | :---------------: | :---------------: | :----------------: | --------------- | :----------------: | :--------------: | :------------------: | :------: | ----------------------: | -----------------: | --------------- |
-| 🥇 1 | **[Ather Rizta Z (3.7 kWh)](https://www.atherenergy.com/rizta)** | 3.7 (NMC) | 160 | 115–125 | 80 | Mid-drive (PMSM) | ~4.5 hrs (0-80%) | 34L (+22L frunk) | 3 yr / 5 yr optional | ⭐ 4.6 | 1,44,999 | 1,49,000–1,56,000 | Best family scooter in India. Massive seat, SkidControl traction, rock-solid software, deep 34L boot. |
-| 🥈 2 | **[TVS iQube (3.4 kWh)](https://www.tvsmotor.com/electric-vehicle/tvs-iqube)** | 3.4 (NMC) | 145 | 95–105 | 78 | BLDC Hub Motor | ~4.5 hrs (0-80%) | 32L | 3 yr / 50,000 km | ⭐ 4.5 | 1,29,000 | 1,34,000–1,41,000 | Zero-headache ownership. Conventional ride feel, plush suspension, reliable TVS dealer support. |
-| 🥉 3 | **[Bajaj Chetak 3201](https://www.chetak.com/)** | 3.2 (LFP) | 136 | 100–110 | 73 | Mid-Mount (PMSM) | ~3.5 hrs (0-80%) | 21L | 3 yr / 50,000 km | ⭐ 4.3 | 1,27,000 | 1,32,000–1,38,000 | Built like a tank with all-metal body. IP67 durability, hill hold assist, classic road presence. |
-| 4 | **[River Indie](https://www.rideriver.com/)** | 4.0 (LFP) | 161 | 110–120 | 90 | Mid-drive (Belt) | ~5.0 hrs (0-80%) | 43L (+12L front) | 5 yr / 50,000 km | ⭐ 4.4 | 1,38,000 | 1,44,000–1,52,000 | The SUV of two-wheelers. 14-inch motorcycle wheels, 55L total storage, rugged crash guards built-in. |
-| 5 | **[Hero Vida V1 Pro](https://www.vidaworld.com/)** | 3.94 (NMC Dual) | 165 | 105–115 | 80 | PMSM Hub Motor | ~5.5 hrs (0-80%) | 26L | 5 yr / 50,000 km | ⭐ 4.1 | 1,32,000 | 1,36,000–1,44,000 | Dual removable battery packs. Perfect for apartment dwellers without parking charging sockets. |
-| 6 | **[TVS iQube ST (5.1 kWh)](https://www.tvsmotor.com/electric-vehicle/tvs-iqube)** | 5.1 (NMC) | 212 | 145–155 | 82 | BLDC Hub Motor | ~4.2 hrs (Fast chg) | 32L | 3 yr / 50,000 km | ⭐ 4.4 | 1,85,000 | 1,89,000–1,98,000 | Maximum real range from a legacy brand, but steep pricing pushes it into niche territory. |
+| 🥇 1 | **[Ather Rizta Z (3.5 kWh)](https://www.atherenergy.com/rizta)** | 3.5 (NMC) / 2.7 (LFP*) | 161 / 123 | 115–125 / 95–105 | 80 | Mid-drive (PMSM 4.3 kW) | ~3.5–6 hrs (0-80%) | 34L (+22L frunk) | 3 yr / up to 10 yr opt. | ⭐ 4.6 | 1,36,999 | 1,42,000–1,50,000 | Best family scooter. SkidControl, Google Maps, optional 10-yr battery warranty, TrueRange up to 125 km. |
+| 🥈 2 | **[TVS iQube (3.5 kWh)](https://www.tvsmotor.com/electric-scooters/tvs-iqube)** | 3.5 (NMC) | 145 | 95–105 | 82 | BLDC Hub (4.4 kW peak) | ~3h 45m (10–80%) | ~32L | 3 yr / 50,000 km | ⭐ 4.5 | 1,08,993* | 1,15,000–1,25,000 | Zero-headache ownership. Conventional ride feel, 950W portable charger, 2,800+ dealers. |
+| 🥉 3 | **[Ather Konarc S (3.5 kWh)](https://www.atherenergy.com/konarc)** | 3.5 (Li-ion) | 161 | 115–130 | 70 | Silent Gear PMSM (4.7 kW) | ~3h 10m w/ combined chg | 31L | 3 yr / up to 10 yr opt. | ⭐ 4.4 | 99,999* | 1,05,000–1,18,000 | New metal-body Ather. 14" front wheel, long-travel suspension, TrueRange ~130 km on 3.5 pack. |
+| 4 | **[Bajaj Chetak 3201](https://www.chetak.com/)** | 3.2 (LFP) | 136 | 100–110 | 73 | Mid-Mount (PMSM) | ~3.5 hrs (0-80%) | 21L | 3 yr / 50,000 km | ⭐ 4.3 | 1,27,000 | 1,32,000–1,38,000 | Built like a tank with all-metal body. IP67 durability, hill hold assist, classic road presence. |
+| 5 | **[River Indie](https://www.rideriver.com/indie)** | 4.0 (Li-ion) | 160 | 110–120 | 90 | Mid-drive PMSM + Chain | ~5 hrs (750W 0–80%) | 43L (+12L front) | 5 yr / 50,000 km | ⭐ 4.4 | 1,57,499 | 1,62,000–1,70,000 | SUV of scooters. Chain-drive Gen 2.5, 14" wheels, 55L storage, 6.7 kW peak / 26 Nm. |
+| 6 | **[Honda Activa e:](https://www.honda2wheelersindia.com/e2w/products/activa-e)** | 1.5×2 (swap) | 102 | 70–80 | 80 | PMSM (6 kW / 22 Nm) | Swap (~1 min) / charge packs | 0.5L glove | 3 yr / 50,000 km | ⭐ 4.3 | 1,20,133* | 1,25,000–1,35,000 | Honda e:SWAP dual Mobile Power Packs, 7" TFT, RoadSync Duo, Activa ergonomics. |
+| 6b | **[Honda QC3](https://www.honda2wheelersindia.com/e2w/products/qc3)** | 3.0 (fixed Li-ion) | 145 | 100–110* | TBA† | Hub motor | ~2h 40m (0–80%) / ~4h full | 32L | TBA (OEM sheet Q3 FY26–27) | ⭐ 4.2† | **1,35,000** (Delhi) | 1,40,000–1,50,000 | Provisional: top speed/power TBA — confirm ≥60 km/h on unlocked sheet; 5" TFT + RoadSync; 5-city RedWing start. |
+| 7 | **[TVS Orbiter V2](https://www.tvsmotor.com/electric-scooters/tvs-orbiter)** | 3.1 (NMC) | 158 | 100–115 | 68 | BLDC Hub (~2.5 kW peak) | ~3h 30m (10–80%) | 34L | 3 yr / ext. avail. | ⭐ 4.3 | 1,14,830* | 1,18,000–1,28,000 | New family TVS. 845 mm seat, 14" front alloy, hill-hold, connected LCD. Effective ~₹1.10L with PM E-DRIVE where applicable. |
+| 8 | **[Vida V2 Pro](https://www.vidaworld.com/vida-v2-pro.html)** | 3.9 (NMC Dual rem.) | 165 | 110–120 | 90 | PMSM 6 kW peak / 22 Nm | ~5–6 hrs (0–80%) | — | Hero/Vida network | ⭐ 4.3 | **1,20,000*** | 1,25,000–1,35,000 | Gen-2 dual removable packs; 0–40 in 2.9s; Eco/Ride/Sport/Custom; 7" TFT. |
+| 8b | **[Vida VX2 Plus 4.4](https://www.vidaworld.com/vx2-plus-electric-scooter.html)** | 4.4 (removable) | 187 | 125–140 | 90 | PMSM 6 kW peak / 25 Nm | ~3h 17m (0–80% w/ 1kW) | ~27L | Hero/Vida network | ⭐ 4.3 | ~1,51,000 | 1,55,000–1,65,000 | Longest Vida IDC claim; sits at/above Tier-1 price ceiling — still listed for range/apartment fit. |
+| 9 | **[TVS iQube ST (5.3 kWh)](https://www.tvsmotor.com/electric-scooters/tvs-iqube)** | 5.3 (NMC) | 212 | 145–155 | 82 | BLDC Hub (4.4 kW peak) | ~4h (10–80%) | ~32L | 3 yr / 50,000 km | ⭐ 4.4 | 1,58,834* | 1,65,000–1,75,000 | Max real range in the iQube family; 7" TFT touch on ST. |
 
 </div>
 
@@ -285,10 +311,12 @@ Focused on aggressive acceleration, high top speed, advanced rider aids, and dig
 
 | Rank | Model | Battery (kWh) & Chemistry | ARAI Range (km) | True Range (km) | Top Speed (km/h) | 0–40 km/h | Motor & Peak Power | Braking Setup | Rating | Price (Ex-Showroom ₹) | Est. On-Road (₹) | Why This Rank |
 | :----: | ------- | :-------------------------: | :---------------: | :---------------: | :----------------: | :---------: | -------------------- | :-------------: | :------: | ----------------------: | -----------------: | --------------- |
-| 🥇 1 | **[Ather 450X (3.7 kWh)](https://www.atherenergy.com/450x)** | 3.7 (NMC) | 150 | 105–110 | 90 km/h | 3.3 sec | PMSM (6.4 kW) | Front & Rear Disc (CBS) | ⭐ 4.6 | 1,54,999 | 1,60,000–1,68,000 | The gold standard of handling, precision throttle mapping, Warp Mode, Google Maps touchscreen, durable build. |
-| 🥈 2 | **[Ather 450S (2.9 kWh)](https://www.atherenergy.com/450s)** | 2.9 (NMC) | 115 | 85–90 | 90 km/h | 3.9 sec | PMSM (5.4 kW) | Front & Rear Disc (CBS) | ⭐ 4.4 | 1,17,000 | 1,22,000–1,28,000 | 450X chassis dynamics with a cost-effective DeepView LCD display. Ideal balance of performance and price. |
-| 🥉 3 | **[Hero Vida V1 Pro](https://www.vidaworld.com/)** | 3.94 (NMC Dual) | 165 | 105–115 | 80 km/h | 3.2 sec | PMSM Hub Motor (6.0 kW) | Front Disc, Rear Drum (CBS) | ⭐ 4.1 | 1,32,000 | 1,36,000–1,44,000 | Quick 0-40 acceleration in Sport mode, custom ride tuning, plus the immense utility of dual removable batteries. |
-| 4 | **[Simple One](https://www.simpleenergy.in/)** | 5.0 (Dual Pack) | 212 | 150–165 | 105 km/h | 2.77 sec | PMSM (8.5 kW) | Disc (CBS) | ⭐ 3.6 | 1,65,000 | 1,72,000–1,80,000 | Incredible range and thermal performance, but plagued by production bottlenecks and tiny dealer network. |
+| 🥇 1 | **[Ather 450X (3.5 kWh)](https://www.atherenergy.com/450)** | 2.9 / 3.5 (NMC) | 126 / 161 | 95–110 / 110–125 | 90 km/h | 3.3 sec | PMSM (6.4 kW / 26 Nm) | Dual Disc (CBS) + Traction Ctrl | ⭐ 4.6 | 1,48,998 | 1,55,000–1,65,000 | Gold-standard handling, Warp Mode, Google Maps 7" TFT, Multi-Mode Traction Control, Grid fast charge. |
+| 🥈 2 | **[Ather 450S (3.5 kWh)](https://www.atherenergy.com/450)** | 2.9 / 3.5 (NMC) | 122 / 161 | 90–105 / 110–125 | 90 km/h | 3.9 sec | PMSM (5.4 kW) | Dual Disc (CBS) | ⭐ 4.4 | 1,35,999 | 1,42,000–1,52,000 | Same chassis as 450X with DeepView display; pick 3.5 kWh pack for long-commute range. |
+| 🥉 3 | **[TVS X](https://www.tvsmotor.com/electric-scooters/tvs-x)** | 4.43–4.44 (NMC) | 159 | 110–120 | 105–110 | 2.5 sec | PMSM (11.7 kW peak) | Dual disc + ABS | ⭐ 4.2 | 2,66,141 | 2,70,000–2,80,000 | Flagship thrill scooter: 10.2" panoramic TFT, aluminium frame, 0–40 in 2.5s. Outside typical budget. |
+| 4 | **[Vida V2 Pro](https://www.vidaworld.com/vida-v2-pro.html)** | 3.9 (NMC Dual rem.) | 165 | 110–120 | 90 km/h | **2.9 sec** | PMSM (6.0 kW peak) | Disc/Drum (CBS) typ. | ⭐ 4.3 | 1,20,000* | 1,25,000–1,35,000 | Faster 0–40 than V1; Custom modes; dual removable packs; Hero service footprint. |
+| 4b | **[Vida VX2 Plus 4.4](https://www.vidaworld.com/vx2-plus-electric-scooter.html)** | 4.4 (removable) | 187 | 125–140 | 90 km/h | 3.1 sec | PMSM (6.0 kW / 25 Nm) | Front disc + rear drum CBS | ⭐ 4.3 | ~1,51,000 | 1,55,000–1,65,000 | Range king in Vida lineup; TFT + Sport mode; still removable-pack convenience. |
+| 5 | **[Simple One](https://www.simpleenergy.in/)** | 5.0 (Dual Pack) | 212 | 150–165 | 105 km/h | 2.77 sec | PMSM (8.5 kW) | Disc (CBS) | ⭐ 3.6 | 1,65,000 | 1,72,000–1,80,000 | Incredible range and thermal performance, but production/service footprint remains limited. |
 
 </div>
 
@@ -302,11 +330,17 @@ Value-engineered models focused on replacing 100cc-110cc commuter petrol scooter
 
 | Rank | Model | Battery (kWh) | ARAI Range (km) | True Range (km) | Top Speed (km/h) | Key Type | Instrument Cluster | Rating | Price (Ex-Showroom ₹) | Est. On-Road (₹) | Why This Rank |
 | :----: | ------- | :-------------: | :---------------: | :---------------: | :----------------: | :--------: | :------------------: | :------: | ----------------------: | -----------------: | --------------- |
-| 🥇 1 | **[TVS iQube (2.2 kWh)](https://www.tvsmotor.com/electric-vehicle/tvs-iqube)** | 2.2 | 75 | 55–60 | 75 km/h | Physical | Color TFT (5-inch) | ⭐ 4.4 | 94,999 | 98,000–1,04,000 | Lowest-priced scooter from a legacy automaker. Premium chassis, fast charging to 80% in 2 hrs. |
-| 🥈 2 | **[Bajaj Chetak 2901](https://www.chetak.com/)** | 2.88 | 123 | 85–90 | 63 km/h | Physical | Digital LCD | ⭐ 4.2 | 99,998 | 1,04,000–1,10,000 | Full steel body durability under ₹1.1L. 85+ km real range, Chetak dealer reliability, alloy wheels. |
-| 🥉 3 | **[Ather Rizta S (2.9 kWh)](https://www.atherenergy.com/rizta)** | 2.9 | 123 | 88–95 | 80 km/h | Physical Key | DeepView LCD | ⭐ 4.5 | 1,12,000 | 1,16,000–1,22,000 | Full Rizta family chassis, large seat, and 34L boot space at a lower price point. |
-| 4 | **[Hero Vida V1 Plus](https://www.vidaworld.com/)** | 3.44 (Dual) | 143 | 85–90 | 80 km/h | Keyless Fob | 7-inch TFT Touch | ⭐ 4.1 | 1,02,000 | 1,08,000–1,15,000 | Removable battery convenience at a budget-friendly price point, backed by Hero MotoCorp. |
-| 5 | **[Ampere Nexus EX](https://ampere.greaveselectricmobility.com/)** | 3.0 (LFP) | 136 | 85–90 | 93 km/h | Physical Key | 6.2-inch Bright LCD | ⭐ 4.0 | 1,09,900 | 1,14,000–1,19,000 | High safety LFP battery, Greaves engineering, 93 km/h top speed, family-oriented ergonomics. |
+| 🥇 1 | **[TVS iQube (2.3 kWh)](https://www.tvsmotor.com/electric-scooters/tvs-iqube)** | 2.3 | 114 | 75–85 | 68 km/h | Physical | LCD 12.7 cm | ⭐ 4.4 | 94,434* | 98,000–1,08,000 | Entry iQube refreshed to 2.3 kWh / 114 km IDC; 10–80% in ~2h 25m. |
+| 🥈 2 | **[TVS Orbiter V1](https://www.tvsmotor.com/electric-scooters/tvs-orbiter)** | 1.8 | 86–92 | 60–70 | 68 km/h | Physical | Colour LCD | ⭐ 4.2 | 1,03,650* | 1,08,000–1,15,000 | Same Orbiter chassis as V2; BaaS / PM E-DRIVE can cut effective price near ₹95k–1.05L. |
+| 🥉 3 | **[Ather Konarc S (2.1–2.7)](https://www.atherenergy.com/konarc)** | 2.1 / 2.7 | 100 / 125 | 80–100 | 70 km/h | Mechanical | DeepView 4.2–7" | ⭐ 4.3 | 99,999* | 1,05,000–1,15,000 | Cheapest path into Ather metal-body ecosystem; TrueRange 80–100 km. |
+| 4 | **[Bajaj Chetak 2901](https://www.chetak.com/)** | 2.88 | 123 | 85–90 | 63 km/h | Physical | Digital LCD | ⭐ 4.2 | 99,998 | 1,04,000–1,10,000 | Full steel body under ₹1.1L. Chetak dealer reliability. |
+| 5 | **[Ather Rizta S](https://www.atherenergy.com/rizta)** | 2.7 LFP* / 2.9 / 3.5 NMC | 123 (2.7/2.9) / 161 (3.5) | 95–105 / 115–125 | 80 km/h | Physical Key | DeepView LCD | ⭐ 4.5 | 1,21,999 | 1,26,000–1,35,000 | Full Rizta chassis + 34L boot; 2.7 & 2.9 share ~123 km IDC; 3.5 → 161 km. |
+| 6 | **[Honda QC1](https://www.honda2wheelersindia.com/e2w/products/qc1)** | 1.5 fixed | 80 | 55–65 | 50 km/h | Physical | 5" LCD | ⭐ 4.0 | 90,708* | 95,000–1,05,000 | Lightweight (89.5 kg) Honda entry EV; 26L boot; 6A socket-friendly 330W charger. |
+| 7 | **[Kinetic Green E-Luna X3](https://www.kineticgreen.com/product/e-luna)** | 2.3 portable | 120 | 80–95 | 50 km/h | Physical | Digital | ⭐ 4.0 | 72,490 | 75,000–85,000 | Electric Luna moped; portable pack (~18 kg) + charger; apartment-friendly. |
+| 8 | **[Vida V2 Plus](https://www.vidaworld.com/vida-v2-plus.html)** | 3.4 (Dual rem.) | 143 | 95–105 | 80 km/h | Keyless / app | 7" TFT Touch | ⭐ 4.2 | **1,11,000*** | 1,15,000–1,25,000 | Dual removable; 0–40 in 3.4s; Eco/City/Sports; Hero network. |
+| 8b | **[Vida VX2 Go 3.4](https://www.vidaworld.com/vx2-go-electric-scooter.html)** | 3.4 (removable) | 146 | 100–110 | 70 km/h | Key | LCD 4.3" | ⭐ 4.1 | ~87,790–1,21,000* | 95,000–1,30,000 | Value removable-pack VX2; Eco/Ride only; boot up to ~33L on smaller packs. |
+| 8c | **[Vida VX2 Go 2.2](https://www.vidaworld.com/vx2-go-electric-scooter.html)** | 2.2 (removable) | 93 | 65–75 | 70 km/h | Key | LCD 4.3" | ⭐ 4.0 | ~77,590–99,490* | 85,000–1,10,000 | Entry VX2; largest VX2 boot (~33.2L); RQ option with 1kW charger. |
+| 9 | **[Ampere Nexus EX](https://ampere.greaveselectricmobility.com/)** | 3.0 (LFP) | 136 | 85–90 | 93 km/h | Physical Key | 6.2-inch Bright LCD | ⭐ 4.0 | 1,09,900 | 1,14,000–1,19,000 | LFP chemistry, Greaves engineering, family ergonomics. |
 
 </div>
 
@@ -320,7 +354,7 @@ For riders who prefer the ergonomics, tank grip, larger wheels, and ride dynamic
 
 | Model | Battery (kWh) | Real Range (km) | Top Speed (km/h) | Motor Type | Wheel Size | Kerb Weight | Price (Ex-Showroom ₹) | Est. On-Road (₹) | Verdict |
 | ------- | :-------------: | :---------------: | :----------------: | ------------ | :----------: | :-----------: | ----------------------: | -----------------: | --------- |
-| **[Revolt RV400](https://www.revoltmotors.com/)** | 3.24 (Removable) | 80–90 | 85 km/h | Mid-drive (Belt) | 17-inch | 108 kg | 1,34,950 | 1,40,000–1,48,000 | Best proven electric motorcycle. Removable battery, USD forks, lightweight commuter stance. |
+| **[Revolt RV400](https://www.revoltmotors.com/)** | 3.24 (Removable) | 80–90 | 85 km/h | Mid-drive (Chain) | 17-inch | 108 kg | 1,34,950 | 1,40,000–1,48,000 | Best proven electric motorcycle. Removable battery, USD forks, lightweight commuter stance. |
 | **[Oben Rorr](https://obenelectric.com/)** | 4.4 (LFP Fixed) | 110–125 | 100 km/h | Frame-mount (Belt) | 17-inch | 130 kg | 1,49,999 | 1,55,000–1,64,000 | Fast acceleration (0-40 in 3s), safer LFP battery, 2-hour home charging, neo-retro roadster looks. |
 | **[Matter Aera 5000](https://matter.in/)** | 5.0 (Liquid Cooled) | 110–120 | 105 km/h | Mid-drive with 4-Speed Gearbox | 17-inch | 140 kg | 1,73,999 | 1,82,000–1,92,000 | India's only geared electric motorcycle with liquid cooling. Unique feel, but delivery timelines remain slow. |
 | **[Ultraviolette F77 Mach 2](https://www.ultraviolette.com/)** | 7.1 / 10.3 | 170–240 | 155 km/h | Mid-drive (30 kW) | 17-inch | 207 kg | 2,99,000–3,99,000 | 3,15,000–4,25,000 | Premium sports motorcycle. Massive acceleration (0-100 in 7.7s), race-spec Brembo brakes, luxury tier. |
@@ -329,11 +363,126 @@ For riders who prefer the ergonomics, tank grip, larger wheels, and ride dynamic
 
 ---
 
-## Detailed Model Reviews (Top 8 EV Scooters)
+## Weight & Dimensions — Critical Filter (Per Variant)
 
-### 1. Ather Rizta — The Undisputed Family Champion ⭐ 4.6
+For many buyers (especially lighter riders, apartment parking, elevator access, and frequent push-parking), **kerb weight and physical size matter more than peak power**. Heavier metal-body scooters feel planted but are harder to haul onto a centre stand or manoeuvre in tight basements. Wider / longer machines filter traffic worse.
 
-**Price:** ₹1.12L – ₹1.45L (Ex-showroom) | ₹1.18L – ₹1.56L (On-road)  
+**How to use this table**
+
+1. Prefer **≤115 kg** if you regularly push the scooter or park in tight slots.
+2. Prefer **seat height ≤770 mm** if you are under ~5'4" / want flat-footed stops.
+3. Prefer **ground clearance ≥165 mm** for speed-breakers and unloaded Indian roads.
+4. Prefer **narrower width (≤700 mm)** for bumper-to-bumper filtering.
+5. Removable / swap packs: also check **pack weight** (you will carry it upstairs).
+
+> Figures are OEM-declared kerb weights (ready-to-ride) and dimensions. Aggregator sources noted where OEM pages omit a field. Always re-confirm on the invoice / brochure for your exact pack.
+
+### Master comparison — kerb weight & size by variant
+
+<div style="overflow-x: auto;" markdown="1">
+
+| Model / Variant | Kerb Wt (kg) | L × W × H (mm) | Wheelbase (mm) | Seat Ht (mm) | GC (mm) | Pack notes | Fit verdict |
+| --------------- | -----------: | -------------- | -------------: | -----------: | ------: | ---------- | ----------- |
+| **[Honda QC1](https://www.honda2wheelersindia.com/e2w/products/qc1)** | **89.5** | 1826 × 701 × 1129 | 1275 | 704 | 169 | Fixed 1.5 kWh | Lightest Honda EV; easiest to push. |
+| **[Honda QC3](https://www.honda2wheelersindia.com/e2w/products/qc3)** | **~110†** | TBA (OEM sheet pending) | TBA | TBA | TBA | Fixed 3.0 kWh | Launch coverage: ~110 kg; fuller dims when Honda unlocks Q3 FY26–27 sheet. |
+| **[Kinetic E-Luna X3](https://www.kineticgreen.com/product/e-luna)** | **96** | 1985 × 735 × 1036 | 1335 | — | 170 | Portable 2.3 kWh (~18.2 kg) | Moped stance; long but light; battery is the carry load. |
+| **[TVS Orbiter V1](https://www.tvsmotor.com/electric-scooters/tvs-orbiter)** | **101** | 1855 × 728 × 1284 | — | 760 (seat len 845) | 165 | 1.8 kWh | Very manageable family scooter. |
+| **[Ather 450S / 450X — 2.9 kWh](https://www.atherenergy.com/450)** | **108** | ~1891 × 739 × 1114 | 1296 | 780 | 170 | 2.9 kWh | Best power-to-weight in class. |
+| **[TVS iQube 2.3 kWh](https://www.tvsmotor.com/electric-scooters/tvs-iqube)** | **109** | 1805 × 645 × 1140 | 1301 | 770 | 157 | 2.3 kWh | Narrowest mainstream chassis (645 mm). |
+| **[TVS Orbiter V2](https://www.tvsmotor.com/electric-scooters/tvs-orbiter)** | **112** | 1855 × 728 × 1284 | — | 760 (seat len 845) | 165 | 3.1 kWh | Still light; long seat for family. |
+| **[Ather 450S / 450X / Apex — 3.5 kWh](https://www.atherenergy.com/450)** | **111.6** | ~1891 × 739 × 1114 | 1296 | 780 | 170 | 3.5 kWh | Still featherweight vs metal rivals. |
+| **[TVS iQube 3.1 kWh](https://www.tvsmotor.com/electric-scooters/tvs-iqube)** | **116.8** | 1805 × 645 × 1140 | 1301 | 770 | 157 | 3.1 kWh | Same slim body; +pack mass only. |
+| **[Honda Activa e:](https://www.honda2wheelersindia.com/e2w/products/activa-e)** | **119** | 1854 × 700 × 1125 | 1310 | — | 171 | 1.5×2 swap packs | Compact Activa footprint; packs removable. |
+| **[TVS iQube 3.5 / MillionR](https://www.tvsmotor.com/electric-scooters/tvs-iqube)** | **119.1** | 1805 × 645 × 1140 | 1301 | 770 | 157 | 3.5 kWh | Sweet spot: range + still ≤120 kg. |
+| **[Vida VX2 Go (base packs)](https://www.vidaworld.com/vx2-go-electric-scooter.html)** | **106–114.5** | 1865 × 741 × 1117 | 1301 | 777 | 155 | 2.2 / 3.4 rem. | Lightest modern Vida; boot ~33.2L on 2.2. |
+| **[Ather Rizta S / Z](https://www.atherenergy.com/rizta)** | **125** | ~1850 × 750 × 1140 | 1285 | 780 | 150 | 2.7 / 2.9 / 3.5 kWh | Family size; GC is the trade-off. |
+| **[Vida VX2 Go 3.1 FB / Plus 3.4](https://www.vidaworld.com/vx2-plus-electric-scooter.html)** | **118 / 118.1** | 1865–1867 × 741 × 1117–1121 | 1301–1303 | 777 | 155 | 3.1 / 3.4 rem. | Still apartment-friendly push weight. |
+| **[Vida VX2 Plus 4.4](https://www.vidaworld.com/vx2-plus-electric-scooter.html)** | **~118–120** | 1867 × 741 × 1121 | 1303 | 777 | 155 | 4.4 rem. | Big pack without Chetak-class mass. |
+| **[Vida V2 Plus](https://www.vidaworld.com/vida-v2-plus.html)** | **124** | 1857 × 730 × 1161 | 1301 | 777 | 155 | 3.4 dual rem. | Taller body than VX2; dual carry packs. |
+| **[Vida V2 Pro](https://www.vidaworld.com/vida-v2-pro.html)** | **125** | 1857 × 730 × 1161 | 1301 | 777 | 155 | 3.9 dual rem. | Same V2 chassis; +pack mass vs Plus. |
+| **[Vida KKR Knight](https://www.vidaworld.com/vida-kkr-knight-edition.html)** | **~115–118†** | Same as VX2 Plus 3.4 | 1303 | 777 | 155 | 3.4 rem. | Cosmetic LE; mech = Plus 3.4. |
+| **Vida V1 Plus / Pro (prior gen)** | **124 / 125** | 1857 × 730 × 1161 | 1301 | 777–780 | 155 | 3.44 / 3.94 dual | Prefer V2/VX2 for new buys. |
+| **[Ather Konarc S 2.7 kWh](https://www.atherenergy.com/konarc)** | **126.5** | — (metal body) | 1352 | 770 | 160 | 2.7 kWh | Longer wheelbase; planted feel. |
+| **[TVS iQube S 4.7 kWh](https://www.tvsmotor.com/electric-scooters/tvs-iqube)** | **128.8** | 1805 × 645 × 1140 | 1301 | 770 | 157 | 4.7 kWh | Slim but now mid-heavy. |
+| **[Ather Konarc S 3.5 kWh](https://www.atherenergy.com/konarc)** | **129** | — (metal body) | 1352 | 770 | 160 | 3.5 kWh | Heaviest Konarc S pack. |
+| **[TVS iQube ST 5.3 kWh](https://www.tvsmotor.com/electric-scooters/tvs-iqube)** | **132** | 1805 × 645 × 1140 | 1301 | 770 | 157 | 5.3 kWh | Max-range iQube; plan for push weight. |
+| **[Bajaj Chetak 2901 / 3201](https://www.chetak.com/)** | **~134** | ~1890–1914 × ~725 × ~1142 | 1330–1355 | ~760–775 | 160 | 2.88 / 3.2 kWh | Metal body = parking effort. |
+| **[River Indie](https://www.rideriver.com/indie/specs)** | **135** | 1996 × 765 × 1145* | ~1349–1365 | **787** | ~177 | 4.0 kWh | Longest/widest “SUV”; *OEM lists 787 as seat ht; H from aggregators. |
+| **[TVS X](https://www.tvsmotor.com/electric-scooters/tvs-x)** | **139 ± 2** | 1798 × 809 × 1147 | 1285 | — | 170 | 4.43–4.44 kWh | Dense performance package; wide bars. |
+| **[Okinawa Lite](https://okinawascooters.com/scooters/lite)** | — (load 150) | 1730 × 690 × 1280 | — | 740 | 160 | 1.25 kWh detach | Low-speed; out of high-speed scope. |
+| **[Okinawa Dual 100](https://okinawascooters.com/scooters/dual-100)** | — (load 150) | 1788 × 700 × 1120 | — | 770 | **205** | 3.12 kWh detach | Tall GC for cargo rack duty. |
+| **[Okinawa iPraise+](https://okinawascooters.com/scooters/ipraise-plus)** | — (load 150) | 1970 × 745 × 1165 | — | 800 | 175 | 3.6 kWh detach | Tall seat; **56 km/h — outside core scope**; confirm kerb. |
+| **Komaki CAT 2.0 / NXT / Eco** | — (payload up to ~350 claimed) | Commercial loader geometry | — | Long bench | — | LFP / Graphene | Utility loaders — not compact personal scooters. |
+| **Komaki FAM** | — | 3-wheel family SUV | — | — | — | Li / LFP | Different vehicle class. |
+
+</div>
+
+### Weight-first shortlist (if kerb weight is your #1 filter)
+
+| Priority | Pick | Why |
+| -------- | ---- | --- |
+| **Lightest high-usability scooter** | **Ather 450 (2.9/3.5)** @ 108–111.6 kg | Performance without parking dread. |
+| **Lightest family / long seat** | **TVS Orbiter V1/V2** @ 101–112 kg | 845 mm seat length without Chetak mass. |
+| **Lightest legacy-brand daily** | **TVS iQube 2.3–3.5** @ 109–119.1 kg | Narrow 645 mm body; easy lift onto stand. |
+| **Lightest Honda** | **QC1** @ 89.5 kg / **QC3** ~110 kg / **Activa e:** @ 119 kg | QC1 short hops; QC3 fixed 3 kWh range; Activa e: if you need swap. |
+| **Avoid if you hate heavy push** | Chetak (~134), Indie (135), TVS X (~139), iQube ST (132) | Fine on the move; painful in basement ramps. |
+
+### Dimension gotchas by use case
+
+| Your constraint | Watch for | Prefer |
+| --------------- | --------- | ------ |
+| Short rider / frequent stops | Seat height ≥780 mm (Rizta, 450, Vida, Indie 787) | Orbiter / iQube (760–770), QC1 (704), Chetak (~760) |
+| Bad roads / loaded trips | Low GC (Rizta official 150 mm) | Indie (~177), Dual 100 (205), 450 (170), Activa e: (171) |
+| Tight traffic filtering | Width ≥750 mm + long wheelbase | iQube (645 W), QC1 (701 W), Orbiter (728 W) |
+| Elevator / upstairs battery | Fixed heavy packs | **Vida V2/VX2 removable**, Activa e: swap, Kinetic portable (~18 kg), Okinawa detachables |
+| Centre-stand / side-stand effort | Kerb >125 kg | Stay ≤120 kg unless you have strong parking habits |
+
+---
+
+### Tier 5 — Also Shortlisted (Utility / Brand Expansions / Caveats)
+
+Models below are useful for specific use cases. Some sit at the edge of this guide’s **60+ km/h high-speed** scope; treat claimed “ideal test” ranges with the same 70% rule.
+
+#### Spec snapshot — new & expanded models
+
+<div style="overflow-x: auto;" markdown="1">
+
+| Brand / Model | Battery | Claimed Range | Top Speed | Motor | Price (Ex-Showroom ₹) | Notes |
+| ------------- | ------- | ------------- | --------- | ----- | --------------------: | ----- |
+| **[TVS Orbiter V1 / V2](https://www.tvsmotor.com/electric-scooters/tvs-orbiter)** | 1.8 / 3.1 kWh | 86–92 / 158 km IDC | 68 km/h | BLDC hub ~2.5 kW peak | 1,03,650 / 1,14,830* | 845 mm seat, 34L boot, 14" front; V2 is the daily-family pick. |
+| **[TVS X](https://www.tvsmotor.com/electric-scooters/tvs-x)** | 4.43–4.44 kWh NMC | 159 km IDC / ~118 km real (Xtealth) | 105–110 km/h | PMSM 7.5 / 11.7 kW | 2,66,141 | Premium niche; 10.2" TFT, ABS, aluminium frame. |
+| **[TVS iQube lineup](https://www.tvsmotor.com/electric-scooters/tvs-iqube)** | 2.3 / 3.1 / 3.5 / 4.7 / 5.3 kWh | 114–212 km IDC | 68–82 km/h | BLDC hub 4.4 kW peak | 94k–1.59L* | Replaces older 2.2 / 3.4 / 5.1 packs; ST = 5.3 kWh / 212 km. |
+| **[Honda Activa e:](https://www.honda2wheelersindia.com/e2w/products/activa-e)** | 1.5×2 kWh swap | 102 km IDC | 80 km/h | PMSM 6 kW / 22 Nm | 1,20,133* | e:SWAP stations (limited cities); 0–60 in 7.3s; 119 kg. |
+| **[Honda QC1](https://www.honda2wheelersindia.com/e2w/products/qc1)** | 1.5 kWh fixed | 80 km IDC | 50 km/h | BLDC 1.8 kW | 90,708* | 26L boot; 330W charger on 6A socket; city short hops. |
+| **[Honda QC3](https://www.honda2wheelersindia.com/e2w/products/qc3)** | 3.0 kWh fixed | 145 km IDC | TBA | Hub motor | **1,35,000** (Delhi) | 32L boot; 0–80% ~2h40m; 5" TFT + RoadSync + Smart Key; OEM full specs unlock Q3 FY26–27. |
+| **[Ather Konarc S](https://www.atherenergy.com/konarc)** | 2.1 / 2.7 / 3.5 kWh (+200 km pack marketed) | 100 / 125 / 161 (/200) km IDC | 70 km/h (Z: 80 coming) | PMSM 4.0–4.7 kW | from 99,999* | Metal body, Silent Gear Drive, 14" F / 12" R, 31L boot. |
+| **[Ather Rizta S/Z](https://www.atherenergy.com/rizta)** | 2.7 LFP* / 2.9 / 3.5 NMC | 123 km (2.7/2.9) / 161 km (3.5) | 80 km/h | PMSM 4.3 kW / 22 Nm | 1,21,999 / 1,36,999 | 3.7 kWh retired; TrueRange ~100 km (small) / ~125 km (3.5). |
+| **[Ather 450S/X](https://www.atherenergy.com/450)** | 2.9 / 3.5 kWh | 122–126 / 161 km IDC | 90 km/h | 5.4 / 6.4 kW | 1,35,999 / 1,48,998 | 3.7 pack → 3.5 with more IDC range; Overtones cosmetics. |
+| **[River Indie](https://www.rideriver.com/indie/specs)** | 4.0 kWh | 160 km IDC (Eco 110 / Ride 90 / Rush 70) | 90 km/h | PMSM 4.5 / 6.7 kW, 26 Nm | ~1,57,499 | **Chain drive** (was belt); 750W = ~5h, 480W = ~8h. |
+| **[Kinetic E-Luna X3](https://www.kineticgreen.com/product/e-luna)** | 2.3 kWh portable | 120 km claimed | 50 km/h | BLDC ~1.2–2 kW | 72,490 | Moped class; Flipkart/Amazon booking SKUs exist; IP67 pack. |
+| **[Okinawa Dual 100](https://okinawascooters.com/scooters/dual-100)** | 3.12 kWh detachable | 129 km (ideal) | 60 km/h | BLDC 3.0 kW | 1,19,085 | Borderline high-speed; commercial rack; dual disc + E-ABS; verify service hard. |
+| **[Okinawa iPraise+](https://okinawascooters.com/scooters/ipraise-plus)** | 3.6 kWh detachable | 137 km (ideal) | **56 km/h** | BLDC 2.7 kW | 1,22,955 | **Below 60 km/h guide core** — treat as edge case; long waits (3–6 mo); verify service. |
+| **[Okinawa Lite](https://okinawascooters.com/scooters/lite)** | 1.25 kWh detachable | 60 km | **25 km/h** | 250 W | 69,093 | **Out of scope** (low-speed, RC not required). Avoid for highway-adjacent roads. |
+| **[Komaki CAT 2.0](https://komaki.in/xgt-cat-2-0-easy-to-supply)** | LFP / Graphene packs | 95–140 km claimed | **25 km/h** (many SKUs) | ~3.1 kW class | 83k–1.26L | Commercial loader; **mostly low-speed** — not a high-speed daily scooter. |
+| **[Komaki CAT 2.0 NXT](https://komaki.in/cat-2-0-nxt)** | Graphene / LFP | 110–140 km claimed | 60–70 km/h | ~2.7 kW | 79,999 / 1,10,499 | Higher-speed commercial variant; verify ARAI cert & local service. |
+| **[Komaki CAT 2.0 Eco](https://komaki.in/cat-2-0-eco)** | Graphene / LFP | 60–120 km claimed | 55 km/h | ~2 kW | 58,999 / 75,999 | Budget multi-purpose loader; thinner dealer QA vs legacy OEMs. |
+| **[Komaki FAM](https://komaki.in/fam)** | Li / LFP | 100–200 km claimed | n/a (3-wheel) | — | 1,06,999 / 1,29,999 | **3-wheeler family SUV** — different vehicle class; not a 2W scooter. |
+
+</div>
+
+\* Ex-showroom / effective prices include PM E-DRIVE where shown on OEM sites; city RTO and dealer handling still apply. “Ideal test” ranges from smaller brands are often optimistic — apply the 70% rule aggressively and insist on a measured test ride.
+
+> **Buying filter for smaller brands (Okinawa / Komaki):** Confirm (1) high-speed RTO registration eligibility, (2) AIS-156 battery certification sticker on the pack, (3) a physical workshop within 15 km with spare controllers in stock, and (4) written warranty claim TAT. Prefer TVS / Honda / Ather / Bajaj / River if any of those four fail.
+
+---
+
+## Detailed Model Reviews
+
+### 1. Ather Rizta (3.5 kWh Z) — The Undisputed Family Champion ⭐ 4.6
+
+**Weight / Size:** 125 kg · ~1850×750×1140 mm · Seat 780 mm · WB 1285 · GC 150 mm
+
+**Price:** from ₹1.22L S / ₹1.37L Z (Ex-showroom) | ~₹1.26L – ₹1.50L (On-road, pack-dependent)  
 **Best For:** Families, daily grocery utility, two full-sized adult riders, safety-conscious commuters.
 
 **The Good:**
@@ -347,13 +496,15 @@ For riders who prefer the ergonomics, tank grip, larger wheels, and ride dynamic
 
 - Modest top speed capped at 80 km/h (not meant for drag racing).
 - Design is conservative and boxy compared to the aggressive 450X.
-- 3.7 kWh variant with Pro Pack pushes on-road price close to ₹1.55 Lakh.
+- 3.5 kWh top pack with accessories can still push on-road price near ₹1.50 Lakh.
 
 **Verdict:** ⭐⭐⭐⭐⭐ — The best family scooter in India today, blending Ather's proven reliability with unmatched utility.
 
 ---
 
-### 2. TVS iQube (3.4 kWh) — The Zero-Headache Workhorse ⭐ 4.5
+### 2. TVS iQube (3.5 kWh) — The Zero-Headache Workhorse ⭐ 4.5
+
+**Weight / Size (by pack):** 2.3→109 kg · 3.1→116.8 · 3.5→119.1 · S 4.7→128.8 · ST 5.3→132 kg · common dims 1805×645×1140 · Seat 770 · WB 1301 · GC 157 mm
 
 **Price:** ₹1.29L (Ex-showroom) | ₹1.34L – ₹1.41L (On-road)  
 **Best For:** Buyers transitioning from Honda Activa who want zero learning curve and rock-solid service backup.
@@ -368,7 +519,7 @@ For riders who prefer the ergonomics, tank grip, larger wheels, and ride dynamic
 **The Limitations:**
 
 - Hub motor design increases unsprung rear weight, slightly thudding over sharp speed humps.
-- Top speed is limited to 78 km/h.
+- Top speed is limited to ~82 km/h on 3.1 kWh+ packs (2.3 kWh variant capped at 68 km/h).
 - Basic companion smartphone app compared to Ather.
 
 **Verdict:** ⭐⭐⭐⭐⭐ — If you distrust tech startups and want a stress-free scooter backed by a multi-billion dollar Indian legacy brand, buy the iQube.
@@ -377,7 +528,9 @@ For riders who prefer the ergonomics, tank grip, larger wheels, and ride dynamic
 
 ### 3. Ather 450X (Gen 3 / Gen 4) — The Cornering Machine ⭐ 4.6
 
-**Price:** ₹1.45L – ₹1.55L (Ex-showroom) | ₹1.52L – ₹1.68L (On-road)  
+**Weight / Size:** 108 kg (2.9) / 111.6 kg (3.5) · ~1891×739×1114 mm · Seat 780 · WB 1296 · GC 170 mm
+
+**Price:** from ₹1,48,998 (Ex-showroom, 450X) | ~₹1.55L – ₹1.65L (On-road, pack-dependent)  
 **Best For:** Young professionals, enthusiasts who love agile handling, corner carving, and snappy acceleration.
 
 **The Good:**
@@ -421,11 +574,14 @@ For riders who prefer the ergonomics, tank grip, larger wheels, and ride dynamic
 
 ### 5. River Indie — The "SUV of Scooters" ⭐ 4.4
 
-**Price:** ₹1.38L (Ex-showroom) | ₹1.44L – ₹1.52L (On-road)  
+**Weight / Size:** 135 kg · 1996×765×1145 mm · Seat 787 mm · WB ~1349–1365 · GC ~177 mm
+
+**Price:** ₹1.57L (Ex-showroom, typ.) | ₹1.62L – ₹1.70L (On-road)  
 **Best For:** Heavy haulers, gig workers, tall riders, and anyone dealing with crater-filled suburban roads.
 
 **The Good:**
 
+- **Chain-drive Gen 2.5:** Current Indie uses chain final drive (replacing earlier belt) for lower running cost and sharper response; lube ~every 1,000 km.
 - **14-inch Wheels:** Largest wheels on any production scooter in India (front and rear). Glides over potholes that bottom out an Activa.
 - **Cargo Capacity:** 43-liter underseat trunk + 12-liter lockable front glovebox with integrated USB charger.
 - **Pannier Mounts:** Factory-designed mounting rails for luggage bags, side panniers, and top boxes.
@@ -441,7 +597,7 @@ For riders who prefer the ergonomics, tank grip, larger wheels, and ride dynamic
 
 ---
 
-### 6. Hero Vida V1 Pro — The Apartment Dweller's Savior ⭐ 4.1
+### 6. Hero Vida V1 Pro — Prior-Gen Apartment Savior ⭐ 4.1 *(prefer V2/VX2 for new buys)*
 
 **Price:** ₹1.32L (Ex-showroom) | ₹1.36L – ₹1.44L (On-road)  
 **Best For:** Tenants, high-rise apartment residents without parking charge points, and long-term warranty seekers.
@@ -463,9 +619,55 @@ For riders who prefer the ergonomics, tank grip, larger wheels, and ride dynamic
 
 ---
 
+### 6b. Vida V2 / VX2 Family — Removable-Pack Lineup (Hero) ⭐ 4.3
+
+**Official pages:** [V2 Pro](https://www.vidaworld.com/vida-v2-pro.html) · [V2 Plus](https://www.vidaworld.com/vida-v2-plus.html) · [VX2 Go](https://www.vidaworld.com/vx2-go-electric-scooter.html) · [VX2 Plus](https://www.vidaworld.com/vx2-plus-electric-scooter.html) · [KKR Knight](https://www.vidaworld.com/vida-kkr-knight-edition.html)
+
+**Best For:** Apartment dwellers who must carry packs upstairs; buyers wanting Hero MotoCorp service with modern removable batteries.
+
+#### Spec matrix (OEM product pages + Vida tech table)
+
+<div style="overflow-x: auto;" markdown="1">
+
+| Model | Battery | IDC (km) | Top (km/h) | 0–40 (s) | Modes | Display | Kerb (kg) | L×W×H (mm) | Ex-showroom (indicative ₹) |
+| ----- | ------- | -------: | ---------: | -------: | ----- | ------- | --------: | ---------- | -------------------------: |
+| **V2 Pro** | 3.9 kWh dual rem. | 165 | 90 | **2.9** | Eco/Ride/Sport/**Custom** | 7" TFT touch | 125 | 1857×730×1161 | **1,20,000*** |
+| **V2 Plus** | 3.4 kWh dual rem. | 143 | 80 | 3.4 | Eco/City/Sports | 7" TFT touch | 124 | 1857×730×1161 | **1,11,000*** |
+| **VX2 Plus 4.4** | 4.4 kWh rem. | **187** | 90 | 3.1 | Eco/Ride/Sport | TFT | ~118–120 | 1867×741×1121 | ~1,51,000 |
+| **VX2 Plus 3.4** | 3.4 kWh rem. | 146 | 80 | 3.1 | Eco/Ride/Sport | TFT | ~118 | 1867×741×1121 | ~98.8k–1.31L* |
+| **VX2 Go 3.4** | 3.4 kWh rem. | 146 | 70 | 4.2 | Eco/Ride | LCD 4.3" | ~114.5 | 1865×741×1117 | ~87.8k–1.21L* |
+| **VX2 Go 3.1** | 3.1 kWh | 128 | 70 | 4.5 | Eco/Ride | LCD | ~118 | 1865×741×1117 | mid Go band |
+| **VX2 Go 2.2** | 2.2 kWh rem. | 93 | 70 | 4.2 | Eco/Ride | LCD | ~106–114.5 | 1865×741×1117 | ~77.6k–99.5k* |
+| **KKR Knight Ed.** | = VX2 Plus 3.4 | ~142–146 | 80 | 3.1 | Eco/Ride/Sport | TFT | ~115–118† | VX2 Plus dims | ~1.16L* |
+
+</div>
+
+**Shared hardware notes (OEM tech table):** swingarm-mounted PMSM, peak **6 kW** / continuous **3.9 kW**; V2 torque **22 Nm**, VX2 torque **25 Nm**; GC **155 mm**; seat **777 mm**; IP67 packs; park/reverse (3 km/h); regen via two-way throttle; cruise on V2.
+
+**Pick guide**
+
+| Need | Buy |
+| ---- | --- |
+| Max fun + apartment packs | **V2 Pro** (2.9s 0–40, Custom modes, 90 km/h) |
+| Same V2 comfort, less pack | **V2 Plus** |
+| Max certified range | **VX2 Plus 4.4** (187 km IDC) |
+| Value removable + Hero network | **VX2 Go 3.4** (or 2.2 if short hops / max boot) |
+| Cosmetics only / IPL fan | **KKR Knight** — pay for livery + helmet, not a different motor |
+
+**The Good:** Truly removable packs across the modern lineup; Hero dealership reach; VX2 stays lighter (~106–120 kg) than Chetak/Indie; V2 Pro is legitimately quick.  
+**The Limitations:** GC 155 mm is average; V1 is superseded for new purchases; KKR is a sticker/colour premium; city prices/subsidies swing widely — confirm local ex-showroom.
+
+**Verdict:** ⭐⭐⭐⭐ — For no-parking-socket homes, **V2 Pro** or **VX2 Plus 4.4** are the current Hero/Vida defaults; skip new V1 stock unless heavily discounted.
+
+\* OEM site / blog list prices; Delhi Autocar figures may differ with/without PM E-DRIVE — verify at booking.  
+† KKR kerb varies by aggregator; treat as VX2 Plus 3.4 class.
+
+---
+
+
 ### 7. Ather 450S — The Value Performance Choice ⭐ 4.4
 
-**Price:** ₹1.17L (Ex-showroom) | ₹1.22L – ₹1.28L (On-road)  
+**Price:** from ₹1.36L (Ex-showroom, pack-dependent) | ~₹1.42L – ₹1.52L (On-road)  
 **Best For:** Riders who want Ather's razor-sharp cornering dynamics and reliability at a lower price.
 
 **The Good:**
@@ -477,7 +679,7 @@ For riders who prefer the ergonomics, tank grip, larger wheels, and ride dynamic
 
 **The Limitations:**
 
-- 2.9 kWh battery delivers ~85–90 km real-world range (requires daily charging for long commutes).
+- 2.9 kWh pack delivers ~90–105 km real-world (SmartEco/mixed); 3.5 kWh stretches to ~110–125 km. Daily charge still wise for 50+ km days.
 - Lacks touchscreen-based native on-screen Google Maps (relies on turn-by-turn navigation prompts).
 - Firm suspension remains stiff on bad roads.
 
@@ -506,6 +708,131 @@ For riders who prefer the ergonomics, tank grip, larger wheels, and ride dynamic
 **Verdict:** ⭐⭐⭐⭐ — The most durable budget electric scooter in India from a trusted legacy giant.
 
 ---
+
+
+### 9. Ather Konarc S — Metal-Body Value Play ⭐ 4.4
+
+**Weight / Size:** 126.5 kg (2.7) / 129 kg (3.5) · WB 1352 mm · Seat 770 mm · GC 160 mm
+
+**Price:** from ₹99,999 (intro, ex-showroom) | ~₹1.05L – ₹1.20L on-road depending on pack  
+**Best For:** Buyers who want Ather reliability cues in a tougher metal body without 450/Rizta pricing.
+
+**Specs (official):** 2.1 / 2.7 / 3.5 kWh packs → 100 / 125 / 161 km IDC; TrueRange 80 / 100 / 130 km; 70 km/h top speed; PMSM 4.0–4.7 kW; 31L boot; 14" front / 12" rear; Silent Gear Drive; optional combined charger cuts 0–80% to ~2–3.1 hrs.
+
+**Verdict:** ⭐⭐⭐⭐½ — Strong default if you want a durable daily scooter under/near ₹1L intro pricing; wait for Z if you need 80 km/h and AeBS.
+
+---
+
+### 10. TVS Orbiter — Family Minimalist ⭐ 4.3
+
+**Weight / Size:** V1 101 kg / V2 112 kg · 1855×728×1284 mm · Seat 760 mm (len 845) · GC 165 mm
+
+**Price:** V1 ~₹1.04L / V2 ~₹1.15L ex-showroom (effective lower with PM E-DRIVE)  
+**Best For:** Families wanting iQube-adjacent TVS ownership with a longer seat and simpler feature set.
+
+**Specs (official):** V1 1.8 kWh (86–92 km IDC), V2 3.1 kWh (158 km IDC); both 68 km/h; BLDC hub ~2.5 kW peak; 34L boot; 845 mm seat; 14" front alloy; 650W charger (optional 950W).
+
+**Verdict:** ⭐⭐⭐⭐ — Buy **V2** for real commuting; V1 / BaaS only if daily distance is short.
+
+---
+
+### 11. Honda Activa e: — Swap-and-Go Legacy ⭐ 4.3
+
+**Weight / Size:** 119 kg · 1854×700×1125 mm · WB 1310 mm · GC 171 mm
+
+**Price:** from ~₹1.20L ex-showroom  
+**Best For:** Honda loyalists in cities with e:SWAP coverage (or who will charge packs at home).
+
+**Specs (official):** Dual 1.5 kWh Mobile Power Packs; 102 km IDC; 80 km/h; 6 kW / 22 Nm PMSM; 7" TFT; RoadSync Duo; disc + CBS; 119 kg; 3 yr / 50,000 km.
+
+**Verdict:** ⭐⭐⭐⭐ — Excellent if swap stations match your routes; otherwise treat as a removable-pack commuter and confirm pack weight handling.
+
+---
+
+### 12. Honda QC1 — Lightweight City Nipper ⭐ 4.0
+
+**Weight / Size:** **89.5 kg** · 1826×701×1129 mm · Seat **704 mm** · WB 1275 · GC 169 mm
+
+**Price:** from ~₹90.7k ex-showroom  
+**Best For:** Short urban hops, first-time EV buyers, light riders wanting Honda service.
+
+**Specs (official):** 1.5 kWh fixed; 80 km IDC; 50 km/h; BLDC 1.8 kW; 26L boot; 330W charger (6A-friendly); 89.5 kg; 0–40 in 9.4s.
+
+**Verdict:** ⭐⭐⭐½ — Honest low-speed-ish Honda product; not a highway/ring-road scooter.
+
+---
+
+### 12b. Honda QC3 — Longest-Range Honda Fixed Pack ⭐ 4.2†
+
+**Official source:** [honda2wheelersindia.com/e2w/products/qc3](https://www.honda2wheelersindia.com/e2w/products/qc3)
+
+**Price:** ₹1,35,000 ex-showroom Delhi (OEM page) | ~₹1.40L – ₹1.50L on-road typ.  
+**Weight / Size:** ~110 kg kerb (launch coverage) · full L×W×H / seat / GC **TBA** — Honda states detailed configurations unlock in **Q3 FY 2026–27**, with deliveries shortly after.
+
+**Confirmed / widely reported launch specs**
+
+| Item | Spec |
+| ---- | ---- |
+| Battery | **3.0 kWh fixed** Li-ion (not swappable — unlike Activa e:) |
+| Claimed range | **145 km IDC** (Honda’s longest fixed-pack 2W claim in India so far) |
+| Real-world (70% rule) | ~100–110 km mixed city* |
+| Charging | **0–80% ~2 h 40 m**; full ~4 h |
+| Motor | Hub-mounted (peak kW TBA on OEM sheet) |
+| Storage | **32 L** underseat (vs QC1 26 L) |
+| Cluster / connect | **5" TFT** + Honda RoadSync + turn-by-turn nav |
+| Key | Smart Key standard |
+| Brakes | Front disc (+ CBS per launch coverage) |
+| Colours | Matt Photon Grey Metallic, Pearl Precious White, Pearl Shallow Blue, Pearl Siren Blue |
+| Rollout | Initial RedWing cities: Delhi, Agra, Cuttack, Surat, Kollam; ₹5,000 booking |
+
+**vs QC1 / Activa e:**
+
+| | QC1 | QC3 | Activa e: |
+| - | --- | --- | --------- |
+| Pack | 1.5 kWh fixed | **3.0 kWh fixed** | 1.5×2 swap |
+| IDC | 80 km | **145 km** | 102 km |
+| Boot | 26 L | **32 L** | tiny glove |
+| Ex-showroom | ~₹90.7k | **₹1.35L** | ~₹1.20L |
+| Best for | Ultra-light short hops | Fixed home charge + max Honda range | No parking socket / swap network |
+
+**The Good:** Genuine step-up from QC1 on range and storage; Honda service DNA; connected TFT without Activa e: swap logistics.  
+**The Limitations:** Full OEM dimension/power sheet still locked; limited launch cities; fixed pack needs reliable home/work charging.
+
+**Verdict:** ⭐⭐⭐⭐† — Strong Honda family pick **if** you have a charging point and can wait for/confirm local RedWing delivery. Re-check the unlocked OEM sheet (top speed, peak power, dims, warranty) before paying the booking token.
+
+\* Apply the guide’s 70% rule until independent long-term logs exist.  
+† Rating provisional until Honda publishes the complete QC3 specification sheet.
+
+
+
+---
+
+### 13. Kinetic Green E-Luna X3 — Electric Luna ⭐ 4.0
+
+**Weight / Size:** 96 kg vehicle · portable pack ~18.2 kg · 1985×735×1036 mm · WB 1335 · GC 170 mm
+
+**Price:** ₹72,490 ex-showroom (X3 with portable charger)  
+**Best For:** Moped buyers, apartment charging, sub-₹80k electric utility.
+
+**Specs:** 2.3 kWh portable Li-ion; ~120 km claimed; 50 km/h; ~4 hr charge; IP67 pack; drum CBS; spoke wheels on base X3.
+
+**Verdict:** ⭐⭐⭐⭐ — Clever nostalgia product; apply 70% range rule (~80–95 km real) and inspect local Kinetic Green service.
+
+---
+
+### 14. TVS X — Thrill Flagship ⭐ 4.2
+
+**Weight / Size:** 139±2 kg · 1798×809×1147 mm · WB 1285 mm · GC 170 mm
+
+**Price:** ₹2,66,141 ex-showroom (charger included)  
+**Best For:** Performance enthusiasts willing to pay outside the ₹1.8L guide band.
+
+**Specs:** 4.43–4.44 kWh NMC; 159 km IDC; ~118±5 km real (Xtealth); 105–110 km/h; 11.7 kW peak PMSM; 0–40 in 2.5s; 10.2" TFT; dual-channel ABS.
+
+**Verdict:** ⭐⭐⭐⭐ — Brilliant engineering, niche pricing; most buyers are better served by 450X or iQube ST.
+
+---
+
 
 ## True Cost of Ownership: EV vs Petrol Scooter
 
@@ -648,7 +975,7 @@ A: Yes, you can wash an EV with water. All critical components (battery pack, mo
 A: Absolutely. Electric motors produce maximum instantaneous torque from 0 RPM. Scooters with mid-drive motors (Ather 450X, Rizta, Chetak, River Indie) produce 20–30 Nm of peak torque, climbing 15°–20° gradients with a 160 kg payload far more effortlessly than a 110cc petrol scooter.
 
 **Q: How much does an electric scooter battery replacement cost in India?**  
-A: As of 2025–2026, an out-of-warranty battery pack replacement costs roughly ₹12,000–₹16,000 per kWh (₹38,000–₹55,000 for a typical 3 kWh to 3.7 kWh pack). However, battery packs have a design life of 6–8 years, and standard warranties cover 3 to 5 years (extendable to 8 years on select models).
+A: As of 2025–2026, an out-of-warranty battery pack replacement costs roughly ₹12,000–₹16,000 per kWh (₹38,000–₹55,000 for a typical 3 kWh to 3.5 kWh pack). However, battery packs have a design life of 6–8 years, and standard warranties cover 3 to 5 years (extendable to 8 years on select models).
 
 **Q: What happens if I get stuck in heavy waterlogged rain?**  
 A: Because there is no air intake, carburetor, or exhaust pipe to flood, an electric scooter is inherently safer in waterlogged roads than a petrol vehicle. You can safely ride through water up to footboard level without fear of hydro-locking the engine. Never submerge the scooter past the seat.
@@ -671,11 +998,15 @@ A: Used EV resale values depend heavily on verifiable battery health. Establishe
 
 | Brand | Official Portal & Booking | Charging Network |
 | ------- | -------------------------- | ------------------ |
-| **Ather Energy** | [Ather Energy Store](https://www.atherenergy.com/) | [Ather Grid](https://www.atherenergy.com/charging) (2,500+ fast chargers) |
-| **TVS Motor** | [TVS iQube Official](https://www.tvsmotor.com/electric-vehicle/tvs-iqube) | Dealership fast-charging pods |
+| **Ather Energy** | [Ather Store](https://www.atherenergy.com/) · [450](https://www.atherenergy.com/450) · [Rizta](https://www.atherenergy.com/rizta) · [Konarc](https://www.atherenergy.com/konarc) | [Ather Grid](https://www.atherenergy.com/charging) (6,100+ points claimed) |
+| **TVS Motor** | [iQube](https://www.tvsmotor.com/electric-scooters/tvs-iqube) · [Orbiter](https://www.tvsmotor.com/electric-scooters/tvs-orbiter) · [TVS X](https://www.tvsmotor.com/electric-scooters/tvs-x) | Dealership + public charging pods |
+| **Honda** | [Activa e:](https://www.honda2wheelersindia.com/e2w/products/activa-e) · [QC1](https://www.honda2wheelersindia.com/e2w/products/qc1) · [QC3](https://www.honda2wheelersindia.com/e2w/products/qc3) | Honda e:SWAP (Activa e:) + home charge; QC3 via RedWing (phased cities) |
+| **Kinetic Green** | [E-Luna](https://www.kineticgreen.com/product/e-luna) | Portable home charger (included on X3) |
+| **Okinawa** | [Lite](https://okinawascooters.com/scooters/lite) · [Dual 100](https://okinawascooters.com/scooters/dual-100) · [iPraise+](https://okinawascooters.com/scooters/ipraise-plus) | Home detachable-battery charge |
+| **Komaki** | [CAT 2.0](https://komaki.in/xgt-cat-2-0-easy-to-supply) · [NXT](https://komaki.in/cat-2-0-nxt) · [Eco](https://komaki.in/cat-2-0-eco) · [FAM](https://komaki.in/fam) | Dealer / home charge (verify high-speed eligibility) |
 | **Bajaj Auto** | [Bajaj Chetak](https://www.chetak.com/) | Chetak Network |
-| **River** | [River Mobility](https://www.rideriver.com/) | Home charger bundled |
-| **Hero MotoCorp** | [Hero Vida](https://www.vidaworld.com/) | Vida Fast Charging Hubs |
+| **River** | [River Indie](https://www.rideriver.com/indie) · [Specs](https://www.rideriver.com/indie/specs) | 750W / 480W home chargers |
+| **Hero / Vida** | [V2 Pro](https://www.vidaworld.com/vida-v2-pro.html) · [V2 Plus](https://www.vidaworld.com/vida-v2-plus.html) · [VX2 Go](https://www.vidaworld.com/vx2-go-electric-scooter.html) · [VX2 Plus](https://www.vidaworld.com/vx2-plus-electric-scooter.html) · [KKR Knight](https://www.vidaworld.com/vida-kkr-knight-edition.html) | Vida hubs + 5,900+ public fast points (OEM claim) |
 | **Revolt Motors** | [Revolt Motors](https://www.revoltmotors.com/) | Revolt Switch Stations |
 | **BikeWale (Comparison)** | [BikeWale Electric Scooters](https://www.bikewale.com/electric-scooters/) | Multi-brand price check |
 
