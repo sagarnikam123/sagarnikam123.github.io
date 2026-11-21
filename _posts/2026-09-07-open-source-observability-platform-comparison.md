@@ -443,6 +443,12 @@ AGPL requires sharing source modifications if you offer the software as a networ
 
 [GreptimeDB](https://github.com/GreptimeTeam/greptimedb) — A single unified observability database handling metrics, logs, and traces with SQL and PromQL support. Architecturally interesting (one engine vs many), but the complete observability experience (dashboards, alerting, APM views) requires additional tooling on top. Worth watching as a backend building block.
 
+### Gigapipe
+
+[Gigapipe](https://github.com/metrico/gigapipe) (formerly qryn) — A polyglot observability warehouse that is drop-in compatible with Grafana Loki, Prometheus, Tempo, and Pyroscope APIs (LogQL, PromQL, TraceQL, FlameQL) while storing logs, metrics, traces, and profiles in ClickHouse (also DuckDB / S3). Ingests OTLP plus native Loki, Prometheus Remote Write, Tempo/Zipkin, Pyroscope, InfluxDB, Elastic, and Datadog protocols; pairs with Grafana or Perses datasources without plugins. AGPLv3, ~1.7k GitHub stars.
+
+- **Why it's an honorable mention:** Gigapipe is a protocol-compatible LGTMP *backend*, not a turnkey APM UI like SigNoz or OpenObserve. Teams that already run Grafana and want one ClickHouse-backed store instead of four LGTM components should evaluate it; teams wanting a first-party observability product experience should prefer the scored platforms above.
+
 ### HyperDX
 
 [HyperDX](https://github.com/hyperdxio/hyperdx) — The UI/platform layer that powers ClickStack. ClickHouse acquired HyperDX in 2025 and ships it as ClickStack — the same codebase under a unified Apache 2.0 license. We evaluate ClickStack as the complete stack rather than double-counting the same platform.
