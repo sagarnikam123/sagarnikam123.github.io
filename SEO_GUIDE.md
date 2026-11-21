@@ -211,7 +211,7 @@ To avoid "thin content" penalties where search engines index categories containi
 | Primary Pillar (Level 1) | Approved Sub-Categories (Level 2) | Topic Scope |
 | --- | --- | --- |
 | **`Observability`** | `Platforms`, `Logging`, `Metrics`, `Tracing`, `Profiling`, `Benchmarks`, `Pricing`, `APM`, `Security`, `Landscape` | Monitoring, Grafana, OpenTelemetry, SigNoz, Vector, Loki |
-| **`DevOps`** | `Ansible`, `Kafka`, `Testing`, `Setup`, `Automation`, `CI-CD` | Infrastructure as code, pipelines, Playwright, message brokers |
+| **`DevOps`** | `Ansible`, `Kafka`, `Testing`, `Setup`, `Automation`, `CI-CD`, `Streaming` | Infrastructure as code, pipelines, Playwright, message brokers, stream/batch data platforms |
 | **`Linux`** | `Commands`, `Troubleshooting`, `Setup`, `Administration` | CLI workflows, sysadmin one-liners, kernel tuning, distros |
 | **`Programming`** | `Go`, `Python`, `R`, `C-Cpp`, `Git`, `Markdown`, `Coding-Challenges`, `Web-Development` | Syntax guides, data structures, algorithms, tutorials |
 | **`AI`** | `Local-LLMs`, `Coding-Agents`, `Context-Engineering`, `Open-Source` | Ollama, token reduction, coding assistants, model guides |
