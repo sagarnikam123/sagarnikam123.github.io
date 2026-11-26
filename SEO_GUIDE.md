@@ -24,6 +24,7 @@ title: "Primary Keyword First: Engaging Title Under 60 Characters"
 description: "Actionable summary between 130 and 155 characters that naturally includes secondary search terms for search engine snippet preview."
 author: sagarnikam123
 date: 2026-09-28 09:30:00 +0530
+last_modified_at: 2026-10-15 10:00:00 +0530   # Optional: set when substantially updating a published post
 categories: [PrimaryPillar, SubCategory]
 tags: [primary-keyword, secondary-search-term, specific-tool-name, relevant-concept]
 media_subpath: /assets/img/posts/20260928/
@@ -75,10 +76,11 @@ mermaid: false    # Set true ONLY if post contains mermaid code diagrams
 - **SEO Benefit:** Reading author details from `_data/authors.yml` enables Chirpy to output `twitter:creator` and rich `author` schema, strengthening Google E-E-A-T (Experience, Expertise, Authoritativeness, Trustworthiness) verification.
 - For multiple contributors, use `authors: [author1, author2]`.
 
-### `date:` (Freshness & Structured Data Precision)
+### `date:` & `last_modified_at:` (Freshness & Structured Data Precision)
 
 - **Format:** `YYYY-MM-DD HH:MM:SS +/-TTTT` (e.g., `2026-09-28 09:30:00 +0530`).
 - **Why Timezone Matters:** Providing the exact timezone offset ensures accurate `datePublished` and `dateModified` in `BlogPosting` JSON-LD schema and prevents date skew in RSS feeds and search engine indexing.
+- **Content Freshness (`last_modified_at:`):** When you substantially update an evergreen guide (e.g., adding new tools, updating archived projects, or refreshing benchmarks), set `last_modified_at:` in front matter. `jekyll-seo-tag` and `jekyll-sitemap` use it to emit an accurate `dateModified` and `<lastmod>` signal without changing the original `date:` permalink or publish history.
 
 ### `categories:` (Chirpy Two-Tier Hierarchy)
 
@@ -104,13 +106,13 @@ mermaid: false    # Set true ONLY if post contains mermaid code diagrams
   > [!IMPORTANT]
   > Neither `jekyll-seo-tag` nor search engines recognize a `keywords:` frontmatter key. Always use Chirpy's native `tags:` array.
 
-### `media_subpath:` (Asset Path Simplification)
+### `media_subpath:` & `site.cdn` (Asset Path Simplification)
 
 - Sets a default directory prefix for media resources in the post:
   ```yaml
   media_subpath: /assets/img/posts/20260928/
   ```
-- When `media_subpath` is configured, `image.path` and standard markdown images only require the filename (e.g., `reduce-token-usage.webp`), keeping markdown clean and portable across CDNs.
+- When `media_subpath` is configured, `image.path` and standard markdown images only require the filename (e.g., `reduce-token-usage.webp`). Chirpy composes the final URL as `[site.cdn/][page.media_subpath/]file.ext`, keeping markdown clean and portable across CDNs.
 
 ### Performance Toggles (`math:`, `mermaid:`, `toc:`)
 
@@ -126,12 +128,15 @@ Images are the primary contributor to Largest Contentful Paint (LCP) and Cumulat
 
 - **Target Resolution:** **1200 x 630 px** (standard 1.91:1 aspect ratio for Open Graph, Facebook, LinkedIn, and Twitter `summary_large_image`).
 - **Format:** Modern `.webp` format for high compression and fast delivery.
-- **LQIP (Low Quality Image Placeholder):** Provide a tiny base64 URI or small blurred preview to render instantly while the full image loads:
+- **LQIP (Low Quality Image Placeholder):** Provide a tiny base64 URI or file path to render instantly while the full image loads (for both hero preview images and inline content images):
   ```yaml
   image:
     path: hero-image.webp
-    lqip: data:image/webp;base64,UklGRm...
+    lqip: data:image/webp;base64,UklGRm... # or /path/to/lqip-file
     alt: Descriptive keyword-rich image explanation
+  ```
+  ```markdown
+  ![Inline Diagram](diagram.webp){: w="800" h="450" lqip="/path/to/lqip-file" }
   ```
 
 ### 2. In-Content Image Dimensions (Prevent CLS)
@@ -177,11 +182,13 @@ For screenshots or diagrams that differ between dark and light themes:
 
 ## 5. Responsive Media Embeds (Performance-Safe)
 
-Embedding raw `<iframe>` tags from YouTube or Spotify degrades PageSpeed scores and triggers CLS. Use Chirpy's native responsive Liquid includes instead:
+Embedding raw `<iframe>` tags from YouTube, Twitch, Bilibili, or Spotify degrades PageSpeed scores and triggers CLS. Use Chirpy's native responsive Liquid includes instead (`{% include embed/{Platform}.html id='{ID}' %}`):
 
 ```liquid
-{% comment %} YouTube Video {% endcomment %}
+{% comment %} YouTube / Twitch / Bilibili Video {% endcomment %}
 {% include embed/youtube.html id='VIDEO_ID' %}
+{% include embed/twitch.html id='VIDEO_ID' %}
+{% include embed/bilibili.html id='VIDEO_ID' %}
 
 {% comment %} Spotify Podcast or Track {% endcomment %}
 {% include embed/spotify.html id='TRACK_ID' compact=1 dark=1 %}
@@ -211,7 +218,7 @@ To avoid "thin content" penalties where search engines index categories containi
 | Primary Pillar (Level 1) | Approved Sub-Categories (Level 2) | Topic Scope |
 | --- | --- | --- |
 | **`Observability`** | `Platforms`, `Logging`, `Metrics`, `Tracing`, `Profiling`, `Benchmarks`, `Pricing`, `APM`, `Security`, `Landscape` | Monitoring, Grafana, OpenTelemetry, SigNoz, Vector, Loki |
-| **`DevOps`** | `Ansible`, `Kafka`, `Testing`, `Setup`, `Automation`, `CI-CD`, `Streaming` | Infrastructure as code, pipelines, Playwright, message brokers, stream/batch data platforms |
+| **`DevOps`** | `Ansible`, `Kafka`, `Testing`, `Setup`, `Automation`, `CI-CD`, `Streaming`, `Containers`, `Kubernetes` | Infrastructure as code, containers, local Kubernetes, pipelines, Playwright, message brokers, stream/batch data platforms |
 | **`Linux`** | `Commands`, `Troubleshooting`, `Setup`, `Administration` | CLI workflows, sysadmin one-liners, kernel tuning, distros |
 | **`Programming`** | `Go`, `Python`, `R`, `C-Cpp`, `Git`, `Markdown`, `Coding-Challenges`, `Web-Development` | Syntax guides, data structures, algorithms, tutorials |
 | **`AI`** | `Local-LLMs`, `Coding-Agents`, `Context-Engineering`, `Open-Source` | Ollama, token reduction, coding assistants, model guides |
@@ -254,25 +261,29 @@ Use Chirpy's native prompt callout blocks instead of raw HTML:
   > [!CAUTION]
   > Jekyll's `{% highlight %}` tag is incompatible with Chirpy. Always use standard markdown fences.
 - **Filename Header:** Add `{: file="path/to/file.ext" }` below the code block.
-- **Hide Line Numbers:** Add `{: .nolineno }` for simple CLI commands.
+- **Hide Line Numbers:** `plaintext`, `console`, and `terminal` omit line numbers automatically; for other languages, add `{: .nolineno }` below the code block.
 - **Inline Filepaths:** Use `` `/etc/nginx/nginx.conf`{: .filepath} `` to render Chirpy's distinct filepath badge.
 - **Liquid Code Snippets:** Surround Liquid tags with `{% raw %}` and `{% endraw %}` or set `render_with_liquid: false` in front matter.
 
-### 4. Internal & External Linking
+### 4. Internal & External Linking (Topic Clusters & Anchor Text)
 
-- **Internal Links:** Use `{% post_url YYYY-MM-DD-slug %}` to maintain permanent links even if slugs change:
+- **Internal Links:** Use `{% post_url YYYY-MM-DD-slug %}` to maintain permanent links even if slugs change (open in the same tab — no `target="_blank"`):
   ```markdown
-  Refer to our [Token Usage Optimization Guide]({% post_url 2026-09-28-reduce-ai-token-usage-part1-techniques %}){:target="_blank"}.
+  Refer to our [Token Usage Optimization Guide]({% post_url 2026-09-28-reduce-ai-token-usage-part1-techniques %}).
   ```
-- **External Links:** Add `{:target="_blank" rel="noopener"}` for security and tab preservation.
+- **Descriptive Anchor Text:** Use keyword-relevant, descriptive anchor text (e.g., *"Open-Source Container Runtimes Compared"* rather than *"here"* or *"this post"*).
+- **Topic Clusters & Anti-Cannibalization:** Group related posts into complementary series (e.g., *Layer 1: Container Runtimes* ↔ *Layer 2: Local Kubernetes Installers*) with clear scope boundaries and bidirectional links so two posts reinforce each other instead of competing for the same query.
+- **No Draft Links in Published Posts:** Always replace `/_drafts/...` links with `{% post_url %}` before moving a post into `_posts/`.
+- **External Links:** Standard Markdown `[label](https://...)` is clean and preferred; optionally add Kramdown IAL syntax `{:target="_blank" rel="noopener"}` when you want external links to open in a new tab (Jekyll strips the `{:...}` syntax during build and emits HTML `target="_blank" rel="noopener"` attributes). Cite primary official docs and GitHub repos to strengthen E-E-A-T.
 
-### 5. Featured Snippet & AI Overview (AEO) Optimization
+### 5. Featured Snippet, AI Overview (AEO/GEO) & E-E-A-T Optimization
 
 To capture Google's definition snippets and AI Overview citations:
 
 - Directly under an H2 question or concept heading (`## What is X?`), write a concise, self-contained definition of **40–50 words**.
 - Bold the primary keyword in the first sentence (e.g., *"**AI token optimization** is the discipline of minimizing input and output token consumption..."*).
 - Follow immediately with a summary list or comparison table to qualify for tabular and bulleted snippet formats.
+- **Demonstrate First-Hand E-E-A-T:** Include reproducible CLI commands, explicit trade-offs (*"When to prefer / When not"*), maintenance-status caveats (archived/beta tools), and real gotchas rather than generic feature summaries.
 
 ---
 
@@ -293,7 +304,7 @@ Chirpy automatically includes `{% seo title=false %}` in `_includes/head.html`, 
 - **Why?**
   1. **Redundancy:** Chirpy already generates standards-compliant `BlogPosting` schema on every page.
   2. **Clean Markdown:** Keeping markdown files 100% free of inline `<script>` tags preserves clean syntax, prevents markdownlint `MD033` issues, and avoids accidental script parsing errors in Jekyll.
-  3. **Google Guidelines:** Google automatically derives question-and-answer snippets from standard semantic markdown headings (`## Frequently Asked Questions`, followed by bold questions and concise answers) without requiring manual schema injection.
+  3. **Google Guidelines:** Google automatically derives question-and-answer snippets from standard semantic markdown headings (`## Frequently Asked Questions`, followed by `###` question headings or bold questions and concise answers) without requiring manual schema injection.
 
 ---
 
@@ -331,6 +342,9 @@ Ensure these values are accurately set:
 - `timezone`: Controls site-wide post timestamp rendering.
 - `lang`: Sets the `<html lang="en">` attribute required for international search indexing.
 
+- **Production Build & Lockfile:** If `Gemfile.lock` is committed on macOS/Windows, add the Linux platform before GitHub Actions deployment (`bundle lock --add-platform x86_64-linux`).
+- **Static Assets & CDN:** Chirpy's external asset CDNs are configured in `_data/origin/cors.yml` (or can be self-hosted via `chirpy-static-assets`).
+
 ### Production Build Flag
 
 Always build with `JEKYLL_ENV=production`:
@@ -342,9 +356,10 @@ JEKYLL_ENV=production bundle exec jekyll b
 > [!IMPORTANT]
 > Chirpy disables Google Analytics, GoatCounter tracking, pageview counts, and certain canonical SEO optimizations in development mode. Only production builds emit the complete, minified SEO assets.
 
-### Automated Sitemap & Robots Discovery
+### Automated Sitemap, Canonical URLs & Robots Discovery
 
 - **XML Sitemap:** Chirpy automatically generates a search-engine-ready XML sitemap at `/sitemap.xml` using `jekyll-sitemap`. Ensure `url` is configured in `_config.yml` so all links use full canonical URLs.
+- **Canonical & Cross-Posting:** `jekyll-seo-tag` emits `<link rel="canonical">` automatically. When syndicating posts to Medium, Dev.to, or Hashnode, always set the syndication platform's canonical URL back to your `https://sagarnikam123.github.io/posts/<slug>/` URL to prevent duplicate-content dilution.
 - **Robots.txt:** Keep a valid `robots.txt` in the root referencing the sitemap:
   ```text
   Sitemap: https://sagarnikam123.github.io/sitemap.xml
@@ -363,6 +378,8 @@ Before committing any post or merging drafts into `_posts/`:
 # - Categories: exactly 2 items matching Core Pillars
 # - Tags: 4-6 lowercase kebab-case terms
 # - Image: 1200x630 webp with valid LQIP base64 and alt text
+# - Freshness: set last_modified_at if substantially updating an existing post
+# - Links: no /_drafts/ links remaining; use {% post_url %} for internal links
 
 # 2. Lint markdown syntax and heading order
 npx markdownlint-cli2 "_posts/YYYY-MM-DD-your-post.md"
