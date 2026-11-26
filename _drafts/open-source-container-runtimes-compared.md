@@ -24,13 +24,13 @@ Replacing Docker Desktop is usually a **runtime** decision first: do containers,
 
 This guide is **open-source only**. Primary picks:
 
-1. **[Colima](https://colima.run/)**{:target="_blank" rel="noopener"} ([GitHub](https://github.com/abiosoft/colima){:target="_blank" rel="noopener"}) — MIT CLI on macOS/Linux (Lima); Docker, containerd, Incus; optional k3s.
-2. **[Finch](https://runfinch.com/)**{:target="_blank" rel="noopener"} ([GitHub](https://github.com/runfinch/finch){:target="_blank" rel="noopener"}) — Apache 2.0 AWS-originated client; Lima + containerd + nerdctl + BuildKit; Mac/Windows/Linux.
-3. **[Kiri](https://runkiri.com/)**{:target="_blank" rel="noopener"} ([GitHub](https://github.com/libracoder/kiri){:target="_blank" rel="noopener"}) — Apache/MIT native desktop + Docker API (**beta**); Mac/Windows/Linux; optional k3s + Share.
-4. **[Rancher Desktop](https://rancherdesktop.io/)**{:target="_blank" rel="noopener"} — Apache OSS desktop; dockerd (Moby) or containerd; optional embedded k3s.
-5. **[Podman](https://podman.io/)**{:target="_blank" rel="noopener"} / **[Podman Desktop](https://podman-desktop.io/)**{:target="_blank" rel="noopener"} — Apache OSS rootless-first engine + GUI; kind/minikube extensions.
+1. **[Colima](https://colima.run/)** ([GitHub](https://github.com/abiosoft/colima)) — MIT CLI on macOS/Linux (Lima); Docker, containerd, Incus; optional k3s.
+2. **[Finch](https://runfinch.com/)** ([GitHub](https://github.com/runfinch/finch)) — Apache 2.0 AWS-originated client; Lima + containerd + nerdctl + BuildKit; Mac/Windows/Linux.
+3. **[Kiri](https://runkiri.com/)** ([GitHub](https://github.com/libracoder/kiri)) — Apache/MIT native desktop + Docker API (**beta**); Mac/Windows/Linux; optional k3s + Share.
+4. **[Rancher Desktop](https://rancherdesktop.io/)** — Apache OSS desktop; dockerd (Moby) or containerd; optional embedded k3s.
+5. **[Podman](https://podman.io/)** / **[Podman Desktop](https://podman-desktop.io/)** — Apache OSS rootless-first engine + GUI; kind/minikube extensions.
 
-**Also covered:** [Apple `container`](https://github.com/apple/container){:target="_blank" rel="noopener"} (per-container micro-VMs on Apple Silicon), [Lima](https://lima-vm.io/){:target="_blank" rel="noopener"} + [nerdctl](https://github.com/containerd/nerdctl){:target="_blank" rel="noopener"}, [Container Desktop](https://github.com/container-desktop/container-desktop){:target="_blank" rel="noopener"} (Windows), [Dory](https://usedory.dev/){:target="_blank" rel="noopener"} (Apple Silicon), and other OSS honorable mentions.
+**Also covered:** [Apple `container`](https://github.com/apple/container) (per-container micro-VMs on Apple Silicon), [Lima](https://lima-vm.io/) + [nerdctl](https://github.com/containerd/nerdctl), [Container Desktop](https://github.com/container-desktop/container-desktop) (Windows), [Dory](https://usedory.dev/) (Apple Silicon), and other OSS honorable mentions.
 
 For **local Kubernetes installers, multi-node topologies, and cluster UIs** (minikube, kind, k3d, k3s, Headlamp, Radar, k9s, …), see Part 2 in this series: [`_drafts/open-source-local-kubernetes-installers-and-uis.md`](/_drafts/open-source-local-kubernetes-installers-and-uis.md) (swap to `{% post_url %}` when both are published).
 
@@ -67,20 +67,20 @@ Primary picks had to meet most of:
 
 ### What This Guide Is NOT
 
-1. **Proprietary desktops as primary recommendations** — [Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank" rel="noopener"} and [OrbStack](https://orbstack.dev/){:target="_blank" rel="noopener"} are not OSS picks here. Note: **Docker Desktop does include optional Kubernetes** (and **Rancher Desktop** does too, as an OSS dual-purpose tool in this guide) — see [Optional Kubernetes](#optional-kubernetes-runtime-vs-installer) and the [Kubernetes companion](/_drafts/open-source-local-kubernetes-installers-and-uis.md).
+1. **Proprietary desktops as primary recommendations** — [Docker Desktop](https://www.docker.com/products/docker-desktop/) and [OrbStack](https://orbstack.dev/) are not OSS picks here. Note: **Docker Desktop does include optional Kubernetes** (and **Rancher Desktop** does too, as an OSS dual-purpose tool in this guide) — see [Optional Kubernetes](#optional-kubernetes-runtime-vs-installer) and the [Kubernetes companion](/_drafts/open-source-local-kubernetes-installers-and-uis.md).
 2. **Production cluster installers** — kubeadm, kubespray, OpenShift, managed EKS/GKE/AKS.
 3. **Deep Kubernetes topology labs** — multi-node kind/k3d/minikube recipes live in the [Kubernetes companion](/_drafts/open-source-local-kubernetes-installers-and-uis.md).
-4. **Building blocks alone as “Desktop replacements”** — [Moby](https://mobyproject.org/){:target="_blank" rel="noopener"}, [containerd](https://containerd.io/){:target="_blank" rel="noopener"}, and [BuildKit](https://github.com/moby/buildkit){:target="_blank" rel="noopener"} power many tools above; they are not end-user installers by themselves (see honorable mentions).
+4. **Building blocks alone as “Desktop replacements”** — [Moby](https://mobyproject.org/), [containerd](https://containerd.io/), and [BuildKit](https://github.com/moby/buildkit) power many tools above; they are not end-user installers by themselves (see honorable mentions).
 5. **Vendor marketing benchmarks as gospel** — Published `docker run` timings are directional; measure bind mounts and builds on *your* machine.
 
 ## Why Mac needs a Linux VM (Apple Silicon)
 
-Linux containers need a **Linux kernel**. On Apple Silicon macOS there is no native Linux kernel, so every practical path uses [Virtualization.framework](https://developer.apple.com/documentation/virtualization){:target="_blank" rel="noopener"} (or QEMU) under the hood. The tools below differ mainly in **how many** Linux VMs they run:
+Linux containers need a **Linux kernel**. On Apple Silicon macOS there is no native Linux kernel, so every practical path uses [Virtualization.framework](https://developer.apple.com/documentation/virtualization) (or QEMU) under the hood. The tools below differ mainly in **how many** Linux VMs they run:
 
 | Model | Idea | Examples in this guide |
 | ----- | ---- | ---------------------- |
-| **Shared Linux VM** | One managed Linux guest runs `dockerd`, `containerd`, or Podman; all containers share that guest | [Colima](#colima), [Finch](#finch), [Rancher Desktop](#rancher-desktop), [Podman](#podman--podman-desktop) machine, [Lima](#lima--nerdctl-diy-foundation), [Kiri](#kiri-beta), plus proprietary [Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank" rel="noopener"} / [OrbStack](https://orbstack.dev/){:target="_blank" rel="noopener"} |
-| **Per-container micro-VM** | Each container boots in its own lightweight Linux VM (stronger isolation; different UX) | [Apple `container`](#apple-container-micro-vms) ([apple/container](https://github.com/apple/container){:target="_blank" rel="noopener"}) |
+| **Shared Linux VM** | One managed Linux guest runs `dockerd`, `containerd`, or Podman; all containers share that guest | [Colima](#colima), [Finch](#finch), [Rancher Desktop](#rancher-desktop), [Podman](#podman--podman-desktop) machine, [Lima](#lima--nerdctl-diy-foundation), [Kiri](#kiri-beta), plus proprietary [Docker Desktop](https://www.docker.com/products/docker-desktop/) / [OrbStack](https://orbstack.dev/) |
+| **Per-container micro-VM** | Each container boots in its own lightweight Linux VM (stronger isolation; different UX) | [Apple `container`](#apple-container-micro-vms) ([apple/container](https://github.com/apple/container)) |
 
 **Pick shared VM** when you need stock `docker` / Compose, kind/k3d against a Docker API, or cross-platform team parity. **Pick Apple `container`** when you are on **Apple Silicon + macOS 26+** (recommended; macOS 15 has known networking limits), want OCI images without a third-party Desktop, and can use the `container` CLI (and optional experimental `container cluster`) instead of Docker Compose.
 
@@ -126,7 +126,7 @@ flowchart TD
 
 ## Colima
 
-[Colima](https://colima.run/){:target="_blank" rel="noopener"} (“Containers on [Lima](https://lima-vm.io/){:target="_blank" rel="noopener"}”) is the default **OSS CLI** answer when you want Docker on a Mac (or Linux) without a Desktop app. Defaults are sensible; profiles isolate multiple instances. Runtimes: **Docker** (default), **containerd** (+ [nerdctl](https://github.com/containerd/nerdctl){:target="_blank" rel="noopener"}), **Incus**. Optional **k3s** shares the VM image store with Docker. Newer releases add GPU-oriented AI workload paths on Apple Silicon (`krunkit`) — verify current docs for your macOS version.
+[Colima](https://colima.run/) (“Containers on [Lima](https://lima-vm.io/)”) is the default **OSS CLI** answer when you want Docker on a Mac (or Linux) without a Desktop app. Defaults are sensible; profiles isolate multiple instances. Runtimes: **Docker** (default), **containerd** (+ [nerdctl](https://github.com/containerd/nerdctl)), **Incus**. Optional **k3s** shares the VM image store with Docker. Newer releases add GPU-oriented AI workload paths on Apple Silicon (`krunkit`) — verify current docs for your macOS version.
 
 ```bash
 brew install colima docker docker-compose kubectl   # https://brew.sh
@@ -153,7 +153,7 @@ colima stop
 
 ## Finch
 
-[Finch](https://runfinch.com/){:target="_blank" rel="noopener"} ([runfinch/finch](https://github.com/runfinch/finch){:target="_blank" rel="noopener"}) is an **Apache 2.0** open-source client (originally from AWS) that packages **Lima + containerd + nerdctl + BuildKit** behind a native `finch` CLI. You do **not** get stock `dockerd` by default — commands look like Docker (`finch run`, `finch build`, Compose via nerdctl) but talk to **containerd**. Available on **macOS, Windows, and Linux**. Finch is a developer tool; the VM on Mac/Windows is for local Linux containers, not a multi-tenant security boundary.
+[Finch](https://runfinch.com/) ([runfinch/finch](https://github.com/runfinch/finch)) is an **Apache 2.0** open-source client (originally from AWS) that packages **Lima + containerd + nerdctl + BuildKit** behind a native `finch` CLI. You do **not** get stock `dockerd` by default — commands look like Docker (`finch run`, `finch build`, Compose via nerdctl) but talk to **containerd**. Available on **macOS, Windows, and Linux**. Finch is a developer tool; the VM on Mac/Windows is for local Linux containers, not a multi-tenant security boundary.
 
 ```bash
 # macOS (Homebrew cask / formula — see current Finch docs)
@@ -175,7 +175,7 @@ finch compose up -d    # nerdctl-backed Compose where supported
 
 ## Kiri (beta)
 
-[Kiri](https://runkiri.com/){:target="_blank" rel="noopener"} ([libracoder/kiri](https://github.com/libracoder/kiri){:target="_blank" rel="noopener"}) is a **new (beta)** open-source container runtime and **native** desktop app (not Electron). It implements the Docker Engine API in a small Rust daemon (VM on macOS; native on Linux; WSL2 on Windows). Extras: local names (`*.kiri.local`), **Kiri Share**, Linux machines, import from other desktops, and `kiri k8s start` (single-node k3s). Dual-licensed Apache 2.0 or MIT (guest kernel GPL-2.0).
+[Kiri](https://runkiri.com/) ([libracoder/kiri](https://github.com/libracoder/kiri)) is a **new (beta)** open-source container runtime and **native** desktop app (not Electron). It implements the Docker Engine API in a small Rust daemon (VM on macOS; native on Linux; WSL2 on Windows). Extras: local names (`*.kiri.local`), **Kiri Share**, Linux machines, import from other desktops, and `kiri k8s start` (single-node k3s). Dual-licensed Apache 2.0 or MIT (guest kernel GPL-2.0).
 
 > Kiri is in **beta**. Pilot on a disposable project before standardizing a whole org.
 {: .prompt-warning }
@@ -200,7 +200,7 @@ kiri k8s stop
 
 ## Rancher Desktop
 
-[Rancher Desktop](https://rancherdesktop.io/){:target="_blank" rel="noopener"} is the closest **proven OSS** “Desktop app with containers + optional Kubernetes” replacement — the open-source dual-purpose peer to **Docker Desktop** (engine + optional cluster). Pick **dockerd (Moby)** when scripts expect `docker`, or **containerd** + `nerdctl`. Enable **k3s** in Preferences for a single-node cluster; use **kind/k3d** on the same engine for multi-node (Kubernetes companion).
+[Rancher Desktop](https://rancherdesktop.io/) is the closest **proven OSS** “Desktop app with containers + optional Kubernetes” replacement — the open-source dual-purpose peer to **Docker Desktop** (engine + optional cluster). Pick **dockerd (Moby)** when scripts expect `docker`, or **containerd** + `nerdctl`. Enable **k3s** in Preferences for a single-node cluster; use **kind/k3d** on the same engine for multi-node (Kubernetes companion).
 
 ```bash
 # Install: https://rancherdesktop.io/ (macOS / Windows / Linux)
@@ -221,7 +221,7 @@ kubectl get nodes             # if Kubernetes enabled
 
 ## Podman & Podman Desktop
 
-[Podman](https://podman.io/){:target="_blank" rel="noopener"} is a daemonless, often **rootless** OCI engine (Apache 2.0). On Linux it runs natively; on macOS/Windows it uses a **Podman machine** VM. [Podman Desktop](https://podman-desktop.io/){:target="_blank" rel="noopener"} adds a GUI: images, containers, Compose providers, kind/minikube creation, and `podman generate kube` / `podman play kube` for manifest previews. Best when the team is moving **toward Podman**, not when every script must hit a perfect Docker Engine clone with zero shim work.
+[Podman](https://podman.io/) is a daemonless, often **rootless** OCI engine (Apache 2.0). On Linux it runs natively; on macOS/Windows it uses a **Podman machine** VM. [Podman Desktop](https://podman-desktop.io/) adds a GUI: images, containers, Compose providers, kind/minikube creation, and `podman generate kube` / `podman play kube` for manifest previews. Best when the team is moving **toward Podman**, not when every script must hit a perfect Docker Engine clone with zero shim work.
 
 ```bash
 # macOS
@@ -244,7 +244,7 @@ podman compose up -d                          # provider-dependent — verify do
 
 ## Lima + nerdctl (DIY foundation)
 
-[Lima](https://lima-vm.io/){:target="_blank" rel="noopener"} (“Linux Machines”) launches a Linux VM with file sharing and port forwarding. Default templates often ship **containerd** + **nerdctl** (+ BuildKit). [Colima](#colima) and [Finch](#finch) are opinionated layers on top; using Lima directly maximizes control and teaching value, at the cost of more assembly.
+[Lima](https://lima-vm.io/) (“Linux Machines”) launches a Linux VM with file sharing and port forwarding. Default templates often ship **containerd** + **nerdctl** (+ BuildKit). [Colima](#colima) and [Finch](#finch) are opinionated layers on top; using Lima directly maximizes control and teaching value, at the cost of more assembly.
 
 ```bash
 brew install lima nerdctl
@@ -258,7 +258,7 @@ lima nerdctl run --rm hello-world
 
 ## Apple `container` (micro-VMs)
 
-[Apple `container`](https://github.com/apple/container){:target="_blank" rel="noopener"} ([docs](https://apple.github.io/container/documentation/){:target="_blank" rel="noopener"}, [technical overview](https://github.com/apple/container/blob/main/docs/technical-overview.md){:target="_blank" rel="noopener"}) is Apple’s **Apache 2.0** Swift CLI for running **OCI** Linux containers on **Apple Silicon**. Unlike Colima/Finch/Docker Desktop, it does **not** put all workloads in one shared Linux VM — each container runs in its own lightweight VM via the [Containerization](https://github.com/apple/containerization){:target="_blank" rel="noopener"} package and Virtualization.framework ([README](https://github.com/apple/container){:target="_blank" rel="noopener"}).
+[Apple `container`](https://github.com/apple/container) ([docs](https://apple.github.io/container/documentation/), [technical overview](https://github.com/apple/container/blob/main/docs/technical-overview.md)) is Apple’s **Apache 2.0** Swift CLI for running **OCI** Linux containers on **Apple Silicon**. Unlike Colima/Finch/Docker Desktop, it does **not** put all workloads in one shared Linux VM — each container runs in its own lightweight VM via the [Containerization](https://github.com/apple/containerization) package and Virtualization.framework ([README](https://github.com/apple/container)).
 
 **Requirements:** Apple Silicon Mac. Designed for **macOS 26+**; maintainers focus there. macOS 15 can run it but has networking limits (no container-to-container vmnet, no custom networks) — prefer 26+.
 
@@ -281,7 +281,7 @@ kubectl get nodes
 
 ## Container Desktop (Windows)
 
-[Container Desktop](https://github.com/container-desktop/container-desktop){:target="_blank" rel="noopener"} ([container-desktop.io](https://container-desktop.io/){:target="_blank" rel="noopener"}) is an **MIT** open-source Docker Desktop alternative for **Windows**: Docker Engine CE inside a dedicated **WSL2** distro, a proxy that maps Windows paths into the daemon, tray controls, and bundled `docker` / Compose CLIs. Linux containers only (no Windows Containers). Useful when the team is Windows-heavy and wants stock Docker CLI without Docker Desktop licensing.
+[Container Desktop](https://github.com/container-desktop/container-desktop) ([container-desktop.io](https://container-desktop.io/)) is an **MIT** open-source Docker Desktop alternative for **Windows**: Docker Engine CE inside a dedicated **WSL2** distro, a proxy that maps Windows paths into the daemon, tray controls, and bundled `docker` / Compose CLIs. Linux containers only (no Windows Containers). Useful when the team is Windows-heavy and wants stock Docker CLI without Docker Desktop licensing.
 
 ```bash
 # Install from GitHub Releases / project site (requires WSL2)
@@ -297,14 +297,14 @@ docker compose up -d
 
 | Option | License | Notes |
 | ------ | ------- | ----- |
-| **[Docker Desktop](https://www.docker.com/products/docker-desktop/)**{:target="_blank" rel="noopener"} | Proprietary | Container Desktop + **optional single-node Kubernetes** (Preferences → Kubernetes). Common migration baseline; not an OSS recommendation. K8s deep-dive: [companion](/_drafts/open-source-local-kubernetes-installers-and-uis.md). |
-| **[Dory](https://usedory.dev/)**{:target="_blank" rel="noopener"} ([GitHub](https://github.com/Augani/dory){:target="_blank" rel="noopener"}) | GPL-3.0 | Native Apple Silicon local system: Docker, Compose, k3s, Linux desktop VMs, agent sandboxes. No commercial seat. **ARM Mac only** today. |
-| **[Ferrodock](https://github.com/manimovassagh/Ferrodock)**{:target="_blank" rel="noopener"} | MIT | Early native Rust desktop with bundled engine + MCP; Mac/Win/Linux. Verify stars/releases before team bets. |
-| **[OrbStack](https://orbstack.dev/)**{:target="_blank" rel="noopener"} | Proprietary | macOS-only Docker + Linux VMs + single-node K8s; personal free / commercial paid. |
-| **[minikube](https://minikube.sigs.k8s.io/)**{:target="_blank" rel="noopener"} `--no-kubernetes` | Apache 2.0 | Can expose a Docker runtime without starting Kubernetes — workable but odd as a pure Desktop replacement. Prefer Colima/Finch for that job. |
+| **[Docker Desktop](https://www.docker.com/products/docker-desktop/)** | Proprietary | Container Desktop + **optional single-node Kubernetes** (Preferences → Kubernetes). Common migration baseline; not an OSS recommendation. K8s deep-dive: [companion](/_drafts/open-source-local-kubernetes-installers-and-uis.md). |
+| **[Dory](https://usedory.dev/)** ([GitHub](https://github.com/Augani/dory)) | GPL-3.0 | Native Apple Silicon local system: Docker, Compose, k3s, Linux desktop VMs, agent sandboxes. No commercial seat. **ARM Mac only** today. |
+| **[Ferrodock](https://github.com/manimovassagh/Ferrodock)** | MIT | Early native Rust desktop with bundled engine + MCP; Mac/Win/Linux. Verify stars/releases before team bets. |
+| **[OrbStack](https://orbstack.dev/)** | Proprietary | macOS-only Docker + Linux VMs + single-node K8s; personal free / commercial paid. |
+| **[minikube](https://minikube.sigs.k8s.io/)** `--no-kubernetes` | Apache 2.0 | Can expose a Docker runtime without starting Kubernetes — workable but odd as a pure Desktop replacement. Prefer Colima/Finch for that job. |
 | **Docker Engine / Moby on Linux** | Apache 2.0 | Native `dockerd` via distro packages — often the right Linux answer without any “Desktop” app. |
-| **[Portainer CE](https://github.com/portainer/portainer)**{:target="_blank" rel="noopener"} | zlib (OSS core) | Self-hosted web UI that attaches to local Docker or Podman sockets (and Kubernetes — see the [K8s companion](/_drafts/open-source-local-kubernetes-installers-and-uis.md)); not a runtime itself. |
-| **[Incus](https://linuxcontainers.org/incus/)**{:target="_blank" rel="noopener"} | Apache 2.0 | System containers/VMs; available as a Colima runtime. Different mental model than app containers. |
+| **[Portainer CE](https://github.com/portainer/portainer)** | zlib (OSS core) | Self-hosted web UI that attaches to local Docker or Podman sockets (and Kubernetes — see the [K8s companion](/_drafts/open-source-local-kubernetes-installers-and-uis.md)); not a runtime itself. |
+| **[Incus](https://linuxcontainers.org/incus/)** | Apache 2.0 | System containers/VMs; available as a Colima runtime. Different mental model than app containers. |
 
 ## Optional Kubernetes (runtime vs installer)
 
@@ -435,14 +435,14 @@ This article recommends **open-source** runtimes. OrbStack and Docker Desktop ar
 
 ## References
 
-- [Apple `container`](https://github.com/apple/container){:target="_blank" rel="noopener"} · [docs](https://apple.github.io/container/documentation/){:target="_blank" rel="noopener"} · [Containerization](https://github.com/apple/containerization){:target="_blank" rel="noopener"} · [cluster guide](https://github.com/apple/container/blob/main/docs/cluster.md){:target="_blank" rel="noopener"}
-- [Colima](https://colima.run/){:target="_blank" rel="noopener"} · [docs](https://colima.run/docs/){:target="_blank" rel="noopener"} · [GitHub](https://github.com/abiosoft/colima){:target="_blank" rel="noopener"}
-- [Finch](https://runfinch.com/){:target="_blank" rel="noopener"} · [docs](https://runfinch.com/docs/){:target="_blank" rel="noopener"} · [GitHub](https://github.com/runfinch/finch){:target="_blank" rel="noopener"}
-- [Kiri](https://runkiri.com/){:target="_blank" rel="noopener"} · [K8s docs](https://docs.runkiri.com/kubernetes/){:target="_blank" rel="noopener"} · [GitHub](https://github.com/libracoder/kiri){:target="_blank" rel="noopener"}
-- [Rancher Desktop](https://rancherdesktop.io/){:target="_blank" rel="noopener"} · [docs](https://docs.rancherdesktop.io/){:target="_blank" rel="noopener"}
-- [Podman](https://podman.io/){:target="_blank" rel="noopener"} · [Podman Desktop](https://podman-desktop.io/){:target="_blank" rel="noopener"}
-- [Lima](https://lima-vm.io/){:target="_blank" rel="noopener"} · [nerdctl](https://github.com/containerd/nerdctl){:target="_blank" rel="noopener"} · [containerd](https://containerd.io/){:target="_blank" rel="noopener"} · [BuildKit](https://github.com/moby/buildkit){:target="_blank" rel="noopener"}
-- [Container Desktop](https://github.com/container-desktop/container-desktop){:target="_blank" rel="noopener"} · [Dory](https://usedory.dev/){:target="_blank" rel="noopener"} · [Ferrodock](https://github.com/manimovassagh/Ferrodock){:target="_blank" rel="noopener"}
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank" rel="noopener"} (proprietary; optional Kubernetes) · [OrbStack](https://orbstack.dev/){:target="_blank" rel="noopener"} (proprietary)
-- [Incus](https://linuxcontainers.org/incus/){:target="_blank" rel="noopener"} · [Moby](https://mobyproject.org/){:target="_blank" rel="noopener"} · [Homebrew](https://brew.sh/){:target="_blank" rel="noopener"}
+- [Apple `container`](https://github.com/apple/container) · [docs](https://apple.github.io/container/documentation/) · [Containerization](https://github.com/apple/containerization) · [cluster guide](https://github.com/apple/container/blob/main/docs/cluster.md)
+- [Colima](https://colima.run/) · [docs](https://colima.run/docs/) · [GitHub](https://github.com/abiosoft/colima)
+- [Finch](https://runfinch.com/) · [docs](https://runfinch.com/docs/) · [GitHub](https://github.com/runfinch/finch)
+- [Kiri](https://runkiri.com/) · [K8s docs](https://docs.runkiri.com/kubernetes/) · [GitHub](https://github.com/libracoder/kiri)
+- [Rancher Desktop](https://rancherdesktop.io/) · [docs](https://docs.rancherdesktop.io/)
+- [Podman](https://podman.io/) · [Podman Desktop](https://podman-desktop.io/)
+- [Lima](https://lima-vm.io/) · [nerdctl](https://github.com/containerd/nerdctl) · [containerd](https://containerd.io/) · [BuildKit](https://github.com/moby/buildkit)
+- [Container Desktop](https://github.com/container-desktop/container-desktop) · [Dory](https://usedory.dev/) · [Ferrodock](https://github.com/manimovassagh/Ferrodock)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (proprietary; optional Kubernetes) · [OrbStack](https://orbstack.dev/) (proprietary)
+- [Incus](https://linuxcontainers.org/incus/) · [Moby](https://mobyproject.org/) · [Homebrew](https://brew.sh/)
 - Companion: [Local Kubernetes Installers & UIs](/_drafts/open-source-local-kubernetes-installers-and-uis.md) (draft — use `{% post_url %}` when published)

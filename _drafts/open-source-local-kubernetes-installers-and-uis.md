@@ -19,13 +19,13 @@ Running Kubernetes on a laptop is the fastest way to learn scheduling, Deploymen
 
 This guide maps **seven open-source (or OSS-core) local installers**, explains **single-node vs multi-node** modes with copy-paste examples, and compares **Kubernetes UIs** you can attach to any of them — **OSS-first**, with proprietary and archived tools called out separately.
 
-1. **[minikube](https://github.com/kubernetes/minikube)**{:target="_blank" rel="noopener"} — Official local cluster with many drivers and addons.
-2. **[kind](https://github.com/kubernetes-sigs/kind)**{:target="_blank" rel="noopener"} — Kubernetes-in-Docker; CI-friendly multi-node topologies.
-3. **[k3d](https://github.com/k3d-io/k3d)**{:target="_blank" rel="noopener"} — Runs [k3s](https://github.com/k3s-io/k3s){:target="_blank" rel="noopener"} nodes in Docker; very fast and light.
-4. **[k3s](https://github.com/k3s-io/k3s)**{:target="_blank" rel="noopener"} — Lightweight single-binary Kubernetes (native install, not only Docker).
-5. **[MicroK8s](https://github.com/canonical/microk8s)**{:target="_blank" rel="noopener"} — Canonical snap; local cluster plus easy node join.
-6. **[Rancher Desktop](https://github.com/rancher-sandbox/rancher-desktop)**{:target="_blank" rel="noopener"} — Desktop app with an optional embedded k3s cluster.
-7. **[Podman Desktop](https://github.com/containers/podman-desktop)**{:target="_blank" rel="noopener"} — Desktop GUI with one-click kind/minikube creation and Compose-to-K8s manifest export.
+1. **[minikube](https://github.com/kubernetes/minikube)** — Official local cluster with many drivers and addons.
+2. **[kind](https://github.com/kubernetes-sigs/kind)** — Kubernetes-in-Docker; CI-friendly multi-node topologies.
+3. **[k3d](https://github.com/k3d-io/k3d)** — Runs [k3s](https://github.com/k3s-io/k3s) nodes in Docker; very fast and light.
+4. **[k3s](https://github.com/k3s-io/k3s)** — Lightweight single-binary Kubernetes (native install, not only Docker).
+5. **[MicroK8s](https://github.com/canonical/microk8s)** — Canonical snap; local cluster plus easy node join.
+6. **[Rancher Desktop](https://github.com/rancher-sandbox/rancher-desktop)** — Desktop app with an optional embedded k3s cluster.
+7. **[Podman Desktop](https://github.com/containers/podman-desktop)** — Desktop GUI with one-click kind/minikube creation and Compose-to-K8s manifest export.
 
 > **Two-part series (Cluster vs. Runtime):** This guide covers **Layer 2 (Kubernetes Installers)** and **Layer 3 (Cluster UIs)**. Installers like **kind**, **k3d**, and **minikube** (`--driver=docker`) need a working container runtime first — see Part 1, [Open-Source Container Runtimes Compared](/_drafts/open-source-container-runtimes-compared.md) (Colima, Finch, Kiri, Rancher Desktop, Podman, Apple `container`), for choosing and installing your Layer 1 engine.
 {: .prompt-info }
@@ -41,13 +41,13 @@ For broader cloud-native context, see [Open-Source Observability Platforms Compa
 | **Lightest / fastest recreate**                     | **k3d**                                                                                           | k3s                                               | k3s-in-Docker; seconds to create/destroy clusters                                                                                                                                                                                |
 | **Native single binary (no Docker required)**       | **k3s**                                                                                           | MicroK8s                                          | One server process; great for Linux labs and edge-like setups                                                                                                                                                                    |
 | **Ubuntu / snap-first workflow**                    | **MicroK8s**                                                                                      | minikube                                          | `snap install` + addons (`dns`, `ingress`, `storage`)                                                                                                                                                                            |
-| **GUI for containers + K8s together (k3s)**         | **Rancher Desktop**                                                                               | Podman Desktop                                    | Direct [Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank" rel="noopener"} alternative; bundles k3s, [nerdctl](https://github.com/containerd/nerdctl){:target="_blank" rel="noopener"}/docker CLI |
+| **GUI for containers + K8s together (k3s)**         | **Rancher Desktop**                                                                               | Podman Desktop                                    | Direct [Docker Desktop](https://www.docker.com/products/docker-desktop/) alternative; bundles k3s, [nerdctl](https://github.com/containerd/nerdctl)/docker CLI |
 | **GUI for containers + kind/minikube (daemonless)** | **Podman Desktop**                                                                                | Rancher Desktop                                   | Rootless containers, built-in kind cluster manager, Compose-to-K8s manifest export                                                                                                                                               |
 | **Browser UI for any cluster**                      | **Headlamp**                                                                                      | Radar                                             | CNCF Sandbox; extensible; modern successor narrative to Dashboard                                                                                                                                                                |
-| **Debug / topology / AI-agent UI**                  | **[Radar](https://github.com/skyhook-io/radar)**{:target="_blank" rel="noopener"}                 | Headlamp                                          | Single Go binary; issues, topology, Helm, GitOps, built-in MCP                                                                                                                                                                   |
+| **Debug / topology / AI-agent UI**                  | **[Radar](https://github.com/skyhook-io/radar)**                 | Headlamp                                          | Single Go binary; issues, topology, Helm, GitOps, built-in MCP                                                                                                                                                                   |
 | **Terminal UI (fastest day-to-day)**                | **k9s**                                                                                           | —                                                 | No browser; works with any kubeconfig context                                                                                                                                                                                    |
-| **Desktop IDE (Lens alternative)**                  | **[Freelens](https://github.com/freelensapp/freelens)**{:target="_blank" rel="noopener"}          | Headlamp desktop                                  | Fully OSS community fork of Lens without proprietary accounts or telemetry                                                                                                                                                       |
-| **Manifest / GitOps authoring IDE**                 | [VS Code](https://code.visualstudio.com/){:target="_blank" rel="noopener"} + YAML/Helm extensions | Freelens                                          | Prefer actively maintained editors; Monokle is maintenance-paused (see below)                                                                                                                                                    |
+| **Desktop IDE (Lens alternative)**                  | **[Freelens](https://github.com/freelensapp/freelens)**          | Headlamp desktop                                  | Fully OSS community fork of Lens without proprietary accounts or telemetry                                                                                                                                                       |
+| **Manifest / GitOps authoring IDE**                 | [VS Code](https://code.visualstudio.com/) + YAML/Helm extensions | Freelens                                          | Prefer actively maintained editors; Monokle is maintenance-paused (see below)                                                                                                                                                    |
 | **Archived / stalled (avoid new bets)**             | —                                                                                                 | Kubernetes Dashboard, Skooner, Kubevious, Monokle | Prefer Headlamp/Radar/Freelens — see caveats in UI section                                                                                                                                                                       |
 | **Commercial contrast (not OSS)**                   | Aptakube / Lens Desktop                                                                           | Freelens                                          | Fast multi-cluster desktop or polished paid Lens — see proprietary contrast box                                                                                                                                                  |
 
@@ -69,9 +69,9 @@ Tools in the primary comparison had to meet most of the following:
 ### What This Guide Is NOT
 
 1. **Managed Kubernetes (EKS, GKE, AKS, DigitalOcean, etc.):** Production cloud control planes — out of scope.
-2. **Full bare-metal HA production installers:** [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/){:target="_blank" rel="noopener"} / [kubespray](https://github.com/kubernetes-sigs/kubespray){:target="_blank" rel="noopener"} / [OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift){:target="_blank" rel="noopener"} for datacenter HA get only honorable-mention treatment.
+2. **Full bare-metal HA production installers:** [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/) / [kubespray](https://github.com/kubernetes-sigs/kubespray) / [OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift) for datacenter HA get only honorable-mention treatment.
 3. **Primary proprietary desktop clients:** Mirantis **Lens Desktop** and **Aptakube** are **not** open source. They appear only under [Commercial / proprietary contrast](#commercial--proprietary-contrast-lens--aptakube) for comparison with Freelens/Headlamp — they are not primary recommendations in this OSS-first guide.
-4. **[Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank" rel="noopener"} Kubernetes:** Convenient but proprietary for many commercial uses; listed under honorable mentions, not as a primary installer.
+4. **[Docker Desktop](https://www.docker.com/products/docker-desktop/) Kubernetes:** Convenient but proprietary for many commercial uses; listed under honorable mentions, not as a primary installer.
 5. **Archived or stalled UIs:** **Kubernetes Dashboard** (archived Jan 2026 — prefer Headlamp), **Skooner** (CNCF-archived), **Kubevious** dashboard (stalled releases), and **Monokle** (upstream maintenance pause) are documented with caveats — do not treat them as default picks.
 
 
@@ -79,10 +79,10 @@ Tools in the primary comparison had to meet most of the following:
 >
 > | Need | Typical path |
 > | ---- | ------------ |
-> | Docker API for **kind** / **k3d** / minikube `--driver=docker` | [Colima](https://github.com/abiosoft/colima){:target="_blank" rel="noopener"}, [Rancher Desktop](https://rancherdesktop.io/){:target="_blank" rel="noopener"}, [Podman](https://podman.io/){:target="_blank" rel="noopener"} machine, or Docker Desktop |
+> | Docker API for **kind** / **k3d** / minikube `--driver=docker` | [Colima](https://github.com/abiosoft/colima), [Rancher Desktop](https://rancherdesktop.io/), [Podman](https://podman.io/) machine, or Docker Desktop |
 > | VM driver without Docker | minikube **vfkit** / **qemu** (see [Drivers by OS](#drivers-by-os); vfkit multi-node needs `vmnet-shared`) |
 > | Desktop app + bundled **k3s** | **Rancher Desktop** |
-> | Native Apple Silicon cluster (macOS 26+) | [Apple `container cluster`](https://github.com/apple/container/blob/main/docs/cluster.md){:target="_blank" rel="noopener"} — experimental; contrast only (runtimes companion) |
+> | Native Apple Silicon cluster (macOS 26+) | [Apple `container cluster`](https://github.com/apple/container/blob/main/docs/cluster.md) — experimental; contrast only (runtimes companion) |
 
 ## Local Install Options Compared
 
@@ -114,22 +114,22 @@ flowchart TD
 
 ### minikube
 
-[minikube](https://minikube.sigs.k8s.io/docs/start/){:target="_blank" rel="noopener"} is the Kubernetes project's local cluster tool. It supports multiple **drivers** and a rich **addon** system (`ingress`, `metrics-server`, storage provisioners; the old `dashboard` addon points at archived Dashboard — use Headlamp instead). The driver you pick depends on your OS and what hypervisor/runtime is already installed — not every driver works on every platform.
+[minikube](https://minikube.sigs.k8s.io/docs/start/) is the Kubernetes project's local cluster tool. It supports multiple **drivers** and a rich **addon** system (`ingress`, `metrics-server`, storage provisioners; the old `dashboard` addon points at archived Dashboard — use Headlamp instead). The driver you pick depends on your OS and what hypervisor/runtime is already installed — not every driver works on every platform.
 
 #### Drivers by OS
 
 | Driver                        | Linux   | macOS                    | Windows            | Notes                                                                                                                                                                                                                                                                                                |
 | ----------------------------- | ------- | ------------------------ | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **docker**                    | Yes     | Yes                      | Yes                | Most common when [Docker Engine](https://docs.docker.com/engine/){:target="_blank" rel="noopener"} / [Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank" rel="noopener"} / [Colima](https://github.com/abiosoft/colima){:target="_blank" rel="noopener"} is installed |
-| **podman**                    | Yes     | Yes                      | Limited            | Prefer rootful [Podman](https://podman.io/){:target="_blank" rel="noopener"} for fewer surprises                                                                                                                                                                                                     |
-| **qemu** (alias: **qemu2**)   | Yes     | Yes                      | Yes (experimental) | Needs [QEMU](https://www.qemu.org/){:target="_blank" rel="noopener"}; prefer `--driver=qemu` — `qemu2` is the same driver under the old name ([docs](https://minikube.sigs.k8s.io/docs/drivers/qemu/){:target="_blank" rel="noopener"})                                                              |
-| **virtualbox**                | Yes     | Yes                      | Yes                | Needs [VirtualBox](https://www.virtualbox.org/){:target="_blank" rel="noopener"}; works everywhere but heavier                                                                                                                                                                                       |
-| **kvm2**                      | Yes     | —                        | —                  | Needs [KVM](https://www.linux-kvm.org/){:target="_blank" rel="noopener"}/[libvirt](https://libvirt.org/){:target="_blank" rel="noopener"}; strong native Linux VM driver                                                                                                                             |
-| **hyperv**                    | —       | —                        | Yes                | Needs [Hyper-V](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/){:target="_blank" rel="noopener"} (Windows Pro/Enterprise/Education)                                                                                                                                        |
-| **vfkit**                     | —       | Yes (esp. Apple Silicon) | —                  | Lightweight macOS VM driver via [vfkit](https://github.com/crc-org/vfkit){:target="_blank" rel="noopener"} / Virtualization.framework                                                                                                                                                                |
-| **hyperkit**                  | —       | Yes (Intel)              | —                  | Older [HyperKit](https://github.com/moby/hyperkit){:target="_blank" rel="noopener"} driver; prefer docker/qemu/vfkit on Apple Silicon                                                                                                                                                                |
-| **parallels**                 | —       | Yes                      | —                  | Needs [Parallels Desktop](https://www.parallels.com/products/desktop/){:target="_blank" rel="noopener"}                                                                                                                                                                                              |
-| **vmware** / **vmwarefusion** | Limited | Yes                      | Yes                | Needs [VMware](https://www.vmware.com/){:target="_blank" rel="noopener"} product installed                                                                                                                                                                                                           |
+| **docker**                    | Yes     | Yes                      | Yes                | Most common when [Docker Engine](https://docs.docker.com/engine/) / [Docker Desktop](https://www.docker.com/products/docker-desktop/) / [Colima](https://github.com/abiosoft/colima) is installed |
+| **podman**                    | Yes     | Yes                      | Limited            | Prefer rootful [Podman](https://podman.io/) for fewer surprises                                                                                                                                                                                                     |
+| **qemu** (alias: **qemu2**)   | Yes     | Yes                      | Yes (experimental) | Needs [QEMU](https://www.qemu.org/); prefer `--driver=qemu` — `qemu2` is the same driver under the old name ([docs](https://minikube.sigs.k8s.io/docs/drivers/qemu/))                                                              |
+| **virtualbox**                | Yes     | Yes                      | Yes                | Needs [VirtualBox](https://www.virtualbox.org/); works everywhere but heavier                                                                                                                                                                                       |
+| **kvm2**                      | Yes     | —                        | —                  | Needs [KVM](https://www.linux-kvm.org/)/[libvirt](https://libvirt.org/); strong native Linux VM driver                                                                                                                             |
+| **hyperv**                    | —       | —                        | Yes                | Needs [Hyper-V](https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/) (Windows Pro/Enterprise/Education)                                                                                                                                        |
+| **vfkit**                     | —       | Yes (esp. Apple Silicon) | —                  | Lightweight macOS VM driver via [vfkit](https://github.com/crc-org/vfkit) / Virtualization.framework                                                                                                                                                                |
+| **hyperkit**                  | —       | Yes (Intel)              | —                  | Older [HyperKit](https://github.com/moby/hyperkit) driver; prefer docker/qemu/vfkit on Apple Silicon                                                                                                                                                                |
+| **parallels**                 | —       | Yes                      | —                  | Needs [Parallels Desktop](https://www.parallels.com/products/desktop/)                                                                                                                                                                                              |
+| **vmware** / **vmwarefusion** | Limited | Yes                      | Yes                | Needs [VMware](https://www.vmware.com/) product installed                                                                                                                                                                                                           |
 | **none** (bare metal)         | Yes     | —                        | —                  | Runs components on the host; advanced / CI-style Linux only                                                                                                                                                                                                                                          |
 | **ssh**                       | Yes     | Yes                      | Yes                | Use an existing remote/local VM you manage yourself                                                                                                                                                                                                                                                  |
 
@@ -164,7 +164,7 @@ minikube addons enable ingress
 minikube addons enable metrics-server
 ```
 
-> **Tip:** On Apple Silicon Macs, prefer **docker** ([Colima](https://github.com/abiosoft/colima){:target="_blank" rel="noopener"} / [Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank" rel="noopener"} / [Rancher Desktop](https://rancherdesktop.io/){:target="_blank" rel="noopener"} backend), **qemu**, or **vfkit**. Avoid assuming HyperKit. On Windows Home without Hyper-V, use **docker** or **virtualbox** / **qemu**. On Linux laptops, **docker** or **kvm2** are the usual choices.
+> **Tip:** On Apple Silicon Macs, prefer **docker** ([Colima](https://github.com/abiosoft/colima) / [Docker Desktop](https://www.docker.com/products/docker-desktop/) / [Rancher Desktop](https://rancherdesktop.io/) backend), **qemu**, or **vfkit**. Avoid assuming HyperKit. On Windows Home without Hyper-V, use **docker** or **virtualbox** / **qemu**. On Linux laptops, **docker** or **kvm2** are the usual choices.
 
 #### Multi-node
 
@@ -177,12 +177,12 @@ kubectl get nodes -o wide
 
 **vfkit on macOS (Apple Silicon) — needs shared networking for multi-node**
 
-The vfkit driver has two networks ([docs](https://minikube.sigs.k8s.io/docs/drivers/vfkit/){:target="_blank" rel="noopener"}):
+The vfkit driver has two networks ([docs](https://minikube.sigs.k8s.io/docs/drivers/vfkit/)):
 
 | Network | Multi-node? | Notes |
 | ------- | ----------- | ----- |
 | **`nat`** (default) | **No** | Fine for single-node; workers cannot reach the control-plane API |
-| **`vmnet-shared`** | **Yes** | Requires [vmnet-helper](https://github.com/nirs/vmnet-helper){:target="_blank" rel="noopener"}; nodes can talk to each other |
+| **`vmnet-shared`** | **Yes** | Requires [vmnet-helper](https://github.com/nirs/vmnet-helper); nodes can talk to each other |
 
 If you start multi-node vfkit on `nat`, the control plane comes up, then workers fail `kubeadm join` with:
 
@@ -278,7 +278,7 @@ minikube delete --all --purge   # all profiles + ~/.minikube caches
 
 ### kind (Kubernetes IN Docker)
 
-[kind](https://kind.sigs.k8s.io/){:target="_blank" rel="noopener"} runs Kubernetes nodes as containers ([Docker](https://docs.docker.com/engine/){:target="_blank" rel="noopener"} or [Podman](https://podman.io/){:target="_blank" rel="noopener"}). It is the default choice for many CI pipelines and for testing multi-node scheduling behavior without VMs.
+[kind](https://kind.sigs.k8s.io/) runs Kubernetes nodes as containers ([Docker](https://docs.docker.com/engine/) or [Podman](https://podman.io/)). It is the default choice for many CI pipelines and for testing multi-node scheduling behavior without VMs.
 
 ```bash
 brew install kind kubectl   # or go install / package manager of choice
@@ -345,7 +345,7 @@ kind delete cluster --name ha
 
 ### k3d
 
-[k3d](https://k3d.io/){:target="_blank" rel="noopener"} wraps [k3s](https://k3s.io/){:target="_blank" rel="noopener"} nodes in [Docker](https://docs.docker.com/engine/){:target="_blank" rel="noopener"} (or compatible runtimes such as [Podman](https://podman.io/){:target="_blank" rel="noopener"}). Clusters create and destroy quickly — ideal for “throwaway” local environments.
+[k3d](https://k3d.io/) wraps [k3s](https://k3s.io/) nodes in [Docker](https://docs.docker.com/engine/) (or compatible runtimes such as [Podman](https://podman.io/)). Clusters create and destroy quickly — ideal for “throwaway” local environments.
 
 ```bash
 brew install k3d kubectl
@@ -385,7 +385,7 @@ k3d cluster delete ha
 
 ### k3s
 
-[k3s](https://docs.k3s.io/){:target="_blank" rel="noopener"} is a certified Kubernetes distribution packaged as a single binary (SQLite by default, [Traefik](https://traefik.io/){:target="_blank" rel="noopener"} and other components optional/configurable). On a laptop it usually means a Linux VM ([Multipass](https://canonical.com/multipass){:target="_blank" rel="noopener"}, [UTM](https://mac.getutm.app/){:target="_blank" rel="noopener"}, [Lima](https://lima-vm.io/){:target="_blank" rel="noopener"}) or a native Linux host.
+[k3s](https://docs.k3s.io/) is a certified Kubernetes distribution packaged as a single binary (SQLite by default, [Traefik](https://traefik.io/) and other components optional/configurable). On a laptop it usually means a Linux VM ([Multipass](https://canonical.com/multipass), [UTM](https://mac.getutm.app/), [Lima](https://lima-vm.io/)) or a native Linux host.
 
 #### Single-node
 
@@ -431,7 +431,7 @@ sudo /usr/local/bin/k3s-agent-uninstall.sh
 
 ### MicroK8s
 
-[MicroK8s](https://microk8s.io/){:target="_blank" rel="noopener"} (Canonical) is strongest on Linux via [snap](https://snapcraft.io/){:target="_blank" rel="noopener"}. On macOS/Windows, use Canonical’s documented installer or run Linux MicroK8s inside [Multipass](https://canonical.com/multipass){:target="_blank" rel="noopener"} — the snap commands below are **Linux** (or Multipass VM). Addons cover DNS, storage, Ingress, and more.
+[MicroK8s](https://microk8s.io/) (Canonical) is strongest on Linux via [snap](https://snapcraft.io/). On macOS/Windows, use Canonical’s documented installer or run Linux MicroK8s inside [Multipass](https://canonical.com/multipass) — the snap commands below are **Linux** (or Multipass VM). Addons cover DNS, storage, Ingress, and more.
 
 #### Single-node (Linux snap / Multipass Linux VM)
 
@@ -471,7 +471,7 @@ microk8s reset                 # wipe workloads; keep the snap
 
 ### Rancher Desktop
 
-[Rancher Desktop](https://rancherdesktop.io/){:target="_blank" rel="noopener"} is covered in full (installation and `dockerd` vs `containerd` setup) in the [Container Runtimes companion](/_drafts/open-source-container-runtimes-compared.md#rancher-desktop). Here we focus strictly on its **Kubernetes cluster** story: it ships an optional, toggleable **k3s** cluster with a GUI for Kubernetes version selection and VM resource limits.
+[Rancher Desktop](https://rancherdesktop.io/) is covered in full (installation and `dockerd` vs `containerd` setup) in the [Container Runtimes companion](/_drafts/open-source-container-runtimes-compared.md#rancher-desktop). Here we focus strictly on its **Kubernetes cluster** story: it ships an optional, toggleable **k3s** cluster with a GUI for Kubernetes version selection and VM resource limits.
 
 #### Single-node (embedded k3s only)
 
@@ -500,7 +500,7 @@ Preferences → Kubernetes → disable or reset Kubernetes (stops embedded k3s w
 
 ### Podman Desktop
 
-[Podman Desktop](https://podman-desktop.io/){:target="_blank" rel="noopener"} is covered in full (installation and rootless Podman machine setup) in the [Container Runtimes companion](/_drafts/open-source-container-runtimes-compared.md#podman--podman-desktop). Here we focus on its **Kubernetes-native workflows**, which turn a rootless Podman setup into a local cluster launcher:
+[Podman Desktop](https://podman-desktop.io/) is covered in full (installation and rootless Podman machine setup) in the [Container Runtimes companion](/_drafts/open-source-container-runtimes-compared.md#podman--podman-desktop). Here we focus on its **Kubernetes-native workflows**, which turn a rootless Podman setup into a local cluster launcher:
 
 - **Built-in Kind & Minikube extensions:** Initialize, create, and start a kind or minikube cluster with one click from the UI tray without touching the CLI.
 - **Generate Kube YAML:** Select one or more running local containers and export clean Kubernetes Pod and Deployment manifests (`podman generate kube`).
@@ -559,14 +559,14 @@ minikube delete -p minikube
 
 | Option                                                                                                                                                                                                                                  | Notes                                                                                                                                                                                                |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)**{:target="_blank" rel="noopener"} + **[Multipass](https://canonical.com/multipass)**{:target="_blank" rel="noopener"} / VMs | Closest to “real” cluster bootstrap; heavier for daily laptop use. Also see [kubespray](https://github.com/kubernetes-sigs/kubespray){:target="_blank" rel="noopener"} for Ansible-based multi-node. |
-| **[k0s](https://github.com/k0sproject/k0s)**{:target="_blank" rel="noopener"} + **[k0sctl](https://github.com/k0sproject/k0sctl)**{:target="_blank" rel="noopener"} | Apache 2.0 zero-dependency single-binary Kubernetes from Mirantis (`sudo k0s server --single` for a local node, or `k0sctl` for multi-node); strong peer to **k3s** when you want strict control-plane isolation. |
-| **[KWOK](https://github.com/kubernetes-sigs/kwok)**{:target="_blank" rel="noopener"} | Apache 2.0 Kubernetes SIGs simulator (*Kubernetes WithOut Kubelet*) — simulates thousands of nodes/pods on a laptop for scheduler, controller, and operator scale tests (**not** for running real container workloads). |
-| **[Apple `container` cluster](https://github.com/apple/container)**{:target="_blank" rel="noopener"} | Experimental local Kubernetes on Apple Silicon micro-VMs (`container cluster create`); macOS 26+ recommended; not a Docker Compose path — see [runtimes companion](/_drafts/open-source-container-runtimes-compared.md) |
-| **[Colima](https://github.com/abiosoft/colima)**{:target="_blank" rel="noopener"} + k3s/k8s                                                                                                                                             | Popular macOS container runtime path; pair with [kubectl](https://kubernetes.io/docs/reference/kubectl/){:target="_blank" rel="noopener"}                                                            |
-| **[Talos](https://www.talos.dev/)**{:target="_blank" rel="noopener"} / [Sidero Labs](https://www.siderolabs.com/){:target="_blank" rel="noopener"} local                                                                                | Immutable OS learning labs; steeper curve than minikube/kind                                                                                                                                         |
-| **[Docker Desktop](https://www.docker.com/products/docker-desktop/)**{:target="_blank" rel="noopener"} K8s                                                                                                                              | Easy if already licensed/installed; not the focus of this OSS map                                                                                                                                    |
-| **[UTM](https://mac.getutm.app/)**{:target="_blank" rel="noopener"} / **[Lima](https://lima-vm.io/)**{:target="_blank" rel="noopener"}                                                                                                  | Handy macOS VMs for running Linux-only tools (k3s, MicroK8s join labs)                                                                                                                               |
+| **[kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/)** + **[Multipass](https://canonical.com/multipass)** / VMs | Closest to “real” cluster bootstrap; heavier for daily laptop use. Also see [kubespray](https://github.com/kubernetes-sigs/kubespray) for Ansible-based multi-node. |
+| **[k0s](https://github.com/k0sproject/k0s)** + **[k0sctl](https://github.com/k0sproject/k0sctl)** | Apache 2.0 zero-dependency single-binary Kubernetes from Mirantis (`sudo k0s server --single` for a local node, or `k0sctl` for multi-node); strong peer to **k3s** when you want strict control-plane isolation. |
+| **[KWOK](https://github.com/kubernetes-sigs/kwok)** | Apache 2.0 Kubernetes SIGs simulator (*Kubernetes WithOut Kubelet*) — simulates thousands of nodes/pods on a laptop for scheduler, controller, and operator scale tests (**not** for running real container workloads). |
+| **[Apple `container` cluster](https://github.com/apple/container)** | Experimental local Kubernetes on Apple Silicon micro-VMs (`container cluster create`); macOS 26+ recommended; not a Docker Compose path — see [runtimes companion](/_drafts/open-source-container-runtimes-compared.md) |
+| **[Colima](https://github.com/abiosoft/colima)** + k3s/k8s                                                                                                                                             | Popular macOS container runtime path; pair with [kubectl](https://kubernetes.io/docs/reference/kubectl/)                                                            |
+| **[Talos](https://www.talos.dev/)** / [Sidero Labs](https://www.siderolabs.com/) local                                                                                | Immutable OS learning labs; steeper curve than minikube/kind                                                                                                                                         |
+| **[Docker Desktop](https://www.docker.com/products/docker-desktop/)** K8s                                                                                                                              | Easy if already licensed/installed; not the focus of this OSS map                                                                                                                                    |
+| **[UTM](https://mac.getutm.app/)** / **[Lima](https://lima-vm.io/)**                                                                                                  | Handy macOS VMs for running Linux-only tools (k3s, MicroK8s join labs)                                                                                                                               |
 
 ## Install Modes: Single-Node vs Multi-Node
 
@@ -603,39 +603,39 @@ Copy-paste single-node and multi-node commands live under each installer above �
 
 | Tool                                                                                         | Type                | Attach to any cluster | License (OSS core) | Best for                                                       |
 | -------------------------------------------------------------------------------------------- | ------------------- | --------------------- | ------------------ | -------------------------------------------------------------- |
-| **[Headlamp](https://github.com/kubernetes-sigs/headlamp)**{:target="_blank" rel="noopener"} | Web / desktop       | Yes                   | Apache 2.0         | Modern browser UI; plugins; CNCF Sandbox (Dashboard successor) |
-| **[Radar](https://github.com/skyhook-io/radar)**{:target="_blank" rel="noopener"}            | Web / desktop / CLI | Yes                   | Apache 2.0         | Topology, issues, Helm, GitOps, MCP; one Go binary             |
-| **[k9s](https://github.com/derailed/k9s)**{:target="_blank" rel="noopener"}                  | Terminal (TUI)      | Yes                   | Apache 2.0         | Fast daily ops without a browser                               |
-| **[Freelens](https://github.com/freelensapp/freelens)**{:target="_blank" rel="noopener"}     | Desktop (OSS)       | Yes                   | MIT                | Community Lens fork without accounts or telemetry              |
-| **[Rancher](https://github.com/rancher/rancher)**{:target="_blank" rel="noopener"}           | Web (platform)      | Multi-cluster         | Apache 2.0         | Fleet/multi-cluster management                                 |
+| **[Headlamp](https://github.com/kubernetes-sigs/headlamp)** | Web / desktop       | Yes                   | Apache 2.0         | Modern browser UI; plugins; CNCF Sandbox (Dashboard successor) |
+| **[Radar](https://github.com/skyhook-io/radar)**            | Web / desktop / CLI | Yes                   | Apache 2.0         | Topology, issues, Helm, GitOps, MCP; one Go binary             |
+| **[k9s](https://github.com/derailed/k9s)**                  | Terminal (TUI)      | Yes                   | Apache 2.0         | Fast daily ops without a browser                               |
+| **[Freelens](https://github.com/freelensapp/freelens)**     | Desktop (OSS)       | Yes                   | MIT                | Community Lens fork without accounts or telemetry              |
+| **[Rancher](https://github.com/rancher/rancher)**           | Web (platform)      | Multi-cluster         | Apache 2.0         | Fleet/multi-cluster management                                 |
 
 #### Adjacent platforms (heavier / niche)
 
 | Tool                                                                                        | Notes                                                                  |
 | ------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| **[KubeSphere](https://github.com/kubesphere/kubesphere)**{:target="_blank" rel="noopener"} | Full devops platform UI — overkill for a single local learning cluster |
-| **[Portainer CE](https://github.com/portainer/portainer)**{:target="_blank" rel="noopener"} | Familiar if you already manage Docker; not as K8s-deep as Headlamp/k9s |
+| **[KubeSphere](https://github.com/kubesphere/kubesphere)** | Full devops platform UI — overkill for a single local learning cluster |
+| **[Portainer CE](https://github.com/portainer/portainer)** | Familiar if you already manage Docker; not as K8s-deep as Headlamp/k9s |
 
 #### Archived / stalled (caveats — not primary picks)
 
 | Tool                                                                                                 | Status                     | Notes                                                                                                                                              |
 | ---------------------------------------------------------------------------------------------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **[Kubernetes Dashboard](https://github.com/kubernetes/dashboard)**{:target="_blank" rel="noopener"} | **Archived Jan 2026**      | Official guidance: migrate to Headlamp ([k8s blog](https://kubernetes.io/blog/2026/06/01/dashboard-to-headlamp/){:target="_blank" rel="noopener"}) |
-| **[Skooner](https://github.com/skooner-k8s/skooner)**{:target="_blank" rel="noopener"}               | CNCF-archived              | Prefer Headlamp/Radar for new work                                                                                                                 |
-| **[Kubevious](https://github.com/kubevious/kubevious)**{:target="_blank" rel="noopener"}             | Dashboard releases stalled | Hierarchy/validation interesting; verify before adopting                                                                                           |
-| **[Monokle](https://github.com/kubeshop/monokle)**{:target="_blank" rel="noopener"}                  | Upstream maintenance pause | Manifest IDE; plan a fallback editor                                                                                                               |
+| **[Kubernetes Dashboard](https://github.com/kubernetes/dashboard)** | **Archived Jan 2026**      | Official guidance: migrate to Headlamp ([k8s blog](https://kubernetes.io/blog/2026/06/01/dashboard-to-headlamp/)) |
+| **[Skooner](https://github.com/skooner-k8s/skooner)**               | CNCF-archived              | Prefer Headlamp/Radar for new work                                                                                                                 |
+| **[Kubevious](https://github.com/kubevious/kubevious)**             | Dashboard releases stalled | Hierarchy/validation interesting; verify before adopting                                                                                           |
+| **[Monokle](https://github.com/kubeshop/monokle)**                  | Upstream maintenance pause | Manifest IDE; plan a fallback editor                                                                                                               |
 
 #### Commercial / proprietary contrast
 
 | Tool                                                                      | License                  | Notes                                                    |
 | ------------------------------------------------------------------------- | ------------------------ | -------------------------------------------------------- |
-| **[Aptakube](https://aptakube.com/)**{:target="_blank" rel="noopener"}    | Proprietary (freemium)   | Fast native multi-cluster desktop — not OSS              |
-| **[Lens Desktop](https://k8slens.dev/)**{:target="_blank" rel="noopener"} | Proprietary / commercial | Polished paid ecosystem; Freelens is the OSS alternative |
-| **[Seabird](https://github.com/getseabird/seabird)**{:target="_blank" rel="noopener"} | MPL-2.0 (paid model + free trial) | Native Go + GTK 4 desktop IDE (Linux/macOS/Windows); source-available, commercial model |
+| **[Aptakube](https://aptakube.com/)**    | Proprietary (freemium)   | Fast native multi-cluster desktop — not OSS              |
+| **[Lens Desktop](https://k8slens.dev/)** | Proprietary / commercial | Polished paid ecosystem; Freelens is the OSS alternative |
+| **[Seabird](https://github.com/getseabird/seabird)** | MPL-2.0 (paid model + free trial) | Native Go + GTK 4 desktop IDE (Linux/macOS/Windows); source-available, commercial model |
 
 ### Headlamp
 
-[Headlamp](https://headlamp.dev/){:target="_blank" rel="noopener"} is a CNCF Sandbox project and the leading modern open-source Kubernetes web UI — often discussed as the practical successor path for teams leaving the older Dashboard UX. Plugin system, resource browsers, logs, and desktop builds are available. Install with [Helm](https://helm.sh/){:target="_blank" rel="noopener"} or use the desktop app.
+[Headlamp](https://headlamp.dev/) is a CNCF Sandbox project and the leading modern open-source Kubernetes web UI — often discussed as the practical successor path for teams leaving the older Dashboard UX. Plugin system, resource browsers, logs, and desktop builds are available. Install with [Helm](https://helm.sh/) or use the desktop app.
 
 ```bash
 # Helm (in-cluster) — prefer a dedicated namespace; version-pin in real use
@@ -657,7 +657,7 @@ kubectl -n headlamp port-forward svc/headlamp 4466:80
 
 ### Radar
 
-[Radar](https://github.com/skyhook-io/radar){:target="_blank" rel="noopener"} ([radarhq.io](https://radarhq.io/){:target="_blank" rel="noopener"}) is an open-source Kubernetes UI packaged as a **single Go binary** — no account, no agents, no CRDs required for the laptop workflow. It talks to the API via your kubeconfig (works with minikube, kind, k3s, and cloud clusters), streams live updates, and adds views most classic dashboards skip: **issues**, **topology**, **event timeline**, **Helm**, **GitOps** ([Argo CD](https://argo-cd.readthedocs.io/){:target="_blank" rel="noopener"} / [Flux](https://fluxcd.io/){:target="_blank" rel="noopener"}), live service traffic, cost/audit, and a **built-in MCP server** so AI agents can inspect the cluster through Radar.
+[Radar](https://github.com/skyhook-io/radar) ([radarhq.io](https://radarhq.io/)) is an open-source Kubernetes UI packaged as a **single Go binary** — no account, no agents, no CRDs required for the laptop workflow. It talks to the API via your kubeconfig (works with minikube, kind, k3s, and cloud clusters), streams live updates, and adds views most classic dashboards skip: **issues**, **topology**, **event timeline**, **Helm**, **GitOps** ([Argo CD](https://argo-cd.readthedocs.io/) / [Flux](https://fluxcd.io/)), live service traffic, cost/audit, and a **built-in MCP server** so AI agents can inspect the cluster through Radar.
 
 ```bash
 # Laptop / local kubeconfig (opens browser)
@@ -672,7 +672,7 @@ helm repo add skyhook https://skyhook-io.github.io/helm-charts
 helm install radar skyhook/radar -n radar --create-namespace
 ```
 
-Also available as a desktop app (`brew install --cask skyhook-io/tap/radar-desktop`), [Krew](https://krew.sigs.k8s.io/){:target="_blank" rel="noopener"} (`kubectl krew install radar`), and [Scoop](https://scoop.sh/){:target="_blank" rel="noopener"} on Windows.
+Also available as a desktop app (`brew install --cask skyhook-io/tap/radar-desktop`), [Krew](https://krew.sigs.k8s.io/) (`kubectl krew install radar`), and [Scoop](https://scoop.sh/) on Windows.
 
 **When to prefer it:** Debugging “what broke / what changed,” Helm/GitOps-heavy clusters, or AI-assisted ops via MCP.  
 **When not:** You want the lightest possible TUI — use k9s; or you only need a minimal resource browser — Headlamp may be enough.
@@ -681,7 +681,7 @@ Also available as a desktop app (`brew install --cask skyhook-io/tap/radar-deskt
 
 ### Skooner (formerly K8dash) — archived
 
-[Skooner](https://github.com/skooner-k8s/skooner){:target="_blank" rel="noopener"} was a lightweight, real-time web dashboard (WebSocket live metrics when `metrics-server` is present). It was **archived by the CNCF** and is **not recommended for new deployments** — prefer **Headlamp**, **Radar**, or **Freelens**.
+[Skooner](https://github.com/skooner-k8s/skooner) was a lightweight, real-time web dashboard (WebSocket live metrics when `metrics-server` is present). It was **archived by the CNCF** and is **not recommended for new deployments** — prefer **Headlamp**, **Radar**, or **Freelens**.
 
 Included here only so older tutorials make sense if you still encounter them.
 
@@ -699,7 +699,7 @@ kubectl port-forward -n kube-system svc/skooner 4654:80
 
 ### Kubernetes Dashboard — archived (Jan 2026)
 
-The classic [Kubernetes Dashboard](https://github.com/kubernetes/dashboard){:target="_blank" rel="noopener"} ([docs](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/){:target="_blank" rel="noopener"}) is **archived and unmaintained** as of January 2026. SIG UI and the Kubernetes blog recommend **[Headlamp](https://headlamp.dev/){:target="_blank" rel="noopener"}** as the successor ([Dashboard → Headlamp](https://kubernetes.io/blog/2026/06/01/dashboard-to-headlamp/){:target="_blank" rel="noopener"}).
+The classic [Kubernetes Dashboard](https://github.com/kubernetes/dashboard) ([docs](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/)) is **archived and unmaintained** as of January 2026. SIG UI and the Kubernetes blog recommend **[Headlamp](https://headlamp.dev/)** as the successor ([Dashboard → Headlamp](https://kubernetes.io/blog/2026/06/01/dashboard-to-headlamp/)).
 
 Do **not** pick Dashboard for new local labs. Historical Helm sketch (v7+ uses Kong as the proxy) if you must revive an old cluster:
 
@@ -722,7 +722,7 @@ kubectl -n kubernetes-dashboard port-forward svc/kubernetes-dashboard-kong-proxy
 
 ### k9s
 
-[k9s](https://k9scli.io/){:target="_blank" rel="noopener"} is a terminal UI over your current kubeconfig context. Ideal for kind/k3d/minikube day-to-day.
+[k9s](https://k9scli.io/) is a terminal UI over your current kubeconfig context. Ideal for kind/k3d/minikube day-to-day.
 
 ```bash
 brew install derailed/k9s/k9s
@@ -733,7 +733,7 @@ Pulse through namespaces, describe pods, shell exec, and logs without leaving th
 
 ### Freelens (OSS desktop)
 
-For developers who prefer a dedicated desktop app, the community **[Freelens](https://github.com/freelensapp/freelens)**{:target="_blank" rel="noopener"} ([freelens.app](https://freelens.app/){:target="_blank" rel="noopener"}) fork is the OSS-first Lens alternative (MIT):
+For developers who prefer a dedicated desktop app, the community **[Freelens](https://github.com/freelensapp/freelens)** ([freelens.app](https://freelens.app/)) fork is the OSS-first Lens alternative (MIT):
 
 - **Restored core functionality:** Pod logs, container terminal exec, and node metrics graphs work out of the box.
 - **Zero telemetry & no accounts:** No Lens ID / cloud login requirement.
@@ -754,17 +754,17 @@ These are **not** open-source primary picks; included so the Lens history and co
 
 #### Mirantis Lens Desktop
 
-[Lens](https://k8slens.dev/){:target="_blank" rel="noopener"} was once the default desktop Kubernetes client. Mirantis moved Lens to a **commercial subscription model (Lens Pro)** for organizations above Mirantis’s published revenue/funding threshold (commonly cited as **>$10M annual revenue/funding** — verify against the current Lens/Mirantis FAQ before relying on third-party summaries). Newer builds also pushed Lens ID accounts and telemetry, which many OSS-oriented users rejected.
+[Lens](https://k8slens.dev/) was once the default desktop Kubernetes client. Mirantis moved Lens to a **commercial subscription model (Lens Pro)** for organizations above Mirantis’s published revenue/funding threshold (commonly cited as **>$10M annual revenue/funding** — verify against the current Lens/Mirantis FAQ before relying on third-party summaries). Newer builds also pushed Lens ID accounts and telemetry, which many OSS-oriented users rejected.
 
-Mirantis still publishes an open core as [OpenLens](https://github.com/lensapp/lens){:target="_blank" rel="noopener"}; from OpenLens v6 onward, official builds removed some log/exec capabilities into extensions — one reason Freelens exists.
+Mirantis still publishes an open core as [OpenLens](https://github.com/lensapp/lens); from OpenLens v6 onward, official builds removed some log/exec capabilities into extensions — one reason Freelens exists.
 
 #### Aptakube
 
-**[Aptakube](https://aptakube.com/)**{:target="_blank" rel="noopener"} is a **proprietary / freemium** native desktop client (not Electron). Strengths: fast startup, low memory, multi-cluster tabs. Use it if you consciously choose commercial tooling; otherwise prefer **Freelens** or **Headlamp**.
+**[Aptakube](https://aptakube.com/)** is a **proprietary / freemium** native desktop client (not Electron). Strengths: fast startup, low memory, multi-cluster tabs. Use it if you consciously choose commercial tooling; otherwise prefer **Freelens** or **Headlamp**.
 
 ### Kubevious — stalled dashboard releases
 
-[Kubevious](https://github.com/kubevious/kubevious){:target="_blank" rel="noopener"} ([kubevious.io](https://kubevious.io/){:target="_blank" rel="noopener"}) takes an application-centric approach (hierarchy tree, config validation, TimeMachine history) rather than flat API tables.
+[Kubevious](https://github.com/kubevious/kubevious) ([kubevious.io](https://kubevious.io/)) takes an application-centric approach (hierarchy tree, config validation, TimeMachine history) rather than flat API tables.
 
 > **Maintenance caveat:** Dashboard/Helm release cadence has been sparse compared with Headlamp/Radar. Treat like Monokle — fine for labs if the chart still works, **not** a primary long-term recommendation. Prefer Headlamp/Radar for day-to-day UIs.
 
@@ -786,18 +786,18 @@ kubectl port-forward -n kubevious svc/kubevious-ui-clusterip 8080:80
 
 ### Monokle
 
-[Monokle](https://github.com/kubeshop/monokle){:target="_blank" rel="noopener"} ([monokle.io](https://monokle.io/){:target="_blank" rel="noopener"}) is a set of OSS desktop tools for **creating and maintaining Kubernetes configurations** — not a full fleet ops console. It gives a visual IDE over manifests, [Helm](https://helm.sh/){:target="_blank" rel="noopener"}, and [Kustomize](https://kustomize.io/){:target="_blank" rel="noopener"}: schema/[OPA](https://www.openpolicyagent.org/){:target="_blank" rel="noopener"} validation, resource relationships, Git lifecycle, cluster compare/apply, and CRD-aware editing (MIT license).
+[Monokle](https://github.com/kubeshop/monokle) ([monokle.io](https://monokle.io/)) is a set of OSS desktop tools for **creating and maintaining Kubernetes configurations** — not a full fleet ops console. It gives a visual IDE over manifests, [Helm](https://helm.sh/), and [Kustomize](https://kustomize.io/): schema/[OPA](https://www.openpolicyagent.org/) validation, resource relationships, Git lifecycle, cluster compare/apply, and CRD-aware editing (MIT license).
 
-Download builds for Windows, macOS, and Linux from the [GitHub releases](https://github.com/kubeshop/monokle/releases){:target="_blank" rel="noopener"} page, open a project folder or connect a kubeconfig context, then validate and deploy from the UI.
+Download builds for Windows, macOS, and Linux from the [GitHub releases](https://github.com/kubeshop/monokle/releases) page, open a project folder or connect a kubeconfig context, then validate and deploy from the UI.
 
-> **Maintenance note:** Upstream maintainers currently state they are **not able to maintain or evolve Monokle**; community contributions are still welcome. Prefer it for local authoring experiments, and plan a fallback ([VS Code](https://code.visualstudio.com/){:target="_blank" rel="noopener"} + YAML/Helm extensions, or Headlamp/Radar for live cluster views) for long-lived tooling bets.
+> **Maintenance note:** Upstream maintainers currently state they are **not able to maintain or evolve Monokle**; community contributions are still welcome. Prefer it for local authoring experiments, and plan a fallback ([VS Code](https://code.visualstudio.com/) + YAML/Helm extensions, or Headlamp/Radar for live cluster views) for long-lived tooling bets.
 
 **When to prefer it:** Learning manifest structure, Helm/Kustomize previews, and policy validation on a laptop.
 **When not:** You need an actively stewarded day-to-day cluster UI — use Headlamp, Radar, or k9s instead.
 
 ### Rancher (multi-cluster manager)
 
-[Rancher](https://www.rancher.com/products/rancher){:target="_blank" rel="noopener"} is a full management platform: import local clusters, manage RBAC, apps, and multiple clusters from one UI. Heavier than Headlamp for “just show me my kind cluster,” but the right tool when you outgrow single-cluster browsing.
+[Rancher](https://www.rancher.com/products/rancher) is a full management platform: import local clusters, manage RBAC, apps, and multiple clusters from one UI. Heavier than Headlamp for “just show me my kind cluster,” but the right tool when you outgrow single-cluster browsing.
 
 ```bash
 # Lab sketch only — follow current Rancher docs for the supported install path.
@@ -809,7 +809,7 @@ docker run -d --restart=unless-stopped \
   rancher/rancher:v2.10.3
 ```
 
-Then import your local kubeconfig cluster from the Rancher UI. For anything beyond a disposable laptop lab, use the official Helm chart and current hardening guidance from [Rancher docs](https://ranchermanager.docs.rancher.com/){:target="_blank" rel="noopener"}.
+Then import your local kubeconfig cluster from the Rancher UI. For anything beyond a disposable laptop lab, use the official Helm chart and current hardening guidance from [Rancher docs](https://ranchermanager.docs.rancher.com/).
 
 **Teardown (Docker lab):** `docker ps` → stop/remove the Rancher container; for Helm installs use `helm uninstall` per upstream docs.
 
@@ -818,7 +818,7 @@ Then import your local kubeconfig cluster from the Rancher UI. For anything beyo
 - **KubeSphere:** Full platform (CI, service mesh integrations, multi-tenant UI). Overkill for a single local learning cluster; useful if you are evaluating the platform itself.
 - **Portainer CE:** Familiar if you already manage Docker with Portainer; Kubernetes features are a bonus, not as K8s-deep as Headlamp/k9s for power users.
 
-> **Archived note (VMware Octant):** Once a very popular extensible desktop-web dashboard from VMware, **[Octant](https://github.com/vmware-archive/octant){:target="_blank" rel="noopener"}** was officially retired and archived in 2023. If you come across older blog tutorials recommending Octant, substitute it with **Headlamp**, **Radar**, or **Freelens**.
+> **Archived note (VMware Octant):** Once a very popular extensible desktop-web dashboard from VMware, **[Octant](https://github.com/vmware-archive/octant)** was officially retired and archived in 2023. If you come across older blog tutorials recommending Octant, substitute it with **Headlamp**, **Radar**, or **Freelens**.
 
 ## When to Use What
 
@@ -835,7 +835,7 @@ Then import your local kubeconfig cluster from the Rancher UI. For anything beyo
 | Debug broken workloads / GitOps             | any                | Radar                                                                                                            | Issues, timeline, Helm/GitOps, MCP        |
 | Full desktop cluster IDE (Lens replacement) | any                | Freelens                                                                                                         | OSS Lens fork with restored pod logs/exec |
 | Multi-cluster desktop (commercial OK)       | any local + cloud  | Aptakube (proprietary)                                                                                           | Fast native tabs — contrast only          |
-| Edit manifests visually                     | any                | [VS Code](https://code.visualstudio.com/){:target="_blank" rel="noopener"} / Freelens (not Monokle for new bets) | Actively maintained editors               |
+| Edit manifests visually                     | any                | [VS Code](https://code.visualstudio.com/) / Freelens (not Monokle for new bets) | Actively maintained editors               |
 | Multi-cluster lab later                     | any local + import | Rancher                                                                                                          | Grow into fleet management                |
 | Terminal-only workflow                      | any                | k9s                                                                                                              | Lowest friction                           |
 
@@ -945,7 +945,7 @@ No. You can back **kind** or **k3d** with any open-source container runtime that
 
 ### Why was Kubernetes Dashboard archived, and what replaces it?
 
-The classic `kubernetes/dashboard` project was archived in January 2026. Kubernetes SIG UI recommends **[Headlamp](https://headlamp.dev/){:target="_blank" rel="noopener"}** (CNCF Sandbox, Apache 2.0) as the modern browser/desktop successor, with **[Radar](https://radarhq.io/){:target="_blank" rel="noopener"}** and **[k9s](https://k9scli.io/){:target="_blank" rel="noopener"}** as strong alternatives for debugging and terminal workflows.
+The classic `kubernetes/dashboard` project was archived in January 2026. Kubernetes SIG UI recommends **[Headlamp](https://headlamp.dev/)** (CNCF Sandbox, Apache 2.0) as the modern browser/desktop successor, with **[Radar](https://radarhq.io/)** and **[k9s](https://k9scli.io/)** as strong alternatives for debugging and terminal workflows.
 
 ### When should I use single-node vs multi-node on a laptop?
 
@@ -953,31 +953,31 @@ Use **single-node** for almost all application development, Helm testing, and tu
 
 ### What is the best free open-source alternative to Lens Desktop?
 
-**[Freelens](https://github.com/freelensapp/freelens){:target="_blank" rel="noopener"}** (MIT) is the community fork of OpenLens that restores pod logs, container terminal exec, and node metrics without commercial accounts or telemetry. If you prefer a browser UI, use **Headlamp** or **Radar**.
+**[Freelens](https://github.com/freelensapp/freelens)** (MIT) is the community fork of OpenLens that restores pod logs, container terminal exec, and node metrics without commercial accounts or telemetry. If you prefer a browser UI, use **Headlamp** or **Radar**.
 
 ## References
 
 ### Installers & runtimes
 
 - Companion (Layer 1): [Open-Source Container Runtimes Compared](/_drafts/open-source-container-runtimes-compared.md) (draft — use `{% post_url %}` when published)
-- [minikube](https://minikube.sigs.k8s.io/docs/){:target="_blank" rel="noopener"} · [kind](https://kind.sigs.k8s.io/){:target="_blank" rel="noopener"} · [k3d](https://k3d.io/){:target="_blank" rel="noopener"} · [k3s](https://docs.k3s.io/){:target="_blank" rel="noopener"} · [k0s](https://github.com/k0sproject/k0s){:target="_blank" rel="noopener"} · [k0sctl](https://github.com/k0sproject/k0sctl){:target="_blank" rel="noopener"} · [MicroK8s](https://microk8s.io/docs){:target="_blank" rel="noopener"} · [KWOK](https://github.com/kubernetes-sigs/kwok){:target="_blank" rel="noopener"}
-- [Rancher Desktop](https://docs.rancherdesktop.io/){:target="_blank" rel="noopener"} · [Podman Desktop](https://podman-desktop.io/){:target="_blank" rel="noopener"} · [Podman](https://podman.io/){:target="_blank" rel="noopener"}
-- [kubectl](https://kubernetes.io/docs/reference/kubectl/){:target="_blank" rel="noopener"} · [Helm](https://helm.sh/){:target="_blank" rel="noopener"} · [Kustomize](https://kustomize.io/){:target="_blank" rel="noopener"}
-- [Docker Engine](https://docs.docker.com/engine/){:target="_blank" rel="noopener"} · [Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank" rel="noopener"} · [nerdctl](https://github.com/containerd/nerdctl){:target="_blank" rel="noopener"} · [Colima](https://github.com/abiosoft/colima){:target="_blank" rel="noopener"} · [Apple `container`](https://github.com/apple/container){:target="_blank" rel="noopener"}
-- [QEMU](https://www.qemu.org/){:target="_blank" rel="noopener"} · [VirtualBox](https://www.virtualbox.org/){:target="_blank" rel="noopener"} · [KVM](https://www.linux-kvm.org/){:target="_blank" rel="noopener"} · [libvirt](https://libvirt.org/){:target="_blank" rel="noopener"} · [vfkit](https://github.com/crc-org/vfkit){:target="_blank" rel="noopener"}
-- [Multipass](https://canonical.com/multipass){:target="_blank" rel="noopener"} · [Lima](https://lima-vm.io/){:target="_blank" rel="noopener"} · [UTM](https://mac.getutm.app/){:target="_blank" rel="noopener"}
-- [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/){:target="_blank" rel="noopener"} · [kubespray](https://github.com/kubernetes-sigs/kubespray){:target="_blank" rel="noopener"} · [Talos](https://www.talos.dev/){:target="_blank" rel="noopener"}
+- [minikube](https://minikube.sigs.k8s.io/docs/) · [kind](https://kind.sigs.k8s.io/) · [k3d](https://k3d.io/) · [k3s](https://docs.k3s.io/) · [k0s](https://github.com/k0sproject/k0s) · [k0sctl](https://github.com/k0sproject/k0sctl) · [MicroK8s](https://microk8s.io/docs) · [KWOK](https://github.com/kubernetes-sigs/kwok)
+- [Rancher Desktop](https://docs.rancherdesktop.io/) · [Podman Desktop](https://podman-desktop.io/) · [Podman](https://podman.io/)
+- [kubectl](https://kubernetes.io/docs/reference/kubectl/) · [Helm](https://helm.sh/) · [Kustomize](https://kustomize.io/)
+- [Docker Engine](https://docs.docker.com/engine/) · [Docker Desktop](https://www.docker.com/products/docker-desktop/) · [nerdctl](https://github.com/containerd/nerdctl) · [Colima](https://github.com/abiosoft/colima) · [Apple `container`](https://github.com/apple/container)
+- [QEMU](https://www.qemu.org/) · [VirtualBox](https://www.virtualbox.org/) · [KVM](https://www.linux-kvm.org/) · [libvirt](https://libvirt.org/) · [vfkit](https://github.com/crc-org/vfkit)
+- [Multipass](https://canonical.com/multipass) · [Lima](https://lima-vm.io/) · [UTM](https://mac.getutm.app/)
+- [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/) · [kubespray](https://github.com/kubernetes-sigs/kubespray) · [Talos](https://www.talos.dev/)
 
 ### Package managers
 
-- [Homebrew](https://brew.sh/){:target="_blank" rel="noopener"} · [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/){:target="_blank" rel="noopener"} · [Scoop](https://scoop.sh/){:target="_blank" rel="noopener"}
-- [Flatpak](https://flatpak.org/){:target="_blank" rel="noopener"} · [Flathub](https://flathub.org/){:target="_blank" rel="noopener"} · [snap](https://snapcraft.io/){:target="_blank" rel="noopener"} · [Krew](https://krew.sigs.k8s.io/){:target="_blank" rel="noopener"} (kubectl plugins)
+- [Homebrew](https://brew.sh/) · [winget](https://learn.microsoft.com/en-us/windows/package-manager/winget/) · [Scoop](https://scoop.sh/)
+- [Flatpak](https://flatpak.org/) · [Flathub](https://flathub.org/) · [snap](https://snapcraft.io/) · [Krew](https://krew.sigs.k8s.io/) (kubectl plugins)
 
 ### UIs & related
 
-- [Headlamp](https://headlamp.dev/){:target="_blank" rel="noopener"} · [Radar](https://radarhq.io/){:target="_blank" rel="noopener"}
-- Kubernetes Dashboard (archived Jan 2026): [github.com/kubernetes/dashboard](https://github.com/kubernetes/dashboard){:target="_blank" rel="noopener"} · migrate guide: [Dashboard → Headlamp](https://kubernetes.io/blog/2026/06/01/dashboard-to-headlamp/){:target="_blank" rel="noopener"}
-- [k9s](https://k9scli.io/){:target="_blank" rel="noopener"} · [Freelens](https://freelens.app/){:target="_blank" rel="noopener"} · [Rancher](https://ranchermanager.docs.rancher.com/){:target="_blank" rel="noopener"}
-- [Argo CD](https://argo-cd.readthedocs.io/){:target="_blank" rel="noopener"} · [Flux](https://fluxcd.io/){:target="_blank" rel="noopener"} · [OPA](https://www.openpolicyagent.org/){:target="_blank" rel="noopener"} · [VS Code](https://code.visualstudio.com/){:target="_blank" rel="noopener"}
-- Aptakube (proprietary): [aptakube.com](https://aptakube.com/){:target="_blank" rel="noopener"} · Lens Desktop (proprietary): [k8slens.dev](https://k8slens.dev/){:target="_blank" rel="noopener"} · Seabird (MPL-2.0, paid model): [github.com/getseabird/seabird](https://github.com/getseabird/seabird){:target="_blank" rel="noopener"}
-- Skooner (archived): [skooner-k8s/skooner](https://github.com/skooner-k8s/skooner){:target="_blank" rel="noopener"} · Kubevious (stalled): [kubevious/kubevious](https://github.com/kubevious/kubevious){:target="_blank" rel="noopener"} · Monokle (paused): [kubeshop/monokle](https://github.com/kubeshop/monokle){:target="_blank" rel="noopener"} · Octant (archived): [vmware-archive/octant](https://github.com/vmware-archive/octant){:target="_blank" rel="noopener"}
+- [Headlamp](https://headlamp.dev/) · [Radar](https://radarhq.io/)
+- Kubernetes Dashboard (archived Jan 2026): [github.com/kubernetes/dashboard](https://github.com/kubernetes/dashboard) · migrate guide: [Dashboard → Headlamp](https://kubernetes.io/blog/2026/06/01/dashboard-to-headlamp/)
+- [k9s](https://k9scli.io/) · [Freelens](https://freelens.app/) · [Rancher](https://ranchermanager.docs.rancher.com/)
+- [Argo CD](https://argo-cd.readthedocs.io/) · [Flux](https://fluxcd.io/) · [OPA](https://www.openpolicyagent.org/) · [VS Code](https://code.visualstudio.com/)
+- Aptakube (proprietary): [aptakube.com](https://aptakube.com/) · Lens Desktop (proprietary): [k8slens.dev](https://k8slens.dev/) · Seabird (MPL-2.0, paid model): [github.com/getseabird/seabird](https://github.com/getseabird/seabird)
+- Skooner (archived): [skooner-k8s/skooner](https://github.com/skooner-k8s/skooner) · Kubevious (stalled): [kubevious/kubevious](https://github.com/kubevious/kubevious) · Monokle (paused): [kubeshop/monokle](https://github.com/kubeshop/monokle) · Octant (archived): [vmware-archive/octant](https://github.com/vmware-archive/octant)
