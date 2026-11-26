@@ -1,10 +1,10 @@
 ---
-title: "Open-Source Container Runtimes Compared"
+title: "Open-Source Container Runtimes: Best Docker Desktop Alternatives"
 description: "Compare open-source Docker Desktop alternatives—Colima, Finch, Kiri, Rancher Desktop, and Podman—for local Compose and containers."
 author: sagarnikam123
 date: 2026-11-15 20:45:00 +0530
 categories: [DevOps, Setup]
-tags: [docker-desktop-alternatives, container-runtime, colima, finch, rancher-desktop, podman, apple-container]
+tags: [docker-desktop-alternatives, container-runtime, colima, finch, kiri, rancher-desktop, podman, lima, nerdctl, apple-container]
 # Add hero when ready (1200x630 webp + LQIP):
 # media_subpath: /assets/img/posts/20261115/
 # image:
@@ -32,9 +32,9 @@ This guide is **open-source only**. Primary picks:
 
 **Also covered:** [Apple `container`](https://github.com/apple/container){:target="_blank" rel="noopener"} (per-container micro-VMs on Apple Silicon), [Lima](https://lima-vm.io/){:target="_blank" rel="noopener"} + [nerdctl](https://github.com/containerd/nerdctl){:target="_blank" rel="noopener"}, [Container Desktop](https://github.com/container-desktop/container-desktop){:target="_blank" rel="noopener"} (Windows), [Dory](https://usedory.dev/){:target="_blank" rel="noopener"} (Apple Silicon), and other OSS honorable mentions.
 
-For **local Kubernetes installers and UIs** (minikube, kind, k3d, Headlamp, …), see the companion draft [`_drafts/open-source-local-kubernetes-installers-and-uis.md`](/_drafts/open-source-local-kubernetes-installers-and-uis.md) — swap to `{% post_url %}` when both are published.
+For **local Kubernetes installers, multi-node topologies, and cluster UIs** (minikube, kind, k3d, k3s, Headlamp, Radar, k9s, …), see Part 2 in this series: [`_drafts/open-source-local-kubernetes-installers-and-uis.md`](/_drafts/open-source-local-kubernetes-installers-and-uis.md) (swap to `{% post_url %}` when both are published).
 
-> **Also run Kubernetes:** **[Rancher Desktop](https://rancherdesktop.io/){:target="_blank" rel="noopener"}** (OSS, primary pick below) and **[Docker Desktop](https://www.docker.com/products/docker-desktop/){:target="_blank" rel="noopener"}** (proprietary) both ship an **optional single-node Kubernetes** cluster next to their container engine. Treat them as dual-purpose; deep installer/UI comparison lives in the Kubernetes companion.
+> **Two-part series (Runtime vs. Cluster):** This post covers **Layer 1 — Container Runtimes** (building/running containers and Compose). If a runtime also bundles an optional single-node Kubernetes toggle (like **Rancher Desktop** or **Colima**), we note it as a bridge — the full Kubernetes installer & UI comparison lives in the [companion guide](/_drafts/open-source-local-kubernetes-installers-and-uis.md).
 {: .prompt-info }
 
 ## TL;DR — Quick Recommendations
@@ -84,7 +84,13 @@ Linux containers need a **Linux kernel**. On Apple Silicon macOS there is no nat
 
 **Pick shared VM** when you need stock `docker` / Compose, kind/k3d against a Docker API, or cross-platform team parity. **Pick Apple `container`** when you are on **Apple Silicon + macOS 26+** (recommended; macOS 15 has known networking limits), want OCI images without a third-party Desktop, and can use the `container` CLI (and optional experimental `container cluster`) instead of Docker Compose.
 
-On **Linux hosts**, containers usually run natively — skip this section and use distro packages, Podman, or Colima as documented below. On **Windows**, prefer WSL2 paths ([Container Desktop](#container-desktop-windows), Rancher Desktop, Finch).
+On **Linux hosts**, containers usually run natively — skip this section and use distro packages, Podman, or Colima as documented below (see also our [Ubuntu Fresh Install Setup Guide]({% post_url 2021-08-20-ubuntu-fresh-install-setup-guide %})). On **macOS**, see our [macOS Fresh Install Setup Guide]({% post_url 2022-03-23-macos-fresh-install-setup-guide %}) for baseline Homebrew/CLI tooling. On **Windows**, prefer WSL2 paths ([Container Desktop](#container-desktop-windows), Rancher Desktop, Finch).
+
+> **Bind-mount & file-sharing gotchas:** Most "slow container" complaints come from host-to-VM filesystem sharing rather than the container engine itself:
+> - **macOS (Colima, Lima, Rancher Desktop):** Prefer **VirtioFS** (e.g., `colima start --mount-type=virtiofs` on Apple Silicon) over legacy 9p/sshfs for `node_modules` and large source trees.
+> - **Windows (WSL2):** Store repos inside the **WSL2 Linux filesystem** (`~/code`) instead of `/mnt/c/...` — cross-OS 9p mounts over `/mnt/c` are dramatically slower for builds and file watchers.
+> - **Linux:** Native bind mounts have no VM boundary, so I/O runs at host disk speed.
+{: .prompt-tip }
 
 ## Capability Matrix
 
@@ -297,6 +303,7 @@ docker compose up -d
 | **[OrbStack](https://orbstack.dev/)**{:target="_blank" rel="noopener"} | Proprietary | macOS-only Docker + Linux VMs + single-node K8s; personal free / commercial paid. |
 | **[minikube](https://minikube.sigs.k8s.io/)**{:target="_blank" rel="noopener"} `--no-kubernetes` | Apache 2.0 | Can expose a Docker runtime without starting Kubernetes — workable but odd as a pure Desktop replacement. Prefer Colima/Finch for that job. |
 | **Docker Engine / Moby on Linux** | Apache 2.0 | Native `dockerd` via distro packages — often the right Linux answer without any “Desktop” app. |
+| **[Portainer CE](https://github.com/portainer/portainer)**{:target="_blank" rel="noopener"} | zlib (OSS core) | Self-hosted web UI that attaches to local Docker or Podman sockets (and Kubernetes — see the [K8s companion](/_drafts/open-source-local-kubernetes-installers-and-uis.md)); not a runtime itself. |
 | **[Incus](https://linuxcontainers.org/incus/)**{:target="_blank" rel="noopener"} | Apache 2.0 | System containers/VMs; available as a Colima runtime. Different mental model than app containers. |
 
 ## Optional Kubernetes (runtime vs installer)
@@ -348,13 +355,14 @@ docker compose up -d
 docker ps
 ```
 
-### Apple `container` → hello (+ optional cluster)
+### Apple `container` → hello
+
 ```bash
 # After installing from https://github.com/apple/container/releases
 container system start
 container run --rm alpine echo hello
-# container cluster create && kubectl get nodes
 ```
+
 ### Finch → hello
 
 ```bash
@@ -363,20 +371,27 @@ finch vm init
 finch run public.ecr.aws/finch/hello-finch:latest
 ```
 
-### Kiri → hello + optional k3s
+### Kiri → hello
 
 ```bash
 # After installing from https://runkiri.com/
 docker --context kiri run --rm hello-world
-kiri k8s start --use
-kubectl --context kiri get nodes
+docker --context kiri compose up -d
 ```
 
-### Rancher Desktop → Moby + k3s
+### Rancher Desktop → Moby
 
-1. Install Rancher Desktop → Container Engine **dockerd (Moby)**.
-2. Enable Kubernetes (k3s).
-3. `docker run --rm hello-world` and `kubectl get nodes`.
+1. Install Rancher Desktop → Container Engine **dockerd (Moby)** (or **containerd** for `nerdctl`).
+2. `docker run --rm hello-world` (or `nerdctl run --rm hello-world`).
+3. Want Kubernetes on top? See [Optional Kubernetes](#optional-kubernetes-runtime-vs-installer) or the [Kubernetes companion](/_drafts/open-source-local-kubernetes-installers-and-uis.md).
+
+### Podman → hello
+
+```bash
+# macOS: brew install podman (or Podman Desktop)
+podman machine init && podman machine start   # macOS / Windows
+podman run --rm quay.io/podman/hello
+```
 
 ### Switch contexts safely
 
@@ -394,22 +409,28 @@ kubectl config get-contexts
 
 ## Frequently Asked Questions
 
-**What are open-source container runtimes for laptops?**
+### What are open-source container runtimes for laptops?
+
 They are engines or desktop apps that run Linux containers locally under an OSI-style license — Colima, Finch, Kiri, Rancher Desktop, Podman Desktop, and Apple `container` (Apple Silicon micro-VMs) are covered here — without requiring Docker Desktop’s commercial subscription.
 
-**Is Colima better than Finch?**
+### Is Colima better than Finch?
+
 Use **Colima** when you need stock `docker` / Compose on macOS or Linux. Use **Finch** when you want a curated **nerdctl + containerd + BuildKit** client on Mac, Windows, or Linux. They solve overlapping problems with different APIs.
 
-**Can these replace Docker Desktop at work?**
+### Can these replace Docker Desktop at work?
+
 Yes for many teams: Colima, Finch, Kiri, Rancher Desktop, Podman Desktop, and Container Desktop are open source and free of Docker Desktop seat licensing. Still validate Compose, VPN, private registries, and bind mounts on your real projects.
 
-**Do Docker Desktop and Rancher Desktop run Kubernetes?**
+### Do Docker Desktop and Rancher Desktop run Kubernetes?
+
 Yes. Both can enable a **single-node Kubernetes** cluster beside the container engine. Rancher Desktop (OSS k3s) is covered here and in the K8s companion; Docker Desktop’s Kubernetes is proprietary and documented for parity, not as an OSS pick.
 
-**Do I need Kubernetes built into the runtime?**
+### Do I need Kubernetes built into the runtime?
+
 Only if a single-node lab next to Compose is enough. For multi-node or CI-like topology, keep the runtime as the engine and create **kind** or **k3d** clusters — see the [Kubernetes companion draft](/_drafts/open-source-local-kubernetes-installers-and-uis.md).
 
-**Why exclude OrbStack (and Docker Desktop as a recommendation)?**
+### Why exclude OrbStack (and Docker Desktop as a recommendation)?
+
 This article recommends **open-source** runtimes. OrbStack and Docker Desktop are proprietary (with free tiers or thresholds that change). Docker Desktop’s Kubernetes capability is still documented so the dual-purpose Desktop pattern is clear.
 
 ## References
