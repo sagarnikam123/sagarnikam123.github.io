@@ -1,0 +1,71 @@
+# Out of Category Platforms (Non-Trip Planning)
+
+Platforms scraped from Product Hunt's Travel Planning category (Pages 1–29) that fall outside the core trip planning, travel research, destination guides, and travel bucket list domains. These include urban ride-hailing/taxis, food delivery, luggage lockers, residential relocation, environmental capture, physical hardware, and general utilities.
+
+**Total Platforms:** 65
+
+- [Atmos Calculator](https://www.producthunt.com/products/atmos-calculator) - See what you can build outside of SF/NY for your rent price
+- [BadJupiter](https://www.producthunt.com/products/badjupiter) - Remember, share, and discover places right in the moment.
+- [Bliq](https://www.producthunt.com/products/bliq) - Compare & save on rideshare trips
+- [Bluesmart](https://www.producthunt.com/products/bluesmart) - World's first smart, connected carry-on luggage (pre-launch)
+- [Boom](https://www.producthunt.com/products/boom-3) - Supersonic passenger jet - NYC⇒LDN in 3½ hours
+- [BoomPop](https://www.producthunt.com/products/boompop) - Planning company events & meetings made insanely easy.
+- [Canvas](https://www.producthunt.com/products/canvas-6) - A simple alternative to car ownership
+- [Climeworks Pioneers](https://www.producthunt.com/products/climeworks-pioneers) - You can remove CO2 from the air with Climeworks, start today
+- [Cut The Surge](https://www.producthunt.com/products/cut-the-surge) - Avoid Uber surge pricing
+- [Dwell](https://www.producthunt.com/products/dwell-2) - The Pocket Roommate Manager
+- [Fastlane](https://www.producthunt.com/products/fastlane-2) - Book an Uber from your Mac's menu bar, fast and simple
+- [Flymble](https://www.producthunt.com/products/flymble) - Flymble’s mission is to make flight booking faster
+- [Furrn](https://www.producthunt.com/products/furrn) - 🐾 Furrn - Your Pet's Home Away from Home!
+- [Grabr](https://www.producthunt.com/products/grabr-2) - Peer-to-peer international shopping & delivery
+- [HopSkipDrive](https://www.producthunt.com/products/hopskipdrive) - Uber for your kids
+- [How to move to New York - The Guide](https://www.producthunt.com/products/how-to-move-to-new-york-the-guide) - A step by step ebook for those wanting to move to New York
+- [If it were my home](https://www.producthunt.com/products/if-it-were-my-home) - See your life in a different country
+- [Kitty Hawk](https://www.producthunt.com/products/kitty-hawk) - A flying car, backed by Google's Larry Page 😳
+- [Kyte](https://www.producthunt.com/products/kyte-3) - Unlock the freedom to go places
+- [Layered](https://www.producthunt.com/products/layered-2) - Turn your selfies into a personal AI stylist
+- [Leanflix](https://www.producthunt.com/products/leanflix) - Find movies worth watching on Netflix, Amazon, iTunes, & HBO
+- [LensLetter](https://www.producthunt.com/products/lensletter) - Become Adventures and Photography Expert With Every Email
+- [Lugg](https://www.producthunt.com/products/lugg) - It's like Uber for movers
+- [Mapbuzz](https://www.producthunt.com/products/mapbuzz) - Make friends and find places to hangout
+- [Meshable](https://www.producthunt.com/products/meshable) - Free WiFi for ridesharing passengers
+- [MiniMap Radar](https://www.producthunt.com/products/minimap-radar) - Apple Watch Game Styled Map
+- [Minipresso](https://www.producthunt.com/products/minipresso) - Hand-press your own fresh espresso anywhere
+- [MoveBuddha](https://www.producthunt.com/products/movebuddha) - The smarter way to move long distance
+- [Movie of the Night](https://www.producthunt.com/products/movie-of-the-night) - Instantly find something to watch on your streaming services
+- [Nowadays](https://www.producthunt.com/products/nowadays) - AI assistant for corporate event planning
+- [NowRenting](https://www.producthunt.com/products/nowrenting) - Find the Perfect Rental
+- [Onde](https://www.producthunt.com/products/onde) - Ride-hailing tech for pioneers
+- [Pigeon](https://www.producthunt.com/products/pigeon) - Live in NYC, SF, CHI, BOS, DC
+- [Ping](https://www.producthunt.com/products/ping-6) - The world’s smallest global GPS locator
+- [Plane](https://www.producthunt.com/products/plane) - The social icebreaker. Connect with new people in new places
+- [ReachNow](https://www.producthunt.com/products/reachnow) - Premium car-sharing by BMW, BMWi and MINI
+- [Reserve](https://www.producthunt.com/products/reserve) - A new dining experience (from Expa, pre-launch)
+- [Savely](https://www.producthunt.com/products/savely) - The no bullsh*t way to save up money for a vacation 🏖
+- [Sharethebus](https://www.producthunt.com/products/sharethebus) - Organize a bus for you and your friends in 60 seconds
+- [Skurt](https://www.producthunt.com/products/skurt) - The fastest way to rent a car
+- [Slicks Travel Backpack](https://www.producthunt.com/products/slicks-travel-backpack) - The Swiss army knife of backpacks
+- [Snappr](https://www.producthunt.com/products/snappr) - The easiest way to book a great photographer
+- [SpotnRides](https://www.producthunt.com/products/spotnrides-3) - Uber clone is a ready-to-use taxi app solution
+- [Spring](https://www.producthunt.com/products/spring-4) - Start a scooter company without raising capital
+- [Sublime](https://www.producthunt.com/products/sublime-2) - AI journal that turns your thoughts into real-world actions
+- [Sunlight for Apple Vision Pro/VisionOS](https://www.producthunt.com/products/sunlight-for-apple-vision-pro-visionos) - 3D movements telling you the time to the next sunrise.
+- [SurgeProtector](https://www.producthunt.com/products/surgeprotector) - Call an Uber to the nearest location without surge pricing
+- [Swiggy](https://www.producthunt.com/products/swiggy) - Order food online from India's best food delivery service!
+- [Taskly](https://www.producthunt.com/products/taskly) - The incredibly simple todo app
+- [Tesla Model S](https://www.producthunt.com/products/tesla-model-s) - Beyond Ludicrous
+- [Tesla Model X](https://www.producthunt.com/products/tesla-model-x) - Tesla's latest, wicked fast, electric SUV
+- [The Eclipse Map](https://www.producthunt.com/products/the-eclipse-map) - Get ready for the 2024 Total Solar Eclipse
+- [The Everyday Messenger](https://www.producthunt.com/products/the-everyday-messenger) - Trey Ratcliff and Peak Design reimagine the messenger bag
+- [The Knot Wedding Planner](https://www.producthunt.com/products/the-knot-wedding-planner) - Wedding Ideas, Countdown, Checklist, Vendors, and More
+- [The New York Times](https://www.producthunt.com/products/the-new-york-times) - Find breaking news, multimedia, reviews & opinions
+- [The Spontaneous Pop-up Display (SPUD)](https://www.producthunt.com/products/the-spontaneous-pop-up-display-spud) - 24-inch TV screen that collapses & expands like an umbrella
+- [Trees For Cars](https://www.producthunt.com/products/trees-for-cars) - love the spirit despite the press cynicism
+- [Tulsa Remote](https://www.producthunt.com/products/tulsa-remote) - Get $10K, a housing stipend & co-working to work from Tulsa
+- [Uber](https://www.producthunt.com/products/uber) - Uber offers peer-to-peer ridesharing, ride service hailing, food delivery, and a micromobility system with electric bikes and scooters.
+- [Uber Central](https://www.producthunt.com/products/uber-central) - Request, manage, and pay for Ubers for your customers
+- [Uber Freight](https://www.producthunt.com/products/uber-freight) - Leveling the playing field for America’s truck drivers
+- [Uber without Internet](https://www.producthunt.com/products/uber-without-internet) - Order Uber when you have no internet
+- [UberFreight](https://www.producthunt.com/products/uberfreight) - Your lanes. Your schedule. Load up. Cash out.
+- [Voo Plan for iMessage](https://www.producthunt.com/products/voo-plan-for-imessage) - Plan and meet with friends fast via iMessage.
+- [WaiveCar](https://www.producthunt.com/products/waivecar) - The world's first all electric and free car-sharing service
